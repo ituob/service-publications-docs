@@ -75,9 +75,6 @@ a| *_{{ geoarea.fr }}_* +
 {% when "virtual" %}
 {{ file.metadata.locale.no_collect_calls.virtual.en }}
 
-{% when "virtual" %}
-{{ file.metadata.locale.no_collect_calls.virtual.en }}
-
 {% when "incoming" %}
 {{ file.metadata.locale.no_collect_calls.incoming.en }}
 
