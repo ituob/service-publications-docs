@@ -1,0 +1,95 @@
+= RESTRICTIONS DE SERVICE (Liste récapitulative des restrictions de service en vigueur relatives à l’exploitation des télécommunications)
+:bureau: T
+:docnumber: 1000
+:title: RESTRICTIONS DE SERVICE
+:published-date: 2012-03-15
+:doctype: service-publication
+:docfile: document.adoc
+:language: fr
+:status: draft
+:mn-document-class: itu
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+== LISTE RECAPITULATIVE DES RESTRICTIONS DE SERVICE
+
+=== Note du TSB
+
+. Conformément aux dispositions du Chapitre VI de la Constitution de l'Union internationale des télécommunications (Genève, 1992) et aux dispositions de l'article 7 du Règlement des télécommunications internationales (Melbourne, 1988), les administrations/ER doivent notifier à l’UIT les restrictions de service, temporaires ou permanentes, qu’elles appliquent aux différents services internationaux de télécommunication offerts au public, la suspension des services et le retour subséquent aux conditions normales, soit d’une manière général, soit seulement pour certaines relations ou pour certaines classes de correspondances de départ, d’arrivée ou de transit. Le TSB de l’UIT communique immédiatement cette information à toutes les autres administrations/ER en utilisant les moyens de communication les plus appropriés.
+
+. Depuis de nombreuses années, les renseignements concernant les restrictions de service ont été publiés au fur et à mesure dans les Bulletins d'exploitation de l'UIT, puis rassemblés dans un «Tableau récapitulatif des restrictions de service», publié en annexe au Bulletin d'exploitation de l'UIT.
+
+. La présente Liste récapitulative des restrictions de service remplace le «Tableau récapitulatif des restrictions de service» publié en annexe au Bulletin d'exploitation de l'UIT N° 691 du 1er mai 1999 et contient toutes les communications publiées par la suite dans le Bulletin d'exploitation de l'UIT, et ce jusqu'au N° 1000 du 15 mars 2012.
+
+. Tout a été mis en oeuvre pour que les informations contenues dans la présente Liste soient exactes. Les administrations/ER sont priées de vérifier l'information et d'informer le TSB de toute modification à apporter pour la mettre à jour (Fax: +41 22 730 5853; E-mail: tsbtson@itu.int).
+
+. En outre, les renseignements contenus dans cette Annexe au Bulletin d’exploitation de l’UIT N° 1000 peuvent également être consultés sur le site web de l'UIT à l'adresse suivante: 
+http://www.itu.int/itu-t/bulletin/annex.html
+
+. Les appellations employées et la présentation des renseignements fournis dans la présente Liste n'impliquent de la part de l'UIT aucune prise de position quelle qu'elle soit quant au statut juridique d'un pays ou d'une zone géographique ou de leurs autorités.
+
+
+[yaml2text,T-SP-SR.1-2012.yaml,file]
+----
+[%unnumbered,cols="1",options="header"]
+|===
+^.^|Country/geographical area
+
+{% for country in file.data %}
+{% assign geoarea = country[1].geographic_area %}
+{% assign restrictions = country[1].restrictions %}
+{% assign notes = country[1].notes.fr %}
+
+a| *_{{ geoarea.fr }}_* +
+*_{{ geoarea.en }}_* +
+*_{{ geoarea.es }}_*
+
+{% if restrictions["telex_not_provided"] == true %}
+{{ file.metadata.locale.telex_not_provided.fr }}
+{% endif %}
+
+{% if restrictions["telegram_not_provided"] == true %}
+{{ file.metadata.locale.telegram_not_provided.fr }}
+{% endif %}
+
+{% if restrictions["no_messenger_dispatch"] == true %}
+{{ file.metadata.locale.no_messenger_dispatch.fr }}
+{% endif %}
+
+{% for call in restrictions["no_collect_calls"] %}
+
+{% if call[1] == true %}
+
+{% case call[0] %}
+
+{% when "mobile" %} 
+{{ file.metadata.locale.no_collect_calls.mobile.fr }}
+
+{% when "payphone" %}
+{{ file.metadata.locale.no_collect_calls.payphone.fr }}
+
+{% when "audiotex" %}
+{{ file.metadata.locale.no_collect_calls.audiotex.fr }}
+
+{% when "virtual" %}
+{{ file.metadata.locale.no_collect_calls.virtual.fr }}
+
+{% when "incoming" %}
+{{ file.metadata.locale.no_collect_calls.incoming.fr }}
+
+{% when "outgoing" %}
+{{ file.metadata.locale.no_collect_calls.outgoing.fr }}
+
+{% endcase %}
+
+{% endif %}
+
+{% endfor %}
+
+{{ notes }}
+
+{% endfor %}
+|===
+----

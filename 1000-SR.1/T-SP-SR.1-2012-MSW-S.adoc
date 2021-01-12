@@ -1,0 +1,95 @@
+= RESTRICCIONES DE SERVICIO (Lista recapitulativa de las restricciones de servicio en vigor relativas a la explotación de las telecomunicaciones)
+:bureau: T
+:docnumber: 1000
+:title: RESTRICCIONES DE SERVICIO
+:published-date: 2012-03-15
+:doctype: service-publication
+:docfile: document.adoc
+:language: es
+:status: draft
+:mn-document-class: itu
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+== LISTA RECAPITULATIVA DE LAS RESTRICCIONES DE SERVICIO
+
+=== Nota de la TSB
+
+. En cumplimiento de las disposiciones del Capítulo VI de la Constitución de la Unión Internacional de Telecomunicaciones (Ginebra,1992) y del artículo 7 del Reglamento de las Telecomunicaciones Internacionales (Melbourne,1988), las Administraciones/EER deben comunican a la UIT las restricciones de servicio, sean temporales o permanentes, que afecten a los diversos servicios internacionales de telecomunicación ofrecidos al público, la suspensión del servicio parcial o totalmente y el ulterior restablecimiento de la normalidad, bien en su totalidad o solamente para ciertas relaciones y para determinadas clases de correspondencia de salida, llegada o tránsito. La TSB de la UIT transmitirá inmediatamente esta información a todas las demás Administraciones/EER por el medio de comunicación más adecuado.
+
+. Desde hace muchos años, en los Boletines de Explotación de la UIT se publicada información sobre las restricciones de servicio, que luego han aparecido en un "Cuadro recapitulativo de las restricciones de servicio", que aparecía como anexo al Boletín de Explotación de la UIT.
+
+. La presente Lista recapitulativa de las restricciones de servicio sustituye al "Cuadro recapitulativo de las restricciones de servicio" publicado en el anexo al Boletín de Explotación de la UIT N.° 691 de 1 de mayo de 1999 y contiene todas las comunicaciones subsiguientes publicadas en el Boletín de Explotación de la UIT hasta el N.° 1000 de 15 de marzo de 2012. 
+
+. Se ha procurado que la información contenida en la presente Lista sea exacta. Se ruega a las Administraciones/EER que comprueben la información publicada en la misma y comuniquen a la TSB los eventuales cambios que deban introducirse con miras a su actualización (Fax +41 22 730 5853; E-mail: tsbtson@itu.int).
+
+. Asimismo, la información que contiene este Anexo al Boletín de Explotación de la UIT N.° 1000 está disponible en el sitio web de la UIT:
+http://www.itu.int/itu-t/bulletin/annex.html
+
+. Las denominaciones utilizadas y la presentación del material en esta Lista no entrañan por parte de la UIT, ninguna opinión acerca del estatuto jurídico de un país o zona geográfica o de las autoridades de los mismos.
+
+
+[yaml2text,T-SP-SR.1-2012.yaml,file]
+----
+[%unnumbered,cols="1",options="header"]
+|===
+^.^|Country/geographical area
+
+{% for country in file.data %}
+{% assign geoarea = country[1].geographic_area %}
+{% assign restrictions = country[1].restrictions %}
+{% assign notes = country[1].notes.es %}
+
+a| *_{{ geoarea.fr }}_* +
+*_{{ geoarea.en }}_* +
+*_{{ geoarea.es }}_*
+
+{% if restrictions["telex_not_provided"] == true %}
+{{ file.metadata.locale.telex_not_provided.es }}
+{% endif %}
+
+{% if restrictions["telegram_not_provided"] == true %}
+{{ file.metadata.locale.telegram_not_provided.es }}
+{% endif %}
+
+{% if restrictions["no_messenger_dispatch"] == true %}
+{{ file.metadata.locale.no_messenger_dispatch.es }}
+{% endif %}
+
+{% for call in restrictions["no_collect_calls"] %}
+
+{% if call[1] == true %}
+
+{% case call[0] %}
+
+{% when "mobile" %} 
+{{ file.metadata.locale.no_collect_calls.mobile.es }}
+
+{% when "payphone" %}
+{{ file.metadata.locale.no_collect_calls.payphone.es }}
+
+{% when "audiotex" %}
+{{ file.metadata.locale.no_collect_calls.audiotex.es }}
+
+{% when "virtual" %}
+{{ file.metadata.locale.no_collect_calls.virtual.es }}
+
+{% when "incoming" %}
+{{ file.metadata.locale.no_collect_calls.incoming.es }}
+
+{% when "outgoing" %}
+{{ file.metadata.locale.no_collect_calls.outgoing.es }}
+
+{% endcase %}
+
+{% endif %}
+
+{% endfor %}
+
+{{ notes }}
+
+{% endfor %}
+|===
+----
