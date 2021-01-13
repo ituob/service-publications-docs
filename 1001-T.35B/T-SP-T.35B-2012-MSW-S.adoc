@@ -1,0 +1,177 @@
+= Lista de las autoridades nacionales, encargadas de asignar los códigos de proveedor de terminal UIT-T T.35
+:title-(en, fr, es, ar, ru, zh): es
+// :annex-title-es: Anexo al Boletín de Explotación de la UIT
+// :annex-id: N.^o^ 1001
+:bureau: T
+:docnumber: 1001
+:published-date: 2012-04-01
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-T.35B-2012-MSW-S.adoc
+:mn-document-class: tsb
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:language: es
+
+
+[preface]
+== Nota de TSB:
+
+En la Recomendación UIT-T T.35 se describe un mecanismo para incluir facilidades no normalizadas, que se utilizan en distintos protocolos definidos en las Recomendaciones del UIT-T. En este mecanismo se utilizan tres tipos de códigos: (a) un indicativo de país, (b) un código de proveedor terminal (también conocido como código de fabricante) y (c) un código destinado al proveedor terminal. Los indicativos de país de la Recomendación UIT-T T.35 quedan definidos en esta Recomendación y el fabricante define los códigos destinados al proveedor terminal. No obstante, en cuanto al código de fabricante, la Recomendación UIT-T T.35 dispone lo siguiente: «Una administración o un organismo nacional designado por dicha administración tiene la responsabilidad de asignar y gestionar los códigos de proveedor terminal». 
+
+A fin de facilitar una lista centralizada de autoridades nacionales para asignación de los códigos de proveedor terminal UIT-T T.35 y ayudar a los fabricantes a obtener dichos códigos, la Recomendación UIT-T T.35 indica además: «Cuando una administración designa un organismo nacional, debe enviar su nombre y dirección al Director de la TSB». 
+
+Se ha elaborado una lista de las autoridades nacionales, encargadas de asignar los códigos de proveedor de terminal UIT-T T.35, según las respuestas a la Circular TSB 184 del 12 de septiembre de 2003 y al Addendum 1 del 30 de julio de 2004. +
+
+Por medio del http://www.itu.int/ITU-T/inr/forms/files/T35-form-es.doc[formulario de notificación], se comunicará a la TSB toda información nueva o actualizada, referente a la identidad de la autoridad nacional vigente designada por cada administración para la asignación de los códigos de proveedor de terminal UIT-T T.35 a la TSB, E mail: mailto:tsbtson@itu.int[tsbtson@itu.int], Fax: +41 22 730 5853.
+
+Las denominaciones empleadas en esta Lista y la forma en que aparecen presentados los datos que contiene no implican, de parte de la UIT, juicio alguno sobre la condición jurídica de países o zonas geográficas, o de sus autoridades.
+
+
+== {blank}
+
+[yaml2text,T.35B-2012-data.yaml,file]
+----
+
+[yaml2text,iso-3166.yaml,acronyms]
+--
+
+{% for country in file %}
+
+[%unnumbered,cols="2*"]
+|===
+{% assign country_acronym = country.country | remove: "iso-3166:" | replace: "uk", "gb" %}
+2+.<| 
+{%- if country_acronym != "no" -%}
+    {{ acronyms[country_acronym]["es"] }}
+{%- else -%}
+    Noruega
+{%- endif -%}
+
+| Nombre de la Administración: | {{ country.administration_name }}
+
+2+.<| ¿Existen fabricantes nacionales de equipos conformes a las Series H, T o V?
+{{ country.manufactures_htv | replace: "true", "SÍ" | replace: "false", "NO"}}
+
+2+.<| Autoridad de asignación:
+
+{% if country.assignment_authority != "None designated" %}
+
+{% for authority in country.assignment_authority %}
+
+{% for series in authority.terminal_type reversed %}
+    {% case forloop.index %}
+        {% when 1 %}
+            {% assign aux = series | capitalize | remove: "series" %}
+            {% assign terminalType = aux | append: "Series" %}
+
+        {% when 2 %}
+            {% assign aux = series | capitalize | remove: "series" | append: " and " %}
+            {% assign terminalType =  terminalType | prepend: aux %}
+
+        {% when 3 %}
+            {% assign aux = series | capitalize | remove: "series" | append: ", " %}
+            {% assign terminalType =  terminalType | prepend: aux %}
+    {% endcase %}
+{% endfor %}
+
+| Tipo de terminal: | {{ terminalType }}
+| Contacto: | {{ authority.contact_name }}
+| Organización: | {{ authority.organization }}
+| Departamento: | {{ authority.department }}
+| Dirección: | {{ authority.address }}
+| Teléfono: | {{ authority.telephone }}
+| Fax: | {{ authority.fax }}
+| E-mail: | {{ authority.email }}
+| Enlaces relacionados: | {{ authority.related_links }}
+
+{% endfor %}
+
+{% else %}
+
+No se ha designado ninguna
+
+{% endif %}
+
+| Información actualizada: | 
+{{ country.last_updated | date: "%d %B %Y"
+| replace: "January", "de enero de"
+| replace: "February", "de febrero de"
+| replace: "March", "de marzo de"
+| replace: "April", "de abril de"
+| replace: "May", "de mayo de"
+| replace: "June", "de junio de"
+| replace: "July", "de julio de"
+| replace: "August", "de agosto de"
+| replace: "September", "de septiembre de"
+| replace: "October", "de octubre de"
+| replace: "November", "de noviembre de"
+| replace: "December", "de diciembre de" }}
+|===
+
+{% if country.note %}
+NOTE: {{ country.note }}
+{% endif %}
+
+{% endfor %}
+
+--
+
+----
+
+
+<<<
+
+[%unnumbered]
+|===
+Envíe las respuestas a esta notificación a TSB, E-mail: mailto:tsbtson@itu.int[tsbtson@itu.int], Fax: +41 22 730 5853.
+
+|===
+
+== Notificación de la Administración sobre la identificación de las autoridades nacionales encargadas de asignar los códigos de proveedor terminal definidos en la Recomendación UIT-T T.35
+
+_Le rogamos que en sus respuestas nos facilite la mayor cantidad posible de detalles. Cuando no pueda darnos datos completos porque se trata de información delicada o confidencial, sírvase indicarlo. Las respuestas al cuestionario recibidas se utilizarán para actualizar la lista de las autoridades nacionales encargadas de asignar códigos de proveedor terminal definidos en la Recomendación UIT T T.35._
+
+[class=steps]
+. País y nombre de la Administración: 
+
+. ¿Existen en su país fabricantes de productos definidos en las:
+
+* Recomendaciones UIT‑T de la serie H (videoconferencia, +
+conferencias multimedios) ▭ Sí ▭ No
+
+* Recomendaciones UIT‑T de la serie T (conferencias de datos, facsímil)? ▭ Sí ▭ No
+
+* Recomendaciones UIT‑T de la serie V (equipos de módem) ▭ Sí ▭ No
+
+. ¿En su país existe un organismo nacional u otra autoridad encargada de asignar códigos de proveedor terminal con arreglo a la Recomendación UIT‑T T.35? ▭ Sí ▭ No
+
+. Según el caso, sírvase facilitar la información siguiente sobre *cada* autoridad de asignación (en caso de autoridades diferentes para tipos de terminal distintos):
++
+--
+[%unnumbered]
+|===
+h| Autoridad de asignación: a| 
+| Tipo de terminal{blank}footnote:[Márquense todos los aplicables y enumérese las "otras categorías"]: | ▭ Serie H ▭ Serie T ▭ Serie V ▭ Otras categorías:
+| Persona a quien dirigirse: a| 
+| Organización: a| 
+| Departamento: a|
+| Dirección: a| 
+| Teléfono: a| 
+| Telefax: a| 
+| E-mail: a| 
+| Enlaces correspondientes de Internet: a| 
+
+|===
+--
+
+. Comentarios
+
+[%unnumbered]
+|===
+|   
+
+|===

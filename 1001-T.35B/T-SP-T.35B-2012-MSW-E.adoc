@@ -1,0 +1,169 @@
+= List of the national authorities designated to assign ITU-T Recommendation T.35 terminal provider codes
+:bureau: T
+:docnumber:  1001
+:published-date: 2012-04-01
+// :annex-title: Annex to ITU Operational Bulletin
+// :annex-id: No. 1001
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-T.35B-2012-MSW-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+[preface]
+== Note from TSB:
+
+ITU-T Recommendation T.35 provides a mechanism for the inclusion of non-standard facilities, which are used in several protocols defined in ITU-T Recommendations. This mechanism uses three types of codes: (a) a country code, (b) a terminal provider code (also known as manufacturer code), and (c) a terminal provider oriented code. The ITU-T Recommendation T.35 country codes are defined within this Recommendation and the terminal provider oriented codes are defined by the manufacturer. However, for the manufacturer code, ITU-T Recommendation T.35 states: "An Administration, or a national body designated by an Administration, has the responsibility for the allocation and management of the terminal provider code".
+
+In order to provide a centralized list of national authorities for the assignment of ITU-T T.35 terminal provider codes, and to assist manufacturers in obtaining such codes, ITU-T Recommendation T.35 further states: "When an Administration designates a national body, its address and name should be sent to the Director of TSB." 
+
+A list of national authorities for the assignment of ITU-T Recommendation T.35 terminal provider codes has been set up.. 
+
+Any new or updated information on the identity of the current national authority designated by each Administration for the assignment of the ITU-T Recommendation T.35 terminal provider codes should be communicated to TSB, to the E-mail: mailto:tsbtson@itu.int[tsbtson@itu.int], Fax: +41 22 730 5853 by using the http://www.itu.int/ITU-T/inr/forms/files/T35-form-en.doc[Notification Form].
+
+The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of ITU concerning the legal status of any country or geographical area, or of its authorities.
+
+
+== {blank}
+
+[yaml2text,T.35B-2012-data.yaml,file]
+----
+
+[yaml2text,iso-3166.yaml,acronyms]
+--
+
+{% for country in file %}
+
+[%unnumbered,cols="2*"]
+|===
+{% assign country_acronym = country.country | remove: "iso-3166:" | replace: "uk", "gb" %}
+2+.<| 
+{%- if country_acronym != "no" -%}
+    {{ acronyms[country_acronym]["en"] }}
+{%- else -%}
+    Norway
+{%- endif -%}
+
+| Name of Administration: | {{ country.administration_name }}
+
+2+.<| National manufacturers of H-, T- or V-Series compliant equipment?
+{{ country.manufactures_htv | replace: "true", "YES" | replace: "false", "NO"}}
+
+
+{% if country.assignment_authority != "None designated" %}
+
+2+.<|
+{% if country.assignment_authority.size > 1 %}
+    Assignment authorities:
+{% else %}
+    Assignment authority:
+{% endif %}
+
+{% for authority in country.assignment_authority %}
+
+{% for series in authority.terminal_type reversed %}
+    {% case forloop.index %}
+        {% when 1 %}
+            {% assign aux = series | capitalize | remove: "series" %}
+            {% assign terminalType = aux | append: "Series" %}
+
+        {% when 2 %}
+            {% assign aux = series | capitalize | remove: "series" | append: " and " %}
+            {% assign terminalType =  terminalType | prepend: aux %}
+
+        {% when 3 %}
+            {% assign aux = series | capitalize | remove: "series" | append: ", " %}
+            {% assign terminalType =  terminalType | prepend: aux %}
+    {% endcase %}
+{% endfor %}
+
+| Terminal Type: | {{ terminalType }}
+| Contact name | {{ authority.contact_name }}
+| Organization: | {{ authority.organization }}
+| Department: | {{ authority.department }}
+| Address: | {{ authority.address }}
+| Telephone: | {{ authority.telephone }}
+| Fax: | {{ authority.fax }}
+| E-mail: | {{ authority.email }}
+| Related links: | {{ authority.related_links }}
+
+{% endfor %}
+
+{% else %}
+
+{{ country.assignment_authority }}
+
+{% endif %}
+
+| Information updated: | {{ country.last_updated | date: "%d %B %Y" }}
+|===
+
+{% if country.note %}
+NOTE: {{ country.note }}
+{% endif %}
+
+
+{% endfor %}
+
+--
+
+----
+
+
+<<<
+
+[%unnumbered]
+|===
+_Please return this notification form to TSB, E-mail: mailto:tsbtson@itu.int[tsbtson@itu.int] or Fax: +41 22 730 5853_
+|===
+
+== Notification from Administration for the identification of the national authority designated to assign ITU-T Recommendation T.35 terminal provider codes
+
+_Please elaborate and provide as much detail as possible in response to these questions. If complete information cannot be related because it is proprietary or sensitive, please indicate this status. The responses received will be used to complete and update the list of national authorities for the assignment of ITU-T T.35 terminal provider codes._
+
+[class=steps]
+. Country and name of administration: ................................................................................................................................................................................................................................................................................
+
+. Within your country, are there manufacturers of products compliant with:
+
+* ITU-T H-Series Recommendations (video/multimedia conferencing)? ▭ Yes ▭ No
+ 
+* ITU-T T-Series Recommendations (data conferencing, fax equipment)? ▭ Yes ▭ No
+ 
+* ITU-T V-Series Recommendations (modems)? ▭ Yes ▭ No
+
+. Do you have any existing national body or other assignment authority designated to assign terminal provider codes in accordance with ITU-T Rec. T.35? ▭ Yes ▭ No 
+ 
+. As applicable, please provide the following information for *each* assignment authority (in case of different authorities for different terminal types): 
++
+--
+[%unnumbered]
+|===
+| Assignment authority: a| 
+| Terminal type{blank}footnote:[Please tick all applicable boxes and list any "other category"]: | ▭ H-Series ▭ T-Series ▭ V-Series ▭ Other category:
+| Contact name: a| 
+| Organization: a| 
+| Department: a| 
+| Address: a| 
+| Telephone: a| 
+| Fax: a| 
+| E-mail: a| 
+| Relevant website links: a| 
+
+|===
+--
+
+. Comments
+
+[%unnumbered]
+|===
+|    
+
+|===
+
+
