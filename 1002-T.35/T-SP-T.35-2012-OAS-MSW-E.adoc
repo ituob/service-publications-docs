@@ -1,0 +1,88 @@
+= LIST OF COUNTRY OR GEOGRAPHICAL AREA CODES FOR NON-STANDARD FACILITIES IN TELEMATIC SERVICES 
+:bureau: T
+:series: COMPLEMENT TO ITU-T RECOMMENDATION T.35 (02/2000)
+:language: en
+:docnumber:  1002
+:published-date: 2012-04-15
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 1002
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-T.35-2012-OAS-MSW-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+[preface]
+== Note from TSB
+
+[class=steps]
+. The Director of the Telecommunication Standardization Bureau of ITU (TSB) has the responsibility for the allocation and management of the country codes.
+
+. The code 1111 1111, at the end of the List below, is an escape code used to indicate that the next octet contains a code given in a separate extension List. Whenever the code 1111 1111 is used in the first octet, the country or geographical area code will be found in the extension List. This list will be implemented when all the codes in the List below have been allocated.
++
+NOTE: Codes once issued may have been imbedded in terminal equipment and therefore should not be changed or reassigned even if the designation of the country or geographical area is no longer valid.
+
+. The Member States of the International Telecommunication Union (ITU) not mentioned in this List who wish to obtain a country or geographical area code should ask the Director of TSB for the assignment of an available country code. In their request, they may indicate a specific code if it is available. Please address any comments to the Director of TSB:
++
+International Telecommunication Union (ITU) 
++
+Director of TSB 
++
+Place des Nations 
++
+CH-1211 GENEVA 20 
++
+Switzerland 
++
+Tel: +41 22 730 6805 
++
+Fax: +41 22 730 5853 
++
+E-mail: tsbmail@itu.int
+
+. For information, this List is also available on the ITU web page .
++
+http://www.itu.int/itu-t/bulletin/annex.html[http://www.itu.int/itu-t/bulletin/annex.html]
+
+. The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of ITU concerning the legal status of any country or geographical area, or of its authorities.
+
+== {blank}
+
+[yaml2text,T-SP-T.35-2012-OAS.yaml,file]
+----
+{% assign lang = "en" %}
+
+[%unnumbered,cols="10*"]
+|===
+9+^.^h| _{{ file.metadata.code_bit[lang] | remove: " Bit (b8 to b1)" }}_ +
+Bit
+^.^h| _{{ file.metadata.country_or_area[lang] }}_
+ 
+h| b~8~ h| b~7~ h| b~6~ h| b~5~ | h| b~4~ h| b~3~ h| b~2~ h| b~1~ |  
+
+{% for country_code in file.data.code_bit %}
+
+| {{ country_code[1].code_bit | slice: 0 }}
+| {{ country_code[1].code_bit | slice: 1 }}
+| {{ country_code[1].code_bit | slice: 2 }}
+| {{ country_code[1].code_bit | slice: 3 }}
+|
+| {{ country_code[1].code_bit | slice: 4 }}
+| {{ country_code[1].code_bit | slice: 5 }}
+| {{ country_code[1].code_bit | slice: 6 }}
+| {{ country_code[1].code_bit | slice: 7 }}
+| {{ country_code[1].country_or_area[lang] | replace: "NOTE 1","<<note1>>"}}
+
+{% endfor %}
+
+|===
+
+[[note1]]
+NOTE: {{ file.data.code_bit["11111111"].notes[lang] }}
+----
