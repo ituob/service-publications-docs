@@ -1,0 +1,176 @@
+= Liste des autorités nationales, chargées de l’attribution des codes du prestataire terminal UIT-T T.35
+:bureau: T
+:docnumber: 1001
+// :annex-title-fr: Annexe au Bulletin d'exploitation de l'UIT
+// :annex-id: N^o^ 1001
+:published-date: 2012-04-01
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-T.35B-2012-MSW-F.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:language: fr
+
+
+[preface]
+== Note du TSB
+
+La Recommandation UIT-T T.35 contient un mécanisme permettant de mettre en œuvre des facilités non normalisées, qui sont utilisées dans plusieurs protocoles définis dans les Recommandations UIT-T. Ce mécanisme utilise trois types de codes : (a) un indicatif de pays, (b) un code du prestataire terminal (également connu comme code de fabricant) et (c) un code interne du prestataire terminal. Les indicatifs de pays de la Recommandation UIT-T T.35 sont définis dans cette Recommandation et les codes internes du prestataire terminal sont définis par le fabricant. Toutefois, en ce qui concerne le code du fabricant, il est indiqué dans la Recommandation UIT-T T.35 qu'«une Administration, ou un organisme national désigné par l'Administration, est responsable de l'attribution et de la gestion du code du prestataire terminal». 
+
+Afin d'établir une liste centralisée des autorités nationales chargées de l'attribution des codes du prestataire terminal conformément à la Recommandation UIT-T T.35 et d'aider les fabricants à obtenir ces codes, il est en outre indiqué dans la Recommandation UIT-T T.35 que «lorsqu'une Administration désigne un organisme national, elle doit en communiquer l'adresse et le nom au Directeur du TSB».
+
+Une liste des autorités nationales, chargées de l'attribution des codes du prestataire terminal conformément à la Recommandation UIT-T T.35, a été établie d'après les réponses à la Circulaire TSB 184 du 12 septembre 2003 ainsi qu'à l'Addendum 1 du 30 juillet 2004. 
+
+Toute information nouvelle ou actualisée, concernant l'identité de l'autorité nationale en vigueur, désignée par chaque Administration pour l'attribution des codes du prestataire terminal conformément à la Recommandation UIT-T T.35, doit être communiquée au TSB, E-mail: mailto:tsbtson@itu.int[tsbtson@itu.int], Fax: +41 22 730 5853 au moyen du http://www.itu.int/ITU-T/inr/forms/files/T35-form-fr.doc[formulaire de notification].
+
+Les appellations employées dans cette Liste et la présentation des données qui y figurent n'impliquent, de la part de l'UIT, aucune prise de position quant au statut juridique des pays ou zones géographiques, ou de leurs autorités.
+
+
+== {blank}
+
+
+[yaml2text,T.35B-2012-data.yaml,file]
+----
+
+[yaml2text,iso-3166.yaml,acronyms]
+-- 
+
+{% for country in file %}
+
+[%unnumbered,cols="2*"]
+|===
+{% assign country_acronym = country.country | remove: "iso-3166:" | replace: "uk", "gb" %}
+2+.<| 
+{%- if country_acronym != "no" -%}
+    {{ acronyms[country_acronym]["fr"] }}
+{%- else -%}
+    Norvège
+{%- endif -%}
+
+| Nom de l'Administration: | {{ country.administration_name }}
+
+2+.<| Existe t-il, dans votre pays, des fabricants d'équipements conformes aux Recommandations des séries H, T ou V ?
+{{ country.manufactures_htv | replace: "true", "OUI" | replace: "false", "NON"}}
+
+2+.<| Autorité responsable de l'attribution:
+
+{% if country.assignment_authority != "None designated" %}
+
+{% for authority in country.assignment_authority %}
+
+{% for series in authority.terminal_type reversed %}
+    {% case forloop.index %}
+        {% when 1 %}
+            {% assign aux = series | capitalize | remove: "series" %}
+            {% assign terminalType = aux | append: "Series" %}
+
+        {% when 2 %}
+            {% assign aux = series | capitalize | remove: "series" | append: " and " %}
+            {% assign terminalType =  terminalType | prepend: aux %}
+
+        {% when 3 %}
+            {% assign aux = series | capitalize | remove: "series" | append: ", " %}
+            {% assign terminalType =  terminalType | prepend: aux %}
+    {% endcase %}
+{% endfor %}
+
+| Type de terminal: | {{ terminalType }}
+| Contact: | {{ authority.contact_name }}
+| Organisation: | {{ authority.organization }}
+| Département: | {{ authority.department }}
+| Adresse: | {{ authority.address }}
+| Téléphone: | {{ authority.telephone }}
+| Fax: | {{ authority.fax }}
+| E-mail: | {{ authority.email }}
+| Liens correspondants: | {{ authority.related_links }}
+
+{% endfor %}
+
+{% else %}
+Aucune n'a été désignée
+
+{% endif %}
+
+| Mise à jour des informations: |
+{{ country.last_updated | date: "%d %B %Y"
+| replace: "January", "janvier"
+| replace: "February", "février"
+| replace: "March", "mars"
+| replace: "April", "avril"
+| replace: "May", "Mai"
+| replace: "June", "juin"
+| replace: "July", "juillet"
+| replace: "August", "août"
+| replace: "September", "septembre"
+| replace: "October", "octobre"
+| replace: "November", "novembre"
+| replace: "December", "décembre" }}
+|===
+
+{% if country.note %}
+NOTE: {{ country.note }}
+{% endif %}
+
+{% endfor %}
+
+--
+
+----
+
+
+<<<
+
+[%unnumbered]
+|===
+_Veuillez faire parvenir le formulaire de notification au TSB E-mail: mailto:tsbtson@itu.int[tsbtson@itu.int], Fax: +41 22 730 5853)._
+
+|===
+
+== Notification de l'Administration sur l'identification des autorités nationales chargées de l'attribution des codes du prestataire terminal conformément à la Recommandation UIT-T T.35
+
+_Veuillez répondre aux questions ci-dessous de manière aussi complète et précise que possible. S'il vous est impossible de nous communiquer certaines informations en raison de leur caractère protégé ou sensible, veuillez le signaler. Les réponses au présent questionnaire seront utilisées pour mettre à jour la liste des autorités nationales chargées d'attribuer des codes du prestataire terminal._
+
+[class=steps]
+. Pays et nom de l'Administration: 
+
+. Existe-t-il, dans votre pays, des fabricants de produits conformes aux:
+
+* Recommandations UIT-T de la série H (conférences multimédias/ +
+visioconférences)? ▭ Oui ▭ Non
+
+* Recommandations UIT-T de la série T (conférences de données, +
+matériel de télécopie)? ▭ Oui ▭ Non
+
+* Recommandations UIT-T de la série V (modems)? ▭ Oui ▭ Non
+
+. Existe-t-il un organisme national, ou une autre autorité responsable de l'attribution, désignée pour attribuer des codes du prestataire terminal, conformément à la Recommandation UIT‑T T.35? ▭ Oui ▭ Non
+. Selon le cas, veuillez indiquer les renseignements suivants pour *chaque* autorité responsable de l'attribution (si différentes autorités pour différents types de terminaux):
++
+--
+[%unnumbered]
+|===
+| Autorité responsable de l'attribution: | 
+| Type{blank}footnote:[Veuillez cocher tous les types applicables et énumérer les « autres catégories »] de terminal: | ▭ Série H ▭ Série T ▭ Série V ▭ Autres catégories:
+| Personne à contacter: |
+| Organisation: |
+| Département:  |
+| Adresse: |
+| Téléphone: |  
+| Téléfax:  |
+| E-mail:  |
+| Liens Internet correspondants: |
+
+|===
+--
+
+. Commentaires
+
+[%unnumbered]
+|===
+|    
+
+|===
