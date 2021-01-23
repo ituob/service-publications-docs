@@ -1,0 +1,194 @@
+= LIST OF NAMES OF ADMINISTRATION MANAGEMENT DOMAINS (ADMD)
+:bureau: T
+:docnumber: 974
+:series: (In accordance with ITU-T F.400 and X.400 series Recommendations)
+:published-date: 2011-02-15
+:status: published
+:doctype: service-publication
+:annexid: No. 974
+:docfile: T-SP-F.400-2011-MSW-E.adoc
+:language: en
+:mn-document-class: itu
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+// :annextitle: LIST OF NAMES OF ADMINISTRATION MANAGEMENT DOMAINS (ADMD)
+
+[preface]
+== Note from TSB
+
+[class=steps]
+. In the Annex to Operational Bulletin No. 880 of 15 March 2007, TSB published a list of Names of Administration Management Domains (ADMD) and other information concerning the implementation of message handling services .
+
+. In view of a number of notifications on the status of implementation of message handling services based on the ITU-T F.400 and X.400 series Recommendations received from Administrations/ Recognized Operating Agencies (ROAs), a new version has been prepared which cancels and supersedes the above-mentioned Annex. This new list published as Annex to ITU Operational Bulletin No. 974 of 15 February 2011 contains all amendments published in Operational Bulletins up to this one. In order to keep this list up to date, Administrations/Recognized Operating Agencies (ROAs) are requested to check the accuracy of the information published therein and to inform TSB of any changes that should be made for its updating.
+
+. For information, this list will be updated by numbered series of amendments published in the ITU Operational Bulletin. Furthermore, the information contained in this Annex is also available in electronic version on the ITU web page:
++
+http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html]
+
+. Administrations or responsible naming authorities who have not notified to the ITU the ADMD names known to be in use in their own countries are requested to fill in the notification form (see last page of the List) and return it to TSB at the address indicated on the Form. If necessary, additional notification forms may be requested from TSB by Fax: +41 22 730 5853 or E-mail: tsbtson@itu.int.
+
+. The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of the ITU concerning the legal status of any country or geographical area, or of its authorities.
+
+
+== {blank}
+
+
+[yaml2text,T-SP-F.400-2011.yaml,file]
+----
+{% assign lang = "en" %}
+{% assign locale_data = file.metadata.locale %}
+
+[%unnumbered]
+[cols="9*"]
+|===
+^.^| {{ locale_data.country_or_area[lang] }}
+^.^| {{ locale_data.admd_name[lang] }}
+^.^| {{ locale_data.country_code[lang] }}{blank}footnote:[Country Code: See Annex A to Recommendation F.401. This is based on ISO 3166, of which the latest published edition should be used (obtainable from national standards bodies)]
+3+^.^| {{ locale_data.service_names[lang] }}
+^.^| {{ locale_data.helpdesk[lang] }}
+^.^| {{ locale_data.autoanswer[lang] }}
+^.^| {{ locale_data.contact_address[lang] }}
+| | |
+^.^| {{ locale_data.mt[lang] }}
+^.^| {{ locale_data.ipm[lang] }}
+^.^| {{ locale_data.other[lang] }}
+| | | 
+^.^| 1 ^.^| 2 ^.^| 3 ^.^| 4 ^.^| 5 ^.^| 6 ^.^| 7 ^.^| 8 ^.^| 9
+
+
+{% for country in file.data %}
+
+| {{ country.country_or_area.fr }} +
+{{ country.country_or_area.en }} +
+{{ country.country_or_area.es }}
+
+| {{ country.admd_name }}
+
+| {{ country.country_code }}
+
+| {{ country.mt }}
+
+| {{ country.ipm }}
+
+| {{ country.other }}
+
+|
+{% if country.helpdesk.available %}
+{{ country.helpdesk.available | replace: "TRUE", "YES" | replace: "FALSE", "NO" }}
+{% elsif country.helpdesk.x400 %}
+{% assign helpdesk = country.helpdesk.x400 | split: ", " %}
+{% for letter in helpdesk %}
+{{ letter }} +
+{% endfor %}
+{% endif %}
+
+|
+{% if country.autoanswer.available %}
+{{ country.autoanswer.available | replace: "TRUE", "YES" | replace: "FALSE", "NO" }}
+{% elsif country.autoanswer.x400 %}
+{% assign autoanswer = country.autoanswer.x400 | split: ", " %}
+{% for letter in autoanswer %}
+{{ letter }} +
+{% endfor %}
+{% endif %}
+
+| 
+{% for field in country.contact_address %}
+{{ field[1] }} +
+{% endfor %}
+
+{% endfor %}
+
+|===
+
+----
+
+
+== AMENDMENTS
+
+
+[%unnumbered]
+|===
+
+^.^h| Amendment No. ^.^h| Operational Bulletin No. ^.^h|Country or geographical area
+
+^.^| 1 | |
+^.^| 2 | |
+^.^| 3 | |
+^.^| 4 | |
+^.^| 5 | |
+^.^| 6 | |
+^.^| 7 | |
+^.^| 8 | |
+^.^| 9 | |
+^.^| 10 | |
+^.^| 11 | |
+^.^| 12 | |
+^.^| 13 | |
+^.^| 14 | |
+^.^| 15 | |
+^.^| 16 | |
+^.^| 17 | |
+^.^| 18 | |
+^.^| 19 | |
+^.^| 20 | |
+^.^| 21 | |
+^.^| 22 | |
+^.^| 23 | |
+^.^| 24 | |
+^.^| 25 | |
+^.^| 26 | |
+^.^| 27 | |
+^.^| 28 | |
+^.^| 29 | |
+^.^| 30 | |
+
+|===
+
+
+<<<
+
+[%unnumbered]
+|===
+h| image::T-SP-F.400-2011-MSW-E_html_45ef0f647863628.gif["",112,115] a| _Please complete this Notification form and return it to the following address:_ +
+*International Telecommunication Union* +
+*Telecommunication Standardization Bureau (TSB/OBNA)* +
+*Place des Nations* +
+*CH - 1211 Genève 20* +
+*Suisse* +
+*Telefax: +41 22 730 5853 E-mail: tsbtson@itu.int*
+
+|===
+
+[%unnumbered]
+|===
+*Notification of X.400 ADMD Name* {blank}footnote:[National practices may impose coordination before sending notification to the TSB.]
+
+*(Provision of X.400 Message Handling Services)*
+
+|===
+
+[%unnumbered]
+|===
+
+h| _Country:_ | 
+_Country Code{blank}footnote:[Country Code: See Annex A to Recommendation F.401. This is based on ISO 3166, of which the latest published edition should be used (obtainable from national standards bodies).] :_
+2+h| _ADMD Name:_
+h| _Service Name_ | HELPDESK AVAILABLE?
+| MT (message transfer): | Yes [ ] No [ ]
+| | X.400:
+| IPM (interpersonal message): | \_\____\______
+| | AUTOANSWER AVAILABLE? 
+| | Yes [ ] No [ ]
+| Other: | X.400:
+h| _Contact Address:_  | X.400: \_\____\______
+| Postal address: \_\____\______ | \_\____\______
+| \_\____\__\_____\______\____ | \_\____\______
+| \_\____\__\_____\______\____ | E-mail \_\____\______
+| \_\____\__\_____\______\____ | \_\____\______
+| \_\____\__\_____\______\____ | \_\____\______
+| \_\____\__\_____\______\____ | \_\____\______
+
+|===
