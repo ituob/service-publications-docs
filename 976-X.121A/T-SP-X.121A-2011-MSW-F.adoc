@@ -1,0 +1,90 @@
+= LISTE DES INDICATIFS DE PAYS OU ZONES GÉOGRAPHIQUES POUR TRANSMISSION DE DONNÉES
+:bureau: T
+:docnumber: 976
+:published-date: 2011-03-15
+// :annex-title-fr: Annexe au Bulletin d'exploitation de l'UIT
+// :annex-id: N° 976
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-X.121A-2011-MSW-F.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:language: fr
+:data-uri-image:
+
+
+[preface]
+== Note du TSB
+
+[class=steps]
+. Cette Liste des indicatifs de pays ou de zones géographiques sur les indicatifs de pays pour données (DCC), remplace celle qui avait été publiée dans l'Annexe au Bulletin d'exploitation de l'UIT N^o^ 875 du 1 janvier 2007. Depuis lors, différentes assignations nouvelles sont apparues et ont été publiées séparément dans différents numéros du Bulletin d'exploitation de l'UIT.
+
+. La présente Liste comprend:
+
+* une liste des indicatifs de pays ou de zones géographiques pour transmission de données (DCC), - par ordre numérique;
+
+. La mise à jour de cette liste se fera par des séries d'amendements numérotés publiés dans le Bulletin d'exploitation de l'UIT. D'autre part, les informations contenues dans cette Annexe sont disponibles sur le site web de l'UIT (à l'adresse http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html]).
+
+. Veuillez adresser vos commentaires concernant cette publication au Directeur du TSB:
++
+--
+Tél: +41 22 730 5211
+
+Fax: +41 22 730 5853
+
+Email: tsbmail@itu.int
+--
+
+. Les appellations employées dans cette Liste et la présentation des données qui y figurent n'impliquent, de la part de l'UIT, aucune prise de position quant au statut juridique des pays ou zones géographiques, ou de leurs autorités.
+
+
+[yaml2text,T-SP-X.121A-2011.yaml,file]
+----
+{% assign lang = "fr" %}
+
+
+{% for n in (2..7) %}
+
+== Zone {{ n }}
+
+[cols="2",options="header,unnumbered"]
+|===
+| Indicatif | Pays ou zone géographique
+
+{% assign szone = "" | append: n %}
+{% assign specific_zone = file.data | where: "zone",szone %}
+
+{% for code in specific_zone %}
+
+| {{ code.code }}
+| {%- if code.reserved != "TRUE" -%}
+    {{ code.country_or_area[lang] }}
+{%- else -%}
+    {{ code.country_or_area[lang] | split: " " | first }} footnote:[{{ code.country_or_area[lang] }}]
+{%- endif -%}
+
+{% endfor %}
+
+{% assign current_zone = "zone" | append: n %}
+2+| Zone {{ n }}, Spare Codes: *{{ file.metadata.spare_codes[current_zone] }}*
+|===
+
+{% endfor %}
+
+
+== AMENDEMENTS
+
+[%unnumbered]
+|===
+h| Amendement N° h| Bulletin d'exploitation N° h| Pays ou zone géographique
+
+{% for i in (1..30) %}
+^.^| {{ i }} | |
+{% endfor %}
+|===
+----
+
+
