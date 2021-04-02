@@ -57,46 +57,57 @@ http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.ht
 | | | 
 ^.^| 1 ^.^| 2 ^.^| 3 ^.^| 4 ^.^| 5 ^.^| 6 ^.^| 7 ^.^| 8 ^.^| 9
 
+{% assign sorted_countries = file.data | map: "country_or_area" | map: "fr" | replace: "é", "e" | replace: "è", "e" | remove: '["' | remove: '"]' | split: '", "' | uniq | sort %}
 
-{% for country in file.data %}
+{% for country_name in sorted_countries %}
 
-| {{ country.country_or_area.fr }} +
-{{ country.country_or_area.en }} +
-{{ country.country_or_area.es }}
+{% for country_data in file.data %}
 
-| {{ country.admd_name }}
+{% assign raw_country_name = country_data.country_or_area.fr | replace: "é", "e" | replace: "è", "e" %}
 
-| {{ country.country_code }}
+{% if raw_country_name == country_name %}
 
-| {{ country.mt }}
+| {{ country_data.country_or_area.fr }} +
+{{ country_data.country_or_area.en }} +
+{{ country_data.country_or_area.es }}
 
-| {{ country.ipm }}
+| {{ country_data.admd_name }}
 
-| {{ country.other }}
+| {{ country_data.country_code }}
+
+| {{ country_data.mt }}
+
+| {{ country_data.ipm }}
+
+| {{ country_data.other }}
 
 |
-{% if country.helpdesk.available %}
-{{ country.helpdesk.available | replace: "TRUE", "YES" | replace: "FALSE", "NO" }}
-{% elsif country.helpdesk.x400 %}
-{% assign helpdesk = country.helpdesk.x400 | split: ", " %}
+{% if country_data.helpdesk.available %}
+{{ country_data.helpdesk.available | replace: "TRUE", "YES" | replace: "FALSE", "NO" }}
+{% elsif country_data.helpdesk.x400 %}
+{% assign helpdesk = country_data.helpdesk.x400 | split: ", " %}
 {% for letter in helpdesk %}
 {{ letter }} +
 {% endfor %}
 {% endif %}
 
 |
-{% if country.autoanswer.available %}
-{{ country.autoanswer.available | replace: "TRUE", "YES" | replace: "FALSE", "NO" }}
-{% elsif country.autoanswer.x400 %}
-{% assign autoanswer = country.autoanswer.x400 | split: ", " %}
+{% if country_data.autoanswer.available %}
+{{ country_data.autoanswer.available | replace: "TRUE", "YES" | replace: "FALSE", "NO" }}
+{% elsif country_data.autoanswer.x400 %}
+{% assign autoanswer = country_data.autoanswer.x400 | split: ", " %}
 {% for letter in autoanswer %}
 {{ letter }} +
 {% endfor %}
 {% endif %}
 
 | 
-{% for field in country.contact_address %}
+{% for field in country_data.contact_address %}
 {{ field[1] }} +
+{% endfor %}
+
+{% endif %}
+
 {% endfor %}
 
 {% endfor %}
