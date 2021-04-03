@@ -38,6 +38,17 @@ Les appellations employées dans cette Liste et la présentation des données qu
 
 [yaml2text,iso-3166.yaml,acronyms]
 -- 
+{% assign lang = "fr" %}
+
+{% case lang %}
+    {% when "en" %}
+        {% assign us_note = file | where: "country", "iso-3166:us" | map: "note" %}
+    {% when "fr" %}
+        {% assign us_note = "Les deux organisations sont aussi chargées de l'attribution des codes du prestataire" %}
+    {% when "es" %}
+        {% assign us_note = "Las dos organizaciones están también encargadas de asignar los códigos de proveedor de terminal UIT-T T.35 para Canada." %}
+{% endcase %}
+
 
 {% for country in file %}
 
@@ -46,7 +57,7 @@ Les appellations employées dans cette Liste et la présentation des données qu
 {% assign country_acronym = country.country | remove: "iso-3166:" | replace: "uk", "gb" %}
 2+.<| 
 {%- if country_acronym != "no" -%}
-    {{ acronyms[country_acronym]["fr"] }}
+    {{ acronyms[country_acronym][lang] }}
 {%- else -%}
     Norvège
 {%- endif -%}
@@ -56,7 +67,17 @@ Les appellations employées dans cette Liste et la présentation des données qu
 2+.<| Existe t-il, dans votre pays, des fabricants d'équipements conformes aux Recommandations des séries H, T ou V ?
 {{ country.manufactures_htv | replace: "true", "OUI" | replace: "false", "NON"}}
 
-2+.<| Autorité responsable de l'attribution:
+2+.<| Autorité responsable de l'attribution
+{%- if country.note -%}
+    {%- case lang -%}
+        {%- when "en" or "fr" -%}
+            footnote:[*Note*: {{ us_note }}]:
+        {%- when "es" -%}
+            footnote:[*Nota*: {{ us_note }}]:
+    {%- endcase -%}
+{%- else -%}
+:
+{%- endif -%}
 
 {% if country.assignment_authority != "None designated" %}
 
@@ -87,14 +108,25 @@ Les appellations employées dans cette Liste et la présentation des données qu
 | Fax: | {{ authority.fax }}
 | E-mail: | {{ authority.email }}
 | Liens correspondants: | {{ authority.related_links }}
-
+| Mise à jour des informations: |
+{{ authority.last_updated | date: "%d %B %Y"
+| replace: "January", "janvier"
+| replace: "February", "février"
+| replace: "March", "mars"
+| replace: "April", "avril"
+| replace: "May", "Mai"
+| replace: "June", "juin"
+| replace: "July", "juillet"
+| replace: "August", "août"
+| replace: "September", "septembre"
+| replace: "October", "octobre"
+| replace: "November", "novembre"
+| replace: "December", "décembre" }}
 {% endfor %}
 
 {% else %}
+
 Aucune n'a été désignée
-
-{% endif %}
-
 | Mise à jour des informations: |
 {{ country.last_updated | date: "%d %B %Y"
 | replace: "January", "janvier"
@@ -109,11 +141,10 @@ Aucune n'a été désignée
 | replace: "October", "octobre"
 | replace: "November", "novembre"
 | replace: "December", "décembre" }}
-|===
 
-{% if country.note %}
-NOTE: {{ country.note }}
 {% endif %}
+
+|===
 
 {% endfor %}
 

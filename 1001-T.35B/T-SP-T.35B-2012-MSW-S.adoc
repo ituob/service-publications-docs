@@ -38,6 +38,16 @@ Las denominaciones empleadas en esta Lista y la forma en que aparecen presentado
 
 [yaml2text,iso-3166.yaml,acronyms]
 --
+{% assign lang = "es" %}
+
+{% case lang %}
+    {% when "en" %}
+        {% assign us_note = file | where: "country", "iso-3166:us" | map: "note" %}
+    {% when "fr" %}
+        {% assign us_note = "Les deux organisations sont aussi chargées de l'attribution des codes du prestataire" %}
+    {% when "es" %}
+        {% assign us_note = "Las dos organizaciones están también encargadas de asignar los códigos de proveedor de terminal UIT-T T.35 para Canada." %}
+{% endcase %}
 
 {% for country in file %}
 
@@ -46,7 +56,7 @@ Las denominaciones empleadas en esta Lista y la forma en que aparecen presentado
 {% assign country_acronym = country.country | remove: "iso-3166:" | replace: "uk", "gb" %}
 2+.<| 
 {%- if country_acronym != "no" -%}
-    {{ acronyms[country_acronym]["es"] }}
+    {{ acronyms[country_acronym][lang] }}
 {%- else -%}
     Noruega
 {%- endif -%}
@@ -56,7 +66,17 @@ Las denominaciones empleadas en esta Lista y la forma en que aparecen presentado
 2+.<| ¿Existen fabricantes nacionales de equipos conformes a las Series H, T o V?
 {{ country.manufactures_htv | replace: "true", "SÍ" | replace: "false", "NO"}}
 
-2+.<| Autoridad de asignación:
+2+.<| Autoridad de asignación
+{%- if country.note -%}
+    {%- case lang -%}
+        {%- when "en" or "fr" -%}
+            footnote:[*Note*: {{ us_note }}]:
+        {%- when "es" -%}
+            footnote:[*Nota*: {{ us_note }}]:
+    {%- endcase -%}
+{%- else -%}
+:
+{%- endif -%}
 
 {% if country.assignment_authority != "None designated" %}
 
@@ -87,15 +107,26 @@ Las denominaciones empleadas en esta Lista y la forma en que aparecen presentado
 | Fax: | {{ authority.fax }}
 | E-mail: | {{ authority.email }}
 | Enlaces relacionados: | {{ authority.related_links }}
+| Información actualizada: | 
+{{ authority.last_updated | date: "%d %B %Y"
+| replace: "January", "de enero de"
+| replace: "February", "de febrero de"
+| replace: "March", "de marzo de"
+| replace: "April", "de abril de"
+| replace: "May", "de mayo de"
+| replace: "June", "de junio de"
+| replace: "July", "de julio de"
+| replace: "August", "de agosto de"
+| replace: "September", "de septiembre de"
+| replace: "October", "de octubre de"
+| replace: "November", "de noviembre de"
+| replace: "December", "de diciembre de" }}
 
 {% endfor %}
 
 {% else %}
 
 No se ha designado ninguna
-
-{% endif %}
-
 | Información actualizada: | 
 {{ country.last_updated | date: "%d %B %Y"
 | replace: "January", "de enero de"
@@ -110,11 +141,10 @@ No se ha designado ninguna
 | replace: "October", "de octubre de"
 | replace: "November", "de noviembre de"
 | replace: "December", "de diciembre de" }}
-|===
 
-{% if country.note %}
-NOTE: {{ country.note }}
 {% endif %}
+
+|===
 
 {% endfor %}
 
