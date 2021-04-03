@@ -36,6 +36,16 @@ The designations employed and the presentation of material in this List do not i
 
 [yaml2text,iso-3166.yaml,acronyms]
 --
+{% assign lang = "en" %}
+
+{% case lang %}
+    {% when "en" %}
+        {% assign us_note = file | where: "country", "iso-3166:us" | map: "note" %}
+    {% when "fr" %}
+        {% assign us_note = "Les deux organisations sont aussi chargées de l'attribution des codes du prestataire" %}
+    {% when "es" %}
+        {% assign us_note = "Las dos organizaciones están también encargadas de asignar los códigos de proveedor de terminal UIT-T T.35 para Canada." %}
+{% endcase %}
 
 {% for country in file %}
 
@@ -44,7 +54,7 @@ The designations employed and the presentation of material in this List do not i
 {% assign country_acronym = country.country | remove: "iso-3166:" | replace: "uk", "gb" %}
 2+.<| 
 {%- if country_acronym != "no" -%}
-    {{ acronyms[country_acronym]["en"] }}
+    {{ acronyms[country_acronym][lang] }}
 {%- else -%}
     Norway
 {%- endif -%}
@@ -59,7 +69,15 @@ The designations employed and the presentation of material in this List do not i
 
 2+.<|
 {% if country.assignment_authority.size > 1 %}
-    Assignment authorities:
+    Assignment authorities
+    {%- if country.note -%}
+        {%- case lang -%}
+            {%- when "en" or "fr" -%}
+                footnote:[*Note*: {{ us_note }}]:
+            {%- when "es" -%}
+                footnote:[*Nota*: {{ us_note }}]:
+        {%- endcase -%}
+    {%- endif -%}
 {% else %}
     Assignment authority:
 {% endif %}
@@ -91,21 +109,18 @@ The designations employed and the presentation of material in this List do not i
 | Fax: | {{ authority.fax }}
 | E-mail: | {{ authority.email }}
 | Related links: | {{ authority.related_links }}
+| Information updated: | {{ authority.last_updated | date: "%d %B %Y" }}
 
 {% endfor %}
 
 {% else %}
 
 {{ country.assignment_authority }}
-
-{% endif %}
-
 | Information updated: | {{ country.last_updated | date: "%d %B %Y" }}
-|===
 
-{% if country.note %}
-NOTE: {{ country.note }}
 {% endif %}
+
+|===
 
 
 {% endfor %}
