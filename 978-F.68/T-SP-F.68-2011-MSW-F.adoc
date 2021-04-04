@@ -1,0 +1,206 @@
+= Liste des Codes Télex de Destination (CTD) et des Codes d'Identification des Réseaux Télex (CIRT)
+:bureau: T
+:docnumber: 978
+:title: LISTE DES CODES TÉLEX DE DESTINATION (CTD) ET DES CODES D'IDENTIFICATION DES RÉSEAUX TÉLEX (CIRT)
+:complements: F.69 (06/1994), F.68 (11/1988)
+:published-date: 2011-04-15
+:status: draft
+:doctype: service-publication
+:imagesdir: images
+:docfile: document.adoc
+:mn-document-class: itu
+:language: fr
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+== Notes du TSB
+
+. Par la Circulaire TSB 80 du 3 juin 1994, le TSB annonçait l'approbation de la Recommandation UIT-T F.69 (06/1994), conformément à la Résolution N°&nbsp;1, Section 8, de la CMNT (Helsinki, 1993). En conséquence, le TSB a préparé une liste des Codes Télex de Destination (CTD) et des Codes d'Identification des Réseaux Télex (CIRT) correspondants, attribués conformément à la Recommandation UIT-T F.68 (11/1988). Cette liste, établie sur la base de l'Annexe A à la Recommandation UIT‑T F.69 publiée dans le Livre bleu (Tome II - Fascicule II.4 – pages 142 à 145), tient compte des changements de codes ou des noms des pays/zones géographiques.
+
+. La nouvelle liste, annexée au Bulletin d'exploitation de l'UIT N° 978 du 15 avril 2011, remplace la précédente. Par ailleurs, les codes de réseau des télégrammes à deux lettres, dont il est question dans la Recommandation UIT-T F.32 (10/1995), paragraphe 7.3, qui correspondent aux codes d'identification des réseau télex à une lettre et pays ou zones géographiques pour lesquels des renseignements relatifs à la cessation du service télex ont été publiés dans le Bulletin d'exploitation de l'UIT (N°), sont ajoutés à cette liste.
+
+. Pour que la liste puisse être tenue à jour, les administrations/ER sont priées de vérifier l'exactitude des informations qu'elle contient et d'informer le TSB de toute modification apportée (Fax: *+41 22 730 5853* ou E-mail: *tsbtson@itu.int*). Les modifications seront publiées sous forme d'amendements à la liste dans les prochains Bulletin d'exploitation de l'UIT.
+
+. En outre, les renseignements contenus dans cette Annexe au Bulletin d'exploitation de l'UIT&nbsp; N° 978 peuvent également être consultés sur la page web de l'UIT à l'adresse suivante: link:http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html].
+
+. Les appellations employées et la présentation des renseignements fournis dans cette liste n'impliquent de la part de l'UIT aucune prise de position quelle qu'elle soit quant au statut juridique des pays ou zones géographiques ou de leurs autorités.
+
+
+
+[yaml2text,T-SP-F.68-2011-MSW.yaml,file]
+----
+{% assign lang = "fr" %}
+
+== {{ file.metadata.title[lang] }}
+
+NOTE: {{ file.metadata.note[lang] }}
+
+
+[cols="^,^,^",options="unnumbered"]
+|===
+
+h| {{ file.metadata.locale.number_block[lang] }} h| {{ file.metadata.locale.telex_code[lang] }} h| {{ file.metadata.locale.allocated_to[lang] }}
+| 1 | 2 | 3
+
+{% for code in file.data %}
+
+| {{ code.number_block }}
+{%- if code.notes -%}
+    footnote:[{{ code.notes[lang] }}]
+{%- endif -%}
+| {{ code.telex_code }} <| {{ code.allocated_to[lang] }}
+
+{% endfor %}
+
+|===
+
+----
+
+
+[yaml2text,T-SP-F.68-2011-MSW.appendix-1.yaml,file]
+----
+{% assign lang = "fr" %}
+
+[appendix]
+== {{ file.metadata.title[lang] }}
+
+[cols="^,^,^",options="unnumbered"]
+|===
+
+h| {{ file.metadata.locale.tnic[lang] }} h| {{ file.metadata.locale.telegram_network_codes[lang] }} h| {{ file.metadata.locale.country[lang] }}
+
+{% for tnic_code in file.data %}
+| {{ tnic_code[0] }} | {{ tnic_code[1].telegram_network_codes }} <| {{ tnic_code[1].country[lang] }}
+{% endfor %}
+
+|===
+
+----
+
+
+[yaml2text,T-SP-F.68-2011-MSW.appendix-2.yaml,file]
+----
+{% assign lang = "fr" %}
+
+[appendix]
+== {{ file.metadata.title[lang] }}
+
+[cols="4",options="header,unnumbered"]
+|===
+| {{ file.metadata.locale.ob_number[lang] }} | {{ file.metadata.locale.geographic_area[lang] }} | {{ file.metadata.locale.ob_number[lang] }} | {{ file.metadata.locale.geographic_area[lang] }}
+
+{% for i in (0..24) %}
+{% assign j = 25 | plus: i %}
+| {{ file.data[i].ob_number }} | {{ file.data[i].geographic_area[lang] }} | {{ file.data[j].ob_number }} | {{ file.data[j].geographic_area[lang] }}
+{% endfor %}
+
+|===
+
+----
+
+
+== ABRÉVIATIONS
+
+AACR:: All America Cables and Radio, Inc.
+
+AT&T:: American Telephone and Telegraph Company – EasyLink Services
+
+CANTV:: Compañía Anónima Nacional Teléfonos de Venezuela (Gerencia Internacional)
+
+CAPWIRE:: Capitol Wireless, Inc.
+
+CCI:: Consortium Communications International, Inc.
+
+CDT:: Compañía Dominicana de Télex, C. por A.
+
+ENTEL:: Empresa Nacional de Telecomunicaciones
+
+ENTEL-CHILE:: Empresa Nacional de Telecomunicaciones S.A.
+
+ETISALAT:: The Emirates Telecommunications Corporation Ltd
+
+ETPI:: Eastern Telecommunications Philippines, Inc.
+
+GMCR:: Globe-Mackay Cable and Radio Corporation
+
+GRAPHNET:: GRAPHNET, Inc.
+
+GTC:: Government Telecommunications Centre (Malta)
+
+INTEL:: Instituto Nacional de Telecomunicaciones
+
+MCI/WUI:: MCI International/WUI, Inc.
+
+MIRADOR:: Red Agencia Mirador
+
+MMR:: Mobile Marine Radio, Inc.
+
+PHILCOM:: Philippine Global Communications, Inc.
+
+PRCA:: Puerto Rico Communication Authority
+
+PTT:: Philippine Telegraph and Telephone Corp.
+
+RCPI:: Radio Communications of the Philippines, Inc.
+
+TELENET:: Telenet Communications Corporation
+
+TELEX:: CHILE Télex Chile Comunicaciones Telegráficas S.A.
+
+TELEYEMEN:: Yemen International Telecommunications Company (LLC)
+
+TEXCOM:: Sistemas y Equipos de Telecomunicaciones LTDA
+
+TRT/FTC:: TRT/FTC Communication, Inc.
+
+VTR:: VTR Telecomunicaciones S.A.
+
+VTR/CM:: VTR Comunicaciones Mundiales S.A.
+
+WUH:: Western Union of Hawaii, Inc.
+
+
+
+== AMENDEMENTS
+
+[%unnumbered,cols="^.^,^.^,^.^",options="header"]
+|===
+|Amendement N° |Bulletin d'exploitation N° |Pays ou zone géographique
+
+|1 | |
+|2 | |
+|3 | |
+|4 | |
+|5 | |
+|6 | |
+|7 | |
+|8 | |
+|9 | |
+|10 | |
+|11 | |
+|12 | |
+|13 | |
+|14 | |
+|15 | |
+|16 | |
+|17 | |
+|18 | |
+|19 | |
+|20 | |
+|21 | |
+|22 | |
+|23 | |
+|24 | |
+|25 | |
+|26 | |
+|27 | |
+|28 | |
+|29 | |
+|30 | |
+
+|===
+
+
+
