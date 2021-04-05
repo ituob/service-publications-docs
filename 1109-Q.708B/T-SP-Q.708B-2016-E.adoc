@@ -1,0 +1,140 @@
+= List of International Signalling Point Codes (ISPC) for signalling system No. 7 (According to Recommendation ITU-T Q.708 (03/99))
+:bureau: T
+:docnumber: 1199
+:published-date: 2020-07-01
+:status: in-force
+:doctype: service-publication
+:annexid: No. 1199
+:docfile: T-SP-Q.708B-2016-E.adoc
+:mn-document-class: itu
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:imagesdir: images
+:data-uri-image:
+
+
+[preface]
+== Note from TSB
+
+. This List of International Signalling Point Codes (ISPC) replaces the previous one published as Annex to the ITU Operational Bulletin No. 1109 of 1.X.2016. Since then, a number of notifications have been received at TSB and they have been published separately in various issues of the ITU Operational Bulletin. The present list recapitulates all the different amendments that have been published up to ITU Operational Bulletin No. 1199 of 1.VII.2020.
+
+. Recommendation ITU-T Q.708 states that the assignment of signalling area/network codes (SANC) is to be administered by TSB. Each country will then be responsible for the assignment of international signalling point codes (ISPC) that will then be notified to TSB.
+
+. The numbering plan of Recommendation ITU-T Q.708 contains 2 048 SANCs providing for 16 384 international signalling points. From these, currently 1 536 SANCs are available for assignment allowing for 12 288 international points. At present 1 055 SANCs are assigned; the reported utilization is 6 255 international signalling points.
+
+. In order to keep the list up to date, administrations are, therefore, requested to notify TSB, by using the notification form attached, as soon as an ISPC assignment or withdrawal is made, link:http://www.itu.int/en/ITU-T/inr/forms/Pages/ispc.aspx[www.itu.int/en/ITU-T/inr/forms/Pages/ispc.aspx].
+
+. This List will be updated by numbered series of amendments published in the ITU Operational Bulletin. Furthermore, the information contained in this Annex is also available on the link:https://www.itu.int/pub/T-SP[ITU website].
+
+. Please address any comments or any modifications concerning this List to the Director of TSB:
++
+--
+[align=left]
+Director of TSB +
+International Telecommunication Union +
+Place des Nations +
+CH-1211 GENEVA 20 +
+Switzerland +
+Tel: +41 22 730 5211 +
+Fax: +41 22 730 5853 +
+E-mail: mailto:tsbtson@itu.int[]
+--
+
+. The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of ITU concerning the legal status of any country or geographical area, or of its authorities.
+
+
+== {blank}
+
+[yaml2text,T-SP-Q.708B-2016.yaml,file]
+----
+{% assign lang = "en" %}
+
+[cols="^,^,^,^",options="unnumbered"]
+|===
+
+4+<h| {{ file.metadata.country_or_area[lang] }}
+h| {{ file.metadata.ipsc[lang] }}
+h| {{ file.metadata.dec[lang] }}
+h| {{ file.metadata.signal_point_name[lang] }}
+h| {{ file.metadata.signal_point_operator[lang] }}
+
+{% for country_data in file.data %}
+{% assign next_country = country_data[1].country[lang] %}
+
+{% if current_country != next_country -%}
+    {% assign current_country = next_country %}
+    4+<| *{{ current_country }}*
+{%- endif %}
+
+| {{ country_data[1].ipsc }} | {{ country_data[1].dec }} <| {{ country_data[1].signal_point_name }} <| {{ country_data[1].signal_point_operator }}
+
+{% endfor %}
+
+|===
+
+ISPC:: International Signalling Point Codes. +
+Codes de points sémaphores internationaux (CPSI). +
+Códigos de puntos de señalización internacional (CPSI).
+
+
+== Notification of assignment or withdrawal of International Signalling Point Codes (ISPC) for Signalling System No. 7 (According to Recommendation ITU-T Q.708(03/99))
+
+_This form should be used to notify the Director of TSB of ISPCs that have been assigned or withdrawn by a Member State since the last notification._
+
+
+Country/Area: 
+{% for i in (1..100) -%}
+&#95;
+{%- endfor %} +
+Member State Organization: 
+{% for i in (1..89) -%}
+&#95;
+{%- endfor %} +
+Member State contact person: Name: 
+{% for i in (1..82) -%}
+&#95;
+{%- endfor %} +
+Address: 
+{% for i in (1..105) -%}
+&#95;
+{%- endfor %} +
+Tel: 
+{% for i in (1..45) -%}
+&#95;
+{%- endfor %} 
+Fax: 
+{% for i in (1..45) -%}
+&#95;
+{%- endfor %} +
+E-mail: 
+{% for i in (1..42) -%}
+&#95;
+{%- endfor %}
+
+
+[cols="4",options="unnumbered"]
+|===
+
+h| ISPC h| Unique name of the ignalling point h| Name of the signalling point operator h| Country where the Signalling Point is to be put into service under section 7.9 footnote:[An entry is only made in this column if section 7.9 applies.]
+
+{% for i in (1..30) %}
+| | | |
+{% endfor %}
+
+|===
+
+
+== AMENDMENTS
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| Amendment No. | Operational Bulletin No. | Country
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+
+----
+
+

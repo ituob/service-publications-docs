@@ -1,0 +1,156 @@
+= Liste des codes de points sémaphores internationaux (ISPC) pour le système de signalisation No 7 (selon la Recommandation UIT-T Q.708 (03/99))
+:bureau: T
+:docnumber: 1199
+:published-date: 2020-07-01
+:status: in-force
+:doctype: service-publication
+:annexid: No. 1199
+:docfile: T-SP-Q.708B-2016-E.adoc
+:mn-document-class: itu
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:imagesdir: images
+:data-uri-image:
+
+[preface]
+== Note du TSB
+
+. Cette Liste des codes de points sémaphores internationaux (ISPC) (international signalling point codes) remplace celle qui avait été publiée dans l’Annexe du Bulletin d'exploitation No 1109 du 1.X.2016. Depuis ce jour, différentes notifications ont été reçues au TSB et ont été publiées séparément dans différents numéros du Bulletin d'exploitation de l'UIT. La présente Liste récapitule tous les différents amendements qui ont été publiés jusqu'au Bulletin d'exploitation No 1199 du 1.VII.2020.
+
+. La Recommandation UIT-T Q.708 mentionne que l'attribution des codes de zone/réseau sémaphore (SANC) (signalling area network code) doit être régie par le TSB. L'attribution des codes de points sémaphores internationaux (ISPC) sera faite par chaque pays qui en avisera le TSB.
+
+. Le plan de numérotage de la Recommandation UIT-T Q.708 contient 2 048 codes SANC permettant de disposer de 16 384 points sémaphores internationaux. Parmi ces codes, 1 536 sont disponibles pour assignation, donnant 12 288 points sémaphores internationaux. A l'heure actuelle, 1 055 codes SANC sont attribués, et selon les indications reçues, 6 255 points sémaphores internationaux sont en service.
+
+. Pour que la Liste puisse être tenue à jour, les Administrations sont priées d'aviser le TSB, au moyen du formulaire de notification ci-joint, de toute attribution ou de retrait de code ISPC, link:http://www.itu.int/en/ITU-T/inr/forms/Pages/ispc.aspx[www.itu.int/en/ITU-T/inr/forms/Pages/ispc.aspx].
+
+. La mise à jour de cette Liste se fera par des séries d'amendements numérotés publiés dans le Bulletin d'exploitation de l'UIT. D'autre part, les informations contenues dans cette Annexe sont disponibles sur le site web de l’UIT, à l'adresse link:https://www.itu.int/pub/T-SP[www.itu.int/pub/T-SP].
+
+. Veuillez adresser vos commentaires concernant cette Liste au Directeur du TSB:
++
+--
+[align=left]
+Union internationale des télécommunications +
+Directeur du TSB +
+Place des Nations +
+CH-1211 GENÈVE 20 +
+Suisse +
+Tél: +41 22 730 5211 +
+Fax: +41 22 730 5853 +
+E-mail: mailto:tsbtson@itu.int[]
+--
+
+. Les appellations employées dans cette Liste et la présentation des données qui y figurent n'impliquent, de la part de l'UIT, aucune prise de position quant au statut juridique des pays ou zones géographiques ou de leurs autorités.
+
+
+== {blank}
+
+[yaml2text,T-SP-Q.708B-2016.yaml,file]
+----
+{% assign lang = "fr" %}
+
+[cols="^,^,^,^",options="unnumbered"]
+|===
+
+4+<h| {{ file.metadata.country_or_area[lang] }}
+h| {{ file.metadata.ipsc[lang] }}
+h| {{ file.metadata.dec[lang] }}
+h| {{ file.metadata.signal_point_name[lang] }}
+h| {{ file.metadata.signal_point_operator[lang] }}
+
+{% for country_data in file.data %}
+{% assign next_country = country_data[1].country[lang] %}
+
+{% if current_country != next_country -%}
+    {% assign current_country = next_country %}
+    4+<| *{{ current_country }}*
+{%- endif %}
+
+| {{ country_data[1].ipsc }} | {{ country_data[1].dec }} <| {{ country_data[1].signal_point_name }} <| {{ country_data[1].signal_point_operator }}
+
+{% endfor %}
+
+|===
+
+ISPC:: International Signalling Point Codes. +
+Codes de points sémaphores internationaux (CPSI). +
+Códigos de puntos de señalización internacional (CPSI).
+
+
+== Formulaire de notification pour l’attribution ou le retrait des codes de points sémaphores internationaux (ISPC)pour le système de signalisation No 7 (Selon la Recommandation UIT-T Q.708 (03/99))
+
+_Le présent formulaire doit être utilisé pour notifier au Directeur du TSB les codes ISPC qui ont été attribués ou retirés par un Etat Membre depuis la dernière notification._
+
+
+Pays/Zone: 
+{% for i in (1..100) -%}
+&#95;
+{%- endfor %} +
+Organisation de l’Etat Membre: 
+{% for i in (1..89) -%}
+&#95;
+{%- endfor %} +
+Personne représentant l’Etat Membre: Nom: 
+{% for i in (1..82) -%}
+&#95;
+{%- endfor %} +
+Adresse: 
+{% for i in (1..105) -%}
+&#95;
+{%- endfor %} +
+Tél: 
+{% for i in (1..45) -%}
+&#95;
+{%- endfor %} 
+Fax: 
+{% for i in (1..45) -%}
+&#95;
+{%- endfor %} +
+Courrier électronique: 
+{% for i in (1..42) -%}
+&#95;
+{%- endfor %}
+
+
+[cols="4",options="unnumbered"]
+|===
+| ISPC | Nom unique du point sémaphore | Nom de l’opérateur du point sémaphore | Pays dans lequel le point sémaphore sera mis en service, conformément aux dispositions de la section 7.9 footnote:[Uniquement dans le cas où les dispositions de la section 7.9 s’appliquent.]
+
+{% for i in (1..30) %}
+| | | |
+{% endfor %}
+|===
+
+
+== AMENDEMENTS
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| Amendement N° | Bulletin d'exploitation N°. | Pays
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+
+----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
