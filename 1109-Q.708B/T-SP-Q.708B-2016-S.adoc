@@ -1,0 +1,143 @@
+= Lista de códigos de puntos de señalización internacional (ISPC) para el sistema de señalización N.o 7 (según la Recomendación UIT-T Q.708 (03/99))
+:bureau: T
+:docnumber: 1199
+:published-date: 2020-07-01
+:status: in-force
+:doctype: service-publication
+:annexid: No. 1199
+:docfile: T-SP-Q.708B-2016-E.adoc
+:mn-document-class: itu
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:imagesdir: images
+:data-uri-image:
+
+[preface]
+== Nota de la TSB
+
+. Esta Lista de los códigos de puntos de señalización internacional (ISPC) (international signalling point codes ) reemplaza la publicada en el Anexo al Boletín de Explotación N.o 1109 de 1.X.2016. Desde esa fecha, TSB ha recibido diferentes notificaciones que han publicado por separado en diferentes números del Boletín de Explotación de la UIT. La presente Lista recapitulativa comprende todas las enmiendas que se han publicado hasta el Boletín de Explotación N.o 1199 de 1.VII.2020.
+
+. La Recomendación UIT-T Q.708 indica que la asignación de códigos de zona/red de señalización (SANC) (signalling area/network code) será administrada por la TSB. La asignación de códigos de punto de señalización internacional (ISPC) la efectuará por cada país y se notificará a la TSB.
+
+. El plan de numeración de la Recomendación UIT-T Q.708 contiene 2 048 SANC que proporcionan 16 384 puntos de señalización internacional. De ellos, 1 536 SANC están disponibles actualmente para asignación, lo que representa 12 288 puntos internacionales. En la actualidad están asignados 1 055 SANC, y según las informaciones recibidas la utilización es de 6 255 puntos de señalización internacional.
+
+. Para mantener la Lista al día, se ruega a las administraciones que notifiquen a la TSB cualquier asignación o retirada de un ISPC, mediante el formulario de notificación adjunto, link:http://www.itu.int/en/ITU-T/inr/forms/Pages/ispc.aspx[www.itu.int/en/ITU-T/inr/forms/Pages/ispc.aspx].
+
+. La Lista se actualizará por series de enmiendas numeradas que se publicarán en el Boletín de Explotación de la UIT. Por otra parte, las informaciones que figuran en este Anexo están disponibles en el sitio web de la UIT link:https://www.itu.int/pub/T-SP[www.itu.int/pub/T-SP].
+
+. Sírvase comunicar sus comentarios o modificaciones con respecto a esta Lista al Director de la TSB:
+Unión Internacional de Telecomunicaciones
++
+--
+[align=left]
+Director de la TSB +
+Place des Nations +
+CH-1211 GINEBRA 20 +
+Suiza +
+Tel: +41 22 730 5211 +
+Fax: +41 22 730 5853 +
+E-mail: mailto:tsbtson@itu.int[]
+--
+
+. Las denominaciones empleadas en esta Lista y la forma en que aparecen presentados los datos que contiene no implican, de parte de la UIT, juicio alguno sobre la condición jurídica de países o zonas geográficas, o de sus autoridades.
+
+
+== {blank}
+
+[yaml2text,T-SP-Q.708B-2016.yaml,file]
+----
+{% assign lang = "es" %}
+
+[cols="^,^,^,^",options="unnumbered"]
+|===
+
+4+<h| {{ file.metadata.country_or_area[lang] }}
+h| {{ file.metadata.ipsc[lang] }}
+h| {{ file.metadata.dec[lang] }}
+h| {{ file.metadata.signal_point_name[lang] }}
+h| {{ file.metadata.signal_point_operator[lang] }}
+
+{% for country_data in file.data %}
+{% assign next_country = country_data[1].country[lang] %}
+
+{% if current_country != next_country -%}
+    {% assign current_country = next_country %}
+    4+<| *{{ current_country }}*
+{%- endif %}
+
+| {{ country_data[1].ipsc }} | {{ country_data[1].dec }} <| {{ country_data[1].signal_point_name }} <| {{ country_data[1].signal_point_operator }}
+
+{% endfor %}
+
+|===
+
+ISPC:: International Signalling Point Codes. +
+Codes de points sémaphores internationaux (CPSI). +
+Códigos de puntos de señalización internacional (CPSI).
+
+
+== Formulario de notificación para la asignación/retirada de códigos de punto de señalización internacional (ISPC) para el sistema de señalización N.o 7 (Según la Recomendación UIT-T Q.708(03/99))
+
+_Este formulario debe utilizarse para notificar al Director de la TSB los ISPC que han sido asignados o retirados por un Estado Miembro desde la última notificación._
+
+País/Zona: 
+{% for i in (1..100) -%}
+&#95;
+{%- endfor %} +
+Organización del Estado Miembro: 
+{% for i in (1..89) -%}
+&#95;
+{%- endfor %} +
+Persona encargada del Estado Miembro: Nombre: 
+{% for i in (1..82) -%}
+&#95;
+{%- endfor %} +
+Dirección: 
+{% for i in (1..105) -%}
+&#95;
+{%- endfor %} +
+Tel: 
+{% for i in (1..45) -%}
+&#95;
+{%- endfor %} 
+Fax: 
+{% for i in (1..45) -%}
+&#95;
+{%- endfor %} +
+Correo electrónico: 
+{% for i in (1..42) -%}
+&#95;
+{%- endfor %}
+
+
+[cols="^,^,^,^",options="unnumbered"]
+|===
+
+h| ISPC h| Nombre único del punto de señalización h| Nombre del operador del punto de señalización h| País en que el punto de señalización ha de ponerse en servicio de conformidad con la sección 7.9 footnote:[Esta columna se utiliza únicamente si se aplica la sección 7.9.]
+
+{% for i in (1..30) %}
+| | | |
+{% endfor %}
+|===
+
+
+== ENMIENDAS
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| Enmienda N.° | Boletín de Explotación N.° | País
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+
+----
+
+
+
+
+
+
+
+
