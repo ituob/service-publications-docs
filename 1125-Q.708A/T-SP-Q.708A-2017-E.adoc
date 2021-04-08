@@ -1,0 +1,85 @@
+= List of Signalling Area/Network Codes (SANC) (Complement to Recommendation ITU-T Q.708 (03/99))
+:bureau: T
+:docnumber: Q.708
+:published-date: 2017-06-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 1125 - 1.VI.2017
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-Q.708A-2017-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+[preface]
+== Note by TSB
+
+. This List of Signalling Area/Network Codes (SANC) replaces the previous one published as Annex to the ITU Operational Bulletin No. 1066 of 15.XII.2014. Since then, various new assignments have been made and they have been published separately in various issues of the ITU Operational Bulletin. The present List contains all the amendments that have been published up to Operational Bulletin No. 1125 of 1.VI.2017.
+
+. The present List includes:
++
+--
+* a list of SANC codes in numerical order
+* a list of SANC codes in alphabetical order of names of countries/geographical areas.
+--
+
+. Recommendation ITU-T Q.708 (03/99) states that the assignment of signalling area/network codes (SANC) is to be administered by the TSB. The assignment/withdrawal of international signalling point codes (ISPC) will be made by each country who will then notify the TSB.
+
+. A request for a SANC is to be made by the Administration in writing to the Director of the TSB. In order to request an additional SANC an Administration must provide the Director of the TSB notification of the current assignment of ISPCs by that Administration.
+
+. For information, this List will be updated by numbered series of amendments published in the ITU Operational Bulletin. Furthermore, the information contained in this Annex is also available on the ITU website www.itu.int/ITU-T/bulletin/annex.html .
+
+. Countries who wish to take part in the international signalling network or require an additional signalling area/network code (SANC) should ask the Director of the TSB for the assignment of an available SANC code. In their request they may indicate the available SANC code preferred. Please address any comments to the Director of the TSB:
++
+--
+[align=left]
+International Telecommunication Union +
+Director of the TSB +
+Place des Nations +
+CH-1211 GENEVA 20 +
+Switzerland +
+Tel: +41 22 730 5887 +
+Fax: +41 22 730 5853 +
+E-mail: mailto:tsbmail@itu.int[]
+--
+
+. The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of the ITU concerning the legal status of any country or geographical area, or of its authorities.
+
+
+== {blank}
+
+[yaml2text,T-SP-Q.708A-2017.yaml,file]
+----
+{% assign lang = "en" %}
+
+[cols="2",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.area_or_network[lang] }} -- numerical order
+
+{% for network_data in file.data -%}
+    | {{ network_data[1].code }} | {{ network_data[1].area_or_network[lang] }}
+    {%- assign network_names = network_names | append: network_data[1].area_or_network[lang] | append: ", " -%}
+{% endfor %}
+|===
+
+
+{% assign ordered_sequence = network_names | split: ", " | uniq | sort %}
+
+[cols="2",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.area_or_network[lang] }} -- alphabetical order
+
+{% for next_network in ordered_sequence -%}
+    {%- for network_data in file.data -%}
+        {%- if network_data[1].area_or_network[lang] == next_network -%}
+            | {{ network_data[1].code }} | {{ network_data[1].area_or_network[lang] }}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endfor %}
+|===
+----

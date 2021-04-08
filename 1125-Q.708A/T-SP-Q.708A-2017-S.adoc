@@ -1,0 +1,85 @@
+= Lista de códigos de zona/red de señalización (SANC) (Complemento de la Recomendación UIT-T Q.708 (03/1999))
+:bureau: T
+:docnumber: Q.708
+:published-date: 2017-06-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 1125 - 1.VI.2017
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-Q.708A-2017-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+[preface]
+== Nota de la TSB
+
+. Esta Lista de códigos de zona/red de señalización (SANC) reemplaza la publicada en el Anexo al Boletín de Explotación N.o 1066 de 15.XII.2014. Desde entonces, se han efectuado varias asignaciones nuevas, que se han publicado en diferentes números del Boletín de Explotación de la UIT. La presente Lista contiene todas las enmiendas publicadas hasta el Boletín de Explotación N.o 1125 de 1.VI.2017.
+
+2. La presente Lista comprende:
++
+--
+* una lista de los códigos SANC en orden numérico
+* una lista de los códigos SANC en orden alfabético de nombres de los países/zonas geográficas.
+--
+
+. La Recomendación UIT-T Q.708 (03/99) especifica que la asignación de códigos de zona/red de señalización (SANC) será administrada por la TSB. Cada país efectuará la asignación/retirada de códigos de punto de señalización internacional (ISPC) y la notificará a la TSB.
+
+. Las Administraciones deben solicitar uno SANC por escrito al Director de la TSB. Para solicitar uno SANC adicional, una Administración debe notificar al Director de la TSB las asignaciones actuales de ISPC correspondientes a esa Administración.
+
+. La Lista se actualizará por medio de enmiendas que se publicarán en el Boletín de Explotación de la UIT. Por otra parte, la información contenida en este Anexo está disponible en el sitio web de la UIT link:https://www.itu.int/ITU-T/bulletin/annex.html[www.itu.int/ITU-T/bulletin/annex.html].
+
+. Los países que deseen formar parte de la red de señalización internacional o que deseen un código de zona/red de señalización (SANC) adicional deberán solicitar al Director de la TSB la asignación de un código SANC disponible. En su solicitud podrán indicar el código SANC disponible que prefieran. Sírvase enviar sus comentarios al Director de la TSB:
++
+--
+Unión Internacional de Telecomunicaciones +
+Director de la TSB +
+Place des Nations +
+CH-1211 GINEBRA 20 +
+Suiza +
+Tel: +41 22 730 5887 +
+Fax: +41 22 730 5853 +
+E-mail: mailto:tsbmail@itu.int[]
+--
+
+. Las denominaciones empleadas en esta Lista y la forma en que aparecen presentados los datos que contiene no implican, de parte de la UIT, juicio alguno sobre la condición jurídica de países o zonas geográficas, o de sus autoridades.
+
+
+== {blank}
+
+[yaml2text,T-SP-Q.708A-2017.yaml,file]
+----
+{% assign lang = "es" %}
+
+[cols="2",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.area_or_network[lang] }} -- numerical order
+
+{% for network_data in file.data -%}
+    | {{ network_data[1].code }} | {{ network_data[1].area_or_network[lang] }}
+    {%- assign network_names = network_names | append: network_data[1].area_or_network[lang] | append: ", " -%}
+{% endfor %}
+|===
+
+
+{% assign ordered_sequence = network_names | split: ", " | uniq | sort %}
+
+[cols="2",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.area_or_network[lang] }} -- alphabetical order
+
+{% for next_network in ordered_sequence -%}
+    {%- for network_data in file.data -%}
+        {%- if network_data[1].area_or_network[lang] == next_network -%}
+            | {{ network_data[1].code }} | {{ network_data[1].area_or_network[lang] }}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endfor %}
+|===
+----
+
