@@ -1,0 +1,177 @@
+= LISTE DES INDICATIFS DE PAYS OU DE ZONES GÉOGRAPHIQUES DU MOBILE
+:bureau: T
+:docnumber: E.212
+:published-date: 2017-02-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 1117
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.212A-2017-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+[preface]
+== Note du TSB
+
+. Cette Liste des indicatifs de pays ou de zones géographiques du mobile remplace celle qui avait été publiée dans l’Annexe au Bulletin d’exploitation de l'UIT No 1005 du 1 juin 2012.
+Depuis lors, différentes assignations nouvelles sont apparues et ont été publiées séparément dans différents numéros du Bulletin d'exploitation de l'UIT.
+
+. La présente Liste comprend:
++
+--
+* une liste des indicatifs de pays ou de zones géographiques du mobile - par ordre numérique;
+* une liste des indicatifs de pays ou de zones géographiques du mobile - par ordre alphabétique.
+--
+
+. La mise à jour de cette liste se fera par des séries d'amendements numérotés publiés dans le Bulletin d'exploitation de l'UIT. D'autre part, les informations contenues dans cette Annexe sont disponibles sur le site web de l’UIT (à l'adresse link:https://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html]).
+
+. Veuillez adresser vos commentaires concernant cette publication au Directeur du TSB:
++
+--
+Tél: +41 22 730 5857
+Fax: +41 22 730 5853
+Email: mailto:tsbmail@itu.int[]
+--
+
+. Les appellations employées dans cette Liste et la présentation des données qui y figurent n'impliquent, de la part de l'UIT, aucune prise de position quant au statut juridique des pays ou zones géographiques, ou de leurs autorités.
+
+
+[yaml2text,T-SP-E.212A-2017.main.yaml,file]
+----
+{% assign lang = "fr" %}
+
+== {{ file.metadata.title[lang] }} - numerical order
+
+{% assign notes = file.data | map: "note" | uniq %}
+
+{% for note_content in notes %}
+    {% assign note_first_word = note_content.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            {% assign note_a = note_content[lang] %}
+        {% when "Dubai:" %}
+            {% assign note_b = note_content[lang] %}
+        {% when "Associated" %}
+            {% assign note_c = note_content[lang] %}
+        {% when "This" %}
+            {% assign note_d = note_content[lang] %}
+    {% endcase %}
+{% endfor %}
+
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for country_data in file.data -%}
+    | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} | 
+    {% assign note_first_word = country_data.note.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            <<note_a,a>>
+        {% when "Dubai:" %}
+            <<note_b,b>>
+        {% when "Associated" %}
+            <<note_c,c>>
+        {% when "This" %}
+            <<note_d,d>>
+    {% endcase %}
+{%- endfor %}
+
+|===
+
+
+== {{ file.metadata.title[lang] }} - alphabetical order
+
+{% assign ordered_sequence = file.data | map: "country_or_area" | sort: lang | uniq %}
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for next_country in ordered_sequence -%}
+    {%- for country_data in file.data -%}
+        {%- if country_data.country_or_area[lang] == next_country[lang] -%}
+            | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} | 
+            {% assign note_first_word = country_data.note.en | split: " " | first %}
+            {% case note_first_word %}
+                {% when "Mobile" %}
+                    <<note_a,a>>
+                {% when "Dubai:" %}
+                    <<note_b,b>>
+                {% when "Associated" %}
+                    <<note_c,c>>
+                {% when "This" %}
+                    <<note_d,d>>
+            {% endcase %}
+        {%- endif -%}
+    {%- endfor %}
+{%- endfor %}
+|===
+
+
+{{ file.metadata.locale.note[lang] | append: "s"}}:
+
+. [[note_a]]{{ note_a }}
+
+. [[note_b]]{{ file.data | map: "country_or_area" | where: "en", "United Arab Emirates" | map: lang | uniq }}, {{ note_b }}
+
+. [[note_c]]{{ note_c }}
++
+--
+[yaml2text,T-SP-E.212A-2017.mcc_mnc.yaml,file_two]
+---
+[cols="^,^,^",options="unnumbered"]
+|===
+| {{ file_two.metadata.locale.network[lang] }} | {{ file_two.metadata.locale.mcc_mnc[lang] }} | {{ file_two.metadata.locale.status[lang] }}
+
+{% for company in file_two.data %}
+<| {{ company[1].network }} | {{ company[1].mcc_mnc }} | {{ company[1].status | replace: "assigned", file_two.metadata.locale.assigned[lang] }}
+{% endfor %}
+|===
+---
+--
+
+. [[note_d]]{{ note_d }}
+
+
+== Nombre des indicatifs de pays ou de zones géographiques du mobile UIT-T E.212 (MCCs) en réserve
+
+
+[cols="^,^",options="unnumbered"]
+|===
+| Indicatifs de pays ou de zones géographiques du mobile, série de numéros | Nombre des indicatifs de pays du mobile en réserve
+
+| 000 - 099 | Réservé
+| 100 - 199 | Réservé
+| 200 - 299 | 47
+| 300 - 399 | 66
+| 400 - 499 | 55
+| 500 - 599 | 72
+| 600 - 699 | 44
+| 700 - 799 | 79
+| 800 - 899 | Réservé
+| 900 - 999 | 99
+|===
+
+
+== AMENDEMENTS
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| Amendement N° | Bulletin d'exploitation N° | Pays
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+
+|===
+
+----
+
+
