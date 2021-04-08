@@ -1,0 +1,130 @@
+= LIST OF TERRESTRIAL TRUNK RADIO MOBILE COUNTRY CODES
+:bureau: T
+:docnumber: E.218
+:published-date: 2017-06-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 1125
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.218-2017-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+[preface]
+== Note from TSB
+
+. This is the List of terrestrial trunk radio mobile country codes according to Recommendation ITU-T E.218.
+
+. This List includes:
++
+--
+* a list of terrestrial trunk radio mobile country codes - in numerical order;
+* a list of terrestrial trunk radio mobile country codes - in alphabetical order.
+--
+
+. This List will be updated by numbered series of amendments published in the ITU Operational Bulletin. Furthermore, the information contained in this Annex is also available on the ITU website link:https://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html].
+
+. Please address any comments concerning this publication to the Director of TSB:
++
+--
+[align=left]
+Tel: +41 22 730 5887 +
+Fax: +41 22 730 5853 +
+Email: mailto:tsbmail@itu.int[]
+--
+
+. The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of ITU concerning the legal status of any country or geographical area, or of its authorities.
+
+
+[yaml2text,T-SP-E.218-2017.yaml,file]
+----
+{% assign lang = "en" %}
+
+
+== {{ file.metadata.title[lang] }} - numerical order
+
+{% assign notes = file.data | map: "note" | uniq %}
+
+{% for note_content in notes %}
+    {% assign note_first_word = note_content.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            {% assign note_a = note_content[lang] %}
+        {% when "United" %}
+            {% assign note_b = note_content[lang] %}
+        {% when "This" %}
+            {% assign note_c = note_content[lang] %}
+    {% endcase %}
+{% endfor %}
+
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.tmcc_code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for country_data in file.data -%}
+    | {{ country_data.tmcc_code }} | {{ country_data.country_or_area[lang] }} | 
+    {% assign note_first_word = country_data.note.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            <<note_a,a>>
+        {% when "United" %}
+            <<note_b,b>>
+        {% when "This" %}
+            <<note_c,c>>
+    {% endcase %}
+{%- endfor %}
+|===
+
+
+== {{ file.metadata.title[lang] }} - alphabetical order
+
+{% assign ordered_sequence = file.data | map: "country_or_area" | sort: lang | uniq %}
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.tmcc_code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for next_country in ordered_sequence -%}
+    {%- for country_data in file.data -%}
+        {%- if country_data.country_or_area[lang] == next_country[lang] -%}
+            | {{ country_data.tmcc_code }} | {{ country_data.country_or_area[lang] }} | 
+            {% assign note_first_word = country_data.note.en | split: " " | first %}
+            {% case note_first_word %}
+                {% when "Mobile" %}
+                    <<note_a,a>>
+                {% when "United" %}
+                    <<note_b,b>>
+                {% when "This" %}
+                    <<note_c,c>>
+            {% endcase %}
+        {%- endif -%}
+    {%- endfor %}
+{%- endfor %}
+|===
+
+
+{{ file.metadata.locale.note[lang] | append: "s"}}:
+
+. [[note_a]]{{ note_a }}
+. [[note_b]]{{ note_b }}
+. [[note_c]]{{ note_c }}
+
+
+== AMENDMENTS
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| Amendment No. | Operational Bulletin No. | Country
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+----

@@ -1,0 +1,130 @@
+= LISTA DE INDICATIVOS DE PAÍS PARA EL SERVICIO MÓVIL DE RADIOCOMUNICACIÓN CON CONCENTRACIÓN DE ENLACES TERRENALES
+:bureau: T
+:docnumber: E.218
+:published-date: 2017-06-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 1125
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.218-2017-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+[preface]
+== Nota de la TSB
+
+. Esta es la Lista de indicativos de país para el servicio móvil de radiocomunicación con concentración de enlaces terrenales
+
+. La presente Lista comprende:
++
+--
+* una lista de indicativos de país para el servicio móvil de radiocomunicación con concentración de enlaces terrenales - en orden numérico;
+* una lista de indicativos de país para el servicio móvil de radiocomunicación con concentración de enlaces terrenales - en orden alfabético.
+--
+
+. La Lista se actualizará por series de enmiendas numeradas que se publicarán en el Boletín de Explotación de la UIT. Por otra parte, la información contenida en este Anexo está disponible en el sitio web de la UIT (link:https://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html]).
+
+. Sírvase comunicar sus comentarios con respecto a esta publicación al Director de la TSB:
++
+--
+[align=left]
+Tel: +41 22 730 5887 +
+Fax: +41 22 730 5853 +
+E-mail: mailto:tsbmail@itu.int[]
+--
+
+. Las denominaciones empleadas en esta Lista y la forma en que aparecen presentados los datos que contiene no implican, de parte de la UIT, juicio alguno sobre la condición jurídica de países o zonas geográficas, o de sus autoridades.
+
+
+[yaml2text,T-SP-E.218-2017.yaml,file]
+----
+{% assign lang = "es" %}
+
+
+== {{ file.metadata.title[lang] }} - numerical order
+
+{% assign notes = file.data | map: "note" | uniq %}
+
+{% for note_content in notes %}
+    {% assign note_first_word = note_content.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            {% assign note_a = note_content[lang] %}
+        {% when "United" %}
+            {% assign note_b = note_content[lang] %}
+        {% when "This" %}
+            {% assign note_c = note_content[lang] %}
+    {% endcase %}
+{% endfor %}
+
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.tmcc_code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for country_data in file.data -%}
+    | {{ country_data.tmcc_code }} | {{ country_data.country_or_area[lang] }} | 
+    {% assign note_first_word = country_data.note.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            <<note_a,a>>
+        {% when "United" %}
+            <<note_b,b>>
+        {% when "This" %}
+            <<note_c,c>>
+    {% endcase %}
+{%- endfor %}
+|===
+
+
+== {{ file.metadata.title[lang] }} - alphabetical order
+
+{% assign ordered_sequence = file.data | map: "country_or_area" | sort: lang | uniq %}
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.tmcc_code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for next_country in ordered_sequence -%}
+    {%- for country_data in file.data -%}
+        {%- if country_data.country_or_area[lang] == next_country[lang] -%}
+            | {{ country_data.tmcc_code }} | {{ country_data.country_or_area[lang] }} | 
+            {% assign note_first_word = country_data.note.en | split: " " | first %}
+            {% case note_first_word %}
+                {% when "Mobile" %}
+                    <<note_a,a>>
+                {% when "United" %}
+                    <<note_b,b>>
+                {% when "This" %}
+                    <<note_c,c>>
+            {% endcase %}
+        {%- endif -%}
+    {%- endfor %}
+{%- endfor %}
+|===
+
+
+{{ file.metadata.locale.note[lang] | append: "s"}}:
+
+. [[note_a]]{{ note_a }}
+. [[note_b]]{{ note_b }}
+. [[note_c]]{{ note_c }}
+
+
+== ENMIENDAS
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| Enmienda N.° | Boletín de Explotación N.° | País
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+----
