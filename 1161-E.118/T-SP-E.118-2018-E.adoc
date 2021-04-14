@@ -1,0 +1,106 @@
+= LIST OF ISSUER IDENTIFIER NUMBERS FOR THE INTERNATIONAL TELECOMMUNICATION CHARGE CARD (IN ACCORDANCE WITH RECOMMENDATION ITU-T E.118 (05/2006))
+:bureau: T
+:docnumber: 976
+:published-date: 2018-12-01
+:annex-title: Annex to ITU Operational Bulletin
+:annex-id: No. 1161
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.118-2018-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+== Note from TSB
+
+This List replaces the List annexed to Operational Bulletin No. 1088 of 15.XI.2015. It contains all the Issuer Identifier Numbers (IIN) registered by the ITU, which have been notified in the ITU Operational Bulletin up to and including No. 1161 of 1.XII.2018.
+
+For your information, this List will be updated by numbered series of amendments published in the ITU Operational Bulletin. This Annex is available for free download on ITU website.
+
+An IIN is used to identify a telecommunication company in a country, which is working in an international environment. According to ISO Standard 7812-2 , the criteria for approval and rejection of applications are:
+
+_"4.3.1 Criteria for approval of an application for a single IIN_
+
+Applications for a single IIN shall meet all the criteria for approval below and shall not comply with any of the criteria for rejection in 4.3.2 :
+
+. the applicant applying for a single IIN shall not already have an IIN assigned to it in its own right (outside of any card scheme);
+. the IIN shall be for immediate use, preferably within 12 months of the date of issue of the IIN;
+. the card being issued shall be for use in an international interchange environment (see ISO/IEC 7812-1);
+. the applicant shall be a single corporate entity operating under a specific legislative regulation.
+
+_4.3.2 Criteria for rejection of an application for a single IIN_
+
+An applicant for a single IIN shall be rejected by the Sponsoring Authority when any one of the following conditions exist:
+
+. the applicant is not a card issuer;
+. the applicant has previously been assigned an IIN in its own right (outside of its membership of any card scheme) which it is still using and the applicant has not provided adequate supplementary information as justification for issue of an additional IIN (see 4.2);
+. the cards issued by the applicant would not be used in an international and/or interindustry interchange environment;
+. the IIN will be used to identify or differentiate between products, services or technologies (i.e. including but not limited to integrated circuit cards), or solely to facilitate routing, or to identify geographic location;
+. the IIN will be used to identify or differentiate between branches or subsidiaries within the applicant's organisation (i.e. these branches or subsidiaries are not separate corporate entities);
+. the applicant has requested a specific number or the reservation in the register of a specific number or made a request which is outside the scope of this part of ISO/IEC 7812;
+. no card will be issued for immediate use, e.g. within 12 months from the date of issue of an IIN."
+
+ITU is the central registration Authority for Issuer Identifier Number (IIN), with Major Industry Identifier (MII) 89, for telecommunication purposes.
+
+Under point 4.2 d) of Recommendation ITU-T E.118, the ITU charges a one-time fee for the assignment and registration of each new Issuer Identifier Number. Since 1 January 2018, the registration fee is 150 Swiss Francs.
+
+For non ITU-T and ITU-R Sector Members, an annual maintenance fee of 100 Swiss francs per number registered has been introduced, effective 1 January 2018. ITU-T and ITU-R Sector Members are not required to pay an annual maintenance fee.
+
+Applicants applying for a single IIN are requested to fill in the registration form and submit it to the national Telecommunication Administration (or duly authorized coordinating organization in their country) for completion before it is sent to ITU for registration, accompanied by evidence of payment to the ITU.
+
+In order to keep the list up to date, the companies listed are requested to send all modifications concerning their company and contact person, including full address and e-mail address, to ITU, TSB/OBNA: e-mail: +
+mailto:tsbtson@itu.int[] ; fax: +41 227305853
+
+The updates need to be endorsed by the national Administration or sent by the national Administration.
+
+For registration form and more information, see: link:http://www.itu.int/en/ITU-T/inr/forms/Pages/iin.aspx[www.itu.int/en/ITU-T/inr/forms/Pages/iin.aspx]
+
+The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of the ITU concerning the legal status of any country or geographical area, or of its authorities.
+
+
+== {blank}
+
+[yaml2text,T-SP-E.118-2018.yaml,file]
+----
+{% assign lang = "en" %}
+
+
+[cols="4",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.company_name[lang] }}/{{ file.metadata.locale.company_address[lang] }}
+| {{ file.metadata.locale.issue_id_number[lang] }}
+| {{ file.metadata.locale.contact[lang] }}
+
+{% for country_data in file.data -%}
+    | *{{ country_data[1].country_or_area["en"] }}*
+    | *{{ country_data[1].company_name }}* +
+    {{ country_data[1].company_address_1 }} +
+    {{ country_data[1].company_address_2 }}
+    | *{{ country_data[0] }}*
+    | {{ country_data[1].contact }} +
+    {{ country_data[1].contact_address_1 }} +
+    {{ country_data[1].contact_address_2 }} +
+    Tel: {{ country_data[1].tel }} +
+    Fax: {{ country_data[1].fax }} +
+    E-mail: {{ country_data[1].email | join: "; " }}
+{%- endfor %}
+|===
+
+
+== AMENDMENTS
+
+[cols="^,^,^,^",options="unnumbered"]
+|===
+| Amendment No. | Operational Bulletin No. | Country/Geographical area | IIN
+
+{% for i in (1..33) -%}
+    | {{ i }} | | |
+{%- endfor %}
+|===
+----
+
