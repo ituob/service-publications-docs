@@ -1,0 +1,107 @@
+= LISTA DE NÚMEROS DE IDENTIFICACIÓN DE EXPEDIDOR DE LA TARJETA CON CARGO A CUENTA PARA TELECOMUNICACIONES INTERNACIONALES (SEGÚN LA RECOMENDACIÓN UIT-T E.118 (05/2006))
+:bureau: T
+:docnumber: 976
+:published-date: 2018-12-01
+:annex-title: Annex to ITU Operational Bulletin
+:annex-id: No. 1161
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.118-2018-S.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+== Nota de la TSB
+
+Esta Lista sustituye a la Lista que figura en el anexo al Boletín de Explotación de la UIT N.º 1088 de 15.XI.2015. Contiene todos los números de identificación de expedidor (_Issuer Identifier Numbers_ - IIN) registrados por la UIT que han sido notificados en el Boletín de Explotación de la UIT hasta el N.º 1161 de 1.XII.2018, inclusive.
+
+Se señala que esta Lista se actualizará por medio de enmiendas que se publicarán en el Boletín de Explotación de la UIT. Este Anexo puede descargarse gratuitamente vía el sitio web de la UIT.
+
+Un IIN se utiliza para identificar a una empresa de telecomunicaciones de un país que trabaja en un entorno internacional. De conformidad con la Norma 7812-2 de la ISO, los criterios para la aprobación o rechazo de solicitudes son los siguientes:
+
+«_4.3.1 Criterios para la aprobación de una solicitud de un solo IIN_
+
+Las solicitudes de un solo IIN deben satisfacer todos los criterios para la aprobación que se indican a continuación y ninguno de los indicados para el rechazo en el punto 4.3.2:
+
+. al solicitante de un solo IIN no se le debe haber asignado ya un IIN por derecho propio (independientemente
+de cualquier sistema de tarjeta);
+. el IIN se utilizará de inmediato, preferentemente dentro de un plazo de 12 meses a partir de la fecha de su expedición;
+. la tarjeta que se expide se utilizará en un entorno de intercambio internacional (véase ISO/CEI 7812-1);
+. el solicitante debe ser una entidad empresarial que funciona en el marco de una reglamentación legislativa específica.
+
+_4.3.2 Criterios para el rechazo de una solicitud de un solo IIN_
+
+La Autoridad patrocinadora rechazará una solicitud de un solo IIN en cualquiera de las siguientes situaciones que se indican a continuación:
+
+. el solicitante no es un expedidor de tarjetas;
+. al solicitante se le ha asignado previamente un IIN por derecho propio (independientemente de cualquier sistema de tarjeta) y aún está utilizándolo; el solicitante no ha comunicado la adecuada información suplementaria que justifique la expedición de un IIN adicional (véase el punto 4.2);
+. las tarjetas emitidas por el solicitante no se utilizarán en un entorno de intercambio internacional;
+. el IIN se utilizará para identificar o distinguir productos o servicios o tecnologías (esto es, incluyendo, entre otras cosas, tarjetas de circuitos integrados), o exclusivamente para facilitar el encaminamiento o identificar la localización geográfica;
+. el IIN se utilizará para identificar o distinguir sucursales o subsidiarias de la organización a la que pertenece
+(es decir, esas sucursales o subsidiarias no son entidades empresariales independientes);
+. el solicitante ha pedido un número específico o la reserva en el registro de un número específico, o ha hecho una petición que está fuera del alcance de la sección de ISO/IEC 7812;
+. no se expedirán tarjetas para su utilización inmediata (por ejemplo, dentro de los 12 meses siguientes a la fecha de expedición de un IIN).»
+
+La UIT es la autoridad central de registro de los números de identificación de expedidor (IIN) con el identificador de actividad industrial (MII-Major Industry Identifier) "89" relativo a las telecomunicaciones.
+
+Además, de conformidad con el apartado del § 4.2 d) de la Recomendación UIT-T E.118, la UIT cobrará una tarifa por la asignación y el registro de cada nuevo número identificador de expedidor. Desde el 1 de enero de 2018, esta tarifa es de 150 francos suizos.
+
+Para las entidades que no son Miembros de Sector del UIT-T ni del UIT-R, se aplica una tarifa de mantenimiento anual de 100 francos suizos por número a partir del 1 de enero de 2018. Las entidades que son Miembros de Sector del UIT-T o del UIT-R no deben pagar la tasa anual de mantenimiento.
+
+El solicitante de un solo IIN debe rellenar el formulario de registro y someterlo a aprobación de la Administración de Telecomunicaciones (o por un organismo de coordinación debidamente autorizado) en su país antes de enviarlo a la UIT para su registro, acompañado del certificado de pago a la UIT.
+
+En la siguiente página web, los solicitantes encontrarán información adicional y el formulario de registro, cuya finalidad es facilitar las solicitudes de asignación y registro: +
+link:http://www.itu.int/en/ITU-T/inr/forms/Pages/iin.aspx[www.itu.int/en/ITU-T/inr/forms/Pages/iin.aspx].
+
+Con miras a mantener la lista actualizada, se solicita a las empresas enumeradas que notifiquen todas las modificaciones relacionadas con su empresa y direcciones de contacto a la UIT, TSB/OBNA, fax Nº +41 22 730 5853; Correo-e: mailto:tsbtson@itu.int[].
+
+Las actualizaciones deben ser aprobadas o enviadas por la administración nacional.
+
+Las denominaciones empleadas en esta Lista y la forma en que aparecen presentados los datos que contiene no implican, de parte de la UIT, juicio alguno sobre la condición jurídica de países o zonas geográficas, o de sus autoridades.
+
+
+== {blank}
+
+[yaml2text,T-SP-E.118-2018.yaml,file]
+----
+{% assign lang = "es" %}
+
+
+[cols="4",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.company_name[lang] }}/{{ file.metadata.locale.company_address[lang] }}
+| {{ file.metadata.locale.issue_id_number[lang] }}
+| {{ file.metadata.locale.contact[lang] }}
+
+{% for country_data in file.data -%}
+    | *{{ country_data[1].country_or_area["en"] }}*
+    | *{{ country_data[1].company_name }}* +
+    {{ country_data[1].company_address_1 }} +
+    {{ country_data[1].company_address_2 }}
+    | *{{ country_data[0] }}*
+    | {{ country_data[1].contact }} +
+    {{ country_data[1].contact_address_1 }} +
+    {{ country_data[1].contact_address_2 }} +
+    Tel: {{ country_data[1].tel }} +
+    Fax: {{ country_data[1].fax }} +
+    E-mail: {{ country_data[1].email | join: "; " }}
+{%- endfor %}
+|===
+
+
+== ENMIENDAS
+
+[cols="^,^,^,^",options="unnumbered"]
+|===
+| Enmienda núm. | Boletín de Explotación núm. | País | IIN
+
+{% for i in (1..33) -%}
+    | {{ i }} | | |
+{%- endfor %}
+|===
+----
