@@ -1,0 +1,337 @@
+= PROCEDIMIENTOS DE MARCACIÓN (PREFIJO INTERNACIONAL, PREFIJO (INTERURBANO) NACIONAL Y NÚMERO NACIONAL (SIGNIFICATIVO)) (SEGÚN LA RECOMENDACIÓN UIT-T E.164 (11/2010))
+:bureau: T
+:docnumber: 976
+:published-date: 2011-12-15
+:annex-title: Annex to ITU Operational Bulletin
+:annex-id: No. 994
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.164C-2011-S.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+== Nota de TSB
+
+1. Esta Lista de «Procedimientos de marcación» reemplaza la publicada en el Anexo al Boletín de
+Explotación N.o 951 de 1.III.2010. La presente lista recapitulativa comprende todas las diferentes enmiendas
+que han sido publicadas hasta el Boletín de Explotación N.o 994 de 15.XII.2011.
+
+2. La lista de «*Procedimientos de marcación*» contiene el prefijo nacional (interurbano), el prefijo
+internacional, el indicativo de país y el número nacional (significativo) de conformidad con la
+Recomendación UIT-T E.164 (11/2010).
+
+3. El *prefijo nacional (interurbano)* es la cifra o combinación de cifras que es preciso marcar antes de
+un indicativo de interurbano (zona) cuando se efectúa la marcación para llamar a un abonado del mismo
+país pero de otra zona de numeración. Este prefijo da acceso al equipo de enlace automático para llamadas
+salientes. Si en un país determinado esta columna está en blanco, ello significa que el país tiene un solo
+plan de numeración nacional en el que no se utilizan indicativos de zona y que todas las llamadas a
+cualquier lugar del país se marcan utilizando el número local entero.
++
+--
+Por consiguiente, en el servicio internacional no se marca el prefijo interurbano del país de destino. El
+UIT-T recomienda a las administraciones de los países que no hayan adoptado todavía un prefijo
+interurbano o estén revisando el prefijo de acceso a su red interurbana nacional que adopten un prefijo
+compuesto de una sola cifra, de preferencia «0».
+--
+
+4. El *prefijo internacional* es la cifra o combinación de cifras que es necesario marcar antes del
+indicativo de país cuando se llama a un país distinto de aquél desde el cual se efectúa la llamada. Si en un
+país determinado esta columna está en blanco, ello significa que ese país no dispone de medios para la
+marcación directa a otro país (en otras palabras, las llamadas internacionales se tienen que efectuar a
+través de la operadora).
++
+--
+El UIT-T recomienda a las administraciones de los países que no hayan introducido todavía el
+servicio internacional automático y a las administraciones que por razones diversas estén revisando sus
+planes de numeración que adopten un prefijo internacional (un código de acceso a la red automática
+internacional) compuesto por las dos cifras «00».
+--
+
+. El *indicativo de país* es la combinación de una, dos o tres cifras que caracteriza al país a que se
+llama y que se utiliza para encaminar las llamadas a dicho país. Normalmente se marca después del prefijo
+internacional. La Lista de indicativos de país se publica también en la "Lista de indicativos de país de la
+Recomendación UIT-T E.164 asignados", en anexo al Boletín de Explotación.
+
+. El *número nacional (significativo)* es el número que se ha de marcar después del prefijo nacional
+(interurbano) para llamar a un abonado del mismo país pero de otra red local o zona de numeración. El
+número nacional (significativo) se compone del indicativo de interurbano seguido del número del abonado.
+Si en un país determinado esta columna está en blanco, ello significa que la información falta.
+
+. Para su información, esta presente Lista se publica como Anexo al Boletín de Explotación de la UIT.
+Además, la información contenida en dicho Anexo está también disponible en el sitio web de la UIT
+link:https://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html].
+
+. Se ha hecho todo lo posible para que la información contenida en el Anexo sea exacta. Se ruega a
+las administraciones que envíen todas las modificaciones o la información que falte en relación con su
+prefijo nacional (interurbano), su prefijo internacional y la longitud de su número nacional (significativo)
+utilizando el formulario adjunto.
+
+. Las denominaciones empleadas en esta Lista y la forma en que aparecen presentados los datos que
+contiene no implican, de parte de la UIT, juicio alguno sobre la condición jurídica de países o zonas
+geográficas, o de sus autoridades.
+
+
+[yaml2text,T-SP-E.164C-2011.yaml,file]
+----
+{% assign lang = "es" %}
+
+== {{ file.metadata.title[lang] | split: " (" | first | downcase | capitalize }}
+
+{% assign notes = file.data | map: "note" | uniq %}
+
+{% for note_content in notes %}
+    {% assign last_word = note_content.en | split: " " | last %}
+    {% case last_word %}
+        {% when "services)" %}
+            {% assign note_1 = note_content[lang] %}
+        {% when "countries." %}
+            {% assign note_2 = note_content[lang] %}
+        {% when "28'." %}
+            {% assign note_3 = note_content[lang] %}
+        {% when "Helena." %}
+            {% assign note_4 = note_content[lang] %}
+        {% when "'0039'." %}
+            {% assign note_5 = note_content[lang] %}
+        {% when "UTC+9." %}
+            {% assign note_6 = note_content[lang] %}
+        {% when "digits." %}
+            {% assign note_7 = note_content[lang] %}
+        {% when "'0101')." %}
+            {% assign note_8 = note_content[lang] %}
+        {% when "'0065'." %}
+            {% assign note_9 = note_content[lang] %}
+        {% when "UTC-7/DST-6." %}
+            {% assign note_10 = note_content[lang] %}
+        {% when "UTC-5/DST-4." %}
+            {% assign note_11 = note_content[lang] %}
+        {% when "(UTC+8)." %}
+            {% assign note_12 = note_content[lang] %}
+        {% when "Authority." %}
+            {% assign note_13 = note_content[lang] %}
+        {% when "code." %}
+            {% assign note_14 = note_content[lang] %}
+        {% when "scheme." %}
+            {% assign note_15 = note_content[lang] %}
+        {% when "'39')." %}
+            {% assign note_16 = note_content[lang] %}
+        {% when "UTC+11/DST+12." %}
+            {% assign note_17 = note_content[lang] %}
+        {% when "change)." %}
+            {% assign note_18 = note_content[lang] %}
+        {% when "Tanzania." %}
+            {% assign note_19 = note_content[lang] %}
+        {% when "only." %}
+            {% assign note_20 = note_content[lang] %}
+        {% when "UTC-10." %}
+            {% assign note_21 = note_content[lang] %}
+        {% when "070)." %}
+            {% assign note_22 = note_content[lang] %}
+        {% when "network." %}
+            {% assign note_23 = note_content[lang] %}
+    {% endcase %}
+{% endfor %}
+
+[cols="7*^",options="unnumbered"]
+|===
+
+h| {{ file.metadata.locale.country_or_area[lang] }}
+h| {{ file.metadata.locale.country_code[lang] }}
+h| {{ file.metadata.locale.international_prefix[lang] }}
+h| {{ file.metadata.locale.national_prefix[lang] }}
+h| {{ file.metadata.locale.national_sig_number[lang] }}
+h| UTC/DST footnote:[UTC = Tiempo universal coordinado/DST = horario verano]
+h| {{ file.metadata.locale.note[lang] }}
+
+{% for country_data in file.data %}
+   <| {{ country_data.country_or_area[lang] }}
+    | {{ country_data.country_code }}
+    | {{ country_data.international_prefix }}
+    | {{ country_data.national_prefix }}
+    | {{ country_data.national_sig_number }}
+    | {{ country_data.utc_dst }}
+    |
+    {%- assign last_word = country_data.note.en | split: " " | last -%}
+    {%- case last_word -%}
+        {%- when "services)" -%}
+            <<note_1,1>>
+        {%- when "countries." -%}
+            <<note_2,2>>
+        {%- when "28'." -%}
+            <<note_3,3>>
+        {%- when "Helena." -%}
+            <<note_4,4>>
+        {%- when "'0039'." -%}
+            <<note_5,5>>
+        {%- when "UTC+9." -%}
+            <<note_6,6>>
+        {%- when "digits." -%}
+            <<note_7,7>>
+        {%- when "'0101')." -%}
+            <<note_8,8>>
+        {%- when "'0065'." -%}
+            <<note_9,9>>
+        {%- when "UTC-7/DST-6." -%}
+            <<note_10,10>>
+        {%- when "UTC-5/DST-4." -%}
+            <<note_11,11>>
+        {%- when "(UTC+8)." -%}
+            <<note_12,12>>
+        {%- when "Authority." -%}
+            <<note_13,13>>
+        {%- when "code." -%}
+            <<note_14,14>>
+        {%- when "scheme." -%}
+            <<note_15,15>>
+        {%- when "'39')." -%}
+            <<note_16,16>>
+        {%- when "UTC+11/DST+12." -%}
+            <<note_17,17>>
+        {%- when "change)." -%}
+            <<note_18,18>>
+        {%- when "Tanzania." -%}
+            <<note_19,19>>
+        {%- when "only." -%}
+            <<note_20,20>>
+        {%- when "UTC-10." -%}
+            <<note_21,21>>
+        {%- when "070)." -%}
+            <<note_22,22>>
+        {%- when "network." -%}
+            <<note_23,23>>
+    {%- endcase %}
+{% endfor %}
+
+|===
+
+{{ file.metadata.locale.note[lang] | append: "s"}}
+
+. [[note_1]]{{ note_1 }}
+. [[note_2]]{{ note_2 }}
+. [[note_3]]{{ note_3 }}
+. [[note_4]]{{ note_4 }}
+. [[note_5]]{{ note_5 }}
+. [[note_6]]{{ note_6 }}
+. [[note_7]]{{ note_7 }}
+. [[note_8]]{{ note_8 }}
+. [[note_9]]{{ note_9 }}
+. [[note_10]]{{ note_10 }}
+. [[note_11]]{{ note_11 }}
+. [[note_12]]{{ note_12 }}
+. [[note_13]]{{ note_13 }}
+. [[note_14]]{{ note_14 }}
+. [[note_15]]{{ note_15 }}
+. [[note_16]]{{ note_16 }}
+. [[note_17]]{{ note_17 }}
+. [[note_18]]{{ note_18 }}
+. [[note_19]]{{ note_19 }}
+. [[note_20]]{{ note_20 }}
+. [[note_21]]{{ note_21 }}
+. [[note_22]]{{ note_22 }}
+. [[note_23]]{{ note_23 }}
+
+
+== ENMIENDAS
+
+[cols="^,^,^",options="unnumbered,header"]
+|===
+| Enmienda N.° | Boletín de Explotación N.° | País
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+
+
+== Formulario de notificación
+
+{% assign large_length = 100 %}
+
+[align=center]
+*PROCEDIMIENAS DE MARCACIÓN* +
+*(Según la Recomendación UIT-T E.164)*
+
+Nombre del país&#58;::
+{% for i in (1..large_length) -%}
+&#95;
+{%- endfor %}
+
+Indicativo de país&#58;:: 
+{% for i in (1..large_length) -%}
+&#95;
+{%- endfor %}
+
+Prefijo internacional&#58;::
+{% for i in (1..large_length) -%}
+&#95;
+{%- endfor %}
+
+Prefijo nacional&#58;:: 
+{% for i in (1..large_length) -%}
+&#95;
+{%- endfor %}
+
+Longitud del número nacional (significativo)&#58;::
++
+--
+mínima 
+{% for i in (1..50) -%}
+&#95;
+{%- endfor %} +
+máxima
+{% for i in (1..50) -%}
+&#95;
+{%- endfor %} +
+(excluido el prefijo nacional)
+--
+
+Tiempo universal coordinado/Horario verano&#58;:: 
+{% for i in (1..large_length) -%}
+&#95;
+{%- endfor %}
+
+Comentarios&#58;::
++
+--
+{% for i in (1..large_length) -%}
+&#95;
+{%- endfor %} +
+{% for i in (1..large_length) -%}
+&#95;
+{%- endfor %} +
+{% for i in (1..large_length) -%}
+&#95;
+{%- endfor %} +
+{% for i in (1..large_length) -%}
+&#95;
+{%- endfor %} +
+{% for i in (1..large_length) -%}
+&#95;
+{%- endfor %}
+--
+
+Contacto&#58;::
++
+--
+{% for i in (1..large_length) -%}
+&#95;
+{%- endfor %}
+
+Tel: +
+{%- for i in (1..40) -%}
+&#95;
+{%- endfor %}
+Fax: + 
+{%- for i in (1..40) -%}
+&#95;
+{%- endfor %} +
+E-mail: 
+{%- for i in (1..85) -%}
+&#95;
+{%- endfor %}
+--
+----
