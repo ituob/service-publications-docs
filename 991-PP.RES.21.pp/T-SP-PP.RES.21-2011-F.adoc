@@ -1,0 +1,71 @@
+= SYSTÈMES DE RAPPEL (CALL-BACK) ET PROCÉDURES D'APPEL ALTERNATIVES
+:bureau: T
+:docnumber: PP-2006
+:published-date: 2011-11-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: N.° 991 - 1.XI.2011
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-PP.RES.21-2011-F.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+== Note du TSB
+
+. Pour que la Liste puisse être tenue à jour, les Administrations sont priées d'aviser le TSB de
+toute modification concernant les systèmes de rappel (Call-Back) dans leur pays, en utilisant
+l'adresse indiquée ci-dessous.
+
+. Veuillez adresser vos commentaires concernant cette Liste au Directeur du TSB:
+Union internationale des télécommunications
++
+--
+Directeur du TSB +
+Place des Nations +
+CH-1211 GENÈVE 20 +
+Suisse +
+Tél: +41 22 730 5211 +
+Fax: +41 22 730 5853 +
+E-mail: tsbtson@itu.int
+--
+
+. Les appellations employées dans cette Liste et la présentation des données qui y figurent
+n'impliquent, de la part de l'UIT, aucune prise de position quant au statut juridique des pays ou
+zones géographiques ou de leurs autorités.
+
+
+== Systèmes de rappel (Call-Back) et procédures d'appel alternatives (Rés. 21 Rév. PP-2006)
+
+*Note du TSB*
+
+Pays/zones géographiques pour lesquels les "Systèmes de rappel (Call-Back) et certaines procédures d'appel
+alternatives non conformes à la réglementation en vigueur" sont interdits sur leur territoire.
+
+
+[yaml2text,T-SP-PP.RES.21-2011.yaml,file]
+----
+{% assign lang = "fr" %}
+
+[cols="4",options="unnumbered"]
+|===
+{% assign half_size_data = file.data.size | divided_by: 2 %}
+
+{% for i in (1..half_size_data) -%}
+    {%- assign i_s = i | capitalize -%}
+    {%- assign j = i | plus: half_size_data | capitalize -%}
+    {%- assign column_one = file.data[i_s] -%}
+    {%- assign column_two = file.data[j] -%}
+    | {{ column_one.number }} | {{ column_one.geographic_area[lang] }}
+    | {{ column_two.number }} | {{ column_two.geographic_area[lang] }}
+{%- endfor %}
+|===
+----
+
+Tous les pays/zones géographiques interdisant la pratique du système de rappel devraient aviser dûment l’UIT par
+e-mail à l'adresse suivante: mailto:tsbtson@itu.int[]

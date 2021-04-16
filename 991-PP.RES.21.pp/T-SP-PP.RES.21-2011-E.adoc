@@ -1,0 +1,71 @@
+= CALL-BACK AND ALTERNATIVE CALLING PROCEDURES
+:bureau: T
+:docnumber: PP-2006
+:published-date: 2011-11-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: N.° 991 - 1.XI.2011
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-PP.RES.21-2011-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+== Note from TSB
+
+. In order to keep the list up to date, administrations are, therefore, requested to notify TSB of
+any modifications concerning Call-Back in their country at the address below.
+
+. Please address any comments or any modifications concerning this List to the Director of
+TSB:
++
+--
+[align=left]
+Director of TSB +
+International Telecommunication Union +
+Place des Nations +
+CH-1211 GENEVA 20 +
+Switzerland +
+Tel: +41 22 730 5211 +
+Fax: +41 22 730 5853 +
+E-mail: tsbtson@itu.int
+--
+
+. The designations employed and the presentation of material in this List do not imply the
+expression of any opinion whatsoever on the part of ITU concerning the legal status of any country
+or geographical area, or of its authorities.
+
+
+== Call-Back and alternative calling procedures (Res. 21 Rev. PP-2006)
+
+*Note from TSB*
+
+Countries/geographical areas for which "Call-Back and certain alternative calling procedures not in accordance with
+the relevant regulations" are prohibited in their territory.
+
+[yaml2text,T-SP-PP.RES.21-2011.yaml,file]
+----
+{% assign lang = "en" %}
+
+[cols="4",options="unnumbered"]
+|===
+{% assign half_size_data = file.data.size | divided_by: 2 %}
+
+{% for i in (1..half_size_data) -%}
+    {%- assign i_s = i | capitalize -%}
+    {%- assign j = i | plus: half_size_data | capitalize -%}
+    {%- assign column_one = file.data[i_s] -%}
+    {%- assign column_two = file.data[j] -%}
+    | {{ column_one.number }} | {{ column_one.geographic_area[lang] }}
+    | {{ column_two.number }} | {{ column_two.geographic_area[lang] }}
+{%- endfor %}
+|===
+----
+
+All the countries/geographical areas which prohibit the practice of "Call-Back" should inform ITU accordingly by
+sending e-mail to the following address: mailto:tsbtson@itu.int[]
