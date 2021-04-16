@@ -1,0 +1,74 @@
+= COMUNICACIONES POR INTERMEDIARO (CALL-BACK) Y PROCEDIMIENTOS ALTERNATIVOS DE LLAMADA
+:bureau: T
+:docnumber: PP-2006
+:published-date: 2011-11-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: N.° 991 - 1.XI.2011
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-PP.RES.21-2011-S.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+
+== Nota de la TSB
+
+. Para mantener la Lista al día, se solicita a las administraciones que notifiquen a la TSB, a la
+dirección indicada más abajo, cualquier modificación en su país relativa a las comunicaciones por
+intermediario (Call-Back).
+
+. Sírvase comunicar sus comentarios o modificaciones con respecto a esta Lista al Director de
+la TSB:
++
+--
+[align=left]
+Unión Internacional de Telecomunicaciones +
+Director de la TSB +
+Place des Nations +
+CH-1211 GINEBRA 20 +
+Suiza +
+Tel: +41 22 730 5211 +
+Fax: +41 22 730 5853 +
+E-mail: mailto:tsbtson@itu.int[]
+--
+
+. Las denominaciones empleadas en esta Lista y la forma en que aparecen presentados los
+datos que contiene no implican, de parte de la UIT, juicio alguno sobre la condición jurídica de
+países o zonas geográficas, o de sus autoridades.
+
+
+== Comunicaciones por intermediario (Call-Back) y procedimientos alternativos de llamada (Res. 21 Rev. PP-2006)
+
+*Nota de la TSB*
+
+Países/zonas geográficas para los cuales una información sobre las "Comunicaciones por intermediario (Call-Back) y
+ciertos procedimientos alternativos de llamada no conformes con la reglamentación vigente":
+
+
+[yaml2text,T-SP-PP.RES.21-2011.yaml,file]
+----
+{% assign lang = "es" %}
+
+[cols="4",options="unnumbered"]
+|===
+{% assign half_size_data = file.data.size | divided_by: 2 %}
+
+{% for i in (1..half_size_data) -%}
+    {%- assign i_s = i | capitalize -%}
+    {%- assign j = i | plus: half_size_data | capitalize -%}
+    {%- assign column_one = file.data[i_s] -%}
+    {%- assign column_two = file.data[j] -%}
+    | {{ column_one.number }} | {{ column_one.geographic_area[lang] }}
+    | {{ column_two.number }} | {{ column_two.geographic_area[lang] }}
+{%- endfor %}
+|===
+----
+
+Se solicita a todos los países/zonas geográficas que prohíben las comunicaciones por intermediario (Call-Back) de
+notificarlo debidamente a la UIT a la siguiente dirección de correo electrónico: mailto:tsbtson@itu.int[]
