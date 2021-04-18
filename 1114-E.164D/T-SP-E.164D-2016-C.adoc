@@ -1,0 +1,337 @@
+= ITU-T E.164建议书分配国家代码列表
+:bureau: T
+:docnumber: 976
+:published-date: 2016-12-15
+:annex-title: Annex to ITU Operational Bulletin
+:annex-id: No. 994
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.164C-2011-C.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+== 电信标准化局的说明
+
+. 该ITU-T E.164建议书分配国家代码列表替代先前在2011年11月1日第991期国际电联《操作公报》中公布的上一版本。自那一版公布后，分配了各种新的代码且这些代码已公布在2016年12月15日第1114期之前的各期国际电联《操作公报》中。
+
+. 本列表包括：
++
+--
+* ITU-T E.164建议书分配国家代码列表 – 按数字排序
+* ITU-T E.164建议书分配国家代码列表 – 按字母排序。
+--
+
+. 本列表将通过在国际电联《操作公报》中公布的一系列编号修正进行更新。此外，本附件所含内容还发布在国际电联网站link:http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html]上。
+
+. 有关本次公布的任何意见、建议或修改，请接洽电信标准化局主任：
+电话： +41 22 730 5887
+传真： +41 22 730 5853
+电子邮件： mailto:tsbmail@itu.int[]
+
+. 本列表所用指称和资料呈现方式不表示国际电联对任何国家、地理区域或其主管当局持有任何意见。
+
+
+
+[yaml2text,T-SP-E.164D-2016.main.yaml,file]
+----
+{% assign lang = "zh" %}
+
+
+== {{ file.metadata.title[lang] }} - 按数字排序
+
+{% assign notes = file.data | map: "note" | uniq %}
+
+{% for note_content in notes %}
+    {% assign sliced_word = note_content.en | slice: 0,39 %}
+    {% case sliced_word %}
+        {% when "Ascension is using country code +247and" %}
+            {% assign note_a = note_content[lang] %}
+        {% when "Integrated numbering plan." %}
+            {% assign note_b = note_content[lang] %}
+        {% when "Code shared between Curaçao and Bonaire" %}
+            {% assign note_c = note_content[lang] %}
+        {% when "Will be allocated, only after all three" %}
+            {% assign note_d = note_content[lang] %}
+        {% when "Associated with shared country code 878" %}
+            {% assign note_e = note_content[lang] %}
+        {% when "Reserved for future use." %}
+            {% assign note_f = note_content[lang] %}
+        {% when "Including Australian Antarctic Territor" %}
+            {% assign note_g = note_content[lang] %}
+        {% when "U.A.E.: Abu Dhabi, Ajman, Dubai, Fujeir" %}
+            {% assign note_h = note_content[lang] %}
+        {% when "Including Christmas Island and Cocos-Ke" %}
+            {% assign note_i = note_content[lang] %}
+        {% when "French departments and territories in t" %}
+            {% assign note_j = note_content[lang] %}
+        {% when "United Nations Office of the Coordinato" %}
+            {% assign note_k = note_content[lang] %}
+        {% when "Reserved for the Palestinian Authority." %}
+            {% assign note_l = note_content[lang] %}
+        {% when "Reserved for E.164 country code expansi" %}
+            {% assign note_m = note_content[lang] %}
+        {% when "Associated with shared country code 881" %}
+            {% assign note_n = note_content[lang] %}
+        {% when "Associated with shared country code 882" %}
+            {% assign note_o = note_content[lang] %}
+        {% when "Associated with shared country code 883" %}
+            {% assign note_p = note_content[lang] %}
+        {% when "This designation is without prejudice t" %}
+            {% assign note_q = note_content[lang] %}
+    {% endcase %}
+{% endfor %}
+
+[cols="^,<,^",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_code[lang] }}
+| {{ file.metadata.locale.country_area_or_service[lang] }}
+| {{ file.metadata.locale.note[lang] }}
+
+{% for country_data in file.data %}
+| {{ country_data.country_code }}
+| {{ country_data.country_area_or_service[lang] }}
+| 
+{%- assign sliced_word = country_data.note.en | slice: 0,39 -%}
+{%- case sliced_word -%}
+    {%- when "Ascension is using country code +247and" -%}
+        <<note_a,a>>
+    {%- when "Integrated numbering plan." -%}
+        <<note_b,b>>
+    {%- when "Code shared between Curaçao and Bonaire" -%}
+        <<note_c,c>>
+    {%- when "Will be allocated, only after all three" -%}
+        <<note_d,d>>
+    {%- when "Associated with shared country code 878" -%}
+        <<note_e,e>>
+    {%- when "Reserved for future use." -%}
+        <<note_f,f>>
+    {%- when "Including Australian Antarctic Territor" -%}
+        <<note_g,g>>
+    {%- when "U.A.E.: Abu Dhabi, Ajman, Dubai, Fujeir" -%}
+        <<note_h,h>>
+    {%- when "Including Christmas Island and Cocos-Ke" -%}
+        <<note_i,i>>
+    {%- when "French departments and territories in t" -%}
+        <<note_j,j>>
+    {%- when "United Nations Office of the Coordinato" -%}
+        <<note_k,k>>
+    {%- when "Reserved for the Palestinian Authority." -%}
+        <<note_l,l>>
+    {%- when "Reserved for E.164 country code expansi" -%}
+        <<note_m,m>>
+    {%- when "Associated with shared country code 881" -%}
+        <<note_n,n>>
+    {%- when "Associated with shared country code 882" -%}
+        <<note_o,o>>
+    {%- when "Associated with shared country code 883" -%}
+        <<note_p,p>>
+    {%- when "This designation is without prejudice t" -%}
+        <<note_q,q>>
+{%- endcase -%}
+{% endfor %}
+|===
+
+
+== {{ file.metadata.title[lang] }} - 按字母排序
+
+{% assign ordered_sequence = file.data | map: "country_area_or_service" | sort: lang | uniq %}
+
+
+[cols="^,<,^",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_code[lang] }}
+| {{ file.metadata.locale.country_area_or_service[lang] }}
+| {{ file.metadata.locale.note[lang] }}
+
+{% for next_country in ordered_sequence %}
+    {%- for country_data in file.data -%}
+        {%- if  next_country[lang] == country_data.country_area_or_service[lang] -%}
+            | {{ country_data.country_code }} | {{ country_data.country_area_or_service[lang] }} | 
+            {%- assign sliced_word = country_data.note.en | slice: 0,39 -%}
+            {%- case sliced_word -%}
+                {%- when "Ascension is using country code +247and" -%}
+                    <<note_a,a>>
+                {%- when "Integrated numbering plan." -%}
+                    <<note_b,b>>
+                {%- when "Code shared between Curaçao and Bonaire" -%}
+                    <<note_c,c>>
+                {%- when "Will be allocated, only after all three" -%}
+                    <<note_d,d>>
+                {%- when "Associated with shared country code 878" -%}
+                    <<note_e,e>>
+                {%- when "Reserved for future use." -%}
+                    <<note_f,f>>
+                {%- when "Including Australian Antarctic Territor" -%}
+                    <<note_g,g>>
+                {%- when "U.A.E.: Abu Dhabi, Ajman, Dubai, Fujeir" -%}
+                    <<note_h,h>>
+                {%- when "Including Christmas Island and Cocos-Ke" -%}
+                    <<note_i,i>>
+                {%- when "French departments and territories in t" -%}
+                    <<note_j,j>>
+                {%- when "United Nations Office of the Coordinato" -%}
+                    <<note_k,k>>
+                {%- when "Reserved for the Palestinian Authority." -%}
+                    <<note_l,l>>
+                {%- when "Reserved for E.164 country code expansi" -%}
+                    <<note_m,m>>
+                {%- when "Associated with shared country code 881" -%}
+                    <<note_n,n>>
+                {%- when "Associated with shared country code 882" -%}
+                    <<note_o,o>>
+                {%- when "Associated with shared country code 883" -%}
+                    <<note_p,p>>
+                {%- when "This designation is without prejudice t" -%}
+                    <<note_q,q>>
+            {%- endcase -%}
+        {%- endif %}
+    {%- endfor -%}
+{% endfor %}
+|===
+
+
+{{ file.metadata.locale.note[lang] }}:
+
+. [[note_a]]{{ note_a }}
+
+. [[note_b]]{{ note_b }}
+
+. [[note_c]]{{ note_c }}
+
+. [[note_d]]{{ note_d }}
+
+. [[note_e]]{{ note_e }}
+
+. [[note_f]]{{ note_f }}
+
+. [[note_g]]{{ note_g }}
+
+. [[note_h]]{{ note_h }}
+
+. [[note_i]]{{ note_i }}
+
+. [[note_j]]{{ note_j }}
+
+. [[note_k]]{{ note_k }}
+
+. [[note_l]]{{ note_l }}
+
+. [[note_m]]{{ note_m }}
+
+. [[note_n]]{{ note_n }}:
++
+--
+[yaml2text,T-SP-E.164D-2016.note-n.yaml,file_two]
+---
+[cols="<,^,^",options="unnumbered,header"]
+|===
+^| {{ file_two.metadata.locale.network[lang] }}
+| {{ file_two.metadata.locale.cc_ic[lang] }}
+| {{ file_two.metadata.locale.status[lang] }}
+
+{% for service_data in file_two.data -%}
+    {% assign one_service = file_two.data | where: "network", service_data.network %}
+    {% if next_network != one_service[0].network %}
+        {% assign next_network = service_data.network %}
+        | {{ one_service[0].network }}
+        | {{ one_service[0].cc_ic }} 和 {{ one_service[1].cc_ic }}
+        | {{ one_service[0].status }}
+    {% endif %}
+{%- endfor %}
+
+{% comment %}
+{% for service_data in file_two.data -%}
+    | {{ service_data.network }}
+    | {{ service_data.cc_ic }}
+    | {{ service_data.status }}
+{%- endfor %}
+{% endcomment %}
+|===
+---
+--
+
+. [[note_o]]{{ note_o }}:
++
+--
+[yaml2text,T-SP-E.164D-2016.note-o.yaml,file_three]
+---
+[cols="<,<,^,^",options="unnumbered,header"]
+|===
+| {{ file_three.metadata.locale.applicant[lang] }}
+| {{ file_three.metadata.locale.network[lang] }}
+| {{ file_three.metadata.locale.cc_ic[lang] }}
+| {{ file_three.metadata.locale.status[lang] }}
+
+{% for applicant_data in file_three.data -%}
+    | {{ applicant_data[1].applicant }}
+    | {{ applicant_data[1].network }}
+    | {{ applicant_data[1].cc_ic }}
+    | {{ applicant_data[1].status }}
+{%- endfor %}
+|===
+---
+--
+
+. [[note_p]]{{ note_p }}:
++
+--
+[yaml2text,T-SP-E.164D-2016.note-p-q.yaml,file_four]
+---
+[cols="<,<,^,^",options="unnumbered,header"]
+|===
+| {{ file_four.metadata.locale.applicant[lang] }}
+| {{ file_four.metadata.locale.network[lang] }}
+| {{ file_four.metadata.locale.cc_ic[lang] }}
+| {{ file_four.metadata.locale.status[lang] }}
+
+{% for applicant_data in file_four.data -%}
+    | {{ applicant_data[1].applicant }}
+    | {{ applicant_data[1].network }}
+    | {{ applicant_data[1].cc_ic }}
+    | {{ applicant_data[1].status }}
+{%- endfor %}
+|===
+---
+--
+
+. [[note_q]]{{ note_q }}
+
+
+== 可作为国家代码或全球业务代码分配的备用代码
+
+_带注释的备用代码_
+
+280, 281, 282, 283, 284, 285, 286, 287, 288, 289 +
+801, 802, 803, 804, 805, 806, 807, 809 +
+830, 831, 832, 833, 834, 835, 836, 837, 838, 839 +
+890, 891, 892, 893, 894, 895, 896, 897, 898, 899
+
+_没有注释的备用代码_
+
+210, 214, 215, 217, 219 +
+259, 292, 293, 294, 295, 296 +
+384 +
+422, 424, 425, 426, 427, 428, 429 +
+671, 684, 693, 694, 695, 696, 697, 698, 699 +
+851, 854, 857, 858, 859 +
+871, 872, 873, 874 +
+884, 885, 887, 889 +
+978, 990, 997
+
+
+== 修正
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| 修正编号 | 《操作公报》编号 | 国家
+
+{% for i in (1..30) -%}
+    | {{ i }} | |
+{%- endfor %}
+|===
+----

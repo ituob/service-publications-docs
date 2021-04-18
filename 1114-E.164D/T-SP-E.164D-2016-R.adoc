@@ -1,0 +1,353 @@
+= СПИСОК ПРИСВОЕННЫХ КОДОВ СТРАНЫ СОГЛАСНО РЕКОМЕНДАЦИИ МСЭ-Т E.164
+:bureau: T
+:docnumber: 976
+:published-date: 2016-12-15
+:annex-title: Annex to ITU Operational Bulletin
+:annex-id: No. 994
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.164C-2011-R.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+== Примечание БСЭ
+
+. Настоящий Список присвоенных кодов страны согласно Рекомендации МСЭ-Т E.164
+заменяет предыдущий Список, опубликованный в качестве Приложения к Оперативному
+бюллетеню МСЭ № 991 от 1 ноября 2011 года. С того времени выполнены различные новые
+присвоения, которые публиковались в Оперативных бюллетенях МСЭ вплоть до № 1114 от
+15 декабря 2016 года.
+
+. Этот Список включает:
++
+--
+* список присвоенных кодов страны согласно Рекомендации МСЭ-Т E.164 −
+в нумерационном порядке;
+* список присвоенных кодов страны согласно Рекомендации МСЭ-Т E.164 −
+в алфавитном порядке.
+--
+
+. Настоящий Список будет обновляться с помощью нумерованной серии поправок,
+публикуемых в Оперативном бюллетене МСЭ. Наряду с этим информация, содержащаяся в
+настоящем Приложении, размещена также на веб-сайте МСЭ по адресу: www.itu.int/itut/
+bulletin/annex.html.
+
+. Любые замечания, предложения или изменения, касающиеся данной публикации,
+просим направлять Директору БСЭ:
++
+--
+[align=left]
+Тел.: +41 22 730 5887 +
+Факс: +41 22 730 5853 +
+Эл. почта: mailto:tsbmail@itu.int[]
+--
+
+. Используемые в настоящем Списке обозначения и способ подачи материала не
+подразумевают выражения какого бы то ни было мнения со стороны МСЭ в отношении
+правового статуса какой-либо страны или географической зоны либо их властей.
+
+
+
+[yaml2text,T-SP-E.164D-2016.main.yaml,file]
+----
+{% assign lang = "ru" %}
+
+
+== {{ file.metadata.title[lang] }} - в нумерационном порядке;
+
+{% assign notes = file.data | map: "note" | uniq %}
+
+{% for note_content in notes %}
+    {% assign sliced_word = note_content.en | slice: 0,39 %}
+    {% case sliced_word %}
+        {% when "Ascension is using country code +247and" %}
+            {% assign note_a = note_content[lang] %}
+        {% when "Integrated numbering plan." %}
+            {% assign note_b = note_content[lang] %}
+        {% when "Code shared between Curaçao and Bonaire" %}
+            {% assign note_c = note_content[lang] %}
+        {% when "Will be allocated, only after all three" %}
+            {% assign note_d = note_content[lang] %}
+        {% when "Associated with shared country code 878" %}
+            {% assign note_e = note_content[lang] %}
+        {% when "Reserved for future use." %}
+            {% assign note_f = note_content[lang] %}
+        {% when "Including Australian Antarctic Territor" %}
+            {% assign note_g = note_content[lang] %}
+        {% when "U.A.E.: Abu Dhabi, Ajman, Dubai, Fujeir" %}
+            {% assign note_h = note_content[lang] %}
+        {% when "Including Christmas Island and Cocos-Ke" %}
+            {% assign note_i = note_content[lang] %}
+        {% when "French departments and territories in t" %}
+            {% assign note_j = note_content[lang] %}
+        {% when "United Nations Office of the Coordinato" %}
+            {% assign note_k = note_content[lang] %}
+        {% when "Reserved for the Palestinian Authority." %}
+            {% assign note_l = note_content[lang] %}
+        {% when "Reserved for E.164 country code expansi" %}
+            {% assign note_m = note_content[lang] %}
+        {% when "Associated with shared country code 881" %}
+            {% assign note_n = note_content[lang] %}
+        {% when "Associated with shared country code 882" %}
+            {% assign note_o = note_content[lang] %}
+        {% when "Associated with shared country code 883" %}
+            {% assign note_p = note_content[lang] %}
+        {% when "This designation is without prejudice t" %}
+            {% assign note_q = note_content[lang] %}
+    {% endcase %}
+{% endfor %}
+
+[cols="^,<,^",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_code[lang] }}
+| {{ file.metadata.locale.country_area_or_service[lang] }}
+| {{ file.metadata.locale.note[lang] }}
+
+{% for country_data in file.data %}
+| {{ country_data.country_code }}
+| {{ country_data.country_area_or_service[lang] }}
+| 
+{%- assign sliced_word = country_data.note.en | slice: 0,39 -%}
+{%- case sliced_word -%}
+    {%- when "Ascension is using country code +247and" -%}
+        <<note_a,a>>
+    {%- when "Integrated numbering plan." -%}
+        <<note_b,b>>
+    {%- when "Code shared between Curaçao and Bonaire" -%}
+        <<note_c,c>>
+    {%- when "Will be allocated, only after all three" -%}
+        <<note_d,d>>
+    {%- when "Associated with shared country code 878" -%}
+        <<note_e,e>>
+    {%- when "Reserved for future use." -%}
+        <<note_f,f>>
+    {%- when "Including Australian Antarctic Territor" -%}
+        <<note_g,g>>
+    {%- when "U.A.E.: Abu Dhabi, Ajman, Dubai, Fujeir" -%}
+        <<note_h,h>>
+    {%- when "Including Christmas Island and Cocos-Ke" -%}
+        <<note_i,i>>
+    {%- when "French departments and territories in t" -%}
+        <<note_j,j>>
+    {%- when "United Nations Office of the Coordinato" -%}
+        <<note_k,k>>
+    {%- when "Reserved for the Palestinian Authority." -%}
+        <<note_l,l>>
+    {%- when "Reserved for E.164 country code expansi" -%}
+        <<note_m,m>>
+    {%- when "Associated with shared country code 881" -%}
+        <<note_n,n>>
+    {%- when "Associated with shared country code 882" -%}
+        <<note_o,o>>
+    {%- when "Associated with shared country code 883" -%}
+        <<note_p,p>>
+    {%- when "This designation is without prejudice t" -%}
+        <<note_q,q>>
+{%- endcase -%}
+{% endfor %}
+|===
+
+
+== {{ file.metadata.title[lang] }} - в алфавитном порядке
+
+{% assign ordered_sequence = file.data | map: "country_area_or_service" | sort: lang | uniq %}
+
+
+[cols="^,<,^",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_code[lang] }}
+| {{ file.metadata.locale.country_area_or_service[lang] }}
+| {{ file.metadata.locale.note[lang] }}
+
+{% for next_country in ordered_sequence %}
+    {%- for country_data in file.data -%}
+        {%- if  next_country[lang] == country_data.country_area_or_service[lang] -%}
+            | {{ country_data.country_code }} | {{ country_data.country_area_or_service[lang] }} | 
+            {%- assign sliced_word = country_data.note.en | slice: 0,39 -%}
+            {%- case sliced_word -%}
+                {%- when "Ascension is using country code +247and" -%}
+                    <<note_a,a>>
+                {%- when "Integrated numbering plan." -%}
+                    <<note_b,b>>
+                {%- when "Code shared between Curaçao and Bonaire" -%}
+                    <<note_c,c>>
+                {%- when "Will be allocated, only after all three" -%}
+                    <<note_d,d>>
+                {%- when "Associated with shared country code 878" -%}
+                    <<note_e,e>>
+                {%- when "Reserved for future use." -%}
+                    <<note_f,f>>
+                {%- when "Including Australian Antarctic Territor" -%}
+                    <<note_g,g>>
+                {%- when "U.A.E.: Abu Dhabi, Ajman, Dubai, Fujeir" -%}
+                    <<note_h,h>>
+                {%- when "Including Christmas Island and Cocos-Ke" -%}
+                    <<note_i,i>>
+                {%- when "French departments and territories in t" -%}
+                    <<note_j,j>>
+                {%- when "United Nations Office of the Coordinato" -%}
+                    <<note_k,k>>
+                {%- when "Reserved for the Palestinian Authority." -%}
+                    <<note_l,l>>
+                {%- when "Reserved for E.164 country code expansi" -%}
+                    <<note_m,m>>
+                {%- when "Associated with shared country code 881" -%}
+                    <<note_n,n>>
+                {%- when "Associated with shared country code 882" -%}
+                    <<note_o,o>>
+                {%- when "Associated with shared country code 883" -%}
+                    <<note_p,p>>
+                {%- when "This designation is without prejudice t" -%}
+                    <<note_q,q>>
+            {%- endcase -%}
+        {%- endif %}
+    {%- endfor -%}
+{% endfor %}
+|===
+
+
+{{ file.metadata.locale.note[lang] }}:
+
+. [[note_a]]{{ note_a }}
+
+. [[note_b]]{{ note_b }}
+
+. [[note_c]]{{ note_c }}
+
+. [[note_d]]{{ note_d }}
+
+. [[note_e]]{{ note_e }}
+
+. [[note_f]]{{ note_f }}
+
+. [[note_g]]{{ note_g }}
+
+. [[note_h]]{{ note_h }}
+
+. [[note_i]]{{ note_i }}
+
+. [[note_j]]{{ note_j }}
+
+. [[note_k]]{{ note_k }}
+
+. [[note_l]]{{ note_l }}
+
+. [[note_m]]{{ note_m }}
+
+. [[note_n]]{{ note_n }}:
++
+--
+[yaml2text,T-SP-E.164D-2016.note-n.yaml,file_two]
+---
+[cols="<,^,^",options="unnumbered,header"]
+|===
+^| {{ file_two.metadata.locale.network[lang] }}
+| {{ file_two.metadata.locale.cc_ic[lang] }}
+| {{ file_two.metadata.locale.status[lang] }}
+
+{% for service_data in file_two.data -%}
+    {% assign one_service = file_two.data | where: "network", service_data.network %}
+    {% if next_network != one_service[0].network %}
+        {% assign next_network = service_data.network %}
+        | {{ one_service[0].network }}
+        | {{ one_service[0].cc_ic }} и {{ one_service[1].cc_ic }}
+        | {{ one_service[0].status }}
+    {% endif %}
+{%- endfor %}
+
+{% comment %}
+{% for service_data in file_two.data -%}
+    | {{ service_data.network }}
+    | {{ service_data.cc_ic }}
+    | {{ service_data.status }}
+{%- endfor %}
+{% endcomment %}
+|===
+---
+--
+
+. [[note_o]]{{ note_o }}:
++
+--
+[yaml2text,T-SP-E.164D-2016.note-o.yaml,file_three]
+---
+[cols="<,<,^,^",options="unnumbered,header"]
+|===
+| {{ file_three.metadata.locale.applicant[lang] }}
+| {{ file_three.metadata.locale.network[lang] }}
+| {{ file_three.metadata.locale.cc_ic[lang] }}
+| {{ file_three.metadata.locale.status[lang] }}
+
+{% for applicant_data in file_three.data -%}
+    | {{ applicant_data[1].applicant }}
+    | {{ applicant_data[1].network }}
+    | {{ applicant_data[1].cc_ic }}
+    | {{ applicant_data[1].status }}
+{%- endfor %}
+|===
+---
+--
+
+. [[note_p]]{{ note_p }}:
++
+--
+[yaml2text,T-SP-E.164D-2016.note-p-q.yaml,file_four]
+---
+[cols="<,<,^,^",options="unnumbered,header"]
+|===
+| {{ file_four.metadata.locale.applicant[lang] }}
+| {{ file_four.metadata.locale.network[lang] }}
+| {{ file_four.metadata.locale.cc_ic[lang] }}
+| {{ file_four.metadata.locale.status[lang] }}
+
+{% for applicant_data in file_four.data -%}
+    | {{ applicant_data[1].applicant }}
+    | {{ applicant_data[1].network }}
+    | {{ applicant_data[1].cc_ic }}
+    | {{ applicant_data[1].status }}
+{%- endfor %}
+|===
+---
+--
+
+. [[note_q]]{{ note_q }}
+
+
+== Резервные коды, которые могут быть распределены в качестве кодов страны или кодов глобальной услуги
+
+_Резервные коды с примечанием_
+
+280, 281, 282, 283, 284, 285, 286, 287, 288, 289 +
+801, 802, 803, 804, 805, 806, 807, 809 +
+830, 831, 832, 833, 834, 835, 836, 837, 838, 839 +
+890, 891, 892, 893, 894, 895, 896, 897, 898, 899
+
+_Резервные коды без примечания_
+
+210, 214, 215, 217, 219 +
+259, 292, 293, 294, 295, 296 +
+384 +
+422, 424, 425, 426, 427, 428, 429 +
+671, 684, 693, 694, 695, 696, 697, 698, 699 +
+851, 854, 857, 858, 859 +
+871, 872, 873, 874 +
+884, 885, 887, 889 +
+978, 990, 997
+
+
+== ПОПРАВКИ
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| Поправка № | Оперативный бюллетень № | Страна
+
+{% for i in (1..30) -%}
+    | {{ i }} | |
+{%- endfor %}
+|===
+----
