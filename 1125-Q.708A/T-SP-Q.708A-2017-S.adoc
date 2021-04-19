@@ -81,5 +81,41 @@ E-mail: mailto:tsbmail@itu.int[]
     {%- endfor -%}
 {%- endfor %}
 |===
+
+Notas
+
+* {{ file.data["7-213"].note[lang] }}
+
+
+== Número de códigos de zona/red de señalización UIT-T Q.708 (SANCs) de reserva
+
+[cols="^,^",options="unnumbered,header"]
+|===
+| Códigos de zona/red de señalización, gama de números
+| Número de códigos de reserva
+
+| 0-000 a 0-255 | reservado
+| 1-000 a 1-255 | reservado
+| 2-000 a 2-255 | 0
+| 3-000 a 3-255 | 86
+| 4-000 a 4-255 | 67
+| 5-000 a 5-255 | 122
+| 6-000 a 6-255 | 97
+| 7-000 a 7-255 | 120
+|===
+
+NOTE: Porcentaje de SANCs asignados = 67.97 %
+
+
+== ENMIENDAS
+
+[cols="^,^,^",options="unnumbered,header"]
+|===
+| Enmienda N.° | Boletín de Explotación N.° | País
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
 ----
 
