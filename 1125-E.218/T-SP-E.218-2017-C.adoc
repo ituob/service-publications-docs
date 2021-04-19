@@ -1,0 +1,131 @@
+= 地面集群无线电移动国家代码列表
+:bureau: T
+:docnumber: E.218
+:published-date: 2017-06-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 1125
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.218-2017-C.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+[preface]
+== 电信标准化局说明
+
+. 此列表为根据ITU-T E.218建议书编制的地面集群无线电移动国家代码列表。
+
+. 当前列表包括：
++
+--
+* 一份按数字顺序排列的地面集群无线电列表
+* 一份按字母顺序排列的地面集群无线电列表。
+--
+
+. 本列表将根据国际电联操作公报中公布的的一系列编号的变更进行更新。此外，本附件所含信息也在国际电联网站www.itu.int/itu-t/bulletin/annex.html上发布。
+
+. 有关本出版物所有的意见，请发送给电信标准化局主任：
++
+--
+[align=left]
+电话： +41 22 730 5887 +
+传真： +41 22 730 5853 +
+电子邮件： mailto:tsbmail@itu.int[]
+--
+
+. 本列表的指称及其资料的呈现形式不代表国际电联对任何国家或地理区域或其主管部门的法律地位持有任何观点。
+
+
+
+[yaml2text,T-SP-E.218-2017.yaml,file]
+----
+{% assign lang = "zh" %}
+
+
+== 按数字顺序排列的地面集群无线电列表
+
+{% assign notes = file.data | map: "note" | uniq %}
+
+{% for note_content in notes %}
+    {% assign note_first_word = note_content.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            {% assign note_a = note_content[lang] %}
+        {% when "United" %}
+            {% assign note_b = note_content[lang] %}
+        {% when "This" %}
+            {% assign note_c = note_content[lang] %}
+    {% endcase %}
+{% endfor %}
+
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.tmcc_code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for country_data in file.data -%}
+    | {{ country_data.tmcc_code }} | {{ country_data.country_or_area[lang] }} | 
+    {% assign note_first_word = country_data.note.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            <<note_a,a>>
+        {% when "United" %}
+            <<note_b,b>>
+        {% when "This" %}
+            <<note_c,c>>
+    {% endcase %}
+{%- endfor %}
+|===
+
+
+== 按字母顺序排列的地面集群无线电列表
+
+{% assign ordered_sequence = file.data | map: "country_or_area" | sort: lang | uniq %}
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.tmcc_code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for next_country in ordered_sequence -%}
+    {%- for country_data in file.data -%}
+        {%- if country_data.country_or_area[lang] == next_country[lang] -%}
+            | {{ country_data.tmcc_code }} | {{ country_data.country_or_area[lang] }} | 
+            {% assign note_first_word = country_data.note.en | split: " " | first %}
+            {% case note_first_word %}
+                {% when "Mobile" %}
+                    <<note_a,a>>
+                {% when "United" %}
+                    <<note_b,b>>
+                {% when "This" %}
+                    <<note_c,c>>
+            {% endcase %}
+        {%- endif -%}
+    {%- endfor %}
+{%- endfor %}
+|===
+
+
+{{ file.metadata.locale.note[lang] | append: "s"}}:
+
+. [[note_a]]{{ note_a }}
+. [[note_b]]{{ note_b }}
+. [[note_c]]{{ note_c }}
+
+
+== 修正
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| 修正编号 | 《操作公报》期号 | 国家
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+----
