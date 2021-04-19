@@ -82,4 +82,42 @@ E-mail: mailto:tsbmail@itu.int[]
     {%- endfor -%}
 {%- endfor %}
 |===
+
+Note:
+
+* {{ file.data["7-213"].note[lang] }}
+
+
+== Number of spare ITU-T Q.708 Signalling Area Network Codes (SANCs)
+
+[cols="^,^",options="unnumbered,header"]
+|===
+| Signalling Area Network Codes, numbering range
+| Number of spare codes
+
+| 0-000 to 0-255 | reserved
+| 1-000 to 1-255 | reserved
+| 2-000 to 2-255 | 0
+| 3-000 to 3-255 | 86
+| 4-000 to 4-255 | 67
+| 5-000 to 5-255 | 122
+| 6-000 to 6-255 | 97
+| 7-000 to 7-255 | 120
+|===
+
+NOTE: Percentage of SANCs assigned = 67.97 %
+
+
+== AMENDMENTS
+
+[cols="^,^,^",options="unnumbered,header"]
+|===
+| Amendment No. | Operational Bulletin No. | Country
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
 ----
+
+

@@ -83,4 +83,42 @@ E-mail: mailto:tsbmail@itu.int[]
     {%- endfor -%}
 {%- endfor %}
 |===
+
+
+Notes
+
+* {{ file.data["7-213"].note[lang] }}
+
+
+== Nombre des codes de zone/réseau sémaphore UIT-T Q.708 (SANCs) en réserve
+
+[cols="^,^",options="unnumbered,header"]
+|===
+| Codes de zone/réseau sémaphore, série de numéros
+| Nombre de codes en réserve
+
+| 0-000 à 0-255 | réservé
+| 1-000 à 1-255 | réservé
+| 2-000 à 2-255 | 0
+| 3-000 à 3-255 | 86
+| 4-000 à 4-255 | 67
+| 5-000 à 5-255 | 122
+| 6-000 à 6-255 | 97
+| 7-000 à 7-255 | 120
+|===
+
+NOTE: Pourcentage de SANCs attribués = 67.97 %
+
+
+== AMENDMENTS
+
+[cols="^,^,^",options="unnumbered,header"]
+|===
+| Amendement N° | Bulletin d'exploitation N°. | Pays
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+
 ----
