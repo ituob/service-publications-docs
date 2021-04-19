@@ -1,0 +1,121 @@
+= 信令区域/网络编码（SANC）列表
+:bureau: T
+:docnumber: Q.708
+:published-date: 2017-06-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex 至 ITU Operational Bulletin
+:annexid: No. 1125 - 1.VI.2017
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-Q.708A-2017-C.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+[preface]
+== 电信标准化局说明
+
+. 此信令区域/网络编码（SANC）列表现取代作为15.XII.2014第1066期《国际电联操作公报》附件公布的前一份列表。自那时起，已进行了各种新的指配并分别在各期国际电联操作公报中公布。当前列表包含了1.VI.2017第1125期《操作公报》之前公布的所有变更。
+
+. 当前列表包括：
++
+--
+* 一份按数字顺序排列的SANC代码列表
+* 一份按国家/地理区域名称的字母顺序排列的SANC代码列表。
+--
+
+. ITU-T Q.708建议书（03/99）规定，电信标准化局负责信令区域/网络编码（SANC）的指配。国际信令点代码（ISPC）的指配/撤销由各国开展并随后通知电信标准化局。
+
+. 主管部门向电信标准化局主任书面申请SANC。为了申请一个新的SANC，某个主管部门必须向电信标准化局主任通知该主管部门当前ISPC的指配情况。
+
+. 敬请注意，本列表将根据国际电联操作公报中公布的的一系列编号的变更进行更新。此外，本附件所含信息也在国际电联网站www.itu.int/itu-t/bulletin/annex.html上发布。
+
+. 希望参与国际信令网络或需要额外的信令区域/网络编码（SANC）的国家，应向电信标准化局主任申请分配一个可用的SANC代码。这些国家可在申请中注明希望获得的可用SANC代码。所有的意见请发送给电信标准化局主任：
++
+--
+[align=left]
+International Telecommunication Union +
+Direc至r of the TSB +
+Place des Nations +
+CH-1211 GENEVA 20 +
+Switzerland +
+电话： +41 22 730 5887 +
+传真： +41 22 730 5853 +
+电子邮件： mail至:tsbmail@itu.int[]
+--
+
+. 本列表的指称及其资料的呈现形式不代表国际电联对任何国家或地理区域或其主管部门的法律地位持有任何观点。
+
+
+== {blank}
+
+[yaml2text,T-SP-Q.708A-2017.yaml,file]
+----
+{% assign lang = "zh" %}
+
+[cols="2",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.area_or_network[lang] }} -- 按数字排序
+
+{% for network_data in file.data -%}
+    | {{ network_data[1].code }} | {{ network_data[1].area_or_network[lang] }}
+    {%- assign network_names = network_names | append: network_data[1].area_or_network[lang] | append: ", " -%}
+{% endfor %}
+|===
+
+
+{% assign ordered_sequence = network_names | split: ", " | uniq | sort %}
+
+[cols="2",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.area_or_network[lang] }} -- 按字母排序
+
+{% for next_network in ordered_sequence -%}
+    {%- for network_data in file.data -%}
+        {%- if network_data[1].area_or_network[lang] == next_network -%}
+            | {{ network_data[1].code }} | {{ network_data[1].area_or_network[lang] }}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endfor %}
+|===
+
+注
+
+* {{ file.data["7-213"].note[lang] }}
+
+
+== 闲置的ITU-T Q.708信令区域网络编码（SANC）数量
+
+[cols="^,^",options="unnumbered,header"]
+|===
+| 信令区域网络编码 号段 | 闲置代码数量
+
+| 0-000 至 0-255 | 保留
+| 1-000 至 1-255 | 保留
+| 2-000 至 2-255 | 0
+| 3-000 至 3-255 | 86
+| 4-000 至 4-255 | 67
+| 5-000 至 5-255 | 122
+| 6-000 至 6-255 | 97
+| 7-000 至 7-255 | 120
+|===
+
+NOTE: 已分配SANC的比例 = 67.97 %
+
+
+== 修正
+
+[cols="^,^,^",options="unnumbered,header"]
+|===
+| 修正编号 | 《操作公报》期号 | 国家
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+----
+
