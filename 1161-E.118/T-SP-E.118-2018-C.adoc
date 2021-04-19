@@ -1,0 +1,104 @@
+= 国际电信计账卡的颁发者标识号码列表 （根据ITU-T E.118建议书（05/2006）
+:bureau: T
+:docnumber: 976
+:published-date: 2018-12-01
+:annex-title: Annex to ITU Operational Bulletin
+:annex-id: No. 1161
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.118-2018-C.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+[preface]
+== 电信标准化局的说明
+
+本列表取代2015年11月15日第1088期《操作公报》后附的列表。它包含了由国际电联登记并在2018年12月1第1161期之前（含该期）的国际电联《操作公报》中公布的所有颁发者标识号码（IIN）。
+
+需要说明的是，本列表将通过在 link:http://www.itu.int/pub/T-SP/[国际电联《操作公报》] 中公布的一系列编号修正进行更新。此外，本附件可在 国际电联网站上免费下载。
+采用IIN来识别某个国家在国际环境下开展业务的电信企业。根据国际标准化组织7812-2号标准，批准和否决申请的标准是：
+
+“4.3.1 单独IIN申请的批准标准
+
+申请单独IIN须满足以下所有批准标准且不得符合第4.3.2节中所规定的任何否决标准：
+
+. 单独IIN的申请人不得已通过自己的申请而获得了IIN（不属于任何记账卡方案）；
+. IIN须立即使用，最好在IIN分配之日起12个月内；
+. 发行的卡须用于国际交换环境（参见ISO/IEC 7812-1）；
+. 申请人须为根据特定法规运营的单独法人实体。
+
+4.3.2 否决单独IIN申请的标准
+
+当符合以下任何一项条件时，主办机构须否决单独IIN的申请：
+
+. 申请人并非卡发行人；
+. 申请人此前已通过自己的申请获得了IIN（不属于任何记账卡方案的成员）并仍在使用且申请人未提供足够的补充信息，作为给予额外IIN的理由（参见4.2节）；
+. 申请人发行的卡不用于国际和/或行业间交换环境；
+. 采用IIN来识别或区分不同产品、业务、技术（包括但不限于集成电路卡）或仅用于方便路由，或识别地理位置；
+. 采用IIN来识别或区分申请人组织内部的不同分支或附属机构（即这些分支或附属机构不是单独法人实体）；
+. 申请人要求获得特定的号码或在登记表中预留特定的号码，或所提要求超出了ISO/IEC 7812此部分的范围；
+. 不会在IIN分配之日起12个月内发行立即使用的卡。”
+
+国际电联是颁发者标识号码（IIN）的中央注册机构，其主要行业标识符（MII）为针对电信行业的 “89”。
+
+根据ITU-T E.118建议书的4.2 d)，国际电联须针对每个新颁发者标识号码收取一次性分配和注册费。自2018年1月1日起，注册费用为150瑞士法郎。对于非ITU-T和ITU-R部门成员，从2018年1月1日起，每个号码每年收取100瑞郎的维护费。ITU-T和ITU-R部门成员无需支付维护年费。
+
+请申请单独IIN的申请人填写登记表并在送交国际电联登记前提交所在国的电信主管部门（或经适当授权的协调机构）完成审批手续，同时附上已向国际电联付费的证明材料。
+
+为使该列表内容保持最新，请在列的企业将所有有关其企业和联系人的修订内容（包括完整地址和电子邮件地址）发送给国际电联电信标准化局/《操作公报》编号管理（TSB/OBNA）。电子邮件：mailto:tsbtson@itu.int[]；传真号码：+41 22 730 5853。
+
+更新信息需获得各国主管部门的批准或由各国主管部门发送。
+
+欲获取注册表格和更多信息，请参见 link:https://www.itu.int/en/ITU-T/inr/forms/Pages/iin.aspx[www.itu.int/en/ITU-T/inr/forms/Pages/iin.aspx]。
+
+本列表中所使用的名称和提供的材料，并不代表国际电联对任何国家或地理区域的法律地位或其管辖表示任何 意见。
+
+
+
+== {blank}
+
+[yaml2text,T-SP-E.118-2018.yaml,file]
+----
+{% assign lang = "en" %}
+
+
+[cols="4",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.company_name[lang] }}/{{ file.metadata.locale.company_address[lang] }}
+| {{ file.metadata.locale.issue_id_number[lang] }}
+| {{ file.metadata.locale.contact[lang] }}
+
+{% for country_data in file.data -%}
+    | *{{ country_data[1].country_or_area["en"] }}*
+    | *{{ country_data[1].company_name }}* +
+    {{ country_data[1].company_address_1 }} +
+    {{ country_data[1].company_address_2 }}
+    | *{{ country_data[0] }}*
+    | {{ country_data[1].contact }} +
+    {{ country_data[1].contact_address_1 }} +
+    {{ country_data[1].contact_address_2 }} +
+    Tel: {{ country_data[1].tel }} +
+    Fax: {{ country_data[1].fax }} +
+    E-mail: {{ country_data[1].email | join: "; " }}
+{%- endfor %}
+|===
+
+
+== 修正
+
+[cols="^,^,^,^",options="unnumbered"]
+|===
+| 修正编号 | 《操作 公报》期号 | 国家/地理区域 | IIN
+
+{% for i in (1..33) -%}
+    | {{ i }} | | |
+{%- endfor %}
+|===
+----
+
