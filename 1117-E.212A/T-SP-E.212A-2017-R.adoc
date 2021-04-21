@@ -1,0 +1,177 @@
+= СПИСОК ПРИСВОЕННЫХ КОДОВ СТРАНЫ СОГЛАСНО РЕКОМЕНДАЦИИ МСЭ-Т E.164
+:bureau: T
+:docnumber: E.212
+:published-date: 2017-02-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 1117
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.212A-2017-R.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+[preface]
+== Примечание БСЭ
+
+. Настоящий Список кодов страны или географической зоны для подвижной связи заменяет Список, ранее опубликованный в качестве Приложения к Оперативному бюллетеню МСЭ № 1005 от 1 июня 2012 года. С тех пор БСЭ были осуществлены различные новые присвоения, и они были опубликованы в Оперативном бюллетене МСЭ.
+
+. Настоящий Список включает:
++
+--
+* список кодов страны или географической зоны для подвижной связи – в нумерационном порядке;
+* список кодов страны или географической зоны для подвижной связи – в алфавитном порядке.
+--
+
+. Настоящий Список будет обновляться с помощью нумерованной серии поправок, публикуемых в Оперативном бюллетене МСЭ. Наряду с этим информация, содержащаяся в настоящем Приложении, размещена также на веб-сайте МСЭ по адресу: www.itu.int/itu-t/bulletin/annex.html.
+
+. Любые замечания, касающиеся настоящей публикации, просим направлять Директору БСЭ:
++
+--
+Тел.: +41 22 730 5887 +
+Факс: +41 22 730 5853 +
+Эл. почта: mailto:tsbmail@itu.int[]
+--
+
+. Используемые в настоящем Списке обозначения и способ подачи материала не подразумевают выражения какого бы то ни было мнения со стороны МСЭ в отношении правового статуса какой-либо страны или географической зоны или властей этой страны или географической зоны.
+
+
+
+
+[yaml2text,T-SP-E.212A-2017.main.yaml,file]
+----
+{% assign lang = "ru" %}
+
+== {{ file.metadata.title[lang] }} - в нумерационном порядке
+
+{% assign notes = file.data | map: "note" | uniq %}
+
+{% for note_content in notes %}
+    {% assign note_first_word = note_content.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            {% assign note_a = note_content[lang] %}
+        {% when "Dubai:" %}
+            {% assign note_b = note_content[lang] %}
+        {% when "Associated" %}
+            {% assign note_c = note_content[lang] %}
+        {% when "This" %}
+            {% assign note_d = note_content[lang] %}
+    {% endcase %}
+{% endfor %}
+
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for country_data in file.data -%}
+    | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} | 
+    {% assign note_first_word = country_data.note.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            <<note_a,a>>
+        {% when "Dubai:" %}
+            <<note_b,b>>
+        {% when "Associated" %}
+            <<note_c,c>>
+        {% when "This" %}
+            <<note_d,d>>
+    {% endcase %}
+{%- endfor %}
+
+|===
+
+
+== {{ file.metadata.title[lang] }} - в алфавитном порядке
+
+{% assign ordered_sequence = file.data | map: "country_or_area" | sort: lang | uniq %}
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for next_country in ordered_sequence -%}
+    {%- for country_data in file.data -%}
+        {%- if country_data.country_or_area[lang] == next_country[lang] -%}
+            | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} | 
+            {% assign note_first_word = country_data.note.en | split: " " | first %}
+            {% case note_first_word %}
+                {% when "Mobile" %}
+                    <<note_a,a>>
+                {% when "Dubai:" %}
+                    <<note_b,b>>
+                {% when "Associated" %}
+                    <<note_c,c>>
+                {% when "This" %}
+                    <<note_d,d>>
+            {% endcase %}
+        {%- endif -%}
+    {%- endfor %}
+{%- endfor %}
+|===
+
+
+{{ file.metadata.locale.note[lang] | append: "s"}}:
+
+. [[note_a]]{{ note_a }}
+
+. [[note_b]]{{ file.data | map: "country_or_area" | where: "en", "United Arab Emirates" | map: lang | uniq }}, {{ note_b }}
+
+. [[note_c]]{{ note_c }}
++
+--
+[yaml2text,T-SP-E.212A-2017.mcc_mnc.yaml,file_two]
+---
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| {{ file_two.metadata.locale.network[lang] }} | {{ file_two.metadata.locale.mcc_mnc[lang] }} | {{ file_two.metadata.locale.status[lang] }}
+
+{% for company in file_two.data %}
+<| {{ company[1].network }} | {{ company[1].mcc_mnc }} | {{ company[1].status | replace: "assigned", file_two.metadata.locale.assigned[lang] }}
+{% endfor %}
+
+|===
+---
+--
+. [[note_d]]{{ note_d }}
+
+
+== Количество резервных кодов страны или географической зоны для подвижной связи (MCC) согласно Рекомендации МСЭ-Т E.212
+
+[cols="^,^",options="unnumbered"]
+|===
+| Коды страны или географической зоны для подвижной связи, диапазон номеров
+| Количество резервных кодов
+
+| 000 - 099 | зарезервированы
+| 100 - 199 | зарезервированы
+| 200 - 299 | 47
+| 300 - 399 | 66
+| 400 - 499 | 55
+| 500 - 599 | 72
+| 600 - 699 | 44
+| 700 - 799 | 79
+| 800 - 899 | зарезервированы
+| 900 - 999 | 99
+|===
+
+
+== ПОПРАВКИ
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| Поправка № | Оперативный бюллетень № | Страна
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+
+----

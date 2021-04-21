@@ -1,0 +1,180 @@
+= قائمة بالرموز الدليلة القُطرية أو الخاصة بالمناطق الجغرافية للاتصالات المتنقلة
+:bureau: T
+:docnumber: E.212
+:published-date: 2017-02-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 1117
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.212A-2017-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+[preface]
+== ملاحظة من مكتب تقييس الاتصالات
+
+. تحل قائمة الرموز الدليلية للبلدان أو للمناطق الجغرافية من أجل الاتصالات المتنقلة محل القائمة السابقة التي نُشرت في شكل
+ملحق بالنشرة التشغيلية للاتحاد رقم 1005 بتاريخ 1 يونيو 2012 . ومنذ ذلك الحين، مُنحت توزيعات جديدة مختلفة ونُشرت
+في النشرة التشغيلية للاتحاد.
+
+. تشمل هذه القائمة:
++
+--
+* قائمة بالرموز الدليلية للبلدان أو للمناطق الجغرافية من أجل الاتصالات المتنقلة – بالترتيب العددي؛
+* قائمة بالرموز الدليلية القطرية أو للمناطق الجغرافية من أجل الاتصالات المتنقلة – بالترتيب الهجاائ .
+--
+
+. وسيجاري تحديث القائمة من خلال سلسلة مرقّمة من التعديلات المنشورة في النشرة التشغيلية للاتحاد. وعلاوة على ذلك،
+تتاح أيضا المعلومات الواردة في هذا الملحق في الموقع الإلكتروني للاتحاد:
+link:http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html].
+
+. و يُرجى توجيه أي تعليقات تتعلق بهذا النشر إلى مدير مكتب تقييس الاتصالات:
++
+--
+الهاتف: +41 22 730 5887 +
+الفاكس: +41 22 730 5853 +
+البريد الإلكتروني: mailto:tsbmail@itu.int[]
+--
+
+. التسميات المستخدمة والمواد المعروضة في هذه القائمة لا تعبّر عن أي رأي من جانب الاتحاد بشأن الوضع القانوني
+لأي بلد أو منطقة جغرافية أو لسلطات أيّ منهما.
+
+
+[yaml2text,T-SP-E.212A-2017.main.yaml,file]
+----
+{% assign lang = "ar" %}
+
+== {{ file.metadata.title[lang] }} - بالترتيب العددي
+
+{% assign notes = file.data | map: "note" | uniq %}
+
+{% for note_content in notes %}
+    {% assign note_first_word = note_content.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            {% assign note_a = note_content[lang] %}
+        {% when "Dubai:" %}
+            {% assign note_b = note_content[lang] %}
+        {% when "Associated" %}
+            {% assign note_c = note_content[lang] %}
+        {% when "This" %}
+            {% assign note_d = note_content[lang] %}
+    {% endcase %}
+{% endfor %}
+
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for country_data in file.data -%}
+    | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} | 
+    {% assign note_first_word = country_data.note.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            <<note_a,a>>
+        {% when "Dubai:" %}
+            <<note_b,b>>
+        {% when "Associated" %}
+            <<note_c,c>>
+        {% when "This" %}
+            <<note_d,d>>
+    {% endcase %}
+{%- endfor %}
+|===
+
+
+== {{ file.metadata.title[lang] }} - بالترتيب الهجاائ
+
+{% assign ordered_sequence = file.data | map: "country_or_area" | sort: lang | uniq %}
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for next_country in ordered_sequence -%}
+    {%- for country_data in file.data -%}
+        {%- if country_data.country_or_area[lang] == next_country[lang] -%}
+            | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} | 
+            {% assign note_first_word = country_data.note.en | split: " " | first %}
+            {% case note_first_word %}
+                {% when "Mobile" %}
+                    <<note_a,a>>
+                {% when "Dubai:" %}
+                    <<note_b,b>>
+                {% when "Associated" %}
+                    <<note_c,c>>
+                {% when "This" %}
+                    <<note_d,d>>
+            {% endcase %}
+        {%- endif -%}
+    {%- endfor %}
+{%- endfor %}
+|===
+
+
+{{ file.metadata.locale.note[lang] | append: "s"}}:
+
+. [[note_a]]{{ note_a }}
+
+. [[note_b]]{{ file.data | map: "country_or_area" | where: "en", "United Arab Emirates" | map: lang | uniq }}, {{ note_b }}
+
+. [[note_c]]{{ note_c }}
++
+--
+[yaml2text,T-SP-E.212A-2017.mcc_mnc.yaml,file_two]
+---
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| {{ file_two.metadata.locale.network[lang] }} | {{ file_two.metadata.locale.mcc_mnc[lang] }} | {{ file_two.metadata.locale.status[lang] }}
+
+{% for company in file_two.data %}
+<| {{ company[1].network }} | {{ company[1].mcc_mnc }} | {{ company[1].status | replace: "assigned", file_two.metadata.locale.assigned[lang] }}
+{% endfor %}
+
+|===
+---
+--
+. [[note_d]]{{ note_d }}
+
+
+== وفقاً للتوصية ITU-T E.212 عدد الرموز الدليلية الاحتياطية للبلدان أو للمناطق الجغرافية من أجل الاتصالات المتنقلة (MCC)
+
+
+[cols="^,^",options="unnumbered"]
+|===
+| الرموز الدليلية للبلدان أو للمناطق الجغرافيةمن أجل الاتصالات المنتقلة، سلسلة الأرقام
+| عدد الرموز الدليلية الاحتياطية
+
+| 000 - 099 | محجاوز
+| 100 - 199 | محجاوز
+| 200 - 299 | 47
+| 300 - 399 | 66
+| 400 - 499 | 55
+| 500 - 599 | 72
+| 600 - 699 | 44
+| 700 - 799 | 79
+| 800 - 899 | محجاوز
+| 900 - 999 | 99
+|===
+
+
+== التعديلات
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| رقم التعديل
+| رقم النشرة التشغيلية
+| البلد
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+----
