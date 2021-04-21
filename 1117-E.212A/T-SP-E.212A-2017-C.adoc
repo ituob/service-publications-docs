@@ -1,0 +1,173 @@
+= 移动国家或地理区域代码列表
+:bureau: T
+:docnumber: E.212
+:published-date: 2017-02-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 1117
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.212A-2017-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+[preface]
+== 电信标准化局的说明
+
+. 此移动国家或地理区域代码列表现取代作为2012年6月1日第1005期《国际电联操作公报》附件公布的前一份列表。自那时起，电信标准化局已收到了多份通知并分别在各期国际电联操作公报中公布。
+
+. 该列表包括：
++
+--
+– 移动国家或地理区域代码列表 – 按编号顺序
+– 移动国家或地理区域代码列表 – 按字母顺序
+--
+
+. 本列表将根据国际电联操作公报中公布的的一系列编号的变更进行更新。此外，本附件所含信息也在国际电联网站 link:https://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html] 上发布。
+
+. 请将有关这些公布的意见提交电信标准化局主任：
++
+--
+电话： +41 22 730 5887 +
+传真： +41 22 730 5853 +
+电子邮件： mailto:tsbmail@itu.int[]
+--
+
+. 本列表的指称及其资料的呈现形式不代表国际电联对任何国家或地理区域或其主管部门的法律地位持有任何观点。
+
+
+[yaml2text,T-SP-E.212A-2017.main.yaml,file]
+----
+{% assign lang = "zh" %}
+
+== {{ file.metadata.title[lang] }} - 按编号顺序
+
+{% assign notes = file.data | map: "note" | uniq %}
+
+{% for note_content in notes %}
+    {% assign note_first_word = note_content.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            {% assign note_a = note_content[lang] %}
+        {% when "Dubai:" %}
+            {% assign note_b = note_content[lang] %}
+        {% when "Associated" %}
+            {% assign note_c = note_content[lang] %}
+        {% when "This" %}
+            {% assign note_d = note_content[lang] %}
+    {% endcase %}
+{% endfor %}
+
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for country_data in file.data -%}
+    | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} | 
+    {% assign note_first_word = country_data.note.en | split: " " | first %}
+    {% case note_first_word %}
+        {% when "Mobile" %}
+            <<note_a,a>>
+        {% when "Dubai:" %}
+            <<note_b,b>>
+        {% when "Associated" %}
+            <<note_c,c>>
+        {% when "This" %}
+            <<note_d,d>>
+    {% endcase %}
+{%- endfor %}
+
+|===
+
+
+== {{ file.metadata.title[lang] }} - 按字母顺序
+
+{% assign ordered_sequence = file.data | map: "country_or_area" | sort: lang | uniq %}
+
+[cols="3",options="unnumbered"]
+|===
+| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
+
+{% for next_country in ordered_sequence -%}
+    {%- for country_data in file.data -%}
+        {%- if country_data.country_or_area[lang] == next_country[lang] -%}
+            | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} | 
+            {% assign note_first_word = country_data.note.en | split: " " | first %}
+            {% case note_first_word %}
+                {% when "Mobile" %}
+                    <<note_a,a>>
+                {% when "Dubai:" %}
+                    <<note_b,b>>
+                {% when "Associated" %}
+                    <<note_c,c>>
+                {% when "This" %}
+                    <<note_d,d>>
+            {% endcase %}
+        {%- endif -%}
+    {%- endfor %}
+{%- endfor %}
+|===
+
+
+{{ file.metadata.locale.note[lang] | append: "s"}}:
+
+. [[note_a]]{{ note_a }}
+
+. [[note_b]]{{ file.data | map: "country_or_area" | where: "en", "United Arab Emirates" | map: lang | uniq }}, {{ note_b }}
+
+. [[note_c]]{{ note_c }}
++
+--
+[yaml2text,T-SP-E.212A-2017.mcc_mnc.yaml,file_two]
+---
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| {{ file_two.metadata.locale.network[lang] }} | {{ file_two.metadata.locale.mcc_mnc[lang] }} | {{ file_two.metadata.locale.status[lang] }}
+
+{% for company in file_two.data %}
+<| {{ company[1].network }} | {{ company[1].mcc_mnc }} | {{ company[1].status | replace: "assigned", file_two.metadata.locale.assigned[lang] }}
+{% endfor %}
+
+|===
+---
+--
+. [[note_d]]{{ note_d }}
+
+
+== ITU-T E.212移动国家或地理区域代码（MCC）空闲数量
+
+
+[cols="^,^",options="unnumbered"]
+|===
+| 移动国家或地理区域代码， 号码序列 | 空闲码数量
+
+| 000 - 099 | 预留
+| 100 - 199 | 预留
+| 200 - 299 | 47
+| 300 - 399 | 66
+| 400 - 499 | 55
+| 500 - 599 | 72
+| 600 - 699 | 44
+| 700 - 799 | 79
+| 800 - 899 | 预留
+| 900 - 999 | 99
+|===
+
+
+== 修正
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| 修正编号 | 操作公报期号 | 国家
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+----
