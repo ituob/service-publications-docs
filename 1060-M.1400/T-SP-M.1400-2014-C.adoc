@@ -1,0 +1,168 @@
+= 国际电联电信运营商代码列表 （根据ITU-T M.1400建议书 （03/2013））
+:bureau: T
+:docnumber: M.1400
+:published-date: 2014-09-15
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 1060
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-M.1400-2014-C.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+[preface]
+== 电信标准化局说明
+
+. 各国电信运营商数量快速增多的同时，网络互联增长更加迅猛。因此，实现所有网络互联的标准化
+也成为了相关运营商关心的问题。只有实现标准化，运营商才能系统、有效地进开展网络调配和维护。
+
+. 要正确使用ITU-T M.1400 建议书首先需要能够识别共享互联的运营商。为此，建立一个由国家内官
+方认可的、拥有标准代码的运营商清单极有用处。这样可以使运营商能够以独特的方式全面进行相互识别，
+由此建立一个所有连接的数据库。此举有利于改善网络运行和管理，使运营商和客户都能从中受益。
+
+. 由于电信开放和电信业竞争不断加剧，互联互通的电信运营商相互识别就成了强制要求。现已建立
+国际电联电信运营商代码集中列表，由国际电联电信标准化局保管。所有国内和国际运营商需向国际电联
+电信标准化局登记备案运营商代码。为避免运营商单独向TSB 发送登记ICC，各国监管当局需使用网上提
+供的ICC 通知表格直接向TSB 提供国际和国内网络运营商经核验后的代码和相关信息。见网页：
+http://www.itu.int/en/ITU-T/inr/forms/Pages/carrier.aspx。
+
+. ICC 列表可用以识别经成员国主管部门认可的运营商。国际电联中央ICC 网址link:https://www.itu.int/oth/T0201[www.itu.int/ITUT/inr/icc/index.html] 提供这该列表。ICC 既可以用于运营商之间的电子商务，也可用于确定网络资源。因
+此，ICC 可以指配给网络运营商也可以指配给服务提供商。
+
+. 国际电联电信运营商代码列表现已取代作为第981 of 1.VI.2011 期国际电联操作公报附件公布的列表。
+从那时起，电信标准化局已接收大量的通知并在各期国际电联操作公报分别公布。当前列表对第1060 of
+15.IX.2014 期操作公报之前公布的所有各类变更修改进行了汇总。
+
+. 本列表将根据国际电联操作公报发布的代表号的编号变更系列进行更新。此外，本附件所含信息也
+在国际电联网站上link:http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html]发布。
+
+. 有关列表的所有意见、建议或新的指配，请直接发送给电信标准化局主任：
++
+--
+International Telecommunication Union +
+Director of TSB +
+Fax: +41 22 730 5853 +
+E-mail: mailto:tsbtson@itu.int[]
+--
+
+. 本列表的指称及其资料的呈现形式不代表国际电联对任何国家或地理区域或其主管部门持有任何观
+点。
+
+
+[%landscape]
+<<<
+
+== {blank}
+
+[yaml2text,T-SP-M.1400-2014.yaml,file]
+----
+{% assign lang = "zh" %}
+
+
+NOTE: {{ file.metadata.note[lang] }}
+
+[cols="4",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.company_name[lang] }}
+| {{ file.metadata.locale.carrier_code[lang] }}
+| {{ file.metadata.locale.contact[lang] }}
+
+
+{% for country_data in file.data -%}
+    | *{{ country_data.country_or_area[lang] }} / {{ country_data.iso_code }}*
+    | *{{ country_data.company_name }}* +
+    {{ country_data.address_line_1 }} +
+    {{ country_data.address_line_2 }}
+    | *{{ country_data.carrier_code }}*
+    |
+        {% if country_data.contact %}
+            {{ country_data.contact }} +
+        {% endif %}
+
+        {% if country_data.tel %}
+            {{ file.metadata.locale.tel[lang] }}: {{ country_data.tel }} +
+        {% endif %}
+    
+        {% if country_data.fax %}
+            {{ file.metadata.locale.fax[lang] }}: {{ country_data.fax }} +
+        {% endif %}
+
+        {% if country_data.email %}
+            {{ file.metadata.locale.email[lang] }}: {{ country_data.email }}
+        {% endif %}
+{%- endfor %}
+|===
+
+
+[%portrait]
+<<<
+
+== 国际电联电信运营商代码列表通知表格 footnote:[http://www.itu.int/oth/T0206000006/en]
+
+自2004年1月1日以来，运营商已被强制要求在修改后的1层结构中使用ITU-T M.1400建议书运
+营商标识或国际电联电信运营商代码识别路径终结点。国家间和国家内运营商之间互联也必须使
+用ICC。在ITU-T M.1400的1层记录中只使用该代码识别路径终结点。运营商还可以使用该代码登
+记与其互联的运营商。
+
+正如ITU-T M.1400建议书所述，为创建一个可用以识别ITU-T M.1400记录中的互联运营商的
+ICC列表，各国监管机构需在下列表中填写国际和国内运营商的核验后的代码和相关信息。请将
+填写完的通知表格按下列地址直接发送至电信标准化局：
+
+Director of TSB +
+International Telecommunication Union +
+Place des Nations +
+1211 Geneva 20 +
+瑞士 +
+E-mail: mailto:tsbtson@itu.int[] +
+Fax: +41 22 730 58 53
+
+
+. *公司全名：* +
+(运营商名称)
+
+. *公司代码：*
++
+--
+[cols="6",options="unnumbered"]
+|===
+| | | | | |
+|===
+
+（用以运营商识别的代码。本代码应为字母或字母数字形式（A至Z）：（0至9），字母或数字最
+多为六个，是一国网络运营商/服务提供商的唯一标识。如果符合上述要求，代码可以是当前在用
+代码。）
+--
+
+. *公司办公地址：*
+
+. *联系方式：*
++
+--
+电话: + +
+传真: + +
+电子邮件:
+--
+
+*日期 :*
+
+
+== 修改
+
+[cols="^,^,^,^",options="unnumbered"]
+|===
+
+h| 修改编号 h| 操作公报期号 h| 国家或区域 h| ICC
+
+{% for i in (1..33) %}
+| {{ i }} | | |
+{% endfor %}
+|===
+----
+

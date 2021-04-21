@@ -1,0 +1,186 @@
+= LIST OF ITU CARRIER CODES (ACCORDING TO RECOMMENDATION ITU-T M.1400 (03/2013))
+:bureau: T
+:docnumber: E.212
+:published-date: 2014-09-15
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 1060
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-M.1400-2014-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+[preface]
+== Note from TSB
+
+. As the number of telecom operators in each country is growing rapidly, the number of
+interconnections between their networks is growing even faster. The standardization of designations of
+all the network interconnections is therefore of great concern for the operators involved. Only then are
+they able to do the provisioning and maintenance in a systematic and efficient way.
+
+. The proper use of Recommendation ITU-T M.1400 requires the identification of the operators
+sharing the interconnection. To that end an overall list of operators working in a country, with an officially
+recognized and standardized code for each of them, is of great help. It enables them to identify each
+other in a comprehensive and unique way. This will eventually result in one integrated database for all
+connections, in turn improving network operations and administration to the benefit of both providers and
+clients.
+
+. Due to liberalization of telecommunications and increased competition in the telecommunications
+industry, there is a mandatory requirement that telecommunications operators that interoperate be
+identified. A centralized List of ITU Carrier Codes (ICCs) has been created with the ITU/TSB as the
+repository. All domestic and international carriers are expected to register with ITU/TSB for a carrier
+code. Instead of individual operators sending their ICCs to the TSB for registration, the national
+regulatory authorities are requested to provide the validated codes, and related information concerning
+international and domestic network operators directly to the TSB by using the ICC notification form
+available online at: link:https://www.itu.int/en/ITU-T/inr/forms/Pages/carrier.aspx[http://www.itu.int/en/ITU-T/inr/forms/Pages/carrier.aspx].
+
+. The ICC list identifies Operators that are recognized by each Member State's Administration. Such
+a list is provided on the central ITU ICC website at link:https://www.itu.int/oth/T0201[www.itu.int/ITU-T/inr/icc/index.html]. The ICCs may be
+used both for electronic commerce between operators and for designation of resources in their networks.
+Hence, ICCs can be assigned both to network operators and to service providers.
+
+. This List of ITU Carrier Codes replaces that published as an Annex to the ITU Operational Bulletin
+No. 981 of 1.VI.2011. Since then, a number of notifications have been received at TSB and they have
+been published separately in various issues of the ITU Operational Bulletin. The present list recapitulates
+all the different amendments that have been published up to Operational Bulletin No. 1060 of
+15.IX.2014.
+
+. This List will be updated by numbered series of amendments published in the ITU Operational
+Bulletin. Furthermore, the information contained in this Annex is also available on the ITU web site
+link:https://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html].
+
+. Please address any comments, suggestions or new assignment concerning this List to the Director
+of the TSB:
++
+--
+International Telecommunication Union +
+Director of TSB +
+Fax: +41 22 730 5853 +
+E-mail: mailto:tsbtson@itu.int[]
+--
+
+. The designations employed and the presentation of material in this List do not imply the expression
+of any opinion whatsoever on the part of the ITU concerning the legal status of any country or
+geographical area, or of its authorities.
+
+
+[%landscape]
+<<<
+
+== {blank}
+
+[yaml2text,T-SP-M.1400-2014.yaml,file]
+----
+{% assign lang = "en" %}
+
+
+NOTE: {{ file.metadata.note[lang] }}
+
+[cols="4",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.company_name[lang] }}
+| {{ file.metadata.locale.carrier_code[lang] }}
+| {{ file.metadata.locale.contact[lang] }}
+
+
+{% for country_data in file.data -%}
+    | *{{ country_data.country_or_area[lang] }} / {{ country_data.iso_code }}*
+    | *{{ country_data.company_name }}* +
+    {{ country_data.address_line_1 }} +
+    {{ country_data.address_line_2 }}
+    | *{{ country_data.carrier_code }}*
+    |
+        {% if country_data.contact %}
+            {{ country_data.contact }} +
+        {% endif %}
+
+        {% if country_data.tel %}
+            {{ file.metadata.locale.tel[lang] }}: {{ country_data.tel }} +
+        {% endif %}
+    
+        {% if country_data.fax %}
+            {{ file.metadata.locale.fax[lang] }}: {{ country_data.fax }} +
+        {% endif %}
+
+        {% if country_data.email %}
+            {{ file.metadata.locale.email[lang] }}: {{ country_data.email }}
+        {% endif %}
+{%- endfor %}
+|===
+
+
+[%portrait]
+<<<
+
+== Notification form for List of ITU Carrier Codes footnote:[http://www.itu.int/oth/T0206000006/en]
+
+Since 1 January 2004, it has become mandatory for operators utilizing Recommendation ITU-T M.1400
+operator ID or ITU Carrier Code (ICC) in the revised Layer 1 structure, to identify route terminations. An
+ICC is mandatory for interconnections between operators in different countries and different operators in
+the same country. This code is used in ITU-T M.1400 Layer 1 records to uniquely identify route
+terminations. It is also used for the purpose of an operator registering its interconnecting operators.
+
+In order to develop a listing of ICCs that may be used to identify the interconnecting operators in
+ITU-T M.1400 records, as explained in Recommendation ITU-T M.1400, national regulatory authorities
+are requested to complete the present Notification Form indicating the validated codes and related
+information for both international and domestic operators. On completion, this Notification Form should
+be sent directly to TSB at the following address:
+
+Director of TSB +
+International Telecommunication Union +
+Place des Nations +
+1211 Geneva 20 +
+Switzerland +
+E-mail: mailto:tsbtson@itu.int[] +
+Fax: +41 22 730 58 53
+
+
+. *Company full name:* +
+(name of operator)
+
+. *Company Code:*
++
+--
+[cols="6",options="unnumbered"]
+|===
+| | | | | |
+|===
+
+(The code by which the operator wishes to identify itself. This code shall be alphabetic or alphanumeric
+(A to Z):(0 to 9)), up to six characters and/or digits long, and shall be a unique identifier of a network
+operator/service provider within each country. This code may be one that is in use today, provided it fits
+the definition.)
+--
+
+. *Company official address:*
+
+. *Contact:*
++
+--
+Tel.: + +
+Fax: + +
+E-mail:
+--
+
+*Date:*
+
+
+== AMENDMENTS
+
+[cols="^,^,^,^",options="unnumbered"]
+|===
+
+h| Amendment No. h| Operational Bulletin No. h| Country or area h| ICC
+
+{% for i in (1..33) %}
+| {{ i }} | | |
+{% endfor %}
+|===
+----
+
