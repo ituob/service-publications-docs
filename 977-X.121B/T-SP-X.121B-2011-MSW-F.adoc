@@ -1,0 +1,134 @@
+= LISTE DES CODES D'IDENTIFICATION DE RÉSEAU POUR DONNÉES (CIRD)
+:bureau: T
+:docnumber: 977
+:series: ACCORDING TO ITU-T RECOMMENDATION X.121 (10/2000)
+:published-date: 2011-04-01
+:status: in-force
+:doctype: service-publication
+:annexid: No. 977
+:docfile: T-SP-X.121B-2011-MSW-E.adoc
+:mn-document-class: itu
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+[preface]
+== Note du TSB
+
+. D'après la Recommandation UIT-T X.121, l'attribution des indicatifs de pays pour données (IPD) relève de la compétence de l'UIT. L'attribution de chiffres de réseau pour créer des codes d'identification de réseau pour données (CIRD) sera faite par chaque administration. Il faut néanmoins informer le TSB de l'UIT de toute attribution nouvelle, réattribution ou suppression de chiffres de réseau au moyen du formulaire de notification présenté à la dernière page de la liste.
+
+. Conformément aux dispositions de la Recommandation UIT-T X.121, les renseignements sur l'attribution des Codes d'identification de réseau pour données (CIRD) ont été publiés séparément dans le Bulletin d'exploitation de l'UIT, puis rassemblés dans une «Liste des codes d'identification de réseau pour données (CIRD)».
+
+. La Liste de cette année remplace celle qui avait été publiée dans l'Annexe du Bulletin d'exploitation N 876 du 15 janvier 2007. Elle tient compte de tous les amendements annoncés dans les Bulletins d'exploitation jusqu'au N 977 du 1 avril 2011.
+
+. Les administrations sont priées de vérifier l'exactitude des renseignements qui sont publiés dans cette Liste et de communiquer au TSB toutes modifications qu'il convient d'y apporter pour l'actualiser.
+
+. Pour les nouvelles attributions de Codes d'identification de réseau pour données (CIRD), les administrations doivent remplir le formulaire de notification (voir la dernière page de la liste) et le renvoyer au TSB, à l'adresse indiquée sur le formulaire.
+
+. A titre d'information, cette liste est également disponible sur le site web de l'UIT :
++
+--
+[align=center]
+link:https://www.itu.int/itu-t/bulletin/annex.html[http://www.itu.int/itu-t/bulletin/annex.html]
+--
+
+. Les appellations employées dans cette Liste et la présentation des données qui y figurent n'impliquent, de la part de l'UIT, aucune prise de position quant au statut juridique des pays ou zones géographiques, ou de leurs autorités.
+
+
+
+== {blank}
+
+[yaml2text,T-SP-X.121B-2011.yaml,file]
+----
+{% assign lang = "fr" %}
+
+
+[cols="3",options="unnumbered"]
+|===
+
+^h| {{ file.metadata.locale.country_or_area[lang] }}
+^h| {{ file.metadata.locale.dnic_number[lang] }}
+^h| {{ file.metadata.locale.network_name[lang] }}
+
+^| 1 ^| 2 ^| 3
+
+{% assign ordered_sequence = file.data | map: "country_or_area" | sort: "fr" | uniq %}
+
+{% for next_country in ordered_sequence %}
+    {% assign data_group = file.data | map: "country_or_area" | where: "en", next_country.en %}
+    {% assign flag = false %}
+
+    {% for country_data in file.data %}
+        {% if country_data.country_or_area["en"] == next_country["en"] %}
+            {% if flag == false %}
+                {% assign flag = true %}
+.{{ data_group.size }}+| {{ country_data.country_or_area["fr"] }} +
+                            {{ country_data.country_or_area["en"] }} +
+                            {{ country_data.country_or_area["es"] }}
+                          | {{ country_data.dnic_number }}
+                          | {{ country_data.network_name }}
+            {% else -%}
+                | {{ country_data.dnic_number }}
+                | {{ country_data.network_name }}
+            {%- endif %}
+        {% elsif flag == true %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+|===
+
+
+== AMENDMENTS
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| Amendement N° | Bulletin d'exploitation N° | Pays ou zone géographique
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+----
+
+
+
+== {blank}
+
+[cols="2",options="unnumbered"]
+|===
+a| image::logo.png["",105,118] a| _Veuillez adresser ce formulaire de notification à:_ +
+*Union internationale des télécommunications* +
+*Bureau de la normalisation des télécommunications (TSB)* +
+*Place des Nations* +
+*CH – 1211 Genève 20* *Suisse* +
+*Tél.:   +41 22 730 5211     Fax:   +41 22 730 5853     E-mail:   tsbtson@itu.int*
+
+|===
+
+
+[cols="2",options="unnumbered"]
+|===
+2+^.^h| Notification pour l'assignation des codes d'identification de réseau pour données (CIRD) par les administrations {blank}footnote:[Le cas échéant, une description du réseau auquel le CIRD a été attribué peut être jointe au formulaire.]
+
+| Nom et adresse de l'administration: | 
+| CIRD N° {blank}footnote:[Si le code CIRD est commun à plusieurs réseaux, indiquer les attributions de séries de numéros. Par exemple, le code CIRD 750 1
+est commun à plusieurs réseaux: le numéro 750 11 est attribué au «Réseau A» et les numéros 750 12 à 750 14 sont attribués au «Réseau B».]: | 
+
+| Nom du réseau auquel un CIRD est attribué {blank}footnote:[Il faudra utiliser un formulaire distinct pour chaque CIRD.]: |
+
+| Emplacement du réseau (pays ou zone géographique): | 
+
+| Date de notification: | 
+
+| Adresse postale du prestataire de service et auprèsduquel un complément d'information peut être obtenu: | \_\____\__\_____\______\____
+
+| Tél.: | \_\____\__\_____\______\____
+| Fax: | \_\____\__\_____\______\____
+| E-mail: | \_\____\__\_____\______\____
+
+| Votre référence: | 
+| Date: | 
+| Signature: | 
+
+|===
