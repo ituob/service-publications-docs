@@ -1,0 +1,133 @@
+= LIST OF DATA NETWORK IDENTIFICATION CODES (DNIC)
+:bureau: T
+:docnumber: 977
+:series: ACCORDING TO ITU-T RECOMMENDATION X.121 (10/2000)
+:published-date: 2011-04-01
+:status: in-force
+:doctype: service-publication
+:annexid: No. 977
+:docfile: T-SP-X.121B-2011-MSW-E.adoc
+:mn-document-class: itu
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+[preface]
+== Note from TSB
+
+[class=steps]
+. ITU-T Recommendation X.121 stipulates that the assignment of Data Country Codes (DCC) is administered by ITU. Assignment of network digits to create Data Network Identification Codes (DNIC) will be made by each administration. ITU/TSB is to be notified of any new assignments, re-allocations or removals of network digits by completing the notification form shown in the last page of this list.
+
+. In accordance with ITU-T Recommendation X.121, details concerning the assignment of Data Network Identification Codes (DNIC) have been individually published in the ITU Operational Bulletin and then collected in a "List of Data Network Identification Codes (DNIC)".
+
+. This year's list replaces the previous one published in the Annex to ITU Operational Bulletin No. 876 of 15 January 2007 and contains all amendments published in ITU Operational Bulletins up to OB No. 977 of 1 April 2011.
+
+. In order to keep this List up to date, administrations are requested to check the accuracy of the information published therein and to inform TSB of any changes that should be made for its updating.
+
+. For any new assignment of Data Network Identification Codes (DNIC), administrations should fill in the notification form (see last page of this list) and return it to TSB, at the address indicated on the attached form.
+
+. For information, the List is also available on the ITU web page:
++
+--
+[align=center]
+link:https://www.itu.int/itu-t/bulletin/annex.html[http://www.itu.int/itu-t/bulletin/annex.html]
+--
+
+. The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of ITU concerning the legal status of any country or geographical area, or of its authorities.
+
+
+== {blank}
+
+[yaml2text,T-SP-X.121B-2011.yaml,file]
+----
+{% assign lang = "en" %}
+
+
+[cols="3",options="unnumbered"]
+|===
+
+^h| {{ file.metadata.locale.country_or_area[lang] }}
+^h| {{ file.metadata.locale.dnic_number[lang] }}
+^h| {{ file.metadata.locale.network_name[lang] }}
+
+^| 1 ^| 2 ^| 3
+
+{% assign ordered_sequence = file.data | map: "country_or_area" | sort: "fr" | uniq %}
+
+{% for next_country in ordered_sequence %}
+    {% assign data_group = file.data | map: "country_or_area" | where: "en", next_country.en %}
+    {% assign flag = false %}
+
+    {% for country_data in file.data %}
+        {% if country_data.country_or_area["en"] == next_country["en"] %}
+            {% if flag == false %}
+                {% assign flag = true %}
+.{{ data_group.size }}+| {{ country_data.country_or_area["fr"] }} +
+                            {{ country_data.country_or_area["en"] }} +
+                            {{ country_data.country_or_area["es"] }}
+                          | {{ country_data.dnic_number }}
+                          | {{ country_data.network_name }}
+            {% else -%}
+                | {{ country_data.dnic_number }}
+                | {{ country_data.network_name }}
+            {%- endif %}
+        {% elsif flag == true %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+|===
+
+
+== AMENDMENTS
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| Amendment No. | Operational Bulletin No. | Country or Geographical Area
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+----
+
+
+== {blank}
+
+[cols="2",options="unnumbered"]
+|===
+a| image::logo.png["",105,118] | _This Notification form should be returned to:_ +
+*International Telecommunication Union* +
+*Telecommunication Standardization Bureau (TSB)* +
+*Place des Nations* +
+*CH – 1211 Genève 20* +
+*Suisse* +
+*Tel.:   +41 22 730 5211     Fax:   +41 22 730 5853     E-mail:   tsbtson@itu.int*
+|===
+
+
+[cols="2",options="unnumbered"]
+|===
+2+.<| *Notification for the assignment of Data Network Identification Codes (DNIC) +
+ by administrations {blank}footnote:[Further details, if any, concerning the network for which this DNIC has been assigned may be attached to this form.]*
+
+| Name and address of administration: |
+| DNIC No. {blank}footnote:[If the DNIC is shared amongst a number of networks, show number range allocations. For example DNIC 750 1 is shared amongst
+a number of networks – 750 11 allocated to “Network-A” and 750 12 to 750 14 allocated to “Network-B”.]: |
+
+| Name of network to which a DNIC is allocated {blank}footnote:[A separate form should be used for each DNIC.]: |
+
+| Locality of the Network (Country or Geographical Area): |
+
+| Date of notification: | 
+
+| Postal address of the service provider and from whichadditional information may be requested: | \_\____\__\_____\______\____
+
+| Tel.: | \_\____\__\_____\______\____
+| Fax: | \_\____\__\_____\______\____
+| E-mail: | \_\____\__\_____\______\____
+ 
+| Your reference: | 
+| Date: | 
+| Signature: | 
+|===
