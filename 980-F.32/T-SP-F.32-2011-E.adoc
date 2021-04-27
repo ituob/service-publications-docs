@@ -1,0 +1,215 @@
+= LIST OF TELEGRAM DESTINATION INDICATORS
+:bureau: T
+:docnumber: F.32
+:series: In accordance with ITU-T Recommendation F.32 (10/1995)
+:published-date: 2011-05-15
+:status: in-force
+:doctype: service-publication
+:annexid: No. 980
+:docfile: T-SP-F.32-2011-E.adoc
+:mn-document-class: itu
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+[preface]
+== Note from TSB
+
+. By TSB Circular 179 of 16 October 1995, TSB announced the approval of ITU-T
+Recommendation F.32 (10/1995) (previously F.96), in accordance with Resolution 1, Section 8 of
+the WTSC (Helsinki, 1993), and by TSB Circular 104 of 23 March 1998, it announced the approval
+of ITU-T Recommendation F.1 (03/1998): “Operational provisions for the international public
+telegram service”, the text of which was revised by ITU-T Study Group 2.
++
+--
+Accordingly, TSB prepared a _List of Telegram Destination Indicators_ allocated to
+countries/geographical areas or networks (first two letters) and assigned to telegraph offices of
+destination (third and fourth letters), in accordance with ITU-T Recommendation F.32 (10/1995).
+This List also contains special origin indicators and indicators to be used in the preamble line of
+Government telegrams to designate international organizations, pursuant to paragraph A218 of
+ITU-T Recommendation F.1 (03/1998).
+--
+
+. The new List, published as an Annex to ITU Operational Bulletin No. 980 of 15 May 2011,
+replaces that published in ITU Operational Bulletin No. 879 of 1 March 2007. The countries or
+geographical areas for which information regarding the cessation of the telegram service has been
+published in the ITU Operational Bulletin (No.) are appended to this List.
++
+--
+In addition, administrations/ROAs are reminded that the List of Telex Network Identification
+Codes (TNIC) referred to in paragraph 7.3 of ITU-T Recommendation F.32 (10/1995) is published
+separately as an Annex to the ITU Operational Bulletin and is regularly updated by amendments.
+
+One of the main objectives of ITU-T Recommendation F.32 (10/1995) is to encourage
+administrations/ROAs to reduce the number of destination indicators allocated to their telegram
+networks. In recent years, many administrations/ROAs have adopted a single destination
+indicator (--XX) for all destinations, or have assigned only a very limited number of destination
+indicators to their networks. TSB wishes to draw the particular attention of administrations/ROAs to
+Section 6 of ITU-T Recommendation F.32 (10/1995), which states that “The office codes (i.e., the
+third and fourth letters in a destination indicator) allocated for each network code should be kept to
+a minimum number in each network” and that “Where the destination network is capable of
+carrying out the national routing without an office code (e.g. by analysing the address part of the
+telegram, as well as the pilot line), a single office code (XX) is preferred.”
+--
+
+. In the interests of keeping the List up-to-date, administrations/ROAs are requested to check
+the accuracy of the information it contains and to inform TSB as soon as possible of any changes
+that should be made for its updating (Fax: *+41 22 730 5853*, or E-mail: *mailto:tsbtson@itu.int[]*). Changes
+will be published in the subsequent ITU Operational Bulletin as Amendments to the List.
+
+. Furthermore, the information contained in this Annex to ITU Operational Bulletin No. 980 is
+also available on the ITU website
+link:https://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html].
+
+. The designations used and the information presented in the List do not imply the expression
+of any opinion whatsoever on the part of ITU concerning the legal status of any country or
+geographical area, or of its authorities.
+
+
+[yaml2text,T-SP-F.32-2011.yaml,file]
+----
+{% assign lang = "en" %}
+
+== {{ file.metadata.title[lang] }}
+
+{% assign note_present = false %}
+{% assign first_pass = true %}
+
+{% for country_data in file.data -%}
+
+  {%- assign country_batch = file.data | map: "country_or_area" | where: "en", country_data.country_or_area.en %}
+  {%- assign network_roa_batch = file.data | where: "network_roa", country_data.network_roa %}
+
+  {%- assign next_country = country_data.country_or_area[lang] %}
+  {%- assign next_network_roa = country_data.network_roa %}
+  {%- assign next_network_code = country_data.network_code %}
+  {%- assign next_subarea = country_data.subarea[lang] %}
+
+
+{% if next_country != current_country and note_present == true or first_pass == true -%}
+
+{% unless first_pass == true %}
+|===
+{% endunless %}
+
+[cols="5",options="unnumbered"]
+|===
+
+^h| {{ file.metadata.locale.country_or_area[lang] }}
+^h| {{ file.metadata.locale.network_roa[lang] }}
+^h| {{ file.metadata.locale.network_code[lang] }}
+^h| {{ file.metadata.locale.telegraph_office_name[lang] }}
+^h| {{ file.metadata.locale.office_code[lang] }}
+
+^| 1 ^| 2 ^| 3 ^| 4 ^| 5
+
+{% assign note_present = false %}
+{% assign first_pass = false %}
+{%- endif %}
+
+{% if next_country != current_country %}
+
+{% unless country_data.country_or_area.en == "INDIA" or country_data.country_or_area.en == "AUSTRALIA" or country_data.country_or_area.en == "CHILE" or country_data.country_or_area.en == "UNITED STATES" -%}
+.{{ country_batch.size }}+
+{%- endunless -%}
+a| *{{ country_data.country_or_area.fr }}*
+{% if country_data.country_or_area_note -%}
+footnote:[{{ country_data.country_or_area_note[lang] }}]
+{%- endif %} +
+  *{{ country_data.country_or_area.en }}*
+{% if country_data.country_or_area_note -%}
+footnote:[{{ country_data.country_or_area_note[lang] }}]
+{%- endif %} +
+  *{{ country_data.country_or_area.es }}*
+{% if country_data.country_or_area_note -%}
+footnote:[{{ country_data.country_or_area_note[lang] }}]
+{%- endif %}
+
+{% if country_data.country_or_area.en == "SAUDI ARABIA" %}
+  {%- assign saudi_batch = file.data | where: "network_code", "SJ - -" %}
+  {%- for saudi_data in saudi_batch -%}
+    {% if saudi_data.telegraph_office_name and saudi_data.notes %}
+    . {{ saudi_data.telegraph_office_name[lang] }} footnote:[{{ saudi_data.notes[lang] }}]
+    {% endif %}
+  {%- endfor %}
+{% endif %}
+
+{% if country_data.country_or_area.en == "UNITED ARAB EMIRATES" -%}
+  {{ country_data.subarea[lang] }}
+{%- endif %}
+
+{% if country_data.country_or_area.en == "UNITED STATES" -%}
+  {{ country_data.subarea[lang] }}
+{%- endif %}
+
+
+{% assign current_country = next_country %}
+
+{% elsif country_data.subarea -%}
+  {% if next_subarea != current_subarea %}
+    {% assign current_subarea = next_subarea %}
+    {% if country_data.country_or_area.en == "AUSTRALIA" -%}
+      a| {{ country_data.subarea.fr }} +
+         {{ country_data.subarea.en }} +
+         {{ country_data.subarea.es }}
+
+    {% elsif country_data.country_or_area.en == "CHILE" or country_data.country_or_area.en == "UNITED STATES" and country_data.subarea.en contains "Network I"  %}
+      | {{ country_data.subarea.fr | remove: "I" }} / {{ country_data.subarea.en | remove: "I" }} / {{ country_data.subarea.es }}
+    {% elsif country_data.country_or_area.en != "UNITED ARAB EMIRATES" %}
+      | {{ country_data.subarea[lang] }}
+    {%- endif %}
+  {% else %}
+    {% if country_data.country_or_area.en != "UNITED ARAB EMIRATES" %}
+      |
+    {% endif %}
+  {% endif %}
+
+{% elsif country_data.country_or_area.en == "CHILE" or country_data.country_or_area.en == "UNITED STATES" %}
+  |
+{% endif %}
+
+{% if next_network_roa != current_network_roa %}
+  | {{ country_data.network_roa }}
+  {%- if country_data.network_roa_note -%}
+    footnote:[{{ country_data.network_roa_note[lang] }}]
+  {%- endif %}
+  {% assign current_network_roa = next_network_roa %}
+{% else %}
+  |
+{% endif %}
+
+{% if next_network_code != current_network_code %}
+  | {{ country_data.network_code }}
+  {%- if country_data.network_code_note -%}
+    footnote:[{{ country_data.network_code_note[lang] }}]
+  {%- endif %}
+  {% assign current_network_code = next_network_code %}
+{% else %}
+  |
+{% endif %}
+
+| {{ country_data.telegraph_office_name[lang] }}
+{%- if country_data.country_or_area.en == "BARBADOS" and country_data.notes -%}
+  footnote:[{{ country_data.notes[lang] }}]
+{%- endif -%}
+
+| {{ country_data.office_code }}
+{%- if country_data.office_code_note -%}
+  footnote:[{{ country_data.office_code_note[lang] }}]
+{%- endif -%}
+
+{% if country_data.network_roa_note or country_data.network_code_note or country_data.notes or country_data.office_code_note or country_data.country_or_area_note %}
+{% assign note_present = true %}
+{% endif %}
+
+{% endfor %}
+
+|===
+----
+
+
+
+
+
+
