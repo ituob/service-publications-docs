@@ -1,0 +1,325 @@
+= الرموز الدليلية للشبكات المتنقلة (MNC) فيما يتعلق بالخطة الدولية لتعرّف هوية الشبكات العمومية والاشتراكات )وفقاً للتوصية ITU-T E.212 (2016/09) )
+:bureau: T
+:docnumber: 976
+:published-date: 2018-12-15
+:annex-title: Annex to ITU Operational Bulletin
+:annex-id: No. 1162
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.212B-2018-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+[preface]
+== ملاحظة من مكتب تقييس الاتصالات
+
+
+. أعِدَّت في مكتب تقييس الاتصالات قائمة مركزية للرموز الدليلية للشبكات المتنقلة (MNC) فيما يتعلق بالخطة الدولية
+لتعرّف هوية الشبكات العمومية والاشتراكات.
+
+. تُنشَر قائمة الرموز الدليلية للشبكات المتنقلة (MNC) في ملحق بالنشرة التشغيلية للاتحاد رقم 1162 الصادرة
+في 2018.XII.15 . ويُطلَب إلى الإدارات التحقّق من المعلومات الواردة في هذه القائمة وإبلاغ الاتحاد الدولي للاتصالات بأيّ
+تعديلات تودّ إجراءها. واستمارة التبليغ متاحة في الموقع الإلكتروني للاتحاد على العنوان التالي:
+http://www.itu.int/en/ITU-T/inr/forms/Pages/mnc.aspx.
+
+. ستُحَدَّث هذه القائمة بواسطة مجموعة مرقّمة من التعديلات المنشورة في النشرة التشغيلية للاتحاد. ا ولمعلومات الواردة في هذا
+الملحق متاحة أيضاً في الموقع الإلكتروني للاتحاد.
+
+. يُرجى إرسال أي تعليقات أو اقتراحات متعلقة بهذه القائمة إلى مدير مكتب تقييس الاتصالات:
++
+--
+[align=left]
+الاتحاد الدولي للاتصالات (ITU) +
+مدير مكتب تقييس الاتصالات +
+الهاتف: +41 22 730 5211 +
+الفاكس: +41 22 730 5853 +
+البريد الإلكتروني: mailto:tsbtson@itu.int[]
+--
+
+. التسميات المستخدمة والمواد المعروضة في هذه القائمة لا تعبّر عن أي رأي من جانب الاتحاد فيما يتعلق بالوضع القانوني
+لأي بلد أو منطقة جغرافية أو لسلطات أيّ منهما.
+
+
+[yaml2text,T-SP-E.212B-2018.main.yaml,file]
+----
+{% assign lang = "ar" %}
+
+== {{ file.metadata.title[lang] }}
+
+[cols="25%,55%,20%",options="header,unnumbered"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.networks[lang] }}
+^| {{ file.metadata.locale.mcc_mnc_codes[lang] }}
+
+{% assign country_names = file.data | map: "country_or_area" %}
+
+{% for country_data in file.data %}
+    {% assign next_country = country_data.country_or_area.en %}
+
+    {% if current_country != next_country %}
+        {% assign current_country = next_country %}
+        {% assign country_batch = country_names | where: "en", country_data.country_or_area.en %}
+        .{{ country_batch.size | plus: 1 }}+| {{ country_data.country_or_area[lang] }} | |
+    {% endif %}
+    | {{ country_data.networks | replace: "|", "\|"}}
+    ^| {{ country_data.mcc_mnc_codes }}
+
+{% endfor %}
+|===
+
+[yaml2text,T-SP-E.212B-2018.shared_mcc.yaml,file_two]
+---
+
+== {{ file_two.metadata.locale.shared_mcc[lang] }}
+
+[cols="2",options="unnumbered,header"]
+|===
+^| {{ file_two.metadata.locale.networks[lang] }} 
+^| {{ file_two.metadata.locale.mcc_mnc_codes[lang] }}
+
+{% for network_data in file_two.data %}
+     | {{ network_data[1].networks }} 
+    ^| {{ network_data[0] }}
+{% endfor %}
+|===
+---
+
+
+[yaml2text,T-SP-E.212B-2018.shared_mcc_others.yaml,file_three]
+---
+
+== {{ file_three.metadata.locale.shared_mcc_others[lang] }}
+
+[cols="<,<,^",options="unnumbered,header"]
+|===
+| | {{ file_three.metadata.locale.applicant[lang] }} | MCC + MNC codes
+
+{% for code_data in file_three.data %}
+    .2+| *{{ code_data[1].purpose[lang] }}* | |
+       | {{ code_data[1].applicant }} +
+    {% if code_data[1].temporary_assignment_to -%}
+        (temporary assignment for trial until {{ code_data[1].temporary_assignment_to }})
+    {%- endif %}
+      ^| {{ code_data[0] }}
+{% endfor %}
+|===
+---
+
+[yaml2text,T-SP-E.212B-2018.et.yaml,file_four]
+---
+
+== {{ file_four.metadata.title[lang] | remove: "*" }} footnote:[{{ file_four.metadata.note_1[lang] }}]
+
+
+[cols="4",options="unnumbered,header"]
+|===
+| {{ file_four.metadata.locale.country_or_area[lang] }}
+| {{ file_four.metadata.locale.mcc_mnc[lang] }} footnote:[{{ file_four.metadata.note_2[lang] }}]
+| {{ file_four.metadata.locale.msin_range[lang] }} footnote:[{{ file_four.metadata.note_3[lang] }}]
+| {{ file_four.metadata.locale.operator_network[lang] }}
+
+
+{% for i in file_four.data %}
+    {% assign next_parameters = "" | append: i.country_or_area.en | append: ", " 
+                                   | append: i.country_type | append: ", " 
+                                   | append: i.mcc_mnc | append: ", "
+                                   | append: i.operator_network %}
+
+    {% if next_parameters != current_parameters %}
+        {% assign current_parameters = next_parameters %}
+
+        {% for j in file_four.data %}
+            {% assign j_parameters = "" | append: j.country_or_area.en | append: ", " 
+                                        | append: j.country_type | append: ", "
+                                        | append: j.mcc_mnc | append: ", "
+                                        | append: j.operator_network %}
+
+            {% if j_parameters == current_parameters %}
+                {% assign msin_parameters = msin_parameters | append: j.msin_range | append: ", " %}
+            {% endif %}
+        {% endfor %}
+
+        {% assign msin_batch        = msin_parameters   | split: ", " %}
+        {% assign last_msin_item    = msin_batch        | last %}
+        {% assign msin_parameters   = nil %}
+
+        | {{ i.country_or_area[lang] }} - البلد {{ i.country_type }}
+        | {{ i.mcc_mnc }}
+        |
+        {% if i.country_or_area.en != "Switzerland" %}
+            {% for item in msin_batch %}
+                {% if item != last_msin_item %}
+                    {{ item }}; +
+                {% else %}
+                    {{ item }}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {{ msin_batch | join: ", " }}
+        {% endif %}
+        .^| {{ i.operator_network }}
+
+    {% endif %}
+{% endfor %}
+|===
+---
+
+----
+
+
+== {blank}
+
+[yaml2text,T-SP-E.212B-2018.main.yaml,file]
+----
+تعُاد إلى مكتب تقييس الاتصالات التابع للاتحاد الدولي للاتصالات على رقم الفاكس التالي +41 22 730 5853
+أو بالبريد الإلكتروني على العنوان التالي: mailto:tsbtson@itu.int[]
+
+[align=center]
+*تبليغ بتخصيص الرمز الدليلي للشبكة المتنقلة (MNC) أو سحبه من الخطة الدولية لتعرّف هوية الشبكات العمومية والاشتراكات* +
+(وفقاً للتوصية ITU-T E.212)
+
+ينبغي استخدام هذه الاستمارة لإبلاغ مدير مكتب تقييس الاتصالات بالرمز الدليلي للشبكة المتنقلة الذي خصّصته أو سحبته إحدى الدول الأعضاء
+منذ التبليغ الأخير.
+
+{% assign width_1 = 100 %}
+{% assign width_2 = width_1 | divided_by: 2 %}
+
+البلد/المنطقة:::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+المنظمة في الدولة العضو:::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+جهة الاتصال في الدولة العضو:::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+الاسم::::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+العنوان::::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+الهاتف::::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+الفاكس::::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+البريد الإلكتروني::::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+
+[cols="^,^",options="unnumbered"]
+|===
+| MCC + MNC
+| اسم الشبكة/المشغل
+
+{% for i in (1..28) %}
+| |
+{% endfor %}
+|===
+
+MCC : الرمز الدليلي القُطري للاتصالات المتنقلة Mobile Country Code / Indicatif de pays du mobile / +
+MNC : الرمز الدليلي للشبكة المتنقلة Mobile Network Code / Code de réseau mobile /
+----
+
+
+
+== {blank}
+
+[yaml2text,T-SP-E.212B-2018.main.yaml,file]
+----
+تعُاد إلى مكتب تقييس الاتصالات التابع للاتحاد الدولي للاتصالات على رقم الفاكس التالي +41 22 730 5853
+أو بالبريد الإلكتروني على العنوان التالي: mailto:tsbtson@itu.int[]
+
+[align=center]
+*تبليغ باستعمال رمز ق طري للاتصالات المتنقلة/رمز شبكة متنقلة (MCC/MNC) أو إلغاء استعماله خارج الأراضي الإقليمية* +
+()وفقاً للتوصية ITU-T E.212 ، الملحق E)
+
+ينبغي لكلّ إدارة أن تستخدم هذه الاستمارة لإبلاغ مدير مكتب تقييس الاتصالات بموافقتها على أن يقوم مشغّل باستعمال/إلغاء استعمال رمز
+قُطري للاتصالات المتنقلة+رمز شبكة متنقلة (MCC+MNC) لبلد معيّن )بلد A( في بلد آخر )بلد B
+
+
+{% assign width_1 = 100 %}
+{% assign width_2 = width_1 | divided_by: 2 %}
+
+*MCC/MNC&#58;*::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+*اسم جهة الاتصال في الإدارة:*::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+*العنوان:*::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+*الهاتف:*::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+*الفاكس:*::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+*البريد الإلكتروني:*::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+[cols="5",options="unnumbered"]
+|===
+^h| MCC/MNC
+^h| اسم المشغل )المشغلون)
+h| خارج الأراضي الإقليمية البلد B – حيث ي ستَعمَل رمز MCC/MNC 
+h| A سلسلة أرقام تعرف هوية المحطة المتنقلة المستعملة في بلد
+h| B سلسلة أرقام تعرف هوية المحطة المتنقلة المستعملة في بلد
+
+| | | | |
+| | | | |
+|===
+
+
+== التعديلات
+
+[cols="^,^,^",options="header,unnumbered"]
+|===
+| رقم التعديل
+| رقم النشرة التشغيلية
+| البلد/المنطقة
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+----
+
+

@@ -1,0 +1,311 @@
+= 用于公众网络和订户的国际识别规划的 移动网络代码（MNC）（根据ITU-T E.212建议书（09/2016））
+:bureau: T
+:docnumber: 976
+:published-date: 2018-12-15
+:annex-title: Annex to ITU Operational Bulletin
+:annex-id: No. 1162
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.212B-2018-C.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+[preface]
+== 电信标准化局的说明
+
+. 电信标准化局内部编订一份用于公共网络和订户的国际识别规划的移动网络代码（MNC）集中列表。
+
+. 这份移动网络代码（MNC）列表作为15.XII.2018第1162期国际电联《操作公报》附件予以出版。请主管部门核实列表中的资料并将希望所做修改通知国际电联。通知格式见国际电联网站http://www.itu.int/en/ITU-T/inr/forms/Pages/mnc.aspx。
+
+. 本列表将通过link:http://www.itu.int/pub/T-SP[国际电联操作公报]中的编号系列修正案予以更新。此外，本附件所含内容还发布在link:https://www.itu.int/en/publications/ITU-T/Pages/publications.aspx?parent=T-SP&view=T-SP1[国际电联网站]。
+
+. 有关本列表的任何意见和建议，请呈报电信标准化局主任：
++
+--
+国际电信联盟 +
+电信标准化局主任 +
+电话：+41 22 730 5211 +
+传真：+41 22 730 5853 +
+电邮：mailto:tsbtson@itu.int[]
+--
+
+. 本列表所用指称和资料呈现方式不表示国际电联对任何国家、地理区域或其主管部门持有任何意见。
+
+
+
+[yaml2text,T-SP-E.212B-2018.main.yaml,file]
+----
+{% assign lang = "zh" %}
+
+== {{ file.metadata.title[lang] }}
+
+[cols="25%,55%,20%",options="header,unnumbered"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.networks[lang] }}
+^| {{ file.metadata.locale.mcc_mnc_codes[lang] }}
+
+{% assign country_names = file.data | map: "country_or_area" %}
+
+{% for country_data in file.data %}
+    {% assign next_country = country_data.country_or_area.en %}
+
+    {% if current_country != next_country %}
+        {% assign current_country = next_country %}
+        {% assign country_batch = country_names | where: "en", country_data.country_or_area.en %}
+        .{{ country_batch.size | plus: 1 }}+| {{ country_data.country_or_area[lang] }} | |
+    {% endif %}
+    | {{ country_data.networks | replace: "|", "\|"}}
+    ^| {{ country_data.mcc_mnc_codes }}
+
+{% endfor %}
+|===
+
+[yaml2text,T-SP-E.212B-2018.shared_mcc.yaml,file_two]
+---
+
+== {{ file_two.metadata.locale.shared_mcc[lang] }}
+
+[cols="2",options="unnumbered,header"]
+|===
+^| {{ file_two.metadata.locale.networks[lang] }} 
+^| {{ file_two.metadata.locale.mcc_mnc_codes[lang] }}
+
+{% for network_data in file_two.data %}
+     | {{ network_data[1].networks }} 
+    ^| {{ network_data[0] }}
+{% endfor %}
+|===
+---
+
+
+[yaml2text,T-SP-E.212B-2018.shared_mcc_others.yaml,file_three]
+---
+
+== {{ file_three.metadata.locale.shared_mcc_others[lang] }}
+
+[cols="<,<,^",options="unnumbered,header"]
+|===
+| | {{ file_three.metadata.locale.applicant[lang] }} | MCC + MNC codes
+
+{% for code_data in file_three.data %}
+    .2+| *{{ code_data[1].purpose[lang] }}* | |
+       | {{ code_data[1].applicant }} +
+    {% if code_data[1].temporary_assignment_to -%}
+        (temporary assignment for trial until {{ code_data[1].temporary_assignment_to }})
+    {%- endif %}
+      ^| {{ code_data[0] }}
+{% endfor %}
+|===
+---
+
+[yaml2text,T-SP-E.212B-2018.et.yaml,file_four]
+---
+
+== {{ file_four.metadata.title[lang] | remove: "*" }} footnote:[{{ file_four.metadata.note_1[lang] }}]
+
+
+[cols="4",options="unnumbered,header"]
+|===
+| {{ file_four.metadata.locale.country_or_area[lang] }}
+| {{ file_four.metadata.locale.mcc_mnc[lang] }} footnote:[{{ file_four.metadata.note_2[lang] }}]
+| {{ file_four.metadata.locale.msin_range[lang] }} footnote:[{{ file_four.metadata.note_3[lang] }}]
+| {{ file_four.metadata.locale.operator_network[lang] }}
+
+
+{% for i in file_four.data %}
+    {% assign next_parameters = "" | append: i.country_or_area.en | append: ", " 
+                                   | append: i.country_type | append: ", " 
+                                   | append: i.mcc_mnc | append: ", "
+                                   | append: i.operator_network %}
+
+    {% if next_parameters != current_parameters %}
+        {% assign current_parameters = next_parameters %}
+
+        {% for j in file_four.data %}
+            {% assign j_parameters = "" | append: j.country_or_area.en | append: ", " 
+                                        | append: j.country_type | append: ", "
+                                        | append: j.mcc_mnc | append: ", "
+                                        | append: j.operator_network %}
+
+            {% if j_parameters == current_parameters %}
+                {% assign msin_parameters = msin_parameters | append: j.msin_range | append: ", " %}
+            {% endif %}
+        {% endfor %}
+
+        {% assign msin_batch        = msin_parameters   | split: ", " %}
+        {% assign last_msin_item    = msin_batch        | last %}
+        {% assign msin_parameters   = nil %}
+
+        | {{ i.country_or_area[lang] }} - 国家 {{ i.country_type }}
+        | {{ i.mcc_mnc }}
+        |
+        {% if i.country_or_area.en != "Switzerland" %}
+            {% for item in msin_batch %}
+                {% if item != last_msin_item %}
+                    {{ item }}; +
+                {% else %}
+                    {{ item }}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {{ msin_batch | join: ", " }}
+        {% endif %}
+        .^| {{ i.operator_network }}
+
+    {% endif %}
+{% endfor %}
+|===
+---
+
+----
+
+
+== {blank}
+
+[yaml2text,T-SP-E.212B-2018.main.yaml,file]
+----
+返回ITU/TSB 传真号 +41 22 730 5853 / 电子邮件：mailto:tsbtson@itu.int[]
+
+[align=center]
+*用于公众网络和订户的国际识别规划的移动网络代码（MNC） 的分配或撤销通知* +
+（根据ITU-T E.212建议书）
+
+_本表用于向电信标准化局主任通报自前次通知以来成员国分配或撤销的MNC。_
+
+{% assign width_1 = 100 %}
+{% assign width_2 = width_1 | divided_by: 2 %}
+
+国家/地区：::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+成员国机构：::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+成员国联系人：::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+姓名：:::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+地址：:::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+电话：:::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+传真：:::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+电邮：:::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+
+[cols="^,^",options="unnumbered"]
+|===
+| MCC + MNC | 网络/运营商名称
+
+{% for i in (1..28) %}
+| |
+{% endfor %}
+|===
+
+MCC: 移动国家代码 +
+MNC: 移动网络代码
+----
+
+
+== {blank}
+
+[yaml2text,T-SP-E.212B-2018.main.yaml,file]
+----
+返回ITU/TSB 传真 +41 22 730 5853 / 电子邮件：mailto:tsbtson@itu.int[]
+
+[align=center]
+*关于使用或撤销境外使用MCC/MNC的通知* +
+（根据ITU-T E.212建议书附件E）
+
+各主管部门须使用本表格就其已同意运营商可以使用或撤销在国家B使用国家A的MCC+MNC事宜向电信标准化局主任进行通报。
+
+
+{% assign width_1 = 100 %}
+{% assign width_2 = width_1 | divided_by: 2 %}
+
+*MCC/MNC&#58;*::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+*主管部门联系人姓名：*::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+*地址：*::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+*电话：*::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+*传真：*::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+*电邮：*::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+[cols="5",options="unnumbered"]
+|===
+^h| MCC/MNC
+^h| 运营商名称
+h| 国家B – 境外使用MCC/MNC
+h| 国家A中使用的 移动用户识别码号段
+h| 国家B使用的移动用户识别码号段
+
+| | | | |
+| | | | |
+|===
+
+
+== 修正案
+
+[cols="^,^,^",options="header,unnumbered"]
+|===
+| 修正案编号
+| 操作公报编号
+| 国家/地区
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+----
+
