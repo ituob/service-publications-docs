@@ -1,0 +1,312 @@
+= Mobile Network Codes (MNC) for the international identification plan for public networks and subscriptions (According to Recommendation ITU-T E.212 (09/2016))
+:bureau: T
+:docnumber: 976
+:published-date: 2018-12-15
+:annex-title: Annex to ITU Operational Bulletin
+:annex-id: No. 1162
+:status: published
+:doctype: service-publication
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.212B-2018-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+[preface]
+== Note from TSB
+
+. A centralized List of Mobile Network Codes (MNC) for the international identification plan for public networks and subscriptions has been created within TSB.
+
+. This List of Mobile Network Codes (MNC) is published as an annex to ITU Operational Bulletin No. 1162 of 15.XII.2018. Administrations are requested to verify the information in this List and to inform ITU on any modifications that they wish to make. The notification form can be found on the ITU website at link:https://www.itu.int/en/ITU-T/inr/forms/Pages/mnc.aspx[http://www.itu.int/en/ITU-T/inr/forms/Pages/mnc.aspx].
+
+. This List will be updated by numbered series of amendments published in the link:https://www.itu.int/pub/T-SP[ITU Operational Bulletin]. Furthermore, the information contained in this Annex is also available on the link:https://www.itu.int/en/publications/ITU-T/Pages/publications.aspx?parent=T-SP&view=T-SP1[ITU website].
+
+. Please address any comments or suggestions concerning this List to the Director of TSB:
++
+--
+[align=left]
+International Telecommunication Union (ITU) +
+Director of TSB +
+Tel: +41 22 730 5211 +
+Fax: +41 22 730 5853 +
+E-mail: tsbtson@itu.int
+--
+
+. The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of ITU concerning the legal status of any country or geographical area, or of its authorities.
+
+
+
+[yaml2text,T-SP-E.212B-2018.main.yaml,file]
+----
+{% assign lang = "en" %}
+
+== {{ file.metadata.title[lang] }}
+
+[cols="25%,55%,20%",options="header,unnumbered"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.networks[lang] }}
+^| {{ file.metadata.locale.mcc_mnc_codes[lang] }}
+
+{% assign country_names = file.data | map: "country_or_area" %}
+
+{% for country_data in file.data %}
+    {% assign next_country = country_data.country_or_area.en %}
+
+    {% if current_country != next_country %}
+        {% assign current_country = next_country %}
+        {% assign country_batch = country_names | where: "en", country_data.country_or_area.en %}
+        .{{ country_batch.size | plus: 1 }}+| {{ country_data.country_or_area[lang] }} | |
+    {% endif %}
+    | {{ country_data.networks | replace: "|", "\|"}}
+    ^| {{ country_data.mcc_mnc_codes }}
+
+{% endfor %}
+|===
+
+[yaml2text,T-SP-E.212B-2018.shared_mcc.yaml,file_two]
+---
+
+== {{ file_two.metadata.locale.shared_mcc[lang] }}
+
+[cols="2",options="unnumbered,header"]
+|===
+^| {{ file_two.metadata.locale.networks[lang] }} 
+^| {{ file_two.metadata.locale.mcc_mnc_codes[lang] }}
+
+{% for network_data in file_two.data %}
+     | {{ network_data[1].networks }} 
+    ^| {{ network_data[0] }}
+{% endfor %}
+|===
+---
+
+
+[yaml2text,T-SP-E.212B-2018.shared_mcc_others.yaml,file_three]
+---
+
+== {{ file_three.metadata.locale.shared_mcc_others[lang] }}
+
+[cols="<,<,^",options="unnumbered,header"]
+|===
+| | {{ file_three.metadata.locale.applicant[lang] }} | MCC + MNC codes
+
+{% for code_data in file_three.data %}
+    .2+| *{{ code_data[1].purpose[lang] }}* | |
+       | {{ code_data[1].applicant }} +
+    {% if code_data[1].temporary_assignment_to -%}
+        (temporary assignment for trial until {{ code_data[1].temporary_assignment_to }})
+    {%- endif %}
+      ^| {{ code_data[0] }}
+{% endfor %}
+|===
+---
+
+[yaml2text,T-SP-E.212B-2018.et.yaml,file_four]
+---
+
+== {{ file_four.metadata.title[lang] | remove: "*" }} footnote:[{{ file_four.metadata.note_1[lang] }}]
+
+
+[cols="4",options="unnumbered,header"]
+|===
+| {{ file_four.metadata.locale.country_or_area[lang] }}
+| {{ file_four.metadata.locale.mcc_mnc[lang] }} footnote:[{{ file_four.metadata.note_2[lang] }}]
+| {{ file_four.metadata.locale.msin_range[lang] }} footnote:[{{ file_four.metadata.note_3[lang] }}]
+| {{ file_four.metadata.locale.operator_network[lang] }}
+
+
+{% for i in file_four.data %}
+    {% assign next_parameters = "" | append: i.country_or_area.en | append: ", " 
+                                   | append: i.country_type | append: ", " 
+                                   | append: i.mcc_mnc | append: ", "
+                                   | append: i.operator_network %}
+
+    {% if next_parameters != current_parameters %}
+        {% assign current_parameters = next_parameters %}
+
+        {% for j in file_four.data %}
+            {% assign j_parameters = "" | append: j.country_or_area.en | append: ", " 
+                                        | append: j.country_type | append: ", "
+                                        | append: j.mcc_mnc | append: ", "
+                                        | append: j.operator_network %}
+
+            {% if j_parameters == current_parameters %}
+                {% assign msin_parameters = msin_parameters | append: j.msin_range | append: ", " %}
+            {% endif %}
+        {% endfor %}
+
+        {% assign msin_batch        = msin_parameters   | split: ", " %}
+        {% assign last_msin_item    = msin_batch        | last %}
+        {% assign msin_parameters   = nil %}
+
+        | {{ i.country_or_area[lang] }} - Country {{ i.country_type }}
+        | {{ i.mcc_mnc }}
+        |
+        {% if i.country_or_area.en != "Switzerland" %}
+            {% for item in msin_batch %}
+                {% if item != last_msin_item %}
+                    {{ item }}; +
+                {% else %}
+                    {{ item }}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {{ msin_batch | join: ", " }}
+        {% endif %}
+        .^| {{ i.operator_network }}
+
+    {% endif %}
+{% endfor %}
+|===
+---
+
+----
+
+
+== {blank}
+
+[yaml2text,T-SP-E.212B-2018.main.yaml,file]
+----
+To be returned to ITU/TSB Fax No. +41 22 730 5853 / E-mail: mailto:tsbtson@itu.int[]
+
+[align=center]
+*Notification of assignment or withdrawal of Mobile Network Code (MNC) for the international identification plan for public networks and subscriptions* +
+(According to Recommendation ITU-T E.212)
+
+_This form should be used to notify the Director of TSB of MNC that have been assigned or withdrawn by a Member State since the last notification._
+
+{% assign width_1 = 100 %}
+{% assign width_2 = width_1 | divided_by: 2 %}
+
+Country/Area&#58;::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+Member State Organisation&#58;::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+Member State contact-person&#58;::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+Name&#58;:::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+Address&#58;:::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+Tel.&#58;:::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+Fax&#58;:::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+E-mail&#58;:::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+
+[cols="^,^",options="unnumbered"]
+|===
+| MCC + MNC | Name of Network / Operator
+
+{% for i in (1..28) %}
+| |
+{% endfor %}
+|===
+
+MCC: Mobile Country Code +
+MNC: Mobile Network Code
+----
+
+
+== {blank}
+
+[yaml2text,T-SP-E.212B-2018.main.yaml,file]
+----
+To be returned to ITU/TSB Fax No. +41 22 730 5853 / E-mail: mailto:tsbtson@itu.int[]
+
+[align=center]
+*Notification of the use or cancellation of use of an MCC/MNC extra-territorially* +
+(According to Recommendation ITU-T E.212, annex E)
+
+This form should be used by each of the Administrations to notify the Director of TSB that the Administration has agreed that an operator can use/can cancel the use of an MCC+MNC of Country A in Country B.
+
+
+{% assign width_1 = 100 %}
+{% assign width_2 = width_1 | divided_by: 2 %}
+
+*MCC/MNC&#58;*::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+*Administration Contact-Person Name&#58;*::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+*Address&#58;*::
+{% for i in (1..width_1) -%}
+&#95;
+{%- endfor %}
+
+*Tel&#58;*::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+*Fax&#58;*::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+*E-mail&#58;*::
+{% for i in (1..width_2) -%}
+&#95;
+{%- endfor %}
+
+[cols="5",options="unnumbered"]
+|===
+^h| MCC/MNC
+^h| Operator(s) Name
+h| Country B – Where the MCC/MNC is to be used extra-territorially
+h| MSIN range to be used in Country A
+h| MSIN range to be used in Country B
+
+| | | | |
+| | | | |
+|===
+
+
+== Amendments
+
+[cols="^,^,^",options="unnumbered"]
+|===
+| Amendment No.
+| Operational Bulletin No.
+| Country/area
+
+{% for i in (1..30) %}
+| {{ i }} | |
+{% endfor %}
+|===
+----
+
