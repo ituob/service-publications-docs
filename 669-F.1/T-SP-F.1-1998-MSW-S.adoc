@@ -1,0 +1,114 @@
+= Grupos de códigos de cinco letras para uso del servicio público internacional de telegramas
+:bureau: T
+:docnumber: 669
+:series: GRUPOS DE CÓDIGOS DE CINCO LETRAS PARA USO DEL SERVICIO PÚBLICO INTERNACIONAL DE TELEGRAMAS
+:series1: Según la Recomendación UIT-T F.1 (03/98)
+:published-date: 1998-06-01
+:status: published
+:doctype: service-publication
+:keywords:
+:imagesdir: images
+:docfile: T-SP-F.1-1998-MSW-S.adoc
+:mn-document-class: uit
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+[preface]
+== Nota de la TSB
+
+. En su circular TSB 104 de 23 de marzo de 1998, la TSB anunció la aprobación de la Recomendación UIT-T F.1, revisada de conformidad con el punto 8 de la Resolución 1 de la CMNT-96 (Ginebra, 1996). Por consiguiente, la TSB ha preparado una nueva lista de grupos adicionales de códigos de cinco letras para uso del servicio público internacional de telegramas de conformidad con la Recomendación UIT-T F.1 (03/98), C98.
+
+. Esta lista, publicada en anexo al Boletín de Explotación de la UIT N.º 669 de 1 de junio de 1998, se basa en las contribuciones (documentos blancos) sometidos a la antigua Comisión de Estudio 1 del UIT-T. La lista sólo contiene los grupos de códigos de cinco letras más generalmente utilizados en la explotación del servicio público internacional de telegramas, examinados durante las reuniones de la antigua Comisión de Estudio 1 del UIT-T y aprobados por la Comisión de Estudio 2 del UIT-T en su reunión celebrada en Ginebra del 3 al 13 de marzo de 1998.
+
+. Por razones prácticas, esta lista se divide en dos partes:
+
+* En la *Parte I* (descodificación), los códigos figuran por orden alfabético en la columna de la izquierda independientemente de su función. El significado de cada código al que se hacen referencias cruzadas figura en la columna de la derecha.
+
+* En la *Parte II* (codificación) los códigos se clasifican según los ramos de la explotación en que se los utiliza.
+
+. Para información, la lista está también disponible en la página de entrada de la UIT (http://www.itu.int/itudoc/itu-t/ob-lists) y puede ser consultada en línea por los abonados mediante acceso a distancia.
+
+
+[yaml2text,T-SP-F.1-1998-MSW.yaml,file]
+----
+{% assign lang = "es" %}
+
+
+== Parte I - SECCIÓN DE DESCODIFICACIÓN
+
+Grupos de códigos de cinco letras por orden alfabético:
+
+{% for code in file.data %}
+    {{- code.code }}:: {{ code.message[lang] | replace: "_", "&#95;" }}
+{% endfor %}
+
+
+== Parte II - SECCIÓN DE SCODIFICACIÓN
+
+Grupos de códigos de cinco letras clasificados por orden alfabético según los ramos de la
+explotación del servicio público internacional de telegramas en que se los utiliza.
+
+{% for field_name in file.metadata.locale %}
+    {% unless field_name[0] == "coding" or field_name[0] == "decoding" %}
+        {% assign field_names = field_names | append: field_name[1][lang] | append: "; " %}
+    {% endunless %}
+{% endfor %}
+
+{% assign sorted_field_names = field_names | split: "; " | sort %}
+
+{% for name in sorted_field_names %}
+    {% for locale_item in file.metadata.locale %}
+        {% if locale_item[1][lang] == name %}
+            {% assign fields_string = fields_string | append: locale_item[0] | append: "; " %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% assign fields = fields_string | split: "; " %}
+
+
+{% for field in fields %}
+
+{% assign field_data = file.data | where: "field", field %}
+{% assign field_descriptions = field_data | map: "field_desc" | sort: lang | uniq %}
+
+{% if field_descriptions.size == 0 -%}
+[align=center]
+*{{ file.metadata.locale[field][lang] }}*
+
+{% for item in field_data %}
+{{ item.code }}:: {{ item.message[lang] | replace: "_", "&#95;" }}
+{% endfor %}
+
+{% else -%}
+[align=center]
+*{{ file.metadata.locale[field][lang] }}* +
+{% unless field == "enquiries" or 
+          field == "delivery"  or 
+          field == "errors_mutilations_omissions" or
+          field == "repetitions_and_corrections"  or
+          field == "miscellaneous" -%}
+{%- if field == "addresses" or field == "disposal" -%}
+(_{{ field_descriptions | map: lang | join: ", " }}, etc._)
+{%- else -%}
+(_{{ field_descriptions | map: lang | join: ", " }}_)
+{%- endif -%}
+{%- endunless %}
+
+{% for desc in field_descriptions %}
+_{{ desc[lang] }}_
+
+{% for item in field_data %}
+{% if item.field_desc[lang] == desc[lang] -%}
+{{ item.code }}:: {{ item.message[lang] | replace: "_", "&#95;" }}
+{%- endif %}
+{% endfor %}
+{% endfor %}
+
+{% endif %}
+
+{% endfor %}
+----
