@@ -1,0 +1,72 @@
+= Access codes/numbers for mobile networks
+:bureau: T
+:docnumber: 1015
+:series: According to ITU-T Recommendation E.164 (11/2010)
+:status: published
+:doctype: service-publication
+:annexid: No. 1015
+:docfile: T-SP-E.164B-2012-E.adoc
+:language: en
+:mn-document-class: itu
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+[preface]
+== Note from TSB
+
+. Several requests have been received by ITU, asking that a distinction be made between
+the fixed and mobile telephone numbers. A List of access codes/numbers for mobile networks has
+been prepared from the information received on the telephone service for publication in the ITU
+Operational Bulletin. Administrations/ROAs are requested to verify the information in this List and
+to inform ITU about any modifications that they wish to make.
+
+. This List of access codes/numbers for mobile networks replaces that published in ITU
+Operational Bulletin No. 993 of 1.XII.2011. Since then, a number of notifications have been
+received by TSB and they have been published separately in various issues of the ITU Operational
+Bulletin. The present list recapitulates all the different amendments that have been published up to
+ITU Operational Bulletin No. 1015 of 1.XI.2012.
+
+. This List will be updated by numbered series of amendments published in the ITU
+Operational Bulletin. Furthermore, the information contained in this Annex is also available on the
+ITU website: www.itu.int/itu-t/bulletin/annex.html .
+
+. Please address any comments or suggestions concerning this List to the Director of TSB:
++
+--
+[align=left]
+International Telecommunication Union (ITU) +
+Director of TSB +
+Tel: +41 22 730 5211 +
+Fax: +41 22 730 5853 +
+E-mail: mailto:tsbtson@itu.int[]
+--
+
+. The designations employed and the presentation of material in this List do not imply the
+expression of any opinion whatsoever on the part of ITU concerning the legal status of any country
+or geographical area, or of its authorities.
+
+
+[yaml2text,T-SP-E.164B-2012.yaml,file]
+----
+{% assign lang = "en" %}
+
+== {{ file.metadata.title[lang] }}
+
+[cols="3",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.country_code[lang] }}
+| {{ file.metadata.locale.mobile_telephone_numbers[lang] }}
+
+{% for country_data in file.data %}
+| {{ country_data.country_or_area[lang] }}
+| {{ country_data.country_code }}
+| {{ country_data.mobile_telephone_numbers[lang] }}
+{% endfor %}
+|===
+
+NXX:: {{ file.metadata.locale.NXX[lang] }}
+NPA:: {{ file.metadata.locale.NPA[lang] }}
+----

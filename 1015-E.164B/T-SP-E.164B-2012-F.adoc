@@ -1,0 +1,77 @@
+= Indicatifs/numéros d’accès à des réseau mobiles
+:bureau: T
+:docnumber: 1015
+:series: Selon la Recommandation UIT-T E.164 (11/2010)
+:published-date: 2012-11-01
+:status: published
+:doctype: service-publication
+:annexid: No. 1015
+:docfile: T-SP-E.164B-2012-F.adoc
+:language: en
+:mn-document-class: itu
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+[preface]
+== Note du TSB
+
+. Il a été demandé à plusieurs reprises à l’UIT qu’une distinction soit établie entre les
+numéros de postes téléphoniques fixes et les numéros de mobiles. Une Liste
+d’indicatifs/numéros d’accès à des réseaux mobiles a été établie d’après les informations
+reçues sur le service téléphonique pour publication dans le Bulletin d’exploitation de l’UIT.
+Les administrations/ER sont priées de bien vouloir vérifier les informations de cette liste et
+d’informer l’UIT de toute modification qu’elles souhaitent y apporter
+
+. Cette Liste des indicatifs/numéros d’accès à des réseaux mobiles remplace celle qui avait
+été publiée dans le Bulletin d'exploitation No 993 du 1.XII.2011. Depuis ce jour, différentes
+notifications ont été reçues au TSB et ont été publiées séparément dans différents numéros
+du Bulletin d'exploitation de l'UIT. La présente Liste récapitule tous les différents
+amendements qui ont été publiés jusqu'au Bulletin d'exploitation de l’UIT No 1015 du
+1.XI.2012.
+
+. La mise à jour de cette Liste se fera sous la forme d'amendements numérotés publiés
+dans le Bulletin d'exploitation de l'UIT. D'autre part, les informations contenues dans cette
+Annexe sont disponibles sur le site web de l’ UIT, à l'adresse web : www.itu.int/itut/
+bulletin/annex.html.
+
+. Veuillez adresser vos commentaires ou suggestions concernant cette Liste au Directeur
+du TSB:
++
+--
+[align=left]
+Union internationale des télécommunications (UIT) +
+Directeur du TSB +
+Tél: +41 22 730 5211 +
+Fax: +41 22 730 5853 +
+E-mail : mailto:tsbtson@itu.int[]
+--
+
+. Les appellations employées dans cette Liste et la présentation des données qui y figurent
+n'impliquent, de la part de l'UIT, aucune prise de position quand au statut juridique des pays
+ou zones géographiques ou de leurs autorités.
+
+
+[yaml2text,T-SP-E.164B-2012.yaml,file]
+----
+{% assign lang = "fr" %}
+
+== Indicatifs/numéros d’accès à des réseaux mobiles
+
+[cols="3",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.country_code[lang] }}
+| {{ file.metadata.locale.mobile_telephone_numbers[lang] }}
+
+{% for country_data in file.data %}
+| {{ country_data.country_or_area[lang] }}
+| {{ country_data.country_code }}
+| {{ country_data.mobile_telephone_numbers[lang] }}
+{% endfor %}
+|===
+
+NXX:: {{ file.metadata.locale.NXX[lang] }}
+NPA:: {{ file.metadata.locale.NPA[lang] }}
+----
