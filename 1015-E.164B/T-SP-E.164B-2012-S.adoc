@@ -1,0 +1,75 @@
+= Indicativos/números de acceso a las redes móviles
+:bureau: T
+:docnumber: 1015
+:series: Según la Recomendación UIT-T E.164 (11/2010)
+:published-date: 2012-11-01
+:status: published
+:doctype: service-publication
+:annexid: No. 1015
+:docfile: T-SP-E.164B-2012-S.adoc
+:mn-document-class: itu
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+
+
+[preface]
+== Nota de la TSB
+
+. La UIT ha recibido varias solicitudes de información sobre la distinción entre números
+de teléfonos fijos y números móviles. Basándose en la información recibida acerca del
+servicio telefónico para publicación en el Boletín de Explotación de la UIT, se ha preparado
+une lista de indicativos/números de acceso a las redes móviles. Se pide a las
+administraciones/EER que verifiquen la información de esta lista y comuniquen a la UIT
+cualquier cambio que deseen hacer.
+
+. Esta Lista de los indicativos/números de acceso a las redes móviles reemplaza la
+publicada en el Boletín de Explotación de la UIT N.o 993 de 1.XII.2011. Desde entonces, se
+han recibido en la TSB y publicado por separado en diferentes números del Boletín de
+Explotación de la UIT diferentes notificaciones. La presente Lista recapitulativa comprende
+todas las enmiendas publicadas hasta el Boletín de Explotación de la UIT N.o 1015 de
+1.XI.2012.
+
+. La Lista se actualizará por medio de enmiendas que se publicarán en el Boletín de
+Explotación de la UIT. Por otra parte, la información contenida en este Anexo está disponible
+en el sitio web de la UIT web: www.itu.int/itu-t/bulletin/annex.html .
+
+. Sírvase comunicar sus comentarios o sugerencias con respecto a esta Lista al
+Director de la TSB:
++
+--
+[align=left]
+Unión Internacional de Telecomunicaciones +
+Director de la TSB +
+Tel: +41 22 730 5211 +
+Fax: +41 22 730 5853 +
+E-mail: mailto:tsbtson@itu.int[]
+--
+
+. Las denominaciones empleadas en esta Lista y la forma en que aparecen
+presentados los datos que contiene no implican, por parte de la UIT, juicio alguno sobre la
+condición jurídica de países o zonas geográficas, o de sus autoridades.
+
+
+[yaml2text,T-SP-E.164B-2012.yaml,file]
+----
+{% assign lang = "es" %}
+
+== Indicativos/números de acceso a las redes móviles
+
+[cols="3",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.country_code[lang] }}
+| {{ file.metadata.locale.mobile_telephone_numbers[lang] }}
+
+{% for country_data in file.data %}
+| {{ country_data.country_or_area[lang] }}
+| {{ country_data.country_code }}
+| {{ country_data.mobile_telephone_numbers[lang] }}
+{% endfor %}
+|===
+
+NXX:: {{ file.metadata.locale.NXX[lang] }}
+NPA:: {{ file.metadata.locale.NPA[lang] }}
+----
