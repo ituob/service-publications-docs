@@ -1,0 +1,145 @@
+= DIFFÉRENTES TONALITÉS RENCONTRÉES DANS LES RÉSEAUX NATIONAUX (SELON LA RECOMMANDATION UIT-T E.180 (03/1998))
+:bureau: T
+:language: fr
+:docnumber: 955
+:published-date: 2010-05-01
+:status: published
+:doctype: service-publication
+:annextitle-fr: Annexe au Bulletin d’exploitation de l’UIT
+:annexid: No. 955
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.180-2010-MSW-F.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+
+[preface]
+== Note du TSB
+
+
+. La Liste des différentes tonalités rencontrées dans les réseaux nationaux vient d'être mise à jour au moyen des amendements publiées dans le Bulletin d'exploitation de l'UIT.
+
+. Les administrations voudront bien faire rappeler les avantages d'une normalisation poussée des tonalités audibles, qui permet aux abonnés et opérateurs de reconnaître rapidement toute tonalité quelle que soit son origine.
+
+. Pour nous permettre de disposer d'informations récentes et de tenir à jour la Liste, les administrations sont invitées à soumettre à l'UIT/TSB au moyen du formulaire de notification ci‑joint une brève description technique de toute nouvelle tonalité ou à nous signaler tout changement de tonalité lors de la mise en service.
+
+. Pour votre information, la Liste sera mise à jour au moyen de séries numérotées d'amendements publiés dans le Bulletin d'exploitation de l'UIT. Les informations contenues dans cette annexe sera également accessible dans la page web du site de l'UIT, à l'adresse http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html] .
+
+. Veuillez informer le Directeur du TSB de toute observation ou de toute modification relative à la Liste en question à l'adresse suivante:
++
+--
+Union internationale des télécommunications +
+Directeur du TSB +
+Place des Nations +
+CH-1211 GENÈVE 20 +
+Suisse +
+Tél: +41 22 730 5211 +
+Fax: +41 22 730 5853 +
+E-mail : mailto:tsbtson@itu.int[]
+--
+
+. Les désignations employées et la présentation des renseignements fournis dans la présente Liste n'impliquent de la part de l'UIT aucune prise de position quelle qu'elle soit quant au statut juridique d'un pays ou d'une zone géographique ou encore des autorités dont elle relève.
+
+
+[yaml2text,T-SP-E.180-2010.yaml,file]
+----
+{% assign lang = "fr" %}
+
+== {{ file.metadata.title[lang] }}
+
+{% assign ordered_sequence = file.data | map: "country_or_area" | sort: lang | uniq %}
+
+
+{% comment %}
+[cols="3",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.frequency_in_hz[lang] }}
+| {{ file.metadata.locale.cadence_in_s[lang] }}
+
+
+{% for next_country in ordered_sequence %}
+    3+| *{{ next_country[lang] }}*
+    {% for country_data in file.data %}
+        {% if  next_country[lang] == country_data.country_or_area[lang] -%}
+            | {{ country_data.tone_desc[lang] }}
+            {%- if country_data.notes -%}
+            footnote:[{{ country_data.notes[lang] }}]
+            {%- endif -%}
+            | {{ country_data.frequency_in_hz }}
+            | {{ country_data.cadence_in_s }}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+|===
+{% endcomment %}
+
+== Formulaire de notification pour les tonalités rencontrées dans les réseaux nationaux
+
+[align=left]
+Pays/Organisation: +
+Contact, Nom: +
+Tél: +
+Fax: +
+Email:
+
+[cols="3",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.tone[lang] | capitalize }}
+| {{ file.metadata.locale.frequency_in_hz[lang] | remove: " in" | remove: " en" | replace: "Hz", "(Hz)" | capitalize }}
+| {{ file.metadata.locale.cadence_in_s[lang] | replace: "in seconds", "(seconds)"
+                                     | replace: "en secondes", "(secondes)"
+                                     | replace: "en segundos", "(segundos)"
+                                     | capitalize }}
+
+| {{ file.metadata.locale.dial_tone[lang] | split: ":" | first }} | |
+| {{ file.metadata.locale.ringing_tone[lang] | split: ":" | first }} | |
+| {{ file.metadata.locale.busy_tone[lang] | split: ":" | first }} | |
+| {{ file.metadata.locale.congestion_tone[lang] | split: ":" | first }} | |
+| {{ file.metadata.locale.special_information_tone[lang] | split: ":" | first }} | |
+| {{ file.metadata.locale.call_waiting_tone[lang] | split: ":" | first }} | |
+| {{ file.metadata.locale.pay_tone[lang] | split: ":" | first }}| |
+|===
+
+[cols="3",options="unnumbered"]
+|===
+3+h| Autres tonalités nouvelles ou modifiées
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+|===
+
+{{ file.metadata.locale.dial_tone[lang] | replace: ":", "::" }}
+
+{{ file.metadata.locale.ringing_tone[lang] | replace: ":", "::" }}
+
+{{ file.metadata.locale.busy_tone[lang] | replace: ":", "::" }}
+
+{{ file.metadata.locale.congestion_tone[lang] | replace: ":", "::" }}
+
+{{ file.metadata.locale.special_information_tone[lang] | replace: ":", "::" }}
+
+{{ file.metadata.locale.call_waiting_tone[lang] | replace: ":", "::" }}
+
+{{ file.metadata.locale.pay_tone[lang] | replace: ":", "::" }}
+
+
+== Explication des symboles
+
+Fréquence en Hz:::
+stem:[f_1 xx f_2]::: stem:[f_1] est modulée par stem:[f_2]
+stem:[f_1 + f_2]::: juxtaposition de deux fréquences stem:[f_1] et stem:[f_2] sans modulation
+stem:[f_1 // f_2]::: stem:[f_1] est suivie de stem:[f_2]
+stem:[f_1] // stem:[f_2]::: dans certains centraux on utilise la fréquence stem:[f_1] dans d'autres la fréquence stem:[f_2],
+Cadence en secondes:: ON – OFF (ÉMISSION – SILENCE)
+----

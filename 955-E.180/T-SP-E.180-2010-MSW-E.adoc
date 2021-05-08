@@ -1,0 +1,142 @@
+= VARIOUS TONES USED IN NATIONAL NETWORKS (ACCORDING TO ITU-T RECOMMENDATION E.180(03/1998))
+:bureau: T
+:docnumber: 955
+:published-date: 2010-05-01
+:status: published
+:doctype: service-publication
+:annextitle: Annex to ITU Operational Bulletin
+:annexid: No. 955
+:keywords: 
+:imagesdir: images
+:docfile: T-SP-E.180-2010-MSW-E.adoc
+:mn-document-class: ituob
+:mn-output-extensions: xml,html,doc,rxl
+:local-cache-only:
+:data-uri-image:
+:stem:
+
+[preface]
+== Note by TSB
+
+
+. The List of various tones used in national networks has now been updated by amendments published in ITU Operational Bulletin..
+
+. Administrations are reminded of the advantages of standardizing audible tones as far as possible so that subscribers and operators may quickly recognize any tone transmitted of whatever origin.
+
+. In order to have current information and to keep the List up-to-date, Administrations are strongly requested to submit a concise technical description of any new or changed network tones to the ITU/TSB whenever such tones are introduced, by using the attached Notification form.
+
+. For your information, this list will be updated by numbered series of amendments published in the ITU Operational Bulletin. Furthermore, the information contained in this Annex is also available on the ITU web page http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.html] .
+
+. Please address any comments or any modifications concerning this List to the Director of the TSB: 
++
+--
+International Telecommunication Union +
+Director of the TSB +
+Place des Nations +
+CH-1211 GENEVA 20 +
+Switzerland +
+Tel: +41 22 730 5211 +
+Fax: +41 22 730 5853 +
+E-mail: mailto:tsbtson@itu.int[]
+--
+
+. The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of the ITU concerning the legal status of any country or geographical area, or of its authorities.
+
+
+[yaml2text,T-SP-E.180-2010.yaml,file]
+----
+{% assign lang = "en" %}
+
+== {{ file.metadata.title[lang] }}
+
+{% assign ordered_sequence = file.data | map: "country_or_area" | sort: lang | uniq %}
+
+
+[cols="3",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.country_or_area[lang] }}
+| {{ file.metadata.locale.frequency_in_hz[lang] }}
+| {{ file.metadata.locale.cadence_in_s[lang] }}
+
+
+{% for next_country in ordered_sequence %}
+    3+| *{{ next_country[lang] }}*
+    {% for country_data in file.data %}
+        {% if  next_country[lang] == country_data.country_or_area[lang] -%}
+            | {{ country_data.tone_desc[lang] }}
+            {%- if country_data.notes -%}
+            footnote:[{{ country_data.notes[lang] }}]
+            {%- endif -%}
+            | {{ country_data.frequency_in_hz }}
+            | {{ country_data.cadence_in_s }}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+|===
+
+
+== Notification Form for Change of tones used in national networks
+
+[align=left]
+Country/Organisation: +
+Contact-person, Name: +
+Tel: +
+Fax: +
+Email:
+
+[cols="3",options="unnumbered,header"]
+|===
+| {{ file.metadata.locale.tone[lang] | capitalize }}
+| {{ file.metadata.locale.frequency_in_hz[lang] | remove: " in" | remove: " en" | replace: "Hz", "(Hz)" | capitalize }}
+| {{ file.metadata.locale.cadence_in_s[lang] | replace: "in seconds", "(seconds)"
+                                     | replace: "en secondes", "(secondes)"
+                                     | replace: "en segundos", "(segundos)"
+                                     | capitalize }}
+
+| {{ file.metadata.locale.dial_tone[lang] | split: ":" | first }} | |
+| {{ file.metadata.locale.ringing_tone[lang] | split: ":" | first }} | |
+| {{ file.metadata.locale.busy_tone[lang] | split: ":" | first }} | |
+| {{ file.metadata.locale.congestion_tone[lang] | split: ":" | first }} | |
+| {{ file.metadata.locale.special_information_tone[lang] | split: ":" | first }} | |
+| {{ file.metadata.locale.call_waiting_tone[lang] | split: ":" | first }} | |
+| {{ file.metadata.locale.pay_tone[lang] | split: ":" | first }}| |
+|===
+
+[cols="3",options="unnumbered"]
+|===
+3+h| Other new or changed tones
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+|===
+
+{{ file.metadata.locale.dial_tone[lang] | replace: ":", "::" }}
+
+{{ file.metadata.locale.ringing_tone[lang] | replace: ":", "::" }}
+
+{{ file.metadata.locale.busy_tone[lang] | replace: ":", "::" }}
+
+{{ file.metadata.locale.congestion_tone[lang] | replace: ":", "::" }}
+
+{{ file.metadata.locale.special_information_tone[lang] | replace: ":", "::" }}
+
+{{ file.metadata.locale.call_waiting_tone[lang] | replace: ":", "::" }}
+
+{{ file.metadata.locale.pay_tone[lang] | replace: ":", "::" }}
+
+
+== Explanation of symbols
+
+Frequency in Hz::
+stem:[f_1 xx f_2]::: stem:[f_1] is modulated by stem:[f_2]
+stem:[f_1 + f_2]::: the juxtaposition of two frequencies stem:[f_1] and stem:[f_2] without modulation
+stem:[f_1 // f_2]::: stem:[f_1] is followed by stem:[f_2]
+stem:[f_1] // stem:[f_2]::: in some exchanges frequency stem:[f_1] is used and in others frequency stem:[f_2] is used.
+Cadence in seconds:: ON – OFF
+----
