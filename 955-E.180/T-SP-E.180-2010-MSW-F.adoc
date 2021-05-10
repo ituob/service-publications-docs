@@ -58,17 +58,17 @@ E-mail : mailto:tsbtson@itu.int[]
 | {{ file.metadata.locale.cadence_in_s[lang] }}
 
 {% for country_data in file.data %}
-    {% assign next_country = country_data.country_or_area[lang] %}
-    {% if next_country != current_country -%}
-        {% assign current_country = next_country %}
-        3+| *{{ current_country }}*
-    {% endif %}
-    | {{ country_data.tone_desc[lang] }}
-    {%- if country_data.notes -%}
-    footnote:[{{ country_data.notes[lang] }}]
-    {%- endif -%}
-    | {{ country_data.frequency_in_hz }}
-    | {{ country_data.cadence_in_s[lang] }}
+{% assign next_country = country_data.country_or_area[lang] %}
+{% if next_country != current_country -%}
+{% assign current_country = next_country %}
+3+| *{{ current_country }}*
+{% endif %}
+| {{ country_data.tone_desc[lang] }}
+{%- if country_data.notes -%}
+footnote:[{{ country_data.notes[lang] }}]
+{%- endif -%}
+| {{ country_data.frequency_in_hz }}
+| {{ country_data.cadence_in_s[lang] }}
 {% endfor %}
 |===
 
