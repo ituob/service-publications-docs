@@ -1,0 +1,58 @@
+---
+#Canada
+#Amateur stations:
+#VE1, VA1 followed by 1, 2 or 3 letters – Provinces of Nova Scotia and New Brunswick
+#VE2, VA2 followed by 1, 2 or 3 letters – Province of Quebec
+#VE3, VA3 followed by 1, 2 or 3 letters – Province of Ontario
+#VE4, VA4 followed by 1, 2 or 3 letters – Province of Manitoba
+#VE5, VA5 followed by 1, 2 or 3 letters – Province of Saskatchewan
+#VE6, VA6 followed by 1, 2 or 3 letters – Province of Alberta
+#VE7, VA7 followed by 1, 2 or 3 letters – Province of British Columbia
+#VE8 followed by 1, 2 or 3 letters – Northwest Territories (excluding Nunavut)
+#VE9 followed by 1, 2 or 3 letters – Province of New Brunswick
+#VE0* followed by 1, 2 or 3 letters – Amateur station on board a ship
+#VO1 followed by 1, 2 or 3 letters – Province of Newfoundland (excluding Labrador)
+#VO2 followed by 1, 2 or 3 letters – Labrador
+#VY0 followed by 1, 2 or 3 letters – Nunavut Territory
+#VY1 followed by 1, 2 or 3 letters – Yukon Territory
+#VY2 followed by 1, 2 or 3 letters – Province of Prince Edward Island
+#** VE0 is intended for use when the amateur radio station is operated from a vessel that makes international voyages.
+
+#Experimental stations:
+#VX9 followed by 2 or 3 letters  –  Canada (all provinces and territories)
+
+groups:
+  amateur:
+    regex: V[:province_or_area:][:upper:]{1,3}
+
+  experimental:
+    - name: Canada (all provinces and territories)
+      regex: VX9[:upper:]{2,3}
+
+codelists:
+  provide_or_area:
+    E1: Provinces of Nova Scotia and New Brunswick
+    A1: Provinces of Nova Scotia and New Brunswick
+    E2: Province of Quebec
+    A2: Province of Quebec
+    E3: Province of Ontario
+    A3: Province of Ontario
+    E4: Province of Manitoba
+    A4: Province of Manitoba
+    E5: Province of Saskatchewan
+    A5: Province of Saskatchewan
+    E6: Province of Alberta
+    A6: Province of Alberta
+    E7: Province of British Columbia
+    A7: Province of British Columbia
+    E8: Northwest Territories (excluding Nunavut)
+    E9: Province of New Brunswick
+    E0: Amateur station on board a ship
+    O1: Province of Newfoundland (excluding Labrador)
+    O2: Labrador
+    Y0: Nunavut Territory
+    Y1: Yukon Territory
+    Y2: Province of Prince Edward Island
+
+notes:
+  - VE0 is intended for use when the amateur radio station is operated from a vessel that makes international voyages.
