@@ -7,7 +7,7 @@
 groups:
   amateur:
     - name: Class 1 licence
-      regex: V31[:upper]{2}
+      regex: V31[:upper:]{2}
 
     - name: Class 2 licence
-      regex: V32[:upper]{2}
+      regex: V32[:upper:]{2}
