@@ -4,10 +4,11 @@
 #Note: Foreign amateurs will use the call sign assigned to them by their administration followed by a stroke (/) and then 6Y5.
 
 groups:
-  amateur: &general
+  amateur:
     regex: 6Y5[:upper:]{2}
 
-  experimental: *general
+  experimental:
+    regex: 6Y5[:upper:]{2}
 
 notes:
   - Foreign amateurs will use the call sign assigned to them by their administration followed by a stroke (/) and then 6Y5.
