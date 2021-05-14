@@ -3,7 +3,8 @@
 #Amateur stations and experimental stations: PZ followed by a digit (2-9) and by a group of not more than 3 letters
 
 groups:
-  amateur: &general
+  amateur:
     regex: PZ[2-9][:upper:]{1,3}
 
-  experimental: *general
+  experimental:
+    regex: PZ[2-9][:upper:]{1,3}

@@ -3,7 +3,8 @@
 #Amateur stations and experimental stations: 7Z followed by a digit and 2 letters
 
 groups:
-  amateur: &general
+  amateur:
     regex: 7Z[:digit:][:upper:]{2}
 
-  experimental: *general
+  experimental:
+    regex: 7Z[:digit:][:upper:]{2}

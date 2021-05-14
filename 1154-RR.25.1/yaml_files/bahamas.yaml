@@ -15,3 +15,13 @@ groups:
         cardinality: 2
 
   experimental:
+    regex: C6[2-9][:upper:]{2}
+    criteria:
+      1: C6
+      2:
+        from: 2
+        to: 9
+      3:
+        from: A
+        to: Z
+        cardinality: 2

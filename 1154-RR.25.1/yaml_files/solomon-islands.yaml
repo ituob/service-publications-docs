@@ -3,7 +3,8 @@
 #Amateur stations and experimental stations: H44AA-H44ZZ
 
 groups:
-  amateur: &general
+  amateur:
     regex: H44[:upper:]{2}
 
-  experimental: *general
+  experimental:
+    regex: H44[:upper:]{2}
