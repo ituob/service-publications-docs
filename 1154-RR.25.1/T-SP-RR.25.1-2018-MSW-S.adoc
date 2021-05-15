@@ -450,9 +450,9 @@ Experimental stations::
 
 == ENMIENDAS
 
-[%unnumbered]
+[cols="^,^,^",options="unnumbered,header"]
 |===
-^.^h| Enmienda N. ^.^h| Boletín de Explotación N. ^.^h| Administración
+| Enmienda N. | Boletín de Explotación N. | Administración
 
 {% for i in (1..30) %}
 | {{ i }} | |
