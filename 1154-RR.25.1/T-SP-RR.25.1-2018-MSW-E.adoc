@@ -448,9 +448,9 @@ Experimental stations::
 
 == Amendments
 
-[%unnumbered]
+[cols="^,^,^",options="unnumbered,header"]
 |===
-^.^h| Amendment No. ^.^h| Operational Bulletin No. ^.^h| Administration
+| Amendment No. | Operational Bulletin No. | Administration
 
 {% for i in (1..30) %}
 | {{ i }} | |
