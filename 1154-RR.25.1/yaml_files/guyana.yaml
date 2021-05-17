@@ -7,11 +7,10 @@
 #8R3AAA-8R3ZZZ –  Essequibo
 
 groups:
-  amateur:
+  amateur: &general
     regex: 8R[:region:][:upper:]{3}
 
-  experimental:
-    regex: 8R[:region:][:upper:]{3}
+  experimental: *general
 
 codelists:
   region:

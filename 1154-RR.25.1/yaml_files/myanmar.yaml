@@ -3,8 +3,7 @@
 #Amateur stations and experimental stations: XZ2AA-XZ2ZZ
 
 groups:
-  amateur:
+  amateur: &general
     regex: XZ2[:upper:]{2}
 
-  experimental:
-    regex: XZ2[:upper:]{2}
+  experimental: *general

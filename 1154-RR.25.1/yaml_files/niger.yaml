@@ -5,11 +5,10 @@
 #When stations operate as mobile stations, their call signs are followed by the letters “MOB”.
 
 groups:
-  amateur:
+  amateur: &general
     regex: 5U[2-9]V[:upper:]{1,2}
 
-  experimental:
-    regex: 5U[2-9]V[:upper:]{1,2}
+  experimental: *general
 
 notes:
   - When stations operate as fixed stations, their call signs are followed by the letter “F”.
