@@ -19,7 +19,7 @@
 #iii) The prefix SZ is assigned to the Greek Radio Amateur Union and Greek university laboratories in the area of wireless telecommunications.
 
 groups:
-  amateur:
+  amateur: &general
     - name: Class 1
       regex: SV[:regions:][:upper:]{2,3}
       criteria:
@@ -42,28 +42,7 @@ groups:
           to: Z
           cardinality: 2-3
 
-  experimental:
-    - name: Class 1
-      regex: SV[:regions:][:upper:]{2,3}
-      criteria:
-        1: SV
-        2:
-          codelist: regions
-        3:
-          from: A
-          to: Z
-          cardinality: 2-3
-
-    - name: Class 2
-      regex: SW[:regions:][:upper:]{2,3}
-      criteria:
-        1: SW
-        2:
-          codelist: regions
-        3:
-          from: A
-          to: Z
-          cardinality: 2-3
+  experimental: *general
 
 codelists:
   regions:
