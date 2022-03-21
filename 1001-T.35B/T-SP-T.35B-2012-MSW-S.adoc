@@ -7,22 +7,20 @@
 :published-date: 2012-04-01
 :status: published
 :doctype: service-publication
-:keywords: 
+:keywords:
 :imagesdir: images
-:docfile: T-SP-T.35B-2012-MSW-S.adoc
 :mn-document-class: tsb
-:mn-output-extensions: xml,html,doc,rxl
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 :language: es
 
 
 [preface]
 == Nota de TSB:
 
-En la Recomendación UIT-T T.35 se describe un mecanismo para incluir facilidades no normalizadas, que se utilizan en distintos protocolos definidos en las Recomendaciones del UIT-T. En este mecanismo se utilizan tres tipos de códigos: (a) un indicativo de país, (b) un código de proveedor terminal (también conocido como código de fabricante) y (c) un código destinado al proveedor terminal. Los indicativos de país de la Recomendación UIT-T T.35 quedan definidos en esta Recomendación y el fabricante define los códigos destinados al proveedor terminal. No obstante, en cuanto al código de fabricante, la Recomendación UIT-T T.35 dispone lo siguiente: «Una administración o un organismo nacional designado por dicha administración tiene la responsabilidad de asignar y gestionar los códigos de proveedor terminal». 
+En la Recomendación UIT-T T.35 se describe un mecanismo para incluir facilidades no normalizadas, que se utilizan en distintos protocolos definidos en las Recomendaciones del UIT-T. En este mecanismo se utilizan tres tipos de códigos: (a) un indicativo de país, (b) un código de proveedor terminal (también conocido como código de fabricante) y (c) un código destinado al proveedor terminal. Los indicativos de país de la Recomendación UIT-T T.35 quedan definidos en esta Recomendación y el fabricante define los códigos destinados al proveedor terminal. No obstante, en cuanto al código de fabricante, la Recomendación UIT-T T.35 dispone lo siguiente: «Una administración o un organismo nacional designado por dicha administración tiene la responsabilidad de asignar y gestionar los códigos de proveedor terminal».
 
-A fin de facilitar una lista centralizada de autoridades nacionales para asignación de los códigos de proveedor terminal UIT-T T.35 y ayudar a los fabricantes a obtener dichos códigos, la Recomendación UIT-T T.35 indica además: «Cuando una administración designa un organismo nacional, debe enviar su nombre y dirección al Director de la TSB». 
+A fin de facilitar una lista centralizada de autoridades nacionales para asignación de los códigos de proveedor terminal UIT-T T.35 y ayudar a los fabricantes a obtener dichos códigos, la Recomendación UIT-T T.35 indica además: «Cuando una administración designa un organismo nacional, debe enviar su nombre y dirección al Director de la TSB».
 
 Se ha elaborado una lista de las autoridades nacionales, encargadas de asignar los códigos de proveedor de terminal UIT-T T.35, según las respuestas a la Circular TSB 184 del 12 de septiembre de 2003 y al Addendum 1 del 30 de julio de 2004. +
 
@@ -54,7 +52,7 @@ Las denominaciones empleadas en esta Lista y la forma en que aparecen presentado
 [%unnumbered,cols="2*"]
 |===
 {% assign country_acronym = country.country | remove: "iso-3166:" | replace: "uk", "gb" %}
-2+.<| 
+2+.<|
 {%- if country_acronym != "no" -%}
     {{ acronyms[country_acronym][lang] }}
 {%- else -%}
@@ -107,7 +105,7 @@ Las denominaciones empleadas en esta Lista y la forma en que aparecen presentado
 | Fax: | {{ authority.fax }}
 | E-mail: | {{ authority.email }}
 | Enlaces relacionados: | {{ authority.related_links }}
-| Información actualizada: | 
+| Información actualizada: |
 {{ authority.last_updated | date: "%d %B %Y"
 | replace: "January", "de enero de"
 | replace: "February", "de febrero de"
@@ -127,7 +125,7 @@ Las denominaciones empleadas en esta Lista y la forma en que aparecen presentado
 {% else %}
 
 No se ha designado ninguna
-| Información actualizada: | 
+| Información actualizada: |
 {{ country.last_updated | date: "%d %B %Y"
 | replace: "January", "de enero de"
 | replace: "February", "de febrero de"
@@ -166,7 +164,7 @@ Envíe las respuestas a esta notificación a TSB, E-mail: mailto:tsbtson@itu.int
 _Le rogamos que en sus respuestas nos facilite la mayor cantidad posible de detalles. Cuando no pueda darnos datos completos porque se trata de información delicada o confidencial, sírvase indicarlo. Las respuestas al cuestionario recibidas se utilizarán para actualizar la lista de las autoridades nacionales encargadas de asignar códigos de proveedor terminal definidos en la Recomendación UIT T T.35._
 
 [class=steps]
-. País y nombre de la Administración: 
+. País y nombre de la Administración:
 
 . ¿Existen en su país fabricantes de productos definidos en las:
 
@@ -184,16 +182,16 @@ conferencias multimedios) ▭ Sí ▭ No
 --
 [%unnumbered]
 |===
-h| Autoridad de asignación: a| 
+h| Autoridad de asignación: a|
 | Tipo de terminal{blank}footnote:[Márquense todos los aplicables y enumérese las "otras categorías"]: | ▭ Serie H ▭ Serie T ▭ Serie V ▭ Otras categorías:
-| Persona a quien dirigirse: a| 
-| Organización: a| 
+| Persona a quien dirigirse: a|
+| Organización: a|
 | Departamento: a|
-| Dirección: a| 
-| Teléfono: a| 
-| Telefax: a| 
-| E-mail: a| 
-| Enlaces correspondientes de Internet: a| 
+| Dirección: a|
+| Teléfono: a|
+| Telefax: a|
+| E-mail: a|
+| Enlaces correspondientes de Internet: a|
 
 |===
 --
@@ -202,6 +200,6 @@ h| Autoridad de asignación: a|
 
 [%unnumbered]
 |===
-|   
+|
 
 |===

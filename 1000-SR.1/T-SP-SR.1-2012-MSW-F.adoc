@@ -4,13 +4,11 @@
 :title: RESTRICTIONS DE SERVICE
 :published-date: 2012-03-15
 :doctype: service-publication
-:docfile: document.adoc
 :language: fr
 :status: draft
 :mn-document-class: itu
-:mn-output-extensions: xml,html,doc,rxl
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 
 
 == LISTE RECAPITULATIVE DES RESTRICTIONS DE SERVICE
@@ -25,7 +23,7 @@
 
 . Tout a été mis en oeuvre pour que les informations contenues dans la présente Liste soient exactes. Les administrations/ER sont priées de vérifier l'information et d'informer le TSB de toute modification à apporter pour la mettre à jour (Fax: +41 22 730 5853; E-mail: tsbtson@itu.int).
 
-. En outre, les renseignements contenus dans cette Annexe au Bulletin d’exploitation de l’UIT N° 1000 peuvent également être consultés sur le site web de l'UIT à l'adresse suivante: 
+. En outre, les renseignements contenus dans cette Annexe au Bulletin d’exploitation de l’UIT N° 1000 peuvent également être consultés sur le site web de l'UIT à l'adresse suivante:
 http://www.itu.int/itu-t/bulletin/annex.html
 
 . Les appellations employées et la présentation des renseignements fournis dans la présente Liste n'impliquent de la part de l'UIT aucune prise de position quelle qu'elle soit quant au statut juridique d'un pays ou d'une zone géographique ou de leurs autorités.
@@ -66,7 +64,7 @@ a| *_{{ geoarea.fr }}_* +
 
 {% case call[0] %}
 
-{% when "mobile" %} 
+{% when "mobile" %}
 {{ file.metadata.locale.no_collect_calls.mobile[lang] }}
 
 {% when "payphone" %}

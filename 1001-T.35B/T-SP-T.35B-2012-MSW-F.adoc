@@ -6,24 +6,22 @@
 :published-date: 2012-04-01
 :status: published
 :doctype: service-publication
-:keywords: 
+:keywords:
 :imagesdir: images
-:docfile: T-SP-T.35B-2012-MSW-F.adoc
-:mn-document-class: ituob
-:mn-output-extensions: xml,html,doc,rxl
+:mn-document-class: itu
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 :language: fr
 
 
 [preface]
 == Note du TSB
 
-La Recommandation UIT-T T.35 contient un mécanisme permettant de mettre en œuvre des facilités non normalisées, qui sont utilisées dans plusieurs protocoles définis dans les Recommandations UIT-T. Ce mécanisme utilise trois types de codes : (a) un indicatif de pays, (b) un code du prestataire terminal (également connu comme code de fabricant) et (c) un code interne du prestataire terminal. Les indicatifs de pays de la Recommandation UIT-T T.35 sont définis dans cette Recommandation et les codes internes du prestataire terminal sont définis par le fabricant. Toutefois, en ce qui concerne le code du fabricant, il est indiqué dans la Recommandation UIT-T T.35 qu'«une Administration, ou un organisme national désigné par l'Administration, est responsable de l'attribution et de la gestion du code du prestataire terminal». 
+La Recommandation UIT-T T.35 contient un mécanisme permettant de mettre en œuvre des facilités non normalisées, qui sont utilisées dans plusieurs protocoles définis dans les Recommandations UIT-T. Ce mécanisme utilise trois types de codes : (a) un indicatif de pays, (b) un code du prestataire terminal (également connu comme code de fabricant) et (c) un code interne du prestataire terminal. Les indicatifs de pays de la Recommandation UIT-T T.35 sont définis dans cette Recommandation et les codes internes du prestataire terminal sont définis par le fabricant. Toutefois, en ce qui concerne le code du fabricant, il est indiqué dans la Recommandation UIT-T T.35 qu'«une Administration, ou un organisme national désigné par l'Administration, est responsable de l'attribution et de la gestion du code du prestataire terminal».
 
 Afin d'établir une liste centralisée des autorités nationales chargées de l'attribution des codes du prestataire terminal conformément à la Recommandation UIT-T T.35 et d'aider les fabricants à obtenir ces codes, il est en outre indiqué dans la Recommandation UIT-T T.35 que «lorsqu'une Administration désigne un organisme national, elle doit en communiquer l'adresse et le nom au Directeur du TSB».
 
-Une liste des autorités nationales, chargées de l'attribution des codes du prestataire terminal conformément à la Recommandation UIT-T T.35, a été établie d'après les réponses à la Circulaire TSB 184 du 12 septembre 2003 ainsi qu'à l'Addendum 1 du 30 juillet 2004. 
+Une liste des autorités nationales, chargées de l'attribution des codes du prestataire terminal conformément à la Recommandation UIT-T T.35, a été établie d'après les réponses à la Circulaire TSB 184 du 12 septembre 2003 ainsi qu'à l'Addendum 1 du 30 juillet 2004.
 
 Toute information nouvelle ou actualisée, concernant l'identité de l'autorité nationale en vigueur, désignée par chaque Administration pour l'attribution des codes du prestataire terminal conformément à la Recommandation UIT-T T.35, doit être communiquée au TSB, E-mail: mailto:tsbtson@itu.int[tsbtson@itu.int], Fax: +41 22 730 5853 au moyen du http://www.itu.int/ITU-T/inr/forms/files/T35-form-fr.doc[formulaire de notification].
 
@@ -37,7 +35,7 @@ Les appellations employées dans cette Liste et la présentation des données qu
 ----
 
 [yaml2text,iso-3166.yaml,acronyms]
--- 
+--
 {% assign lang = "fr" %}
 
 {% case lang %}
@@ -55,7 +53,7 @@ Les appellations employées dans cette Liste et la présentation des données qu
 [%unnumbered,cols="2*"]
 |===
 {% assign country_acronym = country.country | remove: "iso-3166:" | replace: "uk", "gb" %}
-2+.<| 
+2+.<|
 {%- if country_acronym != "no" -%}
     {{ acronyms[country_acronym][lang] }}
 {%- else -%}
@@ -166,7 +164,7 @@ _Veuillez faire parvenir le formulaire de notification au TSB E-mail: mailto:tsb
 _Veuillez répondre aux questions ci-dessous de manière aussi complète et précise que possible. S'il vous est impossible de nous communiquer certaines informations en raison de leur caractère protégé ou sensible, veuillez le signaler. Les réponses au présent questionnaire seront utilisées pour mettre à jour la liste des autorités nationales chargées d'attribuer des codes du prestataire terminal._
 
 [class=steps]
-. Pays et nom de l'Administration: 
+. Pays et nom de l'Administration:
 
 . Existe-t-il, dans votre pays, des fabricants de produits conformes aux:
 
@@ -184,13 +182,13 @@ matériel de télécopie)? ▭ Oui ▭ Non
 --
 [%unnumbered]
 |===
-| Autorité responsable de l'attribution: | 
+| Autorité responsable de l'attribution: |
 | Type{blank}footnote:[Veuillez cocher tous les types applicables et énumérer les « autres catégories »] de terminal: | ▭ Série H ▭ Série T ▭ Série V ▭ Autres catégories:
 | Personne à contacter: |
 | Organisation: |
 | Département:  |
 | Adresse: |
-| Téléphone: |  
+| Téléphone: |
 | Téléfax:  |
 | E-mail:  |
 | Liens Internet correspondants: |
@@ -202,6 +200,6 @@ matériel de télécopie)? ▭ Oui ▭ Non
 
 [%unnumbered]
 |===
-|    
+|
 
 |===

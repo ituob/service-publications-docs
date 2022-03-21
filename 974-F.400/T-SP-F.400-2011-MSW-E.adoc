@@ -6,12 +6,10 @@
 :status: published
 :doctype: service-publication
 :annexid: No. 974
-:docfile: T-SP-F.400-2011-MSW-E.adoc
 :language: en
 :mn-document-class: itu
-:mn-output-extensions: xml,html,doc,rxl
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 
 // :annextitle: LIST OF NAMES OF ADMINISTRATION MANAGEMENT DOMAINS (ADMD)
 
@@ -54,7 +52,7 @@ http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.ht
 ^.^| {{ locale_data.mt[lang] }}
 ^.^| {{ locale_data.ipm[lang] }}
 ^.^| {{ locale_data.other[lang] }}
-| | | 
+| | |
 ^.^| 1 ^.^| 2 ^.^| 3 ^.^| 4 ^.^| 5 ^.^| 6 ^.^| 7 ^.^| 8 ^.^| 9
 
 {% assign sorted_countries = file.data | map: "country_or_area" | map: "fr" | replace: "é", "e" | replace: "è", "e" | remove: '["' | remove: '"]' | split: '", "' | uniq | sort %}
@@ -101,7 +99,7 @@ http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.ht
 {% endfor %}
 {% endif %}
 
-| 
+|
 {% for field in country_data.contact_address %}
 {{ field[1] }} +
 {% endfor %}
@@ -184,14 +182,14 @@ a| image::itu_logo.png["",112,115] a| _Please complete this Notification form an
 [%unnumbered]
 |===
 
-h| _Country:_ | 
+h| _Country:_ |
 _Country Code{blank}footnote:[Country Code: See Annex A to Recommendation F.401. This is based on ISO 3166, of which the latest published edition should be used (obtainable from national standards bodies).] :_
 2+h| _ADMD Name:_
 h| _Service Name_ | HELPDESK AVAILABLE?
 | MT (message transfer): | Yes [ ] No [ ]
 | | X.400:
 | IPM (interpersonal message): | \_\____\______
-| | AUTOANSWER AVAILABLE? 
+| | AUTOANSWER AVAILABLE?
 | | Yes [ ] No [ ]
 | Other: | X.400:
 h| _Contact Address:_  | X.400: \_\____\______

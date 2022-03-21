@@ -4,13 +4,11 @@
 :title: RESTRICCIONES DE SERVICIO
 :published-date: 2012-03-15
 :doctype: service-publication
-:docfile: document.adoc
 :language: es
 :status: draft
 :mn-document-class: itu
-:mn-output-extensions: xml,html,doc,rxl
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 
 
 == LISTA RECAPITULATIVA DE LAS RESTRICCIONES DE SERVICIO
@@ -21,7 +19,7 @@
 
 . Desde hace muchos años, en los Boletines de Explotación de la UIT se publicada información sobre las restricciones de servicio, que luego han aparecido en un "Cuadro recapitulativo de las restricciones de servicio", que aparecía como anexo al Boletín de Explotación de la UIT.
 
-. La presente Lista recapitulativa de las restricciones de servicio sustituye al "Cuadro recapitulativo de las restricciones de servicio" publicado en el anexo al Boletín de Explotación de la UIT N.° 691 de 1 de mayo de 1999 y contiene todas las comunicaciones subsiguientes publicadas en el Boletín de Explotación de la UIT hasta el N.° 1000 de 15 de marzo de 2012. 
+. La presente Lista recapitulativa de las restricciones de servicio sustituye al "Cuadro recapitulativo de las restricciones de servicio" publicado en el anexo al Boletín de Explotación de la UIT N.° 691 de 1 de mayo de 1999 y contiene todas las comunicaciones subsiguientes publicadas en el Boletín de Explotación de la UIT hasta el N.° 1000 de 15 de marzo de 2012.
 
 . Se ha procurado que la información contenida en la presente Lista sea exacta. Se ruega a las Administraciones/EER que comprueben la información publicada en la misma y comuniquen a la TSB los eventuales cambios que deban introducirse con miras a su actualización (Fax +41 22 730 5853; E-mail: tsbtson@itu.int).
 
@@ -66,7 +64,7 @@ a| *_{{ geoarea.fr }}_* +
 
 {% case call[0] %}
 
-{% when "mobile" %} 
+{% when "mobile" %}
 {{ file.metadata.locale.no_collect_calls.mobile[lang] }}
 
 {% when "payphone" %}

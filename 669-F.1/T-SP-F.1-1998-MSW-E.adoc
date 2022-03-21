@@ -8,11 +8,9 @@
 :doctype: service-publication
 :keywords:
 :imagesdir: images
-:docfile: T-SP-F.1-1998-MSW-E.adoc
 :mn-document-class: uit
-:mn-output-extensions: xml,html,doc,rxl
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 :stem:
 
 
@@ -87,8 +85,8 @@ international public telegram service in which the codes are used.
 {% else -%}
 [align=center]
 *{{ file.metadata.locale[field][lang] }}* +
-{% unless field == "enquiries" or 
-          field == "delivery"  or 
+{% unless field == "enquiries" or
+          field == "delivery"  or
           field == "errors_mutilations_omissions" or
           field == "repetitions_and_corrections"  or
           field == "miscellaneous" -%}

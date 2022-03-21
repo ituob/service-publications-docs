@@ -1,4 +1,4 @@
-= قائمة بالرموز الدليلية للبلدان المخصصة  ITU-T E.164وفقاً للتوصية    
+= قائمة بالرموز الدليلية للبلدان المخصصة  ITU-T E.164وفقاً للتوصية
 :bureau: T
 :docnumber: 976
 :published-date: 2016-12-15
@@ -6,17 +6,15 @@
 :annex-id: No. 994
 :status: published
 :doctype: service-publication
-:keywords: 
+:keywords:
 :imagesdir: images
-:docfile: T-SP-E.164C-2011-A.adoc
 :language: ar
-:mn-document-class: ituob
-:mn-output-extensions: xml,html,doc,rxl
+:mn-document-class: itu
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 
 
-== ملاحظة من مكتب تقييس الاتصالات 
+== ملاحظة من مكتب تقييس الاتصالات
 
 . تحل قائمة الرموز الدليلية للبلدان المخصصة وفقاً للتوصية ITU-T E.164 محل القائمة السابقة المنشورة في ملحق النشرة
 التشغيلية للاتحاد رقم 991 الصادرة بتاريخ 1 نوفمبر 2011 . وقد أجريت مذذاك تخصيصات جديدة متعددة نُشرت في النشرات
@@ -102,7 +100,7 @@
 {% for country_data in file.data %}
 | {{ country_data.country_code }}
 | {{ country_data.country_area_or_service[lang] }}
-| 
+|
 {%- assign sliced_word = country_data.note.en | slice: 0,39 -%}
 {%- case sliced_word -%}
     {%- when "Ascension is using country code +247and" -%}
@@ -158,7 +156,7 @@
 {% for next_country in ordered_sequence %}
     {%- for country_data in file.data -%}
         {%- if  next_country[lang] == country_data.country_area_or_service[lang] -%}
-            | {{ country_data.country_code }} | {{ country_data.country_area_or_service[lang] }} | 
+            | {{ country_data.country_code }} | {{ country_data.country_area_or_service[lang] }} |
             {%- assign sliced_word = country_data.note.en | slice: 0,39 -%}
             {%- case sliced_word -%}
                 {%- when "Ascension is using country code +247and" -%}

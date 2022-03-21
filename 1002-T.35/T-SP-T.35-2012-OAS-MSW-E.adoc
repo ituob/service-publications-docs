@@ -1,20 +1,18 @@
-= LIST OF COUNTRY OR GEOGRAPHICAL AREA CODES FOR NON-STANDARD FACILITIES IN TELEMATIC SERVICES 
+= LIST OF COUNTRY OR GEOGRAPHICAL AREA CODES FOR NON-STANDARD FACILITIES IN TELEMATIC SERVICES
 :bureau: T
 :series: COMPLEMENT TO ITU-T RECOMMENDATION T.35 (02/2000)
 :language: en
-:docnumber:  1002
+:docnumber: 1002
 :published-date: 2012-04-15
 :status: published
 :doctype: service-publication
 :annextitle: Annex to ITU Operational Bulletin
 :annexid: No. 1002
-:keywords: 
+:keywords:
 :imagesdir: images
-:docfile: T-SP-T.35-2012-OAS-MSW-E.adoc
-:mn-document-class: ituob
-:mn-output-extensions: xml,html,doc,rxl
+:mn-document-class: itu
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 :stem:
 
 
@@ -30,19 +28,19 @@ NOTE: Codes once issued may have been imbedded in terminal equipment and therefo
 
 . The Member States of the International Telecommunication Union (ITU) not mentioned in this List who wish to obtain a country or geographical area code should ask the Director of TSB for the assignment of an available country code. In their request, they may indicate a specific code if it is available. Please address any comments to the Director of TSB:
 +
-International Telecommunication Union (ITU) 
+International Telecommunication Union (ITU)
 +
-Director of TSB 
+Director of TSB
 +
-Place des Nations 
+Place des Nations
 +
-CH-1211 GENEVA 20 
+CH-1211 GENEVA 20
 +
-Switzerland 
+Switzerland
 +
-Tel: +41 22 730 6805 
+Tel: +41 22 730 6805
 +
-Fax: +41 22 730 5853 
+Fax: +41 22 730 5853
 +
 E-mail: tsbmail@itu.int
 
@@ -63,8 +61,8 @@ http://www.itu.int/itu-t/bulletin/annex.html[http://www.itu.int/itu-t/bulletin/a
 9+^.^h| _{{ file.metadata.code_bit[lang] | remove: " Bit (b8 to b1)" }}_ +
 Bit
 ^.^h| _{{ file.metadata.country_or_area[lang] }}_
- 
-h| b~8~ h| b~7~ h| b~6~ h| b~5~ | h| b~4~ h| b~3~ h| b~2~ h| b~1~ |  
+
+h| b~8~ h| b~7~ h| b~6~ h| b~5~ | h| b~4~ h| b~3~ h| b~2~ h| b~1~ |
 
 {% for country_code in file.data.code_bit %}
 

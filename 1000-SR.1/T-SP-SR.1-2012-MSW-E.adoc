@@ -4,13 +4,11 @@
 :title: SERVICE RESTRICTIONS
 :published-date: 2012-03-15
 :doctype: service-publication
-:docfile: document.adoc
 :language: en
 :status: draft
 :mn-document-class: itu
-:mn-output-extensions: xml,html,doc,rxl
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 
 
 == RECAPITULATORY LIST OF SERVICE RESTRICTIONS
@@ -65,7 +63,7 @@ a| *_{{ geoarea.fr }}_* +
 
 {% case call[0] %}
 
-{% when "mobile" %} 
+{% when "mobile" %}
 {{ file.metadata.locale.no_collect_calls.mobile[lang] }}
 
 {% when "payphone" %}

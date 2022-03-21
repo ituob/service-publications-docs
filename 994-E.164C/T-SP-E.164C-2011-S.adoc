@@ -6,14 +6,12 @@
 :annex-id: No. 994
 :status: published
 :doctype: service-publication
-:keywords: 
+:keywords:
 :imagesdir: images
-:docfile: T-SP-E.164C-2011-S.adoc
 :language: es
-:mn-document-class: ituob
-:mn-output-extensions: xml,html,doc,rxl
+:mn-document-class: itu
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 
 
 == Nota de TSB
@@ -261,7 +259,7 @@ Nombre del país&#58;::
 &#95;
 {%- endfor %}
 
-Indicativo de país&#58;:: 
+Indicativo de país&#58;::
 {% for i in (1..large_length) -%}
 &#95;
 {%- endfor %}
@@ -271,7 +269,7 @@ Prefijo internacional&#58;::
 &#95;
 {%- endfor %}
 
-Prefijo nacional&#58;:: 
+Prefijo nacional&#58;::
 {% for i in (1..large_length) -%}
 &#95;
 {%- endfor %}
@@ -279,7 +277,7 @@ Prefijo nacional&#58;::
 Longitud del número nacional (significativo)&#58;::
 +
 --
-mínima 
+mínima
 {% for i in (1..50) -%}
 &#95;
 {%- endfor %} +
@@ -290,7 +288,7 @@ máxima
 (excluido el prefijo nacional)
 --
 
-Tiempo universal coordinado/Horario verano&#58;:: 
+Tiempo universal coordinado/Horario verano&#58;::
 {% for i in (1..large_length) -%}
 &#95;
 {%- endfor %}
@@ -326,11 +324,11 @@ Tel: +
 {%- for i in (1..40) -%}
 &#95;
 {%- endfor %}
-Fax: + 
+Fax: +
 {%- for i in (1..40) -%}
 &#95;
 {%- endfor %} +
-E-mail: 
+E-mail:
 {%- for i in (1..85) -%}
 &#95;
 {%- endfor %}

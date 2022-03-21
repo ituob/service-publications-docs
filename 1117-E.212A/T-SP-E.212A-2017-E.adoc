@@ -6,13 +6,11 @@
 :doctype: service-publication
 :annextitle: Annex to ITU Operational Bulletin
 :annexid: No. 1117
-:keywords: 
+:keywords:
 :imagesdir: images
-:docfile: T-SP-E.212A-2017-E.adoc
-:mn-document-class: ituob
-:mn-output-extensions: xml,html,doc,rxl
+:mn-document-class: itu
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 :stem:
 
 
@@ -77,7 +75,7 @@ or geographical area, or of its authorities.
 | {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
 
 {% for country_data in file.data -%}
-    | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} | 
+    | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} |
     {% assign note_first_word = country_data.note.en | split: " " | first %}
     {% case note_first_word %}
         {% when "Mobile" %}
@@ -105,7 +103,7 @@ or geographical area, or of its authorities.
 {% for next_country in ordered_sequence -%}
     {%- for country_data in file.data -%}
         {%- if country_data.country_or_area[lang] == next_country[lang] -%}
-            | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} | 
+            | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} |
             {% assign note_first_word = country_data.note.en | split: " " | first %}
             {% case note_first_word %}
                 {% when "Mobile" %}

@@ -5,12 +5,10 @@
 :status: in-force
 :doctype: service-publication
 :annexid: No. 1199
-:docfile: T-SP-Q.708B-2016-E.adoc
 :mn-document-class: itu
-:mn-output-extensions: xml,html,doc,rxl
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
 :imagesdir: images
-:data-uri-image:
 
 
 [preface]
@@ -82,31 +80,31 @@ Códigos de puntos de señalización internacional (CPSI).
 _This form should be used to notify the Director of TSB of ISPCs that have been assigned or withdrawn by a Member State since the last notification._
 
 
-Country/Area: 
+Country/Area:
 {% for i in (1..100) -%}
 &#95;
 {%- endfor %} +
-Member State Organization: 
+Member State Organization:
 {% for i in (1..89) -%}
 &#95;
 {%- endfor %} +
-Member State contact person: Name: 
+Member State contact person: Name:
 {% for i in (1..82) -%}
 &#95;
 {%- endfor %} +
-Address: 
+Address:
 {% for i in (1..105) -%}
 &#95;
 {%- endfor %} +
-Tel: 
+Tel:
 {% for i in (1..45) -%}
 &#95;
-{%- endfor %} 
-Fax: 
+{%- endfor %}
+Fax:
 {% for i in (1..45) -%}
 &#95;
 {%- endfor %} +
-E-mail: 
+E-mail:
 {% for i in (1..42) -%}
 &#95;
 {%- endfor %}

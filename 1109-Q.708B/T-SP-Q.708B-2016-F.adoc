@@ -5,13 +5,11 @@
 :status: in-force
 :doctype: service-publication
 :annexid: No. 1199
-:docfile: T-SP-Q.708B-2016-E.adoc
 :language: fr
 :mn-document-class: itu
-:mn-output-extensions: xml,html,doc,rxl
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
 :imagesdir: images
-:data-uri-image:
 
 [preface]
 == Note du TSB
@@ -82,31 +80,31 @@ Códigos de puntos de señalización internacional (CPSI).
 _Le présent formulaire doit être utilisé pour notifier au Directeur du TSB les codes ISPC qui ont été attribués ou retirés par un Etat Membre depuis la dernière notification._
 
 
-Pays/Zone: 
+Pays/Zone:
 {% for i in (1..100) -%}
 &#95;
 {%- endfor %} +
-Organisation de l’Etat Membre: 
+Organisation de l’Etat Membre:
 {% for i in (1..89) -%}
 &#95;
 {%- endfor %} +
-Personne représentant l’Etat Membre: Nom: 
+Personne représentant l’Etat Membre: Nom:
 {% for i in (1..82) -%}
 &#95;
 {%- endfor %} +
-Adresse: 
+Adresse:
 {% for i in (1..105) -%}
 &#95;
 {%- endfor %} +
-Tél: 
+Tél:
 {% for i in (1..45) -%}
 &#95;
-{%- endfor %} 
-Fax: 
+{%- endfor %}
+Fax:
 {% for i in (1..45) -%}
 &#95;
 {%- endfor %} +
-Courrier électronique: 
+Courrier électronique:
 {% for i in (1..42) -%}
 &#95;
 {%- endfor %}

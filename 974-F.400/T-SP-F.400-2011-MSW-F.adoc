@@ -2,18 +2,16 @@
 :bureau: T
 :docnumber: 974
 :series: (In accordance with ITU-T F.400 and X.400 series Recommendations)
-:title: 
+:title:
 :published-date: 2011-02-15
 :status: published
 :doctype: service-publication
 :annextitle-fr: Annexe au Bulletin d'exploitation de l'UIT
 :annexid: N° 974
-:docfile: T-SP-F.400-2011-MSW-F.adoc
 :language: fr
 :mn-document-class: itu
-:mn-output-extensions: xml,html,doc,rxl
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 
 
 [preface]
@@ -54,7 +52,7 @@ http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.ht
 ^.^| {{ locale_data.mt[lang] }}
 ^.^| {{ locale_data.ipm[lang] }}
 ^.^| {{ locale_data.other[lang] }}
-| | | 
+| | |
 ^.^| 1 ^.^| 2 ^.^| 3 ^.^| 4 ^.^| 5 ^.^| 6 ^.^| 7 ^.^| 8 ^.^| 9
 
 
@@ -102,7 +100,7 @@ http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.ht
 {% endfor %}
 {% endif %}
 
-| 
+|
 {% for field in country_data.contact_address %}
 {{ field[1] }} +
 {% endfor %}
@@ -165,7 +163,7 @@ http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.ht
 |===
 a| image::itu_logo.png["",112,115] a| _Veuillez compléter le présent formulaire de notification et le retourner à l'adresse suivante:_ +
 *Union internationale des télécommunications* +
-*Bureau de la normalisation des télécommunications (TSB/OBNA)* + 
+*Bureau de la normalisation des télécommunications (TSB/OBNA)* +
 *Place des Nations* +
 *CH - 1211 GENEVE 20* +
 *Suisse* +
@@ -175,7 +173,7 @@ a| image::itu_logo.png["",112,115] a| _Veuillez compléter le présent formulair
 
 [%unnumbered]
 |===
-*Notification de nom de DGAD conformément à la Recommandation X.400* {blank}footnote:[Selon les pays, une coordination est nécessaire avant l'envoi de la notification au TSB.]  
+*Notification de nom de DGAD conformément à la Recommandation X.400* {blank}footnote:[Selon les pays, une coordination est nécessaire avant l'envoi de la notification au TSB.]
 
 *(Services de messagerie de type X.400)*
 
@@ -185,7 +183,7 @@ a| image::itu_logo.png["",112,115] a| _Veuillez compléter le présent formulair
 [%unnumbered]
 |===
 
-h| _Pays:_ | 
+h| _Pays:_ |
 _Code de pays{blank}footnote:[Code de pays: voir l'Annexe A de la Recommandation F.401. Il est fondé sur la norme ISO 3166 dont il convient d'utiliser
 l'édition la plus récente (pouvant être obtenue auprès des organismes nationaux de normalisation).] :_
 2+h| _Nom du DGAD:_

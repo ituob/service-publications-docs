@@ -6,14 +6,12 @@
 :annex-id: No. 994
 :status: published
 :doctype: service-publication
-:keywords: 
+:keywords:
 :imagesdir: images
-:docfile: T-SP-E.164C-2011-S.adoc
 :language: es
-:mn-document-class: ituob
-:mn-output-extensions: xml,html,doc,rxl
+:mn-document-class: itu
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 
 
 == Nota de la TSB
@@ -100,7 +98,7 @@ E-mail: mailto:tsbmail@itu.int[]
 {% for country_data in file.data %}
 | {{ country_data.country_code }}
 | {{ country_data.country_area_or_service[lang] }}
-| 
+|
 {%- assign sliced_word = country_data.note.en | slice: 0,39 -%}
 {%- case sliced_word -%}
     {%- when "Ascension is using country code +247and" -%}
@@ -156,7 +154,7 @@ E-mail: mailto:tsbmail@itu.int[]
 {% for next_country in ordered_sequence %}
     {%- for country_data in file.data -%}
         {%- if  next_country[lang] == country_data.country_area_or_service[lang] -%}
-            | {{ country_data.country_code }} | {{ country_data.country_area_or_service[lang] }} | 
+            | {{ country_data.country_code }} | {{ country_data.country_area_or_service[lang] }} |
             {%- assign sliced_word = country_data.note.en | slice: 0,39 -%}
             {%- case sliced_word -%}
                 {%- when "Ascension is using country code +247and" -%}

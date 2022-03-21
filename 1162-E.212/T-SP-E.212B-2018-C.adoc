@@ -6,14 +6,12 @@
 :annex-id: No. 1162
 :status: published
 :doctype: service-publication
-:keywords: 
+:keywords:
 :imagesdir: images
-:docfile: T-SP-E.212B-2018-C.adoc
 :language: zh
-:mn-document-class: ituob
-:mn-output-extensions: xml,html,doc,rxl
+:mn-document-class: itu
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 
 
 [preface]
@@ -74,11 +72,11 @@
 
 [cols="2",options="unnumbered,header"]
 |===
-^| {{ file_two.metadata.locale.networks[lang] }} 
+^| {{ file_two.metadata.locale.networks[lang] }}
 ^| {{ file_two.metadata.locale.mcc_mnc_codes[lang] }}
 
 {% for network_data in file_two.data %}
-     | {{ network_data[1].networks }} 
+     | {{ network_data[1].networks }}
     ^| {{ network_data[0] }}
 {% endfor %}
 |===
@@ -120,8 +118,8 @@
 
 
 {% for i in file_four.data %}
-    {% assign next_parameters = "" | append: i.country_or_area.en | append: ", " 
-                                   | append: i.country_type | append: ", " 
+    {% assign next_parameters = "" | append: i.country_or_area.en | append: ", "
+                                   | append: i.country_type | append: ", "
                                    | append: i.mcc_mnc | append: ", "
                                    | append: i.operator_network %}
 
@@ -129,7 +127,7 @@
         {% assign current_parameters = next_parameters %}
 
         {% for j in file_four.data %}
-            {% assign j_parameters = "" | append: j.country_or_area.en | append: ", " 
+            {% assign j_parameters = "" | append: j.country_or_area.en | append: ", "
                                         | append: j.country_type | append: ", "
                                         | append: j.mcc_mnc | append: ", "
                                         | append: j.operator_network %}

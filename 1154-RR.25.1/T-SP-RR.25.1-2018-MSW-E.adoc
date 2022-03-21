@@ -9,11 +9,9 @@
 :doctype: service-publication
 :keywords:
 :imagesdir: images
-:docfile: T-SP-RR.25.1-2018-MSW-E.adoc
 :mn-document-class: itu
-:mn-output-extensions: xml,html,doc,rxl
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 :stem:
 
 
@@ -342,13 +340,13 @@ NOTE: Nothing in the manner of presentation of information in this Annex or in t
 {% when "argentina" %}
 
 Amateur stations:: {{ data.groups.amateur.regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z"  }}
-Letters indicating the provinces::: 
+Letters indicating the provinces:::
 +
 --
 {%- for codelist in data.codelists[0].list %}
-{{ codelist.code.from }} 
-{%- if codelist.code.to -%} - {{ codelist.code.to }} 
-{%- endif %} -- {{ codelist.name }} + 
+{{ codelist.code.from }}
+{%- if codelist.code.to -%} - {{ codelist.code.to }}
+{%- endif %} -- {{ codelist.name }} +
 {% endfor %}
 --
 

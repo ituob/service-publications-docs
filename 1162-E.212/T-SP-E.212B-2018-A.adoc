@@ -6,14 +6,12 @@
 :annex-id: No. 1162
 :status: published
 :doctype: service-publication
-:keywords: 
+:keywords:
 :imagesdir: images
-:docfile: T-SP-E.212B-2018-E.adoc
 :language: ar
-:mn-document-class: ituob
-:mn-output-extensions: xml,html,doc,rxl
+:mn-document-class: itu
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 
 
 [preface]
@@ -81,11 +79,11 @@ http://www.itu.int/en/ITU-T/inr/forms/Pages/mnc.aspx.
 
 [cols="2",options="unnumbered,header"]
 |===
-^| {{ file_two.metadata.locale.networks[lang] }} 
+^| {{ file_two.metadata.locale.networks[lang] }}
 ^| {{ file_two.metadata.locale.mcc_mnc_codes[lang] }}
 
 {% for network_data in file_two.data %}
-     | {{ network_data[1].networks }} 
+     | {{ network_data[1].networks }}
     ^| {{ network_data[0] }}
 {% endfor %}
 |===
@@ -127,8 +125,8 @@ http://www.itu.int/en/ITU-T/inr/forms/Pages/mnc.aspx.
 
 
 {% for i in file_four.data %}
-    {% assign next_parameters = "" | append: i.country_or_area.en | append: ", " 
-                                   | append: i.country_type | append: ", " 
+    {% assign next_parameters = "" | append: i.country_or_area.en | append: ", "
+                                   | append: i.country_type | append: ", "
                                    | append: i.mcc_mnc | append: ", "
                                    | append: i.operator_network %}
 
@@ -136,7 +134,7 @@ http://www.itu.int/en/ITU-T/inr/forms/Pages/mnc.aspx.
         {% assign current_parameters = next_parameters %}
 
         {% for j in file_four.data %}
-            {% assign j_parameters = "" | append: j.country_or_area.en | append: ", " 
+            {% assign j_parameters = "" | append: j.country_or_area.en | append: ", "
                                         | append: j.country_type | append: ", "
                                         | append: j.mcc_mnc | append: ", "
                                         | append: j.operator_network %}
@@ -300,7 +298,7 @@ MNC : الرمز الدليلي للشبكة المتنقلة Mobile Network Cod
 |===
 ^h| MCC/MNC
 ^h| اسم المشغل )المشغلون)
-h| خارج الأراضي الإقليمية البلد B – حيث ي ستَعمَل رمز MCC/MNC 
+h| خارج الأراضي الإقليمية البلد B – حيث ي ستَعمَل رمز MCC/MNC
 h| A سلسلة أرقام تعرف هوية المحطة المتنقلة المستعملة في بلد
 h| B سلسلة أرقام تعرف هوية المحطة المتنقلة المستعملة في بلد
 

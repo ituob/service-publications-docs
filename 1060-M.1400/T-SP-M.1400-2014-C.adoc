@@ -6,14 +6,12 @@
 :doctype: service-publication
 :annextitle: Annex to ITU Operational Bulletin
 :annexid: No. 1060
-:keywords: 
+:keywords:
 :imagesdir: images
-:docfile: T-SP-M.1400-2014-C.adoc
 :language: zh
-:mn-document-class: ituob
-:mn-output-extensions: xml,html,doc,rxl
+:mn-document-class: itu
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 :stem:
 
 
@@ -90,7 +88,7 @@ NOTE: {{ file.metadata.note[lang] }}
         {% if country_data.tel %}
             {{ file.metadata.locale.tel[lang] }}: {{ country_data.tel }} +
         {% endif %}
-    
+
         {% if country_data.fax %}
             {{ file.metadata.locale.fax[lang] }}: {{ country_data.fax }} +
         {% endif %}

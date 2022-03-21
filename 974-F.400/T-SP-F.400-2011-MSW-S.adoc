@@ -3,18 +3,16 @@
 :docnumber: 974
 :series: (De conformidad con las Recomendaciones UIT-T de las series
 F.400 y X.400)
-:title: 
+:title:
 :published-date: 2011-02-15
 :status: published
 :doctype: service-publication
 :annextitle-es: Anexo al Boletín de Explotación de la UIT
 :annexid: N.° 974
-:docfile: T-SP-F.400-2011-MSW-S.adoc
 :language: es
 :mn-document-class: itu
-:mn-output-extensions: xml,html,doc,rxl
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 
 
 [preface]
@@ -56,7 +54,7 @@ http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.ht
 ^.^| {{ locale_data.mt[lang] }}
 ^.^| {{ locale_data.ipm[lang] }}
 ^.^| {{ locale_data.other[lang] }}
-| | | 
+| | |
 ^.^| 1 ^.^| 2 ^.^| 3 ^.^| 4 ^.^| 5 ^.^| 6 ^.^| 7 ^.^| 8 ^.^| 9
 
 
@@ -104,7 +102,7 @@ http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.ht
 {% endfor %}
 {% endif %}
 
-| 
+|
 {% for field in country_data.contact_address %}
 {{ field[1] }} +
 {% endfor %}
@@ -177,7 +175,7 @@ a| image::itu_logo.png["",112,115] a| _Sírvase rellenar el presente formulario 
 
 [%unnumbered]
 |===
-^.^h|Notificación de nombre DGAD de conformidad con la Recomendación X.400{blank}footnote:[La práctica nacional puede imponer la coordinación antes del envío de una notificación al TSB.] 
+^.^h|Notificación de nombre DGAD de conformidad con la Recomendación X.400{blank}footnote:[La práctica nacional puede imponer la coordinación antes del envío de una notificación al TSB.]
 +
 (Prestación de servicios de tratamiento de mensajes X.400)
 
@@ -187,7 +185,7 @@ a| image::itu_logo.png["",112,115] a| _Sírvase rellenar el presente formulario 
 [%unnumbered]
 |===
 
-h| _País:_ | 
+h| _País:_ |
 _Código de país{blank}footnote:[Código de país: véase el anexo A a la Recomendación F.401. Se basa en ISO 3166, de la que se debe utilizar la edición más recientemente publicada (obtenible en los órganos nacionales de normalización).] :_
 2+h| _Nombre DGAD:_
 h| _Nombre del servicio_ | ¿HELPDESK disponible?

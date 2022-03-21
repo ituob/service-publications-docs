@@ -8,13 +8,11 @@
 :doctype: service-publication
 :annextitle-es: Anexo al Boletín de Explotación de la UIT
 :annexid: N.° 1002
-:keywords: 
+:keywords:
 :imagesdir: images
-:docfile: T-SP-T.35-2012-OAS-MSW-S.adoc
-:mn-document-class: ituob
-:mn-output-extensions: xml,html,doc,rxl
+:mn-document-class: itu
+:mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
-:data-uri-image:
 :stem:
 
 [preface]
@@ -29,19 +27,19 @@ NOTE: Una vez expedidos, cabe la posibilidad de que los códigos se incorporen e
 
 . Los Estados Miembros de la Unión Internacional de Telecomunicaciones (UIT) no mencionados en esta Lista que deseen obtener un indicativo de país o de zona geográfica deben pedir al Director de la TSB que les asigne uno disponible. En su solicitud pueden señalar el indicativo específico que desean, siempre que éste se encuentre disponible. Sírvase comunicar sus comentarios al Director de la TSB:
 +
-Unión Internacional de Telecomunicaciones (UIT) 
+Unión Internacional de Telecomunicaciones (UIT)
 +
-Director de la TSB 
+Director de la TSB
 +
-Place des Nations 
+Place des Nations
 +
-CH-1211 GINEBRA 20 
+CH-1211 GINEBRA 20
 +
-Suiza 
+Suiza
 +
-Tel: +41 22 730 6805 
+Tel: +41 22 730 6805
 +
-Fax: +41 22 730 5853 
+Fax: +41 22 730 5853
 +
 E-mail: tsbmail@itu.int
 
@@ -63,8 +61,8 @@ http://www.itu.int/itu-t/bulletin/annex.html
 9+^.^h| _{{ file.metadata.code_bit[lang] | remove: " Bit (b8 to b1)" }}_ +
 Bit
 ^.^h| _{{ file.metadata.country_or_area[lang] }}_
- 
-h| b~8~ h| b~7~ h| b~6~ h| b~5~ | h| b~4~ h| b~3~ h| b~2~ h| b~1~ |  
+
+h| b~8~ h| b~7~ h| b~6~ h| b~5~ | h| b~4~ h| b~3~ h| b~2~ h| b~1~ |
 
 {% for country_code in file.data.code_bit %}
 
