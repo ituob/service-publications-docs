@@ -3,83 +3,83 @@ metanorma:
   source:
     files:
       - 1000-SR.1/T-SP-SR.1-2012-MSW-E.adoc
-      - 1000-SR.1/T-SP-SR.1-2012-MSW-F.adoc
-      - 1000-SR.1/T-SP-SR.1-2012-MSW-S.adoc
-      # - 1001-T.35B/T-35B-2012-form.adoc
-      - 1001-T.35B/T-SP-T.35B-2012-MSW-E.adoc
-      - 1001-T.35B/T-SP-T.35B-2012-MSW-F.adoc
-      - 1001-T.35B/T-SP-T.35B-2012-MSW-S.adoc
-      # - 1001-T.35B/T35B-2012-data-requirement.adoc
-      - 1002-T.35/T-SP-T.35-2012-OAS-MSW-E.adoc
-      - 1002-T.35/T-SP-T.35-2012-OAS-MSW-F.adoc
-      - 1002-T.35/T-SP-T.35-2012-OAS-MSW-S.adoc
-      - 1015-E.164B/T-SP-E.164B-2012-E.adoc
-      - 1015-E.164B/T-SP-E.164B-2012-F.adoc
-      - 1015-E.164B/T-SP-E.164B-2012-S.adoc
-      - 1114-E.164D/T-SP-E.164D-2016-A.adoc
-      - 1114-E.164D/T-SP-E.164D-2016-C.adoc
-      - 1114-E.164D/T-SP-E.164D-2016-E.adoc
-      - 1114-E.164D/T-SP-E.164D-2016-F.adoc
-      - 1114-E.164D/T-SP-E.164D-2016-R.adoc
-      - 1114-E.164D/T-SP-E.164D-2016-S.adoc
-      - 1117-E.212A/T-SP-E.212A-2017-A.adoc
-      - 1117-E.212A/T-SP-E.212A-2017-C.adoc
-      - 1117-E.212A/T-SP-E.212A-2017-E.adoc
-      - 1117-E.212A/T-SP-E.212A-2017-F.adoc
-      - 1117-E.212A/T-SP-E.212A-2017-R.adoc
-      - 1117-E.212A/T-SP-E.212A-2017-S.adoc
-      - 1125-E.218/T-SP-E.218-2017-A.adoc
-      - 1125-E.218/T-SP-E.218-2017-C.adoc
-      - 1125-E.218/T-SP-E.218-2017-E.adoc
-      - 1125-E.218/T-SP-E.218-2017-F.adoc
-      - 1125-E.218/T-SP-E.218-2017-R.adoc
-      - 1125-E.218/T-SP-E.218-2017-S.adoc
-      - 1125-Q.708A/T-SP-Q.708A-2017-A.adoc
-      - 1125-Q.708A/T-SP-Q.708A-2017-C.adoc
-      - 1125-Q.708A/T-SP-Q.708A-2017-E.adoc
-      - 1125-Q.708A/T-SP-Q.708A-2017-F.adoc
-      - 1125-Q.708A/T-SP-Q.708A-2017-R.adoc
-      - 1125-Q.708A/T-SP-Q.708A-2017-S.adoc
-      - 1154-RR.25.1/T-SP-RR.25.1-2018-MSW-E.adoc
-      - 1161-E.118/T-SP-E.118-2018-A.adoc
-      - 1161-E.118/T-SP-E.118-2018-C.adoc
-      - 1161-E.118/T-SP-E.118-2018-E.adoc
-      - 1161-E.118/T-SP-E.118-2018-F.adoc
-      - 1161-E.118/T-SP-E.118-2018-R.adoc
-      - 1161-E.118/T-SP-E.118-2018-S.adoc
-      - 1162-E.212/T-SP-E.212B-2018-A.adoc
-      - 1162-E.212/T-SP-E.212B-2018-C.adoc
-      - 1162-E.212/T-SP-E.212B-2018-E.adoc
-      - 1162-E.212/T-SP-E.212B-2018-F.adoc
-      - 1162-E.212/T-SP-E.212B-2018-R.adoc
-      - 1162-E.212/T-SP-E.212B-2018-S.adoc
-      - 669-F.1/T-SP-F.1-1998-MSW-E.adoc
-      - 669-F.1/T-SP-F.1-1998-MSW-F.adoc
-      - 669-F.1/T-SP-F.1-1998-MSW-S.adoc
-      - 955-E.180/T-SP-E.180-2010-MSW-E.adoc
-      - 955-E.180/T-SP-E.180-2010-MSW-F.adoc
-      - 955-E.180/T-SP-E.180-2010-MSW-S.adoc
-      - 974-F.400/T-SP-F.400-2011-MSW-E.adoc
-      - 974-F.400/T-SP-F.400-2011-MSW-F.adoc
-      - 974-F.400/T-SP-F.400-2011-MSW-S.adoc
-      - 976-X.121A/T-SP-X.121A-2011-MSW-E.adoc
-      - 976-X.121A/T-SP-X.121A-2011-MSW-F.adoc
-      - 976-X.121A/T-SP-X.121A-2011-MSW-S.adoc
-      - 977-X.121B/T-SP-X.121B-2011-MSW-E.adoc
-      - 977-X.121B/T-SP-X.121B-2011-MSW-F.adoc
-      - 977-X.121B/T-SP-X.121B-2011-MSW-S.adoc
-      - 978-F.68/T-SP-F.68-2011-MSW-E.adoc
-      - 978-F.68/T-SP-F.68-2011-MSW-F.adoc
-      - 978-F.68/T-SP-F.68-2011-MSW-S.adoc
-      - 980-F.32/T-SP-F.32-2011-E.adoc
-      - 980-F.32/T-SP-F.32-2011-F.adoc
-      - 980-F.32/T-SP-F.32-2011-S.adoc
-      - 991-PP.RES.21.pp/T-SP-PP.RES.21-2011-E.adoc
-      - 991-PP.RES.21.pp/T-SP-PP.RES.21-2011-F.adoc
-      - 991-PP.RES.21.pp/T-SP-PP.RES.21-2011-S.adoc
-      - 994-E.164C/T-SP-E.164C-2011-E.adoc
-      - 994-E.164C/T-SP-E.164C-2011-F.adoc
-      - 994-E.164C/T-SP-E.164C-2011-S.adoc
+      # - 1000-SR.1/T-SP-SR.1-2012-MSW-F.adoc
+      # - 1000-SR.1/T-SP-SR.1-2012-MSW-S.adoc
+      # # - 1001-T.35B/T-35B-2012-form.adoc
+      # - 1001-T.35B/T-SP-T.35B-2012-MSW-E.adoc
+      # - 1001-T.35B/T-SP-T.35B-2012-MSW-F.adoc
+      # - 1001-T.35B/T-SP-T.35B-2012-MSW-S.adoc
+      # # - 1001-T.35B/T35B-2012-data-requirement.adoc
+      # - 1002-T.35/T-SP-T.35-2012-OAS-MSW-E.adoc
+      # - 1002-T.35/T-SP-T.35-2012-OAS-MSW-F.adoc
+      # - 1002-T.35/T-SP-T.35-2012-OAS-MSW-S.adoc
+      # - 1015-E.164B/T-SP-E.164B-2012-E.adoc
+      # - 1015-E.164B/T-SP-E.164B-2012-F.adoc
+      # - 1015-E.164B/T-SP-E.164B-2012-S.adoc
+      # - 1114-E.164D/T-SP-E.164D-2016-A.adoc
+      # - 1114-E.164D/T-SP-E.164D-2016-C.adoc
+      # - 1114-E.164D/T-SP-E.164D-2016-E.adoc
+      # - 1114-E.164D/T-SP-E.164D-2016-F.adoc
+      # - 1114-E.164D/T-SP-E.164D-2016-R.adoc
+      # - 1114-E.164D/T-SP-E.164D-2016-S.adoc
+      # - 1117-E.212A/T-SP-E.212A-2017-A.adoc
+      # - 1117-E.212A/T-SP-E.212A-2017-C.adoc
+      # - 1117-E.212A/T-SP-E.212A-2017-E.adoc
+      # - 1117-E.212A/T-SP-E.212A-2017-F.adoc
+      # - 1117-E.212A/T-SP-E.212A-2017-R.adoc
+      # - 1117-E.212A/T-SP-E.212A-2017-S.adoc
+      # - 1125-E.218/T-SP-E.218-2017-A.adoc
+      # - 1125-E.218/T-SP-E.218-2017-C.adoc
+      # - 1125-E.218/T-SP-E.218-2017-E.adoc
+      # - 1125-E.218/T-SP-E.218-2017-F.adoc
+      # - 1125-E.218/T-SP-E.218-2017-R.adoc
+      # - 1125-E.218/T-SP-E.218-2017-S.adoc
+      # - 1125-Q.708A/T-SP-Q.708A-2017-A.adoc
+      # - 1125-Q.708A/T-SP-Q.708A-2017-C.adoc
+      # - 1125-Q.708A/T-SP-Q.708A-2017-E.adoc
+      # - 1125-Q.708A/T-SP-Q.708A-2017-F.adoc
+      # - 1125-Q.708A/T-SP-Q.708A-2017-R.adoc
+      # - 1125-Q.708A/T-SP-Q.708A-2017-S.adoc
+      # - 1154-RR.25.1/T-SP-RR.25.1-2018-MSW-E.adoc
+      # - 1161-E.118/T-SP-E.118-2018-A.adoc
+      # - 1161-E.118/T-SP-E.118-2018-C.adoc
+      # - 1161-E.118/T-SP-E.118-2018-E.adoc
+      # - 1161-E.118/T-SP-E.118-2018-F.adoc
+      # - 1161-E.118/T-SP-E.118-2018-R.adoc
+      # - 1161-E.118/T-SP-E.118-2018-S.adoc
+      # - 1162-E.212/T-SP-E.212B-2018-A.adoc
+      # - 1162-E.212/T-SP-E.212B-2018-C.adoc
+      # - 1162-E.212/T-SP-E.212B-2018-E.adoc
+      # - 1162-E.212/T-SP-E.212B-2018-F.adoc
+      # - 1162-E.212/T-SP-E.212B-2018-R.adoc
+      # - 1162-E.212/T-SP-E.212B-2018-S.adoc
+      # - 669-F.1/T-SP-F.1-1998-MSW-E.adoc
+      # - 669-F.1/T-SP-F.1-1998-MSW-F.adoc
+      # - 669-F.1/T-SP-F.1-1998-MSW-S.adoc
+      # - 955-E.180/T-SP-E.180-2010-MSW-E.adoc
+      # - 955-E.180/T-SP-E.180-2010-MSW-F.adoc
+      # - 955-E.180/T-SP-E.180-2010-MSW-S.adoc
+      # - 974-F.400/T-SP-F.400-2011-MSW-E.adoc
+      # - 974-F.400/T-SP-F.400-2011-MSW-F.adoc
+      # - 974-F.400/T-SP-F.400-2011-MSW-S.adoc
+      # - 976-X.121A/T-SP-X.121A-2011-MSW-E.adoc
+      # - 976-X.121A/T-SP-X.121A-2011-MSW-F.adoc
+      # - 976-X.121A/T-SP-X.121A-2011-MSW-S.adoc
+      # - 977-X.121B/T-SP-X.121B-2011-MSW-E.adoc
+      # - 977-X.121B/T-SP-X.121B-2011-MSW-F.adoc
+      # - 977-X.121B/T-SP-X.121B-2011-MSW-S.adoc
+      # - 978-F.68/T-SP-F.68-2011-MSW-E.adoc
+      # - 978-F.68/T-SP-F.68-2011-MSW-F.adoc
+      # - 978-F.68/T-SP-F.68-2011-MSW-S.adoc
+      # - 980-F.32/T-SP-F.32-2011-E.adoc
+      # - 980-F.32/T-SP-F.32-2011-F.adoc
+      # - 980-F.32/T-SP-F.32-2011-S.adoc
+      # - 991-PP.RES.21.pp/T-SP-PP.RES.21-2011-E.adoc
+      # - 991-PP.RES.21.pp/T-SP-PP.RES.21-2011-F.adoc
+      # - 991-PP.RES.21.pp/T-SP-PP.RES.21-2011-S.adoc
+      # - 994-E.164C/T-SP-E.164C-2011-E.adoc
+      # - 994-E.164C/T-SP-E.164C-2011-F.adoc
+      # - 994-E.164C/T-SP-E.164C-2011-S.adoc
 
       # FAILED PDF
       # - 1060-M.1400/T-SP-M.1400-2014-A.adoc
