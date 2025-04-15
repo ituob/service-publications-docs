@@ -1,0 +1,177 @@
+= ITU Service Publications Documents
+
+This repository contains ITU Operational Bulletin Service Publications documents.
+
+image:https://github.com/ituob/service-publications-docs/actions/workflows/generate.yml/badge.svg["Build", link="https://github.com/ituob/service-publications-docs/actions/workflows/generate.yml"]
+
+Published components are available here:
+
+* https://ituob.github.io/service-publications-docs/[ITU Service Publications Documents]
+
+
+== General
+
+This repository contains ITU Operational Bulletin (OB) Service Publications
+documents. These documents are published by the ITU and provide important
+operational information for telecommunication services.
+
+The documents are organized in folders with a numbering scheme corresponding to
+the OB issue number, followed by the document identifier (e.g., `1109-Q.708B`,
+`1161-E.118`).
+
+
+== Structure
+
+`metanorma.yml`::
+The site configuration for the Metanorma site. This file defines the site's
+title, description, and the documents that are published.
+
+Various document directories (e.g. `1109-Q.708B`, `1161-E.118`)::
+Source documents for different Service Publications, organized by their
+publication identifier.
+
+`_site/`::
+(automatically generated after processing) Published documents.
+
+
+== Working with the documents
+
+The Service Publications documents are available in multiple languages, typically:
+
+* English (E)
+* French (F)
+* Spanish (S)
+* Arabic (A)
+* Chinese (C)
+* Russian (R)
+
+The documents follow a naming convention of `T-SP-{identifier}-{year}-{language}.adoc`.
+
+[example]
+`T-SP-Q.708B-2016-E.adoc` is the English version of the Q.708B Service
+Publication from 2016.
+
+
+== Building the site
+
+=== Local installs
+
+If you use a locally installed Metanorma, for the first time, run:
+
+[source,sh]
+----
+metanorma site generate --agree-to-terms
+----
+
+NOTE: This is to install fonts needed by ITU.
+
+Subsequently, just run:
+
+[source,sh]
+----
+metanorma site generate
+----
+
+NOTE: See https://www.metanorma.org/install/usage/ for details.
+
+
+=== Docker
+
+If you don't want to deal with local dependencies, use the docker
+version by:
+
+[source,sh]
+----
+docker run \
+  -v "$(pwd)":/metanorma \
+  -v "${HOME}/.fontist/fonts":/config/fonts \
+  -w /metanorma \
+  metanorma/metanorma \
+  metanorma site generate --agree-to-terms
+----
+
+NOTE: See https://www.metanorma.org/install/docker/ for details.
+
+
+== Building a single document
+
+=== Local installs
+
+If you use a locally installed Metanorma, for the first time, run:
+
+[source,sh]
+----
+metanorma {filename} --agree-to-terms
+# e.g., metanorma 1109-Q.708B/T-SP-Q.708B-2016-E.adoc --agree-to-terms
+----
+
+NOTE: This is to install fonts needed by ITU.
+
+Subsequently, just run:
+
+[source,sh]
+----
+metanorma {filename}
+# e.g., metanorma 1109-Q.708B/T-SP-Q.708B-2016-E.adoc
+----
+
+NOTE: See https://www.metanorma.org/install/usage/ for details.
+
+=== Development installs
+
+If you are using the development version of Metanorma, the `bundle` command is
+required for creating an isolated context for the Metanorma development
+environment.
+
+A `Gemfile` is provided in the repository to set the context.
+
+These steps are necessary to ensure that the correct version of Metanorma is
+used to build the documents.
+
+. Prior to any `metanorma` command, please run `bundle install` to
+install the dependencies. This is a one-time operation.
+
+. Run `bundle update` (once in a while) to update the dependencies to the latest
+versions.
+
+. Please prefix all commands to `metanorma` with `bundle exec`. i.e., use `bundle exec metanorma` instead of `metanorma`.
+
+[example]
+====
+To build a document using a development install, run `bundle exec metanorma
+1109-Q.708B/T-SP-Q.708B-2016-E.adoc`.
+====
+
+
+=== Docker
+
+If you don't want to deal with local dependencies, use the docker
+version by:
+
+[source,sh]
+----
+docker run \
+  -v "$(pwd)":/metanorma \
+  -v "${HOME}/.fontist/fonts":/config/fonts \
+  -w /metanorma \
+  metanorma/metanorma \
+  metanorma {filename} --agree-to-terms
+# e.g., metanorma 1109-Q.708B/T-SP-Q.708B-2016-E.adoc --agree-to-terms
+----
+
+NOTE: The `--agree-to-terms` flag is needed if the font cache
+(`"${HOME}/.fontist/fonts"`) is not present.
+
+NOTE: See https://www.metanorma.org/install/docker/ for details.
+
+
+== Installing build tools
+
+See https://www.metanorma.org/install/
+
+
+== License
+
+Content from ITU is copyright to ITU.
+
+All other code and content, copyright Ribose. All rights reserved.
