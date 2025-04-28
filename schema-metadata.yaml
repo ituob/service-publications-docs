@@ -1,0 +1,48 @@
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ITU Operational Bulletin Document Metadata
+description: Schema for metadata of ITU Operational Bulletin service publications
+type: object
+required:
+  - title
+properties:
+  $schema:
+    type: string
+    description: The schema file for this metadata
+  title:
+    type: object
+    description: The title of the document in multiple languages
+    required:
+      - en
+    properties:
+      en:
+        type: string
+        description: English title
+      fr:
+        type: string
+        description: French title
+      es:
+        type: string
+        description: Spanish title
+  locale:
+    type: array
+    description: Localized terms used in the document
+    items:
+      type: object
+      required:
+        - key
+        - en
+      properties:
+        key:
+          type: string
+          description: The term identifier
+        en:
+          type: string
+          description: English translation
+        fr:
+          type: string
+          description: French translation
+        es:
+          type: string
+          description: Spanish translation
+additionalProperties: false
