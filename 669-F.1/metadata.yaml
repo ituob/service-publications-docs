@@ -1,0 +1,92 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: Countries or geographical areas for which information regarding cessation
+    of telex service has been published in the ITU Operational Bulletin (No.)
+  fr: Pays ou zones géographiques pour lesquels des renseignements relatifs à la
+    cessation du service télex ont été publiés dans le bulletin d'exploitation de
+    l'UIT (No)
+  es: Países o zonas geográficas para los cuales una información sobre la cesación
+    de servicio de télex ha sido publicada en el Boletín de Explotación de la UIT
+    (No)
+locale:
+- key: coding
+  en: Coding
+  fr: Codage
+  es: SCODIFICACIÓN
+- key: decoding
+  en: Decoding
+  fr: DÉCODAGE
+  es: DESCODIFICACIÓN
+- key: accounts
+  en: ACCOUNTS
+  fr: COMPTABILITE
+  es: CONTABILIDAD
+- key: acknowledgement_of_receipt
+  en: ACKNOWLEDGEMENT OF RECEIPT
+  fr: ACCUSÉS DE RÉCEPTION
+  es: ACUSES DE RECIBO
+- key: addresses
+  en: ADDRESSES
+  fr: ADRESSES
+  es: DIRECCIONES
+- key: cancellations
+  en: CANCELLATIONS
+  fr: ANNULATIONS
+  es: ANULACIONES
+- key: circulation
+  en: CIRCULATION
+  fr: ADRESSES
+  es: CIRCULACION
+- key: delay
+  en: DELAY
+  es: RETRASO
+  fr: RETARD
+- key: delivery
+  en: DELIVERY
+  es: ENTREGA
+  fr: REMISE
+- key: disposal
+  en: DISPOSAL
+  es: ENCAMINAMIENTO
+  fr: ACHEMINEMENT
+- key: duplications
+  en: DUPLICATIONS
+  es: DUPLICADOS
+  fr: DUPLICATA
+- key: enquiries
+  en: ENQUIRIES
+  es: ENCUESTAS
+  fr: ENQUÊTES
+- key: errors_mutilations_omissions
+  en: ERRORS, MUTILATIONS, OMISSIONS
+  es: ERRORES, ALTERACIONES, OMISIONES
+  fr: ERREURS, ALTÉRATIONS, OMISSIONS
+- key: miscellaneous
+  en: MISCELLANEOUS
+  es: VARIOS
+  fr: DIVERS
+- key: refunds
+  en: REFUNDS
+  es: REEMBOLSOS
+  fr: REMBOURSEMENTS
+- key: registered_addresses
+  en: REGISTERED ADDRESSES
+  es: DIRECCIONES REGISTRADAS
+  fr: ADRESSES ENREGISTREES
+- key: repetitions_and_corrections
+  en: REPETITIONS AND CORRECTIONS
+  es: REPETICIONES Y CORRECCIONES
+  fr: RÉPÉTITIONS ET CORRECTIONS
+- key: restrictions
+  en: RESTRICTIONS
+  es: RESTRICCIONES
+  fr: RESTRICTIONS
+- key: telex
+  en: TELEX
+  es: TÉLEX
+  fr: TELEX
+- key: word_counts
+  en: WORD COUNTS
+  es: COMPUTO DE PALABRAS
+  fr: COMPTE DES MOTS
