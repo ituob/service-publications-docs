@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of Signalling Area/Network Codes (SANC) (Complement to Recommendation
+    ITU-T Q.708 (03/99))
+  fr: Liste des codes de zone/réseau sémaphore (SANC) (Complément à la Recommandation
+    UIT-T Q.708 (03/1999))
+  es: Lista de códigos de zona/red de señalización (SANC) (Complemento de la Recomendación
+    UIT-T Q.708 (03/1999))
+  ru: Список зоновых/сетевых кодов сигнализации (SANC) (дополнение к Рекомендации
+    МСЭ-Т Q.708 (03/1999))
+  zh: 信令区域/网络编码（SANC）的列表（ITU-T Q.708建议书（03/99）补遗）
+  ar: قائمة بالرموز الدليلية لمناطق/شبكات التشوير (SANC) (تكملة للتوصية ITU-T Q.708
+    (99/03))
+locale:
+- key: code
+  en: Code
+  fr: Code
+  es: Código
+  ru: Код
+  zh: 代码
+  ar: الرمز
+- key: area_or_network
+  en: Geographical Area or Signalling Network
+  fr: Zone géographique ou réseau sémaphore – ordre numérique
+  es: Zona geográfica o red de señalización – orden numérico
+  ru: Географическая зона или сеть сигнализации – нумерационный порядок
+  zh: 地理区域或信令网络 – 按数字排序
+  ar: المنطقة الجغرافية أو شبكة التشوير - الترتيب العددي

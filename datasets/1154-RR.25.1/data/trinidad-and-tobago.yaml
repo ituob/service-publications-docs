@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../schema-data.yaml
+---
+#Trinidad and Tobago
+#Amateur stations and experimental stations: 9Y4AA-9Y4ZZ
+
+groups:
+  amateur: &general
+    regex: 9Y4[:upper:]{2}
+
+  experimental: *general

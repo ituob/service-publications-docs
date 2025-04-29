@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: Dialling procedures (international prefix, national (trunk) prefix and national
+    (significant) number) (in accordance with ITU-T Recommendation E.164 (11/2010))
+  fr: Procédures de numérotation (préfixe international, préfixe (interurbain) national
+    et numéro national (significatif)) (selon la Recommandation UIT-T E.164 (11/2010))
+  es: Procedimientos de marcación (prefijo internacional, prefijo (interurbano)
+    nacional y número nacional (significativo)) (según la Recomendación UIT-T E.164 (11/2010))
+locale:
+- key: country_or_area
+  en: Country/geographical area
+  fr: Pays/zone géographique
+  es: País/zona geográfica
+- key: country_code
+  en: Country Code
+  fr: Indicatif de pays
+  es: Indicativo de país
+- key: international_prefix
+  en: International Prefix
+  fr: Préfixe international
+  es: Prefijo internacional
+- key: national_prefix
+  en: National Prefix
+  fr: Préfixe national
+  es: Prefijo nacional
+- key: national_sig_number
+  en: National (Significant) Number
+  fr: Numéro national (significatif)
+  es: Número nacional (significativo)
+- key: utc_dst
+  en: UTC/DST
+  fr: UTC/DST*
+  es: UTC/DST*
+- key: note
+  en: Note
+  fr: Note
+  es: Nota

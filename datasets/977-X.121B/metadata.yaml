@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of Data Network Identification Codes (DNIC)
+  es: Lista de códigos de identificación de red de datos (CIRD)
+  fr: Liste des codes d'identification de réseau pour données (CIRD)
+locale:
+- key: country_or_area
+  en: Country/Area
+  fr: Pays/Zone
+  es: País/Zona
+- key: dnic_number
+  en: DNIC No.
+  fr: CIRD N°
+  es: CIRD N.°
+- key: network_name
+  en: Name of network to which a DNIC is allocated
+  fr: Nom du réseau auquel un CIRD est attribué
+  es: Nombre de la red a la cual se ha atribuido el CIRD

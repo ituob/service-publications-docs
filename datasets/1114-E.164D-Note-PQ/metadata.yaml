@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of Rec. ITU-T E.164 Notes P and Q codes
+  fr: Liste des codes des notes P et Q de la recommandation UIT-T E.164
+  es: Lista de códigos de las notas P y Q de la recomendación UIT-T E.164
+  ru: Список кодов примечаний P и Q рекомендации МСЭ-Т E.164
+  zh: ITU-T E.164建议书P和Q号注释代码列表
+  ar: قائمة الرموز الخاصة بالملاحظتين P و Q وفقاً للتوصية ITU-T E.164
+locale:
+- key: applicant
+  en: Applicant
+  fr: Requérant
+  es: Solicitante
+  ru: Заявитель
+  zh: 申请人
+  ar: مقدم الطلب
+- key: network
+  en: Network
+  fr: Réseau
+  es: Red
+  ru: Сеть
+  zh: 网络
+  ar: الشبكة
+- key: cc_ic
+  en: Country Code and Identification Code
+  fr: Indicatif de pays et Code d'identification
+  es: Indicativo de país y Código de Identificación
+  ru: Код страны и код идентификации
+  zh: 国家代码和识别码
+  ar: الرمز الدليلي للبلد ورمز تعرف الهوية
+- key: status
+  en: Status
+  fr: Situation
+  es: Situación
+  ru: Состояние
+  zh: 状态
+  ar: الوضع

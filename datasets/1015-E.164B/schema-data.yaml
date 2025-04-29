@@ -1,0 +1,52 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1015 E.164B
+description: ITU OB Dataset Schema for 1015 E.164B
+type: array
+items:
+  type: object
+  description: Represents information about mobile networks used with the E.164 country code for a country or geographical area.
+  required:
+    - country_or_area
+    - country_code
+    - mobile_telephone_numbers
+  properties:
+    country_or_area:
+      type: object
+      description: The name of the country or geographical area in different languages.
+      required:
+        - en
+        - fr
+        - es
+      properties:
+        en:
+          type: string
+          description: English name.
+        fr:
+          type: string
+          description: French name.
+        es:
+          type: string
+          description: Spanish name.
+      additionalProperties: false
+    country_code:
+      type: string
+      description: The E.164 country code assigned to the country or geographical area.
+    mobile_telephone_numbers:
+      type: object
+      description: Mobile telephone numbers or patterns used with the country code in different languages.
+      required:
+        - en
+      properties:
+        en:
+          type: string
+          description: Mobile telephone numbers description in English.
+        fr:
+          type: string
+          description: Mobile telephone numbers description in French.
+        es:
+          type: string
+          description: Mobile telephone numbers description in Spanish.
+      additionalProperties: false
+  additionalProperties: false

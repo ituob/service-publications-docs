@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of terrestrial trunk radio mobile country codes
+  fr: Liste des indicatifs de pays pour le service mobile de radiocommunication de terre à ressources partagées
+  es: Lista de indicativos de país para el servicio móvil de radiocomunicación con concentración de enlaces terrenales v
+  ru: Список кодов страны для подвижной связи в системе наземной транкинговой радиосвязи
+  zh: 地面集群无线电移动国家代码列表
+  ar: قائمة بالرموز الدليلية للبلدان للاتصالات الراديوية المتنقلة للأرض للاتصال البعيد
+locale:
+- key: tmcc_code
+  en: Code (TMCC)
+  fr: Indicatif (TMCC)
+  es: Indicativo(TMCC)
+  ru: Код (TMCC)
+  zh: 代码（TMCC）
+  ar: الرمز الدليلي للبلد (TMCC)
+- key: country_or_area
+  en: Country or Geographical Area
+  fr: Pays ou zone géographique
+  es: País o zona geográfica
+  ru: Страна или географическая зона
+  zh: 国家或地理区域
+  ar: البلد أو المنطقة الجغرافية أو الخدمة العالمية
+- key: note
+  en: Note
+  fr: Note
+  es: Nota
+  ru: Примечание
+  zh: 注
+  ar: ملاحظة
+- key: reserved
+  en: Reserved
+  fr: Réservé
+  es: Reservado
+  ru: Зарезервирован
+  zh: 预留
+  ar: محجوز

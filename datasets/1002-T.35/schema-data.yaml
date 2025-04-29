@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1002 T.35
+description: ITU OB Dataset Schema for 1002 T.35
+type: array
+items:
+  type: object
+  description: Represents a single entry mapping a code bit to a country or area.
+  properties:
+    code_bit:
+      type: string
+      description: The 8-bit code (b8 to b1) assigned.
+      pattern: '^[01]{8}$'
+    country_or_area:
+      type: object
+      description: The name of the country or geographical area in different languages.
+      properties:
+        en:
+          type: string
+          description: English name.
+        fr:
+          type: string
+          description: French name.
+        es:
+          type: string
+          description: Spanish name.
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+    notes:
+      type: object
+      description: Optional notes related to the code in different languages.
+      properties:
+        en:
+          type: string
+          description: English note.
+        fr:
+          type: string
+          description: French note.
+        es:
+          type: string
+          description: Spanish note.
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+  required:
+    - code_bit
+    - country_or_area
+  additionalProperties: false

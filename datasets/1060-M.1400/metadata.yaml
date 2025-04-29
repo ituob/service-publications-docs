@@ -1,0 +1,99 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of ITU Carrier Codes
+  fr: Liste des codes de transporteur de l'UIT
+  es: Lista de códigos de operador de la UIT
+  ru: Список кодов МСЭ операторов связи
+  zh: 国际电联电信运营商列表
+  ar: قائمة برموز المشغلين الصادرة عن الاتحاد
+locale:
+- key: note
+  en: This information may be used while filling-out layer 2 record as explained
+    in Recommendation ITU-T M.1400 – 8.3, 13.3 and 20.3.
+  fr: Cette information peut servir à remplir la Couche 2 conformément aux instructions
+    données dans la Recommandation UIT-T M.1400 – 8.3, 13.3 et 20.3.
+  es: Esta información puede ser utilizada cuando se rellenen los registros de la
+    Capa 2 según se explica en la Recomendación UIT-T M.1400 – 8.3, 13.3 y 20.3.
+  ru: Данная информация может использоваться при заполнении записи уровня 2, которая
+    описана в Рекомендации МСЭ-T M.1400, в пунктах 8.3, 13.3 и 20.3.
+  zh: 如ITU-R M.1400建议书第8.3、13.3和20.3所述，在填写2层记录时可使用本信息。
+  ar: 'ملاحظة: يمكن استعمال هذه المعلومات عند ملء سجل الطبقة 2 على غرار ما هو موضح
+    في البنود 3.8 و3.13 و3.20 من التوصية ITU-T M.1400.'
+- key: country_or_area
+  en: Country or area
+  fr: Pays ou zone
+  es: País o zona
+  ru: Страна или зона
+  zh: 国家或区域
+  ar: البلد أو المنطقة
+- key: iso_code
+  en: ISO code
+  fr: code ISO
+  es: código ISO
+  ru: код ИСО
+  zh: ISO代码
+  ar: رمز ISO
+- key: company_name
+  en: Company Name
+  fr: Nom de la société
+  es: Nombre de la empresa
+  ru: Название
+  zh: 企业名称
+  ar: اسم الشركة
+- key: address_line_1
+  en: Address Line 1
+  fr: Adresse
+  es: Dirección
+  ru: адрес компании
+  zh: 地址
+  ar: العنوان
+- key: address_line_2
+  en: Address Line 2
+  fr: Adresse
+  es: Dirección
+  ru: адрес компании
+  zh: 地址
+  ar: العنوان
+- key: address_line_3
+  en: Address Line 3
+  fr: Adresse
+  es: Dirección
+  ru: адрес компании
+  zh: 地址
+  ar: العنوان
+- key: carrier_code
+  en: Company Code (carrier code)
+  fr: Code de la société
+  es: Código de la empresa
+  ru: Код компании (код оператора связи)
+  zh: 企业代码（运营商代码）
+  ar: رمز الشركة (رمز المشغل)
+- key: contact
+  en: Contact
+  fr: Contact
+  es: Contacto
+  ru: Для контактов
+  zh: 联系方式
+  ar: جهة الاتصال
+- key: tel
+  en: Tel
+  fr: Tel
+  es: Tel
+  ru: Тел.
+  zh: Tel
+  ar: Tel
+- key: fax
+  en: Fax
+  fr: Fax
+  es: Fax
+  ru: Факс
+  zh: Fax
+  ar: Fax
+- key: email
+  en: E-mail
+  fr: E-mail
+  es: E-mail
+  ru: Эл. Почта
+  zh: E-mail
+  ar: E-mail

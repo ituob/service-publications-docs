@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: Destination Indicators (DI) assigned to telegraph offices
+  fr: Indicateurs de destination (ID) attribués aux bureaux télégraphiques
+  es: Indicadores de destino (ID) atribuidos a oficinas telegráficas
+locale:
+- key: country_or_area
+  en: Country / Geographical Area
+  fr: Pays /zone géographique
+  es: País / zona geográfica
+- key: country_or_area_note
+  en: Note (Area)
+  fr: Note (Zone)
+  es: Note(Zona)
+- key: subarea
+  en: Sub-area
+  fr: Sub-area
+  es: Sub-area
+- key: network_roa
+  en: Network (administration/ROA)
+  fr: Réseau (administration/ER)
+  es: Red (administración/EER)
+- key: network_roa_note
+  en: Note (Network)
+  fr: Note(Réseau )
+  es: Note(Red)
+- key: network_code
+  en: Network code
+  fr: Code de réseau
+  es: Código de red
+- key: network_code_note
+  en: Note (Network code)
+  fr: Note(Code de réseau)
+  es: Note(Código de red)
+- key: telegraph_office_name
+  en: Name of Telegraph Office
+  fr: Nom du bureau télégraphique
+  es: Nombre de la oficina telegráfica
+- key: office_code
+  en: Office code
+  fr: Code de bureau
+  es: Código  de oficina
+- key: notes
+  en: Note (Entry)
+  fr: Note (Entry)
+  es: Note (Entry)

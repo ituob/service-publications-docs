@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1060 M.1400
+description: ITU OB Dataset Schema for 1060 M.1400
+type: array
+items:
+  type: object
+  properties:
+    iso_code:
+      type: string
+      description: ISO 3166-1 alpha-3 country code.
+    country_or_area:
+      type: object
+      description: Name of the country or area in different languages.
+      properties:
+        en:
+          type: string
+          description: Name in English.
+        fr:
+          type: string
+          description: Name in French.
+        es:
+          type: string
+          description: Name in Spanish.
+        zh:
+          type: string
+          description: Name in Chinese.
+        ar:
+          type: string
+          description: Name in Arabic.
+        ru:
+          type: string
+          description: Name in Russian.
+      required:
+        - en
+        - ru
+        - fr
+        - ar
+        - es
+        - zh
+      additionalProperties: false
+    company_name:
+      type: string
+      description: Name of the company or carrier.
+    address_line_1:
+      type: string
+      description: First line of the address.
+    address_line_2:
+      type: string
+      description: Second line of the address.
+    address_line_3:
+      type: string
+      description: Third line of the address.
+    carrier_code:
+      type: string
+      description: Carrier identification code.
+    contact:
+      type: string
+      description: Name of the contact person.
+    tel:
+      type: string
+      description: Telephone number.
+    fax:
+      type: string
+      description: Fax number.
+    email:
+      type: array
+      description: Email address.
+      items:
+        type: string
+        format: email
+  required:
+    - iso_code
+    - country_or_area
+    - company_name
+    - carrier_code
+    # - address_line_1
+    # - email
+    # - contact
+  additionalProperties: false

@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../schema-data.yaml
+---
+#Cook Islands
+#Amateur stations: ZK1 followed by 2 letters
+
+groups:
+  amateur:
+    regex: ZK1[:upper:]{2}

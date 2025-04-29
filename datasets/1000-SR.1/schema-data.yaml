@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1000-SR.1
+description: ITU OB Dataset Schema for 1000-SR.1
+type: array
+items:
+  type: object
+  required:
+    - geographic_area
+  properties:
+    geographic_area:
+      type: object
+      description: Information about geographic area restrictions and service availability
+      properties:
+        telex_not_provided:
+          type: boolean
+          description: Indicates whether telex service is not provided
+        telegram_not_provided:
+          type: boolean
+          description: Indicates whether telegram service is not provided
+        no_collect_calls:
+          type: object
+          description: Information about collect call restrictions
+          properties:
+            mobile:
+              type: boolean
+              description: Indicates whether collect calls are not accepted for mobile numbers
+            payphone:
+              type: boolean
+              description: Indicates whether collect calls are not accepted for payphones
+            incoming:
+              type: boolean
+              description: Indicates whether incoming collect calls are not accepted
+            outgoing:
+              type: boolean
+              description: Indicates whether outgoing collect calls are not accepted
+          additionalProperties: false
+        en:
+          type: string
+          description: English description of the service restriction or announcement
+        no_messenger_dispatch:
+          type: boolean
+          description: Indicates whether messenger dispatch service is not provided
+      additionalProperties: false
+  additionalProperties: false

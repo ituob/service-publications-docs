@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../schema-data.yaml
+---
+# Benin (Republic of)
+# Amateur stations:  TY followed by a digit (1-9) and by 2 letters
+
+groups:
+  amateur:
+    regex: TY[:digit:][:upper:]{2}

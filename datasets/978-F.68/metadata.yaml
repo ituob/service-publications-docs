@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of Telex Destination Codes (TDC) and Telex Network Identification Codes
+    (TNIC)
+  fr: Liste des Codes Télex de Destination (CTD) et des Codes d'Identification des
+    Réseaux Télex (CIRT)
+  es: Lista de Códigos Télex de Destino (CTD) y Códigos de Identificación de Red
+    Télex (CIRT)
+locale:
+- key: note
+  en: Codes with no entry have not yet been allocated.
+  fr: Les codes sans indication ne sont pas encore attribués.
+  es: No se han atribuido todavía los códigos sin indicación.
+- key: reserved
+  en: Reserved
+  fr: Réservé
+  es: Reservado
+- key: integrated_numbering_plan
+  en: Integrated numbering plan
+  fr: Plan de numérotage intégré
+  es: Plan de numeración integrado
+- key: number_block
+  en: TDC
+  fr: CTD
+  es: CTD
+- key: telex_code
+  en: TNIC
+  fr: CIRT
+  es: CIRT
+- key: allocated_to
+  en: Allocated to
+  fr: Attribué à
+  es: Atribuido a
+- key: notes
+  en: Notes
+  fr: Nota
+  es: Remarque

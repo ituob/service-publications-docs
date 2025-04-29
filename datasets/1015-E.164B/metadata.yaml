@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: Access codes/numbers for mobile networks used with the E.164 country code
+  fr: Indicatifs/numéros d’accès à des réseaux mobiles utilisés avec l’indicatif de pays E.164
+  es: Indicativos/números de acceso a las redes móviles utilizados con el indicativo de país E.164
+locale:
+- key: country_or_area
+  en: Country/geographical area
+  fr: Pays/zone géographique
+  es: País/zona geográfica
+- key: country_code
+  en: E.164 Country Code
+  fr: E.164 indicatif de pays
+  es: Indicativos de país E.164
+- key: mobile_telephone_numbers
+  en: Mobile telephone numbers, first digits after country code
+  fr: Numéros de téléphone mobile, premiers après l'indicatif de pays
+  es: Números de teléfono móvil, primeras cifras después del indicativo de país
+- key: NXX
+  en: Central office code
+  fr: indicatif du central
+  es: Código de central
+- key: NPA
+  en: Numbering Plan Area
+  fr: Numbering Plan Area/Zone de plan de numérotage
+  es: Numbering Plan Area/Zona de Plan de Numeración

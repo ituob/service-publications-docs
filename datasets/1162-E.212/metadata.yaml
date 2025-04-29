@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=../../schema-metadata.yaml
+---
+title:
+  en: Mobile Network Codes (MNC) for the international identification plan for public
+    networks and subscriptions (According to Recommendation ITU-T E.212 (09/2016))
+  fr: Codes de réseau mobile (MNC) pour le plan d'identification international pour
+    les réseaux publics et les abonnements (Selon la Recommandation UIT-T E.212
+    (09/2016))
+  es: Indicativos de red para el servicio móvil (MNC) del plan de identificación
+    internacional para redes públicas y suscripciones (Según la Recomendación UIT-T
+    E.212 (09/2016))
+  ru: Коды сетей подвижной связи (MNC) для плана международной идентификации для
+    сетей общего пользования и абонентов (Согласно Рекомендации МСЭ-Т E.212 (09/2016))
+  zh: 用于公众网络和订户的国际识别规划的移动网络代码（MNC）（根据ITU-T E.212建议书（09/2016））
+  ar: الرموز الدليلية للشبكات المتنقلة (MNC) فيما يتعلق بالخطة الدولية لتعرّف هوية
+    الشبكات العمومية والاشتراكات (وفقاً للتوصية ITU T E.212 (2016/09))
+locale:
+- key: country_or_area
+  en: Country or Geographical Area
+  fr: Pays ou Zone géographique
+  es: País o Zona geografica
+  ru: Страна или географическая зона
+  zh: 国家或地域
+  ar: البلد أو المنطقة الجغرافية
+- key: under_mcc
+  en: Mobile Network Codes (MNC) under geographic Mobile Country Codes (MCC)
+  fr: Codes de réseau du mobile (MNC) associés aux indicatifs de pays du mobile
+    (MCC) géographiques
+  es: Indicativos de red para el servicio móvil (MNC) dentro de los indicativos
+    de país para el servicio móvil (MCC) geográficos
+  ru: Коды сетей подвижной связи (MNC) для плана международной идентификации для
+    сетей общего пользования и абонентов
+  zh: 地理区域移动国家代码（MCC）下的移动网络代码（MNC）
+  ar: الرموز الدليلية للشبكات المتنقلة (MNC) ضمن الرموز الدليلية الجغرافية القُطرية
+    للاتصالات المتنقلة (MCC)
+- key: networks
+  en: Networks
+  fr: Réseaux
+  es: Redes
+  ru: Сети
+  zh: 网络
+  ar: الشبكات
+- key: mcc_mnc_codes
+  en: MCC + MNC codes
+  fr: Codes MCC + MNC
+  es: Indicativos MCC + MNC
+  ru: Коды MCC + MNC*
+  zh: MCC + MNC代码
+  ar: الرموز * MCC + MNC

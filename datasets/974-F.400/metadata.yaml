@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of names of administration management domains (ADMD) and other information
+    concerning the implementation of message handling services (ITU-T F.400 and
+    X.400 series recommendations)
+  fr: Liste des noms de domaines de gestion d'administration (DGAD) et autres informations
+    concernant la mise en œuvre des services de traitement de messages (Recommandations
+    UIT-T des séries F.400 et X.400)
+  es: Lista de nombres de dominio de gestión de administración (DGAD) y otras informaciones
+    sobre la realización de servicios de tratamiento de mensajes (Recomendaciones
+    UIT-T de las series F.400 y X.400)
+locale:
+- key: note
+  en: This information may be used while filling-out layer 2 record as explained
+    in Recommendation ITU-T M.1400 – 8.3, 13.3 and 20.3.
+  fr: Cette information peut servir à remplir la Couche 2 conformément aux instructions
+    données dans la Recommandation UIT-T M.1400 – 8.3, 13.3 et 20.3.
+  es: Esta información puede ser utilizada cuando se rellenen los registros de la
+    Capa 2 según se explica en la Recomendación UIT-T M.1400 – 8.3, 13.3 y 20.3.
+- key: country_or_area
+  en: Country
+  fr: Pays
+  es: País
+- key: admd_name
+  en: ADMD Name
+  fr: Nom du DGAD
+  es: Nombre DGAD
+- key: country_code
+  en: Country code
+  fr: Code de pays
+  es: Código de país
+- key: service_names
+  en: Service Name(s)
+  fr: Noms des services
+  es: Nombre del servicio
+- key: mt
+  en: MT
+  fr: MT
+  es: MT
+- key: ipm
+  en: IPM
+  fr: IPM
+  es: IPM
+- key: other
+  en: other
+  fr: autre
+  es: otro
+- key: helpdesk
+  en: HELPDESK
+  fr: HELPDESK
+  es: HELPDESK
+- key: autoanswer
+  en: AUTOANSWER
+  fr: AUTOANSWER
+  es: AUTOANSWER
+- key: contact_address
+  en: Contact Address
+  fr: Point de contact
+  es: Dirección de contacto

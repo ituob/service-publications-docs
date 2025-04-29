@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 978-F.68 Appendix 1
+description: ITU OB Dataset Schema for 978-F.68 Appendix 1
+type: array
+items:
+  type: object
+  required:
+    - tnic_code
+    - telegram_network_codes
+    - country
+    - number_block
+    - allocated_to
+  additionalProperties: false
+  properties:
+    tnic_code:
+      type: string
+      description: "Telex Network Identification Code (TNIC), single letter"
+    telegram_network_codes:
+      type: string
+      description: "Two-letter telegram network codes, may contain multiple codes separated by commas"
+    country:
+      type: object
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: "Country name in English"
+        fr:
+          type: string
+          description: "Country name in French"
+        es:
+          type: string
+          description: "Country name in Spanish"
+    number_block:
+      type: string
+      description: "Block identifier for the TNIC code"
+    allocated_to:
+      type: object
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: "Entity allocated to in English"
+        fr:
+          type: string
+          description: "Entity allocated to in French"
+        es:
+          type: string
+          description: "Entity allocated to in Spanish"

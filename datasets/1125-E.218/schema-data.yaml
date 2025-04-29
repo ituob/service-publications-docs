@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1125 E.218
+description: ITU OB Dataset Schema for 1125 E.218
+type: array
+items:
+  type: object
+  required:
+    - tmcc_code
+    - country_or_area
+  additionalProperties: false
+  properties:
+    tmcc_code:
+      type: string
+      description: Terrestrial trunk radio mobile country code
+    country_or_area:
+      type: object
+      description: Localized country or geographical area names
+      required:
+        - en
+        - fr
+        - es
+        - ru
+        - zh
+        - ar
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: English name
+        fr:
+          type: string
+          description: French name
+        es:
+          type: string
+          description: Spanish name
+        ru:
+          type: string
+          description: Russian name
+        zh:
+          type: string
+          description: Chinese name
+        ar:
+          type: string
+          description: Arabic name
+    reserved:
+      type: boolean
+      description: Indicates if the code is reserved
+    note:
+      type: object
+      description: Localized notes
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: English note
+        fr:
+          type: string
+          description: French note
+        es:
+          type: string
+          description: Spanish note
+        ru:
+          type: string
+          description: Russian note
+        zh:
+          type: string
+          description: Chinese note
+        ar:
+          type: string
+          description: Arabic note

@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+type: array
+description: ITU OB Dataset Schema for 1109 Q.708B
+title: ITU OB Dataset Schema for 1109 Q.708B
+items:
+  type: object
+  required:
+    - ipsc
+    - country
+    - dec
+    - signal_point_name
+    - signal_point_operator
+  additionalProperties: false
+  properties:
+    ipsc:
+      type: string
+      description: International signaling point code
+    country:
+      type: object
+      description: Localized country or geographical area names
+      required:
+        - en
+        - fr
+        - es
+        - ru
+        - zh
+        - ar
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: English name
+        fr:
+          type: string
+          description: French name
+        es:
+          type: string
+          description: Spanish name
+        ru:
+          type: string
+          description: Russian name
+        zh:
+          type: string
+          description: Chinese name
+        ar:
+          type: string
+          description: Arabic name
+    dec:
+      type: string
+      description: Decimal representation of the IPSC code
+    signal_point_name:
+      type: string
+      description: Name of the signal point
+    signal_point_operator:
+      type: string
+      description: Operator of the signal point

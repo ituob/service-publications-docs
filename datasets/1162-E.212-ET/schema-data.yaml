@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1162 E.212 Extra-Territorial Use
+description: Schema for ITU Operational Bulletin E.212 Extra-Territorial Use data
+type: array
+items:
+  type: object
+  additionalProperties: false
+  required:
+  - country_or_area
+  - country_type
+  - mcc_mnc
+  - operator_network
+  properties:
+    country_or_area:
+      type: object
+      additionalProperties: false
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
+      properties:
+        en:
+          type: string
+        fr:
+          type: string
+        es:
+          type: string
+        ru:
+          type: string
+        zh:
+          type: string
+        ar:
+          type: string
+    country_type:
+      type: string
+      enum: ["A", "B"]
+      description: "Country A is where MCC+MNC is assigned, Country B is where it's used extra-territorially"
+    mcc_mnc:
+      type: string
+      description: "Mobile Country Code + Mobile Network Code"
+    msin_range:
+      type: string
+      description: "Mobile Subscription Identification Number range"
+    operator_network:
+      type: string
+      description: "Name of the operator/network"

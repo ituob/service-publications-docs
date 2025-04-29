@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1114 E.164D Note N
+description: Schema for ITU Operational Bulletin E.164D Note N data
+items:
+  type: object
+  required:
+    - network
+    - cc_ic
+    - status
+  additionalProperties: false
+  properties:
+    network:
+      type: string
+      description: "Name of the satellite or mobile network"
+    cc_ic:
+      type: string
+      description: "Country Code and Identification Code in E.164 format"
+    status:
+      type: string
+      description: "Assignment status of the code"

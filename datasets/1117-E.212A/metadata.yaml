@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of Mobile Country or Geographical Area Codes
+  fr: Liste des indicatifs de pays ou de zones géographiques du mobile
+  es: Lista de indicativos de país o zona geográfica para el servicio movíl
+  ru: Список кодов страны или географической зоны для подвижной связи
+  zh: 移动国家或地理区域代码列表
+  ar: قائمة بالرموز الدليلة القُطرية أو الخاصة بالمناطق الجغرافية للاتصالات المتنقلة
+locale:
+- key: country_or_area
+  en: Country or Geographical Area
+  fr: Pays ou zone géographique
+  es: País o zona geográfica
+  ru: Страна или географическая зона
+  zh: 国家或地理区域
+  ar: البلد أو المنطقة الجغرافية
+- key: code
+  en: Code
+  fr: Indicatif
+  es: Indicativo
+  ru: Код
+  zh: 代码
+  ar: الرمز
+- key: note
+  en: Note
+  fr: Note
+  es: Nota
+  ru: Примечание
+  zh: 注
+  ar: ملاحظات

@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../schema-metadata.yaml
+---
+title:
+  en: Shared Mobile Country Codes (MCC) for other purposes
+  fr: Indicatifs de pays du mobile (MCC) partagés pour d'autres usages
+  es: MCC compartidos para otras utilizaciones
+  ru: Общие коды страны в системе подвижной связи (MCC), предназначенные для иных
+    целей
+  zh: 用于其他用途的共用移动国家代码（MCC）
+  ar: الرموز الدليلية القُطرية للاتصالات المتنقلة (MCC) المشتركة للأغراض الأخرى
+locale:
+- key: shared_mcc_others
+  en: Shared Mobile Country Codes (MCC) for other purposes and their respective
+    Mobile Network Codes (MNC)
+  fr: Indicatifs de pays du mobile (MCC) partagés pour d'autres usages et codes
+    de réseau du mobile (MNC) qui leur sont associés
+  es: MCC compartidos para otras utilizaciones y sus respectivos indicativos de
+    red para el servicio móvil (MNC)
+  ru: Общие коды страны в системе подвижной связи (MCC), предназначенные для иных
+    целей, и их соответствующие коды сетей подвижной связи (MNC)
+  zh: 用于其他用途的共用移动国家代码（MCC）及其各自的移动网络代码（MNC）
+  ar: الرموز الدليلية القُطرية للاتصالات المتنقلة (MCC) المشتركة للأغراض الأخرى
+    والرموز الدليلية للشبكات المتنقلة (MNC) الخاصة بها
+- key: applicant
+  en: Applicant/Network
+  es: Solicitante/Red
+  fr: Demandeur/Réseau
+  ru: Заявитель/сеть
+  zh: 申请人/网络
+  ar: مقدم الطلب/الشبكة
+- key: purpose
+  en: Purpose
+  es: utilizaciones
+  fr: partagés
+  ru: целей
+  zh: 用途
+  ar: هدف

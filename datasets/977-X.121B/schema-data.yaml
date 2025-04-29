@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 977-X.121B
+description: ITU OB Dataset Schema for 977-X.121B
+type: array
+items:
+  type: object
+  additionalProperties: false
+  required:
+    - dnic_number
+    - country_or_area
+    - network_name
+  properties:
+    dnic_number:
+      type: string
+      description: Data Network Identification Code number
+    country_or_area:
+      type: object
+      description: Country or geographical area names in different languages
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: Country or geographical area name in English
+        fr:
+          type: string
+          description: Country or geographical area name in French
+        es:
+          type: string
+          description: Country or geographical area name in Spanish
+    network_name:
+      type: string
+      description: Name of network to which a DNIC is allocated
+    note:
+      type: string
+      description: Additional notes or remarks specific to this entry

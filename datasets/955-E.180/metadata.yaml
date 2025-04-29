@@ -1,0 +1,96 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: Various tones used in national networks
+  fr: Différentes tonalités rencontrées dans les réseaux nationaux
+  es: Diferentes tonos utilizados en las redes nacionales
+locale:
+- key: country_or_area
+  en: Country
+  fr: PAYS
+  es: PAÍS
+- key: tone
+  en: Tone
+  fr: TONALITÉ
+  es: TONO
+- key: frequency_in_hz
+  en: FREQUENCY in Hz
+  fr: FRÉQUENCE en Hz
+  es: FRECUENCIA en Hz
+- key: cadence_in_s
+  en: CADENCE in seconds
+  fr: CADENCE en secondes
+  es: CADENCIA en segundos
+- key: dial_tone
+  en: 'Dial Tone: A tone advising that the exchange is ready to receive call information
+    and inviting the user to start sending call information.'
+  fr: 'Tonalité de numérotation: Tonalité signifiant que le commutateur est prêt
+    à recevoir l''information d''appel et invitant l''usager à commencer à envoyer
+    cette information.'
+  es: 'Tono de invitación a marcar: Indicación audible en forma de tonalidad de
+    que la central está preparada para recibir la información de llamada y que
+    invita al usuario a que comience a enviar dicha información.'
+- key: ringing_tone
+  en: 'Ringing Tone: A tone advising the caller that a connection has been made
+    and that a calling signal is being applied to a telephone number or service
+    point.'
+  fr: 'Tonalité de retour d''appel: Tonalité transmise au demandeur pour l''informer
+    qu''une connexion a été établie et qu''un signal d''appel est en cours d''application
+    au numéro de téléphone ou au point de service distant.'
+  es: 'Tono de llamada: Indicación audible en forma de tonalidad enviada al que
+    llama para informarle de que se ha establecido una conexión y que se está
+    aplicando una señal de llamada al número telefónico o punto de servicio distantes.'
+- key: busy_tone
+  en: 'Busy Tone: A tone advising the caller that the telephone number is busy.'
+  fr: 'Tonalité d''occupation: Tonalité transmise au demandeur pour l''informer
+    que le numéro de téléphone distant est occupé.'
+  es: 'Tono de ocupado: Indicación audible en forma de tonalidad enviada al que
+    llama para informarle de que el número telefónico distante está ocupado.'
+- key: congestion_tone
+  en: 'Congestion Tone: A tone advising the caller that the groups of lines or
+    switching equipment necessary for the setting-up of the required call or for
+    the use of a specific service are temporarily engaged.'
+  fr: 'Tonalité d''encombrement: Tonalité transmise au demandeur pour l''informer
+    que les faisceaux de circuits ou les équipements de commutation nécessaires
+    à l''établissement de la communication demandée ou à l''utilisation d''un
+    service déterminé sont temporairement occupés.'
+  es: 'Tono de congestión: Indicación audible en forma de tonalidad enviada al
+    que llama para informarle de que los haces de circuitos o equipos de conmutación
+    necesarios para el establecimiento de la comunicación solicitada o para la
+    utilización de un servicio específico están ocupados temporalmente.'
+- key: special_information_tone
+  en: 'Special Information Tone: A tone advising the caller that the called number
+    cannot be reached for reasons other than "subscriber busy" or "congestion".
+    The tone may also be used in conjunction with recorded announcements to signify
+    that what the caller is about to hear is a recording. It should always be
+    used to precede all call failure announcements.'
+  fr: 'Tonalité spéciale d''information: Tonalité transmise au demandeur pour
+    l''informer que le numéro demandé ne peut être atteint pour des raisons autres
+    que l''occupation ou l''encombrement. La tonalité peut aussi être utilisée
+    conjointement avec des annonces enregistrées avisant le demandeur que ce qu''il
+    va entendre est un enregistrement. Elle doit toujours précéder l''annonce
+    de l''échec de l''aboutissement d''un appel.'
+  es: 'Tono especial de información: Indicación audible en forma de tonalidad
+    enviada al que llama para informarle de que el número solicitado no puede
+    obtenerse por una causa distinta de las de «abonado ocupado» o «congestión».
+    Este tono puede utilizarse también conjuntamente con anuncios grabados para
+    indicar al que llama que las palabras que va a oír constituyen una grabación.
+    Debe utilizarse siempre para introducir todos los anuncios de fallos de la
+    llamada.'
+- key: call_waiting_tone
+  en: 'Call Waiting Tone: A tone advising the user of the call waiting supplementary
+    service who is engaged on a call that someone is attempting to call his number.'
+  fr: 'Tonalité d''appel en attente: Tonalité transmise à l''utilisateur du service
+    supplémentaire d''appel en instance qui est engagé dans une conversation,
+    pour l''avertir que quelqu''un tente d''atteindre son numéro.'
+  es: 'Tono de indicación de llamada en espera: Indicación audible en forma de
+    tonalidad enviada a un usuario del servicio suplementario de indicación de
+    llamada en espera que está ocupado en una comunicación, para informarle de
+    que alguien está tratando de llamar a su número.'
+- key: pay_tone
+  en: 'Pay Tone: A tone advising users of a payphone that a payment is required.'
+  fr: 'Tonalité de paiement: Tonalité transmise à l''utilisateur d''un publiphone
+    pour l''avertir qu''il doit procéder à un paiement.'
+  es: 'Tono de pago: Indicación audible en forma de tonalidad enviada al usuario
+    de un teléfono de previo pago para informarle de que es necesario efectuar
+    un pago.'
