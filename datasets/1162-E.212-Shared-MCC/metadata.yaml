@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../schema-metadata.yaml
+---
+$schema: "../../schema-metadata.yaml"
+title:
+  en: Shared Mobile Country Codes (MCC) for networks and their respective Mobile Network
+    Codes (MNC)
+  fr: Indicatifs de pays du mobile (MCC) partagés pour réseaux et codes de réseau
+    du mobile (MNC) qui leur sont associés
+  es: MCC compartidos de redes y sus respectivos indicativos de red para el servicio
+    móvil (MNC)
+  ru: Общие коды страны в системе подвижной связи (MCC) для сетей и их соответствующие
+    коды сетей подвижной связи (MNC)
+  zh: 网络共用移动国家代码（MCC）及其各自移动网络代码（MNC）
+  ar: الرموز الدليلية القُطرية للاتصالات المتنقلة (MCC) المشتركة فيما يتعلق بالشبكات
+    والرموز الدليلية للشبكات المتنقلة (MNC) الخاصة بها
+locale:
+- key: networks
+  en: Networks
+  fr: Réseaux
+  es: Redes
+  ru: Сети
+  zh: 网络
+  ar: الشبكات
+- key: mcc_mnc_codes
+  en: MCC + MNC codes
+  fr: Codes MCC + MNC
+  es: Indicativos MCC + MNC
+  ru: Коды MCC + MNC*
+  zh: MCC + MNC代码
+  ar: الشبكات
+- key: former_name
+  en: Formerly
+  fr: Formerly
+  es: Formerly
+  ru: ранее
+  zh: Formerly
+  ar: Formerly

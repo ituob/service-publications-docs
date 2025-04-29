@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=schema-data.yaml
+---
+- mcc_mnc_codes: 902 01
+  applicant: MulteFire Alliance
+  purpose:
+    en: shared code
+    fr: indicatif partagé
+    es: indicativo compartido
+    ru: Общий код
+    zh: 共用代码
+    ar: رمز مشترك
+- mcc_mnc_codes: 991 01
+  applicant: World’s Global Telecom
+  purpose:
+    en: Trial of a proposed new international telecommunication service, shared
+      code
+    fr: Essai d'un nouveau service proposé de télécommunications internationales,
+      indicatif partagé
+    es: Prueba de un nuevo servicio de telecomunicación internacional propuesto,
+      indicativo compartido
+    ru: Испытание предлагаемой новой услуги международной электросвязи, общий код
+    zh: 拟议新国际电信业务试验，共享代码
+    ar: تجربة خدمة مقترحة جديدة للمراسلات العمومية للاتصالات الدولية، رمز مشترك
+  temporary_assignment_to: '2020-01-14'

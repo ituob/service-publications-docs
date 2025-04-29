@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../schema-data.yaml
+---
+#Central African Republic
+#Amateur stations and
+#experimental stations: TL8 followed by 2 or 3 letters
+
+groups:
+  amateur:
+    regex: TL8[:upper:]{2,3}

@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1117 E.212A MCC/MNC
+description: Schema for ITU Operational Bulletin E.212A MCC/MNC data
+type: array
+items:
+  type: object
+  required:
+    - mcc_mnc
+    - network
+    - status
+  additionalProperties: false
+  properties:
+    mcc_mnc:
+      type: string
+      description: Mobile Country Code (MCC) and Mobile Network Code (MNC)
+    network:
+      type: string
+      description: Name of the network operator or service provider
+    status:
+      type: string
+      description: Assignment status of the MCC/MNC combination
+      enum:
+        - assigned
+    former_name:
+      type: string
+      description: Previous name of the network operator, if applicable

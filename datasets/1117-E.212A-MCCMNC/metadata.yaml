@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: Associated with shared mobile country code 901, the following two-digit mobile
+    network codes (MNC) have been reserved for or assigned to the international
+    mobile networks
+  fr: 'Associés à l’indicatif de pays du mobile (MCC) 901 attribué en partage, les
+    codes de réseau mobile (MNC) à deux chiffres ci-après, ont été réservés pour
+    les réseaux du système mobile ou attribués à ces réseaux:'
+  es: Asociados con el indicativo de país para el servicio movíl (MCC) 901 compartido,
+    los siguientes indicativos de red para el sevicio movíl (MNC) de dos cifras
+    han sido reservados para las redes del sistema movíl internacional o asignados
+    a las mismas
+  ru: 'Следующий двузначный код сети подвижной связи (MNC), связанный с общим кодом
+    страны в системе подвижной связи 901, зарезервирован для международных сетей
+    подвижной связи или присвоен международным сетям подвижной связи:'
+  zh: 配合共用的移动国家代码901，以下两位移动网络代码（MNC）以留用或指配给国际移动网络：
+  ar: جرى حجز أو تخصيص رمز الشبكة المتنقلة (MNC) التالي المكون من رقمين والمرتبط
+    بالرمز الدليلي القُطري المشترك 901 للشبكات المتنقلة الدولية
+locale:
+- key: network
+  en: Network
+  fr: Réseau
+  es: Red
+  ru: Сеть
+  zh: 网络
+  ar: الشبكة
+- key: mcc_mnc
+  en: Mobile Country code (MCC) and Mobile Network code (MNC)
+  fr: Indicatif de pays du mobile (MCC) et Code de réseau mobile (MNC
+  es: Indicativo de país para el servicio movíl (MCC) e Indicativo de red para
+    el servicio movíl (MNC)
+  ru: Код страны в системе подвижной связи (MCC) и код сети подвижной связи (MNC)
+  zh: 移动国家代码（MCC）和 移动网络代码（MNC）
+  ar: "الرمز الدليلي القُطري للاتصالات المتنقلة (MCC) \nوالرمز الدليلي للشبكة
+    المتنقلة (MNC)"
+- key: status
+  en: Status
+  fr: Situation
+  es: Situación
+  ru: Статус
+  zh: 状态
+  ar: الوضع
+- key: assigned
+  en: Assigned
+  fr: Attribué
+  es: Asignado
+  ru: Присвоен
+  zh: 已指配
+  ar: مخصص

@@ -1,0 +1,134 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 980-F.32
+description: ITU OB Dataset Schema for 980-F.32
+items:
+  type: object
+  description: Represents a single telegraph office entry.
+  properties:
+    country_or_area:
+      type: object
+      description: Country or Geographical Area name in French, English, and Spanish.
+      properties:
+        en:
+          type: string
+          description: English name of the Country or Geographical Area.
+        fr:
+          type: string
+          description: French name of the Country or Geographical Area.
+        es:
+          type: string
+          description: Spanish name of the Country or Geographical Area.
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+    country_or_area_note:
+      type: string
+      description: Note related to the Country or Geographical Area. This field is optional.
+      required:
+        - en
+        - fr
+        - es
+      properties:
+        en:
+          type: string
+          description: English note related to the Country or Geographical Area.
+        fr:
+          type: string
+          description: French note related to the Country or Geographical Area.
+        es:
+          type: string
+          description: Spanish note related to the Country or Geographical Area.
+      additionalProperties: false
+    notes:
+      type: object
+      description: Notes related to the telegraph office. This field is optional.
+      properties:
+        en:
+          type: string
+          description: English note related to the telegraph office.
+        fr:
+          type: string
+          description: French note related to the telegraph office.
+        es:
+          type: string
+          description: Spanish note related to the telegraph office.
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+    network_roa:
+      type: string
+      description: Network (administration/ROA).
+    network_roa_note:
+      type: string
+      description: Note related to the Network (administration/ROA). This field is optional.
+    network_code:
+      type: string
+      description: Network code.
+    network_code_note:
+      type: object
+      description: Note related to the Network code. This field is optional.
+      properties:
+        en:
+          type: string
+          description: English note related to the Network code.
+        fr:
+          type: string
+          description: French note related to the Network code.
+        es:
+          type: string
+          description: Spanish note related to the Network code.
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+    telegraph_office_name:
+      type: object
+      description: Name of the Telegraph Office in French, English, and Spanish. This field is optional.
+      properties:
+        fr:
+          type: string
+          description: French name of the Telegraph Office.
+        en:
+          type: string
+          description: English name of the Telegraph Office.
+        es:
+          type: string
+          description: Spanish name of the Telegraph Office.
+      required:
+        - fr
+        - en
+        - es
+      additionalProperties: false
+    office_code:
+      type: string
+      description: Office code.
+    subarea:
+      type: object
+      description: Subarea name in French, English, and Spanish. This field is optional.
+      properties:
+        fr:
+          type: string
+          description: French name of the Subarea.
+        en:
+          type: string
+          description: English name of the Subarea.
+        es:
+          type: string
+          description: Spanish name of the Subarea.
+      required:
+        - fr
+        - en
+        - es
+      additionalProperties: false
+  required:
+    - country_or_area
+    - network_roa
+    - network_code
+  additionalProperties: false

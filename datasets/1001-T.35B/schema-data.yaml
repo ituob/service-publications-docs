@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1001 T.35B
+description: ITU OB Dataset Schema for 1001 T.35B
+type: array
+items:
+  type: object
+  description: Represents the data for a specific country regarding T.35 terminal manufacturer codes.
+  properties:
+    country:
+      type: string
+      description: The ISO 3166-1 alpha-2 country code, prefixed with 'iso-3166:'.
+      pattern: "^iso-3166:[a-z]{2}$"
+    administration_name:
+      type: string
+      description: The name of the country's telecommunication administration authority.
+    manufactures_htv:
+      type: boolean
+      description: Indicates if the country manufactures H/T/V series terminals.
+    last_updated:
+      type: string
+      description: The date when this country's record was last updated.
+      format: date
+    assignment_authority:
+      type: array
+      description: A list of organizations authorized to assign manufacturer codes. Can be empty.
+      items:
+        type: object
+        description: Details of an organization authorized to assign manufacturer codes.
+        properties:
+          organization:
+            type: string
+            description: The name of the authorized organization.
+          terminal_type:
+            type: array
+            description: The types of terminals for which this organization assigns codes (e.g., h-series, t-series, v-series). Can be empty.
+            items:
+              type: string
+              description: A specific terminal type series.
+          contact_name:
+            type: string
+            description: The name of the contact person or 'N/A'.
+          department:
+            type: string
+            description: The specific department within the organization, if applicable. Can be an empty string.
+          address:
+            type: string
+            description: The postal address of the organization.
+          telephone:
+            type: string
+            description: The contact telephone number(s) or 'N/A'.
+          fax:
+            type: string
+            description: The contact fax number(s) or 'N/A'.
+          email:
+            type: string
+            description: The contact email address or 'N/A'.
+          related_links:
+            type: string
+            description: A URL pointing to related information or resources.
+            format: uri
+          last_updated:
+            type: string
+            description: The date when this assignment authority's details were last updated.
+            format: date
+        required:
+          - organization
+          - terminal_type
+          - contact_name
+          - department
+          - address
+          - telephone
+          - fax
+          # email is not present in all records
+          # related_links is not present in all records
+          - last_updated
+        additionalProperties: false
+  required:
+    - country
+    - administration_name
+    - manufactures_htv
+    - last_updated
+    - assignment_authority
+  additionalProperties: false

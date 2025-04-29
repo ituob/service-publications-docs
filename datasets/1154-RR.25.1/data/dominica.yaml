@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../schema-data.yaml
+---
+#Dominica (Commonwealth of)
+#Amateur stations and
+#experimental stations: J73AA-J73ZZ
+
+groups:
+  amateur:
+    regex: J73[:upper:]{2}

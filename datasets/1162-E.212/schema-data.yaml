@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1162 E.212
+description: ITU OB Dataset Schema for 1162 E.212
+type: array
+items:
+  type: object
+  required:
+    - mcc_mnc_codes
+    - country_or_area
+    - networks
+  additionalProperties: false
+  properties:
+    mcc_mnc_codes:
+      type: string
+      description: "MCC + MNC code combination"
+    country_or_area:
+      type: object
+      description: "Country or geographical area in multiple languages"
+      additionalProperties: false
+      required:
+        - en
+        - fr
+        - es
+        - ru
+        - zh
+        - ar
+      properties:
+        en:
+          type: string
+        fr:
+          type: string
+        es:
+          type: string
+        ru:
+          type: string
+        zh:
+          type: string
+        ar:
+          type: string
+    networks:
+      type: string
+      description: "Network name"
+    former_name:
+      type: string
+      description: "Previous name of the network"

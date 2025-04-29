@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: SERVICE RESTRICTIONS (Recapitulatory list of service restrictions in force
+    relating to telecommunications operation)
+  fr: RESTRICTIONS DE SERVICE (Liste récapitulative des restrictions de service
+    en vigueur relatives à l’exploitation des télécommunications)
+  es: RESTRICCIONES DE SERVICIO (Lista recapitulativa de las restricciones de servicio
+    en vigor relativas a la explotación de las telecomunicaciones)
+locale:
+- key: geographic_area
+  en: Country/Geographical area
+  fr: Países/Zonas geográficas
+  es: Pays/Zones géographiques
+- key: telex_not_provided
+  en: The telex service is no longer provided.
+  fr: Le service télex n'est plus assuré.
+  es: El servicio télex está suprimido
+- key: telegram_not_provided
+  en: The telegram service is no longer provided.
+  fr: Le service des télégrammes n'est plus assuré.
+  es: El servicio de telegramas está suprimido.
+- key: no_collect_calls_mobile
+  en: Collect calls to mobile numbers are not accepted
+  fr: Les communications payables à l'arrivée à destination de numéros mobiles
+    ne sont pas acceptées
+  es: No se aceptan llamadas de cobro revertido efectuadas a números de teléfonos
+    móviles
+- key: no_collect_calls_payphone
+  en: Collect calls to payphones are not accepted
+  fr: Les communications payables à l'arrivée à destination de publiphones ne
+    sont pas acceptées.
+  es: No se aceptan llamadas de cobro revertido efectuadas a números de teléfonos
+    públicos
+- key: no_collect_calls_audiotex
+  en: Collect calls to audiotex numbers are not accepted
+  fr: Les communications payables à l'arrivée à destination de numéros audiotex
+    ne sont pas acceptées.
+  es: No se aceptan llamadas de cobro revertido efectuadas a números de audiotex
+- key: no_collect_calls_virtual
+  en: Collect calls to virtual telephony are not accepted
+  fr: Les communications payables à l'arrivée à destination d'abonnés de la
+    téléphonie virtuelle ne sont pas acceptées.
+  es: No se aceptan llamadas de cobro revertido efectuadas a números de telefonía
+    virtual
+- key: no_collect_calls_incoming
+  en: Collect calls for incoming are not accepted.
+  fr: Les communications entrantes payables à l'arrivée ne sont pas acceptées.
+  es: No se aceptan llamadas de cobro revertido entrantes.
+- key: no_collect_calls_outgoing
+  en: Collect calls for outgoing are not accepted.
+  fr: Les communications sortantes payables à l'arrivée ne sont pas acceptées.
+  es: No se aceptan llamadas de cobro revertido salientes.
+- key: no_messenger_dispatch
+  en: Telephone calls requiring the dispatch of a messenger are no longer admitted.
+  fr: Les appels téléphoniques nécessitant l'envoi d'un messager ne sont plus admis.
+  es: No se admiten llamadas telefónicas que requieran el envío de un mensajero

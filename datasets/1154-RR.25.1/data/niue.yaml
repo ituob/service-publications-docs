@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../schema-data.yaml
+---
+#Niue
+#Amateur stations: ZK2 followed by 2 letters
+
+groups:
+  amateur:
+    regex: ZK2[:upper:]{2}

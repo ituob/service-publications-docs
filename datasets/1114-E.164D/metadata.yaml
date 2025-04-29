@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of Rec. ITU-T E.164 assigned country codes
+  fr: Liste des indicatifs de pays de la recommandation UIT-T E.164 attribués
+  es: Lista de indicativos de país de la recomendación UIT-T E.164 asignados
+  ru: Список присвоенных кодов страны согласно рекомендации МСЭ-Т E.164
+  zh: ITU-T E.164建议书分配国家代码列表
+  ar: "قائمة بالرموز الدليلية للبلدان المخصصة \nوفقاً للتوصية ITU-T E.164"
+locale:
+- key: country_code
+  en: Country code
+  fr: Indicatif de pays
+  es: Indicativo de país
+  ru: Код страны
+  zh: 国家代码
+  ar: الرمز الدليلي للبلد
+- key: country_area_or_service
+  en: Country, Geographical area or Global service
+  fr: Pays, Zone géographique ou Service mondial
+  es: País, Zona geográfica o Servicio mundial
+  ru: Страна, географическая зона или глобальная услуга
+  zh: 国家、地理区域或全球性业务
+  ar: البلد أو المنطقة الجغرافية أو الخدمة العالمية
+- key: note
+  en: Note
+  fr: Note
+  es: Nota
+  ru: Примечание
+  zh: 注
+  ar: ملاحظة

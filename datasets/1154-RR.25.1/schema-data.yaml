@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+type: object
+required:
+- groups
+additionalProperties: false
+properties:
+  groups:
+    description: Groups information
+    type: array
+    items:
+      type: object
+      required:
+      - amateur
+  codelists:
+    type: array
+    items:
+      type: object
+      required:
+      - name
+      - code

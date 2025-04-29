@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Schema for 955 E.180
+description: ITU OB Dataset Schema for 955 E.180
+type: array
+items:
+  type: object
+  required:
+    - country_or_area
+    - tone_type
+    - frequency_in_hz
+  additionalProperties: false
+  properties:
+    country_or_area:
+      type: object
+      required:
+        - en
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: "English name of the country or area"
+        fr:
+          type: string
+          description: "French name of the country or area"
+        es:
+          type: string
+          description: "Spanish name of the country or area"
+    tone_desc:
+      type: object
+      required:
+        - en
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: "English description of the tone"
+        fr:
+          type: string
+          description: "French description of the tone"
+        es:
+          type: string
+          description: "Spanish description of the tone"
+    frequency_in_hz:
+      oneOf:
+        - type: number
+          description: "Frequency in Hertz as a number"
+        - type: string
+          description: "Frequency in Hertz as a string, may include multiple values or special values"
+    cadence_in_s:
+      type: object
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: "English description of the cadence in seconds"
+        fr:
+          type: string
+          description: "French description of the cadence in seconds"
+        es:
+          type: string
+          description: "Spanish description of the cadence in seconds"
+    tone_type:
+      type: string
+      description: "Type of the tone (e.g. busy_tone, dial_tone, congestion_tone, etc.)"
+    notes:
+      type: object
+      description: "Additional notes or comments"
+      additionalProperties: false
+      required:
+        - en
+        - fr
+        - es
+      properties:
+        en:
+          type: string
+          description: "English notes"
+        fr:
+          type: string
+          description: "French notes"
+        es:
+          type: string
+          description: "Spanish notes"

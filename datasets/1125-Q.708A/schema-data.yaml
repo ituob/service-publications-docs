@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+type: array
+title: ITU OB Dataset Schema for 1125 Q.708A
+description: ITU OB Dataset Schema for 1125 Q.708A
+items:
+  type: object
+  required:
+    - code
+    - area_or_network
+  additionalProperties: false
+  properties:
+    code:
+      type: string
+      description: Signalling Area/Network Code (SANC)
+      pattern: '^[0-9]-[0-9]{3}$'
+      examples:
+        - "2-000"
+        - "7-255"
+    area_or_network:
+      type: object
+      description: Geographical Area or Signalling Network translations
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: English name
+        fr:
+          type: string
+          description: French name
+        es:
+          type: string
+          description: Spanish name
+        ru:
+          type: string
+          description: Russian name
+        zh:
+          type: string
+          description: Chinese name
+        ar:
+          type: string
+          description: Arabic name
+      required:
+        - en
+        - fr
+        - es
+        - ru
+        - zh
+        - ar
+    note:
+      type: object
+      description: Localized notes
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: English note
+        fr:
+          type: string
+          description: French note
+        es:
+          type: string
+          description: Spanish note
+        ru:
+          type: string
+          description: Russian note
+        zh:
+          type: string
+          description: Chinese note
+        ar:
+          type: string
+          description: Arabic note

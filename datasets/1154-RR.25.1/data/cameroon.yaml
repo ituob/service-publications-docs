@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../schema-data.yaml
+---
+#Cameroon (Republic of)
+#Amateur stations:
+#TJ1 followed by 2 letters
+
+groups:
+  amateur:
+    regex: TJ1[:upper:]{2}

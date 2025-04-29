@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../../schema-metadata.yaml
+---
+title:
+  en: Two-letter telegram network codes corresponding to one-letter Telex Network
+    Identification Codes (TNIC)
+  fr: Codes de réseau des télégrammes à deux lettres qui correspondent aux codes
+    d'identification de réseau télex (CIRT) à une lettre
+  es: Códigos de red de telegramas de dos letras correspondientes a los Códigos
+    de Identificación de Red Télex (CIRT) de una letra
+locale:
+- key: tnic
+  en: TNIC
+  fr: CIRT
+  es: CIRT
+- key: telegram_network_codes
+  en: Two-letter telegram network codes
+  fr: Codes de réseau des télégrammes à deux lettres
+  es: Códigos de red de telegramas de dos letras
+- key: country
+  en: Country
+  fr: Pays
+  es: País

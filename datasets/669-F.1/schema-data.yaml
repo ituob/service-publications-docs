@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU-T F.1 Service Codes Schema
+description: Schema for ITU-T F.1 telex service codes data
+type: array
+items:
+  type: object
+  required:
+  - code
+  - field
+  - message
+  properties:
+    code:
+      type: string
+      description: The unique service code identifier
+    field:
+      type: string
+      description: The category or field to which the code belongs
+    field_desc:
+      type: object
+      description: Optional description of the field in multiple languages
+      required:
+      - en
+      - fr
+      - es
+      properties:
+        en:
+          type: string
+          description: English description
+        fr:
+          type: string
+          description: French description
+        es:
+          type: string
+          description: Spanish description
+    message:
+      type: object
+      description: The message content in multiple languages
+      required:
+      - en
+      - fr
+      - es
+      properties:
+        en:
+          type: string
+          description: English message text
+        fr:
+          type: string
+          description: French message text
+        es:
+          type: string
+          description: Spanish message text
+  description: Schema for Countries or geographical areas for which information regarding
+    cessation of telex service has been published in the ITU Operational Bulletin
+    (No.) data
+additionalProperties: false

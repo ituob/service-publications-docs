@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 994-E.164C
+description: ITU OB Dataset Schema for 994-E.164C
+type: array
+items:
+  type: object
+  description: Represents the dialling procedure information for a specific country or geographical area.
+  properties:
+    country_or_area:
+      description: The name of the country or geographical area in English, French, and Spanish.
+      type: object
+      properties:
+        en:
+          description: Country or geographical area name in English.
+          type: string
+        fr:
+          description: Country or geographical area name in French.
+          type: string
+        es:
+          description: Country or geographical area name in Spanish.
+          type: string
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+    country_code:
+      description: The ITU-T E.164 country code assigned to the country or area.
+      type: string
+    international_prefix:
+      description: The prefix required to dial an international number from within this country or area.
+      type: string
+    national_prefix:
+      description: The prefix required for national (trunk) calls within this country or area. '…' indicates not applicable or not used.
+      type: string
+    national_sig_number:
+      description: A description of the length or format of the National (Significant) Number.
+      type: string
+    utc_dst:
+      description: Coordinated Universal Time (UTC) offset and Daylight Saving Time (DST) information, if applicable.
+      type: string
+    note:
+      description: Optional additional notes or remarks specific to this entry.
+      type: string
+  required:
+    - country_or_area
+    - country_code
+    - international_prefix
+    - national_prefix
+    - national_sig_number
+    - utc_dst
+  # 'note' is not required as it may not be present for all entries
+  additionalProperties: false

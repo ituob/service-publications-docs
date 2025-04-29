@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of International Signalling Point Codes (ISPC) for signalling system No. 7
+    (According to Recommendation ITU-T Q.708 (03/99))
+  fr: LISTE DES CODES DE POINTS SÉMAPHORES INTERNATIONAUX (ISPC) (SELON LA RECOMMANDATION
+    UIT-T Q.708 (03/99))
+  es: LISTA DE CÓDIGOS DE PUNTOS DE SEÑALIZACIÓN INTERNACIONAL (ISPC) (SEGÚN LA
+    RECOMENDACIÓN UIT-T Q.708 (03/99))
+  ru: СПИСОК КОДОВ ПУНКТОВ МЕЖДУНАРОДНОЙ СИГНАЛИЗАЦИИ (ISPC) (СОГЛАСНО РЕКОМЕНДАЦИИ
+    МСЭ-Т Q.708 (03/1999))
+  ch: 国际信令点代码（ISPC）列表（根据ITU-T Q.708建议书（03/99））
+  ar: قائمة برموز نقاط التشوير الدولية (ISPC)
+    (وفقاً للتوصية ITU T Q.708 (99/03))
+locale:
+- key: country_or_area
+  en: Country/ Geographical Area
+  fr: Pays/ Zone Géographique
+  es: País/ Zona geográfica
+  ru: Страна/географическая зона
+  ch: 国家/地理区域
+  ar: البلد/المنطقة الجغرافية
+- key: ipsc
+  en: IPSC
+  fr: IPSC
+  es: IPSC
+  ru: IPSC
+  ch: IPSC
+  ar: ISPC
+- key: dec
+  en: DEC
+  fr: DEC
+  es: DEC
+  ru: DEC
+  ch: DEC
+  ar: DEC
+- key: signal_point_name
+  en: Unique name of the signalling point
+  fr: Nom unique du point sémaphore
+  es: Nombre único del punto de señalización
+  ru: Уникальное название пункта сигнализации
+  ch: 该信令点的唯一名称
+  ar: الاسم الوحيد لنقطة التشوير
+- key: signal_point_operator
+  en: Name of the signalling point operator
+  fr: Nom de l'opérateur du point sémaphore
+  es: Nombre del operador del punto de señalización
+  ru: Название оператора пункта сигнализации
+  ch: 信令点运营商的名称
+  ar: اسم مشغل نقطة التشوير

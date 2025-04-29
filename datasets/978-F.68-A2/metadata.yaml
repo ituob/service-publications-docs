@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../schema-metadata.yaml
+---
+title:
+  en: Countries or geographical areas for which information regarding cessation
+    of telex service has been published in the ITU Operational Bulletin (No.)
+  fr: Pays ou zones géographiques pour lesquels des renseignements relatifs à la
+    cessation du service télex ont été publiés dans le bulletin d'exploitation de
+    l'UIT (No)
+  es: Países o zonas geográficas para los cuales una información sobre la cesación
+    de servicio de télex ha sido publicada en el Boletín de Explotación de la UIT
+    (N.)
+locale:
+- key: ob_number
+  en: OB No.
+  fr: BE N.o
+  es: BE N.o
+- key: telex_code
+  en: TNIC
+  fr: CIRT
+  es: CIRT
+- key: geographic_area
+  en: Country/Geographical area
+  fr: Países/Zonas geográficas
+  es: Pays/Zones géographiques

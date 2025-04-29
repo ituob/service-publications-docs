@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1114 E.164D Notes P and Q
+description: Schema for ITU Operational Bulletin E.164D Notes P and Q data
+type: array
+items:
+  type: object
+  required:
+    - applicant
+    - network
+    - cc_ic
+    - status
+  additionalProperties: false
+  properties:
+    applicant:
+      type: string
+      description: Entity that applied for the code
+    network:
+      type: string
+      description: Name of the network
+    cc_ic:
+      type: string
+      description: Country Code and Identification Code format
+      pattern: "^\\+[0-9]{3} [0-9]+$"
+    status:
+      type: string
+      description: Current assignment status of the code
+      enum:
+        - Assigned
+        - Reserved
+        - Spare
+    formerly:
+      type: string
+      description: Previous name of the applicant or network

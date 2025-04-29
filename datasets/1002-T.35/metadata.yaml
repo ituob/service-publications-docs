@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of Country or Geographical Area Codes for Non-standard Facilities in
+    Telematic Services
+  fr: LISTE DES INDICATIFS DE PAYS OU DE ZONE GÉOGRAPHIQUE POUR LES FACILITÉS NON
+    NORMALISÉES DANS LES SERVICES DE TÉLÉMATIQUE
+  es: LISTA DE INDICATIVOS DE PAÍS O DE ZONA GEOGRÁFICA PARA FACILIDADES NO NORMALIZADAS
+    DE LOS SERVICIOS TELEMÁTICOS
+locale:
+- key: code_bit
+  en: Code Bit (b8 to b1)
+  fr: Code Bit (b8 to b1)
+  es: Código Bit (b8 to b1)
+- key: country_or_area
+  en: Country or geographical area
+  fr: Pays ou zone géographique
+  es: País o zona geográfica
+- key: notes
+  en: NOTE
+  fr: NOTE
+  es: NOTA

@@ -1,0 +1,111 @@
+= Five-letter Code Groups for the use of the International Public Telegram Service
+:bureau: T
+:docnumber: 669
+:series: FIVE LETTER CODE GROUPS* *FOR THE USE OF THE INTERNATIONAL PUBLIC TELEGRAM SERVICE
+:series1: According to ITU-T Recommendation F.1 (03/98)
+:published-date: 1998-06-01
+:status: published
+:doctype: service-publication
+:imagesdir: images
+:mn-document-class: itu
+:mn-output-extensions: xml,html,pdf,doc,rxl
+:local-cache-only:
+
+
+[preface]
+== Note from the TSB
+
+[class=steps]
+. By TSB Circular 104 of 23 March 1998, the TSB announced the approval of revised ITU-T Recommendation F.1, in accordance with Resolution 1, Section 8 of the WTSC-96 (Geneva 1996). Consequently, the TSB has prepared a new List of additional five-letter code groups for the use of the international public telegram service in conformity with ITU-T Recommendation F.1 (03/98), C98.
+
+. This List, published as an Annex to ITU Operational Bulletin No. 669 of 1 June 1998, is based on the contributions (white documents) submitted to the former ITU-T Study Group 1. The List only incorporates five-letter code groups most commonly used in the operation of the international public telegram services which have been reviewed during the meetings of the former ITU-T Study Group 1 and then approved by the ITU-T Study Group 2 meeting held in Geneva, 3-13 March 1998.
+
+. For practical convenience, this List contains two parts:
+
+* In *Part I* (Decoding), all codes, irrespective of their function, are given in alphabetical order in the left-hand column. The significance of each code to which crossreferences are given is found in the right-hand column.
+
+* In *Part II* (Coding), the codes are classified according to the fields of operation in which they are used.
+
+. For information, the List is also available on the ITU home page (http://www.itu.int/itudoc/itu-t/ob-lists), and can be consulted by subscribers by remote access.
+
+
+[yaml2text,data=../../datasets/669-F.1/data.yaml,metadata=../../datasets/669-F.1/metadata.yaml]
+----
+{% assign lang = "en" %}
+
+
+== Part I - DECODING SECTION
+
+Five-letter code groups in alphabetical order:
+
+{% for code in data %}
+    {{- code.code }}:: {{ code.message[lang] | replace: "_", "&#95;" }}
+{% endfor %}
+
+
+== Part II - CODING SECTION
+
+Five-letter code groups, alphabetically classified according to the fields of operation of the
+international public telegram service in which the codes are used.
+
+{% for field_name in metadata.locale %}
+    {% unless field_name[0] == "coding" or field_name[0] == "decoding" %}
+        {% assign field_names = field_names | append: field_name[1][lang] | append: "; " %}
+    {% endunless %}
+{% endfor %}
+
+{% assign sorted_field_names = field_names | split: "; " | sort %}
+
+{% for name in sorted_field_names %}
+    {% for locale_item in metadata.locale %}
+        {% if locale_item[1][lang] == name %}
+            {% assign fields_string = fields_string | append: locale_item[0] | append: "; " %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% assign fields = fields_string | split: "; " %}
+
+
+{% for field in fields %}
+
+{% assign field_data = data | where: "field", field %}
+{% assign field_descriptions = field_data | map: "field_desc" | sort: lang | uniq %}
+
+{% if field_descriptions.size == 0 -%}
+[align=center]
+*{{ metadata.locale[field][lang] }}*
+
+{% for item in field_data %}
+{{ item.code }}:: {{ item.message[lang] | replace: "_", "&#95;" }}
+{% endfor %}
+
+{% else -%}
+[align=center]
+*{{ metadata.locale[field][lang] }}* +
+{% unless field == "enquiries" or
+          field == "delivery"  or
+          field == "errors_mutilations_omissions" or
+          field == "repetitions_and_corrections"  or
+          field == "miscellaneous" -%}
+{%- if field == "addresses" or field == "disposal" -%}
+(_{{ field_descriptions | map: lang | join: ", " }}, etc._)
+{%- else -%}
+(_{{ field_descriptions | map: lang | join: ", " }}_)
+{%- endif -%}
+{%- endunless %}
+
+{% for desc in field_descriptions %}
+_{{ desc[lang] }}_
+
+{% for item in field_data %}
+{% if item.field_desc[lang] == desc[lang] -%}
+{{ item.code }}:: {{ item.message[lang] | replace: "_", "&#95;" }}
+{%- endif %}
+{% endfor %}
+{% endfor %}
+
+{% endif %}
+
+{% endfor %}
+----

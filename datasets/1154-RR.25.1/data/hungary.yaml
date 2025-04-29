@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../schema-data.yaml
+---
+#Hungary
+#Amateur stations: HA or HG followed by a digit (0-9) and a group of not more than four characters, the last of which shall be a letter
+
+groups:
+  amateur:
+    regex: H[A|G][:digit:][0-9A-Z]{3}[:upper:]{1}

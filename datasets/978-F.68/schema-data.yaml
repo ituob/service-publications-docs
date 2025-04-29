@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 978-F.68
+description: ITU OB Dataset Schema for 978-F.68
+type: array
+items:
+  type: object
+  required:
+    - number_block
+    - allocated_to
+  additionalProperties: false
+  properties:
+    number_block:
+      type: string
+      description: "Telex Destination Code (TDC) - can be a single code or a range"
+    telex_code:
+      type: string
+      description: "Telex Network Identification Code (TNIC)"
+    allocated_to:
+      type: object
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: "English description of allocation"
+        fr:
+          type: string
+          description: "French description of allocation"
+        es:
+          type: string
+          description: "Spanish description of allocation"
+    integrated_numbering_plan:
+      type: boolean
+      description: "Indicates if the numbering plan is integrated with the TNIC"
+    notes:
+      type: object
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: "Notes in English"
+        fr:
+          type: string
+          description: "Notes in French"
+        es:
+          type: string
+          description: "Notes in Spanish"

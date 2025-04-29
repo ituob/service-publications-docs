@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 991-PP.RES.21
+description: ITU OB Dataset Schema for 991-PP.RES.21
+type: array
+items:
+  type: object
+  properties:
+    number:
+      type: integer
+      description: The sequential number of the entry.
+    geographic_area:
+      type: object
+      description: The geographic area associated with the entry.
+      properties:
+        en:
+          type: string
+          description: Geographic area name in English.
+        fr:
+          type: string
+          description: Geographic area name in French.
+        es:
+          type: string
+          description: Geographic area name in Spanish.
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+  required:
+    - number
+  additionalProperties: false

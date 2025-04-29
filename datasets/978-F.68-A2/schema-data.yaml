@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 978-F.68 Appendix 2
+description: ITU OB Dataset Schema for 978-F.68 Appendix 2
+type: array
+items:
+  type: object
+  required:
+    - ob_number
+    - telex_code
+    - geographic_area
+    - number_block
+    - allocated_to
+  additionalProperties: false
+  properties:
+    ob_number:
+      type: integer
+      description: "ITU Operational Bulletin number"
+    telex_code:
+      type: string
+      description: "Telex Network Identification Code (TNIC)"
+    geographic_area:
+      type: object
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: "Country or geographical area name in English"
+        fr:
+          type: string
+          description: "Country or geographical area name in French"
+        es:
+          type: string
+          description: "Country or geographical area name in Spanish"
+    number_block:
+      type: string
+      description: "Block identifier for the telex code"
+    allocated_to:
+      type: object
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: "Entity allocated to in English"
+        fr:
+          type: string
+          description: "Entity allocated to in French"
+        es:
+          type: string
+          description: "Entity allocated to in Spanish"

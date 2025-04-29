@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../schema-data.yaml
+---
+#Malawi
+#Amateur stations: 7Q7 followed by 2 letters
+
+groups:
+  amateur:
+    regex: 7Q7[:upper:]{2}
