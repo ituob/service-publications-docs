@@ -1,0 +1,138 @@
+= ITU Operational Bulletin tools
+
+This gem provides tools for working with ITU Operational Bulletin service
+publications.
+
+== Installation
+
+Add this line to your application's Gemfile:
+
+[source,ruby]
+----
+gem 'ituob'
+----
+
+And then execute:
+
+[source,sh]
+----
+bundle install
+----
+
+Or install it yourself as:
+
+[source,sh]
+----
+gem install ituob
+----
+
+== Usage
+
+=== General
+
+The `ituob` gem provides a command-line interface for working with ITU
+Operational Bulletin service publications.
+
+=== Schema validation
+
+The `schema validate` command validates YAML files against their schemas.
+
+==== Command options
+
+The following options are available for the `schema validate` command:
+
+* `--file`, `-f`: Validate a specific file
+* `--directory`, `-d`: Validate files in a directory
+* `--recursive`, `-r`: Recursively validate files in subdirectories
+* `--verbose`, `-v`: Show verbose output
+
+==== Examples
+
+[example]
+====
+Validate a specific file:
+
+[source,sh]
+----
+bundle exec ituob schema validate --file path/to/file.yaml
+----
+====
+
+[example]
+====
+Validate all YAML files in a directory:
+
+[source,sh]
+----
+bundle exec ituob schema validate --directory path/to/directory
+----
+====
+
+[example]
+====
+Recursively validate all YAML files in a directory:
+
+[source,sh]
+----
+bundle exec ituob schema validate --directory path/to/directory --recursive
+----
+====
+
+[example]
+====
+Validate all YAML files in the current directory recursively:
+
+[source,sh]
+----
+bundle exec ituob schema validate
+----
+====
+
+== Schema naming convention
+
+The schema validation system follows these naming conventions:
+
+* Directory-wide schema: `schema.yaml` in the directory root
+* Shared schema for multiple related files: `_schema.yaml`
+* Individual file schema: `[filename].schema.yaml`
+
+== Development
+
+=== Setup
+
+After checking out the repo, run `bin/setup` to install dependencies. Then, run
+`rake spec` to run the tests. You can also run `bin/console` for an interactive
+prompt that will allow you to experiment.
+
+=== Building and installation
+
+To install this gem onto your local machine, run:
+
+[source,sh]
+----
+bundle exec rake install
+----
+
+To release a new version, update the version number in `version.rb`, and then
+run:
+
+[source,sh]
+----
+bundle exec rake release
+----
+
+This will create a git tag for the version, push git commits and tags, and push
+the `.gem` file to rubygems.org.
+
+== Contributing
+
+=== General
+
+Bug reports and pull requests are welcome on GitHub at
+https://github.com/ituob/service-publications-docs.
+
+== License and copyright
+
+The gem is available as open source under the terms of the MIT License.
+
+Copyright Ribose.
