@@ -15,10 +15,6 @@ This repository contains ITU Operational Bulletin (OB) Service Publications
 documents. These documents are published by the ITU and provide important
 operational information for telecommunication services.
 
-The documents are organized in folders with a numbering scheme corresponding to
-the OB issue number, followed by the document identifier (e.g., `1109-Q.708B`,
-`1161-E.118`).
-
 
 == Structure
 
@@ -26,15 +22,38 @@ the OB issue number, followed by the document identifier (e.g., `1109-Q.708B`,
 The site configuration for the Metanorma site. This file defines the site's
 title, description, and the documents that are published.
 
-Various document directories (e.g. `1109-Q.708B`, `1161-E.118`)::
-Source documents for different Service Publications, organized by their
-publication identifier.
+`datasets.yml`::
+This file describes all validated datasets stored in this repository.
+
+`datasets/`::
+This directory contains the datasets used in the ITU Service Publications
+documents.
+The datasets are organized in folders with a numbering scheme corresponding to
+the OB issue number, followed by the document identifier
++
+[example]
+====
+The dataset `1154-RR.25.1` was created at OB Issue 1154 as an Annex and is
+defined by the ITU standard "RR.25.1"
+
+`1109-Q.708B`, `1161-E.118` are other examples.
+====
+
+`documents/`::
+This directory contains the source documents for the ITU Service Publications.
+Each document is organized in its own directory, named after the document
+identifier
++
+[example]
+====
+T-SP-X.121B-2011
+====
 
 `_site/`::
 (automatically generated after processing) Published documents.
 
 
-== Working with the documents
+== Working with documents
 
 The Service Publications documents are available in multiple languages, typically:
 
@@ -50,6 +69,219 @@ The documents follow a naming convention of `T-SP-{identifier}-{year}-{language}
 [example]
 `T-SP-Q.708B-2016-E.adoc` is the English version of the Q.708B Service
 Publication from 2016.
+
+
+
+== ITU OB datasets
+
+=== General
+
+The ITU Operational Bulletin datasets are stored in the `datasets/` directory.
+
+These datasets are used to populate the content of the ITU Service Publications
+documents.
+
+=== Structure
+
+Each dataset in the `datasets/` directory follows a specific structure:
+
+`datasets/{dataset-dir}/metadata.yaml`::
+A metadata file that conforms to the root `datasets/schema-metadata.yaml` schema. This file contains metadata about the dataset.
+
+`datasets/{dataset-dir}/data.yaml` or `datasets/{dataset-dir}/data/*.yaml`::
+One or more YAML files containing the actual data entries for the dataset.
+These files must conform to the schema defined in
+`datasets/{dataset-dir}/schema-data.yaml`.
+
+`datasets/{dataset-dir}/schema-data.yaml`::
+A YAML schema file that defines the structure and validation rules for the data files in this dataset.
+
+
+.Structure of the 977-X.121B dataset
+[example]
+====
+This dataset keeps all data instances within a single file `data.yaml`.
+
+[source]
+----
+datasets/
+└── 977-X.121B/
+    ├── data.yaml
+    ├── metadata.yaml
+    └── schema-data.yaml
+----
+====
+
+.Structure of the 1154-RR.25.1 dataset
+[example]
+====
+This dataset keeps independent entries of data in separate files within the
+`data/` directory.
+
+[source]
+----
+datasets/
+└── 1154-RR.25.1/
+    ├── metadata.yaml
+    ├── schema-data.yaml
+    └── data/
+        ├── colombia.yaml
+        └── comoros.yaml
+----
+====
+
+
+=== Metadata file
+
+Each dataset must have a `metadata.yaml` file that contains metadata about the
+dataset. This file must conform to the schema defined in
+`datasets/schema-metadata.yaml`.
+
+Specifically, the metadata file must include the following properties:
+
+`title`:: The title of the dataset. The title is given as an object that
+contains the minimum languages of `en:`, `fr:` and `es:`. Metanorma site.
+
+`locale`:: Defined multilingual strings use in the dataset for data
+presentation. This is an optional array.
++
+Each item in the array has the following properties:
+`key`::: A user-defined key of the locale string.
+`en/fr/es/ar/zh/ru`::: The locale string in the respective language. At least `en:`,
+`fr:` and `es:` are required.
+
+Each metadata file must start with this line:
+
+[source,yaml]
+----
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+# data ...
+----
+
+=== Data file
+
+Each dataset must have a `data.yaml` file or a `data/` directory containing
+multiple YAML files. These files must conform to the schema defined in
+`datasets/{dataset-dir}/schema-data.yaml`.
+
+Each data file (whether a collection or a single file) must start either line:
+
+.Single data file
+[source,yaml]
+----
+# yaml-language-server: $schema=schema-data.yaml
+----
+
+.Split data files
+[source,yaml]
+----
+# yaml-language-server: $schema=../schema-data.yaml
+----
+
+=== Data schema file
+
+Each dataset must have a `schema-data.yaml` file that defines the structure and
+validation rules for the data files in this dataset.
+
+The data schema file is a YAML Schema file.
+
+The data schema file must start with this line:
+
+[source,yaml]
+----
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+----
+
+The data schema file must at least have the following properties:
+
+`$schema`:: The schema version. This must be set to `http://json-schema.org/draft-07/schema#`.
+`$id`:: The unique identifier for the schema. This should be a URL that
+identifies the schema.
+`title`:: The title of the schema. This should be a human-readable title
+for the schema.
+`description`:: A human-readable description of the schema.
+
+
+== ITU OB Service Publications documents
+
+=== General
+
+The Service Publication documents provide the latest dataset definitions (called
+the "position") as defined in ongoing issues of the ITU Operational Bulletin.
+
+Each of them are Metanorma documents located in the `documents/` directory.
+A document may use one or more datasets to populate its content.
+
+Each document directory typically represents a specific ITU publication and
+contains:
+
+`T-SP-{identifier}-{year}-{language}.adoc`::
+The main document file in Metanorma AsciiDoc format.
+
+`_table.liquid` or other template files::
+Optional template files used for document generation since the target
+documents are multilingual.
+
+Documents may reference datasets through includes or variables. A single
+document may use one or more datasets to populate its content.
+
+[example]
+====
+[source]
+----
+documents/
+└── T-SP-X.121B-2011/
+    ├── T-SP-X.121B-2011-MSW-E.adoc
+    ├── T-SP-X.121B-2011-MSW-F.adoc
+    ├── T-SP-X.121B-2011-MSW-S.adoc
+    └── _table.liquid
+----
+====
+
+
+== Dataset validation
+
+=== General
+
+The repository includes a Ruby gem called `ituob` that provides tools for working
+with ITU Operational Bulletin service publications, including YAML schema
+validation.
+
+=== Installation
+
+The gem is included in the project's Gemfile. To use it, simply run:
+
+[source,sh]
+----
+bundle install
+----
+
+=== Usage
+
+The `ituob` gem provides a command-line interface for validating YAML files
+against their schemas.
+
+==== Dataset validation
+
+To validate datasets, use the `dataset validate` command:
+
+[source,sh]
+----
+bundle exec ituob dataset validate
+----
+
+This command validates all datasets in the repository according to their schema definitions.
+
+==== Command options
+
+The following options are available for the schema validation command:
+
+* `--file`, `-f`: Validate a specific file
+* `--directory`, `-d`: Validate files in a directory
+* `--recursive`, `-r`: Recursively validate files in subdirectories
+* `--verbose`, `-v`: Show verbose output
+
 
 
 == Building the site
@@ -116,6 +348,7 @@ metanorma {filename}
 ----
 
 NOTE: See https://www.metanorma.org/install/usage/ for details.
+
 
 === Development installs
 
