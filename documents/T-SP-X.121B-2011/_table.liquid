@@ -1,0 +1,37 @@
+[cols="3",options="unnumbered"]
+|===
+
+{% assign country_or_area = metadata.locale | where: "key", "country_or_area" %}
+{% assign dnic_number = metadata.locale | where: "key", "dnic_number" %}
+{% assign network_name = metadata.locale | where: "key", "network_name" %}
+^h| {{ country_or_area[lang] }}
+^h| {{ dnic_number[lang] }}
+^h| {{ network_name[lang] }}
+
+^| 1 ^| 2 ^| 3
+
+{% assign ordered_sequence = data | map: "country_or_area" | sort: "fr" | uniq %}
+
+{% for next_country in ordered_sequence %}
+    {% assign data_group = data | map: "country_or_area" | where: "en", next_country.en %}
+    {% assign flag = false %}
+
+    {% for country_data in data %}
+        {% if country_data.country_or_area.en == next_country.en %}
+            {% if flag == false %}
+                {% assign flag = true %}
+.{{ data_group.size }}+| {{ country_data.country_or_area.fr }} +
+                            {{ country_data.country_or_area.en }} +
+                            {{ country_data.country_or_area.es }}
+                          | {{ country_data.dnic_number }}
+                          | {{ country_data.network_name }}
+            {% else -%}
+                | {{ country_data.dnic_number }}
+                | {{ country_data.network_name }}
+            {%- endif %}
+        {% elsif flag == true %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+|===
