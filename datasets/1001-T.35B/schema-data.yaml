@@ -57,9 +57,11 @@ items:
             type: string
             description: The contact email address or 'N/A'.
           related_links:
-            type: string
             description: A URL pointing to related information or resources.
-            format: uri
+            type: array
+            items:
+              type: string
+              format: uri
           last_updated:
             type: string
             description: The date when this assignment authority's details were last updated.
@@ -76,6 +78,9 @@ items:
           # related_links is not present in all records
           - last_updated
         additionalProperties: false
+    note:
+      type: string
+      description: A note related to the country or its telecommunication administration. This field is optional.
   required:
     - country
     - administration_name

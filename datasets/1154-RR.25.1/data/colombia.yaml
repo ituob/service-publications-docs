@@ -25,8 +25,10 @@ groups:
       - segment_type: enum
         key: "2"
         values:
-          - J
-          - K
+          - segment_type: string
+            value: J
+          - segment_type: string
+            value: K
       - segment_type: codelist
         key: "3"
         codelist: zone
@@ -42,12 +44,14 @@ groups:
       criteria:
       - segment_type: string
         key: "1"
-        value: 5
+        value: "5"
       - segment_type: enum
         key: "2"
         values:
-          - J
-          - K
+          - segment_type: string
+            value: J
+          - segment_type: string
+            value: K
       - segment_type: codelist
         key: "3"
         codelist: zone

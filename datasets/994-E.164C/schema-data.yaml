@@ -43,13 +43,23 @@ items:
       type: string
     note:
       description: Optional additional notes or remarks specific to this entry.
-      type: string
+      type: object
+      properties:
+        en:
+          description: Note in English.
+          type: string
+        fr:
+          description: Note in French.
+          type: string
+        es:
+          description: Note in Spanish.
+          type: string
   required:
     - country_or_area
     - country_code
-    - international_prefix
-    - national_prefix
-    - national_sig_number
-    - utc_dst
+    # - international_prefix
+    # - national_prefix
+    # - national_sig_number
+    # - utc_dst
   # 'note' is not required as it may not be present for all entries
   additionalProperties: false

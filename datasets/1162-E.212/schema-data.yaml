@@ -42,6 +42,36 @@ items:
     networks:
       type: string
       description: "Network name"
+    note:
+      type: object
+      description: "Note in multiple languages"
+      additionalProperties: false
+      required:
+        - en
+        - fr
+        - es
+        - ru
+        - zh
+        - ar
+      properties:
+        en:
+          type: string
+          description: "English description"
+        fr:
+          type: string
+          description: "French description"
+        es:
+          type: string
+          description: "Spanish description"
+        ru:
+          type: string
+          description: "Russian description"
+        zh:
+          type: string
+          description: "Chinese description"
+        ar:
+          type: string
+          description: "Arabic description"
     former_name:
       type: string
       description: "Previous name of the network"
