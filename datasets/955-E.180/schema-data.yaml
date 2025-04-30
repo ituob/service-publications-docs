@@ -31,6 +31,9 @@ items:
       type: object
       required:
         - en
+        - fr
+        - es
+      description: "Description of the tone in different languages"
       additionalProperties: false
       properties:
         en:
@@ -42,6 +45,19 @@ items:
         es:
           type: string
           description: "Spanish description of the tone"
+        notes:
+          type: object
+          description: "Additional notes or comments"
+          properties:
+            en:
+              type: string
+              description: "English notes"
+            fr:
+              type: string
+              description: "French notes"
+            es:
+              type: string
+              description: "Spanish notes"
     frequency_in_hz:
       oneOf:
         - type: number

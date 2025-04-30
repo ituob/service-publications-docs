@@ -26,7 +26,7 @@ items:
         - es
       additionalProperties: false
     country_or_area_note:
-      type: string
+      type: object
       description: Note related to the Country or Geographical Area. This field is optional.
       required:
         - en
@@ -109,6 +109,24 @@ items:
     office_code:
       type: string
       description: Office code.
+    office_code_note:
+      type: object
+      description: Note related to the Office code. This field is optional.
+      properties:
+        en:
+          type: string
+          description: English note related to the Office code.
+        fr:
+          type: string
+          description: French note related to the Office code.
+        es:
+          type: string
+          description: Spanish note related to the Office code.
+      required:
+        - en
+        - fr
+        - es
+      additionalProperties: false
     subarea:
       type: object
       description: Subarea name in French, English, and Spanish. This field is optional.
@@ -129,6 +147,6 @@ items:
       additionalProperties: false
   required:
     - country_or_area
-    - network_roa
-    - network_code
+    # - network_code
+    # - network_roa
   additionalProperties: false

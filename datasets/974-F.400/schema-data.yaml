@@ -32,6 +32,9 @@ items:
     admd_name:
       type: string
       description: "Administration Management Domain Name"
+    not_operational_yet:
+      type: boolean
+      description: "Indicates if it is not operational yet"
     country_code:
       type: string
       description: "Country code"
@@ -74,10 +77,9 @@ items:
       type: object
       additionalProperties: false
       required:
-      - company_name
+      # - company_name
       - address_line_1
-      - address_line_2
-      - address_line_3
+      # - address_line_2
       properties:
         company_name:
           type: string

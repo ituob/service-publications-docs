@@ -8,39 +8,65 @@ items:
   type: object
   required:
     - geographic_area
+    - name
   properties:
+    name:
+      type: string
+      description: The name of the country or geographical area.
     geographic_area:
       type: object
       description: Information about geographic area restrictions and service availability
       properties:
+        en:
+          type: string
+          description: English description of the geographic area.
+        fr:
+          type: string
+          description: French description of the geographic area.
+        es:
+          type: string
+          description: Spanish description of the geographic area.
+      required:
+        - en
+        - fr
+        - es
+    restrictions:
+      type: object
+      properties:
         telex_not_provided:
           type: boolean
-          description: Indicates whether telex service is not provided
+          description: Indicates if telex service is not provided.
         telegram_not_provided:
           type: boolean
-          description: Indicates whether telegram service is not provided
+          description: Indicates if telegram service is not provided.
         no_collect_calls:
           type: object
-          description: Information about collect call restrictions
           properties:
             mobile:
               type: boolean
-              description: Indicates whether collect calls are not accepted for mobile numbers
+              description: Indicates if collect calls are not allowed for mobile services.
             payphone:
               type: boolean
-              description: Indicates whether collect calls are not accepted for payphones
-            incoming:
+              description: Indicates if collect calls are not allowed for payphone services.
+            audiotex:
               type: boolean
-              description: Indicates whether incoming collect calls are not accepted
-            outgoing:
-              type: boolean
-              description: Indicates whether outgoing collect calls are not accepted
-          additionalProperties: false
+              description: Indicates if collect calls are not allowed for audiotex services.
+
+    notes:
+      type: object
+      description: Notes related to the service restrictions. This field is optional.
+      properties:
         en:
           type: string
-          description: English description of the service restriction or announcement
-        no_messenger_dispatch:
-          type: boolean
-          description: Indicates whether messenger dispatch service is not provided
-      additionalProperties: false
+          description: English note related to the service restrictions.
+        fr:
+          type: string
+          description: French note related to the service restrictions.
+        es:
+          type: string
+          description: Spanish note related to the service restrictions.
+      required:
+        - en
+        - fr
+        - es
   additionalProperties: false
