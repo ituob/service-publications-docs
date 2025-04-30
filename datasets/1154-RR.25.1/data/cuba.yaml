@@ -15,27 +15,45 @@
 
 groups:
   amateur:
-    regex: (T4|CL|CM|CO)[:amateur_area:][:upper:]{1,3}
+  - regex: (T4|CL|CM|CO)[:amateur_area:][:upper:]{1,3}
     criteria:
-      1:
-        - T4
-        - CL
-        - CM
-        - CO
-      2:
-        codelist: amateur_area
-      3:
+    - key: "1"
+      segment_type: enum
+      values:
+        - segment_type: string
+          value: T4
+        - segment_type: string
+          value: CL
+        - segment_type: string
+          value: CM
+        - segment_type: string
+          value: CO
+    - key: "2"
+      segment_type: codelist
+      codelist: amateur_area
+    - key: "3"
+      segment_type: range
+      range:
         from: A
         to: Z
-        cardinality: 1-3
+        cardinality: "1-3"
 
 codelists:
-  amateur_area:
-    1: Province of Pinar del Río
-    2: Province of Havana City
-    3: Province of Havana
-    4: Municipality of Isla de la Juventud
-    5: Province of Matanzas
-    6: Provinces of Villa Clara, Cienfuegos and Sancti Spíritus
-    7: Provinces of Ciego de Ávila and Camagüey
-    8: Provinces of Santiago de Cuba, Granma, Holguín, Las Tunas and Guantánamo
+  - name: amateur_area
+    list:
+    - code: "1"
+      name: Province of Pinar del Río
+    - code: "2"
+      name: Province of Havana City
+    - code: "3"
+      name: Province of Havana
+    - code: "4"
+      name: Municipality of Isla de la Juventud
+    - code: "5"
+      name: Province of Matanzas
+    - code: "6"
+      name: Provinces of Villa Clara, Cienfuegos and Sancti Spíritus
+    - code: "7"
+      name: Provinces of Ciego de Ávila and Camagüey
+    - code: "8"
+      name: Provinces of Santiago de Cuba, Granma, Holguín, Las Tunas and Guantánamo

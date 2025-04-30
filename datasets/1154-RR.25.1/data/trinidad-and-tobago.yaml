@@ -5,6 +5,6 @@
 
 groups:
   amateur: &general
-    regex: 9Y4[:upper:]{2}
+  - regex: 9Y4[:upper:]{2}
 
   experimental: *general

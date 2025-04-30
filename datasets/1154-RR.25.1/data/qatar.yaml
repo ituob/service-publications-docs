@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: A71[:upper:]{2}
+  - regex: A71[:upper:]{2}
 
   experimental:
-    regex: A73[:upper:]{2}
+  - regex: A73[:upper:]{2}

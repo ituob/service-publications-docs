@@ -6,6 +6,6 @@
 
 groups:
   amateur: &general
-    regex: XT[2-3][:upper:]{2}
+  - regex: XT[2-3][:upper:]{2}
 
   experimental: *general

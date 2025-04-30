@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: 5Z4[:upper:]{2}
+  - regex: 5Z4[:upper:]{2}
 
   experimental:
-    regex: 5Z5[:upper:]{2}
+  - regex: 5Z5[:upper:]{2}

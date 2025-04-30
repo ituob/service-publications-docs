@@ -13,25 +13,37 @@
 
 groups:
   amateur:
-    regex: TG[:departments:][:upper:]{2}
+  - regex: TG[:departments:][:upper:]{2}
     criteria:
-      1: TG
-      2:
-        codelist: departments
-      3:
+    - segment_type: string
+      key: "1"
+      value: TG
+    - key: "2"
+      segment_type: codelist
+      codelist: departments
+    - key: "3"
+      segment_type: range
+      range:
         from: A
         to: Z
-        cardinality: 2
+        cardinality: "2"
 
   experimental:
-    name: Ecuador
+  - name: Ecuador
     regex: TD9[:upper:]
 
 codelists:
-  departments:
-    4: Sololá, Chimaltenango, Suchitepéquez, Escuintla and Santa Rosa
-    5: Huehuetenango, Quiché and Totonicapán
-    6: Zacapa, Chiquimula and Jutiapa
-    7: Petén, Alta Verapaz and Izabal
-    8: San Marcos, Quetzaltenango and Retalhuleu
-    9: Guatemala, Jalapa, El Progreso, Baja Verapaz and Sacatepéquez
+  - name: departments
+    list:
+    - code: "4"
+      name: Sololá, Chimaltenango, Suchitepéquez, Escuintla and Santa Rosa
+    - code: "5"
+      name: Huehuetenango, Quiché and Totonicapán
+    - code: "6"
+      name: Zacapa, Chiquimula and Jutiapa
+    - code: "7"
+      name: Petén, Alta Verapaz and Izabal
+    - code: "8"
+      name: San Marcos, Quetzaltenango and Retalhuleu
+    - code: "9"
+      name: Guatemala, Jalapa, El Progreso, Baja Verapaz and Sacatepéquez

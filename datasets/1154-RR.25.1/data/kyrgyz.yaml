@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: EX[:digit:][:upper:]{1,2}
+  - regex: EX[:digit:][:upper:]{1,2}
 
 notes:
   - Foreign radio amateurs will use EX followed by a stroke (/) and their home call sign.

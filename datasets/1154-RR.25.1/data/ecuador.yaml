@@ -16,34 +16,53 @@
 
 groups:
   amateur:
-    regex: H[CD][:province:][:upper:]{1,3}
+  - regex: H[CD][:province:][:upper:]{1,3}
     criteria:
-      1: H
-      2:
-        - C
-        - D
-      3:
-        codelist: province
-      4:
+    - segment_type: string
+      key: "1"
+      value: H
+    - key: "2"
+      segment_type: enum
+      values:
+        - segment_type: string
+          value: C
+        - segment_type: string
+          value: D
+    - key: "3"
+      segment_type: codelist
+      codelist: province
+    - key: "4"
+      segment_type: range
+      range:
         from: A
         to: Z
-        cardinality: 1-3
+        cardinality: "1-3"
 
   experimental:
-    name: Ecuador
-    regex: HD9[:upper:]{3}
+    - name: Ecuador
+      regex: HD9[:upper:]{3}
 
 codelists:
-  province:
-    1: Provinces of Carchi, Imbabura and Pichincha
-    2: Provinces of Guayas (Coast) and Los Ríos
-    3: Provinces of El Oro (Coast) and Loja
-    4: Provinces of Manabí (Coast) and Esmeraldas (Coast)
-    5: Provinces of Chimborazo, Cañar and Azuay
-    6: Provinces of Cotopaxi, Tungurahua and Bolívar
-    7: Provinces of Napo, Pastaza, Morona Santiago, Zamora and Sucumbios
-    8: South Region
-    9: Province of the Galápagos (Islands)
+  - name: province
+    list:
+    - code: "1"
+      name: Provinces of Carchi, Imbabura and Pichincha
+    - code: "2"
+      name: Provinces of Guayas (Coast) and Los Ríos
+    - code: "3"
+      name: Provinces of El Oro (Coast) and Loja
+    - code: "4"
+      name: Provinces of Manabí (Coast) and Esmeraldas (Coast)
+    - code: "5"
+      name: Provinces of Chimborazo, Cañar and Azuay
+    - code: "6"
+      name: Provinces of Cotopaxi, Tungurahua and Bolívar
+    - code: "7"
+      name: Provinces of Napo, Pastaza, Morona Santiago, Zamora and Sucumbios
+    - code: "8"
+      name: South Region
+    - code: "9"
+      name: Province of the Galápagos (Islands)
 
 notes:
   - The radio amateurs operating during competitions have to use HD9 followed by 1 letter on a temporary basis.

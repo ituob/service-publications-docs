@@ -26,4 +26,4 @@ groups:
       regex: OM9[A-S][:upper:]{2}
 
   experimental:
-    regex: OM9[T-Z][:upper:]{2}
+  - regex: OM9[T-Z][:upper:]{2}

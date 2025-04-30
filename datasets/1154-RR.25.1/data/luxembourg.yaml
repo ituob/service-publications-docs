@@ -15,20 +15,31 @@
 
 groups:
   amateur:
-    regex: LX[:station_types:][:upper:]{1,4}
+  - regex: LX[:station_types:][:upper:]{1,4}
 
 codelists:
-  station_types:
-    0: Repeaters, beacons, group stations
-    1: Individual stations operating with a HAREC certificate
-    2: Individual stations operating with a HAREC certificate
-    3: Individual stations operating with a HAREC certificate
-    4: Group stations
-    5: Group stations, experimental stations
-    6: Individual stations operated by beginners
-    7: Individual stations operated during competitions
-    8: Group stations
-    9: Group stations
+  - name: station_types
+    list:
+    - code: "0"
+      name: Repeaters, beacons, group stations
+    - code: "1"
+      name: Individual stations operating with a HAREC certificate
+    - code: "2"
+      name: Individual stations operating with a HAREC certificate
+    - code: "3"
+      name: Individual stations operating with a HAREC certificate
+    - code: "4"
+      name: Group stations
+    - code: "5"
+      name: Group stations, experimental stations
+    - code: "6"
+      name: Individual stations operated by beginners
+    - code: "7"
+      name: Individual stations operated during competitions
+    - code: "8"
+      name: Group stations
+    - code: "9"
+      name: Group stations
 
 notes:
   - Foreign radio amateurs with temporary licence must use LX followed by a stroke (/) and their own call sign.

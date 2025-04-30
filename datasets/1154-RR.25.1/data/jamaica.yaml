@@ -6,7 +6,7 @@
 
 groups:
   amateur: &general
-    regex: 6Y5[:upper:]{2}
+  - regex: 6Y5[:upper:]{2}
 
   experimental: *general
 

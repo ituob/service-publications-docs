@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: OD5[:upper:]{2}
+  - regex: OD5[:upper:]{2}
 
   experimental:
-    regex: OD9[:upper:]{2}
+  - regex: OD9[:upper:]{2}

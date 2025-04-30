@@ -5,6 +5,6 @@
 
 groups:
   amateur: &general
-    regex: H44[:upper:]{2}
+  - regex: H44[:upper:]{2}
 
   experimental: *general

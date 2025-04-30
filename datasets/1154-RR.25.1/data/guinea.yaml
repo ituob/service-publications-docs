@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: 3X[:digit:][:upper:]{2}
+  - regex: 3X[:digit:][:upper:]{2}
 
   experimental:
-    regex: 3X[2-9][:upper:]{3}
+  - regex: 3X[2-9][:upper:]{3}

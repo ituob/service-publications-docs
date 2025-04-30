@@ -5,6 +5,6 @@
 
 groups:
   amateur: &general
-    regex: XZ2[:upper:]{2}
+  - regex: XZ2[:upper:]{2}
 
   experimental: *general

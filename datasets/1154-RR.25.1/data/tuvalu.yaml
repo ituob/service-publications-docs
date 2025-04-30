@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: T2[:digit:][:upper:]{2}
+  - regex: T2[:digit:][:upper:]{2}
 
   experimental:
-    regex: T2[2-9][:upper:]{2}
+  - regex: T2[2-9][:upper:]{2}

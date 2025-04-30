@@ -5,4 +5,4 @@
 
 groups:
   amateur:
-    regex: 5W[:digit:][:upper:]{2}
+  - regex: 5W[:digit:][:upper:]{2}

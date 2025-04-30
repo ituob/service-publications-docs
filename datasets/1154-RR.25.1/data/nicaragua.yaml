@@ -15,24 +15,39 @@
 
 groups:
   amateur:
-    regex: YN[:zone:][:upper:]{2,3}
+  - regex: YN[:zone:][:upper:]{2,3}
     criteria:
-      1: YN
-      2:
-        codelist: zone
-      3:
+    - segment_type: string
+      key: "1"
+      value: YN
+    - key: "2"
+      segment_type: codelist
+      codelist: zone
+    - key: "3"
+      segment_type: range
+      range:
         from: A
         to: Z
-        cardinality: 2-3
+        cardinality: "2-3"
 
 codelists:
-  zone:
-    1: Managua
-    2: Granada
-    3: León
-    4: Zelaya
-    5: Carazo and Rivas
-    6: Chinandega
-    7: Masaya
-    8: Estelí, Madriz and Nueva Segovia
-    9: Matagalpa, Jinotega, Boaco, Chontales and Río San Juan
+  - name: zone
+    list:
+    - code: "1"
+      name: Managua
+    - code: "2"
+      name: Granada
+    - code: "3"
+      name: León
+    - code: "4"
+      name: Zelaya
+    - code: "5"
+      name: Carazo and Rivas
+    - code: "6"
+      name: Chinandega
+    - code: "7"
+      name: Masaya
+    - code: "8"
+      name: Estelí, Madriz and Nueva Segovia
+    - code: "9"
+      name: Matagalpa, Jinotega, Boaco, Chontales and Río San Juan

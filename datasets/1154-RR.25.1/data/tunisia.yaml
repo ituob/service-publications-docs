@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: 3V8[:upper:]{2}
+  - regex: 3V8[:upper:]{2}
 
   experimental:
-    regex: TS8[:upper:]{2}
+  - regex: TS8[:upper:]{2}

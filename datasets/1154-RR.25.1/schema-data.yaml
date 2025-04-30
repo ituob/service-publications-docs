@@ -1,22 +1,133 @@
 # yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
 ---
 $schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1154-RR.25.1
+description: ITU OB Dataset Schema for 1154-RR.25.1
 type: object
 required:
 - groups
 additionalProperties: false
+$defs:
+  segment:
+    type: object
+    required:
+    - segment_type
+    additionalProperties: false
+    properties:
+      segment_type:
+        type: string
+        description: Type of segment
+        enum:
+        - enum
+        - range
+        - string
+        - codelist
+      cardinality:
+        type: string
+        description: Cardinality for the segment
+      key:
+        type: string
+        description: Key for the segment type
+      value:
+        type: string
+        description: Value for the "string" segment type
+      values:
+        type: array
+        description: Values for the "enum" segment type
+        items:
+          $ref: '#/$defs/segment'
+      range:
+        type: object
+        description: Range for the "range" segment type
+        properties:
+          from:
+            type: string
+            description: Starting value of the range
+          to:
+            type: string
+            description: Ending value of the range
+          cardinality:
+            type: string
+            description: Cardinality for the "range" segment
+        additionalProperties: false
+      codelist:
+        type: string
+        description: Codelist for the "codelist" segment type
+  group:
+    type: object
+    required:
+    - regex
+    additionalProperties: false
+    properties:
+      name:
+        description: Name of the group
+        type: string
+      regex:
+        description: Regular expression for group
+        type: string
+      criteria:
+        description: Criteria for group
+        type: array
+        items:
+          $ref: '#/$defs/segment'
+  code:
+    type: object
+    required:
+    - code
+    # - name
+    properties:
+      code:
+        oneOf:
+        - type: string
+        - type: object
+          properties:
+            from:
+              type: string
+              description: Starting value of the code
+            to:
+              type: string
+              description: Ending value of the code
+          additionalProperties: false
+          name:
+            type: string
+            description: Name of the code
+
 properties:
   groups:
     description: Groups information
-    type: array
-    items:
-      type: object
-      required:
-      - amateur
+    type: object
+    properties:
+      amateur:
+        description: Amateur group information
+        type: array
+        items:
+          $ref: '#/$defs/group'
+
+      experimental:
+        description: Experimental group information
+        type: array
+        items:
+          $ref: '#/$defs/group'
+    required:
+    - amateur
+
   codelists:
     type: array
     items:
       type: object
       required:
       - name
-      - code
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+          description: Name of the codelist
+        list:
+          type: array
+          items:
+            $ref: '#/$defs/code'
+  notes:
+    type: array
+    items:
+      type: string
+    description: Notes for the dataset

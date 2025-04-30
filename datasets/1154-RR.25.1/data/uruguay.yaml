@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: CX[1-9][:upper:]{1,3}
+  - regex: CX[1-9][:upper:]{1,3}
 
   experimental:
-    regex: C[VWX][1-9][:upper:]{1,3}
+  - regex: C[VWX][1-9][:upper:]{1,3}

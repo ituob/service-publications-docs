@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: V63[:upper:]{2}
+  - regex: V63[:upper:]{2}
 
   experimental:
-    regex: V62X[:upper:]{2}
+  - regex: V62X[:upper:]{2}

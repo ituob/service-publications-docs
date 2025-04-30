@@ -5,6 +5,6 @@
 
 groups:
   amateur: &general
-    regex: 7Z[:digit:][:upper:]{2}
+  - regex: 7Z[:digit:][:upper:]{2}
 
   experimental: *general

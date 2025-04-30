@@ -14,25 +14,38 @@
 
 groups:
   amateur:
-    regex: 9L[:area_or_province:][:upper:]{2}
+  - regex: 9L[:area_or_province:][:upper:]{2}
     criteria:
-      1: 9L
-      2:
-        codelist: area_or_province
-      3:
+    - segment_type: string
+      key: "1"
+      value: 9L
+    - key: "2"
+      segment_type: codelist
+      codelist: area_or_province
+    - key: "3"
+      segment_type: range
+      range:
         from: A
         to: Z
-        cardinality: 2
+        cardinality: "2"
 
 codelists:
-  area_or_province:
-    0: Small craft and off-shore islands
-    1: Western area
-    2: Northern province
-    3: Southern province
-    4: Eastern province
-    7: Novice licence
-    8: Class B licence (VHF/UHF)
+  - name: area_or_province
+    list:
+    - code: "0"
+      name: Small craft and off-shore islands
+    - code: "1"
+      name: Western area
+    - code: "2"
+      name: Northern province
+    - code: "3"
+      name: Southern province
+    - code: "4"
+      name: Eastern province
+    - code: "7"
+      name: Novice licence
+    - code: "8"
+      name: Class B licence (VHF/UHF)
 
 notes:
   - Foreign radio amateurs with temporary licence must use 9L followed by a stroke (/) and their own call sign.

@@ -11,17 +11,25 @@ groups:
     - name: National radio amateurs
       regex: 8P6[:upper:]{2}
       criteria:
-        1: 8P6
-        2:
+      - segment_type: string
+        key: "1"
+        value: 8P6
+      - segment_type: range
+        key: "2"
+        range:
           from: A
           to: Z
-          cardinality: 2
+          cardinality: "2"
 
     - name: Foreign radio amateurs, visitors and short-term licence holders.
       regex: 8P9[:upper:]{2}
       criteria:
-        1: 8P6
-        2:
+      - segment_type: string
+        key: "1"
+        value: 8P6
+      - segment_type: range
+        key: "2"
+        range:
           from: A
           to: Z
-          cardinality: 2
+          cardinality: "2"

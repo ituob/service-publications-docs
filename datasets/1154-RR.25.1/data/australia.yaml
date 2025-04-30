@@ -27,94 +27,166 @@ groups:
     - name: Advanced license
       regex: (VK|AX|VI)[:amateur_area:][A-GI-KS-UW-Z][A-Z]{2,3}
       criteria:
-        1:
-          - VK
-          - AX
-          - VI
-        2:
-          codelist: amateur_area
-        3:
-          - A-G
-          - I-K
-          - S-U
-          - W-Z
-        4:
+      - segment_type: enum
+        key: "1"
+        values:
+          - segment_type: string
+            value: VK
+          - segment_type: string
+            value: AX
+          - segment_type: string
+            value: VI
+      - segment_type: codelist
+        key: "2"
+        codelist: amateur_area
+      - segment_type: enum
+        key: "3"
+        values:
+          - segment_type: range
+            range:
+              from: A
+              to: G
+          - segment_type: range
+            range:
+              from: I
+              to: K
+          - segment_type: range
+            range:
+              from: S
+              to: U
+          - segment_type: range
+            range:
+              from: W
+              to: Z
+      - segment_type: range
+        key: "4"
+        range:
           from: A
           to: Z
-          cardinality: 2-3
+          cardinality: "2-3"
 
     - name: Standard license
       regex: (VK|AX|VI)[:amateur_area:][HLMNPV][A-Z]{2}
       criteria:
-        1:
-          - VK
-          - AX
-          - VI
-        2:
-          codelist: amateur_area
-        3:
-          - H
-          - L
-          - M
-          - P
-          - V
-        4:
+      - segment_type: enum
+        key: "1"
+        values:
+          - segment_type: string
+            value: VK
+          - segment_type: string
+            value: AX
+          - segment_type: string
+            value: VI
+      - segment_type: codelist
+        key: "2"
+        codelist: amateur_area
+      - segment_type: enum
+        key: "3"
+        values:
+          - segment_type: string
+            value: H
+          - segment_type: string
+            value: L
+          - segment_type: string
+            value: M
+          - segment_type: string
+            value: P
+          - segment_type: string
+            value: V
+      - segment_type: range
+        key: "4"
+        range:
           from: A
           to: Z
-          cardinality: 2
+          cardinality: "2"
 
     - name: Foundation license
       regex: (VK|AX|VI)[:amateur_area:][F][A-Z]{3}
       criteria:
-        1:
-          - VK
-          - AX
-          - VI
-        2:
-          codelist: amateur_area
-        3:
-          - F
-        4:
+      - segment_type: enum
+        key: "1"
+        values:
+          - segment_type: string
+            value: VK
+          - segment_type: string
+            value: AX
+          - segment_type: string
+            value: VI
+      - segment_type: codelist
+        key: "2"
+        codelist: amateur_area
+      - segment_type: string
+        key: "3"
+        value: F
+      - segment_type: range
+        key: "4"
+        range:
           from: A
           to: Z
-          cardinality: 3
+          cardinality: "3"
 
   experimental:
-    regex: AX[:digit:][:experimental_area:][:upper:]{2}
+  - regex: AX[:digit:][:experimental_area:][:upper:]{2}
     criteria:
-      1: AX
-      2:
-        from: 0
-        to: 9
-      3:
-        codelist: experimental_area
-      4:
+    - segment_type: string
+      key: "1"
+      value: AX
+    - key: "2"
+      segment_type: range
+      range:
+        from: "0"
+        to: "9"
+    - key: "3"
+      segment_type: codelist
+      codelist: experimental_area
+    - key: "4"
+      segment_type: range
+      range:
         from: A
         to: Z
-        cardinality: 2
+        cardinality: "2"
 
 codelists:
 
-  amateur_area:
-    1: Australian Capital Territory
-    2: New South Wales
-    3: Victoria
-    4: Queensland
-    5: South Australia
-    6: Western Australia
-    7: Tasmania
-    8: Northern Territory
-    9: Australian External Territories
+  - name: amateur_area
+    list:
+    - code: "1"
+      name: Australian Capital Territory
+    - code: "2"
+      name: New South Wales
+    - code: "3"
+      name: Victoria
+    - code: "4"
+      name: Queensland
+    - code: "5"
+      name: South Australia
+    - code: "6"
+      name: Western Australia
+    - code: "7"
+      name: Tasmania
+    - code: "8"
+      name: Northern Territory
+    - code: "9"
+      name: Australian External Territories
 
   # Experimental
   # AX[:digit:][:area:][:upper:]{2}
-  experimental_area:
-    A: Australian Capital Territory
-    N: New South Wales
-    V: Victoria
-    Q: Queensland
-    S: South Australia
-    W: Western Australia
-    T: Tasmania
-    D: Northern Territory
+  - name: experimental_area
+    list:
+    - code: "A"
+      name: Australian Capital Territory
+    - code: "N"
+      name: New South Wales
+    - code: "V"
+      name: Victoria
+    - code: "Q"
+      name: Queensland
+    - code: "S"
+      name: South Australia
+    - code: "W"
+      name: Western Australia
+    - code: "T"
+      name: Tasmania
+    - code: "D"
+      name: Northern Territory
 

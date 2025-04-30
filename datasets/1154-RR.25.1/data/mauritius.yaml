@@ -10,14 +10,19 @@
 
 groups:
   amateur:
-    regex: 3B[:area:][:upper:]{2}
+  - regex: 3B[:area:][:upper:]{2}
 
 codelists:
-  area:
-    6: Agalega
-    7: S. Brandon
-    8: Mauritius
-    9: Rodrigues
+  - name: area
+    list:
+    - code: "6"
+      name: Agalega
+    - code: "7"
+      name: S. Brandon
+    - code: "8"
+      name: Mauritius
+    - code: "9"
+      name: Rodrigues
 
 notes:
   - Foreign radio amateurs with visitor licence must use 3B8 followed by a stroke (/) and their own call sign.

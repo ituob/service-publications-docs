@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: XW8[A-D][:upper:]
+  - regex: XW8[A-D][:upper:]
 
   experimental:
-    regex: XW8E[:upper:]
+  - regex: XW8E[:upper:]

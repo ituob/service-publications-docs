@@ -7,6 +7,6 @@
 
 groups:
   amateur: &general
-    regex: O[F-J][:digit:][0-9A-Z]{3}[:upper:]{1}
+  - regex: O[F-J][:digit:][0-9A-Z]{3}[:upper:]{1}
 
   experimental: *general

@@ -24,36 +24,59 @@
 
 groups:
   amateur:
-    regex: V[:province_or_area:][:upper:]{1,3}
+  - regex: V[:province_or_area:][:upper:]{1,3}
 
   experimental:
     - name: Canada (all provinces and territories)
       regex: VX9[:upper:]{2,3}
 
 codelists:
-  province_or_area:
-    E1: Provinces of Nova Scotia and New Brunswick
-    A1: Provinces of Nova Scotia and New Brunswick
-    E2: Province of Quebec
-    A2: Province of Quebec
-    E3: Province of Ontario
-    A3: Province of Ontario
-    E4: Province of Manitoba
-    A4: Province of Manitoba
-    E5: Province of Saskatchewan
-    A5: Province of Saskatchewan
-    E6: Province of Alberta
-    A6: Province of Alberta
-    E7: Province of British Columbia
-    A7: Province of British Columbia
-    E8: Northwest Territories (excluding Nunavut)
-    E9: Province of New Brunswick
-    E0: Amateur station on board a ship
-    O1: Province of Newfoundland (excluding Labrador)
-    O2: Labrador
-    Y0: Nunavut Territory
-    Y1: Yukon Territory
-    Y2: Province of Prince Edward Island
+  - name: province_or_area
+    list:
+    - code: "E1"
+      name: Provinces of Nova Scotia and New Brunswick
+    - code: "A1"
+      name: Provinces of Nova Scotia and New Brunswick
+    - code: "E2"
+      name: Province of Quebec
+    - code: "A2"
+      name: Province of Quebec
+    - code: "E3"
+      name: Province of Ontario
+    - code: "A3"
+      name: Province of Ontario
+    - code: "E4"
+      name: Province of Manitoba
+    - code: "A4"
+      name: Province of Manitoba
+    - code: "E5"
+      name: Province of Saskatchewan
+    - code: "A5"
+      name: Province of Saskatchewan
+    - code: "E6"
+      name: Province of Alberta
+    - code: "A6"
+      name: Province of Alberta
+    - code: "E7"
+      name: Province of British Columbia
+    - code: "A7"
+      name: Province of British Columbia
+    - code: "E8"
+      name: Northwest Territories (excluding Nunavut)
+    - code: "E9"
+      name: Province of New Brunswick
+    - code: "E0"
+      name: Amateur station on board a ship
+    - code: "O1"
+      name: Province of Newfoundland (excluding Labrador)
+    - code: "O2"
+      name: Labrador
+    - code: "Y0"
+      name: Nunavut Territory
+    - code: "Y1"
+      name: Yukon Territory
+    - code: "Y2"
+      name: Province of Prince Edward Island
 
 notes:
   - VE0 is intended for use when the amateur radio station is operated from a vessel that makes international voyages.
