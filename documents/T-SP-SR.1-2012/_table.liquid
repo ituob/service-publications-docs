@@ -1,0 +1,63 @@
+[%unnumbered,cols="1",options="header"]
+|===
+^.^|Country/geographical area
+
+{% for country in data %}
+{% assign geoarea = country.geographic_area %}
+{% assign restrictions = country.restrictions %}
+{% assign notes = country.notes[lang] %}
+
+a| *_{{ geoarea.fr }}_* +
+*_{{ geoarea.en }}_* +
+*_{{ geoarea.es }}_*
+
+{% if restrictions.telex_not_provided == true %}
+{% assign telex_not_provided = metadata.locale | where: "key", "telex_not_provided" | first %}
+
+{{ telex_not_provided[lang] }}
+
+{% endif %}
+
+{% if restrictions.telegram_not_provided == true %}
+{% assign telegram_not_provided = metadata.locale | where: "key", "telegram_not_provided" | first %}
+{{ telegram_not_provided[lang] }}
+{% endif %}
+
+{% if restrictions.no_messenger_dispatch == true %}
+{% assign no_messenger_dispatch = metadata.locale | where: "key", "no_messenger_dispatch" | first %}
+{{ no_messenger_dispatch[lang] }}
+{% endif %}
+
+{% if restrictions.no_collect_calls %}
+{% for call in restrictions.no_collect_calls %}
+
+{% if call[1] == true %}
+
+{% case call[0] %}
+
+{% when "mobile" %}
+{% assign no_collect_locale = metadata.locale | where: "key", "no_collect_calls_mobile" | first %}
+{% when "payphone" %}
+{% assign no_collect_locale = metadata.locale | where: "key", "no_collect_calls_payphone" | first %}
+{% when "audiotex" %}
+{% assign no_collect_locale = metadata.locale | where: "key", "no_collect_calls_audiotex" | first %}
+{% when "virtual" %}
+{% assign no_collect_locale = metadata.locale | where: "key", "no_collect_calls_virtual" | first %}
+{% when "incoming" %}
+{% assign no_collect_locale = metadata.locale | where: "key", "no_collect_calls_incoming" | first %}
+{% when "outgoing" %}
+{% assign no_collect_locale = metadata.locale | where: "key", "no_collect_calls_outgoing" | first %}
+{% endcase %}
+
+{{ no_collect_locale[lang] }}
+
+{% endif %}
+
+{% endfor %}
+
+{% endif %}
+
+{{ notes }}
+
+{% endfor %}
+|===
