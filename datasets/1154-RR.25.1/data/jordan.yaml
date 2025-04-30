@@ -5,4 +5,4 @@
 
 groups:
   amateur:
-    regex: JY[:digit:][:upper:]{2}
+  - regex: JY[:digit:][:upper:]{2}

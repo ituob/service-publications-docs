@@ -8,7 +8,7 @@
 
 groups:
   amateur:
-    regex: CN[28][:upper:]{2}
+  - regex: CN[28][:upper:]{2}
 
   experimental:
     - name: Morocco

@@ -25,32 +25,48 @@
 
 groups:
   amateur:
-    regex: 5N[:zone:][:upper:]{3}
+  - regex: 5N[:zone:][:upper:]{3}
     criteria:
-      1: 5N
-      2:
-        codelist: zone
-      3:
+    - segment_type: string
+      key: "1"
+      value: 5N
+    - key: "2"
+      segment_type: codelist
+      codelist: zone
+    - key: "3"
+      segment_type: range
+      range:
         from: A
         to: Z
-        cardinality: 3
+        cardinality: "3"
 
   experimental:
-    name: Pattern 1
+  - name: Pattern 1
     regex: 5N[2468][X-Z][:upper:]
 
-    name: Pattern 2
+  - name: Pattern 2
     regex: 5N[3579]E[:upper:]
 
 codelists:
-  zone:
-    0: Lagos State and Federal Capital Territory
-    1: Ogun, Oyo, Ondo and Ekiti States
-    2: Osun, Kwara, Kogi and Niger States
-    3: Edo, Delta, Bayelsa and Anambra States
-    4: Enugu, Abia, Ebonyi and Rivers States
-    5: Imo, Akwa lbom and Cross River States
-    6: Benue, Plateau, Nassarawa and Taraba States
-    7: Bauchi, Gombe, Adamawa and Borno States
-    8: Jigawa, Kano, Yobe and Katsina States
-    9: Zamfara, Sokoto, Kaduna and Kebbi States
+  - name: zone
+    list:
+    - code: "0"
+      name: Lagos State and Federal Capital Territory
+    - code: "1"
+      name: Ogun, Oyo, Ondo and Ekiti States
+    - code: "2"
+      name: Osun, Kwara, Kogi and Niger States
+    - code: "3"
+      name: Edo, Delta, Bayelsa and Anambra States
+    - code: "4"
+      name: Enugu, Abia, Ebonyi and Rivers States
+    - code: "5"
+      name: Imo, Akwa lbom and Cross River States
+    - code: "6"
+      name: Benue, Plateau, Nassarawa and Taraba States
+    - code: "7"
+      name: Bauchi, Gombe, Adamawa and Borno States
+    - code: "8"
+      name: Jigawa, Kano, Yobe and Katsina States
+    - code: "9"
+      name: Zamfara, Sokoto, Kaduna and Kebbi States

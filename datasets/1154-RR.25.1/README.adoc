@@ -1,8 +1,28 @@
 = OB 1154 RR.25.1 YAML schema
 
+== Purpose
+
+This document describes the YAML schema for the ITU RR.25.1 call sign pattern
+data.
+
 == Basic schema
 
 Each YAML file represents the schema of one country.
+
+== Data types
+
+=== Group
+
+// Description of the $defs/group object
+
+=== Segment
+
+// Description of the $defs/segment object
+
+=== Code
+
+// Description of the $defs/code object
+
 
 == Root keys: `groups`, `codelists`
 
@@ -10,7 +30,7 @@ There are 2 root keys:
 
 `groups`:: the call sign patterns.
 There are 2 supported sub-keys: `amateur` and `experimental`.
-Each of these items could be either be a single object or an array.
+Each of these items is an array of "group" objects.
 
 e.g.
 
@@ -18,22 +38,26 @@ e.g.
 ----
 groups:
   amateur:
-  # Single call-sign schema
-    regex: OE[:amateur_area:][:upper:]{2,3}
-    1: OE
-    2:
-      codelist: amateur_area
-    3:
-      from: A
-      to: Z
-      cardinality: 2-3
+    - regex: OE[:amateur_area:][:upper:]{2,3}
+      criteria:
+      - key: "1"
+        segment_type: string
+        value: OE
+      - key: "2"
+        segment_type: codelist
+        codelist: amateur_area
+      - key: "3"
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 2-3
 ----
 
 [source,yaml]
 ----
 groups:
   amateur:
-  # Array of call-sign schemas
     - name: Class 1 licence
       regex: V31[:upper]{2}
 
@@ -52,28 +76,42 @@ e.g.
 [source,yaml]
 ----
 codelists:
-  city_region:
-    1: City of Minsk
-    2: Minsk Region
-    3: Brest Region
-    4: Grodno Region
-    5: Vitebsk Region
-    6: Mogilev Region
-    7: Gomel Region
+  - name: city_region
+    list:
+      - name: City of Minsk
+        code: "1"
+      - name: Minsk Region
+        code: "2"
+      - name: Brest Region
+        code: "3"
+      - name: Grodno Region
+        code: "4"
+      - name: Vitebsk Region
+        code: "5"
+      - name: Mogilev Region
+        code: "6"
+      - name: Gomel Region
+        code: "7"
 ----
 
 [source,yaml]
 ----
 codelists:
-  amateur_area:
-    1: Vienna (amateur stations only)
-    ...
-    0: extraterritorial (on board ships or on board aircraft)
+  - name: amateur_area
+    list:
+      - name: Vienna (amateur stations only)
+        code: "1"
+        // ...
+      - name: extraterritorial (on board ships or on board aircraft)
+        code: "0"
 
-  experimental_area:
-    2: Salzburg
-    ...
-    9: Vorarlberg
+  - name: experimental_area
+    list:
+      - name: Salzburg
+        code: "2"
+        // ...
+      - name: Vorarlberg
+        code: "9"
 ----
 
 
@@ -95,12 +133,18 @@ Or
 name: Foreign radio amateurs, visitors and short-term licence holders.
 regex: 8P9[:upper:]{2}
 criteria:
-  1: 8P6
-  2:
-    from: A
-    to: Z
-    cardinality: 2
+  - key: "1"
+    segment_type: string
+    value: 8P6
+  - key: "2"
+    segment_type: range
+    range:
+      from: A
+      to: Z
+      cardinality: "2"
 ----
+
+Each "criteria" is a "segment" object.
 
 If a call-sign schema has no name, just omit it:
 
@@ -109,15 +153,25 @@ If a call-sign schema has no name, just omit it:
 ----
 regex: A9[:digit:][0-9A-Z]{2,4}
 criteria:
-  1: A9
-  2:
-    from: 0
-    to: 9
-  3:
-    - from: 0
+  - segment_type: string
+    key: "1"
+    value: A9
+  - segment_type: range
+    key: "2"
+    range:
+      from: 0
       to: 9
-    - from: A
-      to: Z
+  - segment_type: enum
+    key: "3"
+    values:
+      - segment_type: range
+        range:
+          from: 0
+          to: 9
+      - segment_type: range
+        range:
+          from: A
+          to: Z
     cardinality: 2-4
 ----
 
@@ -128,7 +182,12 @@ The call-sign schema contains these keys:
 
 `criteria`:: The criteria of the schema.
 
+
 == Criteria objects
+
+=== General
+
+Each criteria object is composed of `name`, `regex` or `criteria`.
 
 e.g.
 [source,yaml]
@@ -138,16 +197,30 @@ groups:
     - name: National radio amateurs
       regex: 8P6[:upper:]{2}
       criteria:
-        1: 8P6
-        2:
-          from: A
-          to: Z
-          cardinality: 2
+        - segment_type: string
+          key: "1"
+          value: 8P6
+        - segment_type: range
+          key: "2"
+          range:
+            from: A
+            to: Z
+            cardinality: 2
 ----
 
-There are two types of criteria objects:
+=== Simple criteria (regex)
 
-`regex`:: The regular expression (RegEx) that expresses the call-sign schema. The regex groups of `[:digit:]` (0 to 9), `[:upper:]` (A to Z) are often used. Reference to code-lists can be made using regex groups using the name of the code-list, e.g. `[:city_region:]` for a code-list named `city_region`.
+The simple form of a criteria object is definable in a regular expression.
+
+`regex`:: The regular expression (RegEx) that expresses the call-sign schema.
+
+There are 2 regex group operators that can be used:
+
+* `[:digit:]`: to match digits (0-9)
+
+* `[:upper:]`: to match uppercase letters (A-Z)
+
+Regex references used in the form of `[:name:]` are references to the defined codelists (the `name` property of a codelist defined in the `codelists` section). e.g. `[:city_region:]` for a code-list named `city_region`.
 
 If there are two regexes, split the object:
 
@@ -161,60 +234,120 @@ If there are two regexes, split the object:
 ----
 
 
-`{digits}`:: This is the "`expanded`" form of the pattern in `regex` for easier parsing.
-The keys inside each criteria object are numbers to indicate the order of groups.
 
-Each matching group is either:
+=== Complex criteria
 
-* a string
-* a matching object that contains `from:`, `to:` (optional), `cardinality:` (optional)
-* a codelist
-* an array of matching groups
+Some call-sign schemas are too complex to be expressed in a single regex.
+In this case, the `criteria` key is used to define the criteria in a more complex way.
 
-e.g. the regex `8P9[:upper:]{2}` is expanded into:
+The `criteria` key is an array of `segment` objects.
+
+Each `segment` object at the criteria level requires a `key` property which is
+the matching part of the call sign.
+
+There are 4 types of `segment` objects:
+
+`string`:: a string value (e.g. `VK`, `OE`, `8P6`). Requires the `key` and `value` properties.
+
+`range`:: a range of values (e.g. `A-Z`, `0-9`, `2-3`). Requires the `key` and `range` properties. The `range` property is an object with `from`, `to` and `cardinality` properties (one of `from` and `cardinality` required).
++
+NOTE: The `from`, `to` and `cardinality` properties are all strings. The `cardinality` may be a range (e.g. `2-3`) or a single value (e.g. `2`).
+
+`codelist`:: a reference to a code list (e.g. `amateur_area`, `city_region`). Requires the `key` and `codelist` properties. This means that the code list must already be defined in the `codelists` section of the YAML file (this needs to be validated).
+
+`enum`:: an array of segments, each of which is a `string`, `range` or `codelist` segment. These segment objects do not have the `key` property.
+
+.Call sign pattern in complex criteria from regex
+[example]
+====
+The regex `8P9[:upper:]{2}` can be expanded into:
 
 [source,yaml]
 ----
 regex: 8P9[:upper:]{2}
 criteria:
-  1: 8P6
-  2:
-    from: A
-    to: Z
-    cardinality: 2
+  - segment_type: string
+    key: "1"
+    value: 8P6
+  - segment_type: range
+    key: "2"
+    range:
+      from: A
+      to: Z
+      cardinality: "2"
 ----
+====
 
-e.g. to refer to code-lists
+
+.Call sign pattern that refers to code-lists
+[exmaple]
+====
 [source,yaml]
 ----
 criteria:
-  1: OE
-  2:
+  - segment_type: string
+    key: "1"
+    value: OE
+  - segment_type: codelist
+    key: "2"
     codelist: amateur_area
-  3:
-    from: A
-    to: Z
-    cardinality: 2-3
+  - segment_type: range
+    key: "3"
+    range:
+      from: A
+      to: Z
+      cardinality: 2-3
 ----
+====
 
-e.g. string ranges
+.Call sign pattern using an enum with string ranges
+[example]
+====
 [source,yaml]
 ----
 criteria:
-  1:
-    - VK
-    - AX
-    - VI
-  2:
+  - segment_type: enum
+    key: "1"
+    values:
+    - segment_type: string
+      value: VK
+    - segment_type: string
+      value: AX
+    - segment_type: string
+      value: VI
+  - segment_type: codelist
+    key: "2"
     codelist: amateur_area
-  3:
-    - A-G
-    - I-K
-    - S-U
-    - W-Z
-  4:
-    from: A
-    to: Z
-    cardinality: 2-3
+  - segment_type: enum
+    key: "3"
+    values:
+    - segment_type: range
+      range:
+        from: A
+        to: G
+    - segment_type: range
+      range:
+        from: I
+        to: K
+    - segment_type: range
+      range:
+        from: S
+        to: U
+    - segment_type: range
+      range:
+        from: W
+        to: Z
+  - segment_type: range
+    key: "4"
+    range:
+      from: A
+      to: Z
+      cardinality: 2-3
 ----
+====
 
+== License and copyright
+
+Original data is copyright to the ITU.
+
+All other content and processing code, copyright Ribose.

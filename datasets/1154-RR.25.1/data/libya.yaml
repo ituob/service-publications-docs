@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: 5A[:digit:][:upper:]{1,3}
+  - regex: 5A[:digit:][:upper:]{1,3}
 
   experimental:
-    regex: 5A[2-9][:upper:]{1,3}
+  - regex: 5A[2-9][:upper:]{1,3}

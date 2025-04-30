@@ -17,48 +17,80 @@
 
 groups:
   amateur:
-    regex: OE[:amateur_area:][:upper:]{2,3}
+  - regex: OE[:amateur_area:][:upper:]{2,3}
     criteria:
-      1: OE
-      2:
-        codelist: amateur_area
-      3:
+    - segment_type: string
+      key: "1"
+      value: OE
+    - key: "2"
+      segment_type: codelist
+      codelist: amateur_area
+    - key: "3"
+      segment_type: range
+      range:
         from: A
         to: Z
-        cardinality: 2-3
+        cardinality: "2-3"
 
   experimental:
-    regex: OE[:experimental_area:]Q[:upper:]
+  - regex: OE[:experimental_area:]Q[:upper:]
     criteria:
-      1: OE
-      2:
-        codelist: experimental_area
-      3: Q
-      4:
+    - segment_type: string
+      key: "1"
+      value: OE
+    - key: "2"
+      segment_type: codelist
+      codelist: experimental_area
+    - segment_type: string
+      key: "3"
+      value: Q
+    - key: "4"
+      segment_type: range
+      range:
         from: A
         to: Z
-        cardinality: 1
+        cardinality: "1"
 
 codelists:
 
-  amateur_area:
-    1: Vienna (amateur stations only)
-    2: Salzburg
-    3: Vienna (experimental stations only) and Lower Austria
-    4: Burgenland
-    5: Upper Austria
-    6: Styria
-    7: Tyrol
-    8: Carinthia
-    9: Vorarlberg
-    0: extraterritorial (on board ships or on board aircraft)
+  - name: amateur_area
+    list:
+    - code: "1"
+      name: Vienna (amateur stations only)
+    - code: "2"
+      name: Salzburg
+    - code: "3"
+      name: Vienna (experimental stations only) and Lower Austria
+    - code: "4"
+      name: Burgenland
+    - code: "5"
+      name: Upper Austria
+    - code: "6"
+      name: Styria
+    - code: "7"
+      name: Tyrol
+    - code: "8"
+      name: Carinthia
+    - code: "9"
+      name: Vorarlberg
+    - code: "0"
+      name: extraterritorial (on board ships or on board aircraft)
 
-  experimental_area:
-    2: Salzburg
-    3: Vienna (experimental stations only) and Lower Austria
-    4: Burgenland
-    5: Upper Austria
-    6: Styria
-    7: Tyrol
-    8: Carinthia
-    9: Vorarlberg
+  - name: experimental_area
+    list:
+    - code: "2"
+      name: Salzburg
+    - code: "3"
+      name: Vienna (experimental stations only) and Lower Austria
+    - code: "4"
+      name: Burgenland
+    - code: "5"
+      name: Upper Austria
+    - code: "6"
+      name: Styria
+    - code: "7"
+      name: Tyrol
+    - code: "8"
+      name: Carinthia
+    - code: "9"
+      name: Vorarlberg

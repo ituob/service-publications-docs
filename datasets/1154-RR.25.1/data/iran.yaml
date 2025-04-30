@@ -5,4 +5,4 @@
 
 groups:
   amateur:
-    regex: EP[:digit:][:upper:]{2}
+  - regex: EP[:digit:][:upper:]{2}

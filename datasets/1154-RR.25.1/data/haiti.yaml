@@ -5,4 +5,4 @@
 
 groups:
   amateur:
-    regex: HH[:digit:][:upper:]{2}
+  - regex: HH[:digit:][:upper:]{2}

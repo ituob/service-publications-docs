@@ -85,14 +85,22 @@ groups:
       regex: E[UVW]5[:upper:]
 
 codelists:
-  city_region:
-    1: City of Minsk
-    2: Minsk Region
-    3: Brest Region
-    4: Grodno Region
-    5: Vitebsk Region
-    6: Mogilev Region
-    7: Gomel Region
+  - name: city_region
+    list:
+    - code: "1"
+      name: City of Minsk
+    - code: "2"
+      name: Minsk Region
+    - code: "3"
+      name: Brest Region
+    - code: "4"
+      name: Grodno Region
+    - code: "5"
+      name: Vitebsk Region
+    - code: "6"
+      name: Mogilev Region
+    - code: "7"
+      name: Gomel Region
 
 notes:
   - Foreign radio amateurs with a licence must use EW followed by slash (/) and their own call sign.

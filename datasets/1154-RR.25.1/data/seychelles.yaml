@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: S79[:upper:]{3}
+  - regex: S79[:upper:]{3}
 
   experimental:
-    regex: S78A[:upper:]
+  - regex: S78A[:upper:]

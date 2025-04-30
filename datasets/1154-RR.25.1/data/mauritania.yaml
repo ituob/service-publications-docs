@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: 5T5[:upper:]{2}
+  - regex: 5T5[:upper:]{2}
 
   experimental:
-    regex: 5T2[:upper:]{2}
+  - regex: 5T2[:upper:]{2}

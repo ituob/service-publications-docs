@@ -11,28 +11,41 @@
 
 groups:
   amateur:
-    regex: 7X(02-5)[A-Z]{2,3}
-
+  - regex: 7X(02-5)[A-Z]{2,3}
     criteria:
-      1: 7X
-      2:
-        - 0
-        - from: 2
-          to: 5
-      3:
+    - segment_type: string
+      key: "1"
+      value: 7X
+    - key: "2"
+      segment_type: enum
+      values:
+        - segment_type: string
+          value: "0"
+        - segment_type: range
+          range:
+            from: "2"
+            to: "5"
+    - key: "3"
+      segment_type: range
+      range:
         from: A
         to: Z
-        cardinality: 2-3
+        cardinality: "2-3"
 
   experimental:
-    regex: 7X(6-7)[A-Z]{2,3}
-
+  - regex: 7X(6-7)[A-Z]{2,3}
     criteria:
-      1: 7X
-      2:
-        from: 6
-        to: 7
-      3:
+    - segment_type: string
+      key: "1"
+      value: 7X
+    - key: "2"
+      segment_type: range
+      range:
+        from: "6"
+        to: "7"
+    - key: "3"
+      segment_type: range
+      range:
         from: A
         to: Z
-        cardinality: 2-3
+        cardinality: "2-3"

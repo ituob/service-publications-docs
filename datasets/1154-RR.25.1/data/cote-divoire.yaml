@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: TU2[:upper:]{2}
+  - regex: TU2[:upper:]{2}
 
   experimential:
-    regex: TU3[:upper:]{2}
+  - regex: TU3[:upper:]{2}

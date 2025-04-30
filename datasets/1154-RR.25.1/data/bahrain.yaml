@@ -10,15 +10,27 @@
 
 groups:
   amateur:
-    regex: A9[:digit:][0-9A-Z]{2,4}
+  - regex: A9[:digit:][0-9A-Z]{2,4}
     criteria:
-      1: A9
-      2:
-        from: 0
-        to: 9
-      3:
-        - from: 0
-          to: 9
-        - from: A
-          to: Z
-        - cardinality: 2-4
+    - segment_type: string
+      key: "1"
+      value: A9
+    - key: "2"
+      segment_type: range
+      range:
+        from: "0"
+        to: "9"
+    - key: "3"
+      segment_type: enum
+      values:
+        - segment_type: range
+          range:
+            from: "0"
+            to: "9"
+        - segment_type: range
+          range:
+            from: "A"
+            to: "Z"
+        - segment_type: range
+          range:
+            cardinality: "2-4"

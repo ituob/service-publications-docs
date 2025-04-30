@@ -35,22 +35,33 @@
 
 groups:
   amateur:
-    regex: "(AY|AZ|LU|LW)[:digit:][:province:][A-Z]"
+  - regex: "(AY|AZ|LU|LW)[:digit:][:province:][A-Z]"
 
     criteria:
-      1:
-        - AY
-        - AZ
-        - LU
-        - LW
-      2:
-        from: 0
-        to: 9
-      3:
-        codelist: province
-      4:
-        from: A
-        to: Z
+    - key: "1"
+      segment_type: enum
+      values:
+        - segment_type: string
+          value: AY
+        - segment_type: string
+          value: AZ
+        - segment_type: string
+          value: LU
+        - segment_type: string
+          value: LW
+    - key: "2"
+      segment_type: range
+      range:
+        from: "0"
+        to: "9"
+    - key: "3"
+      segment_type: codelist
+      codelist: province
+    - key: "4"
+      segment_type: range
+      range:
+        from: "A"
+        to: "Z"
 
 codelists:
   - name: province
@@ -66,8 +77,7 @@ codelists:
           to: E
 
       - name: Province of Santa Fé
-        code:
-          from: F
+        code: F
 
       - name: Province of Chaco
         code:
@@ -80,68 +90,52 @@ codelists:
           to: GZ
 
       - name: Province of Córdoba
-        code:
-          from: H
+        code: H
 
       - name: Province of Misiones
-        code:
-          from: I
+        code: I
 
       - name: Province of Entre Ríos
-        code:
-          from: J
+        code: J
 
       - name: Province of Tucumán
-        code:
-          from: K
+        code: K
 
       - name: Province of Corrientes
-        code:
-          from: L
+        code: L
 
       - name: Province of Mendoza
-        code:
-          from: M
+        code: M
 
       - name: Province of Santiago del Estero
-        code:
-          from: N
+        code: "N"
 
       - name: Province of Salta
-        code:
-          from: O
+        code: O
 
       - name: Province of San Juan
-        code:
-          from: P
+        code: P
 
       - name: Province of San Luis
-        code:
-          from: Q
+        code: Q
 
       - name: Province of Catamarca
-        code:
-          from: R
+        code: R
 
       - name: Province of La Rioja
-        code:
-          from: S
+        code: S
 
       - name: Province of Jujuy
-        code:
-          from: T
+        code: T
 
       - name: Province of La Pampa
-        code:
-          from: U
+        code: U
 
       - name: Province of Rio Negro
-        code:
-          from: V
+        code: V
 
       - name: Province of Chubut
-        code:
-          from: W
+        code: W
 
       - name: Province of Santa Cruz
         code:
@@ -154,9 +148,7 @@ codelists:
           to: XZ
 
       - name: Neuquén
-        code:
-          from: Y
+        code: "Y"
 
       - name: Antarctic
-        code:
-          from: Z
+        code: Z

@@ -7,7 +7,7 @@
 
 groups:
   amateur: &general
-    regex: 5U[2-9]V[:upper:]{1,2}
+  - regex: 5U[2-9]V[:upper:]{1,2}
 
   experimental: *general
 

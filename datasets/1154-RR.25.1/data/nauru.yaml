@@ -5,4 +5,4 @@
 
 groups:
   amateur:
-    regex: C2[:digit:][:upper:]{2}
+  - regex: C2[:digit:][:upper:]{2}

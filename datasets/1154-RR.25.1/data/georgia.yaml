@@ -5,4 +5,4 @@
 
 groups:
   amateur:
-    regex: 4L[:digit:][:upper:]{1,3}
+  - regex: 4L[:digit:][:upper:]{1,3}

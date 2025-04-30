@@ -5,4 +5,4 @@
 
 groups:
   amateur:
-    regex: H[A|G][:digit:][0-9A-Z]{3}[:upper:]{1}
+  - regex: H[A|G][:digit:][0-9A-Z]{3}[:upper:]{1}

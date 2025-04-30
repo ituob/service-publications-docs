@@ -32,44 +32,80 @@
 
 groups:
   amateur:
-    regex: I[:region:][:upper:]{2,3}
+  - regex: I[:region:][:upper:]{2,3}
 
 codelists:
-  region:
-    0: Lazio and Umbria
-    1: Liguria, Piemonte and the Province of Novara
-    2: Lombardia and the Province of Mantova
-    3: Veneto and the Province of Rovigo
-    4: Emilia-Romagna and the Province of Piacenza
-    5: Toscana
-    6: Marche and Abruzzi
-    7: Puglie and the Province of Matera
-    8: Campania, Molise, Calabria and the Province of Potenza
+  - name: region
+    list:
+    - code: "0"
+      name: Lazio and Umbria
+    - code: "1"
+      name: Liguria, Piemonte and the Province of Novara
+    - code: "2"
+      name: Lombardia and the Province of Mantova
+    - code: "3"
+      name: Veneto and the Province of Rovigo
+    - code: "4"
+      name: Emilia-Romagna and the Province of Piacenza
+    - code: "5"
+      name: Toscana
+    - code: "6"
+      name: Marche and Abruzzi
+    - code: "7"
+      name: Puglie and the Province of Matera
+    - code: "8"
+      name: Campania, Molise, Calabria and the Province of Potenza
 
-    K0: Lazio and Umbria
-    K1: Liguria, Piemonte and the Province of Novara
-    K2: Lombardia and the Province of Mantova
-    K3: Veneto and the Province of Rovigo
-    K4: Emilia-Romagna and the Province of Piacenza
-    K5: Toscana
-    K6: Marche and Abruzzi
-    K7: Puglie and the Province of Matera
-    K8: Campania, Molise, Calabria and the Province of Potenza
+    - code: "K0"
+      name: Lazio and Umbria
+    - code: "K1"
+      name: Liguria, Piemonte and the Province of Novara
+    - code: "K2"
+      name: Lombardia and the Province of Mantova
+    - code: "K3"
+      name: Veneto and the Province of Rovigo
+    - code: "K4"
+      name: Emilia-Romagna and the Province of Piacenza
+    - code: "K5"
+      name: Toscana
+    - code: "K6"
+      name: Marche and Abruzzi
+    - code: "K7"
+      name: Puglie and the Province of Matera
+    - code: "K8"
+      name: Campania, Molise, Calabria and the Province of Potenza
 
-    A5: “Toscane” Islands (Capraia, Cerboli, Elba, Formica di Burano, Formiche di Grosseto, Giannutri, Giglio, Gorgona, Montecristo, Pianosa, Scoglio d’Affrica)
-    B0: “Ponziane” Islands (Palmarola, Ponza, Scoglio della Botte, Santo Stefano, Ventotene, Zanone)
-    C8: “Napoletane” Islands (Capri, Ischia, Li Galli, Procida, Vivara)
-    D9: “Eolie” Islands (Alicudi, Basiluzzo, Dino, Filicudi, Formiche, Lipari, Lisca Bianca, Panarea, Salina, San Pietro a Canna, Stromboli, Strombolicchio, Vulcano)
-    E9: Island of Ustica
-    F9: “Egadi” Islands (Asinelli, Favignana, La Formica, Levanzo, Maraone, Marettimo, Stagnone)
-    G9: “Pelagie” Islands (Lampedusa, Lampione, Linosa)
-    H9: Island of Pantelleria
-    J7: Archipelago of “Cheradi”
-    L7: “Tremiti” Islands (Caprara, Pianosa, San Domino, San Nicola)
-    M0: “Sardegna” Islands (Asinara, Bisce, Budelli, Carbonara, Caprera, Cavoli, Corcelli, Cretaccio, Foradada, Il Catalano, Il Toro, Il Vitello, La Maddalena, La Vacca, Mal di Ventre, Molara, Mortorio, Nibani, Ogliastra, Pan di Zucchero, Piana, Quirra, Razzoli, Rossa, Ruglia, S. Antioco, S. Pietro, S. Macario, S. Maria, Serpentara, Soffi, Spargi, Su Giudeu, Tavolara)
-    N3: Trentino-Alto Adige
-    S0: Sardegna
-    T9: Sicilia
-    V3: Friuli and Venezia Giulia
-    W0: Special licences
-    X1: Aosta Valley
+    - code: "A5"
+      name: “Toscane” Islands (Capraia, Cerboli, Elba, Formica di Burano, Formiche di Grosseto, Giannutri, Giglio, Gorgona, Montecristo, Pianosa, Scoglio d’Affrica)
+    - code: "B0"
+      name: “Ponziane” Islands (Palmarola, Ponza, Scoglio della Botte, Santo Stefano, Ventotene, Zanone)
+    - code: "C8"
+      name: “Napoletane” Islands (Capri, Ischia, Li Galli, Procida, Vivara)
+    - code: "D9"
+      name: “Eolie” Islands (Alicudi, Basiluzzo, Dino, Filicudi, Formiche, Lipari, Lisca Bianca, Panarea, Salina, San Pietro a Canna, Stromboli, Strombolicchio, Vulcano)
+    - code: "E9"
+      name: Island of Ustica
+    - code: "F9"
+      name: “Egadi” Islands (Asinelli, Favignana, La Formica, Levanzo, Maraone, Marettimo, Stagnone)
+    - code: "G9"
+      name: “Pelagie” Islands (Lampedusa, Lampione, Linosa)
+    - code: "H9"
+      name: Island of Pantelleria
+    - code: "J7"
+      name: Archipelago of “Cheradi”
+    - code: "L7"
+      name: “Tremiti” Islands (Caprara, Pianosa, San Domino, San Nicola)
+    - code: "M0"
+      name: “Sardegna” Islands (Asinara, Bisce, Budelli, Carbonara, Caprera, Cavoli, Corcelli, Cretaccio, Foradada, Il Catalano, Il Toro, Il Vitello, La Maddalena, La Vacca, Mal di Ventre, Molara, Mortorio, Nibani, Ogliastra, Pan di Zucchero, Piana, Quirra, Razzoli, Rossa, Ruglia, S. Antioco, S. Pietro, S. Macario, S. Maria, Serpentara, Soffi, Spargi, Su Giudeu, Tavolara)
+    - code: "N3"
+      name: Trentino-Alto Adige
+    - code: "S0"
+      name: Sardegna
+    - code: "T9"
+      name: Sicilia
+    - code: "V3"
+      name: Friuli and Venezia Giulia
+    - code: "W0"
+      name: Special licences
+    - code: "X1"
+      name: Aosta Valley

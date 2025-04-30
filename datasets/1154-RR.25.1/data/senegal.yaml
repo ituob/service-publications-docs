@@ -6,7 +6,7 @@
 
 groups:
   amateur:
-    regex: 6W1[:upper:]{2}
+  - regex: 6W1[:upper:]{2}
 
   amateur:
-    regex: 6V3[:upper:]{2}
+  - regex: 6V3[:upper:]{2}

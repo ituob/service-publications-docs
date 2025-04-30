@@ -12,21 +12,33 @@
 
 groups:
   amateur:
-    regex: C9[:province:][:upper:]{1,3}
+  - regex: C9[:province:][:upper:]{1,3}
     criteria:
-      1: C9
-      2:
-        codelist: province
-      3:
+    - segment_type: string
+      key: "1"
+      value: C9
+    - key: "2"
+      segment_type: codelist
+      codelist: province
+    - key: "3"
+      segment_type: range
+      range:
         from: A
         to: Z
-        cardinality: 1-3
+        cardinality: "1-3"
 
 codelists:
-  province:
-    1: Maputo
-    2: Gaza-Inhambane
-    3: Sofala-Manica
-    4: Zambezia-Nampula
-    5: Tete-Niassa
-    6: C. Delgado
+  - name: province
+    list:
+    - code: "1"
+      name: Maputo
+    - code: "2"
+      name: Gaza-Inhambane
+    - code: "3"
+      name: Sofala-Manica
+    - code: "4"
+      name: Zambezia-Nampula
+    - code: "5"
+      name: Tete-Niassa
+    - code: "6"
+      name: C. Delgado

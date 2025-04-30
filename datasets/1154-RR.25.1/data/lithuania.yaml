@@ -6,7 +6,7 @@
 
 groups:
   amateur: &general
-    regex: LY[1-4][:upper:]{1,4}
+  - regex: LY[1-4][:upper:]{1,4}
 
   experimental: *general
 

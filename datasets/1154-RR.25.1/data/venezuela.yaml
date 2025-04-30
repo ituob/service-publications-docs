@@ -5,4 +5,4 @@
 
 groups:
   amateur:
-    regex: "[YV|YX|4M][:digit:][:upper:]{3}"
+  - regex: "[YV|YX|4M][:digit:][:upper:]{3}"
