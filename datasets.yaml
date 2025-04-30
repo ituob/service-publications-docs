@@ -142,3 +142,11 @@ datasets:
     (significant) number) (in accordance with ITU-T Recommendation E.164 (11/2010))
   has_data_file: true
   has_data_directory: false
+- directory: country-names
+  title: ITU country names
+  has_data_file: true
+  has_data_directory: false
+- directory: iso-3166
+  title: ISO 3166 country codes (with ITU localized names)
+  has_data_file: true
+  has_data_directory: false
