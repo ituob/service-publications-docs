@@ -18,7 +18,7 @@
 [class=steps]
 . This List of data country or geographical area codes replaces the previous one published as Annex to ITU Operational Bulletin No. 875 of 1 January 2007. Since then, various new assignments have been made, and they have been published in the ITU Operational Bulletin .
 
-. This List includes :
+. This List includes:
 
 * a list of data country or geographical area codes (DCCs) - in numerical order;
 
@@ -37,39 +37,10 @@ Email: tsbmail@itu.int
 . The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of ITU concerning the legal status of any country or geographical area, or of its authorities.
 
 
-[yaml2text,T-SP-X.121A-2011.yaml,file]
+[yaml2text,data=../../datasets/976-X.121A/data.yaml,metadata=../../datasets/976-X.121A/metadata.yaml,file]
 ----
 {% assign lang = "en" %}
-
-
-{% for n in (2..7) %}
-
-== Zone {{ n }}
-
-[cols="2",options="header,unnumbered"]
-|===
-| Code | Country or geographical area
-
-{% assign szone = "" | append: n %}
-{% assign specific_zone = file.data | where: "zone",szone %}
-
-{% for code in specific_zone %}
-
-| {{ code.code }}
-| {%- if code.reserved != "TRUE" -%}
-    {{ code.country_or_area[lang] }}
-{%- else -%}
-    {{ code.country_or_area[lang] | split: " " | first }} footnote:[{{ code.country_or_area[lang] }}]
-{%- endif -%}
-
-{% endfor %}
-
-{% assign current_zone = "zone" | append: n %}
-2+| Zone {{ n }}, Spare Codes: *{{ file.metadata.spare_codes[current_zone] }}*
-|===
-
-{% endfor %}
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 
 == AMENDEMENTS
 

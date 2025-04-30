@@ -39,39 +39,10 @@ Email: tsbmail@itu.int
 
 
 
-[yaml2text,T-SP-X.121A-2011.yaml,file]
+[yaml2text,data=../../datasets/976-X.121A/data.yaml,metadata=../../datasets/976-X.121A/metadata.yaml,file]
 ----
 {% assign lang = "es" %}
-
-
-{% for n in (2..7) %}
-
-== Zone {{ n }}
-
-[cols="2",options="header,unnumbered"]
-|===
-| Indicativo | País o zona geográfica
-
-{% assign szone = "" | append: n %}
-{% assign specific_zone = file.data | where: "zone",szone %}
-
-{% for code in specific_zone %}
-
-| {{ code.code }}
-| {%- if code.reserved != "TRUE" -%}
-    {{ code.country_or_area[lang] }}
-{%- else -%}
-    {{ code.country_or_area[lang] | split: " " | first }} footnote:[{{ code.country_or_area[lang] }}]
-{%- endif -%}
-
-{% endfor %}
-
-{% assign current_zone = "zone" | append: n %}
-2+| Zone {{ n }}, Spare Codes: *{{ file.metadata.spare_codes[current_zone] }}*
-|===
-
-{% endfor %}
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 
 == ENMIENDAS
 
@@ -83,7 +54,6 @@ h| Enmienda N.° h| Boletín de Explotación N.° h| País o zona geográfica
 ^.^| {{ i }} | |
 {% endfor %}
 |===
-
 ----
 
 
