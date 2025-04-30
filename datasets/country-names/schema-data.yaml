@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for ITU country names
+description: ITU OB Dataset Schema for ITU country names
+type: array
+items:
+  type: object
+  required:
+    - key
+    - name
+  additionalProperties: false
+  properties:
+    key:
+      type: string
+      description: Short key for country
+    name:
+      type: object
+      description: Localized country or geographical area names
+      required:
+        - en
+        - fr
+        - es
+      properties:
+        en:
+          type: string
+          description: English name
+        fr:
+          type: string
+          description: French name
+        es:
+          type: string
+          description: Spanish name
