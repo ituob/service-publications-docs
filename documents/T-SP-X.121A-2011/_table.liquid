@@ -1,0 +1,36 @@
+{% for n in (2..7) %}
+
+== Zone {{ n }}
+
+[cols="2",options="header,unnumbered"]
+|===
+| Code | Country or geographical area
+
+{% assign szone = "" | append: n %}
+{% assign specific_zone = data | where: "zone", szone %}
+
+{% for code in specific_zone %}
+
+{% if code.spare %}
+{% continue %}
+{% endif %}
+
+| {{ code.code }}
+|
+{%- if code.reserved != true -%}
+    {{ code.country_or_area[lang] }}
+{%- else -%}
+    {{ code.country_or_area[lang] | split: " " | first }} footnote:[{{ code.country_or_area[lang] }}]
+{%- endif -%}
+
+{% endfor %}
+
+{% assign current_zone = "zone" | append: n %}
+{% assign spare_codes = specific_zone | where: "spare" %}
+{% if spare_codes.size > 0 %}
+2+| Zone {{ n }}, Spare Codes: *{{ spare_codes | map: "code" | join: ", " }}*
+{% endif %}
+
+|===
+
+{% endfor %}
