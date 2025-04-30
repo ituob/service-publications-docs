@@ -29,7 +29,7 @@
 +
 --
 [align=center]
-link:https://www.itu.int/itu-t/bulletin/annex.html[http://www.itu.int/itu-t/bulletin/annex.html]
+link:https://www.itu.int/itu-t/bulletin/annex.html[]
 --
 
 . Las denominaciones empleadas en esta Lista y la forma en que aparecen presentados los datos que contiene no entrañan, por parte de la UIT, juicio alguno sobre la condición jurídica de países o zonas geográficas, o de sus autoridades.
@@ -37,46 +37,10 @@ link:https://www.itu.int/itu-t/bulletin/annex.html[http://www.itu.int/itu-t/bull
 
 == {blank}
 
-[yaml2text,T-SP-X.121B-2011.yaml,file]
+[data2text,data=../../datasets/977-X.121B/data.yaml,metadata=../../datasets/977-X.121B/metadata.yaml]
 ----
 {% assign lang = "es" %}
-
-
-[cols="3",options="unnumbered"]
-|===
-
-^h| {{ file.metadata.locale.country_or_area[lang] }}
-^h| {{ file.metadata.locale.dnic_number[lang] }}
-^h| {{ file.metadata.locale.network_name[lang] }}
-
-^| 1 ^| 2 ^| 3
-
-{% assign ordered_sequence = file.data | map: "country_or_area" | sort: "fr" | uniq %}
-
-{% for next_country in ordered_sequence %}
-    {% assign data_group = file.data | map: "country_or_area" | where: "en", next_country.en %}
-    {% assign flag = false %}
-
-    {% for country_data in file.data %}
-        {% if country_data.country_or_area["en"] == next_country["en"] %}
-            {% if flag == false %}
-                {% assign flag = true %}
-.{{ data_group.size }}+| {{ country_data.country_or_area["fr"] }} +
-                            {{ country_data.country_or_area["en"] }} +
-                            {{ country_data.country_or_area["es"] }}
-                          | {{ country_data.dnic_number }}
-                          | {{ country_data.network_name }}
-            {% else -%}
-                | {{ country_data.dnic_number }}
-                | {{ country_data.network_name }}
-            {%- endif %}
-        {% elsif flag == true %}
-            {% break %}
-        {% endif %}
-    {% endfor %}
-{% endfor %}
-|===
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 
 == ENMIENDAS
 
@@ -93,13 +57,13 @@ link:https://www.itu.int/itu-t/bulletin/annex.html[http://www.itu.int/itu-t/bull
 
 == {blank}
 
-[cols="2",options="unnumbered"]
+[cols="1",options="unnumbered"]
 |===
-a| image::logo.png["",105,118] | _Este formulario de notificación debe remitirse a:_ +
+a| _Este formulario de notificación debe remitirse a:_ +
 *Unión Internacional de Telecomunicaciones* +
 *Oficina de Normalización de las Telecomunicaciones (TSB)* +
 *Place des Nations* +
-*CH – 1211 Genève 20* +
+*CH -- 1211 Genève 20* +
 *Suisse* +
 *Tel.:   +41 22 730 5211     Fax:   +41 22 730 5853     E-mail:   tsbtson@itu.int*
 
