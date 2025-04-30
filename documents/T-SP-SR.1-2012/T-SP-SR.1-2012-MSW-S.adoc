@@ -29,67 +29,8 @@ http://www.itu.int/itu-t/bulletin/annex.html
 . Las denominaciones utilizadas y la presentación del material en esta Lista no entrañan por parte de la UIT, ninguna opinión acerca del estatuto jurídico de un país o zona geográfica o de las autoridades de los mismos.
 
 
-[yaml2text,T-SP-SR.1-2012.yaml,file]
+[yaml2text,data=../../datasets/1000-SR.1/data.yaml,metadata=../../datasets/1000-SR.1/metadata.yaml]
 ----
 {% assign lang = "es" %}
-
-[%unnumbered,cols="1",options="header"]
-|===
-^.^|Country/geographical area
-
-{% for country in file.data %}
-{% assign geoarea = country[1].geographic_area %}
-{% assign restrictions = country[1].restrictions %}
-{% assign notes = country[1].notes[lang] %}
-
-a| *_{{ geoarea.fr }}_* +
-*_{{ geoarea.en }}_* +
-*_{{ geoarea.es }}_*
-
-{% if restrictions["telex_not_provided"] == true %}
-{{ file.metadata.locale.telex_not_provided[lang] }}
-{% endif %}
-
-{% if restrictions["telegram_not_provided"] == true %}
-{{ file.metadata.locale.telegram_not_provided[lang] }}
-{% endif %}
-
-{% if restrictions["no_messenger_dispatch"] == true %}
-{{ file.metadata.locale.no_messenger_dispatch[lang] }}
-{% endif %}
-
-{% for call in restrictions["no_collect_calls"] %}
-
-{% if call[1] == true %}
-
-{% case call[0] %}
-
-{% when "mobile" %}
-{{ file.metadata.locale.no_collect_calls.mobile[lang] }}
-
-{% when "payphone" %}
-{{ file.metadata.locale.no_collect_calls.payphone[lang] }}
-
-{% when "audiotex" %}
-{{ file.metadata.locale.no_collect_calls.audiotex[lang] }}
-
-{% when "virtual" %}
-{{ file.metadata.locale.no_collect_calls.virtual[lang] }}
-
-{% when "incoming" %}
-{{ file.metadata.locale.no_collect_calls.incoming[lang] }}
-
-{% when "outgoing" %}
-{{ file.metadata.locale.no_collect_calls.outgoing[lang] }}
-
-{% endcase %}
-
-{% endif %}
-
-{% endfor %}
-
-{{ notes }}
-
-{% endfor %}
-|===
+{% render "table", data: data, metadata: metadata, lang: lang %}
 ----
