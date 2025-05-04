@@ -51,25 +51,8 @@ n'impliquent, de la part de l'UIT, aucune prise de position quand au statut juri
 ou zones géographiques ou de leurs autorités.
 
 
-[yaml2text,T-SP-E.164B-2012.yaml,file]
+[yaml2text,data=../../datasets/1015-E.164B/data.yaml,metadata=../../datasets/1015-E.164B/metadata.yaml]
 ----
 {% assign lang = "fr" %}
-
-== Indicatifs/numéros d’accès à des réseaux mobiles
-
-[cols="3",options="unnumbered,header"]
-|===
-| {{ file.metadata.locale.country_or_area[lang] }}
-| {{ file.metadata.locale.country_code[lang] }}
-| {{ file.metadata.locale.mobile_telephone_numbers[lang] }}
-
-{% for country_data in file.data %}
-| {{ country_data.country_or_area[lang] }}
-| {{ country_data.country_code }}
-| {{ country_data.mobile_telephone_numbers[lang] }}
-{% endfor %}
-|===
-
-NXX:: {{ file.metadata.locale.NXX[lang] }}
-NPA:: {{ file.metadata.locale.NPA[lang] }}
+{% render "table", data: data, metadata: metadata, lang: lang %}
 ----
