@@ -47,5 +47,5 @@ domaines de l’exploitation dans lesquels ils sont utilisées.
 [yaml2text,data=../../datasets/669-F.1/data.yaml,metadata=../../datasets/669-F.1/metadata.yaml]
 ----
 {% assign lang = "fr" %}
-{% render "table", data: data, metadata: metadata, boilerplates: boilerplates, lang: lang %}
+{% render "table", data: data, metadata: metadata, lang: lang %}
 ----
