@@ -41,89 +41,10 @@ E-mail : mailto:tsbtson@itu.int[]
 . Les désignations employées et la présentation des renseignements fournis dans la présente Liste n'impliquent de la part de l'UIT aucune prise de position quelle qu'elle soit quant au statut juridique d'un pays ou d'une zone géographique ou encore des autorités dont elle relève.
 
 
-[yaml2text,T-SP-E.180-2010.yaml,file]
+[yaml2text,data=../../datasets/955-E.180/data.yaml,metadata=../../datasets/955-E.180/metadata.yaml]
 ----
 {% assign lang = "fr" %}
-
-== {{ file.metadata.title[lang] }}
-
-[cols="3",options="unnumbered,header"]
-|===
-| {{ file.metadata.locale.country_or_area[lang] }}
-| {{ file.metadata.locale.frequency_in_hz[lang] }}
-| {{ file.metadata.locale.cadence_in_s[lang] }}
-
-{% for country_data in file.data %}
-{% assign next_country = country_data.country_or_area[lang] %}
-{% if next_country != current_country -%}
-{% assign current_country = next_country %}
-3+| *{{ current_country }}*
-{% endif %}
-| {{ country_data.tone_desc[lang] }}
-{%- if country_data.notes -%}
-footnote:[{{ country_data.notes[lang] }}]
-{%- endif -%}
-| {{ country_data.frequency_in_hz }}
-| {{ country_data.cadence_in_s[lang] }}
-{% endfor %}
-|===
-
-
-== Formulaire de notification pour les tonalités rencontrées dans les réseaux nationaux
-
-[align=left]
-Pays/Organisation: +
-Contact, Nom: +
-Tél: +
-Fax: +
-Email:
-
-[cols="3",options="unnumbered,header"]
-|===
-| {{ file.metadata.locale.tone[lang] | capitalize }}
-| {{ file.metadata.locale.frequency_in_hz[lang] | remove: " in" | remove: " en" | replace: "Hz", "(Hz)" | capitalize }}
-| {{ file.metadata.locale.cadence_in_s[lang] | replace: "in seconds", "(seconds)"
-                                     | replace: "en secondes", "(secondes)"
-                                     | replace: "en segundos", "(segundos)"
-                                     | capitalize }}
-
-| {{ file.metadata.locale.dial_tone[lang] | split: ":" | first }} | |
-| {{ file.metadata.locale.ringing_tone[lang] | split: ":" | first }} | |
-| {{ file.metadata.locale.busy_tone[lang] | split: ":" | first }} | |
-| {{ file.metadata.locale.congestion_tone[lang] | split: ":" | first }} | |
-| {{ file.metadata.locale.special_information_tone[lang] | split: ":" | first }} | |
-| {{ file.metadata.locale.call_waiting_tone[lang] | split: ":" | first }} | |
-| {{ file.metadata.locale.pay_tone[lang] | split: ":" | first }}| |
-|===
-
-[cols="3",options="unnumbered"]
-|===
-3+h| Autres tonalités nouvelles ou modifiées
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-|===
-
-{{ file.metadata.locale.dial_tone[lang] | replace: ":", "::" }}
-
-{{ file.metadata.locale.ringing_tone[lang] | replace: ":", "::" }}
-
-{{ file.metadata.locale.busy_tone[lang] | replace: ":", "::" }}
-
-{{ file.metadata.locale.congestion_tone[lang] | replace: ":", "::" }}
-
-{{ file.metadata.locale.special_information_tone[lang] | replace: ":", "::" }}
-
-{{ file.metadata.locale.call_waiting_tone[lang] | replace: ":", "::" }}
-
-{{ file.metadata.locale.pay_tone[lang] | replace: ":", "::" }}
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 
 == Explication des symboles
 
