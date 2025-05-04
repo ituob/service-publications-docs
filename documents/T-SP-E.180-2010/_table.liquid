@@ -1,0 +1,72 @@
+
+== {{ metadata.title[lang] }}
+
+[cols="3",options="unnumbered,header"]
+|===
+| {{ metadata.locale | where: "key", "country_or_area" | map: lang }}
+| {{ metadata.locale | where: "key", "frequency_in_hz" | map: lang }}
+| {{ metadata.locale | where: "key", "cadence_in_s"    | map: lang }}
+
+
+{% for country_data in data %}
+{% assign next_country = country_data.country_or_area[lang] %}
+{% if next_country != current_country -%}
+{% assign current_country = next_country %}
+3+| *{{ current_country }}*
+{% endif %}
+| {{ country_data.tone_desc[lang] }}
+{%- if country_data.notes -%}
+footnote:[{{ country_data.notes[lang] }}]
+{%- endif -%}
+| {{ country_data.frequency_in_hz }}
+| {{ country_data.cadence_in_s[lang] }}
+{% endfor %}
+|===
+
+{% render "boilerplates", lang: lang %}
+
+[cols="3",options="unnumbered,header"]
+|===
+| {{ metadata.locale | where: "key", "tone" | map: lang | first | capitalize }}
+| {{ metadata.locale | where: "key", "frequency_in_hz" | map: lang  | first | remove: " in" | remove: " en" | replace: "Hz", "(Hz)" | capitalize }}
+| {{ metadata.locale | where: "key", "cadence_in_s" | map: lang  | first | replace: "in seconds", "(seconds)"
+                                     | replace: "en secondes", "(secondes)"
+                                     | replace: "en segundos", "(segundos)"
+                                     | capitalize }}
+
+| {{ metadata.locale | where: "key", "dial_tone" | map: lang | first | split: ":" | first }} | |
+| {{ metadata.locale | where: "key", "ringing_tone" | map: lang | first | split: ":" | first }} | |
+| {{ metadata.locale | where: "key", "busy_tone" | map: lang | first | split: ":" | first }} | |
+| {{ metadata.locale | where: "key", "congestion_tone" | map: lang | first | split: ":" | first }} | |
+| {{ metadata.locale | where: "key", "special_information_tone" | map: lang | first | split: ":" | first }} | |
+| {{ metadata.locale | where: "key", "call_waiting_tone" | map: lang | first | split: ":" | first }} | |
+| {{ metadata.locale | where: "key", "pay_tone" | map: lang | first | split: ":" | first }}| |
+|===
+
+[cols="3",options="unnumbered"]
+|===
+3+h| Other new or changed tones
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+|===
+
+{{ metadata.locale | where: "key", "dial_tone" | map: lang | first | replace: ":", "::" }}
+
+{{ metadata.locale | where: "key", "ringing_tone" | map: lang | first | replace: ":", "::" }}
+
+{{ metadata.locale | where: "key", "busy_tone" | map: lang | first | replace: ":", "::" }}
+
+{{ metadata.locale | where: "key", "congestion_tone" | map: lang | first | replace: ":", "::" }}
+
+{{ metadata.locale | where: "key", "special_information_tone" | map: lang | first | replace: ":", "::" }}
+
+{{ metadata.locale | where: "key", "call_waiting_tone" | map: lang | first | replace: ":", "::" }}
+
+{{ metadata.locale | where: "key", "pay_tone" | map: lang | first | replace: ":", "::" }}
