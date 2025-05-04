@@ -1,0 +1,22 @@
+
+[cols="4",options="unnumbered,header"]
+|===
+| {{ metadata.locale | where: "key", "country_or_area" | map: lang }}
+| {{ metadata.locale | where: "key", "company_name" | map: lang }}/{{ metadata.locale | where: "key", "company_address" | map: lang }}
+| {{ metadata.locale | where: "key", "issue_id_number" | map: lang }}
+| {{ metadata.locale | where: "key", "contact" | map: lang }}
+
+{% for country_data in data -%}
+    | *{{ country_data.country_or_area["en"] }}*
+    | *{{ country_data.company_name }}* +
+    {{ country_data.company_address_1 }} +
+    {{ country_data.company_address_2 }}
+    | *{{ country_data.issue_id_number }}*
+    | {{ country_data.contact }} +
+    {{ country_data.contact_address_1 }} +
+    {{ country_data.contact_address_2 }} +
+    Tel: {{ country_data.tel }} +
+    Fax: {{ country_data.fax }} +
+    E-mail: {{ country_data.email | join: "; " }}
+{%- endfor %}
+|===

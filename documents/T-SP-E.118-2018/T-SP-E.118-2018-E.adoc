@@ -62,33 +62,10 @@ The designations employed and the presentation of material in this List do not i
 
 == {blank}
 
-[yaml2text,T-SP-E.118-2018.yaml,file]
+[yaml2text,data=../../datasets/1161-E.118/data.yaml,metadata=../../datasets/1161-E.118/metadata.yaml]
 ----
 {% assign lang = "en" %}
-
-
-[cols="4",options="unnumbered,header"]
-|===
-| {{ file.metadata.locale.country_or_area[lang] }}
-| {{ file.metadata.locale.company_name[lang] }}/{{ file.metadata.locale.company_address[lang] }}
-| {{ file.metadata.locale.issue_id_number[lang] }}
-| {{ file.metadata.locale.contact[lang] }}
-
-{% for country_data in file.data -%}
-    | *{{ country_data[1].country_or_area["en"] }}*
-    | *{{ country_data[1].company_name }}* +
-    {{ country_data[1].company_address_1 }} +
-    {{ country_data[1].company_address_2 }}
-    | *{{ country_data[0] }}*
-    | {{ country_data[1].contact }} +
-    {{ country_data[1].contact_address_1 }} +
-    {{ country_data[1].contact_address_2 }} +
-    Tel: {{ country_data[1].tel }} +
-    Fax: {{ country_data[1].fax }} +
-    E-mail: {{ country_data[1].email | join: "; " }}
-{%- endfor %}
-|===
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 
 == AMENDMENTS
 
