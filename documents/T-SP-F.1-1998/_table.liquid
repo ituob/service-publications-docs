@@ -1,0 +1,69 @@
+
+
+{% render "boilerplates", part: "one", lang: lang %}
+
+{% for code in data %}
+    {{- code.code }}:: {{ code.message[lang] | replace: "_", "&#95;" }}
+{% endfor %}
+
+{% render "boilerplates", part: "two", lang: lang %}
+
+{% for field_name in metadata.locale %}
+    {% unless field_name.key == "coding" or field_name.key == "decoding" %}
+        {% assign field_names = field_names | append: field_name[lang] | append: "; " %}
+    {% endunless %}
+{% endfor %}
+
+{% assign sorted_field_names = field_names | split: "; " | sort %}
+
+{% for name in sorted_field_names %}
+    {% for locale_item in metadata.locale %}
+        {% if locale_item[lang] == name %}
+            {% assign fields_string = fields_string | append: locale_item.key | append: "; " %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% assign fields = fields_string | split: "; " %}
+
+{% for field in fields %}
+
+{% assign field_data = data | where: "field", field %}
+{% assign field_descriptions = field_data | map: "field_desc" | sort: lang | uniq %}
+
+{% if field_descriptions.size == 0 -%}
+[align=center]
+*{{ metadata.locale | where: "key", field | map: lang }}*
+
+{% for item in field_data %}
+{{ item.code }}:: {{ item.message[lang] | replace: "_", "&#95;" }}
+{% endfor %}
+
+{% else -%}
+[align=center]
+*{{ metadata.locale | where: "key", field | map: lang }}* +
+{% unless field == "enquiries" or
+          field == "delivery"  or
+          field == "errors_mutilations_omissions" or
+          field == "repetitions_and_corrections"  or
+          field == "miscellaneous" -%}
+{%- if field == "addresses" or field == "disposal" -%}
+(_{{ field_descriptions | map: lang | join: ", " }}, etc._)
+{%- else -%}
+(_{{ field_descriptions | map: lang | join: ", " }}_)
+{%- endif -%}
+{%- endunless %}
+
+{% for desc in field_descriptions %}
+_{{ desc[lang] }}_
+
+{% for item in field_data %}
+{% if item.field_desc[lang] == desc[lang] -%}
+{{ item.code }}:: {{ item.message[lang] | replace: "_", "&#95;" }}
+{%- endif %}
+{% endfor %}
+{% endfor %}
+
+{% endif %}
+
+{% endfor %}
