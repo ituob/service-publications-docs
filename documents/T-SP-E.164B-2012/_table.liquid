@@ -1,0 +1,17 @@
+== {{ metadata.title[lang] }}
+
+[cols="3",options="unnumbered,header"]
+|===
+| {{ metadata.locale | where: "key", "country_or_area" | map: lang }}
+| {{ metadata.locale | where: "key", "country_code" | map: lang }}
+| {{ metadata.locale | where: "key", "mobile_telephone_numbers" | map: lang }}
+
+{% for country_data in data %}
+| {{ country_data.country_or_area[lang] }}
+| {{ country_data.country_code }}
+| {{ country_data.mobile_telephone_numbers[lang] }}
+{% endfor %}
+|===
+
+NXX:: {{ metadata.locale | where: "key", "NXX" | map: lang }}
+NPA:: {{ metadata.locale | where: "key", "NPA" | map: lang }}
