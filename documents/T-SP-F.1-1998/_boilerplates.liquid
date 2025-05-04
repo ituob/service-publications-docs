@@ -1,0 +1,35 @@
+
+{% if part == "one" %}
+{% if lang == "en" %}
+== Part I - DECODING SECTION
+
+Five-letter code groups in alphabetical order:
+{% elsif lang == "fr"%}
+== Partie I - SECTION DE DÉCODAGE
+
+Groupes d'expressions de codes à cinq lettres par ordre alphabétique:
+{% elsif lang == "es" %}
+== Parte I - SECCIÓN DE DESCODIFICACIÓN
+
+Grupos de códigos de cinco letras por orden alfabético:
+{% endif %}
+{% endif %}
+
+{% if part == "two" %}
+{% if lang == "en" %}
+== Part II - CODING SECTION
+
+Five-letter code groups, alphabetically classified according to the fields of operation of the
+international public telegram service in which the codes are used.
+{% elsif lang == "fr"%}
+== Partie II - SECTION DE CODAGE
+
+Groupes d'expressions de codes à cinq lettres, classés alphabétiquement selon les domaines de
+l'exploitation du service public international des télégrammes dans lesquels ils sont utilisés.
+{% elsif lang == "es" %}
+== Parte II - SECCIÓN DE SCODIFICACIÓN
+
+Grupos de códigos de cinco letras clasificados por orden alfabético según los ramos de la
+explotación del servicio público internacional de telegramas en que se los utiliza.
+{% endif %}
+{% endif %}
