@@ -40,80 +40,10 @@
 
 
 
-[yaml2text,T-SP-E.218-2017.yaml,file]
+[yaml2text,data=../../datasets/1125-E.218/data.yaml,metadata=../../datasets/1125-E.218/metadata.yaml]
 ----
 {% assign lang = "zh" %}
-
-
-== 按数字顺序排列的地面集群无线电列表
-
-{% assign notes = file.data | map: "note" | uniq %}
-
-{% for note_content in notes %}
-    {% assign note_first_word = note_content.en | split: " " | first %}
-    {% case note_first_word %}
-        {% when "Mobile" %}
-            {% assign note_a = note_content[lang] %}
-        {% when "United" %}
-            {% assign note_b = note_content[lang] %}
-        {% when "This" %}
-            {% assign note_c = note_content[lang] %}
-    {% endcase %}
-{% endfor %}
-
-
-[cols="3",options="unnumbered"]
-|===
-| {{ file.metadata.locale.tmcc_code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
-
-{% for country_data in file.data -%}
-    | {{ country_data.tmcc_code }} | {{ country_data.country_or_area[lang] }} |
-    {% assign note_first_word = country_data.note.en | split: " " | first %}
-    {% case note_first_word %}
-        {% when "Mobile" %}
-            <<note_a,a>>
-        {% when "United" %}
-            <<note_b,b>>
-        {% when "This" %}
-            <<note_c,c>>
-    {% endcase %}
-{%- endfor %}
-|===
-
-
-== 按字母顺序排列的地面集群无线电列表
-
-{% assign ordered_sequence = file.data | map: "country_or_area" | sort: lang | uniq %}
-
-[cols="3",options="unnumbered"]
-|===
-| {{ file.metadata.locale.tmcc_code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
-
-{% for next_country in ordered_sequence -%}
-    {%- for country_data in file.data -%}
-        {%- if country_data.country_or_area[lang] == next_country[lang] -%}
-            | {{ country_data.tmcc_code }} | {{ country_data.country_or_area[lang] }} |
-            {% assign note_first_word = country_data.note.en | split: " " | first %}
-            {% case note_first_word %}
-                {% when "Mobile" %}
-                    <<note_a,a>>
-                {% when "United" %}
-                    <<note_b,b>>
-                {% when "This" %}
-                    <<note_c,c>>
-            {% endcase %}
-        {%- endif -%}
-    {%- endfor %}
-{%- endfor %}
-|===
-
-
-{{ file.metadata.locale.note[lang] | append: "s"}}:
-
-. [[note_a]]{{ note_a }}
-. [[note_b]]{{ note_b }}
-. [[note_c]]{{ note_c }}
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 
 == 修正
 
