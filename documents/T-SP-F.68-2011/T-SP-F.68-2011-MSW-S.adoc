@@ -26,79 +26,23 @@
 
 . Las denominaciones utilizadas y la presentación del material en esta lista no entrañan por parte de la UIT, ninguna opinión acerca del estatuto jurídico de los países o zonas geográficas o de las autoridades de los mismos.
 
-
-
-[yaml2text,T-SP-F.68-2011-MSW.yaml,file]
+[yaml2text,data=../../datasets/978-F.68/data.yaml,metadata=../../datasets/978-F.68/metadata.yaml]
 ----
 {% assign lang = "es" %}
-
-== {{ file.metadata.title[lang] }}
-
-NOTE: {{ file.metadata.note[lang] }}
-
-
-[cols="^,^,^",options="unnumbered"]
-|===
-
-h| {{ file.metadata.locale.number_block[lang] }} h| {{ file.metadata.locale.telex_code[lang] }} h| {{ file.metadata.locale.allocated_to[lang] }}
-| 1 | 2 | 3
-
-{% for code in file.data %}
-
-| {{ code.number_block }}
-{%- if code.notes -%}
-    footnote:[{{ code.notes[lang] }}]
-{%- endif -%}
-| {{ code.telex_code }} <| {{ code.allocated_to[lang] }}
-
-{% endfor %}
-
-|===
-
+{% render "tables", data: data, metadata: metadata, lang: lang %}
 ----
 
-
-[yaml2text,T-SP-F.68-2011-MSW.appendix-1.yaml,file]
+[yaml2text,data=../../datasets/978-F.68-A1/data.yaml,metadata=../../datasets/978-F.68-A1/metadata.yaml]
 ----
 {% assign lang = "es" %}
-
-[appendix]
-== {{ file.metadata.title[lang] }}
-
-[cols="^,^,^",options="unnumbered"]
-|===
-
-h| {{ file.metadata.locale.tnic[lang] }} h| {{ file.metadata.locale.telegram_network_codes[lang] }} h| {{ file.metadata.locale.country[lang] }}
-
-{% for tnic_code in file.data %}
-| {{ tnic_code[0] }} | {{ tnic_code[1].telegram_network_codes }} <| {{ tnic_code[1].country[lang] }}
-{% endfor %}
-
-|===
-
+{% render "tables", data: data, metadata: metadata, lang: lang, annex: "1" %}
 ----
 
-
-[yaml2text,T-SP-F.68-2011-MSW.appendix-2.yaml,file]
+[yaml2text,data=../../datasets/978-F.68-A2/data.yaml,metadata=../../datasets/978-F.68-A2/metadata.yaml]
 ----
 {% assign lang = "es" %}
-
-[appendix]
-== {{ file.metadata.title[lang] }}
-
-[cols="4",options="header,unnumbered"]
-|===
-| {{ file.metadata.locale.ob_number[lang] }} | {{ file.metadata.locale.geographic_area[lang] }} | {{ file.metadata.locale.ob_number[lang] }} | {{ file.metadata.locale.geographic_area[lang] }}
-
-{% for i in (0..24) %}
-{% assign j = 25 | plus: i %}
-| {{ file.data[i].ob_number }} | {{ file.data[i].geographic_area[lang] }} | {{ file.data[j].ob_number }} | {{ file.data[j].geographic_area[lang] }}
-{% endfor %}
-
-|===
-
+{% render "tables", data: data, metadata: metadata, lang: lang, annex: "2" %}
 ----
-
 
 == ABREVIATURAS
 

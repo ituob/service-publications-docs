@@ -1,0 +1,59 @@
+
+
+{% unless annex %}
+
+== {{ metadata.title[lang] }}
+
+NOTE: {{ metadata.locale | where: "key", "note" | map: lang | first }}
+
+[cols="^,^,^",options="unnumbered"]
+|===
+
+h| {{ metadata.locale | where: "key", "number_block" | map: lang | first }} h| {{ metadata.locale | where: "key", "telex_code" | map: lang | first }} h| {{ metadata.locale | where: "key", "allocated_to" | map: lang | first }}
+| 1 | 2 | 3
+
+{% for code in data %}
+
+| {{ code.number_block }}
+{%- if code.notes -%}
+    footnote:[{{ code.notes[lang] }}]
+{%- endif -%}
+| {{ code.telex_code }} <| {{ code.allocated_to[lang] }}
+
+{% endfor %}
+
+|===
+
+{% endunless %}
+
+{% if annex == "1" %}
+[appendix]
+== {{ metadata.title[lang] }}
+
+[cols="^,^,^",options="unnumbered"]
+|===
+
+h| {{ metadata.locale | where: "key", "tnic" | map: lang | first }} h| {{ metadata.locale | where: "key", "telegram_network_codes" | map: lang | first }} h| {{ metadata.locale | where: "key", "country" | map: lang | first }}
+
+{% for tnic_code in data %}
+| {{ tnic_code.tnic_code }} | {{ tnic_code.telegram_network_codes }} <| {{ tnic_code.country[lang] }}
+{% endfor %}
+
+|===
+{% endif %}
+
+{% if annex == "2" %}
+[appendix]
+== {{ metadata.title[lang] }}
+
+[cols="4",options="header,unnumbered"]
+|===
+| {{ metadata.locale | where: "key", "ob_number" | map: lang | first }} | {{ metadata.locale | where: "key", "geographic_area" | map: lang | first }} | {{ metadata.locale | where: "key", "ob_number" | map: lang | first }} | {{ metadata.locale | where: "key", "geographic_area" | map: lang | first }}
+
+{% for i in (0..24) %}
+{% assign j = 25 | plus: i %}
+| {{ data[i].ob_number }} | {{ data[i].geographic_area[lang] }} | {{ data[j].ob_number }} | {{ data[j].geographic_area[lang] }}
+{% endfor %}
+
+|===
+{% endif %}
