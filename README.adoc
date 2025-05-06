@@ -202,6 +202,137 @@ identifies the schema.
 for the schema.
 `description`:: A human-readable description of the schema.
 
+=== Dataset change object
+
+The dataset change object defines a uniform format for representing changes to datasets
+across all ITU OB publications. This format allows for consistent tracking, implementation,
+and auditing of changes to dataset content.
+
+==== Change types
+
+The following change types are supported:
+
+`ADD`:: Insert new data into a dataset.
+`REP`:: Replace existing data in a dataset.
+`SUP`:: Mark data as superseded (typically without removing it).
+
+==== Format specification
+
+Each change object is a YAML document with the following structure:
+
+[source,yaml]
+----
+# Core change metadata
+type: "ADD" | "REP" | "SUP"  # Required: The change operation type
+timestamp: "2025-05-06T20:00:00Z"  # Required: When the change was created (ISO 8601)
+reference: "OB-1234"  # Required: Reference to authorizing document (e.g., OB issue number)
+description:  # Optional: Human-readable description of the change
+  en: "Addition of new country code"
+  fr: "Ajout d'un nouveau code de pays"
+  es: "Adición de nuevo código de país"
+
+# Identifier for the affected record(s)
+identifier:  # Required: How to identify the record(s) being changed
+  # Direct identifier (implementation may vary by dataset)
+  code: "202"  # Example for direct identifier
+  # OR query-style identifier
+  query:  # Optional: For more complex record identification
+    field: "code"
+    value: "202"
+    operator: "equals"  # Could be "equals", "contains", etc.
+
+# The actual data content
+data:  # Required: The dataset-specific data format carrying actual content
+  # This contains the dataset-specific schema content
+  # For ADD: the new data to insert
+  # For REP: the new data to replace existing data
+  # For SUP: may contain supplementary information about the supersession
+
+# Supersession information (only for SUP type)
+superseded_by:  # Optional: Reference to replacing data (for SUP type)
+  reference: "OB-1235"  # Reference to authorizing document for replacement
+  identifier:  # Identifier for the replacement data
+    code: "203"  # Example identifier of replacement
+----
+
+==== Usage examples
+
+.Adding a new country code to the X.121A dataset
+[example]
+====
+[source,yaml]
+----
+type: "ADD"
+timestamp: "2025-05-06T20:00:00Z"
+reference: "OB-1500"
+description:
+  en: "Addition of new country code for Example Land"
+  fr: "Ajout d'un nouveau code de pays pour Exemple Terre"
+  es: "Adición de nuevo código de país para Tierra Ejemplo"
+identifier:
+  code: "299"
+data:
+  code: "299"
+  zone: "2"
+  country_or_area:
+    en: "Example Land"
+    fr: "Exemple Terre"
+    es: "Tierra Ejemplo"
+----
+====
+
+.Replacing an existing country name in the X.121A dataset
+[example]
+====
+[source,yaml]
+----
+type: "REP"
+timestamp: "2025-05-06T20:00:00Z"
+reference: "OB-1500"
+description:
+  en: "Update of country name for code 255"
+  fr: "Mise à jour du nom de pays pour le code 255"
+  es: "Actualización del nombre del país para el código 255"
+identifier:
+  code: "255"
+data:
+  code: "255"
+  zone: "2"
+  country_or_area:
+    en: "Ukraine (Republic of)"
+    fr: "Ukraine (République d')"
+    es: "Ucrania (República de)"
+----
+====
+
+.Marking a data network identification code as superseded
+[example]
+====
+[source,yaml]
+----
+type: "SUP"
+timestamp: "2025-05-06T20:00:00Z"
+reference: "OB-1500"
+description:
+  en: "Network code superseded due to operator merger"
+  fr: "Code de réseau remplacé en raison de la fusion d'opérateurs"
+  es: "Código de red reemplazado debido a la fusión de operadores"
+identifier:
+  code: "3110"
+data:
+  code: "3110"
+  effective_date: "2025-06-01"
+  notes:
+    en: "Service to be migrated to new network code"
+    fr: "Service à migrer vers un nouveau code de réseau"
+    es: "Servicio a migrar a un nuevo código de red"
+superseded_by:
+  reference: "OB-1500"
+  identifier:
+    code: "3111"
+----
+====
+
 
 == ITU OB Service Publications documents
 

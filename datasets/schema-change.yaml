@@ -1,0 +1,102 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://github.com/ituob/service-publications-docs/datasets/schema-change
+title: ITU OB Dataset Change Object Schema
+description: Schema for validating dataset change objects across ITU OB datasets
+
+type: object
+required:
+  - type
+  - timestamp
+  - reference
+  - identifier
+  - data
+properties:
+  type:
+    type: string
+    description: The type of change operation
+    enum:
+      - ADD
+      - REP
+      - SUP
+
+  timestamp:
+    type: string
+    description: The timestamp when the change was created (ISO 8601 format)
+    format: date-time
+
+  reference:
+    type: string
+    description: Reference to authorizing document, such as an OB issue number
+
+  description:
+    type: object
+    description: Human-readable description of the change in multiple languages
+    properties:
+      en:
+        type: string
+      fr:
+        type: string
+      es:
+        type: string
+    required:
+      - en
+
+  identifier:
+    type: object
+    description: Identifier for the affected record(s)
+    oneOf:
+      - required: [code]
+      - required: [query]
+    properties:
+      code:
+        type: string
+        description: Direct identifier for the affected record(s)
+      query:
+        type: object
+        description: Query-style identifier for more complex record identification
+        required:
+          - field
+          - value
+        properties:
+          field:
+            type: string
+            description: The field name to query against
+          value:
+            description: The value to match against the specified field
+          operator:
+            type: string
+            description: The comparison operator to use
+            enum:
+              - equals
+              - contains
+              - startsWith
+              - endsWith
+              - greaterThan
+              - lessThan
+              - in
+            default: equals
+
+  data:
+    type: object
+    description: The dataset-specific data content that conforms to the dataset's schema
+
+  superseded_by:
+    type: object
+    description: Reference to replacing data (only for SUP type)
+    required:
+      - identifier
+    properties:
+      reference:
+        type: string
+        description: Reference to authorizing document for the replacement
+      identifier:
+        type: object
+        description: Identifier for the replacement data
+        required:
+          - code
+        properties:
+          code:
+            type: string
+            description: Direct identifier for the replacement data
