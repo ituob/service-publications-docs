@@ -1,0 +1,28 @@
+
+[%unnumbered,cols="10*"]
+|===
+9+^.^h| _{{ metadata.locale | where: "key", "code_bit" | map: lang | first | remove: " Bit (b8 to b1)" }}_ +
+Bit
+^.^h| _{{ metadata.locale | where: "key", "country_or_area" | map: lang | first }}_
+
+h| b~8~ h| b~7~ h| b~6~ h| b~5~ | h| b~4~ h| b~3~ h| b~2~ h| b~1~ |
+
+{% for country_code in data %}
+
+| {{ country_code.code_bit | slice: 0 }}
+| {{ country_code.code_bit | slice: 1 }}
+| {{ country_code.code_bit | slice: 2 }}
+| {{ country_code.code_bit | slice: 3 }}
+|
+| {{ country_code.code_bit | slice: 4 }}
+| {{ country_code.code_bit | slice: 5 }}
+| {{ country_code.code_bit | slice: 6 }}
+| {{ country_code.code_bit | slice: 7 }}
+| {{ country_code.country_or_area[lang] | replace: "NOTE 1","<<note1>>"}}
+
+{% endfor %}
+
+|===
+
+[[note1]]
+NOTE: {{ data | where: "code_bit", "11111111"| map: "notes" | map: lang | first }}

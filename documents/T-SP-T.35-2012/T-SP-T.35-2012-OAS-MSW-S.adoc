@@ -50,35 +50,8 @@ http://www.itu.int/itu-t/bulletin/annex.html
 == {blank}
 
 
-[yaml2text,T-SP-T.35-2012-OAS.yaml,file]
+[yaml2text,data=../../datasets/1002-T.35/data.yaml,metadata=../../datasets/1002-T.35/metadata.yaml]
 ----
 {% assign lang = "es" %}
-
-[%unnumbered,cols="10*"]
-|===
-9+^.^h| _{{ file.metadata.code_bit[lang] | remove: " Bit (b8 to b1)" }}_ +
-Bit
-^.^h| _{{ file.metadata.country_or_area[lang] }}_
-
-h| b~8~ h| b~7~ h| b~6~ h| b~5~ | h| b~4~ h| b~3~ h| b~2~ h| b~1~ |
-
-{% for country_code in file.data.code_bit %}
-
-| {{ country_code[1].code_bit | slice: 0 }}
-| {{ country_code[1].code_bit | slice: 1 }}
-| {{ country_code[1].code_bit | slice: 2 }}
-| {{ country_code[1].code_bit | slice: 3 }}
-|
-| {{ country_code[1].code_bit | slice: 4 }}
-| {{ country_code[1].code_bit | slice: 5 }}
-| {{ country_code[1].code_bit | slice: 6 }}
-| {{ country_code[1].code_bit | slice: 7 }}
-| {{ country_code[1].country_or_area[lang] | replace: "NOTE 1","<<note1>>"}}
-
-{% endfor %}
-
-|===
-
-[[note1]]
-NOTE: {{ file.data.code_bit["11111111"].notes[lang] }}
+{% render "table", data: data, metadata: metadata, lang: lang %}
 ----
