@@ -1,9 +1,9 @@
 [cols="3",options="unnumbered"]
 |===
 
-{% assign country_or_area = metadata.locale | where: "key", "country_or_area" %}
-{% assign dnic_number = metadata.locale | where: "key", "dnic_number" %}
-{% assign network_name = metadata.locale | where: "key", "network_name" %}
+{% assign country_or_area = metadata.locale | where: "key", "country_or_area" | first %}
+{% assign dnic_number     = metadata.locale | where: "key", "dnic_number"     | first %}
+{% assign network_name    = metadata.locale | where: "key", "network_name"    | first %}
 ^h| {{ country_or_area[lang] }}
 ^h| {{ dnic_number[lang] }}
 ^h| {{ network_name[lang] }}
