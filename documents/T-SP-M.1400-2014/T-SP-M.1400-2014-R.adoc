@@ -45,46 +45,10 @@ Director of TSB +
 
 == {blank}
 
-[yaml2text,T-SP-M.1400-2014.yaml,file]
+[yaml2text,data=../../datasets/1060-M.1400/data.yaml,metadata=../../datasets/1060-M.1400/metadata.yaml]
 ----
 {% assign lang = "ru" %}
-
-
-NOTE: {{ file.metadata.note[lang] }}
-
-[cols="4",options="unnumbered,header"]
-|===
-| {{ file.metadata.locale.country_or_area[lang] }}
-| {{ file.metadata.locale.company_name[lang] }}
-| {{ file.metadata.locale.carrier_code[lang] }}
-| {{ file.metadata.locale.contact[lang] }}
-
-
-{% for country_data in file.data -%}
-    | *{{ country_data.country_or_area[lang] }} / {{ country_data.iso_code }}*
-    | *{{ country_data.company_name }}* +
-    {{ country_data.address_line_1 }} +
-    {{ country_data.address_line_2 }}
-    | *{{ country_data.carrier_code }}*
-    |
-        {% if country_data.contact %}
-            {{ country_data.contact }} +
-        {% endif %}
-
-        {% if country_data.tel %}
-            {{ file.metadata.locale.tel[lang] }}: {{ country_data.tel }} +
-        {% endif %}
-
-        {% if country_data.fax %}
-            {{ file.metadata.locale.fax[lang] }}: {{ country_data.fax }} +
-        {% endif %}
-
-        {% if country_data.email %}
-            {{ file.metadata.locale.email[lang] }}: {{ country_data.email }}
-        {% endif %}
-{%- endfor %}
-|===
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 
 [%portrait]
 <<<
