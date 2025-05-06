@@ -37,7 +37,7 @@ Email: tsbmail@itu.int
 . The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of ITU concerning the legal status of any country or geographical area, or of its authorities.
 
 
-[yaml2text,data=../../datasets/976-X.121A/data.yaml,metadata=../../datasets/976-X.121A/metadata.yaml,file]
+[yaml2text,data=../../datasets/976-X.121A/data.yaml,metadata=../../datasets/976-X.121A/metadata.yaml]
 ----
 {% assign lang = "en" %}
 {% render "table", data: data, metadata: metadata, lang: lang %}
