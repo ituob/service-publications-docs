@@ -11,7 +11,6 @@
 :mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
 
-
 [preface]
 == Note from TSB:
 
@@ -25,107 +24,13 @@ Any new or updated information on the identity of the current national authority
 
 The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of ITU concerning the legal status of any country or geographical area, or of its authorities.
 
-
 == {blank}
 
-[yaml2text,T.35B-2012-data.yaml,file]
+[yaml2text,data=../../datasets/1001-T.35B/data.yaml,metadata=../../datasets/1001-T.35B/metadata.yaml,acronyms=../../datasets/1001-T.35B/acronyms.yaml]
 ----
-
-[yaml2text,iso-3166.yaml,acronyms]
---
 {% assign lang = "en" %}
-
-{% case lang %}
-    {% when "en" %}
-        {% assign us_note = file | where: "country", "iso-3166:us" | map: "note" %}
-    {% when "fr" %}
-        {% assign us_note = "Les deux organisations sont aussi chargées de l'attribution des codes du prestataire" %}
-    {% when "es" %}
-        {% assign us_note = "Las dos organizaciones están también encargadas de asignar los códigos de proveedor de terminal UIT-T T.35 para Canada." %}
-{% endcase %}
-
-{% for country in file %}
-
-[%unnumbered,cols="2*"]
-|===
-{% assign country_acronym = country.country | remove: "iso-3166:" | replace: "uk", "gb" %}
-2+.<|
-{%- if country_acronym != "no" -%}
-    {{ acronyms[country_acronym][lang] }}
-{%- else -%}
-    Norway
-{%- endif -%}
-
-| Name of Administration: | {{ country.administration_name }}
-
-2+.<| National manufacturers of H-, T- or V-Series compliant equipment?
-{{ country.manufactures_htv | replace: "true", "YES" | replace: "false", "NO"}}
-
-
-{% if country.assignment_authority != "None designated" %}
-
-2+.<|
-{% if country.assignment_authority.size > 1 %}
-    Assignment authorities
-    {%- if country.note -%}
-        {%- case lang -%}
-            {%- when "en" or "fr" -%}
-                footnote:[*Note*: {{ us_note }}]:
-            {%- when "es" -%}
-                footnote:[*Nota*: {{ us_note }}]:
-        {%- endcase -%}
-    {%- endif -%}
-{% else %}
-    Assignment authority:
-{% endif %}
-
-{% for authority in country.assignment_authority %}
-
-{% for series in authority.terminal_type reversed %}
-    {% case forloop.index %}
-        {% when 1 %}
-            {% assign aux = series | capitalize | remove: "series" %}
-            {% assign terminalType = aux | append: "Series" %}
-
-        {% when 2 %}
-            {% assign aux = series | capitalize | remove: "series" | append: " and " %}
-            {% assign terminalType =  terminalType | prepend: aux %}
-
-        {% when 3 %}
-            {% assign aux = series | capitalize | remove: "series" | append: ", " %}
-            {% assign terminalType =  terminalType | prepend: aux %}
-    {% endcase %}
-{% endfor %}
-
-| Terminal Type: | {{ terminalType }}
-| Contact name | {{ authority.contact_name }}
-| Organization: | {{ authority.organization }}
-| Department: | {{ authority.department }}
-| Address: | {{ authority.address }}
-| Telephone: | {{ authority.telephone }}
-| Fax: | {{ authority.fax }}
-| E-mail: | {{ authority.email }}
-| Related links: | {{ authority.related_links }}
-| Information updated: | {{ authority.last_updated | date: "%d %B %Y" }}
-
-{% endfor %}
-
-{% else %}
-
-{{ country.assignment_authority }}
-| Information updated: | {{ country.last_updated | date: "%d %B %Y" }}
-
-{% endif %}
-
-|===
-
-
-{% endfor %}
-
---
-
+{% render "table", data: data, metadata: metadata, acronyms: acronyms, lang: lang %}
 ----
-
 
 <<<
 
@@ -177,5 +82,4 @@ _Please elaborate and provide as much detail as possible in response to these qu
 |
 
 |===
-
 

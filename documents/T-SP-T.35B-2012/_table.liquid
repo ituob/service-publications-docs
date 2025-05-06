@@ -1,0 +1,87 @@
+
+{% case lang %}
+    {% when "en" %}
+        {% assign us_note = data | where: "country", "iso-3166:us" | map: "note" %}
+    {% when "fr" %}
+        {% assign us_note = "Les deux organisations sont aussi chargées de l'attribution des codes du prestataire" %}
+    {% when "es" %}
+        {% assign us_note = "Las dos organizaciones están también encargadas de asignar los códigos de proveedor de terminal UIT-T T.35 para Canada." %}
+{% endcase %}
+
+{% for country in data %}
+
+[%unnumbered,cols="2*"]
+|===
+{% assign country_acronym = country.country | remove: "iso-3166:" | replace: "uk", "gb" %}
+2+.<|
+{%- if country_acronym != "no" -%}
+    {{ acronyms[country_acronym][lang] }}
+{%- else -%}
+    Norway
+{%- endif -%}
+
+| Name of Administration: | {{ country.administration_name }}
+
+2+.<| National manufacturers of H-, T- or V-Series compliant equipment?
+{{ country.manufactures_htv | replace: "true", "YES" | replace: "false", "NO"}}
+
+
+{% if country.assignment_authority != "None designated" %}
+
+2+.<|
+{% if country.assignment_authority.size > 1 %}
+    Assignment authorities
+    {%- if country.note -%}
+        {%- case lang -%}
+            {%- when "en" or "fr" -%}
+                footnote:[*Note*: {{ us_note }}]:
+            {%- when "es" -%}
+                footnote:[*Nota*: {{ us_note }}]:
+        {%- endcase -%}
+    {%- endif -%}
+{% else %}
+    Assignment authority:
+{% endif %}
+
+{% for authority in country.assignment_authority %}
+
+{% for series in authority.terminal_type reversed %}
+    {% case forloop.index %}
+        {% when 1 %}
+            {% assign aux = series | capitalize | remove: "series" %}
+            {% assign terminalType = aux | append: "Series" %}
+
+        {% when 2 %}
+            {% assign aux = series | capitalize | remove: "series" | append: " and " %}
+            {% assign terminalType =  terminalType | prepend: aux %}
+
+        {% when 3 %}
+            {% assign aux = series | capitalize | remove: "series" | append: ", " %}
+            {% assign terminalType =  terminalType | prepend: aux %}
+    {% endcase %}
+{% endfor %}
+
+| Terminal Type: | {{ terminalType }}
+| Contact name | {{ authority.contact_name }}
+| Organization: | {{ authority.organization }}
+| Department: | {{ authority.department }}
+| Address: | {{ authority.address }}
+| Telephone: | {{ authority.telephone }}
+| Fax: | {{ authority.fax }}
+| E-mail: | {{ authority.email }}
+| Related links: | {{ authority.related_links }}
+| Information updated: | {{ authority.last_updated | date: "%d %B %Y" }}
+
+{% endfor %}
+
+{% else %}
+
+{{ country.assignment_authority }}
+| Information updated: | {{ country.last_updated | date: "%d %B %Y" }}
+
+{% endif %}
+
+|===
+
+
+{% endfor %}
