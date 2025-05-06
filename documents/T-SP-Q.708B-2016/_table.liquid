@@ -1,0 +1,28 @@
+
+[cols="2,1,4,4",options="unnumbered"]
+|===
+
+4+<h| {{ metadata.locale | where: "key", "country_or_area" | map: lang | first }}
+h| {{ metadata.locale | where: "key", "ipsc" | map: lang | first }}
+h| {{ metadata.locale | where: "key", "dec" | map: lang | first }}
+h| {{ metadata.locale | where: "key", "signal_point_name" | map: lang | first }}
+h| {{ metadata.locale | where: "key", "signal_point_operator" | map: lang | first }}
+
+{% for country_data in data %}
+{% assign next_country = country_data.country[lang] %}
+
+{% if current_country != next_country -%}
+    {% assign current_country = next_country %}
+    4+<| *{{ current_country }}*
+{%- endif %}
+
+| {{ country_data.ipsc }} | {{ country_data.dec }} <| {{ country_data.signal_point_name }} <| {{ country_data.signal_point_operator }}
+
+{% endfor %}
+
+|===
+
+
+ISPC:: International Signalling Point Codes. +
+Codes de points sémaphores internationaux (CPSI). +
+Códigos de puntos de señalización internacional (CPSI).

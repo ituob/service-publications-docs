@@ -40,40 +40,12 @@ E-mail: mailto:tsbtson@itu.int[]
 
 . Las denominaciones empleadas en esta Lista y la forma en que aparecen presentados los datos que contiene no implican, de parte de la UIT, juicio alguno sobre la condición jurídica de países o zonas geográficas, o de sus autoridades.
 
-
 == {blank}
 
-[yaml2text,T-SP-Q.708B-2016.yaml,file]
+[yaml2text,data=../../datasets/1109-Q.708B/data.yaml,metadata=../../datasets/1109-Q.708B/metadata.yaml]
 ----
 {% assign lang = "es" %}
-
-[cols="^,^,^,^",options="unnumbered"]
-|===
-
-4+<h| {{ file.metadata.country_or_area[lang] }}
-h| {{ file.metadata.ipsc[lang] }}
-h| {{ file.metadata.dec[lang] }}
-h| {{ file.metadata.signal_point_name[lang] }}
-h| {{ file.metadata.signal_point_operator[lang] }}
-
-{% for country_data in file.data %}
-{% assign next_country = country_data[1].country[lang] %}
-
-{% if current_country != next_country -%}
-    {% assign current_country = next_country %}
-    4+<| *{{ current_country }}*
-{%- endif %}
-
-| {{ country_data[1].ipsc }} | {{ country_data[1].dec }} <| {{ country_data[1].signal_point_name }} <| {{ country_data[1].signal_point_operator }}
-
-{% endfor %}
-
-|===
-
-ISPC:: International Signalling Point Codes. +
-Codes de points sémaphores internationaux (CPSI). +
-Códigos de puntos de señalización internacional (CPSI).
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 
 == Formulario de notificación para la asignación/retirada de códigos de punto de señalización internacional (ISPC) para el sistema de señalización N.o 7 (Según la Recomendación UIT-T Q.708(03/99))
 
@@ -108,7 +80,6 @@ Correo electrónico:
 &#95;
 {%- endfor %}
 
-
 [cols="^,^,^,^",options="unnumbered"]
 |===
 
@@ -118,7 +89,6 @@ h| ISPC h| Nombre único del punto de señalización h| Nombre del operador del 
 | | | |
 {% endfor %}
 |===
-
 
 == ENMIENDAS
 
@@ -132,11 +102,4 @@ h| ISPC h| Nombre único del punto de señalización h| Nombre del operador del 
 |===
 
 ----
-
-
-
-
-
-
-
 
