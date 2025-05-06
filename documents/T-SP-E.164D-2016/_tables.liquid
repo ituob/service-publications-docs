@@ -1,0 +1,269 @@
+
+== {{ metadata.title[lang] }} -&nbsp;
+
+{%- case lang -%}
+{%- when "en" or "ar" -%}
+numerical order
+{%- when "fr" -%}
+ordre numérique
+{%- when "es" -%}
+orden numérico
+{%- when "zh" -%}
+按数字排序
+{%- when "ru" -%}
+в нумерационном порядке;
+{%- endcase -%}
+
+{% assign notes = data | map: "note" | uniq %}
+
+{% for note_content in notes %}
+    {% assign sliced_word = note_content.en | slice: 0,39 %}
+    {% case sliced_word %}
+        {% when "Ascension is using country code +247and" %}
+            {% assign note_a = note_content[lang] %}
+        {% when "Integrated numbering plan." %}
+            {% assign note_b = note_content[lang] %}
+        {% when "Code shared between Curaçao and Bonaire" %}
+            {% assign note_c = note_content[lang] %}
+        {% when "Will be allocated, only after all three" %}
+            {% assign note_d = note_content[lang] %}
+        {% when "Associated with shared country code 878" %}
+            {% assign note_e = note_content[lang] %}
+        {% when "Reserved for future use." %}
+            {% assign note_f = note_content[lang] %}
+        {% when "Including Australian Antarctic Territor" %}
+            {% assign note_g = note_content[lang] %}
+        {% when "U.A.E.: Abu Dhabi, Ajman, Dubai, Fujeir" %}
+            {% assign note_h = note_content[lang] %}
+        {% when "Including Christmas Island and Cocos-Ke" %}
+            {% assign note_i = note_content[lang] %}
+        {% when "French departments and territories in t" %}
+            {% assign note_j = note_content[lang] %}
+        {% when "United Nations Office of the Coordinato" %}
+            {% assign note_k = note_content[lang] %}
+        {% when "Reserved for the Palestinian Authority." %}
+            {% assign note_l = note_content[lang] %}
+        {% when "Reserved for E.164 country code expansi" %}
+            {% assign note_m = note_content[lang] %}
+        {% when "Associated with shared country code 881" %}
+            {% assign note_n = note_content[lang] %}
+        {% when "Associated with shared country code 882" %}
+            {% assign note_o = note_content[lang] %}
+        {% when "Associated with shared country code 883" %}
+            {% assign note_p = note_content[lang] %}
+        {% when "This designation is without prejudice t" %}
+            {% assign note_q = note_content[lang] %}
+    {% endcase %}
+{% endfor %}
+
+[cols="^,<,^",options="unnumbered,header"]
+|===
+| {{ metadata.locale | where: "key", "country_code" | map: lang | first }}
+| {{ metadata.locale | where: "key", "country_area_or_service" | map: lang | first }}
+| {{ metadata.locale | where: "key", "note" | map: lang | first }}
+
+{% for country_data in data %}
+| {{ country_data.country_code }}
+| {{ country_data.country_area_or_service[lang] }}
+|
+{%- assign sliced_word = country_data.note.en | slice: 0,39 -%}
+{%- case sliced_word -%}
+    {%- when "Ascension is using country code +247and" -%}
+        <<note_a,a>>
+    {%- when "Integrated numbering plan." -%}
+        <<note_b,b>>
+    {%- when "Code shared between Curaçao and Bonaire" -%}
+        <<note_c,c>>
+    {%- when "Will be allocated, only after all three" -%}
+        <<note_d,d>>
+    {%- when "Associated with shared country code 878" -%}
+        <<note_e,e>>
+    {%- when "Reserved for future use." -%}
+        <<note_f,f>>
+    {%- when "Including Australian Antarctic Territor" -%}
+        <<note_g,g>>
+    {%- when "U.A.E.: Abu Dhabi, Ajman, Dubai, Fujeir" -%}
+        <<note_h,h>>
+    {%- when "Including Christmas Island and Cocos-Ke" -%}
+        <<note_i,i>>
+    {%- when "French departments and territories in t" -%}
+        <<note_j,j>>
+    {%- when "United Nations Office of the Coordinato" -%}
+        <<note_k,k>>
+    {%- when "Reserved for the Palestinian Authority." -%}
+        <<note_l,l>>
+    {%- when "Reserved for E.164 country code expansi" -%}
+        <<note_m,m>>
+    {%- when "Associated with shared country code 881" -%}
+        <<note_n,n>>
+    {%- when "Associated with shared country code 882" -%}
+        <<note_o,o>>
+    {%- when "Associated with shared country code 883" -%}
+        <<note_p,p>>
+    {%- when "This designation is without prejudice t" -%}
+        <<note_q,q>>
+{%- endcase -%}
+{% endfor %}
+|===
+
+== {{ metadata.title[lang] }} -&nbsp;
+
+{%- case lang -%}
+{%- when "en" or "ar" -%}
+alphabetical order
+{%- when "fr" -%}
+ordre alphabétique
+{%- when "es" -%}
+orden alfabético
+{%- when "zh" -%}
+按字母排序
+{%- when "ru" -%}
+в алфавитном порядке
+{%- endcase -%}
+
+{% assign ordered_sequence = data | map: "country_area_or_service" | sort: lang | uniq %}
+
+[cols="^,<,^",options="unnumbered,header"]
+|===
+| {{ metadata.locale | where: "key", "country_code" | map: lang | first }}
+| {{ metadata.locale | where: "key", "country_area_or_service" | map: lang | first }}
+| {{ metadata.locale | where: "key", "note" | map: lang | first }}
+
+{% for next_country in ordered_sequence %}
+    {%- for country_data in data -%}
+        {%- if  next_country[lang] == country_data.country_area_or_service[lang] -%}
+            | {{ country_data.country_code }} | {{ country_data.country_area_or_service[lang] }} |
+            {%- assign sliced_word = country_data.note.en | slice: 0,39 -%}
+            {%- case sliced_word -%}
+                {%- when "Ascension is using country code +247and" -%}
+                    <<note_a,a>>
+                {%- when "Integrated numbering plan." -%}
+                    <<note_b,b>>
+                {%- when "Code shared between Curaçao and Bonaire" -%}
+                    <<note_c,c>>
+                {%- when "Will be allocated, only after all three" -%}
+                    <<note_d,d>>
+                {%- when "Associated with shared country code 878" -%}
+                    <<note_e,e>>
+                {%- when "Reserved for future use." -%}
+                    <<note_f,f>>
+                {%- when "Including Australian Antarctic Territor" -%}
+                    <<note_g,g>>
+                {%- when "U.A.E.: Abu Dhabi, Ajman, Dubai, Fujeir" -%}
+                    <<note_h,h>>
+                {%- when "Including Christmas Island and Cocos-Ke" -%}
+                    <<note_i,i>>
+                {%- when "French departments and territories in t" -%}
+                    <<note_j,j>>
+                {%- when "United Nations Office of the Coordinato" -%}
+                    <<note_k,k>>
+                {%- when "Reserved for the Palestinian Authority." -%}
+                    <<note_l,l>>
+                {%- when "Reserved for E.164 country code expansi" -%}
+                    <<note_m,m>>
+                {%- when "Associated with shared country code 881" -%}
+                    <<note_n,n>>
+                {%- when "Associated with shared country code 882" -%}
+                    <<note_o,o>>
+                {%- when "Associated with shared country code 883" -%}
+                    <<note_p,p>>
+                {%- when "This designation is without prejudice t" -%}
+                    <<note_q,q>>
+            {%- endcase -%}
+        {%- endif %}
+    {%- endfor -%}
+{% endfor %}
+|===
+
+{{ metadata.locale | where: "key", "note" | map: lang | first }}:
+
+. [[note_a]]{{ note_a }}
+
+. [[note_b]]{{ note_b }}
+
+. [[note_c]]{{ note_c }}
+
+. [[note_d]]{{ note_d }}
+
+. [[note_e]]{{ note_e }}
+
+. [[note_f]]{{ note_f }}
+
+. [[note_g]]{{ note_g }}
+
+. [[note_h]]{{ note_h }}
+
+. [[note_i]]{{ note_i }}
+
+. [[note_j]]{{ note_j }}
+
+. [[note_k]]{{ note_k }}
+
+. [[note_l]]{{ note_l }}
+
+. [[note_m]]{{ note_m }}
+
+. [[note_n]]{{ note_n }}:
++
+--
+[cols="<,^,^",options="unnumbered,header"]
+|===
+^| {{ metadata_n.locale | where: "key", "network" | map: lang | first }}
+| {{ metadata_n.locale | where: "key", "cc_ic" | map: lang | first }}
+| {{ metadata_n.locale | where: "key", "status" | map: lang | first }}
+
+{% for service_data in file_two.data -%}
+    {% assign one_service = file_two.data | where: "network", service_data.network %}
+    {% if next_network != one_service[0].network %}
+        {% assign next_network = service_data.network %}
+        | {{ one_service[0].network }}
+        | {{ one_service[0].cc_ic }} and {{ one_service[1].cc_ic }}
+        | {{ one_service[0].status }}
+    {% endif %}
+{%- endfor %}
+|===
+
+--
+
+. [[note_o]]{{ note_o }}:
++
+--
+[yaml2text,T-SP-E.164D-2016.note-o.yaml,file_three]
+---
+[cols="<,<,^,^",options="unnumbered,header"]
+|===
+| {{ metadata_o.locale | where: "key", "applicant" | map: lang | first }}
+| {{ metadata_o.locale | where: "key", "network" | map: lang | first }}
+| {{ metadata_o.locale | where: "key", "cc_ic" | map: lang | first }}
+| {{ metadata_o.locale | where: "key", "status" | map: lang | first }}
+
+{% for applicant_data in file_three.data -%}
+    | {{ applicant_data[1].applicant }}
+    | {{ applicant_data[1].network }}
+    | {{ applicant_data[1].cc_ic }}
+    | {{ applicant_data[1].status }}
+{%- endfor %}
+|===
+---
+--
+
+. [[note_p]]{{ note_p }}:
++
+--
+[cols="<,<,^,^",options="unnumbered,header"]
+|===
+| {{ metadata_pq.locale | where: "key", "applicant" | map: lang | first }}
+| {{ metadata_pq.locale | where: "key", "network" | map: lang | first }}
+| {{ metadata_pq.locale | where: "key", "cc_ic" | map: lang | first }}
+| {{ metadata_pq.locale | where: "key", "status" | map: lang | first }}
+
+{% for applicant_data in file_four.data -%}
+    | {{ applicant_data[1].applicant }}
+    | {{ applicant_data[1].network }}
+    | {{ applicant_data[1].cc_ic }}
+    | {{ applicant_data[1].status }}
+{%- endfor %}
+|===
+--
+
+. [[note_q]]{{ note_q }}
