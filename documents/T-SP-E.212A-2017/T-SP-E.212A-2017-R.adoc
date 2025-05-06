@@ -12,7 +12,6 @@
 :mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
 
-
 [preface]
 == Примечание БСЭ
 
@@ -38,107 +37,10 @@
 . Используемые в настоящем Списке обозначения и способ подачи материала не подразумевают выражения какого бы то ни было мнения со стороны МСЭ в отношении правового статуса какой-либо страны или географической зоны или властей этой страны или географической зоны.
 
 
-
-
-[yaml2text,T-SP-E.212A-2017.main.yaml,file]
+[yaml2text,data=../../datasets/1117-E.212A/data.yaml,metadata=../../datasets/1117-E.212A/metadata.yaml,data_mcc_mnc=../../datasets/1117-E.212A-MCCMNC/data.yaml,metadata_mcc_mnc=../../datasets/1117-E.212A-MCCMNC/metadata.yaml]
 ----
 {% assign lang = "ru" %}
-
-== {{ file.metadata.title[lang] }} - в нумерационном порядке
-
-{% assign notes = file.data | map: "note" | uniq %}
-
-{% for note_content in notes %}
-    {% assign note_first_word = note_content.en | split: " " | first %}
-    {% case note_first_word %}
-        {% when "Mobile" %}
-            {% assign note_a = note_content[lang] %}
-        {% when "Dubai:" %}
-            {% assign note_b = note_content[lang] %}
-        {% when "Associated" %}
-            {% assign note_c = note_content[lang] %}
-        {% when "This" %}
-            {% assign note_d = note_content[lang] %}
-    {% endcase %}
-{% endfor %}
-
-
-[cols="3",options="unnumbered"]
-|===
-| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
-
-{% for country_data in file.data -%}
-    | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} |
-    {% assign note_first_word = country_data.note.en | split: " " | first %}
-    {% case note_first_word %}
-        {% when "Mobile" %}
-            <<note_a,a>>
-        {% when "Dubai:" %}
-            <<note_b,b>>
-        {% when "Associated" %}
-            <<note_c,c>>
-        {% when "This" %}
-            <<note_d,d>>
-    {% endcase %}
-{%- endfor %}
-
-|===
-
-
-== {{ file.metadata.title[lang] }} - в алфавитном порядке
-
-{% assign ordered_sequence = file.data | map: "country_or_area" | sort: lang | uniq %}
-
-[cols="3",options="unnumbered"]
-|===
-| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.country_or_area[lang] }} | {{ file.metadata.locale.note[lang] }}
-
-{% for next_country in ordered_sequence -%}
-    {%- for country_data in file.data -%}
-        {%- if country_data.country_or_area[lang] == next_country[lang] -%}
-            | {{ country_data.code }} | {{ country_data.country_or_area[lang] }} |
-            {% assign note_first_word = country_data.note.en | split: " " | first %}
-            {% case note_first_word %}
-                {% when "Mobile" %}
-                    <<note_a,a>>
-                {% when "Dubai:" %}
-                    <<note_b,b>>
-                {% when "Associated" %}
-                    <<note_c,c>>
-                {% when "This" %}
-                    <<note_d,d>>
-            {% endcase %}
-        {%- endif -%}
-    {%- endfor %}
-{%- endfor %}
-|===
-
-
-{{ file.metadata.locale.note[lang] | append: "s"}}:
-
-. [[note_a]]{{ note_a }}
-
-. [[note_b]]{{ file.data | map: "country_or_area" | where: "en", "United Arab Emirates" | map: lang | uniq }}, {{ note_b }}
-
-. [[note_c]]{{ note_c }}
-+
---
-[yaml2text,T-SP-E.212A-2017.mcc_mnc.yaml,file_two]
----
-
-[cols="^,^,^",options="unnumbered"]
-|===
-| {{ file_two.metadata.locale.network[lang] }} | {{ file_two.metadata.locale.mcc_mnc[lang] }} | {{ file_two.metadata.locale.status[lang] }}
-
-{% for company in file_two.data %}
-<| {{ company[1].network }} | {{ company[1].mcc_mnc }} | {{ company[1].status | replace: "assigned", file_two.metadata.locale.assigned[lang] }}
-{% endfor %}
-
-|===
----
---
-. [[note_d]]{{ note_d }}
-
+{% render "tables", data: data, metadata: metadata, data_mcc_mnc: data_mcc_mnc, metadata_mcc_mnc: metadata_mcc_mnc, lang: lang %}
 
 == Количество резервных кодов страны или географической зоны для подвижной связи (MCC) согласно Рекомендации МСЭ-Т E.212
 
@@ -158,7 +60,6 @@
 | 800 - 899 | зарезервированы
 | 900 - 999 | 99
 |===
-
 
 == ПОПРАВКИ
 
