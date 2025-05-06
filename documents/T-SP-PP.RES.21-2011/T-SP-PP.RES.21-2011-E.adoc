@@ -36,32 +36,8 @@ E-mail: tsbtson@itu.int
 expression of any opinion whatsoever on the part of ITU concerning the legal status of any country
 or geographical area, or of its authorities.
 
-
-== Call-Back and alternative calling procedures (Res. 21 Rev. PP-2006)
-
-*Note from TSB*
-
-Countries/geographical areas for which "Call-Back and certain alternative calling procedures not in accordance with
-the relevant regulations" are prohibited in their territory.
-
-[yaml2text,T-SP-PP.RES.21-2011.yaml,file]
+[yaml2text,data=../../datasets/991-PP.RES.21.pp/data.yaml,metadata=../../datasets/991-PP.RES.21.pp/metadata.yaml]
 ----
 {% assign lang = "en" %}
-
-[cols="4",options="unnumbered"]
-|===
-{% assign half_size_data = file.data.size | divided_by: 2 %}
-
-{% for i in (1..half_size_data) -%}
-    {%- assign i_s = i | capitalize -%}
-    {%- assign j = i | plus: half_size_data | capitalize -%}
-    {%- assign column_one = file.data[i_s] -%}
-    {%- assign column_two = file.data[j] -%}
-    | {{ column_one.number }} | {{ column_one.geographic_area[lang] }}
-    | {{ column_two.number }} | {{ column_two.geographic_area[lang] }}
-{%- endfor %}
-|===
+{% render "table", data: data, metadata: metadata, lang: lang %}
 ----
-
-All the countries/geographical areas which prohibit the practice of "Call-Back" should inform ITU accordingly by
-sending e-mail to the following address: mailto:tsbtson@itu.int[]
