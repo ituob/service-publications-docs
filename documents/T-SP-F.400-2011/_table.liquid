@@ -1,0 +1,75 @@
+{% assign locale_data = metadata.locale %}
+
+[%unnumbered]
+[cols="9*"]
+|===
+^.^| {{ locale_data | where: "key", "country_or_area" | map: lang | first }}
+^.^| {{ locale_data | where: "key", "admd_name" | map: lang | first }}
+^.^| {{ locale_data | where: "key", "country_code" | map: lang | first }}{blank}footnote:[Country Code: See Annex A to Recommendation F.401. This is based on ISO 3166, of which the latest published edition should be used (obtainable from national standards bodies)]
+3+^.^| {{ locale_data | where: "key", "service_names" | map: lang | first }}
+^.^| {{ locale_data | where: "key", "helpdesk" | map: lang | first }}
+^.^| {{ locale_data | where: "key", "autoanswer" | map: lang | first }}
+^.^| {{ locale_data | where: "key", "contact_address" | map: lang | first }}
+| | |
+^.^| {{ locale_data | where: "key", "mt" | map: lang | first }}
+^.^| {{ locale_data | where: "key", "ipm" | map: lang | first }}
+^.^| {{ locale_data | where: "key", "other" | map: lang | first }}
+| | |
+^.^| 1 ^.^| 2 ^.^| 3 ^.^| 4 ^.^| 5 ^.^| 6 ^.^| 7 ^.^| 8 ^.^| 9
+
+{% assign sorted_countries = data | map: "country_or_area" | map: "fr" | replace: "é", "e" | replace: "è", "e" | remove: '["' | remove: '"]' | split: '", "' | uniq | sort %}
+
+{% for country_name in sorted_countries %}
+
+{% for country_data in data %}
+
+{% assign raw_country_name = country_data.country_or_area.fr | replace: "é", "e" | replace: "è", "e" %}
+
+{% if raw_country_name == country_name %}
+
+| {{ country_data.country_or_area.fr }} +
+{{ country_data.country_or_area.en }} +
+{{ country_data.country_or_area.es }}
+
+| {{ country_data.admd_name }}
+
+| {{ country_data.country_code }}
+
+| {{ country_data.mt }}
+
+| {{ country_data.ipm }}
+
+| {{ country_data.other }}
+
+|
+{% if country_data.helpdesk.available %}
+{{ country_data.helpdesk.available | replace: "TRUE", "YES" | replace: "FALSE", "NO" }}
+{% elsif country_data.helpdesk.x400 %}
+{% assign helpdesk = country_data.helpdesk.x400 | split: ", " %}
+{% for letter in helpdesk %}
+{{ letter }} +
+{% endfor %}
+{% endif %}
+
+|
+{% if country_data.autoanswer.available %}
+{{ country_data.autoanswer.available | replace: "TRUE", "YES" | replace: "FALSE", "NO" }}
+{% elsif country_data.autoanswer.x400 %}
+{% assign autoanswer = country_data.autoanswer.x400 | split: ", " %}
+{% for letter in autoanswer %}
+{{ letter }} +
+{% endfor %}
+{% endif %}
+
+|
+{% for field in country_data.contact_address %}
+{{ field[1] }} +
+{% endfor %}
+
+{% endif %}
+
+{% endfor %}
+
+{% endfor %}
+
+|===

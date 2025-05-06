@@ -14,7 +14,6 @@ F.400 y X.400)
 :mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
 
-
 [preface]
 == Nota de la TSB
 
@@ -31,96 +30,15 @@ http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.ht
 
 . Las denominaciones empleadas en esta Lista y la forma en que aparecen presentados los datos que contiene no implican, de parte de la UIT, juicio alguno sobre la condición jurídica de países o zonas geográficas, o de sus autoridades.
 
-
 == {blank}
 
-
-[yaml2text,T-SP-F.400-2011.yaml,file]
+[yaml2text,data=../../datasets/974-F.400/data.yaml,metadata=../../datasets/974-F.400/metadata.yaml]
 ----
 {% assign lang = "es" %}
-{% assign locale_data = file.metadata.locale %}
-
-[%unnumbered]
-[cols="9*"]
-|===
-^.^| {{ locale_data.country_or_area[lang] }}
-^.^| {{ locale_data.admd_name[lang] }}
-^.^| {{ locale_data.country_code[lang] }}{blank}footnote:[Country Code: See Annex A to Recommendation F.401. This is based on ISO 3166, of which the latest published edition should be used (obtainable from national standards bodies)]
-3+^.^| {{ locale_data.service_names[lang] }}
-^.^| {{ locale_data.helpdesk[lang] }}
-^.^| {{ locale_data.autoanswer[lang] }}
-^.^| {{ locale_data.contact_address[lang] }}
-| | |
-^.^| {{ locale_data.mt[lang] }}
-^.^| {{ locale_data.ipm[lang] }}
-^.^| {{ locale_data.other[lang] }}
-| | |
-^.^| 1 ^.^| 2 ^.^| 3 ^.^| 4 ^.^| 5 ^.^| 6 ^.^| 7 ^.^| 8 ^.^| 9
-
-
-{% assign sorted_countries = file.data | map: "country_or_area" | map: "fr" | replace: "é", "e" | replace: "è", "e" | remove: '["' | remove: '"]' | split: '", "' | uniq | sort %}
-
-{% for country_name in sorted_countries %}
-
-{% for country_data in file.data %}
-
-{% assign raw_country_name = country_data.country_or_area.fr | replace: "é", "e" | replace: "è", "e" %}
-
-{% if raw_country_name == country_name %}
-
-| {{ country_data.country_or_area.fr }} +
-{{ country_data.country_or_area.en }} +
-{{ country_data.country_or_area.es }}
-
-| {{ country_data.admd_name }}
-
-| {{ country_data.country_code }}
-
-| {{ country_data.mt }}
-
-| {{ country_data.ipm }}
-
-| {{ country_data.other }}
-
-|
-{% if country_data.helpdesk.available %}
-{{ country_data.helpdesk.available | replace: "TRUE", "YES" | replace: "FALSE", "NO" }}
-{% elsif country_data.helpdesk.x400 %}
-{% assign helpdesk = country_data.helpdesk.x400 | split: ", " %}
-{% for letter in helpdesk %}
-{{ letter }} +
-{% endfor %}
-{% endif %}
-
-|
-{% if country_data.autoanswer.available %}
-{{ country_data.autoanswer.available | replace: "TRUE", "YES" | replace: "FALSE", "NO" }}
-{% elsif country_data.autoanswer.x400 %}
-{% assign autoanswer = country_data.autoanswer.x400 | split: ", " %}
-{% for letter in autoanswer %}
-{{ letter }} +
-{% endfor %}
-{% endif %}
-
-|
-{% for field in country_data.contact_address %}
-{{ field[1] }} +
-{% endfor %}
-
-{% endif %}
-
-{% endfor %}
-
-{% endfor %}
-
-|===
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 ----
 
-
-
 == ENMIENDAS
-
 
 [%unnumbered]
 |===
@@ -160,7 +78,6 @@ http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.ht
 
 |===
 
-
 [%unnumbered]
 |===
 a| image::itu_logo.png["",112,115] a| _Sírvase rellenar el presente formulario de notificación y devolverlo a la dirección siguiente:_ +
@@ -180,7 +97,6 @@ a| image::itu_logo.png["",112,115] a| _Sírvase rellenar el presente formulario 
 (Prestación de servicios de tratamiento de mensajes X.400)
 
 |===
-
 
 [%unnumbered]
 |===
