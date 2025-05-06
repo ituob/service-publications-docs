@@ -61,42 +61,10 @@ Switzerland +
 
 == {blank}
 
-[yaml2text,T-SP-Q.708A-2017.yaml,file]
+[yaml2text,data=../../datasets/1125-Q.708A/data.yaml,metadata=../../datasets/1125-Q.708A/metadata.yaml]
 ----
 {% assign lang = "ar" %}
-
-[cols="2",options="unnumbered"]
-|===
-| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.area_or_network[lang] }} -- الترتيب العددي
-
-{% for network_data in file.data -%}
-    | {{ network_data[1].code }} | {{ network_data[1].area_or_network[lang] }}
-    {%- assign network_names = network_names | append: network_data[1].area_or_network[lang] | append: ", " -%}
-{% endfor %}
-|===
-
-
-{% assign ordered_sequence = network_names | split: ", " | uniq | sort %}
-
-[cols="2",options="unnumbered"]
-|===
-| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.area_or_network[lang] }} -- الترتيب الأبجدي
-
-{% for next_network in ordered_sequence -%}
-    {%- for network_data in file.data -%}
-        {%- if network_data[1].area_or_network[lang] == next_network -%}
-            | {{ network_data[1].code }} | {{ network_data[1].area_or_network[lang] }}
-        {%- endif -%}
-    {%- endfor -%}
-{%- endfor %}
-|===
-
-
-الملاحظات
-
-* لا تمس هذه التسمية بأي من المواقف المتعلقة بوضع كوسوفو، وتتوافق مع قرار مجلس الأمن 1244 ومع رأي محكمة العدل الدولية
-بشأن إعلان استقلال كوسوفو.
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 
 == ITU T Q.708 وفقاً للتوصية (SANC) عدد الرموز الدليلية الاحتياطية لمناطق/شبكات التشوير
 

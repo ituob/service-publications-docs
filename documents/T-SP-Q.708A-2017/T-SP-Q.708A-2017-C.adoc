@@ -50,40 +50,10 @@ Switzerland +
 
 == {blank}
 
-[yaml2text,T-SP-Q.708A-2017.yaml,file]
+[yaml2text,data=../../datasets/1125-Q.708A/data.yaml,metadata=../../datasets/1125-Q.708A/metadata.yaml]
 ----
 {% assign lang = "zh" %}
-
-[cols="2",options="unnumbered"]
-|===
-| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.area_or_network[lang] }} -- 按数字排序
-
-{% for network_data in file.data -%}
-    | {{ network_data[1].code }} | {{ network_data[1].area_or_network[lang] }}
-    {%- assign network_names = network_names | append: network_data[1].area_or_network[lang] | append: ", " -%}
-{% endfor %}
-|===
-
-
-{% assign ordered_sequence = network_names | split: ", " | uniq | sort %}
-
-[cols="2",options="unnumbered"]
-|===
-| {{ file.metadata.locale.code[lang] }} | {{ file.metadata.locale.area_or_network[lang] }} -- 按字母排序
-
-{% for next_network in ordered_sequence -%}
-    {%- for network_data in file.data -%}
-        {%- if network_data[1].area_or_network[lang] == next_network -%}
-            | {{ network_data[1].code }} | {{ network_data[1].area_or_network[lang] }}
-        {%- endif -%}
-    {%- endfor -%}
-{%- endfor %}
-|===
-
-注
-
-* {{ file.data["7-213"].note[lang] }}
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 
 == 闲置的ITU-T Q.708信令区域网络编码（SANC）数量
 
