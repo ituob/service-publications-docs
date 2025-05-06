@@ -1,0 +1,69 @@
+
+[cols="2",options="unnumbered"]
+|===
+| {{ metadata.locale | where: "key", "code" | map: lang | first }} | {{ metadata.locale | where: "key", "area_or_network" | map: lang | first }} --&nbsp;
+
+{%- if lang == "en" -%}
+numerical order
+{%- elsif lang == "fr" -%}
+ordre numérique
+{%- elsif lang == "es" -%}
+orden numérico
+{%- elsif lang == "ar" -%}
+الترتيب العددي
+{%- elsif lang == "ru" -%}
+нумерационный порядок
+{%- elsif lang == "zh" -%}
+按数字排序
+{% endif %}
+
+{% for network_data in data -%}
+    | {{ network_data.code }} | {{ network_data.area_or_network[lang] }}
+    {%- assign network_names = network_names | append: network_data.area_or_network[lang] | append: ", " -%}
+{% endfor %}
+|===
+
+{% assign ordered_sequence = network_names | split: ", " | uniq | sort %}
+
+[cols="2",options="unnumbered"]
+|===
+| {{ metadata.locale | where: "key", "code" | map: lang | first }} | {{ metadata.locale | where: "key", "area_or_network" | map: lang | first }} --&nbsp;
+
+{%- if lang == "en" -%}
+alphabetical order
+{%- elsif lang == "es" -%}
+orden alfabético
+{%- elsif lang == "fr" -%}
+ordre alphabétique
+{%- elsif lang == "ar" -%}
+بالترتيب الأبجدي
+{%- elsif lang == "ru" -%}
+алфавитный порядок
+{%- elsif lang == "zh" -%}
+按字母排序
+{% endif %}
+
+{% for next_network in ordered_sequence -%}
+    {%- for network_data in data -%}
+        {%- if network_data.area_or_network[lang] == next_network -%}
+            | {{ network_data.code }} | {{ network_data.area_or_network[lang] }}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endfor %}
+|===
+
+{% if lang == "en" %}
+Note:
+{% elsif lang == "ar" %}
+الملاحظات
+{% elsif lang == "zh" %}
+注
+{% elsif lang == "fr" %}
+Notes
+{% elsif lang == "ru" %}
+Примечания
+{% elsif lang == "es" %}
+Notas
+{% endif %}
+
+* {{ data | where: "code", "7-213" | map: "note" | map: lang | first }}
