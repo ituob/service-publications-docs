@@ -40,45 +40,16 @@ E-mail: mailto:tsbtson@itu.int[]
 
 . Les appellations employées dans cette Liste et la présentation des données qui y figurent n'impliquent, de la part de l'UIT, aucune prise de position quant au statut juridique des pays ou zones géographiques ou de leurs autorités.
 
-
 == {blank}
 
-[yaml2text,T-SP-Q.708B-2016.yaml,file]
+[yaml2text,data=../../datasets/1109-Q.708B/data.yaml,metadata=../../datasets/1109-Q.708B/metadata.yaml]
 ----
 {% assign lang = "fr" %}
-
-[cols="^,^,^,^",options="unnumbered"]
-|===
-
-4+<h| {{ file.metadata.country_or_area[lang] }}
-h| {{ file.metadata.ipsc[lang] }}
-h| {{ file.metadata.dec[lang] }}
-h| {{ file.metadata.signal_point_name[lang] }}
-h| {{ file.metadata.signal_point_operator[lang] }}
-
-{% for country_data in file.data %}
-{% assign next_country = country_data[1].country[lang] %}
-
-{% if current_country != next_country -%}
-    {% assign current_country = next_country %}
-    4+<| *{{ current_country }}*
-{%- endif %}
-
-| {{ country_data[1].ipsc }} | {{ country_data[1].dec }} <| {{ country_data[1].signal_point_name }} <| {{ country_data[1].signal_point_operator }}
-
-{% endfor %}
-
-|===
-
-ISPC:: International Signalling Point Codes. +
-Codes de points sémaphores internationaux (CPSI). +
-Códigos de puntos de señalización internacional (CPSI).
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 
 == Formulaire de notification pour l’attribution ou le retrait des codes de points sémaphores internationaux (ISPC)pour le système de signalisation No 7 (Selon la Recommandation UIT-T Q.708 (03/99))
 
 _Le présent formulaire doit être utilisé pour notifier au Directeur du TSB les codes ISPC qui ont été attribués ou retirés par un Etat Membre depuis la dernière notification._
-
 
 Pays/Zone:
 {% for i in (1..100) -%}
@@ -109,7 +80,6 @@ Courrier électronique:
 &#95;
 {%- endfor %}
 
-
 [cols="4",options="unnumbered"]
 |===
 | ISPC | Nom unique du point sémaphore | Nom de l’opérateur du point sémaphore | Pays dans lequel le point sémaphore sera mis en service, conformément aux dispositions de la section 7.9 footnote:[Uniquement dans le cas où les dispositions de la section 7.9 s’appliquent.]
@@ -118,7 +88,6 @@ Courrier électronique:
 | | | |
 {% endfor %}
 |===
-
 
 == AMENDEMENTS
 
@@ -132,24 +101,4 @@ Courrier électronique:
 |===
 
 ----
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

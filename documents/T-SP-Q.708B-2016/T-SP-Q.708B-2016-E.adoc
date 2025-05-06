@@ -10,7 +10,6 @@
 :local-cache-only:
 :imagesdir: images
 
-
 [preface]
 == Note from TSB
 
@@ -40,45 +39,16 @@ E-mail: mailto:tsbtson@itu.int[]
 
 . The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of ITU concerning the legal status of any country or geographical area, or of its authorities.
 
-
 == {blank}
 
-[yaml2text,T-SP-Q.708B-2016.yaml,file]
+[yaml2text,data=../../datasets/1109-Q.708B/data.yaml,metadata=../../datasets/1109-Q.708B/metadata.yaml]
 ----
 {% assign lang = "en" %}
-
-[cols="2,1,4,4",options="unnumbered"]
-|===
-
-4+<h| {{ file.metadata.country_or_area[lang] }}
-h| {{ file.metadata.ipsc[lang] }}
-h| {{ file.metadata.dec[lang] }}
-h| {{ file.metadata.signal_point_name[lang] }}
-h| {{ file.metadata.signal_point_operator[lang] }}
-
-{% for country_data in file.data %}
-{% assign next_country = country_data[1].country[lang] %}
-
-{% if current_country != next_country -%}
-    {% assign current_country = next_country %}
-    4+<| *{{ current_country }}*
-{%- endif %}
-
-| {{ country_data[1].ipsc }} | {{ country_data[1].dec }} <| {{ country_data[1].signal_point_name }} <| {{ country_data[1].signal_point_operator }}
-
-{% endfor %}
-
-|===
-
-ISPC:: International Signalling Point Codes. +
-Codes de points sémaphores internationaux (CPSI). +
-Códigos de puntos de señalización internacional (CPSI).
-
+{% render "table", data: data, metadata: metadata, lang: lang %}
 
 == Notification of assignment or withdrawal of International Signalling Point Codes (ISPC) for Signalling System No. 7 (According to Recommendation ITU-T Q.708(03/99))
 
 _This form should be used to notify the Director of TSB of ISPCs that have been assigned or withdrawn by a Member State since the last notification._
-
 
 Country/Area:
 {% for i in (1..100) -%}
@@ -109,7 +79,6 @@ E-mail:
 &#95;
 {%- endfor %}
 
-
 [cols="4",options="unnumbered"]
 |===
 
@@ -120,7 +89,6 @@ h| ISPC h| Unique name of the ignalling point h| Name of the signalling point op
 {% endfor %}
 
 |===
-
 
 == AMENDMENTS
 
@@ -134,5 +102,4 @@ h| ISPC h| Unique name of the ignalling point h| Name of the signalling point op
 |===
 
 ----
-
 
