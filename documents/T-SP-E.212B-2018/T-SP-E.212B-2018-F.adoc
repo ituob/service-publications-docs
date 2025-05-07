@@ -12,7 +12,6 @@
 :mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
 
-
 [preface]
 == Note du TSB
 
@@ -36,138 +35,15 @@ E-mail : mailto:tsbtson@itu.int[]
 
 . Les appellations employées dans cette Liste et la présentation des données qui y figurent n'impliquent, de la part de l'UIT, aucune prise de position quant au statut juridique des pays ou zones géographiques ou de leurs autorités.
 
-
-[yaml2text,T-SP-E.212B-2018.main.yaml,file]
+[yaml2text,data=../../datasets/1162-E.212/data.yaml,metadata=../../datasets/1162-E.212/metadata.yaml,data_shared_mcc=../../datasets/1162-E.212-Shared-MCC/data.yaml,metadata_shared_mcc=../../datasets/1162-E.212-Shared-MCC/metadata.yaml,data_shared_mcc_others=../../datasets/1162-E.212-MCC-Others/data.yaml,metadata_shared_mcc_others=../../datasets/1162-E.212-MCC-Others/metadata.yaml,data_et=../../datasets/1162-E.212-ET/data.yaml,metadata_et=../../datasets/1162-E.212-ET/metadata.yaml]
 ----
 {% assign lang = "fr" %}
-
-== {{ file.metadata.title[lang] }}
-
-[cols="25%,55%,20%",options="header,unnumbered"]
-|===
-| {{ file.metadata.locale.country_or_area[lang] }}
-| {{ file.metadata.locale.networks[lang] }}
-^| {{ file.metadata.locale.mcc_mnc_codes[lang] }}
-
-{% assign country_names = file.data | map: "country_or_area" %}
-
-{% for country_data in file.data %}
-    {% assign next_country = country_data.country_or_area.en %}
-
-    {% if current_country != next_country %}
-        {% assign current_country = next_country %}
-        {% assign country_batch = country_names | where: "en", country_data.country_or_area.en %}
-        .{{ country_batch.size | plus: 1 }}+| {{ country_data.country_or_area[lang] }} | |
-    {% endif %}
-    | {{ country_data.networks | replace: "|", "\|"}}
-    ^| {{ country_data.mcc_mnc_codes }}
-
-{% endfor %}
-|===
-
-[yaml2text,T-SP-E.212B-2018.shared_mcc.yaml,file_two]
----
-
-== {{ file_two.metadata.locale.shared_mcc[lang] }}
-
-[cols="2",options="unnumbered,header"]
-|===
-^| {{ file_two.metadata.locale.networks[lang] }}
-^| {{ file_two.metadata.locale.mcc_mnc_codes[lang] }}
-
-{% for network_data in file_two.data %}
-     | {{ network_data[1].networks }}
-    ^| {{ network_data[0] }}
-{% endfor %}
-|===
----
-
-
-[yaml2text,T-SP-E.212B-2018.shared_mcc_others.yaml,file_three]
----
-
-== {{ file_three.metadata.locale.shared_mcc_others[lang] }}
-
-[cols="<,<,^",options="unnumbered,header"]
-|===
-| | {{ file_three.metadata.locale.applicant[lang] }} | MCC + MNC codes
-
-{% for code_data in file_three.data %}
-    .2+| *{{ code_data[1].purpose[lang] }}* | |
-       | {{ code_data[1].applicant }} +
-    {% if code_data[1].temporary_assignment_to -%}
-        (temporary assignment for trial until {{ code_data[1].temporary_assignment_to }})
-    {%- endif %}
-      ^| {{ code_data[0] }}
-{% endfor %}
-|===
----
-
-[yaml2text,T-SP-E.212B-2018.et.yaml,file_four]
----
-
-== {{ file_four.metadata.title[lang] | remove: "*" }} footnote:[{{ file_four.metadata.note_1[lang] }}]
-
-
-[cols="4",options="unnumbered,header"]
-|===
-| {{ file_four.metadata.locale.country_or_area[lang] }}
-| {{ file_four.metadata.locale.mcc_mnc[lang] }} footnote:[{{ file_four.metadata.note_2[lang] }}]
-| {{ file_four.metadata.locale.msin_range[lang] }} footnote:[{{ file_four.metadata.note_3[lang] }}]
-| {{ file_four.metadata.locale.operator_network[lang] }}
-
-
-{% for i in file_four.data %}
-    {% assign next_parameters = "" | append: i.country_or_area.en | append: ", "
-                                   | append: i.country_type | append: ", "
-                                   | append: i.mcc_mnc | append: ", "
-                                   | append: i.operator_network %}
-
-    {% if next_parameters != current_parameters %}
-        {% assign current_parameters = next_parameters %}
-
-        {% for j in file_four.data %}
-            {% assign j_parameters = "" | append: j.country_or_area.en | append: ", "
-                                        | append: j.country_type | append: ", "
-                                        | append: j.mcc_mnc | append: ", "
-                                        | append: j.operator_network %}
-
-            {% if j_parameters == current_parameters %}
-                {% assign msin_parameters = msin_parameters | append: j.msin_range | append: ", " %}
-            {% endif %}
-        {% endfor %}
-
-        {% assign msin_batch        = msin_parameters   | split: ", " %}
-        {% assign last_msin_item    = msin_batch        | last %}
-        {% assign msin_parameters   = nil %}
-
-        | {{ i.country_or_area[lang] }} - Pays {{ i.country_type }}
-        | {{ i.mcc_mnc }}
-        |
-        {% if i.country_or_area.en != "Switzerland" %}
-            {% for item in msin_batch %}
-                {% if item != last_msin_item %}
-                    {{ item }}; +
-                {% else %}
-                    {{ item }}
-                {% endif %}
-            {% endfor %}
-        {% else %}
-            {{ msin_batch | join: ", " }}
-        {% endif %}
-        .^| {{ i.operator_network }}
-
-    {% endif %}
-{% endfor %}
-|===
----
-
+{% render "tables", data: data, metadata: metadata, data_shared_mcc: data_shared_mcc, metadata_shared_mcc: metadata_shared_mcc, data_shared_mcc_others: data_shared_mcc_others, metadata_shared_mcc_others: metadata_shared_mcc_others, data_et: data_et, metadata_et: metadata_et, lang: lang %}
 ----
-
 
 == {blank}
 
-[yaml2text,T-SP-E.212B-2018.main.yaml,file]
+[yaml2text,data=../../datasets/1162-E.212/data.yaml,metadata=../../datasets/1162-E.212/metadata.yaml]
 ----
 A retourner à UIT/TSB Fax No +41 22 730 5853 / E-mail : mailto:tsbtson@itu.int[]
 
@@ -220,7 +96,6 @@ E-mail&#58;:::
 &#95;
 {%- endfor %}
 
-
 [cols="^,^",options="unnumbered"]
 |===
 | MCC + MNC | Nom du réseau/opérateur
@@ -234,10 +109,9 @@ MCC: Indicatif de pays du mobile +
 MNC: Code de réseau mobile
 ----
 
-
 == {blank}
 
-[yaml2text,T-SP-E.212B-2018.main.yaml,file]
+[yaml2text,data=../../datasets/1162-E.212/data.yaml,metadata=../../datasets/1162-E.212/metadata.yaml]
 ----
 A retourner à UIT/TSB Fax No +41 22 730 5853 / E-mail : mailto:tsbtson@itu.int[]
 
@@ -246,7 +120,6 @@ A retourner à UIT/TSB Fax No +41 22 730 5853 / E-mail : mailto:tsbtson@itu.int[
 (Selon la Recommandation UIT-T E.212, Annexe E)
 
 Chacune des Administrations devrait utiliser ce formulaire pour indiquer au Directeur du TSB qu'elle a donné son accord pour qu'un opérateur puisse utiliser/annuler l'utilisation des ressources MCC+MNC du pays A dans le pays B.
-
 
 {% assign width_1 = 100 %}
 {% assign width_2 = width_1 | divided_by: 2 %}
@@ -292,7 +165,6 @@ h| Série de numéros MSIN à utiliser dans le pays B
 | | | | |
 | | | | |
 |===
-
 
 == Amendments
 
