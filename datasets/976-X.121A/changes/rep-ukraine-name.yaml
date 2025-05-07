@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../schema-change.yaml
+---
+type: "REP"
+date_requested: "2025-05-06T20:30:00Z"
+date_active: "2025-06-01T00:00:00Z"
+ob_issue_no: "1500"
+reference: "OB-1500"
+description:
+  en: "Update of country name for code 255"
+  fr: "Mise à jour du nom de pays pour le code 255"
+  es: "Actualización del nombre del país para el código 255"
+identifier:
+  code: "255"
+data:
+  code: "255"
+  zone: "2"
+  country_or_area:
+    en: "Ukraine (Republic of)"
+    fr: "Ukraine (République d')"
+    es: "Ucrania (República de)"

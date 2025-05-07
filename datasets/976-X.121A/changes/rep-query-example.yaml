@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=../../schema-change.yaml
+---
+type: "REP"
+date_requested: "2025-05-06T22:00:00Z"
+date_active: "2025-06-01T00:00:00Z"
+ob_issue_no: "1500"
+reference: "OB-1500"
+description:
+  en: "Update all country codes in zone 2 containing 'Republic'"
+  fr: "Mise à jour de tous les codes de pays dans la zone 2 contenant 'République'"
+  es: "Actualización de todos los códigos de país en la zona 2 que contienen 'República'"
+identifier:
+  query:
+    field: "country_or_area.en"
+    value: "Republic"
+    operator: "contains"
+data:
+  # This is a template showing what fields would be modified
+  # Actual implementation would apply this to matching records
+  country_or_area:
+    en: "{original} (updated 2025)"
+    fr: "{original} (mise à jour 2025)"
+    es: "{original} (actualizado 2025)"

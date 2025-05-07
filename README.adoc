@@ -224,7 +224,9 @@ Each change object is a YAML document with the following structure:
 ----
 # Core change metadata
 type: "ADD" | "REP" | "SUP"  # Required: The change operation type
-timestamp: "2025-05-06T20:00:00Z"  # Required: When the change was created (ISO 8601)
+date_requested: "2025-05-06T20:00:00Z"  # Required: When the change was requested (ISO 8601)
+date_active: "2025-06-01T00:00:00Z"  # Required: When the change became active (ISO 8601)
+ob_issue_no: "1500"  # Required: The OB Issue number where the change became active
 reference: "OB-1234"  # Required: Reference to authorizing document (e.g., OB issue number)
 description:  # Optional: Human-readable description of the change
   en: "Addition of new country code"
@@ -263,7 +265,9 @@ superseded_by:  # Optional: Reference to replacing data (for SUP type)
 [source,yaml]
 ----
 type: "ADD"
-timestamp: "2025-05-06T20:00:00Z"
+date_requested: "2025-05-06T20:00:00Z"
+date_active: "2025-06-01T00:00:00Z"
+ob_issue_no: "1500"
 reference: "OB-1500"
 description:
   en: "Addition of new country code for Example Land"
@@ -287,7 +291,9 @@ data:
 [source,yaml]
 ----
 type: "REP"
-timestamp: "2025-05-06T20:00:00Z"
+date_requested: "2025-05-06T20:00:00Z"
+date_active: "2025-06-01T00:00:00Z"
+ob_issue_no: "1500"
 reference: "OB-1500"
 description:
   en: "Update of country name for code 255"
@@ -311,7 +317,9 @@ data:
 [source,yaml]
 ----
 type: "SUP"
-timestamp: "2025-05-06T20:00:00Z"
+date_requested: "2025-05-06T20:00:00Z"
+date_active: "2025-06-01T00:00:00Z"
+ob_issue_no: "1500"
 reference: "OB-1500"
 description:
   en: "Network code superseded due to operator merger"
