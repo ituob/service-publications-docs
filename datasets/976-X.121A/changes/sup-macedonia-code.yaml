@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../schema-change.yaml
+---
+type: "SUP"
+date_requested: "2025-05-06T21:00:00Z"
+date_active: "2025-06-01T00:00:00Z"
+ob_issue_no: "1500"
+reference: "OB-1500"
+description:
+  en: "Country code superseded due to name change"
+  fr: "Code de pays remplacé en raison du changement de nom"
+  es: "Código de país reemplazado debido al cambio de nombre"
+identifier:
+  code: "294"
+data:
+  code: "294"
+  zone: "2"
+  effective_date: "2025-06-01"
+  notes:
+    en: "The Former Yugoslav Republic of Macedonia has been renamed"
+    fr: "L'ex-République yougoslave de Macédoine a été renommée"
+    es: "La ex República Yugoslava de Macedonia ha sido renombrada"
+superseded_by:
+  reference: "OB-1500"
+  identifier:
+    code: "298"

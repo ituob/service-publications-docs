@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../schema-change.yaml
+---
+type: "ADD"
+date_requested: "2025-05-06T20:00:00Z"
+date_active: "2025-06-01T00:00:00Z"
+ob_issue_no: "1500"
+reference: "OB-1500"
+description:
+  en: "Addition of new country code for Example Land"
+  fr: "Ajout d'un nouveau code de pays pour Exemple Terre"
+  es: "Adición de nuevo código de país para Tierra Ejemplo"
+identifier:
+  code: "299"
+data:
+  code: "299"
+  zone: "2"
+  country_or_area:
+    en: "Example Land"
+    fr: "Exemple Terre"
+    es: "Tierra Ejemplo"
