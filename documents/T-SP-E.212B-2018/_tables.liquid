@@ -1,0 +1,106 @@
+
+== {{ metadata.title[lang] }}
+
+[cols="25%,55%,20%",options="header,unnumbered"]
+|===
+| {{ metadata.locale | where: "key", "country_or_area" | map: lang | first }}
+| {{ metadata.locale | where: "key", "networks" | map: lang | first }}
+^| {{ metadata.locale | where: "key", "mcc_mnc_codes" | map: lang | first }}
+
+{% assign country_names = data | map: "country_or_area" %}
+
+{% for country_data in data %}
+    {% assign next_country = country_data.country_or_area.en %}
+
+    {% if current_country != next_country %}
+        {% assign current_country = next_country %}
+        {% assign country_batch = country_names | where: "en", country_data.country_or_area.en %}
+        .{{ country_batch.size | plus: 1 }}+| {{ country_data.country_or_area[lang] }} | |
+    {% endif %}
+    | {{ country_data.networks | replace: "|", "\|"}}
+    ^| {{ country_data.mcc_mnc_codes }}
+
+{% endfor %}
+|===
+
+== {{ metadata_shared_mcc.title[lang] }}
+
+[cols="2",options="unnumbered,header"]
+|===
+^| {{ metadata_shared_mcc.locale | where: "key", "networks" | map: lang | first }}
+^| {{ metadata_shared_mcc.locale | where: "key", "mcc_mnc_codes" | map: lang | first }}
+
+{% for network_data in data_shared_mcc %}
+     | {{ network_data.networks }}
+    ^| {{ network_data.mcc_mnc_codes }}
+{% endfor %}
+|===
+
+== {{ metadata_shared_mcc_others.title[lang]}}
+
+[cols="<,<,^",options="unnumbered,header"]
+|===
+| | {{ metadata_shared_mcc_others.locale | where: "key", "applicant" | map: lang | first }} | MCC + MNC codes
+
+{% for code_data in data_shared_mcc_others %}
+    .2+| *{{ code_data.purpose[lang] }}* | |
+       | {{ code_data.applicant }} +
+    {% if code_data.temporary_assignment_to -%}
+        (temporary assignment for trial until {{ code_data.temporary_assignment_to }})
+    {%- endif %}
+      ^| {{ code_data.mcc_mnc_codes }}
+{% endfor %}
+|===
+
+== {{ metadata_et.title[lang] | remove: "*" }} footnote:[{{ metadata_et.locale | where: "key", "note_1" | map: lang | first }}]
+
+[cols="4",options="unnumbered,header"]
+|===
+| {{ metadata_et.locale | where: "key", "country_or_area" | map: lang | first }}
+| {{ metadata_et.locale | where: "key", "mcc_mnc" | map: lang | first }} footnote:[{{ metadata_et.locale | where: "key", "note_2" | map: lang | first }}]
+| {{ metadata_et.locale | where: "key", "msin_range" | map: lang | first }} footnote:[{{ metadata_et.locale | where: "key", "note_3" | map: lang | first }}]
+| {{ metadata_et.locale | where: "key", "operator_network" | map: lang | first }}
+
+{% for i in data_et %}
+    {% assign next_parameters = "" | append: i.country_or_area.en | append: ", "
+                                   | append: i.country_type | append: ", "
+                                   | append: i.mcc_mnc | append: ", "
+                                   | append: i.operator_network %}
+
+    {% if next_parameters != current_parameters %}
+        {% assign current_parameters = next_parameters %}
+
+        {% for j in data_et %}
+            {% assign j_parameters = "" | append: j.country_or_area.en | append: ", "
+                                        | append: j.country_type | append: ", "
+                                        | append: j.mcc_mnc | append: ", "
+                                        | append: j.operator_network %}
+
+            {% if j_parameters == current_parameters %}
+                {% assign msin_parameters = msin_parameters | append: j.msin_range | append: ", " %}
+            {% endif %}
+        {% endfor %}
+
+        {% assign msin_batch        = msin_parameters   | split: ", " %}
+        {% assign last_msin_item    = msin_batch        | last %}
+        {% assign msin_parameters   = nil %}
+
+        | {{ i.country_or_area[lang] }} - Country {{ i.country_type }}
+        | {{ i.mcc_mnc }}
+        |
+        {% if i.country_or_area.en != "Switzerland" %}
+            {% for item in msin_batch %}
+                {% if item != last_msin_item %}
+                    {{ item }}; +
+                {% else %}
+                    {{ item }}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {{ msin_batch | join: ", " }}
+        {% endif %}
+        .^| {{ i.operator_network }}
+
+    {% endif %}
+{% endfor %}
+|===
