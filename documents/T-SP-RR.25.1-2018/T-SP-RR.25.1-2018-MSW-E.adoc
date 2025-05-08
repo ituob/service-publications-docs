@@ -12,7 +12,6 @@
 :mn-output-extensions: xml,html,pdf,doc,rxl
 :local-cache-only:
 
-
 [preface]
 == Note from the BR
 
@@ -38,7 +37,6 @@ E-mail: mailto:brmail@itu.int[]
 
 
 NOTE: Nothing in the manner of presentation of information in this Annex or in the arrangement of data implies endorsement or acceptance by ITU in matters affecting the status and boundaries of States and territories.
-
 
 == Radiocommunications between Amateur Stations (RR 25.1)
 
@@ -316,134 +314,117 @@ h| Permitted h| Forbidden h| Pages
 |===
 
 
-
 == Form of Call Signs Assigned by Each Administration to its Amateur and Experimental Stations
 
-[yaml2text,yaml_files/country_names.yaml,file]
+[yaml2text,data=../../datasets/1154-RR.25.1/data.yaml,metadata=../../datasets/1154-RR.25.1/metadata.yaml]
 ----
 {% assign lang = "en" %}
 
-{% assign filenames = "algeria, argentina, aruba, australia, austria, bahamas, bahrain, barbedos, belarus, belgium, belize, benin, bhutan, bolivia, bonaire, botswana, brunei, bulgaria, burkina-faso, burundi, cabo-verde, cameroon, canada, central-african-republic, chad, chile, colombia, comoros, congo, cook-islands, costa-rica, cote-divoire, croatia, cuba, curacao, cyprus, czech, denmark, djibouti, dominica, dominican-republic, ecuador, egypt, el-salvador, ethiopia, fiji, finland, gabon, gambia, georgia, ghana, greece, guatemala, guinea-bissau, guinea, guyana, haiti, hungary, india, indonesia, iran, iraq, ireland, israel, italy, jamaica, jordan, kenya, kiribati, korea, kuwait, kyrgyz, lao, latvia, lebanon, lesotho, libya, liechtenstein, lithuania, luxembourg, madagascar, malawi, maldives, mauritania, mauritius, micronesia, monaco, morocco, mozambique, myanmar, namibia, nauru, nepal, netherlands, nicaragua, niger, nigeria, niue, norway, oman, pakistan, papua-new-guinea, peru, qatar, romania, russia, rwanda, samoa, san-marino, sao-tome-and-principe, saudi-arabia, senegal, seychelles, sierra-leone, singapore, sint-maarten, slovakia, slovenia, solomon-islands, south-africa, sri-lanka, suriname, swaziland, switzerland, syrian-arab-republic, tanzania, thailand, tonga, trinidad-and-tobago, tunisia, turkey, tuvalu, uganda, ukraine, united-arab-emirates, uruguay, vanuatu, vatican, venezuela, vietnam, zambia, zimbabwe" | split: ", " %}
+{% for country in data %}
 
+{% assign data_path    = country.key | prepend: "datasets/1154-RR.25.1/data/" | append: ".yaml" %}
+{% assign country_data = data_path | load_file %}
 
+=== {{ country.name[lang] }}
 
-{% for filename in filenames %}
+{% if country.key == "argentina" %}
 
-{% assign country_name = file.data[filename][lang] %}
-
-[yaml2text,yaml_files/{{ filename }}.yaml,data]
----
-
-=== {{ country_name }}
-
-{% case filename %}
-
-{% when "argentina" %}
-
-Amateur stations:: {{ data.groups.amateur.regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z"  }}
+Amateur stations:: {{ country_data.groups.amateur[0].regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z"  }}
 Letters indicating the provinces:::
 +
 --
-{%- for codelist in data.codelists[0].list %}
+{%- for codelist in country_data.codelists[0].list %}
+
+{%- if codelist.code.size == 1 -%}
+{{ codelist.code }}
+{% else %}
 {{ codelist.code.from }}
 {%- if codelist.code.to -%} - {{ codelist.code.to }}
-{%- endif %} -- {{ codelist.name }} +
+{%- endif %}
+{%- endif -%}
+ -- {{ codelist.name }} +
 {% endfor %}
 --
 
 NOTE: The beginners have to use the prefix AZ.
 
+{% endif %}
 
-{% else %}
+{% if country.key != "argentina" %}
 
-{% if data.groups.amateur != data.groups.experimental -%}
+{% if country_data.groups.amateur != country_data.groups.experimental -%}
 Amateur stations::
 {%- else -%}
 Amateur stations and experimental stations:::
 {%- endif %}
 +
 --
-{% if data.groups.amateur.regex %}
-{{ data.groups.amateur.regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z" }}
-{% else %}
-{% for item in data.groups.amateur %}
-{{ item.name }}::: {{ item.regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z" }}
+{% for item in country_data.groups.amateur %}
+{% if item.name %} {{ item.name }}::: {% endif %}{{ item.regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z" }}
 {% endfor %}
-{% endif %}
 --
 
-{% if data.codelists %}
-{% for item in data.codelists %}
-{% assign codelist_name = item[0] %}
-{%- break -%}
-{% endfor %}
+{% if country_data.codelists %}
+{% assign amateur_area = country_data.codelists[0] %}
+{% assign codelist_name = amateur_area.name %}
 
 Digits indicating the {{ codelist_name | replace: "_", " " }}:::
 +
 --
-{% for item in data.codelists[codelist_name] %}
-{{ item[0] }}: {{ item[1] }}
+{% for item in amateur_area.list %}
+{{ item.code }}: {{ item.name }}
 {% endfor %}
 --
 {% endif %}
 
-
-{% if data.groups.experimental and
-      data.groups.experimental != data.groups.amateur %}
+{% if country_data.groups.experimental and
+      country_data.groups.experimental != country_data.groups.amateur %}
 Experimental stations::
 +
 --
-{% if data.groups.experimental.regex %}
-{{ data.groups.experimental.regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z" }}
-{% else %}
-{% for item in data.groups.experimental %}
-{{ item.name }}::: {{ item.regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z" }}
+{% for item in country_data.groups.experimental %}
+{% if item.name %} {{ item.name }}::: {% endif %}{{ item.regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z" }}
 {% endfor %}
-{% endif %}
 --
 {% endif %}
 
+{% if country_data.codelists.size == 2 %}
 
-{% if data.codelists.size == 2 %}
-{% for item in data.codelists %}
-    {% assign codelist_name = item[0] %}
-{% endfor %}
+{% assign experimental_area = country_data.codelists[1] %}
+{% assign codelist_name = experimental_area.name %}
 
-{% if filename == "australia" or
-      filename == "bolivia" %}
+{% if country_name == "australia" or
+      country_name == "bolivia" %}
 {% assign character_name = "Letters"  %}
 {% else %}
 {% assign character_name = "Digits" %}
 {% endif %}
 
-
 {{ character_name }} indicating the {{ codelist_name | replace: "_", " " }}:::
 +
 --
-{% for item in data.codelists[codelist_name] %}
-{{ item[0] }}: {{ item[1] }}
+{% for item in experimental_area.list %}
+{{ item.code }}: {{ item.name }}
 {% endfor %}
 --
 {% endif %}
 
-{% if data.notes %}
+{% if country_data.notes %}
 [NOTE]
 ====
-{% if data.notes.size == 1 %}
-{{ data.notes }}
+{% if country_data.notes.size == 1 %}
+{{ country_data.notes }}
 {% else %}
-{% for note in data.notes %}
+{% for note in country_data.notes %}
 . {{ note | remove: "iii)" | remove: "ii)" | remove: "i)" }}
 {% endfor %}
 {% endif %}
 ====
 {% endif %}
 
-{% endcase %}
+{% endif %}
 
----
 {% endfor %}
-
 
 == Amendments
 
