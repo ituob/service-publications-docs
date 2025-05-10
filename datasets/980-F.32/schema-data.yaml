@@ -65,8 +65,21 @@ items:
       type: string
       description: Network (administration/ROA).
     network_roa_note:
-      type: string
       description: Note related to the Network (administration/ROA). This field is optional.
+      properties:
+        en:
+          type: string
+          description: English note related to the telegraph office.
+        fr:
+          type: string
+          description: French note related to the telegraph office.
+        es:
+          type: string
+          description: Spanish note related to the telegraph office.
+      required:
+        - en
+        - fr
+        - es
     network_code:
       type: string
       description: Network code.

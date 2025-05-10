@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for 1154-RR.25.1 countries list
+description: ITU OB Dataset Schema for 1154-RR.25.1 countries list
+type: array
+additionalProperties: false
+items:
+  type: object
+  additionalProperties: false
+  properties:
+    key:
+      type: string
+      description: The key of the country.
+      example: algeria
+    name:
+      type: object
+      description: The name of the country.
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+          description: The name of the country in English.
+          example: Algeria
+        fr:
+          type: string
+          description: The name of the country in French.
+          example: Algérie
+        es:
+          type: string
+          description: The name of the country in Spanish.
+          example: Argelia

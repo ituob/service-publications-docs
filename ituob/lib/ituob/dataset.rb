@@ -137,6 +137,7 @@ module Ituob
     # @return [Boolean, Array] true if valid, or array of [filename, error] pairs if invalid
     def validate_data
       return [false, "schema-data.yaml not found"] unless schema_data_path.exist?
+      return [false, "No data to validate"] unless has_data?
 
       begin
         schema = schema_data.dup

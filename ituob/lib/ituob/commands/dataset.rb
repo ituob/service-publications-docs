@@ -76,7 +76,7 @@ module Ituob
       def metadata_schema_path
         @metadata_schema_path ||= options[:metadata_schema] ?
           resolve_path(options[:metadata_schema]) :
-          Pathname.new(File.join(Dir.pwd, "schema-metadata.yaml"))
+          Pathname.new(File.join(Dir.pwd, "datasets", "schema-metadata.yaml"))
       end
 
       def resolve_path(path_str)

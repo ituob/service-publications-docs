@@ -314,15 +314,13 @@ h| Permitted h| Forbidden h| Pages
 |===
 
 
-
-
-[yaml2text,data=../../datasets/1154-RR.25.1/data.yaml,metadata=../../datasets/1154-RR.25.1/metadata.yaml]
+[yaml2text,countries=../../datasets/1154-RR.25.1/countries.yaml,metadata=../../datasets/1154-RR.25.1/metadata.yaml]
 ----
 {% assign lang = "en" %}
 
 == {{ metadata.title[lang] }}
 
-{% for country in data %}
+{% for country in countries %}
 
 {% assign data_path    = country.key | prepend: "datasets/1154-RR.25.1/data/" | append: ".yaml" %}
 {% assign country_data = data_path | load_file %}
