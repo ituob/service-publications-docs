@@ -1,3 +1,9 @@
+== {{ metadata.title[lang] }}
+
+{% for country in countries %}
+
+{% assign data_path    = country.key | prepend: "datasets/1154-RR.25.1/data/" | append: ".yaml" %}
+{% assign country_data = data_path | loadfile: "." %}
 
 === {{ country.name[lang] }}
 
@@ -85,3 +91,5 @@ Experimental stations::
 {% endif %}
 
 {% endif %}
+
+{% endfor %}

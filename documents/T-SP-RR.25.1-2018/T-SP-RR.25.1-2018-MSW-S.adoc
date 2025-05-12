@@ -319,17 +319,7 @@ h| Permitidas h| Prohibidas h| Páginas
 [yaml2text,countries=../../datasets/1154-RR.25.1/countries.yaml,metadata=../../datasets/1154-RR.25.1/metadata.yaml]
 ----
 {% assign lang = "es" %}
-
-== {{ metadata.title[lang] }}
-
-{% for country in countries %}
-
-{% assign data_path    = country.key | prepend: "datasets/1154-RR.25.1/data/" | append: ".yaml" %}
-{% assign country_data = data_path | load_file %}
-
-{% render "table", country: country, country_data: country_data, lang: lang %}
-
-{% endfor %}
+{% render "table", countries: countries, metadata: metadata, lang: lang %}
 
 == ENMIENDAS
 
