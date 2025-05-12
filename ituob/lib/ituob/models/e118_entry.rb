@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'multilingual_string'
-require 'prosemirror'
+require 'prosereflect'
 
 module Ituob
   module Models

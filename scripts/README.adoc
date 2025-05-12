@@ -60,9 +60,11 @@ is not reusable.
 As part of the modernization effort to ITU-OB data, we are working to convert
 these files into structured objects that can be easily accessed and analyzed.
 
-NOTE: We have developed a ProseMirror gem (under `prosemirror/`) to assist
+NOTE: We have developed a ProseMirror gem called
+https://github.com/metanorma/prosereflect[`prosereflect`] to assist
 parsing the format into structured objects, which may require enhancements
-along the way of this work.
+along the way of this work. Please feel free to PR any changes to the
+`prosereflect` gem if you find any issues with the parsing.
 
 The `datasets` directory contains fully structured raw ITU-OB issue data,
 which is the destination structure of the parsed data.

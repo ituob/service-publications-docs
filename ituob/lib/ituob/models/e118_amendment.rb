@@ -2,7 +2,7 @@
 
 require_relative 'entry'
 require_relative 'e118_action'
-require 'prosemirror'
+require 'prosereflect'
 
 module Ituob
   module Models
@@ -27,7 +27,7 @@ module Ituob
         # Set the position_on if it exists
         amendment.position_on = position_on if position_on
 
-        doc = Prosemirror::Parser.parse_document(hash)
+        doc = Prosereflect::Parser.parse_document(hash)
 
         # puts "Parsing document: #{doc.inspect}"
         # Process each paragraph-table pair as an action
@@ -37,10 +37,10 @@ module Ituob
 
         paragraphs = doc.paragraphs.select do |para|
           # Check if the paragraph is empty or contains only hard breaks
-          if para.is_a?(Prosemirror::Paragraph)
+          if para.is_a?(Prosereflect::Paragraph)
             # Check if the paragraph has any text content
             para.text_content.gsub(/\A[[:space:]]+\Z/, '').length > 0
-          elsif para.is_a?(Prosemirror::HardBreak)
+          elsif para.is_a?(Prosereflect::HardBreak)
             # Ignore hard breaks
             false
           else
