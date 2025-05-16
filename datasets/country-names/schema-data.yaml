@@ -28,6 +28,7 @@ items:
         - ru
         - zh
         - ar
+      additionalProperties: false
       properties:
         en:
           type: string
