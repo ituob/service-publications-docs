@@ -1,0 +1,34 @@
+= ITU OB Country names dataset according to ISO 3166
+
+This dataset contains the country names according to ISO 3166, as well as the
+corresponding two-letter and three-letter codes. It is used in various ITU
+documents and databases.
+
+Notice that ISO 3166 is not a static standard, and the country names and codes
+do change over time.
+
+Specifically, the following codes are specific to ITU and are not part of
+ISO 3166:
+
+[source,yaml]
+----
+- iso_3166_3: xae
+  iso_3166_2: xa
+  name:
+    en: Australian External Territories
+    fr: Territoires extérieurs de l'Australie
+    es: Territorios exteriores de Australia
+    zh: Внешние территории Австралии
+    ru: 澳大利亚境外领土
+    ar: الأراضي الأسترالية الخارجية
+- iso_3166_3: xkx
+  iso_3166_2: xk
+  name:
+    en: Kosovo*
+    fr: Kosovo*
+    es: Kosovo*
+    zh: Косово*
+    ru: 科索沃*
+    ar: كوسوفو*
+----
+

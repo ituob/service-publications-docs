@@ -1,712 +1,2090 @@
 # yaml-language-server: $schema=schema-data.yaml
 ---
-- key: algeria
-  name:
-    en: Algeria (People's Democratic Republic of)
-    fr: Algérie (République algérienne démocratique et populaire)
-    es: Argelia (República Argelina Democrática y Popular)
-- key: argentina
-  name:
-    en: Argentine Republic
-    fr: Argentine (République)
-    es: Argentina (República)
-- key: aruba
+- iso_3166_3: abw
+  iso_3166_2: aw
   name:
     en: Aruba
     fr: Aruba
     es: Aruba
-- key: australia
-  name:
-    en: Australia
-    fr: Australie
-    es: Australia
-- key: austria
-  name:
-    en: Austria
-    fr: Autriche
-    es: Austria
-- key: bahamas
-  name:
-    en: Bahamas (Commonwealth of the)
-    fr: Bahamas (Commonwealth des)
-    es: Bahamas (Commonwealth de las)
-- key: bahrain
-  name:
-    en: Bahrain (Kingdom of)
-    fr: Bahreïn (Royaume de)
-    es: Bahrein (Reino de)
-- key: barbados
-  name:
-    en: Barbados
-    fr: Barbade
-    es: Barbados
-- key: belarus
-  name:
-    en: Belarus (Republic of)
-    fr: Bélarus (République du)
-    es: Belarús (República de)
-- key: belgium
-  name:
-    en: Belgium
-    fr: Belgique
-    es: Bélgica
-- key: belize
-  name:
-    en: Belize
-    fr: Belize
-    es: Belice
-- key: benin
-  name:
-    en: Benin (Republic of)
-    fr: Bénin (République du)
-    es: Benin (República de)
-- key: bhutan
-  name:
-    en: Bhutan (Kingdom of)
-    fr: Bhoutan (Royaume du)
-    es: Bhután (Reino de)
-- key: bolivia
-  name:
-    en: Bolivia (Plurinational State of)
-    fr: Bolivie (État plurinational de)
-    es: Bolivia (Estado Plurinacional de)
-- key: bonaire
-  name:
-    en: Bonaire, Sint Eustatius and Saba
-    fr: Bonaire, Saint Eustache et Saba
-    es: Bonaire, San Eustatius y Saba
-- key: botswana
-  name:
-    en: Botswana (Republic of)
-    fr: Botswana (République du)
-    es: Botswana (República de)
-- key: brunei
-  name:
-    en: Brunei Darussalam
-    fr: Brunéi Darussalam
-    es: Brunei Darussalam
-- key: bulgaria
-  name:
-    en: Bulgaria (Republic of)
-    fr: Bulgarie (République de)
-    es: Bulgaria (República de)
-- key: burkina-faso
-  name:
-    en: Burkina Faso
-    fr: Burkina Faso
-    es: Burkina Faso
-- key: burundi
-  name:
-    en: Burundi (Republic of)
-    fr: Burundi (République du)
-    es: Burundi (República de)
-- key: cabo-verde
-  name:
-    en: Cabo Verde (Republic of)
-    fr: Cabo Verde (République de)
-    es: Cabo Verde (República de)
-- key: cameroon
-  name:
-    en: Cameroon (Republic of)
-    fr: Cameroun (République du)
-    es: Camerún (República de)
-- key: canada
-  name:
-    en: Canada
-    fr: Canada
-    es: Canadá
-- key: central-african-republic
-  name:
-    en: Central African Republic
-    fr: Centrafricaine (République)
-    es: Centroafricana (República)
-- key: chad
-  name:
-    en: Chad (Republic of)
-    fr: Tchad (République du)
-    es: Chad (República del)
-- key: chile
-  name:
-    en: Chile
-    fr: Chili
-    es: Chile
-- key: colombia
-  name:
-    en: Colombia (Republic of)
-    fr: Colombie (République de)
-    es: Colombia (República de)
-- key: comoros
-  name:
-    en: Comoros (Union of the)
-    fr: Comores (Union des)
-    es: Comoras (Unión de las)
-- key: congo
-  name:
-    en: Congo (Republic of the)
-    fr: Congo (République du)
-    es: Congo (República del)
-- key: cook-islands
-  name:
-    en: Cook Islands
-    fr: Cook (Iles)
-    es: Cook (Islas)
-- key: costa-rica
-  name:
-    en: Costa Rica
-    fr: Costa Rica
-    es: Costa Rica
-- key: cote-divoire
-  name:
-    en: Côte d'Ivoire (Republic of)
-    fr: Côte d'Ivoire (République de)
-    es: Côte d'Ivoire (República de)
-- key: croatia
-  name:
-    en: Croatia (Republic of)
-    fr: Croatie (République de)
-    es: Croacia (República de)
-- key: cuba
-  name:
-    en: Cuba
-    fr: Cuba
-    es: Cuba
-- key: curacao
-  name:
-    en: Curaçao
-    fr: Curaçao
-    es: Curaçao
-- key: cyprus
-  name:
-    en: Cyprus (Republic of)
-    fr: Chypre (République de)
-    es: Chipre (República de)
-- key: czech
-  name:
-    en: Czech Republic
-    fr: République tchèque
-    es: República Checa
-- key: denmark
-  name:
-    en: Denmark
-    fr: Danemark
-    es: Dinamarca
-- key: djibouti
-  name:
-    en: Djibouti (Republic of)
-    fr: Djibouti (République de)
-    es: Djibouti (República de)
-- key: dominica
-  name:
-    en: Dominica (Commonwealth of)
-    fr: Dominique (Commonwealth de la)
-    es: Dominica (Commonwealth de)
-- key: dominican-republic
-  name:
-    en: Dominican Republic
-    fr: Dominicaine (République)
-    es: Dominicana (República)
-- key: ecuador
-  name:
-    en: Ecuador
-    fr: Equateur
-    es: Ecuador
-- key: egypt
-  name:
-    en: Egypt (Arab Republic of)
-    fr: Egypte (République arabe d')
-    es: Egipto (República Árabe de)
-- key: el-salvador
-  name:
-    en: El Salvador (Republic of)
-    fr: El Salvador (République d')
-    es: El Salvador (República de)
-- key: ethiopia
-  name:
-    en: Ethiopia (Federal Democratic Republic of)
-    fr: Ethiopie (République fédérale démocratique d')
-    es: Etiopía (República Democrática Federal de)
-- key: fiji
-  name:
-    en: Fiji (Republic of)
-    fr: Fidji (République de)
-    es: Fiji (República de)
-- key: finland
-  name:
-    en: Finland
-    fr: Finlande
-    es: Finlandia
-- key: gabon
-  name:
-    en: Gabonese Republic
-    fr: Gabonaise (République)
-    es: Gabonesa (República)
-- key: gambia
-  name:
-    en: Gambia (Republic of the)
-    fr: Gambie (République de)
-    es: Gambia (República de)
-- key: georgia
-  name:
-    en: Georgia
-    fr: Géorgie
-    es: Georgia
-- key: ghana
-  name:
-    en: Ghana
-    fr: Ghana
-    es: Ghana
-- key: greece
-  name:
-    en: Greece
-    fr: Grèce
-    es: Grecia
-- key: guatemala
-  name:
-    en: Guatemala (Republic of)
-    fr: Guatemala (République du)
-    es: Guatemala (República de)
-- key: guinea
-  name:
-    en: Guinea (Republic of)
-    fr: Guinée (République de)
-    es: Guinea (República de)
-- key: guinea-bissau
-  name:
-    en: Guinea-Bissau (Republic of)
-    fr: Guinée-Bissau (République de)
-    es: Guinea-Bissau (República de)
-- key: guyana
-  name:
-    en: Guyana
-    fr: Guyana
-    es: Guyana
-- key: haiti
-  name:
-    en: Haiti (Republic of)
-    fr: Haïti (République d')
-    es: Haití (República de)
-- key: hungary
-  name:
-    en: Hungary
-    fr: Hongrie
-    es: Hungría
-- key: india
-  name:
-    en: India (Republic of)
-    fr: Inde (République de l')
-    es: India (República de la)
-- key: indonesia
-  name:
-    en: Indonesia (Republic of)
-    fr: Indonésie (République d')
-    es: Indonesia (República de)
-- key: iran
-  name:
-    en: Iran (Islamic Republic of)
-    fr: Iran (République islamique d')
-    es: Irán (República Islámica del)
-- key: iraq
-  name:
-    en: Iraq (Republic of)
-    fr: Iraq (République d')
-    es: Iraq (República del)
-- key: ireland
-  name:
-    en: Ireland
-    fr: Irlande
-    es: Irlanda
-- key: israel
-  name:
-    en: Israel (State of)
-    fr: Israël (Etat d')
-    es: Israel (Estado de)
-- key: italy
-  name:
-    en: Italy
-    fr: Italie
-    es: Italia
-- key: jamaica
-  name:
-    en: Jamaica
-    fr: Jamaïque
-    es: Jamaica
-- key: jordan
-  name:
-    en: Jordan (Hashemite Kingdom of)
-    fr: Jordanie (Royaume hachémite de)
-    es: Jordania (Reino Hachemita de)
-- key: kenya
-  name:
-    en: Kenya (Republic of)
-    fr: Kenya (République du)
-    es: Kenya (República de)
-- key: kiribati
-  name:
-    en: Kiribati (Republic of)
-    fr: Kiribati (République de)
-    es: Kiribati (República de)
-- key: korea
-  name:
-    en: Korea (Republic of)
-    fr: République populaire démocratique de Corée
-    es: República Popular Democrática de Corea
-- key: kuwait
-  name:
-    en: Kuwait (State of)
-    fr: Koweït (Etat du)
-    es: Kuwait (Estado de)
-- key: kyrgyz
-  name:
-    en: Kyrgyz Republic
-    fr: République kirghize
-    es: República Kirguisa
-- key: lao
-  name:
-    en: Lao People's Democratic Republic
-    fr: Lao (République démocratique populaire)
-    es: Lao (República Democrática Popular)
-- key: latvia
-  name:
-    en: Latvia (Republic of)
-    fr: Lettonie (République de)
-    es: Letonia (República de)
-- key: lebanon
-  name:
-    en: Lebanon
-    fr: Liban
-    es: Líbano
-- key: lesotho
-  name:
-    en: Lesotho (Kingdom of)
-    fr: Lesotho (Royaume du)
-    es: Lesotho (Reino de)
-- key: libya
-  name:
-    en: Libya
-    fr: Libye
-    es: Libia
-- key: liechtenstein
-  name:
-    en: Liechtenstein (Principality of)
-    fr: Liechtenstein (Principauté de)
-    es: Liechtenstein (Principado de)
-- key: lithuania
-  name:
-    en: Lithuania (Republic of)
-    fr: Lituanie (République de)
-    es: Lituania (República de)
-- key: luxembourg
-  name:
-    en: Luxembourg
-    fr: Luxembourg
-    es: Luxemburgo
-- key: madagascar
-  name:
-    en: Madagascar (Republic of)
-    fr: Madagascar (République de)
-    es: Madagascar (República de)
-- key: malawi
-  name:
-    en: Malawi
-    fr: Malawi
-    es: Malawi
-- key: maldives
-  name:
-    en: Maldives (Republic of)
-    fr: Maldives (République des)
-    es: Maldivas (República de)
-- key: mauritania
-  name:
-    en: Mauritania (Islamic Republic of)
-    fr: Mauritanie (République islamique de)
-    es: Mauritania (República Islámica de)
-- key: mauritius
-  name:
-    en: Mauritius (Republic of)
-    fr: Maurice (République de)
-    es: Mauricio (República de)
-- key: micronesia
-  name:
-    en: Micronesia (Federated States of)
-    fr: Micronésie (Etats fédérés de)
-    es: Micronesia (Estados federados de)
-- key: monaco
-  name:
-    en: Monaco (Principality of)
-    fr: Monaco (Principauté de)
-    es: Mónaco (Principado de)
-- key: morocco
-  name:
-    en: Morocco (Kingdom of)
-    fr: Maroc (Royaume du)
-    es: Marruecos (Reino de)
-- key: mozambique
-  name:
-    en: Mozambique (Republic of)
-    fr: Mozambique (République du)
-    es: Mozambique (República de)
-- key: myanmar
-  name:
-    en: Myanmar (Union of)
-    fr: Myanmar (Union de)
-    es: Myanmar (Unión de)
-- key: namibia
-  name:
-    en: Namibia (Republic of)
-    fr: Namibie (République de)
-    es: Namibia (República de)
-- key: nauru
-  name:
-    en: Nauru (Republic of)
-    fr: Nauru (République de)
-    es: Nauru (República de)
-- key: nepal
-  name:
-    en: Nepal (Federal Democratic Republic of)
-    fr: Népal (République fédérale démocratique du)
-    es: Nepal (República Democrática Federal de)
-- key: netherlands
-  name:
-    en: Netherlands (Kingdom of the)
-    fr: Pays-Bas (Royaume des)
-    es: Países Bajos (Reino de los)
-- key: nicaragua
-  name:
-    en: Nicaragua
-    fr: Nicaragua
-    es: Nicaragua
-- key: niger
-  name:
-    en: Niger (Republic of the)
-    fr: Niger (République du)
-    es: Níger (República del)
-- key: nigeria
-  name:
-    en: Nigeria (Federal Republic of)
-    fr: Nigéria (République fédérale du)
-    es: Nigeria (República Federal de)
-- key: niue
-  name:
-    en: Niue
-    fr: Niue
-    es: Niue
-- key: norway
-  name:
-    en: Norway
-    fr: Norvège
-    es: Noruega
-- key: oman
-  name:
-    en: Oman (Sultanate of)
-    fr: Oman (Sultanat d')
-    es: Omán (Sultanía de)
-- key: pakistan
-  name:
-    en: Pakistan (Islamic Republic of)
-    fr: Pakistan (République islamique du)
-    es: Pakistán (República Islámica del)
-- key: papua-new-guinea
-  name:
-    en: Papua New Guinea
-    fr: Papouasie-Nouvelle-Guinée
-    es: Papua Nueva Guinea
-- key: peru
-  name:
-    en: Peru
-    fr: Pérou
-    es: Perú
-- key: qatar
-  name:
-    en: Qatar (State of)
-    fr: Qatar (Etat du)
-    es: Catar (Estado del)
-- key: romania
-  name:
-    en: Romania
-    fr: Roumanie
-    es: Rumania
-- key: russia
-  name:
-    en: Russian Federation
-    fr: Fédération de Russie
-    es: Federación de Rusia
-- key: rwanda
-  name:
-    en: Rwanda (Republic of)
-    fr: Rwanda (République du)
-    es: Rwanda (República de)
-- key: samoa
-  name:
-    en: Samoa (Independent State of)
-    fr: Samoa (Etat indépendant du)
-    es: Samoa (Estado Independiente de)
-- key: san-marino
-  name:
-    en: San Marino (Republic of)
-    fr: Saint-Marin (République de)
-    es: San Marino (República de)
-- key: sao-tome-and-principe
-  name:
-    en: Sao Tome and Principe (Democratic Republic of)
-    fr: Sao Tomé-et-Principe (République démocratique de)
-    es: Santo Tomé y Príncipe (República Democrática de)
-- key: saudi-arabia
-  name:
-    en: Saudi Arabia (Kingdom of)
-    fr: Arabie saoudite (Royaume d')
-    es: Arabia Saudita (Reino de)
-- key: senegal
-  name:
-    en: Senegal (Republic of)
-    fr: Sénégal (République du)
-    es: Senegal (República del)
-- key: seychelles
-  name:
-    en: Seychelles (Republic of)
-    fr: Seychelles (République des)
-    es: Seychelles (República de)
-- key: sierra-leone
-  name:
-    en: Sierra Leone
-    fr: Sierra Leone
-    es: Sierra Leona
-- key: singapore
-  name:
-    en: Singapore (Republic of)
-    fr: Singapour (République de)
-    es: Singapur (República de)
-- key: sint-maarten
-  name:
-    en: Sint Maarten (Dutch part)
-    fr: Saint-Martin (partie néerlandaise)
-    es: San Maarten (parte neerlandesa)
-- key: slovakia
-  name:
-    en: Slovak Republic
-    fr: République slovaque
-    es: República Eslovaca
-- key: slovenia
-  name:
-    en: Slovenia (Republic of)
-    fr: Slovénie (République de)
-    es: Eslovenia (República de)
-- key: solomon-islands
-  name:
-    en: Solomon Islands
-    fr: Salomon (Iles)
-    es: Salomón (Islas)
-- key: south-africa
-  name:
-    en: South Africa (Republic of)
-    fr: Sudafricaine (République)
-    es: Sudafricana (República)
-- key: sri-lanka
-  name:
-    en: Sri Lanka (Democratic Socialist Republic of)
-    fr: Sri Lanka (République socialiste démocratique de)
-    es: Sri Lanka (República Socialista Democrática de)
-- key: suriname
-  name:
-    en: Suriname (Republic of)
-    fr: Suriname (République du)
-    es: Suriname (República de)
-- key: swaziland
-  name:
-    en: Swaziland (Kingdom of)
-    fr: Swaziland (Royaume du)
-    es: Swazilandia (Reino de)
-- key: switzerland
-  name:
-    en: Switzerland (Confederation of)
-    fr: Suisse (Confédération)
-    es: Suiza (Confederación)
-- key: syrian-arab-republic
-  name:
-    en: Syrian Arab Republic
-    fr: République arabe syrienne
-    es: República Árabe Siria
-- key: tanzania
-  name:
-    en: Tanzania (United Republic of)
-    fr: Tanzanie (République-Unie de)
-    es: Tanzanía (República Unida de)
-- key: thailand
-  name:
-    en: Thailand
-    fr: Thaïlande
-    es: Tailandia
-- key: tonga
-  name:
-    en: Tonga (Kingdom of)
-    fr: Tonga (Royaume des)
-    es: Tonga (Reino de)
-- key: trinidad-and-tobago
-  name:
-    en: Trinidad and Tobago
-    fr: Trinité-et-Tobago
-    es: Trinidad y Tabago
-- key: tunisia
-  name:
-    en: Tunisia
-    fr: Tunisie
-    es: Túnez
-- key: turkey
-  name:
-    en: Turkey
-    fr: Turquie
-    es: Turquía
-- key: tuvalu
-  name:
-    en: Tuvalu
-    fr: Tuvalu
-    es: Tuvalu
-- key: uganda
-  name:
-    en: Uganda (Republic of)
-    fr: Ouganda (République de l')
-    es: Uganda (República de)
-- key: ukraine
-  name:
-    en: Ukraine
-    fr: Ukraine
-    es: Ucrania
-- key: united-arab-emirates
+    zh: Аруба
+    ru: 阿鲁巴岛
+    ar: آروبا
+- iso_3166_3: afg
+  iso_3166_2: af
+  name:
+    en: Afghanistan
+    fr: Afghanistan
+    es: Afganistán
+    zh: Афганистан
+    ru: 阿富汗
+    ar: أفغانستان
+- iso_3166_3: ago
+  iso_3166_2: ao
+  name:
+    en: Angola (Republic of)
+    fr: Angola (République d')
+    es: Angola (República de)
+    zh: Ангола (Республика)
+    ru: 安哥拉（共和国）
+    ar: جمهورية أنغولا
+- iso_3166_3: aia
+  iso_3166_2: ai
+  name:
+    en: Anguilla
+    fr: Anguilla
+    es: Anguila
+    zh: Ангилья
+    ru: 安圭拉岛
+    ar: أنغويلا
+- iso_3166_3: alb
+  iso_3166_2: al
+  name:
+    en: Albania (Republic of)
+    fr: Albanie (République d')
+    es: Albania (República de)
+    zh: Албания (Республика)
+    ru: 阿尔巴尼亚（共和国）
+    ar: جمهورية ألبانيا
+- iso_3166_3: and
+  iso_3166_2: ad
+  name:
+    en: Andorra (Principality of)
+    fr: Andorre (Principauté d')
+    es: Andorra (Principado de)
+    zh: Андорра (Княжество)
+    ru: 安道尔（公国）
+    ar: إمارة أندورا
+- iso_3166_3: are
+  iso_3166_2: ae
   name:
     en: United Arab Emirates
     fr: Emirats arabes unis
     es: Emiratos Árabes Unidos
-- key: uruguay
+    zh: Объединенные Арабские Эмираты
+    ru: 阿拉伯联合酋长国
+    ar: الإمارات العربية المتحدة
+- iso_3166_3: arg
+  iso_3166_2: ar
+  name:
+    en: Argentine Republic
+    fr: Argentine (République)
+    es: Argentina (República)
+    zh: Аргентинская Республика
+    ru: 阿根廷共和国
+    ar: جمهورية الأرجنتين
+- iso_3166_3: arm
+  iso_3166_2: am
+  name:
+    en: Armenia (Republic of)
+    fr: Arménie (République d')
+    es: Armenia (República de)
+    zh: Армения (Республика)
+    ru: 亚美尼亚（共和国）
+    ar: جمهورية أرمينيا
+- iso_3166_3: asm
+  iso_3166_2: as
+  name:
+    en: American Samoa
+    fr: Samoa américaines
+    es: Samoa Norteamericana
+    zh: Американское Самоа
+    ru: 美属萨摩亚
+    ar: ساموا الأمريكية
+- iso_3166_3: atg
+  iso_3166_2: ag
+  name:
+    en: Antigua and Barbuda
+    fr: Antigua-et-Barbuda
+    es: Antigua y Barbuda
+    zh: Антигуа и Барбуда
+    ru: 安提瓜和巴布达
+    ar: أنتيغوا وبربودا
+- iso_3166_3: aus
+  iso_3166_2: au
+  name:
+    en: Australia
+    fr: Australie
+    es: Australia
+    zh: Австралия
+    ru: 澳大利亚
+    ar: أستراليا
+- iso_3166_3: aut
+  iso_3166_2: at
+  name:
+    en: Austria
+    fr: Autriche
+    es: Austria
+    zh: Австрия
+    ru: 奥地利
+    ar: النمسا
+- iso_3166_3: aze
+  iso_3166_2: az
+  name:
+    en: Azerbaijan (Republic of)
+    fr: Azerbaïdjan (République d')
+    es: Azerbaiyán (República de)
+    zh: Азербайджан (Республика)
+    ru: 阿塞拜疆（共和国）
+    ar: جمهورية أذربيجان
+- iso_3166_3: bdi
+  iso_3166_2: bi
+  name:
+    en: Burundi (Republic of)
+    fr: Burundi (République du)
+    es: Burundi (República de)
+    zh: Бурунди (Республика)
+    ru: 布隆迪（共和国）
+    ar: جمهورية بوروندي
+- iso_3166_3: bel
+  iso_3166_2: be
+  name:
+    en: Belgium
+    fr: Belgique
+    es: Bélgica
+    zh: Бельгия
+    ru: 比利时
+    ar: بلجيكا
+- iso_3166_3: ben
+  iso_3166_2: bj
+  name:
+    en: Benin (Republic of)
+    fr: Bénin (République du)
+    es: Benin (República de)
+    zh: Бенин (Республика)
+    ru: 贝宁（共和国）
+    ar: جمهورية بنن
+- iso_3166_3: bes
+  iso_3166_2: bq
+  name:
+    en: Bonaire, Sint Eustatius and Saba
+    fr: Bonaire, Saint-Eustache et Saba
+    es: Bonaire, San Eustaquio y Saba
+    zh: Бонэйр, Синт-Эстатиус и Саба
+    ru: 博内尔岛、圣尤斯特歇斯岛和萨巴岛
+    ar: جزر بونير وسان يوستايتوس وسابا
+- iso_3166_3: bfa
+  iso_3166_2: bf
+  name:
+    en: Burkina Faso
+    fr: Burkina Faso
+    es: Burkina Faso
+    zh: Буркина-Фасо
+    ru: 布基纳法索
+    ar: بوركينا فاصو
+- iso_3166_3: bgd
+  iso_3166_2: bd
+  name:
+    en: Bangladesh (People's Republic of)
+    fr: Bangladesh (République populaire du)
+    es: Bangladesh (República Popular de)
+    zh: Бангладеш (Народная Республика)
+    ru: 孟加拉（人民共和国）
+    ar: جمهورية بنغلاديش الشعبية
+- iso_3166_3: bgr
+  iso_3166_2: bg
+  name:
+    en: Bulgaria (Republic of)
+    fr: Bulgarie (République de)
+    es: Bulgaria (República de)
+    zh: Болгария (Республика)
+    ru: 保加利亚（共和国）
+    ar: جمهورية بلغاريا
+- iso_3166_3: bhr
+  iso_3166_2: bh
+  name:
+    en: Bahrain (Kingdom of)
+    fr: Bahreïn (Royaume de)
+    es: Bahrein (Reino de)
+    zh: Бахрейн (Королевство)
+    ru: 巴林（王国）
+    ar: مملكة البحرين
+- iso_3166_3: bhs
+  iso_3166_2: bs
+  name:
+    en: Bahamas (Commonwealth of the)
+    fr: Bahamas (Commonwealth des)
+    es: Bahamas (Commonwealth de las)
+    zh: Багамские Острова (Содружество)
+    ru: 巴哈马国
+    ar: كومنولث البهاما
+- iso_3166_3: bih
+  iso_3166_2: ba
+  name:
+    en: Bosnia and Herzegovina
+    fr: Bosnie-Herzégovine
+    es: Bosnia y Herzegovina
+    zh: Босния и Герцеговина
+    ru: 波斯尼亚与黑塞哥维那
+    ar: البوسنة والهرسك
+- iso_3166_3: blr
+  iso_3166_2: by
+  name:
+    en: Belarus (Republic of)
+    fr: Bélarus (République du)
+    es: Belarús (República de)
+    zh: Беларусь (Республика)
+    ru: 白俄罗斯（共和国）
+    ar: جمهورية بيلاروس
+- iso_3166_3: blz
+  iso_3166_2: bz
+  name:
+    en: Belize
+    fr: Belize
+    es: Belice
+    zh: Белиз
+    ru: 伯利兹
+    ar: بليز
+- iso_3166_3: bmu
+  iso_3166_2: bm
+  name:
+    en: Bermuda
+    fr: Bermudes
+    es: Bermudas
+    zh: Бермудские острова
+    ru: 百慕大
+    ar: برمودا
+- iso_3166_3: bol
+  iso_3166_2: bo
+  name:
+    en: Bolivia (Plurinational State of)
+    fr: Bolivie (État plurinational de)
+    es: Bolivia (Estado Plurinacional de)
+    zh: Боливия (Многонациональное Государство)
+    ru: 玻利维亚（多民族国）
+    ar: دولة بوليفيا المتعددة القوميات
+- iso_3166_3: bra
+  iso_3166_2: br
+  name:
+    en: Brazil (Federative Republic of)
+    fr: Brésil (République fédérative du)
+    es: Brasil (República Federativa del)
+    zh: Бразилия (Федеративная Республика)
+    ru: 巴西（联邦共和国）
+    ar: جمهورية البرازيل الاتحادية
+- iso_3166_3: brb
+  iso_3166_2: bb
+  name:
+    en: Barbados
+    fr: Barbade
+    es: Barbados
+    zh: Барбадос
+    ru: 巴巴多斯
+    ar: بربادوس
+- iso_3166_3: brn
+  iso_3166_2: bn
+  name:
+    en: Brunei Darussalam
+    fr: Brunéi Darussalam
+    es: Brunei Darussalam
+    zh: Бруней-Даруссалам
+    ru: 文莱达鲁萨兰国
+    ar: بروني دار السلام
+- iso_3166_3: btn
+  iso_3166_2: bt
+  name:
+    en: Bhutan (Kingdom of)
+    fr: Bhoutan (Royaume du)
+    es: Bhután (Reino de)
+    zh: Бутан (Королевство)
+    ru: 不丹（王国）
+    ar: مملكة بوتان
+- iso_3166_3: bwa
+  iso_3166_2: bw
+  name:
+    en: Botswana (Republic of)
+    fr: Botswana (République du)
+    es: Botswana (República de)
+    zh: Ботсвана (Республика)
+    ru: 博茨瓦纳（共和国）
+    ar: جمهورية بوتسوانا
+- iso_3166_3: caf
+  iso_3166_2: cf
+  name:
+    en: Central African Republic
+    fr: Centrafricaine (République)
+    es: Centroafricana (República)
+    zh: Центральноафриканская Республика
+    ru: 中非共和国
+    ar: جمهورية إفريقيا الوسطى
+- iso_3166_3: can
+  iso_3166_2: ca
+  name:
+    en: Canada
+    fr: Canada
+    es: Canadá
+    zh: Канада
+    ru: 加拿大
+    ar: كندا
+- iso_3166_3: che
+  iso_3166_2: ch
+  name:
+    en: Switzerland (Confederation of)
+    fr: Suisse (Confédération)
+    es: Suiza (Confederación)
+    zh: Швейцария (Конфедерация)
+    ru: 瑞士（联邦）
+    ar: الاتحاد السويسري
+- iso_3166_3: chl
+  iso_3166_2: cl
+  name:
+    en: Chile
+    fr: Chili
+    es: Chile
+    zh: Чили
+    ru: 智利
+    ar: شيلي
+- iso_3166_3: chn
+  iso_3166_2: cn
+  name:
+    en: China (People's Republic of)
+    fr: Chine (République populaire de)
+    es: China (República Popular de)
+    zh: Китайская Народная Республика
+    ru: 中华人民共和国
+    ar: جمهورية الصين الشعبية
+- iso_3166_3: civ
+  iso_3166_2: ci
+  name:
+    en: Côte d'Ivoire (Republic of)
+    fr: Côte d'Ivoire (République de)
+    es: Côte d'Ivoire (República de)
+    zh: Кот-д'Ивуар (Республика)
+    ru: 科特迪瓦（共和国）
+    ar: جمهورية كوت ديفوار
+- iso_3166_3: cmr
+  iso_3166_2: cm
+  name:
+    en: Cameroon (Republic of)
+    fr: Cameroun (République du)
+    es: Camerún (República de)
+    zh: Камерун (Республика)
+    ru: 喀麦隆（共和国）
+    ar: جمهورية الكاميرون
+- iso_3166_3: cod
+  iso_3166_2: cd
+  name:
+    en: Democratic Republic of the Congo
+    fr: République démocratique du Congo
+    es: República Democrática del Congo
+    zh: Демократическая Республика Конго
+    ru: 刚果民主共和国
+    ar: جمهورية الكونغو الديمقراطية
+- iso_3166_3: cog
+  iso_3166_2: cg
+  name:
+    en: Congo (Republic of the)
+    fr: Congo (République du)
+    es: Congo (República del)
+    zh: Конго (Республика)
+    ru: 刚果（共和国）
+    ar: جمهورية الكونغو
+- iso_3166_3: cok
+  iso_3166_2: ck
+  name:
+    en: Cook Islands
+    fr: Cook (Iles)
+    es: Cook (Islas)
+    zh: Острова Кука
+    ru: 库克群岛
+    ar: جزر كوك
+- iso_3166_3: col
+  iso_3166_2: co
+  name:
+    en: Colombia (Republic of)
+    fr: Colombie (République de)
+    es: Colombia (República de)
+    zh: Колумбия (Республика)
+    ru: 哥伦比亚（共和国）
+    ar: جمهورية كولومبيا
+- iso_3166_3: com
+  iso_3166_2: km
+  name:
+    en: Comoros (Union of the)
+    fr: Comores (Union des)
+    es: Comoras (Unión de las)
+    zh: Коморские Острова (Союз)
+    ru: 科摩罗（联盟）
+    ar: اتحاد جزر القمر
+- iso_3166_3: cpv
+  iso_3166_2: cv
+  name:
+    en: Cabo Verde (Republic of)
+    fr: Cabo Verde (République de)
+    es: Cabo Verde (República de)
+    zh: Кабо-Верде (Республика)
+    ru: 佛得角（共和国）
+    ar: جمهورية كابو فيردي
+- iso_3166_3: cri
+  iso_3166_2: cr
+  name:
+    en: Costa Rica
+    fr: Costa Rica
+    es: Costa Rica
+    zh: Коста-Рика
+    ru: 哥斯达黎加
+    ar: كوستاريكا
+- iso_3166_3: cub
+  iso_3166_2: cu
+  name:
+    en: Cuba
+    fr: Cuba
+    es: Cuba
+    zh: Куба
+    ru: 古巴
+    ar: كوبا
+- iso_3166_3: cuw
+  iso_3166_2: cw
+  name:
+    en: Curaçao
+    fr: Curaçao
+    es: Curaçao
+    zh: Кюрасао
+    ru: 库拉索岛
+    ar: كوراساو
+- iso_3166_3: cym
+  iso_3166_2: ky
+  name:
+    en: Cayman Islands
+    fr: Caïmanes (Iles)
+    es: Caimán (Islas)
+    zh: Каймановы острова
+    ru: 开曼群岛
+    ar: جزر كايمان
+- iso_3166_3: cyp
+  iso_3166_2: cy
+  name:
+    en: Cyprus (Republic of)
+    fr: Chypre (République de)
+    es: Chipre (República de)
+    zh: Кипр (Республика)
+    ru: 塞浦路斯（共和国）
+    ar: جمهورية قبرص
+- iso_3166_3: cze
+  iso_3166_2: cz
+  name:
+    en: Czech Republic
+    fr: République tchèque
+    es: República Checa
+    zh: Чешская Республика
+    ru: 捷克共和国
+    ar: الجمهورية التشيكية
+- iso_3166_3: deu
+  iso_3166_2: de
+  name:
+    en: Germany (Federal Republic of)
+    fr: Allemagne (République fédérale d')
+    es: Alemania (República Federal de)
+    zh: Германия (Федеративная Республика)
+    ru: 德国（联邦共和国）
+    ar: جمهورية ألمانيا الاتحادية
+- iso_3166_3: dji
+  iso_3166_2: dj
+  name:
+    en: Djibouti (Republic of)
+    fr: Djibouti (République de)
+    es: Djibouti (República de)
+    zh: Джибути (Республика)
+    ru: 吉布提（共和国）
+    ar: جمهورية جيبوتي
+- iso_3166_3: dma
+  iso_3166_2: dm
+  name:
+    en: Dominica (Commonwealth of)
+    fr: Dominique (Commonwealth de la)
+    es: Dominica (Commonwealth de)
+    zh: Доминика (Содружество)
+    ru: 多米尼克国
+    ar: كومنولث دومينيكا
+- iso_3166_3: dnk
+  iso_3166_2: dk
+  name:
+    en: Denmark
+    fr: Danemark
+    es: Dinamarca
+    zh: Дания
+    ru: 丹麦
+    ar: الدانمارك
+- iso_3166_3: dom
+  iso_3166_2: do
+  name:
+    en: Dominican Republic
+    fr: Dominicaine (République)
+    es: Dominicana (República)
+    zh: Доминиканская Республика
+    ru: 多米尼加共和国
+    ar: الجمهورية الدومينيكية
+- iso_3166_3: dza
+  iso_3166_2: dz
+  name:
+    en: Algeria (People's Democratic Republic of)
+    fr: Algérie (République algérienne démocratique et populaire)
+    es: Argelia (República Argelina Democrática y Popular)
+    zh: Алжир (Народная Демократическая Республика)
+    ru: 阿尔及利亚 （民主人民共和国）
+    ar: جمهورية الجزائر الديمقراطية الشعبية
+- iso_3166_3: ecu
+  iso_3166_2: ec
+  name:
+    en: Ecuador
+    fr: Equateur
+    es: Ecuador
+    zh: Эквадор
+    ru: 厄瓜多尔
+    ar: إكوادور
+- iso_3166_3: egy
+  iso_3166_2: eg
+  name:
+    en: Egypt (Arab Republic of)
+    fr: Egypte (République arabe d')
+    es: Egipto (República Arabe de)
+    zh: Египет (Арабская Республика)
+    ru: 阿拉伯埃及共和国
+    ar: جمهورية مصر العربية
+- iso_3166_3: eri
+  iso_3166_2: er
+  name:
+    en: Eritrea
+    fr: Erythrée
+    es: Eritrea
+    zh: Эритрея
+    ru: 厄立特里亚
+    ar: إريتريا
+- iso_3166_3: esp
+  iso_3166_2: es
+  name:
+    en: Spain
+    fr: Espagne
+    es: España
+    zh: Испания
+    ru: 西班牙
+    ar: إسبانيا
+- iso_3166_3: est
+  iso_3166_2: ee
+  name:
+    en: Estonia (Republic of)
+    fr: Estonie (République d')
+    es: Estonia (República de)
+    zh: Эстония (Республика)
+    ru: 爱沙尼亚（共和国）
+    ar: جمهورية إستونيا
+- iso_3166_3: eth
+  iso_3166_2: et
+  name:
+    en: Ethiopia (Federal Democratic Republic of)
+    fr: Ethiopie (République fédérale démocratique d')
+    es: Etiopía (República Democrática Federal de)
+    zh: Эфиопия (Федеративная Демократическая Республика)
+    ru: 埃塞俄比亚（联邦民主共和国）
+    ar: جمهورية إثيوبيا الاتحادية الديمقراطية
+- iso_3166_3: fin
+  iso_3166_2: fi
+  name:
+    en: Finland
+    fr: Finlande
+    es: Finlandia
+    zh: Финляндия
+    ru: 芬兰
+    ar: فنلندا
+- iso_3166_3: fji
+  iso_3166_2: fj
+  name:
+    en: Fiji (Republic of)
+    fr: Fidji (République de)
+    es: Fiji (República de)
+    zh: Фиджи (Республика)
+    ru: 斐济（共和国）
+    ar: جمهورية فيجي
+- iso_3166_3: flk
+  iso_3166_2: fk
+  name:
+    en: Falkland Islands (Malvinas)
+    fr: Falkland (Iles) (Malvinas)
+    es: Malvinas (Islas) (Falkland)
+    zh: Фолклендские (Мальвинские) острова
+    ru: 福克兰群岛（马尔维纳斯群岛）
+    ar: جزر فوكلاند (مالفيناس)
+- iso_3166_3: fra
+  iso_3166_2: fr
+  name:
+    en: France
+    fr: France
+    es: Francia
+    zh: Франция
+    ru: 法国
+    ar: فرنسا
+- iso_3166_3: fro
+  iso_3166_2: fo
+  name:
+    en: Faroe Islands
+    fr: Féroé (Iles)
+    es: Feroe (Islas)
+    zh: Фарерские острова
+    ru: 法罗群岛
+    ar: جزر فارويه
+- iso_3166_3: fsm
+  iso_3166_2: fm
+  name:
+    en: Micronesia (Federated States of)
+    fr: Micronésie (Etats fédérés de)
+    es: Micronesia (Estados federados de)
+    zh: Микронезия (Федеративные Штаты)
+    ru: 密克罗尼西亚 （联邦）
+    ar: ولايات ميكرونيزيا الموحدة
+- iso_3166_3: gab
+  iso_3166_2: ga
+  name:
+    en: Gabonese Republic
+    fr: Gabonaise (République)
+    es: Gabonesa (República)
+    zh: Габонская Республика
+    ru: 加蓬共和国
+    ar: الجمهورية الغابونية
+- iso_3166_3: gbr
+  iso_3166_2: gb
+  name:
+    en: United Kingdom of Great Britain and Northern Ireland
+    fr: Royaume-Uni de Grande-Bretagne et d'Irlande du Nord
+    es: Reino Unido de Gran Bretaña e Irlanda del Norte
+    zh: Соединенное Королевство Великобритании и Северной Ирландии
+    ru: 大不列颠及北爱尔兰联合王国
+    ar: المملكة المتحدة لبريطانيا العظمى وأيرلندا الشمالية
+- iso_3166_3: geo
+  iso_3166_2: ge
+  name:
+    en: Georgia
+    fr: Géorgie
+    es: Georgia
+    zh: Грузия
+    ru: 格鲁吉亚
+    ar: جورجيا
+- iso_3166_3: gha
+  iso_3166_2: gh
+  name:
+    en: Ghana
+    fr: Ghana
+    es: Ghana
+    zh: Гана
+    ru: 加纳
+    ar: غانا
+- iso_3166_3: gib
+  iso_3166_2: gi
+  name:
+    en: Gibraltar
+    fr: Gibraltar
+    es: Gibraltar
+    zh: Гибралтар
+    ru: 直布罗陀
+    ar: جبل طارق
+- iso_3166_3: gin
+  iso_3166_2: gn
+  name:
+    en: Guinea (Republic of)
+    fr: Guinée (République de)
+    es: Guinea (República de)
+    zh: Гвинея (Республика)
+    ru: 几内亚（共和国）
+    ar: جمهورية غينيا
+- iso_3166_3: glp
+  iso_3166_2: gp
+  name:
+    en: Guadeloupe (French Department of)
+    fr: Guadeloupe (Département français de la)
+    es: Guadalupe (Departamento francés de la)
+    zh: Гваделупа (Департамент Франции)
+    ru: 法属瓜德罗普省
+    ar: مقاطعة غوادلوب الفرنسية
+- iso_3166_3: gmb
+  iso_3166_2: gm
+  name:
+    en: Gambia (Republic of the)
+    fr: Gambie (République de)
+    es: Gambia (República de)
+    zh: Гамбия (Республика)
+    ru: 冈比亚（共和国）
+    ar: جمهورية غامبيا
+- iso_3166_3: gnb
+  iso_3166_2: gw
+  name:
+    en: Guinea-Bissau (Republic of)
+    fr: Guinée-Bissau (République de)
+    es: Guinea-Bissau (República de)
+    zh: Гвинея-Бисау (Республика)
+    ru: 几内亚比绍（共和国）
+    ar: جمهورية غينيا - بيساو
+- iso_3166_3: gnq
+  iso_3166_2: gq
+  name:
+    en: Equatorial Guinea (Republic of)
+    fr: Guinée équatoriale (République de)
+    es: Guinea Ecuatorial (República de)
+    zh: Экваториальная Гвинея (Республика)
+    ru: 赤道几内亚（共和国）
+    ar: جمهورية غينيا الاستوائية
+- iso_3166_3: grc
+  iso_3166_2: gr
+  name:
+    en: Greece
+    fr: Grèce
+    es: Grecia
+    zh: Греция
+    ru: 希腊
+    ar: اليونان
+- iso_3166_3: grd
+  iso_3166_2: gd
+  name:
+    en: Grenada
+    fr: Grenade
+    es: Granada
+    zh: Гренада
+    ru: 格林纳达
+    ar: غرينادا
+- iso_3166_3: grl
+  iso_3166_2: gl
+  name:
+    en: Greenland (Denmark)
+    fr: Groenland (Danemark)
+    es: Groenlandia (Dinamarca)
+    zh: Гренландия (Дания)
+    ru: 格陵兰（丹麦）
+    ar: غرينلاند (الدانمارك)
+- iso_3166_3: gtm
+  iso_3166_2: gt
+  name:
+    en: Guatemala (Republic of)
+    fr: Guatemala (République du)
+    es: Guatemala (República de)
+    zh: Гватемала (Республика)
+    ru: 危地马拉（共和国）
+    ar: جمهورية غواتيمالا
+- iso_3166_3: guf
+  iso_3166_2: gf
+  name:
+    en: French Guiana (French Department of)
+    fr: Guyane française (Département français de la)
+    es: Guayana francesa (Departamento francés de la)
+    zh: Французская Гвиана (Департамент Франции)
+    ru: 法属圭亚那
+    ar: مقاطعة غويانا الفرنسية
+- iso_3166_3: gum
+  iso_3166_2: gu
+  name:
+    en: Guam
+    fr: Guam
+    es: Guam
+    zh: Гуам
+    ru: 关岛
+    ar: غوام
+- iso_3166_3: guy
+  iso_3166_2: gy
+  name:
+    en: Guyana
+    fr: Guyana
+    es: Guyana
+    zh: Гайана
+    ru: 圭亚那
+    ar: غُيانا
+- iso_3166_3: hkg
+  iso_3166_2: hk
+  name:
+    en: Hong Kong, China
+    fr: Hong Kong, Chine
+    es: Hong Kong, China
+    zh: Гонконг, Китай
+    ru: 中国香港
+    ar: هونغ كونغ، الصين
+- iso_3166_3: hnd
+  iso_3166_2: hn
+  name:
+    en: Honduras (Republic of)
+    fr: Honduras (République du)
+    es: Honduras (República de)
+    zh: Гондурас (Республика)
+    ru: 洪都拉斯（共和国）
+    ar: جمهورية هندوراس
+- iso_3166_3: hrv
+  iso_3166_2: hr
+  name:
+    en: Croatia (Republic of)
+    fr: Croatie (République de)
+    es: Croacia (República de)
+    zh: Хорватия (Республика)
+    ru: 克罗地亚（共和国）
+    ar: جمهورية كرواتيا
+- iso_3166_3: hti
+  iso_3166_2: ht
+  name:
+    en: Haiti (Republic of)
+    fr: Haïti (République d')
+    es: Haití (República de)
+    zh: Гаити (Республика)
+    ru: 海地（共和国）
+    ar: جمهورية هايتي
+- iso_3166_3: hun
+  iso_3166_2: hu
+  name:
+    en: Hungary
+    fr: Hongrie
+    es: Hungría
+    zh: Венгрия
+    ru: 匈牙利
+    ar: هنغاريا
+- iso_3166_3: idn
+  iso_3166_2: id
+  name:
+    en: Indonesia (Republic of)
+    fr: Indonésie (République d')
+    es: Indonesia (República de)
+    zh: Индонезия (Республика)
+    ru: 印度尼西亚（共和国）
+    ar: جمهورية إندونيسيا
+- iso_3166_3: ind
+  iso_3166_2: in
+  name:
+    en: India (Republic of)
+    fr: Inde (République de l')
+    es: India (República de la)
+    zh: Индия (Республика)
+    ru: 印度（共和国）
+    ar: جمهورية الهند
+- iso_3166_3: iot
+  iso_3166_2: io
+  name:
+    en: Diego Garcia
+    fr: Diego Garcia
+    es: Diego García
+    zh: Диего-Гарсия
+    ru: 迪戈加西亚岛
+    ar: ديغو غارسيا
+- iso_3166_3: irl
+  iso_3166_2: ie
+  name:
+    en: Ireland
+    fr: Irlande
+    es: Irlanda
+    zh: Ирландия
+    ru: 爱尔兰
+    ar: أيرلندا
+- iso_3166_3: irn
+  iso_3166_2: ir
+  name:
+    en: Iran (Islamic Republic of)
+    fr: Iran (République islamique d')
+    es: Irán (República Islámica del)
+    zh: Иран (Исламская Республика)
+    ru: 伊朗（伊斯兰共和国）
+    ar: جمهورية إيران الإسلامية
+- iso_3166_3: irq
+  iso_3166_2: iq
+  name:
+    en: Iraq (Republic of)
+    fr: Iraq (République d')
+    es: Iraq (República del)
+    zh: Ирак (Республика)
+    ru: 伊拉克（共和国）
+    ar: الجمهورية العراقية
+- iso_3166_3: isl
+  iso_3166_2: is
+  name:
+    en: Iceland
+    fr: Islande
+    es: Islandia
+    zh: Исландия
+    ru: 冰岛
+    ar: أيسلندا
+- iso_3166_3: isr
+  iso_3166_2: il
+  name:
+    en: Israel (State of)
+    fr: Israël (Etat d')
+    es: Israel (Estado de)
+    zh: Израиль (Государство)
+    ru: 以色列（国）
+    ar: دولة إسرائيل
+- iso_3166_3: ita
+  iso_3166_2: it
+  name:
+    en: Italy
+    fr: Cité du Vatican (Etat de la)
+    es: Ciudad del Vaticano (Estado de la)
+    zh: Италия
+    ru: 意大利
+    ar: إيطاليا
+- iso_3166_3: jam
+  iso_3166_2: jm
+  name:
+    en: Jamaica
+    fr: Jamaïque
+    es: Jamaica
+    zh: Ямайка
+    ru: 牙买加
+    ar: جامايكا
+- iso_3166_3: jey
+  iso_3166_2: je
+  name:
+    en: 'Channel Islands: Jersey'
+    fr: 'Channel Islands: Jersey'
+    es: 'Channel Islands: Jersey'
+    zh: 'Channel Islands: Jersey'
+    ru: 'Channel Islands: Jersey'
+    ar: 'Channel Islands: Jersey'
+- iso_3166_3: jor
+  iso_3166_2: jo
+  name:
+    en: Jordan (Hashemite Kingdom of)
+    fr: Jordanie (Royaume hachémite de)
+    es: Jordania (Reino Hachemita de)
+    zh: Иордания (Хашимитское Королевство)
+    ru: 约旦（哈希姆王国）
+    ar: المملكة الأردنية الهاشمية
+- iso_3166_3: jpn
+  iso_3166_2: jp
+  name:
+    en: Japan
+    fr: Japon
+    es: Japón
+    zh: Япония
+    ru: 日本
+    ar: اليابان
+- iso_3166_3: kaz
+  iso_3166_2: kz
+  name:
+    en: Kazakhstan (Republic of)
+    fr: Kazakhstan (République du)
+    es: Kazajstán (República de)
+    zh: Казахстан (Республика)
+    ru: 哈萨克斯坦（共和国）
+    ar: جمهورية كازاخستان
+- iso_3166_3: ken
+  iso_3166_2: ke
+  name:
+    en: Kenya (Republic of)
+    fr: Kenya (République du)
+    es: Kenya (República de)
+    zh: Кения (Республика)
+    ru: 肯尼亚（共和国）
+    ar: جمهورية كينيا
+- iso_3166_3: kgz
+  iso_3166_2: kg
+  name:
+    en: Kyrgyz Republic
+    fr: République kirghize
+    es: República Kirguisa
+    zh: Кыргызская Республика
+    ru: 吉尔吉斯共和国
+    ar: جمهورية قيرغيزستان
+- iso_3166_3: khm
+  iso_3166_2: kh
+  name:
+    en: Cambodia (Kingdom of)
+    fr: Cambodge (Royaume du)
+    es: Camboya (Reino de)
+    zh: Камбоджа (Королевство)
+    ru: 柬埔寨（王国）
+    ar: مملكة كمبوديا
+- iso_3166_3: kir
+  iso_3166_2: ki
+  name:
+    en: Kiribati (Republic of)
+    fr: Kiribati (République de)
+    es: Kiribati (República de)
+    zh: Кирибати (Республика)
+    ru: 基里巴斯（共和国）
+    ar: جمهورية كيريباتي
+- iso_3166_3: kna
+  iso_3166_2: kn
+  name:
+    en: Saint Kitts and Nevis
+    fr: Saint-Kitts-et-Nevis
+    es: San Kitts y Nieves
+    zh: Сент-Китс и Невис
+    ru: 圣基茨和尼维斯
+    ar: سانت كيتس ونيفيس
+- iso_3166_3: kor
+  iso_3166_2: kr
+  name:
+    en: Korea (Republic of)
+    fr: Corée (République de)
+    es: Corea (República de)
+    zh: Корея (Республика)
+    ru: 大韩民国
+    ar: جمهورية كوريا
+- iso_3166_3: kwt
+  iso_3166_2: kw
+  name:
+    en: Kuwait (State of)
+    fr: Koweït (Etat du)
+    es: Kuwait (Estado de)
+    zh: Кувейт (Государство)
+    ru: 科威特（国）
+    ar: دولة الكويت
+- iso_3166_3: lao
+  iso_3166_2: la
+  name:
+    en: Lao People's Democratic Republic
+    fr: Lao (République démocratique populaire)
+    es: Lao (República Democrática Popular)
+    zh: Лаосская Народно-Демократическая Республика
+    ru: 老挝（人民民主共和国）
+    ar: جمهورية لاو الديمقراطية الشعبية
+- iso_3166_3: lbn
+  iso_3166_2: lb
+  name:
+    en: Lebanon
+    fr: Liban
+    es: Líbano
+    zh: Ливан
+    ru: 黎巴嫩
+    ar: لبنان
+- iso_3166_3: lbr
+  iso_3166_2: lr
+  name:
+    en: Liberia (Republic of)
+    fr: Libéria (République du)
+    es: Liberia (República de)
+    zh: Либерия (Республика)
+    ru: 利比里亚（共和国）
+    ar: جمهورية ليبيريا
+- iso_3166_3: lby
+  iso_3166_2: ly
+  name:
+    en: Libya
+    fr: Libye
+    es: Libia
+    zh: Ливия
+    ru: 利比亚
+    ar: ليبيا
+- iso_3166_3: lca
+  iso_3166_2: lc
+  name:
+    en: Saint Lucia
+    fr: Sainte-Lucie
+    es: Santa Lucía
+    zh: Сент-Люсия
+    ru: 圣卢西亚
+    ar: سانت لوسيا
+- iso_3166_3: lie
+  iso_3166_2: li
+  name:
+    en: Liechtenstein (Principality of)
+    fr: Liechtenstein (Principauté de)
+    es: Liechtenstein (Principado de)
+    zh: Лихтенштейн (Княжество)
+    ru: 列支敦士登（公国）
+    ar: إمارة ليختنشتاين
+- iso_3166_3: lka
+  iso_3166_2: lk
+  name:
+    en: Sri Lanka (Democratic Socialist Republic of)
+    fr: Sri Lanka (République socialiste démocratique de)
+    es: Sri Lanka (República Socialista Democrática de)
+    zh: Шри-Ланка (Демократическая Социалистическая  Республика)
+    ru: 斯里兰卡（民主社会主义共和国）
+    ar: جمهورية سري لانكا الاشتراكية الديمقراطية
+- iso_3166_3: lso
+  iso_3166_2: ls
+  name:
+    en: Lesotho (Kingdom of)
+    fr: Lesotho (Royaume du)
+    es: Lesotho (Reino de)
+    zh: Лесото (Королевство)
+    ru: 莱索托（王国）
+    ar: مملكة ليسوتو
+- iso_3166_3: ltu
+  iso_3166_2: lt
+  name:
+    en: Lithuania (Republic of)
+    fr: Lituanie (République de)
+    es: Lituania (República de)
+    zh: Литва (Республика)
+    ru: 立陶宛（共和国）
+    ar: جمهورية ليتوانيا
+- iso_3166_3: lux
+  iso_3166_2: lu
+  name:
+    en: Luxembourg
+    fr: Luxembourg
+    es: Luxemburgo
+    zh: Люксембург
+    ru: 卢森堡
+    ar: لكسمبرغ
+- iso_3166_3: lva
+  iso_3166_2: lv
+  name:
+    en: Latvia (Republic of)
+    fr: Lettonie (République de)
+    es: Letonia (República de)
+    zh: Латвия (Республика)
+    ru: 拉脱维亚（共和国）
+    ar: جمهورية لاتفيا
+- iso_3166_3: mac
+  iso_3166_2: mo
+  name:
+    en: Macao, China
+    fr: Macao, Chine
+    es: Macao, China
+    zh: Макао, Китай
+    ru: 中国澳门
+    ar: ماكاو، الصين
+- iso_3166_3: mar
+  iso_3166_2: ma
+  name:
+    en: Morocco (Kingdom of)
+    fr: Maroc (Royaume du)
+    es: Marruecos (Reino de)
+    zh: Марокко (Королевство)
+    ru: 摩洛哥（王国）
+    ar: المملكة المغربية
+- iso_3166_3: mco
+  iso_3166_2: mc
+  name:
+    en: Monaco (Principality of)
+    fr: Monaco (Principauté de)
+    es: Mónaco (Principado de)
+    zh: Монако (Княжество)
+    ru: 摩纳哥（公国）
+    ar: إمارة موناكو
+- iso_3166_3: mda
+  iso_3166_2: md
+  name:
+    en: Moldova (Republic of)
+    fr: Moldova (République de)
+    es: Moldova (República de)
+    zh: Молдова (Республика)
+    ru: 摩尔多瓦（共和国）
+    ar: جمهورية مولدوفا
+- iso_3166_3: mdg
+  iso_3166_2: mg
+  name:
+    en: Madagascar (Republic of)
+    fr: Madagascar (République de)
+    es: Madagascar (República de)
+    zh: Мадагаскар (Республика)
+    ru: 马达加斯加（共和国）
+    ar: جمهورية مدغشقر
+- iso_3166_3: mdv
+  iso_3166_2: mv
+  name:
+    en: Maldives (Republic of)
+    fr: Maldives (République des)
+    es: Maldivas (República de)
+    zh: Мальдивская Республика
+    ru: 马尔代夫（共和国）
+    ar: جمهورية ملديف
+- iso_3166_3: mex
+  iso_3166_2: mx
+  name:
+    en: Mexico
+    fr: Mexique
+    es: México
+    zh: Мексика
+    ru: 墨西哥
+    ar: المكسيك
+- iso_3166_3: mkd
+  iso_3166_2: mk
+  name:
+    en: The Former Yugoslav Republic of Macedonia
+    fr: L'ex-République yougoslave de Macédoine
+    es: La ex República Yugoslava de Macedonia
+    zh: бывшая югославская Республика Македония
+    ru: 前南斯拉夫马其顿共和国
+    ar: جمهورية مقدونيا اليوغوسلافية السابقة
+- iso_3166_3: mhl
+  iso_3166_2: mh
+  name:
+    en: Marshall Islands (Republic of the)
+    fr: Marshall (République des Iles)
+    es: Marshall (República de las Islas)
+    zh: Маршалловы Острова (Республика)
+    ru: 马绍尔群岛 （共和国）
+    ar: جمهورية جزر مارشال
+- iso_3166_3: mli
+  iso_3166_2: ml
+  name:
+    en: Mali (Republic of)
+    fr: Mali (République du)
+    es: Malí (República de)
+    zh: Мали (Республика)
+    ru: 马里（共和国）
+    ar: جمهورية مالي
+- iso_3166_3: mlt
+  iso_3166_2: mt
+  name:
+    en: Malta
+    fr: Malte
+    es: Malta
+    zh: Мальта
+    ru: 马耳他
+    ar: مالطة
+- iso_3166_3: mmr
+  iso_3166_2: mm
+  name:
+    en: Myanmar (the Republic of the Union of)
+    fr: Myanmar (République de l'Union du)
+    es: Myanmar (República de la Unión de)
+    zh: Республика Союза Мьянма
+    ru: 缅甸（联邦共和国）
+    ar: جمهورية اتحاد ميانمار
+- iso_3166_3: mne
+  iso_3166_2: me
+  name:
+    en: Montenegro
+    fr: Monténégro
+    es: Montenegro
+    zh: Черногория
+    ru: 黑山
+    ar: الجبل الأسود
+- iso_3166_3: mng
+  iso_3166_2: mn
+  name:
+    en: Mongolia
+    fr: Mongolie
+    es: Mongolia
+    zh: Монголия
+    ru: 蒙古
+    ar: منغوليا
+- iso_3166_3: mnp
+  iso_3166_2: mp
+  name:
+    en: Northern Mariana Islands (Commonwealth of the)
+    fr: Mariannes du Nord (Iles) (Commonwealth des)
+    es: Marianas del Norte (Islas) (Commonwealth de las)
+    zh: Северные Марианские острова (Содружество)
+    ru: 北马里亚纳群岛（联邦共和国）
+    ar: كومنولث جزر ماريانا الشمالية
+- iso_3166_3: moz
+  iso_3166_2: mz
+  name:
+    en: Mozambique (Republic of)
+    fr: Mozambique (République du)
+    es: Mozambique (República de)
+    zh: Мозамбик (Республика)
+    ru: 莫桑比克（共和国）
+    ar: جمهورية موزامبيق
+- iso_3166_3: mrt
+  iso_3166_2: mr
+  name:
+    en: Mauritania (Islamic Republic of)
+    fr: Mauritanie (République islamique de)
+    es: Mauritania (República Islámica de)
+    zh: Мавритания (Исламская Республика)
+    ru: 毛里塔尼亚（伊斯兰共和国）
+    ar: جمهورية موريتانيا الإسلامية
+- iso_3166_3: msr
+  iso_3166_2: ms
+  name:
+    en: Montserrat
+    fr: Montserrat
+    es: Montserrat
+    zh: Монтсеррат
+    ru: 蒙特塞拉特岛
+    ar: مونسيرات
+- iso_3166_3: mtq
+  iso_3166_2: mq
+  name:
+    en: Martinique (French Department of)
+    fr: Martinique (Département français de la)
+    es: Martinica (Departamento francés de la)
+    zh: Мартиника (Департамент Франции)
+    ru: 法属马提尼克
+    ar: مقاطعة المارتينيك الفرنسية
+- iso_3166_3: mus
+  iso_3166_2: mu
+  name:
+    en: Mauritius (Republic of)
+    fr: Maurice (République de)
+    es: Mauricio (República de)
+    zh: Маврикий (Республика)
+    ru: 毛里求斯（共和国）
+    ar: جمهورية موريشيوس
+- iso_3166_3: mwi
+  iso_3166_2: mw
+  name:
+    en: Malawi
+    fr: Malawi
+    es: Malawi
+    zh: Малави
+    ru: 马拉维
+    ar: ملاوي
+- iso_3166_3: mys
+  iso_3166_2: my
+  name:
+    en: Malaysia
+    fr: Malaisie
+    es: Malasia
+    zh: Малайзия
+    ru: 马来西亚
+    ar: ماليزيا
+- iso_3166_3: nam
+  iso_3166_2: na
+  name:
+    en: Namibia (Republic of)
+    fr: Namibie (République de)
+    es: Namibia (República de)
+    zh: Намибия (Республика)
+    ru: 纳米比亚（共和国）
+    ar: جمهورية ناميبيا
+- iso_3166_3: ncl
+  iso_3166_2: nc
+  name:
+    en: New Caledonia (Territoire français d'outre-mer)
+    fr: Nouvelle-Calédonie (Territoire français d'outre-mer)
+    es: Nueva Caledonia (Territoire français d'outre-mer)
+    zh: Новая Каледония (Французские заморские территории)
+    ru: 新喀里多尼亚（法国海外领地）
+    ar: كاليدونيا الجديدة (إقليم فرنسي فيما وراء البحار)
+- iso_3166_3: ner
+  iso_3166_2: ne
+  name:
+    en: Niger (Republic of the)
+    fr: Niger (République du)
+    es: Níger (República del)
+    zh: Нигер (Республика)
+    ru: 尼日尔（共和国）
+    ar: جمهورية النيجر
+- iso_3166_3: nga
+  iso_3166_2: ng
+  name:
+    en: Nigeria (Federal Republic of)
+    fr: Nigéria (République fédérale du)
+    es: Nigeria (República Federal de)
+    zh: Нигерия (Федеративная Республика)
+    ru: 尼日利亚 （联邦共和国）
+    ar: جمهورية نيجيريا الاتحادية
+- iso_3166_3: nic
+  iso_3166_2: ni
+  name:
+    en: Nicaragua
+    fr: Nicaragua
+    es: Nicaragua
+    zh: Никарагуа
+    ru: 尼加拉瓜
+    ar: نيكاراغوا
+- iso_3166_3: niu
+  iso_3166_2: nu
+  name:
+    en: Niue
+    fr: Niue
+    es: Niue
+    zh: Ниуэ
+    ru: 纽埃岛
+    ar: نيوي
+- iso_3166_3: nld
+  iso_3166_2: nl
+  name:
+    en: Netherlands (Kingdom of the)
+    fr: Pays-Bas (Royaume des)
+    es: Países Bajos (Reino de los)
+    zh: Нидерланды (Королевство)
+    ru: 荷兰（王国）
+    ar: مملكة هولندا
+- iso_3166_3: nor
+  iso_3166_2: 'no'
+  name:
+    en: Norway
+    fr: Norvège
+    es: Noruega
+    zh: Норвегия
+    ru: 挪威
+    ar: النرويج
+- iso_3166_3: npl
+  iso_3166_2: np
+  name:
+    en: Nepal (Federal Democratic Republic of)
+    fr: Népal (République fédérale démocratique du)
+    es: Nepal (República Democrática Federal de)
+    zh: Непал (Федеративная Демократическая Республика)
+    ru: 尼泊尔
+    ar: جمهورية نيبال الاتحادية الديمقراطية
+- iso_3166_3: nru
+  iso_3166_2: nr
+  name:
+    en: Nauru (Republic of)
+    fr: Nauru (République de)
+    es: Nauru (República de)
+    zh: Науру (Республика)
+    ru: 瑙鲁（共和国）
+    ar: جمهورية ناورو
+- iso_3166_3: nzl
+  iso_3166_2: nz
+  name:
+    en: New Zealand
+    fr: Nouvelle-Zélande
+    es: Nueva Zelandia
+    zh: Новая Зеландия
+    ru: 新西兰
+    ar: نيوزيلندا
+- iso_3166_3: omn
+  iso_3166_2: om
+  name:
+    en: Oman (Sultanate of)
+    fr: Oman (Sultanat d')
+    es: Omán (Sultanía de)
+    zh: Оман (Султанат)
+    ru: 阿曼（苏丹国）
+    ar: سلطنة عُمان
+- iso_3166_3: pak
+  iso_3166_2: pk
+  name:
+    en: Pakistan (Islamic Republic of)
+    fr: Pakistan (République islamique du)
+    es: Pakistán (República Islámica del)
+    zh: Пакистан (Исламская Республика)
+    ru: 巴基斯坦（伊斯兰共和国）
+    ar: جمهورية باكستان الإسلامية
+- iso_3166_3: pan
+  iso_3166_2: pa
+  name:
+    en: Panama (Republic of)
+    fr: Panama (République du)
+    es: Panamá (República de)
+    zh: Панама (Республика)
+    ru: 巴拿马（共和国）
+    ar: جمهورية بنما
+- iso_3166_3: per
+  iso_3166_2: pe
+  name:
+    en: Peru
+    fr: Pérou
+    es: Perú
+    zh: Перу
+    ru: 秘鲁
+    ar: بيرو
+- iso_3166_3: phl
+  iso_3166_2: ph
+  name:
+    en: Philippines (Republic of the)
+    fr: Philippines (République des)
+    es: Filipinas (República de)
+    zh: Филиппины (Республика)
+    ru: 菲律宾（共和国）
+    ar: جمهورية الفلبين
+- iso_3166_3: plw
+  iso_3166_2: pw
+  name:
+    en: Palau (Republic of)
+    fr: Palaos (République des)
+    es: Palau (República de)
+    zh: Палау (Республика)
+    ru: 帕劳（共和国）
+    ar: جمهورية بالاو
+- iso_3166_3: png
+  iso_3166_2: pg
+  name:
+    en: Papua New Guinea
+    fr: Papouasie-Nouvelle-Guinée
+    es: Papua Nueva Guinea
+    zh: Папуа-Новая Гвинея
+    ru: 巴布亚新几内亚
+    ar: بابوا - غينيا الجديدة
+- iso_3166_3: pol
+  iso_3166_2: pl
+  name:
+    en: Poland (Republic of)
+    fr: Pologne (République de)
+    es: Polonia (República de)
+    zh: Польша (Республика)
+    ru: 波兰（共和国）
+    ar: جمهورية بولندا
+- iso_3166_3: pri
+  iso_3166_2: pr
+  name:
+    en: Puerto Rico
+    fr: Puerto Rico
+    es: Puerto Rico
+    zh: Пуэрто-Рико
+    ru: 波多黎各
+    ar: بورتوريكو
+- iso_3166_3: prk
+  iso_3166_2: kp
+  name:
+    en: Democratic People's Republic of Korea
+    fr: République populaire démocratique de Corée
+    es: República Popular Democrática de Corea
+    zh: Корейская Народно-Демократическая Республика
+    ru: 朝鲜民主主义人民共和国
+    ar: جمهورية كوريا الشعبية الديمقراطية
+- iso_3166_3: prt
+  iso_3166_2: pt
+  name:
+    en: Portugal
+    fr: Portugal
+    es: Portugal
+    zh: Португалия
+    ru: 葡萄牙
+    ar: البرتغال
+- iso_3166_3: pry
+  iso_3166_2: py
+  name:
+    en: Paraguay (Republic of)
+    fr: Paraguay (République du)
+    es: Paraguay (República del)
+    zh: Парагвай (Республика)
+    ru: 巴拉圭（共和国）
+    ar: جمهورية باراغواي
+- iso_3166_3: pyf
+  iso_3166_2: pf
+  name:
+    en: French Polynesia (Territoire français d'outre-mer)
+    fr: Polynésie française (Territoire français d'outre-mer)
+    es: Polinesia francesa (Territoire français d'outre-mer)
+    zh: Французская Полинезия (Французские заморские территории)
+    ru: 法属波利尼西亚
+    ar: بولينيزيا الفرنسية (إقليم فرنسي فيما وراء البحار)
+- iso_3166_3: qat
+  iso_3166_2: qa
+  name:
+    en: Qatar (State of)
+    fr: Qatar (Etat du)
+    es: Qatar (Estado de)
+    zh: Катар (Государство)
+    ru: 卡塔尔（国）
+    ar: دولة قطر
+- iso_3166_3: reu
+  iso_3166_2: re
+  name:
+    en: French Departments and Territories in the Indian Ocean
+    fr: France de l'Océan indien
+    es: Departamentos y territorios franceses del Océano Indico
+    zh: Французские департаменты и территории в Индийском океане
+    ru: 印度洋法属海外省和领地
+    ar: المقاطعات والأراضي الفرنسية في المحيط الهندي
+- iso_3166_3: rou
+  iso_3166_2: ro
+  name:
+    en: Romania
+    fr: Roumanie
+    es: Rumania
+    zh: Румыния
+    ru: 罗马尼亚
+    ar: رومانيا
+- iso_3166_3: rus
+  iso_3166_2: ru
+  name:
+    en: Russian Federation
+    fr: Russie (Fédération de)
+    es: Rusia (Federación de)
+    zh: Российская Федерация
+    ru: 俄罗斯联邦
+    ar: الاتحاد الروسي
+- iso_3166_3: rwa
+  iso_3166_2: rw
+  name:
+    en: Rwanda (Republic of)
+    fr: Rwanda (République du)
+    es: Rwanda (República de)
+    zh: Руанда (Республика)
+    ru: 卢旺达（共和国）
+    ar: جمهورية رواندا
+- iso_3166_3: sau
+  iso_3166_2: sa
+  name:
+    en: Saudi Arabia (Kingdom of)
+    fr: Arabie saoudite (Royaume d')
+    es: Arabia Saudita (Reino de)
+    zh: Саудовская Аравия (Королевство)
+    ru: 沙特阿拉伯（王国）
+    ar: المملكة العربية السعودية
+- iso_3166_3: sdn
+  iso_3166_2: sd
+  name:
+    en: Sudan (Republic of the)
+    fr: Soudan (République du)
+    es: Sudán (República del)
+    zh: Судан (Республика)
+    ru: 苏丹（共和国）
+    ar: جمهورية السودان
+- iso_3166_3: sen
+  iso_3166_2: sn
+  name:
+    en: Senegal (Republic of)
+    fr: Sénégal (République du)
+    es: Senegal (República del)
+    zh: Сенегал (Республика)
+    ru: 塞内加尔（共和国）
+    ar: جمهورية السنغال
+- iso_3166_3: sgp
+  iso_3166_2: sg
+  name:
+    en: Singapore (Republic of)
+    fr: Singapour (République de)
+    es: Singapur (República de)
+    zh: Сингапур (Республика)
+    ru: 新加坡（共和国）
+    ar: جمهورية سنغافورة
+- iso_3166_3: shn
+  iso_3166_2: sh
+  name:
+    en: Saint Helena, Ascension and Tristan da Cunha
+    fr: Sainte-Hélène, Ascension et Tristan da Cunha
+    es: Santa Elena, Ascension y Tristan da Cunha
+    zh: Острова Св. Елены, Вознесения и Тристан-да-Кунья
+    ru: 圣赫勒拿、阿森松和特里斯坦-达库尼亚
+    ar: سانت هيلانة وأسانسيون وتريستان دا كونها
+- iso_3166_3: slb
+  iso_3166_2: sb
+  name:
+    en: Solomon Islands
+    fr: Salomon (Iles)
+    es: Salomón (Islas)
+    zh: Соломоновы Острова
+    ru: 所罗门群岛
+    ar: جزر سليمان
+- iso_3166_3: sle
+  iso_3166_2: sl
+  name:
+    en: Sierra Leone
+    fr: Sierra Leone
+    es: Sierra Leona
+    zh: Сьерра-Леоне
+    ru: 塞拉利昂
+    ar: سيراليون
+- iso_3166_3: slv
+  iso_3166_2: sv
+  name:
+    en: El Salvador (Republic of)
+    fr: El Salvador (République d')
+    es: El Salvador (República de)
+    zh: Эль-Сальвадор (Республика)
+    ru: 萨尔瓦多（共和国）
+    ar: جمهورية السلفادور
+- iso_3166_3: smr
+  iso_3166_2: sm
+  name:
+    en: San Marino (Republic of)
+    fr: Saint-Marin (République de)
+    es: San Marino (República de)
+    zh: Сан-Марино Республика)
+    ru: 圣马力诺（共和国）
+    ar: جمهورية سان مارينو
+- iso_3166_3: som
+  iso_3166_2: so
+  name:
+    en: Somalia (Federal Republic of)
+    fr: Somalie (République fédérale de)
+    es: Somalia (República Federal de)
+    zh: Сомали (Федеративная Республика)
+    ru: 索马里（联邦共和国）
+    ar: جمهورية الصومال الاتحادية
+- iso_3166_3: spm
+  iso_3166_2: pm
+  name:
+    en: Saint Pierre and Miquelon (Collectivité territoriale de la République française)
+    fr: Saint-Pierre-et-Miquelon (Collectivité territoriale de la République française)
+    es: San Pedro y Miquelón (Collectivité territoriale de la République française)
+    zh: Сен-Пьер и Микелон (территориальная единица Французской Республики)
+    ru: 圣皮埃尔岛和密克隆岛（法属领土）
+    ar: سان بيير وميكيلون (أراض جماعية للجمهورية الفرنسية)
+- iso_3166_3: srb
+  iso_3166_2: rs
+  name:
+    en: Serbia (Republic of)
+    fr: Serbie (République de)
+    es: Serbia (República de)
+    zh: Сербия (Республика)
+    ru: 塞尔维亚（共和国）
+    ar: جمهورية صربيا
+- iso_3166_3: ssd
+  iso_3166_2: ss
+  name:
+    en: South Sudan (Republic of)
+    fr: Soudan du Sud (République du)
+    es: Sudán del Sur (República de)
+    zh: Южный Судан (Республика)
+    ru: 南苏丹（共和国）
+    ar: جنوب السودان (جمهورية)
+- iso_3166_3: stp
+  iso_3166_2: st
+  name:
+    en: Sao Tome and Principe (Democratic Republic of)
+    fr: Sao Tomé-et-Principe (République démocratique de)
+    es: Santo Tomé y Príncipe (República Democrática de)
+    zh: Сан-Томе и Принсипи (Демократическая Республика)
+    ru: 圣多美和普林西比（民主共和国）
+    ar: جمهورية سان تومي وبرينسيبي الديمقراطية
+- iso_3166_3: sur
+  iso_3166_2: sr
+  name:
+    en: Suriname (Republic of)
+    fr: Suriname (République du)
+    es: Suriname (República de)
+    zh: Суринам (Республика)
+    ru: 苏里南（共和国）
+    ar: جمهورية سورينام
+- iso_3166_3: svk
+  iso_3166_2: sk
+  name:
+    en: Slovak Republic
+    fr: République slovaque
+    es: República Eslovaca
+    zh: Словацкая Республика
+    ru: 斯洛伐克共和国
+    ar: الجمهورية السلوفاكية
+- iso_3166_3: svn
+  iso_3166_2: si
+  name:
+    en: Slovenia (Republic of)
+    fr: Slovénie (République de)
+    es: Eslovenia (República de)
+    zh: Словения (Республика)
+    ru: 斯洛文尼亚（共和国）
+    ar: جمهورية سلوفينيا
+- iso_3166_3: swe
+  iso_3166_2: se
+  name:
+    en: Sweden
+    fr: Suède
+    es: Suecia
+    zh: Швеция
+    ru: 瑞典
+    ar: السويد
+- iso_3166_3: swz
+  iso_3166_2: sz
+  name:
+    en: Swaziland (Kingdom of)
+    fr: Swaziland (Royaume du)
+    es: Swazilandia (Reino de)
+    zh: Свазиленд (Королевство)
+    ru: 斯威士兰（王国）
+    ar: مملكة سوازيلاند
+- iso_3166_3: sxm
+  iso_3166_2: sx
+  name:
+    en: Sint Maarten (Dutch part)
+    fr: Saint-Martin (partie néerlandaise)
+    es: San Martín (parte neerlandesa)
+    zh: Синт-Мартен (Нидерланды)
+    ru: 圣马丁岛（荷属部分）
+    ar: سينت مارتن (الجزء الهولندي)
+- iso_3166_3: syc
+  iso_3166_2: sc
+  name:
+    en: Seychelles (Republic of)
+    fr: Seychelles (République des)
+    es: Seychelles (República de)
+    zh: Сейшельские Острова (Республика)
+    ru: 塞舌尔（共和国）
+    ar: جمهورية سيشيل
+- iso_3166_3: syr
+  iso_3166_2: sy
+  name:
+    en: Syrian Arab Republic
+    fr: République arabe syrienne
+    es: República Árabe Siria
+    zh: Сирийская Арабская Республика
+    ru: 阿拉伯叙利亚共和国
+    ar: الجمهورية العربية السورية
+- iso_3166_3: tca
+  iso_3166_2: tc
+  name:
+    en: Turks and Caicos Islands
+    fr: Turks-et-Caïcos (Iles)
+    es: Turcas y Caicos (Islas)
+    zh: Острова Тёркс и Кайкос
+    ru: 特克斯和凯科斯群岛
+    ar: جزر تركس وكايكوس
+- iso_3166_3: tcd
+  iso_3166_2: td
+  name:
+    en: Chad (Republic of)
+    fr: Tchad (République du)
+    es: Chad (República del)
+    zh: Чад (Республика)
+    ru: 乍得（共和国）
+    ar: جمهورية تشاد
+- iso_3166_3: tgo
+  iso_3166_2: tg
+  name:
+    en: Togolese Republic
+    fr: Togolaise (République)
+    es: Togolesa (República)
+    zh: Тоголезская Республика
+    ru: 多哥共和国
+    ar: جمهورية توغو
+- iso_3166_3: tha
+  iso_3166_2: th
+  name:
+    en: Thailand
+    fr: Thaïlande
+    es: Tailandia
+    zh: Таиланд
+    ru: 泰国
+    ar: تايلاند
+- iso_3166_3: tjk
+  iso_3166_2: tj
+  name:
+    en: Tajikistan (Republic of)
+    fr: Tadjikistan (République du)
+    es: Tayikistán (República de)
+    zh: Таджикистан (Республика)
+    ru: 塔吉克斯坦（共和国）
+    ar: جمهورية طاجيكستان
+- iso_3166_3: tkl
+  iso_3166_2: tk
+  name:
+    en: Tokelau
+    fr: Tokélau
+    es: Tokelau
+    zh: Токелау
+    ru: 托克劳
+    ar: توكيلاو
+- iso_3166_3: tkm
+  iso_3166_2: tm
+  name:
+    en: Turkmenistan
+    fr: Turkménistan
+    es: Turkmenistán
+    zh: Туркменистан
+    ru: 土库曼斯坦
+    ar: تركمانستان
+- iso_3166_3: tls
+  iso_3166_2: tl
+  name:
+    en: Timor-Leste (Democratic Republic of)
+    fr: Timor-Leste (République démocratique du)
+    es: Timor-Leste (República Democrática de)
+    zh: Тимор-Лешти (Демократическая Республика)
+    ru: 东帝汶（民主共和国）
+    ar: جمهورية تيمور لستي الديمقراطية
+- iso_3166_3: ton
+  iso_3166_2: to
+  name:
+    en: Tonga (Kingdom of)
+    fr: Tonga (Royaume des)
+    es: Tonga (Reino de)
+    zh: Тонга (Королевство)
+    ru: 汤加（王国）
+    ar: مملكة تونغا
+- iso_3166_3: tto
+  iso_3166_2: tt
+  name:
+    en: Trinidad and Tobago
+    fr: Trinité-et-Tobago
+    es: Trinidad y Tabago
+    zh: Тринидад и Тобаго
+    ru: 特立尼达和多巴哥
+    ar: ترينيداد وتوباغو
+- iso_3166_3: tun
+  iso_3166_2: tn
+  name:
+    en: Tunisia
+    fr: Tunisie
+    es: Túnez
+    zh: Тунис
+    ru: 突尼斯
+    ar: تونس
+- iso_3166_3: tur
+  iso_3166_2: tr
+  name:
+    en: Turiso_3166_3
+    fr: Turquie
+    es: Turquía
+    zh: Турция
+    ru: 土耳其
+    ar: تركيا
+- iso_3166_3: tuv
+  iso_3166_2: tv
+  name:
+    en: Tuvalu
+    fr: Tuvalu
+    es: Tuvalu
+    zh: Тувалу
+    ru: 图瓦卢
+    ar: توفالو
+- iso_3166_3: twn
+  iso_3166_2: tw
+  name:
+    en: Taiwan, China
+    fr: Taiwan, Chine
+    es: Taiwán, China
+    zh: Тайвань, Китай
+    ru: 中国台湾
+    ar: تايوان، الصين
+- iso_3166_3: tza
+  iso_3166_2: tz
+  name:
+    en: Tanzania (United Republic of)
+    fr: Tanzanie (République-Unie de)
+    es: Tanzanía (República Unida de)
+    zh: Танзания (Объединенная Республика)
+    ru: 坦桑尼亚（联合共和国）
+    ar: جمهورية تنزانيا المتحدة
+- iso_3166_3: uga
+  iso_3166_2: ug
+  name:
+    en: Uganda (Republic of)
+    fr: Ouganda (République de l')
+    es: Uganda (República de)
+    zh: Уганда (Республика)
+    ru: 乌干达（共和国）
+    ar: جمهورية أوغندا
+- iso_3166_3: ukr
+  iso_3166_2: ua
+  name:
+    en: Ukraine
+    fr: Ukraine
+    es: Ucrania
+    zh: Украина
+    ru: 乌克兰
+    ar: أوكرانيا
+- iso_3166_3: ury
+  iso_3166_2: uy
   name:
     en: Uruguay (Eastern Republic of)
     fr: Uruguay (République orientale de l')
     es: Uruguay (República Oriental del)
-- key: vanuatu
+    zh: Уругвай (Восточная Республика)
+    ru: 乌拉圭（东岸共和国）
+    ar: جمهورية أوروغواي الشرقية
+- iso_3166_3: usa
+  iso_3166_2: us
   name:
-    en: Vanuatu (Republic of)
-    fr: Vanuatu (République de)
-    es: Vanuatu (República de)
-- key: vatican
+    en: United States of America
+    fr: Etats-Unis d'Amérique
+    es: Estados Unidos de América
+    zh: Соединенные Штаты Америки
+    ru: 美利坚合众国
+    ar: الولايات المتحدة الامريكية
+- iso_3166_3: uzb
+  iso_3166_2: uz
+  name:
+    en: Uzbekistan (Republic of)
+    fr: Ouzbékistan (République d')
+    es: Uzbekistán (República de)
+    zh: Узбекистан (Республика)
+    ru: 乌兹别克斯坦（共和国）
+    ar: جمهورية أوزبكستان
+- iso_3166_3: vat
+  iso_3166_2: va
   name:
     en: Vatican City State
     fr: Cité du Vatican (Etat de la)
     es: Ciudad del Vaticano (Estado de la)
-- key: venezuela
+    zh: Государство-город Ватикан
+    ru: 梵蒂冈城国
+    ar: دولة مدينة الفاتيكان
+- iso_3166_3: vct
+  iso_3166_2: vc
+  name:
+    en: Saint Vincent and the Grenadines
+    fr: Saint-Vincent-et-les Grenadines
+    es: San Vicente y las Granadinas
+    zh: Сент-Винсент и Гренадины
+    ru: 圣文森特和格林纳丁斯
+    ar: سانت فنسنت وغرينادين
+- iso_3166_3: ven
+  iso_3166_2: ve
   name:
     en: Venezuela (Bolivarian Republic of)
     fr: Venezuela (République bolivarienne du)
     es: Venezuela (República Bolivariana de)
-- key: vietnam
+    zh: Венесуэла (Боливарианская Республика)
+    ru: 委内瑞拉（玻利瓦尔共和国）
+    ar: جمهورية فنزويلا البوليفارية
+- iso_3166_3: vgb
+  iso_3166_2: vg
+  name:
+    en: British Virgin Islands
+    fr: Vierges Britanniques (Îles)
+    es: Vírgenes Británicas (Islas)
+    zh: Британские Виргинские острова
+    ru: 英属维京群岛
+    ar: الجزر العذراء البريطانية
+- iso_3166_3: vir
+  iso_3166_2: vi
+  name:
+    en: United States Virgin Islands
+    fr: Vierges britanniques (Iles)
+    es: Vírgenes de los Estados Unidos (Islas)
+    zh: Виргинские острова (США)
+    ru: 美属维京群岛
+    ar: جزر فرجن التابعة للولايات المتحدة
+- iso_3166_3: vnm
+  iso_3166_2: vn
   name:
     en: Viet Nam (Socialist Republic of)
     fr: Viet Nam (République socialiste du)
     es: Viet Nam (República Socialista de)
-- key: zambia
+    zh: Вьетнам (Социалистическая Республика)
+    ru: 越南（社会主义共和国）
+    ar: جمهورية فيتنام الاشتراكية
+- iso_3166_3: vut
+  iso_3166_2: vu
+  name:
+    en: Vanuatu (Republic of)
+    fr: Vanuatu (République de)
+    es: Vanuatu (República de)
+    zh: Вануату (Республика)
+    ru: 瓦努阿图 （共和国）
+    ar: جمهورية فانواتو
+- iso_3166_3: wlf
+  iso_3166_2: wf
+  name:
+    en: Wallis and Futuna (Territoire français d'outre-mer)
+    fr: Wallis-et-Futuna (Territoire français d'outre-mer)
+    es: Wallis y Futuna (Territoire français d'outre-mer)
+    zh: Уоллис и Футуна (Французские заморские территории)
+    ru: 瓦利斯和富图纳群岛（法国海外领地）
+    ar: جزر واليس وفوتونا (إقليم فرنسي فيما وراء البحار)
+- iso_3166_3: wsm
+  iso_3166_2: ws
+  name:
+    en: Samoa (Independent State of)
+    fr: Samoa (Etat indépendant du)
+    es: Samoa (Estado Independiente de)
+    zh: Самоа (Независимое Государство)
+    ru: 萨摩亚（独立国）
+    ar: دولة ساموا المستقلة
+- iso_3166_3: xae
+  iso_3166_2: xa
+  name:
+    en: Australian External Territories
+    fr: Territoires extérieurs de l'Australie
+    es: Territorios exteriores de Australia
+    zh: Внешние территории Австралии
+    ru: 澳大利亚境外领土
+    ar: الأراضي الأسترالية الخارجية
+- iso_3166_3: xkx
+  iso_3166_2: xk
+  name:
+    en: Kosovo*
+    fr: Kosovo*
+    es: Kosovo*
+    zh: Косово*
+    ru: 科索沃*
+    ar: كوسوفو*
+- iso_3166_3: yem
+  iso_3166_2: ye
+  name:
+    en: Yemen (Republic of)
+    fr: Yémen (République du)
+    es: Yemen (República del)
+    zh: Йемен (Республика)
+    ru: 也门（共和国）
+    ar: الجمهورية اليمنية
+- iso_3166_3: zaf
+  iso_3166_2: za
+  name:
+    en: South Africa (Republic of)
+    fr: Sudafricaine (République)
+    es: Sudafricana (República)
+    zh: Южно-Африканская Республика
+    ru: 南非（共和国）
+    ar: جمهورية جنوب إفريقيا
+- iso_3166_3: zmb
+  iso_3166_2: zm
   name:
     en: Zambia (Republic of)
     fr: Zambie (République de)
     es: Zambia (República de)
-- key: zimbabwe
+    zh: Замбия (Республика)
+    ru: 赞比亚（共和国）
+    ar: جمهورية زامبيا
+- iso_3166_3: zwe
+  iso_3166_2: zw
   name:
     en: Zimbabwe (Republic of)
     fr: Zimbabwe (République du)
     es: Zimbabwe (República de)
+    zh: Зимбабве (Республика)
+    ru: 津巴布韦（共和国）
+    ar: جمهورية زيمبابوي

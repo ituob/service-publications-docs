@@ -28,4 +28,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "thor", "~> 1.0"
   spec.add_dependency "json-schema", "~> 3.0"
   spec.add_dependency "colorize", "~> 0.8"
+  spec.add_dependency "lutaml-model", "~> 0.7"
+  spec.add_dependency "prosereflect"
 end

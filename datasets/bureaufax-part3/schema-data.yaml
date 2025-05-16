@@ -1,0 +1,100 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for BUREAUFAX Part III
+description: ITU OB Dataset Schema for BUREAUFAX Part III
+type: array
+items:
+  type: object
+  required:
+    - name
+    # - part32
+    # - part33
+    # - part34a_mon_fri
+    # - part34a_sat
+    # - part34a_sun_pub
+    # - monday
+    # - tuesday
+    # - wednesday
+    # - thursday
+    # - friday
+    # - saturday
+    # - sunday
+    # - public_holidays
+  additionalProperties: false
+  properties:
+    name:
+      type: string
+      description: Country or area name
+    part31a:
+      type: string
+      description: PART III 1a
+    part31b_location:
+      type: string
+      description: PART III 1b Location
+    part31b_address:
+      type: string
+      description: PART III 1b Address
+    part31b_notes:
+      type: string
+      description: PART III 1b Notes
+    part32:
+      type: string
+      description: PART III 2 phone number
+    part32_notes:
+      type: string
+      description: Notes for PART III 2
+    part33:
+      type: string
+      description: PART III 3 type
+    part33_notes:
+      type: string
+      description: Notes for PART III 3
+    part34a_mon_fri:
+      type: string
+      description: PART III 4a (M-F) hours
+    part34a_sat:
+      type: string
+      description: PART III 4b (SAT) hours
+    part34a_sun_pub:
+      type: string
+      description: PART III 4c (SUN+PUB) hours
+    part34_notes:
+      type: string
+      description: Notes for PART III 4
+    monday:
+      type: string
+      description: Opening hours on Monday
+    tuesday:
+      type: string
+      description: Opening hours on Tuesday
+    wednesday:
+      type: string
+      description: Opening hours on Wednesday
+    thursday:
+      type: string
+      description: Opening hours on Thursday
+    friday:
+      type: string
+      description: Opening hours on Friday
+    saturday:
+      type: string
+      description: Opening hours on Saturday
+    sunday:
+      type: string
+      description: Opening hours on Sunday
+    public_holidays:
+      type: string
+      description: Opening hours on public holidays
+    alt_int_bureaux:
+      type: boolean
+      description: Indicates if alternative international bureaux are available
+    local_time:
+      type: string
+      description: Local time zone of the bureau
+    cont_reception:
+      type: boolean
+      description: Indicates if continuous reception is available
+    availability_notes:
+      type: string
+      description: Additional notes on availability

@@ -1,19 +1,23 @@
 # yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
 ---
 $schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for ITU country names
-description: ITU OB Dataset Schema for ITU country names
+title: ITU Country names mapping to ISO 3166 country codes
+description: ITU OB Dataset Schema for ITU Country names mapping to ISO 3166 country codes
 type: array
 items:
   type: object
   required:
-    - key
+    - iso_3166_3
+    - iso_3166_2
     - name
   additionalProperties: false
   properties:
-    key:
+    iso_3166_3:
       type: string
-      description: Short key for country
+      description: ISO 3166 3-character country code
+    iso_3166_2:
+      type: string
+      description: ISO 3166 2-character country code
     name:
       type: object
       description: Localized country or geographical area names
@@ -21,6 +25,10 @@ items:
         - en
         - fr
         - es
+        - ru
+        - zh
+        - ar
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -31,3 +39,12 @@ items:
         es:
           type: string
           description: Spanish name
+        ru:
+          type: string
+          description: Russian name
+        zh:
+          type: string
+          description: Chinese name
+        ar:
+          type: string
+          description: Arabic name

@@ -1,0 +1,432 @@
+= ITU Operational Bulletin "Old Issue model" parsing
+
+== Overview
+
+The `itu-ob-data` directory contains data files ("OB Issues") from the ITU
+Operational Bulletin (ITU-OB) in the "Old Issue model" format.
+
+Each OB issue (located in `itu-ob-data/issues/{issue-no}`) contains information
+about various amendments, general messages, and other communications related to
+the ITU.
+
+Each old issue is provided as a set of YAML files.
+This is called the "Old Issue model".
+
+`meta.yaml`:: The metadata about the issue (publication date, issue number,
+etc.) This is straightforwardly structured and is parsed.
+
+`general.yaml`:: General messages data and modifications to data in YAML format.
+Each general message is either of a generic text format, or a structured
+modification that represents a change to be made to a "general message dataset".
+Each general message dataset uses a different structure and data fields.
+
+`amendments.yaml`:: Modifications to amendment data in YAML format. Each
+modification represents a change to be made to an "amendment dataset". Each
+amendment dataset uses a different structure and data fields.
+
+`annexes.yaml`, if available:: Annexes data in YAML format. This file
+indicates when a new "annex" is added to the ITU-OB series, and is only present
+or non-empty when a new annex is added.
+
+
+== New dataset structure
+
+Every dataset in the ITU OB has been formalized into new schemas and structures
+in the `datasets/` directory.
+
+WARNING: You do not need to change any content in the `datasets/` directory.
+
+Each dataset is represented as a set of YAML files, with:
+
+`metadata.yaml`:: The metadata about the dataset (publication date, issue
+number, etc.). The schema for this file is defined at
+`datasets/schema-metadata.yaml`.
+
+`data.yaml` or `data/` directory:: The data for the dataset, which can be either
+a single YAML file or a directory containing multiple YAML files. The data is
+structured according to the specific schema defined for the dataset at
+`schemas-data.yaml`.
++
+NOTE: Every dataset has its own schema for its entries.
+
+
+
+== Problem
+
+Unfortunately, other than `meta.yaml`, most other data in each ITU-OB issue
+is mostly provided in a text-format-centric structure (ProseMirror), which
+is not reusable.
+
+As part of the modernization effort to ITU-OB data, we are working to convert
+these files into structured objects that can be easily accessed and analyzed.
+
+NOTE: We have developed a ProseMirror gem called
+https://github.com/metanorma/prosereflect[`prosereflect`] to assist
+parsing the format into structured objects, which may require enhancements
+along the way of this work. Please feel free to PR any changes to the
+`prosereflect` gem if you find any issues with the parsing.
+
+The `datasets` directory contains fully structured raw ITU-OB issue data,
+which is the destination structure of the parsed data.
+
+An implementation in `ituob/` is provided to parse the Old Issue model
+data into the structured data objects in `ituob/models/`.
+
+The `ituob/models/` directory contains the data model classes that represent
+the structured data objects for the ITU-OB issues. These classes are designed
+to be reusable and extensible, allowing for easy addition of new data types
+and structures as needed.
+
+The `ituob/models/` directory contains the following important base classes:
+
+`Ituob::Models::OldIssue`:: Represents an ITU-OB issue, containing metadata,
+general messages, amendments, and annexes.
+
+`Ituob::Models::Amendment`:: Represents an amendment to an ITU-OB issue,
+containing information about the amendment type, date, and other relevant
+data. This class is to be subclassed for each amendment type.
+
+`Ituob::Models::GeneralMessage`:: Represents a general message in an ITU-OB
+issue, containing information about the message type, date, and other
+relevant data. This class is to be subclassed for each general message type.
+
+`Ituob::Models::Entry`:: Represents an entry in an ITU-OB amendment
+or general message, containing information about the entry type,
+date, and other relevant data. This class is to be subclassed for each
+entry type.
+
+
+All models here utilize the
+https://github.com/lutaml/lutaml-model[`lutaml-model`] library, which provides
+serialization and deserialization support for the models. Please refer to its
+documentation for more information on how to use it.
+
+
+The information structure is as follows:
+
+[source]
+----
+┌─────────────┐
+│ Issue 1000  │
+└─┬────┬───┬──┘
+  │    │   │   ┌─────────────────┐
+  │    │   └─→ │ IssueMetadata   │
+  │    │       └─────────────────┘
+  │    │   ┌─────────────────┐
+  │    └─→ │ E118Amendment   │
+  │        └──────┬──────────┘
+  │               │   ┌─────────────────┐
+  │               └─→ │ E118Action      │
+  │                   └──────┬──────────┘
+  │                          │   ┌─────────────────┐
+  │                          └─→ │ E118Entry       │
+  │                              └─────────────────┘
+  │   ┌─────────────────┐
+  └─→ │ IssueMetadata   │
+      └───────┬─────────┘
+              │   ┌────────────────────────────────┐
+              └─→ │ GeneralApprovedRecommendations │
+              │   └────────────────────────────────┘
+              │   ┌────────────────────────────────┐
+              └─→ │ GeneralRunningAnnexes          │
+                  └────────────────────────────────┘
+----
+
+
+
+== Task
+
+The task is to parse all Old Issue model data into the model structures
+provided in the `ituob/`.
+
+What is given:
+
+* There is an integration script in `scripts/parse_issue.rb` that can be used to
+  parse the Old Issue model data into the structured data objects.
+
+* Currently, the following objects are parsed properly:
+
+** Metadata
+
+** Amendments
+
+*** E118 amendments (the classes `E118Amendment`, `E118Action`,
+`E118Entry` are implemented)
+
+** General messages:
+*** `GeneralRunningAnnexes`
+*** `GeneralApprovedRecommendations`
+
+
+What needs to be done:
+
+* Extend the Amendments to support all the amendment types
+(see `AMENDMENT_TYPE_TO_CLASS` in `ituob/models/old_issue.rb`)
++
+[source,ruby]
+----
+# TODO: Support more amendment types
+AMENDMENT_TYPE_TO_CLASS = {
+  'E118_IIN' => E118Amendment,
+  #  BUREAUFAX
+  #  DP
+  #  E164_ACN
+  #  E164_CC
+  #  E212_ICC
+  #  E212_MNC
+  #  E218_TRCC
+  #  F32_TDI
+  #  F400_ADMD
+  #  List of Coast Stations and Special Service Stations
+  #  M1400_ICC
+  #  NNP
+  #  Q708_ISPC
+  #  Q708_SANC
+  #  R_SP_LM.V
+  #  R_SP_LN.VIII
+  #  RR.25.1
+  #  T35_NA
+  #  X121_DNIC
+}
+----
+
+* Extend the General messages to support all the general message types
+(see `GENERAL_TYPE_TO_CLASS` in `ituob/models/old_issue.rb`)
++
+[source,ruby]
+----
+# TODO: Support more general types
+GENERAL_TYPE_TO_CLASS = {
+  'running_annexes' => GeneralRunningAnnexes,
+  'approved_recommendations' => GeneralApprovedRecommendations,
+  # 'callback_procedures' => GeneralCallbackProcedures,
+  # 'custom' => GeneralCustom,
+  # 'ipns' => GeneralIpns,
+  # 'iptn' => GeneralIptn,
+  # 'misc_communications' => GeneralMiscCommunications,
+  # 'org_changes' => GeneralOrgChanges,
+  # 'sanc' => GeneralSanc,
+  # 'service_restrictions' => GeneralServiceRestrictions,
+  # 'telephone_service_2' => GeneralTelephoneService.
+}
+----
+
+* Extend the `parse_issue.rb` script to parse all issues in the
+  `itu-ob-data/issues/` directory.
+
+
+== Usage
+
+Run the `scripts/parse_issue.rb` test script as follows:
+
+[source,sh]
+----
+$ cd scripts/
+$ bundle install
+$ bundle exec ./parse_issue.rb
+----
+
+Currently, the script only parses the issues 1000 and 1001. This should be
+extended to parse all issues in the `itu-ob-data/issues/` directory.
+
+The script parses the issue data and outputs it in YAML format to the console.
+
+
+== Implementation approach
+
+=== New amendment types
+
+You need to first understand that Amendment data is currently represented in two
+places:
+
+`datasets/{dataset-name}/data.yaml`:: is the "today's data" of a dataset.
+
+`issues/{issue-no}/amendments.yaml`:: contains previous changes ("patches"
+  or "actions") to the dataset in the ProseMirror format.
+
+The goal is to parse the latter into the former using the `ituob/models/`
+classes.
+
+
+The steps are as follows:
+
+. Create a new subclass that inherits from the `Amendment` base class.
++
+[example]
+The `E118Amendment` class is an example of an amendment type that has been
+implemented.
+
+.. This class should implement the `self.parse(hash, position_on: nil)` method
+to process the raw data and define the necessary attributes to store the
+parsed data.
+
+. Create a new `Entry` subclass for each entry type that is specific to the
+amendment type.
++
+[example]
+The `E118Entry` class is an example of an entry type that has been implemented.
+
+.. This class needs to be able to read the corresponding
+`dataset/{dataset-name}/data.yaml` file. This means you need to first understand
+the YAML schema for the dataset defined in
+`datasets/{dataset-name}/schema-data.yaml`.
++
+[example]
+====
+The dataset file can be read using the `from_yaml` method of the `Entry` class.
+
+[source,ruby]
+----
+# Both from_* methods provided by lutaml-model
+E118Entry.from_yaml(IO.read('datasets/{dataset-name}/data.yaml'))
+# or
+E118Entry.from_hash(YAML.load('datasets/{dataset-name}/data.yaml'))
+----
+====
+
+.. This class should implement the `self.parse(prosemirror_row)` method to process
+the raw data and define the necessary attributes to store the parsed data.
+
+. Create a new `Action` subclass for each action type that is specific to the amendment type.
++
+[example]
+The `E118Action` class is an example of an action type that has been implemented.
+
+. Add the new class to the `AMENDMENT_TYPE_TO_CLASS` hash in `old_issue.rb`
+
+
+=== New general message types
+
+==== General
+
+There are 2 kinds of general message data:
+
+"Dataset general messages":: General messages that are data sets represented in
+the `datasets/` directory.
+
+"Textual general messages":: General messages that are NOT structured data, but
+rather a set of textual messages.
+
+==== Dataset general messages
+
+This is similar to the amendment types, where you need to create a new subclass
+that inherits from the `GeneralMessage` base class, in a way similar to
+`E118Amendment`.
+
+Refer to the following files to see how a general message is implemented:
+
+`ituob/models/general_message.rb`:: The base class for general messages.
+
+`ituob/models/general_running_annexes.rb`:: An example of a general message
+  type that has been implemented.
+
+`ituob/models/general_approved_recommendations.rb`:: Another example of a
+  general message type that has been implemented.
+
+
+The steps are as follows:
+
+. Create a new subclass that inherits from the `GeneralMessage` base class.
++
+[example]
+The `GeneralRunningAnnexes` class is an example of a general message type that has
+been implemented.
+
+.. This class should implement the `self.parse(data)` method to process the raw
+data and define the necessary attributes to store the parsed data.
+
+. Create any necessary subclasses for the specific data types that are used in
+the general message type, such as `GeneralApprovedRecommendation` inside
+`GeneralApprovedRecommendations`
+
+. Add the new class to the `GENERAL_TYPE_TO_CLASS` hash in `old_issue.rb`
+
+
+==== Textual general messages
+
+The goal is to store each textual general message in a separate YAML file under
+a `ob-issues/{issue-no}/{textual-dataset-type}/` directory, with the
+filename being a unique identifier of that general message type.
+
+Since the textual general messages are not structured data, you can
+create a new subclass that inherits from the `GeneralMessage` base class
+that holds ProseMirror data.
+
+The steps are as follows:
+
+. Create a new subclass that inherits from the `GeneralMessage` base class.
++
+[example]
+The `GeneralRunningAnnexes` class is an example of a general message type that has
+been implemented.
+
+.. This class should implement the `self.parse(data)` method to process the raw
+data and define the necessary attributes to store the parsed data.
+
+. Create any necessary subclasses for the specific data types that are used in
+the general message type, such as `GeneralApprovedRecommendation` inside
+`GeneralApprovedRecommendations`
+
+. Add the new class to the `GENERAL_TYPE_TO_CLASS` hash in `old_issue.rb`
+
+
+
+== Example
+
+Here's a simplified example of how to parse a single issue directory:
+
+[source,ruby]
+----
+require 'ituob'
+
+# Path to a specific issue directory
+issue_dir = '../itu-ob-data/issues/1000/'
+
+# Parse the issue data
+issue_data = Ituob::Models::OldIssue.load_issue_dir(issue_dir)
+
+# Output the parsed data as YAML
+puts issue_data.to_yaml
+----
+
+
+== Recommended workflow
+
+. Study the existing working examples (E118Amendment, GeneralRunningAnnexes, etc.)
+
+. Implement one amendment type or general message type at a time
+
+. Test the implementation with actual issue data
+
+. Repeat until all types are supported
+
+. Verify that all issue directories can be parsed successfully
+
+
+== Final goal
+
+The final goal is to have all OB issues from the itu-ob-dataset parsed into
+`OldIssues`, with full support for all amendment types and general message types.
+
+This will enable the full migration of ITU OB Old Issue model data into the new
+structured data format which does not rely on the ProseMirror structure (except
+for the textual general messages).
+
+Finally the goal is to have all ITU OB data in:
+
+`ob-issue/{issue-no}`:: the structured data of an ITU OB issue
+
+`ob-issue/{issue-no}/{dataset-name}`:: the actions to the dataset defined in this issue.
+
+`ob-issue/{issue-no}/{dataset-name}/{action-id}`:: an action to the dataset
+
+`ob-issue/{issue-no}/{text-dataset-name}`:: the textual general messages
+
+`ob-issue/{issue-no}/{text-dataset-name}/{message-id}`:: a textual general message
+
+
+== Copyright and license
+
+Content copyright ITU.
+
+Software and others, Ribose.
