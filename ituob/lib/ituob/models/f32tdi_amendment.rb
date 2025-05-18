@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'amendment'
-require_relative 'entry'
+require_relative 'f32tdi_entry'
 require_relative 'f32tdi_action'
 require_relative 'helpers'
 require 'prosereflect'

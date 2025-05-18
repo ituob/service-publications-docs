@@ -4,7 +4,10 @@ require_relative 'general_message'
 module Ituob
   module Models
     class GeneralCallbackProcedures < GeneralMessage
-      # no attributes...
+      def self.parse(data)
+        return nil
+        # no attributes...
+      end
     end
   end
 end

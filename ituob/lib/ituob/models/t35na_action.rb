@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'entry'
 require_relative 't35na_entry'
 
 module Ituob

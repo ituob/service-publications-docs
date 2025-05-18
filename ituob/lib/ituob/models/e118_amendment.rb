@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require_relative 'entry'
+require_relative 'amendment'
 require_relative 'e118_action'
+require_relative 'e118_entry'
 require 'prosereflect'
 
 module Ituob

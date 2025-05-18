@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'amendment'
-require_relative 'entry'
+require_relative 'e218trcc_entry'
 require_relative 'e218trcc_action'
 require_relative 'helpers'
 require 'prosereflect'

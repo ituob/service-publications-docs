@@ -1,7 +1,6 @@
 require 'lutaml/model'
 require_relative 'general_message'
 
-
 module Ituob
   module Models
     class GeneralSanc < ::Lutaml::Model::Serializable

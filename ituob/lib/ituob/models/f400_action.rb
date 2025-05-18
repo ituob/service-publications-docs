@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'entry'
 require_relative 'f400_entry'
 
 module Ituob

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'entry'
-require_relative 'entry'
+require_relative 'm1400_entry'
 
 module Ituob
   module Models
