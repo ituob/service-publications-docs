@@ -21,7 +21,7 @@ module Ituob
         @actions ||= []
       end
 
-      def self.parse(hash, position_on: nil)
+      def self.parse(hash, position_on: nil, dataset_code: nil)
         amendment = new
 
         # Set the position_on if it exists
@@ -101,7 +101,7 @@ module Ituob
                 action_type: action.action_type,
                 position: action.position
               )
-              new_action.entry = entry
+              new_action.entries << entry
               amendment.actions << new_action
             end
           end

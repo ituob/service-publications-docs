@@ -5,10 +5,11 @@ $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 require 'ituob'
 
 # Path to amendment files
-ISSUE_DIRS = [
-  '../itu-ob-data/issues/1000/',
-  '../itu-ob-data/issues/1001/',
-]
+ISSUE_DIRS = Dir.glob('../itu-ob-data/issues/*')
+#[
+#  '../itu-ob-data/issues/1000/',
+#  '../itu-ob-data/issues/1001/',
+#]
 
 ISSUE_DIRS.each do |issue_dir|
   puts "#" * 80

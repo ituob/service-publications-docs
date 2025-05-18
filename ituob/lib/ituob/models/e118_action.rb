@@ -8,10 +8,10 @@ module Ituob
     class E118Action < Lutaml::Model::Serializable
       attribute :action_type, :string
       attribute :position, :string
-      attribute :entry, E118Entry
+      attribute :entries, E118Entry, collection: true 
 
       def initialize(attributes = {})
-        @entry = E118Entry.new
+        @entries << E118Entry.new
         super
       end
     end
