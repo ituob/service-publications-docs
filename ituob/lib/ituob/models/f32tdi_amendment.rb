@@ -104,22 +104,115 @@ module Ituob
 
             network = entry_rows.map{|x|x[1]}.flatten.select{|x|x.length > 0}.join(" ")
 
-            entry_rows.each do |r|
-              e = F32TDIEntry.new
+            # Parse the telegraph offices and office codes from the table structure
+            # In F32_TDI amendments, telegraph offices and office codes are stored as multiple paragraphs
+            # within cells in the table structure
 
-              e.country_or_area = country_or_area # MultilingualString
-              # e.country_or_area_note =   # MultilingualString
-              # e.notes =   # MultilingualString
-              e.network_roa = @network_roa  # :string
-              #e.network_roa_note =   # :string
-              e.network_code = @network_code  # :string
-              #e.network_code_note =   # MultilingualString
-              #e.telegraph_office_name =   # MultilingualString
-              e.office_code = r[4]  # :string
-              #e.office_code_note =   # MultilingualString
-              e.subarea = MultilingualString.new(en: r[3])  # MultilingualString
+            # Find the row that contains the telegraph offices and office codes
+            # This is typically the row with country information
+            telegraph_offices_row = nil
 
-              @action.entries << e
+            # Look for the row with country information by checking the first column
+            c.each do |tc|
+              if tc.is_a?(Array) && tc.length >= 5
+                cell0 = tc[0]
+                if cell0.is_a?(Array) && cell0.length > 0
+                  # Check if this cell contains country information by joining all paragraphs
+                  content = cell0.join(" ")
+                  # Look for any country name - this is a generic approach that will work for any country
+                  if content.length > 0 && !content.match?(/^Country/) && !content.match?(/^1$/)
+                    telegraph_offices_row = tc
+                    break
+                  end
+                end
+              end
+            end
+
+            if telegraph_offices_row
+              # Extract telegraph offices and office codes from the row
+              telegraph_offices = []
+              office_codes = []
+
+              # Extract telegraph offices from column 4 (index 3)
+              if telegraph_offices_row[3].is_a?(Array)
+                # Each paragraph is a separate telegraph office
+                telegraph_offices_row[3].each do |office|
+                  if office.is_a?(String) && office.strip.length > 0 &&
+                     office.strip != "4" && !office.strip.match?(/^Name of/)
+                    telegraph_offices << office.strip
+                  end
+                end
+              end
+
+              # Extract office codes from column 5 (index 4)
+              if telegraph_offices_row[4].is_a?(Array)
+                # Each paragraph is a separate office code
+                telegraph_offices_row[4].each do |code|
+                  if code.is_a?(String) && code.strip.length > 0 &&
+                     code.strip != "5" && !code.strip.match?(/^Office code/)
+                    office_codes << code.strip
+                  end
+                end
+              end
+
+              # Create entries for each telegraph office and office code pair
+              if telegraph_offices.length > 0 && office_codes.length > 0
+                # Make sure we have the same number of offices and codes
+                if telegraph_offices.length == office_codes.length
+                  telegraph_offices.each_with_index do |office, index|
+                    e = F32TDIEntry.new
+
+                    e.country_or_area = country_or_area # MultilingualString
+                    e.network_roa = @network_roa  # :string
+                    e.network_code = @network_code  # :string
+                    e.office_code = office_codes[index]  # :string
+                    e.subarea = MultilingualString.new(en: office)  # MultilingualString
+
+                    @action.entries << e
+                  end
+                else
+                  puts "WARNING: Mismatch between number of telegraph offices (#{telegraph_offices.length}) and office codes (#{office_codes.length})"
+                  # Try to create as many entries as possible
+                  min_length = [telegraph_offices.length, office_codes.length].min
+                  min_length.times do |index|
+                    e = F32TDIEntry.new
+
+                    e.country_or_area = country_or_area # MultilingualString
+                    e.network_roa = @network_roa  # :string
+                    e.network_code = @network_code  # :string
+                    e.office_code = office_codes[index]  # :string
+                    e.subarea = MultilingualString.new(en: telegraph_offices[index])  # MultilingualString
+
+                    @action.entries << e
+                  end
+                end
+              else
+                # Fallback to the original implementation if we couldn't find telegraph offices and office codes
+                entry_rows.each do |r|
+                  e = F32TDIEntry.new
+
+                  e.country_or_area = country_or_area # MultilingualString
+                  e.network_roa = @network_roa  # :string
+                  e.network_code = @network_code  # :string
+                  e.office_code = r[4]  # :string
+                  e.subarea = MultilingualString.new(en: r[3])  # MultilingualString
+
+                  @action.entries << e
+                end
+              end
+            else
+              # Fallback to the original implementation if we couldn't find the row with telegraph offices and office codes
+              entry_rows.each do |r|
+                e = F32TDIEntry.new
+
+                e.country_or_area = country_or_area # MultilingualString
+                e.network_roa = @network_roa  # :string
+                e.network_code = @network_code  # :string
+                e.office_code = r[4]  # :string
+                e.subarea = MultilingualString.new(en: r[3])  # MultilingualString
+
+                @action.entries << e
+              end
             end
           else
             raise "Unexpected non-string/array elem in c[0]" unless c[0].nil?
