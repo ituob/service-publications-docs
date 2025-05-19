@@ -1,13 +1,25 @@
 # frozen_string_literal: true
 
 require_relative 'amendment'
-require_relative 'text_entry'
-require_relative 'text_action'
+# require_relative 'text_entry'
+# require_relative 'text_action'
 require_relative 'helpers'
 require 'prosereflect'
 
 module Ituob
   module Models
+
+    class TextAction < Lutaml::Model::Serializable
+      attribute :action_type, :string
+      attribute :position, :string
+      # attribute :entries, E118Entry, collection: true
+
+      def initialize(attributes = {})
+        super
+        # self.entries = []
+      end
+    end
+
     class TextAmendment < Amendment
       attribute :actions, TextAction, collection: true
       attribute :_class, :string, default: -> { self.name.split('::').last }
