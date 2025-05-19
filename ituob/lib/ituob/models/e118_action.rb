@@ -7,11 +7,11 @@ module Ituob
     class E118Action < Lutaml::Model::Serializable
       attribute :action_type, :string
       attribute :position, :string
-      attribute :entries, E118Entry, collection: true 
+      attribute :entries, E118Entry, collection: true
 
       def initialize(attributes = {})
-        @entries << E118Entry.new
         super
+        self.entries = []
       end
     end
   end

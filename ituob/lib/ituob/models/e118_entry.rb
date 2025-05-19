@@ -88,11 +88,16 @@ module Ituob
 
           tel_fax_email_lines.each do |line|
             if line.start_with?('Tel:')
-              tel << line.gsub(/^Tel:[[:space:]]*/, '').strip
+              text = line.gsub(/^Tel:[[:space:]]*/, '').strip
+              tel << text unless text.empty?
+
             elsif line.start_with?('Fax:')
-              fax << line.gsub(/^Fax:[[:space:]]*/, '').strip
+              text = line.gsub(/^Fax:[[:space:]]*/, '').strip
+              fax << text unless text.empty?
+
             elsif line.start_with?('E-mail:') || line.include?('@')
-              email << line.sub(/^E-?mail:[[:space:]]*/, '').strip
+              text = line.sub(/^E-?mail:[[:space:]]*/, '').strip
+              email << text unless text.empty?
             end
           end
 

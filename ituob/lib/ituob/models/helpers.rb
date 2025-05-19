@@ -19,11 +19,11 @@ module Ituob
         end
       end
     end
-          
+
     def self.dump_doc_verbose(doc)
       doc.content.map do |ct|
         case ct.type
-        when 'paragraph'
+        when 'paragraph', 'heading'
           {type: 'paragraph', value: para_to_t(ct)}
         when 'table'
           {type: 'table', value: dump_table(ct)}
@@ -65,7 +65,8 @@ module Ituob
       if matching_str
         matching_str = self.replace_legacy_space(matching_str.gsub('Email:',''))
       end
-      return matching_str 
+
+      matching_str
     end
 
     def self.grabcol2(arr_of_arr_of_1str, key)
