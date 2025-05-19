@@ -251,6 +251,46 @@ $ bundle exec ./parse_issue.rb --help
 $ bundle exec ./parse_issue.rb -h
 ----
 
+=== Issue selection
+
+The `parse_issue.rb` script now supports issue selection, allowing you to process specific issues rather than all issues:
+
+[source,sh]
+----
+# Process a single issue
+$ bundle exec ./parse_issue.rb E164_ACN 1000
+
+# Process a range of issues
+$ bundle exec ./parse_issue.rb E164_ACN 1000-1005
+
+# Process a specific list of issues
+$ bundle exec ./parse_issue.rb E164_ACN 1000,1002,1005
+----
+
+=== DEBUG mode
+
+The script supports a DEBUG environment variable that controls the verbosity of the output. When DEBUG is not set or is set to false, the script will only display information about issues that match the filter criteria. When DEBUG is set to true, the script will display more verbose output, including information about all issues being processed:
+
+[source,sh]
+----
+# Run with minimal output (only shows matching issues)
+$ bundle exec ./parse_issue.rb E164_ACN
+
+# Run with verbose output (shows all issues being processed)
+$ DEBUG=true bundle exec ./parse_issue.rb E164_ACN
+----
+
+=== Summary display
+
+When a filter is specified, the script now displays a summary at the end showing how many issues had the specified amendment type out of the total processed:
+
+[source]
+----
+#==============================================================================#
+Summary: Found 45 issues with E164_ACN amendments out of 356 total issues processed.
+#==============================================================================#
+----
+
 Available amendment types:
 [source]
 ----
