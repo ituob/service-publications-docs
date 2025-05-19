@@ -117,7 +117,7 @@ module Ituob
               #e.telegraph_office_name =   # MultilingualString
               e.office_code = r[4]  # :string
               #e.office_code_note =   # MultilingualString
-              e.subarea = r[3]  # MultilingualString
+              e.subarea = MultilingualString.new(en: r[3])  # MultilingualString
 
               @action.entries << e 
             end
