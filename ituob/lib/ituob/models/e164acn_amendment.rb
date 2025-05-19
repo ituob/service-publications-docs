@@ -40,17 +40,20 @@ module Ituob
           raise "Unexpected non-array item" unless c.is_a?(Array)
           next if c.flatten[0] && c.flatten[0].match(/^Country/)
 
-          first_elem = c[0] 
+          first_elem = c[0]
           if first_elem.is_a?(String)
-            next if first_elem.length < 3 
+            next if first_elem.length < 3
             next if first_elem.match(/^Notes common to Numerical and Alphabetical/)
 
             basestr = c.join('')
             segs = Ituob::Helpers.split_str(basestr)
 
-            @action = E164ACNAction.new 
+            @action = E164ACNAction.new
             @action.entries = []
-            @action.position = segs[0..1].join(" ")
+            position_str = segs[0..1].join(" ")
+            position_match = position_str.match(/^P?[[:space:]]*(?<position>\d+)/)
+            @action.position = position_match ? position_match[:position] : position_str
+
             if basestr.include?('LIR*')
               @action.action_type = 'LIR'
             elsif basestr.match(/LIR$/)
@@ -60,12 +63,12 @@ module Ituob
             else
               @action.action_type = basestr[-3..-1]
             end
-            amendment.actions << @action 
+            amendment.actions << @action
 
           elsif first_elem.is_a?(Array) # table
 
             # they're all one row
-            @entry = E164ACNEntry.new 
+            @entry = E164ACNEntry.new
             segs = c.flatten
             @entry.country_or_area = MultilingualString.new(en: segs[0])
             @entry.country_code = segs[1]
