@@ -2,6 +2,9 @@ require 'lutaml/model'
 require_relative 'issue_metadata'
 require_relative 'issue_general'
 
+# Check if DEBUG mode is enabled
+DEBUG = ENV['DEBUG'] == 'true'
+
 require_relative 'general_approved_recommendations'
 require_relative 'general_callback_procedures'
 require_relative 'general_custom'
@@ -72,7 +75,7 @@ module Ituob
       end
 
       def self.load_issue_dir(path)
-        puts "Loading issue from #{path}"
+        puts "Loading issue from #{path}" if DEBUG
         new(
           metadata: load_file_metadata(path),
           amendments: load_file_amendment(path),
@@ -134,7 +137,7 @@ module Ituob
 
       # Parse the YAML file and extract E118 amendments
       def self.parse_amendments(amds)
-        puts "Found #{amds.size} amendments"
+        puts "Found #{amds.size} amendments" if DEBUG
 
         amds.map do |amendment|
           target = amendment['target']['publication']
@@ -143,7 +146,7 @@ module Ituob
           position_on = amendment['target']['position_on'] || nil
 
           unless klass = AMENDMENT_TYPE_TO_CLASS[target]
-            puts "Unknown amendment type: #{target}"
+            puts "Unknown amendment type: #{target}" if DEBUG
             next
           end
 
@@ -171,13 +174,13 @@ module Ituob
       def self.parse_generals(generals)
         gen = IssueGeneral.new
 
-        puts "Found #{generals.size} general messages"
+        puts "Found #{generals.size} general messages" if DEBUG
 
         parsed = generals.map do |message|
           type = message['type']
 
           unless klass = GENERAL_TYPE_TO_CLASS[type]
-            puts "Unknown amendment type: #{type}"  # Fixed variable name from 'target' to 'type'
+            puts "Unknown amendment type: #{type}" if DEBUG  # Fixed variable name from 'target' to 'type'
             next
           end
 

@@ -4,8 +4,8 @@
 $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 require 'ituob'
 
-# Get filter type from command line args
-filter_type = ARGV[0]
+# Check if DEBUG mode is enabled
+DEBUG = ENV['DEBUG'] == 'true'
 
 # Display help information
 def show_help
@@ -48,6 +48,10 @@ end
 ISSUE_DIRS.each do |issue_dir|
   puts "#" * 80
   puts "Processing #{issue_dir}..."
+
+  puts "#" * 80 if DEBUG
+  puts "Processing #{issue_dir}..." if DEBUG
+
   issue_data = Ituob::Models::OldIssue.load_issue_dir(issue_dir)
   if issue_data.nil?
     puts "[ERROR] Failed to load issue data from #{issue_dir}"
@@ -69,26 +73,28 @@ ISSUE_DIRS.each do |issue_dir|
     # Filter amendments by class
     filtered_amendments = issue_data.amendments&.select { |a| a.is_a?(amendment_class) }
 
-    if filtered_amendments.any?
+    if filtered_amendments&.any?
       puts "%" * 80
+      puts "Issue #{issue_number}:"
       filtered_amendments.each do |amendment|
         puts amendment.to_yaml
       end
-    else
+    elsif DEBUG
       puts "[INFO] No amendments of type '#{filter_type}' found in #{issue_dir}"
     end
 
   # Check if filter_type is a general message type
   elsif Ituob::Models::OldIssue::GENERAL_TYPE_TO_CLASS.keys.include?(filter_type)
     general_class = Ituob::Models::OldIssue::GENERAL_TYPE_TO_CLASS[filter_type]
-    filtered_general = issue_data.general_messages.select { |g| g.is_a?(general_class) }
+    filtered_general = issue_data.general_messages&.select { |g| g.is_a?(general_class) }
 
-    if filtered_general.any?
+    if filtered_general&.any?
       puts "%" * 80
+      puts "Issue #{issue_number}:"
       filtered_general.each do |general|
         puts general.to_yaml
       end
-    else
+    elsif DEBUG
       puts "[INFO] No general messages of type '#{filter_type}' found in #{issue_dir}"
     end
 
