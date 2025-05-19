@@ -1,0 +1,161 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: 'P  '
+  - type: text
+    text: '34    '
+  - type: text
+    marks:
+    - type: em
+    - type: strong
+    text: 'Netherlands    '
+  - type: text
+    marks:
+    - type: strong
+    text: ADD
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Country/
+        - type: hard_break
+        - type: text
+          text: geographical area
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Company Name/Address
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Issuer Identifier Number
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Contact
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Effective date of usage
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Netherlands
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: Teleena Nederland B.V.
+        - type: hard_break
+          marks:
+          - type: strong
+        - type: text
+          text: Kritjwal 29
+        - type: hard_break
+        - type: text
+          text: NIEUWEGEIN
+      - type: paragraph
+        content:
+        - type: text
+          text: " "
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: 89 31 07
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mr. Timo Smit
+        - type: hard_break
+        - type: text
+          text: Teleena Nederland B.V.
+        - type: hard_break
+        - type: text
+          text: Kritjwal 29
+        - type: hard_break
+        - type: text
+          text: NIEUWEGEIN
+        - type: hard_break
+        - type: text
+          text: Tel:         +31 638 181818
+        - type: hard_break
+        - type: text
+          text: E-mail:   timo@teleena.com
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 1.I.2008
+- type: paragraph

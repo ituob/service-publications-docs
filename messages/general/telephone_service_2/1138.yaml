@@ -1,0 +1,117 @@
+---
+contents:
+- country_name:
+    en: 'Trinidad and Tobago '
+  phone_code: '1868'
+  contact:
+    en: "Mr John Prince\nChief Executive Officer\nTelecommunications Authority of
+      Trinidad and Tobago (TATT)\n5, Eight Avenue Extension, off Twelfth Street\nBARATARIA
+      \nTrinidad and Tobago\nTel:\t+1 868 675 8288 \nFax:\t+1 868 674 1055 \nE-mail:
+      info@tatt.org.tt\nURL:\t  www.tatt.org.tt\n"
+  communications:
+  - date: 2017-11-09
+    contents:
+      en:
+        type: doc
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 'The '
+          - type: text
+            marks:
+            - type: em
+            text: 'Telecommunications Authority of Trinidad and Tobago (TATT), '
+          - type: text
+            text: Barataria, announces that the following Central Office codes (NXX)
+              have been assigned to operators within the North American Numbering
+              Plan (NPA – 868) for Trinidad and Tobago.
+        - type: bullet_list
+          content:
+          - type: list_item
+            content:
+            - type: paragraph
+              content:
+              - type: text
+                text: Fixed network
+        - type: table
+          content:
+          - type: table_row
+            content:
+            - type: table_cell
+              attrs:
+                colspan: 1
+                rowspan: 1
+                colwidth:
+              content:
+              - type: paragraph
+                content:
+                - type: text
+                  marks:
+                  - type: em
+                  text: Name of operator
+            - type: table_cell
+              attrs:
+                colspan: 1
+                rowspan: 1
+                colwidth:
+              content:
+              - type: paragraph
+                content:
+                - type: text
+                  marks:
+                  - type: em
+                  text: 'Central office code '
+                - type: hard_break
+                  marks:
+                  - type: em
+                - type: text
+                  marks:
+                  - type: em
+                  text: "(NXX)"
+            - type: table_cell
+              attrs:
+                colspan: 1
+                rowspan: 1
+                colwidth:
+              content:
+              - type: paragraph
+                content:
+                - type: text
+                  marks:
+                  - type: em
+                  text: Service
+          - type: table_row
+            content:
+            - type: table_cell
+              attrs:
+                colspan: 1
+                rowspan: 1
+                colwidth:
+              content:
+              - type: paragraph
+                content:
+                - type: text
+                  text: Air Link Communications Limited
+            - type: table_cell
+              attrs:
+                colspan: 1
+                rowspan: 1
+                colwidth:
+              content:
+              - type: paragraph
+                content:
+                - type: text
+                  text: '608'
+            - type: table_cell
+              attrs:
+                colspan: 1
+                rowspan: 1
+                colwidth:
+              content:
+              - type: paragraph
+                content:
+                - type: text
+                  text: Fixed
+        - type: paragraph
+type: telephone_service_2

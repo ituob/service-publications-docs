@@ -1,0 +1,48 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    text: REP
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: JP01
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: KDDI CORPORATION, 3-2, Nishi-Shinjuku 2-Chome, Shinjuku-Ku,
+      - type: paragraph
+        content:
+        - type: text
+          text: Tokyo 163-8003, Japan.
+      - type: paragraph
+        content:
+        - type: text
+          text: 'E-mail : '
+        - type: text
+          marks:
+          - type: link
+            attrs:
+              href: mailto:msat-service@kddi.com
+              title:
+          text: msat-service@kddi.com
+        - type: text
+          text: ", Tel: +81 3 6386 9415, Fax: +81 3 6678 0368."

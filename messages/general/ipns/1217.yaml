@@ -1,0 +1,106 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: Note from TSB
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: em
+    text: Identification codes for International Mobile Networks
+- type: paragraph
+  content:
+  - type: text
+    text: Associated with shared mobile country code 901 (MCC), the following two-digit
+      mobile network code (MNC) has changed of assignment.
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          text: Network
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          text: 'Mobile Country Code (MCC) and '
+        - type: hard_break
+          marks:
+          - type: em
+        - type: text
+          marks:
+          - type: em
+          text: Mobile Network Code (MNC)
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          text: Date of change of assignment
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Inmarsat Ltd '
+        - type: hard_break
+        - type: text
+          text: "(replacing Deutsche Telekom AG)"
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 901 53
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 16.III.2021
