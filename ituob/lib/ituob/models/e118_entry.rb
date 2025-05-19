@@ -2,6 +2,7 @@
 
 require_relative 'multilingual_string'
 require_relative 'entry'
+require_relative 'helpers'
 require 'prosereflect'
 
 module Ituob
@@ -63,7 +64,14 @@ module Ituob
           contact_info_started = false
 
           lines.each do |line|
-            if !contact_info_started && (line.start_with?('Tel:') || line.start_with?('Fax:') || line.start_with?('E-mail:') || line.include?('@'))
+            # More comprehensive pattern matching for contact info detection
+            if !contact_info_started && (
+              line =~ /^(Tel|Tél|Cell|Mobile)(?:\.|:|\s)/i ||
+              line =~ /^Fax\s*(?:\.|:)/i ||
+              line =~ /^E-?mail\s*(?:\.|:)/i ||
+              line =~ /^:/ ||
+              line.include?('@')
+            )
               contact_info_started = true
             end
 
@@ -74,7 +82,7 @@ module Ituob
             end
           end
 
-          entry.contact = contact_lines[0].strip if contact_lines.size > 0 && contact_lines[0]
+          entry.contact = Ituob::Helpers.strip_legacy(contact_lines[0]) || nil
           (1..6).each do |i|
             if contact_lines.size > i && contact_lines[i]
               entry.send("contact_address_#{i}=", contact_lines[i].gsub(/[[:space:]]/, ' ').strip)
@@ -87,19 +95,61 @@ module Ituob
           email = []
 
           tel_fax_email_lines.each do |line|
-            if line.start_with?('Tel:')
-              text = line.gsub(/^Tel:[[:space:]]*/, '').strip
+            # Handle various phone number formats (Tel:, Tel.:, Tél:, Cell:, etc.)
+            if line =~ /^(Tel|Tél|Cell|Mobile)(?:\.|:|\s)/i || line =~ /^:/
+              # Handle all variations including "Tel: +1234", "Tél: +1234", "Tel +1234", "Tel : +1234" or just ": +1234"
+              text = line.gsub(/^(?:(Tel|Tél|Cell|Mobile)(?:\.|:|\s)?|:)[[:space:]]*/, '').strip
               tel << text unless text.empty?
 
-            elsif line.start_with?('Fax:')
-              text = line.gsub(/^Fax:[[:space:]]*/, '').strip
+            elsif line =~ /^Fax\s*(?:\.|:)/i
+              text = line.gsub(/^Fax(?:\.|:)[[:space:]]*/, '').strip
               fax << text unless text.empty?
 
-            elsif line.start_with?('E-mail:') || line.include?('@')
-              text = line.sub(/^E-?mail:[[:space:]]*/, '').strip
-              email << text unless text.empty?
+            elsif line =~ /^E-?mail\s*(?:\.|:)/i || line.include?('@')
+              # Handle multiple email addresses on a single line
+              if line.count('@') > 1
+                # Split by whitespace and filter for valid email addresses
+                emails = line.sub(/^E-?mail(?:\.|:)[[:space:]]*/, '').split(/\s+/).select { |e| e.include?('@') }
+                email.concat(emails)
+              else
+                text = line.sub(/^E-?mail(?:\.|:)[[:space:]]*/, '').strip
+                email << text unless text.empty?
+              end
             end
           end
+
+          # Also check contact_address fields for misclassified phone numbers or emails
+          (1..6).each do |i|
+            addr_field = entry.send("contact_address_#{i}")
+            next unless addr_field
+
+            # Check for phone numbers - handles various formats
+            if addr_field =~ /^(Tel|Tél|Cell|Mobile)(?:\.|:|\s)/i || addr_field =~ /^:/
+              # Handle cases like "Tel: +1234", "Tél: +1234", "Tel : +1234", "Tel +1234", or simply ": +1234"
+              text = addr_field.gsub(/^(?:(Tel|Tél|Cell|Mobile)(?:\.|:|\s)?|:)[[:space:]]*/, '').strip
+              tel << text
+              entry.send("contact_address_#{i}=", nil) # Clear the field as it's been moved to tel
+            elsif addr_field =~ /^Fax(?:\.|:)/i
+              text = addr_field.gsub(/^Fax(?:\.|:)[[:space:]]*/, '').strip
+              fax << text
+              entry.send("contact_address_#{i}=", nil) # Clear the field
+            elsif addr_field.include?('@')
+              # Handle multiple email addresses
+              if addr_field.count('@') > 1
+                emails = addr_field.split(/\s+/).select { |e| e.include?('@') }
+                email.concat(emails)
+              else
+                email << addr_field.strip
+              end
+              entry.send("contact_address_#{i}=", nil) # Clear the field
+            end
+          end
+
+          # Clean telephone numbers before setting them (remove leading colons, normalize spaces)
+          tel = tel.map do |t|
+            # Remove leading colon and normalize spaces
+            t.sub(/^:/, '').strip
+          end unless tel.empty?
 
           entry.tel = tel unless tel.empty?
           entry.fax = fax unless fax.empty?

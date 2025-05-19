@@ -12,7 +12,7 @@ module Ituob
     def self.dump_doc(doc)
       doc.content.map do |ct|
         case ct.type
-        when 'paragraph'
+        when 'paragraph', 'heading', 'bullet_list'
           para_to_t(ct)
         when 'table'
           dump_table(ct)

@@ -217,6 +217,8 @@ GENERAL_TYPE_TO_CLASS = {
 
 == Usage
 
+=== parse_issue.rb
+
 Run the `scripts/parse_issue.rb` test script as follows:
 
 [source,sh]
@@ -227,6 +229,49 @@ $ bundle exec ./parse_issue.rb
 ----
 
 The script parses the issue data and outputs it in YAML format to the console.
+
+=== parse_amendments.rb
+
+The `parse_amendments.rb` script allows you to process and parse specific amendment types from extracted amendment files. This is particularly useful when working on implementing or testing a specific amendment type parser.
+
+[source,sh]
+----
+$ cd scripts/
+$ bundle install
+$ ruby parse_amendments.rb [AMENDMENT_TYPE] [FILE_PATH_PATTERN]
+----
+
+Parameters:
+
+* `AMENDMENT_TYPE` - Optional. The type of amendment to parse (default: E118_IIN). Must be one of the supported amendment types listed in `Ituob::Models::OldIssue::AMENDMENT_TYPE_TO_CLASS`.
+* `FILE_PATH_PATTERN` - Optional. A specific file or pattern to process. If not provided, all files of the specified amendment type will be processed.
+
+Examples:
+
+[source,sh]
+----
+# Parse all E118_IIN amendments (default behavior)
+$ ruby parse_amendments.rb
+
+# Parse all E164_ACN amendments
+$ ruby parse_amendments.rb E164_ACN
+
+# Parse a specific F32_TDI amendment file
+$ ruby parse_amendments.rb F32_TDI specific.yaml
+
+# Show help information
+$ ruby parse_amendments.rb --help
+# or
+$ ruby parse_amendments.rb -h
+----
+
+The script will:
+
+1. Look for amendment files in the `messages/amendments/[AMENDMENT_TYPE]/` directory
+2. Parse each file using the appropriate amendment class
+3. Output the parsed content in YAML format to the console
+
+This is particularly useful when developing and testing new amendment type parsers, as it allows you to focus on a specific amendment type without processing all issues.
 
 === Filtering by type
 
