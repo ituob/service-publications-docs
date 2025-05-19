@@ -153,16 +153,16 @@ module Ituob
       end
 
       GENERAL_TYPE_TO_CLASS = {
-        'running_annexes' => GeneralRunningAnnexes, ## 
-        'approved_recommendations' => GeneralApprovedRecommendations, ## 
-        # new 
-        'callback_procedures' => GeneralCallbackProcedures, ## 
-        'custom' => GeneralCustom, ## 
-        'ipns' => GeneralIpns,## 
-        'iptn' => GeneralIptn, ## 
-        'misc_communications' => GeneralMiscCommunications, ## 
-        'org_changes' => GeneralOrgChanges, ## 
-        'sanc' => GeneralSancs, ## 
+        'running_annexes' => GeneralRunningAnnexes, ##
+        'approved_recommendations' => GeneralApprovedRecommendations, ##
+        # new
+        'callback_procedures' => GeneralCallbackProcedures, ##
+        'custom' => GeneralCustom, ##
+        'ipns' => GeneralIpns,##
+        'iptn' => GeneralIptn, ##
+        'misc_communications' => GeneralMiscCommunications, ##
+        'org_changes' => GeneralOrgChanges, ##
+        'sanc' => GeneralSancs, ##
         'service_restrictions' => GeneralServiceRestrictions,
         'telephone_service_2' => GeneralTelephoneServices # separates messages and inserts to text
       }

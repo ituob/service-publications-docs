@@ -226,10 +226,66 @@ $ bundle install
 $ bundle exec ./parse_issue.rb
 ----
 
-Currently, the script only parses the issues 1000 and 1001. This should be
-extended to parse all issues in the `itu-ob-data/issues/` directory.
-
 The script parses the issue data and outputs it in YAML format to the console.
+
+=== Filtering by type
+
+The `parse_issue.rb` script can now filter output by a specific amendment type or general message type. This is useful for testing and debugging specific implementations.
+
+To use this feature, pass the type name as a command-line argument:
+
+[source,sh]
+----
+# To only show E118_IIN amendments
+$ bundle exec ./parse_issue.rb E118_IIN
+
+# To only show running_annexes general messages
+$ bundle exec ./parse_issue.rb running_annexes
+
+# To show all data (default behavior)
+$ bundle exec ./parse_issue.rb
+----
+
+Available amendment types:
+[source]
+----
+E118_IIN
+DP
+E164_ACN
+E164_CC
+E212_ICC
+E212_MNC
+E218_TRCC
+F32_TDI
+F400_ADMD
+M1400_ICC
+Q708_ISPC
+Q708_SANC
+T35_NA
+X121_DNIC
+RR.25.1
+BUREAUFAX
+List of Coast Stations and Special Service Stations
+R_SP_LM.V
+R_SP_LN.VIII
+NNP
+----
+
+Available general message types:
+[source]
+----
+running_annexes
+approved_recommendations
+callback_procedures
+custom
+ipns
+iptn
+misc_communications
+org_changes
+sanc
+service_restrictions
+telephone_service_2
+----
 
 
 == Implementation approach
