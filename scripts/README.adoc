@@ -333,6 +333,59 @@ telephone_service_2
 ----
 
 
+
+== Extraction Scripts
+
+=== extract_messages.rb
+
+This script extracts:
+
+* amendments from the
+`itu-ob-data/issues/{issue-no}/amendments.yaml` files and saves them to the
+`messages/amendments/{type}/{issue-no}.yaml` directory structure.
+
+* general messages from the `itu-ob-data/issues/{issue-no}/general.yaml` files
+and saves them to the `messages/general/{type}/{issue-no}.yaml` directory
+structure.
+
+The script handles two main structures in the general.yaml files:
+
+. Messages with `contents.en`:
++
+[source,yaml]
+----
+messages:
+- type: {type}
+  contents:
+    en: {content to extract}
+----
+
+. Messages with other content:
++
+[source,yaml]
+----
+messages:
+- type: {type}
+  {extract all content in this object}
+----
+
+Messages with no type are saved to the `messages/general/no_type/` directory.
+
+If there are multiple messages of the same type in an issue, they are saved to
+separate files with a suffix, e.g., `{issue-no}-1.yaml`, `{issue-no}-2.yaml`,
+etc.
+
+Usage:
+
+[source,sh]
+----
+$ cd scripts/
+$ bundle install
+$ ruby extract_messages.rb
+----
+
+
+
 == Implementation approach
 
 === New amendment types
