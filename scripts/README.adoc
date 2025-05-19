@@ -217,7 +217,7 @@ GENERAL_TYPE_TO_CLASS = {
 
 == Usage
 
-=== parse_issue.rb
+=== parse_issue.rb (DO NOT USE AT CURRENT STAGE)
 
 Run the `scripts/parse_issue.rb` test script as follows:
 
@@ -230,9 +230,59 @@ $ bundle exec ./parse_issue.rb
 
 The script parses the issue data and outputs it in YAML format to the console.
 
-=== parse_amendments.rb
+=== parse_amendments.rb (ONLY USE THIS)
 
-The `parse_amendments.rb` script allows you to process and parse specific amendment types from extracted amendment files. This is particularly useful when working on implementing or testing a specific amendment type parser.
+The `parse_amendments.rb` script allows you to process and parse specific
+amendment types from extracted amendment files. This is particularly useful when
+working on implementing or testing a specific amendment type parser.
+
+Only the following types of messages are properly parsed:
+
+Amendment types:
+
+* E118_IIN implemented as `E118Amendment`
+
+General types:
+
+* 'running_annexes' implemented as `GeneralRunningAnnexes`
+* 'approved_recommendations' implemented as `GeneralApprovedRecommendations`
+
+These types of messages are not fully working yet, to be implemented:
+
+Amendment types:
+
+* 'F32_TDI' implemented as `F32TDIAmendment`,
+* 'DP' implemented as `DPAmendment`,
+* 'E164_ACN' implemented as `E164ACNAmendment`, // datasets/1015-E.164B/data.yaml
+* 'E164_CC' implemented as `E164CCAmendment`,
+* 'E212_MNC' implemented as `E212MNCAmendment`,
+* 'E218_TRCC' implemented as `E218TRCCAmendment`,
+* 'F400_ADMD' implemented as `F400Amendment`,
+* 'M1400_ICC' implemented as `M1400Amendment`,
+* 'Q708_ISPC' implemented as `Q708ISPCAmendment`,
+* 'Q708_SANC' implemented as `Q708SANCAmendment`,
+* 'T35_NA' implemented as `T35NAAmendment`,
+* 'X121_DNIC' implemented as `X121DNICAmendment`,
+* 'RR.25.1' implemented as `TextAmendment`,
+* 'BUREAUFAX' implemented as `TextAmendment`,
+* 'List of Coast Stations and Special Service Stations' implemented as `TextAmendment`,
+* 'R_SP_LM.V' implemented as `TextAmendment`,
+* 'R_SP_LN.VIII' implemented as `TextAmendment`,
+* 'NNP' implemented as `TextAmendment`,
+// 'E212_ICC' implemented as `E212ICCAmendment`,
+
+
+General types:
+
+* 'callback_procedures' implemented as `GeneralCallbackProcedures`
+* 'custom' implemented as `GeneralCustom`
+* 'ipns' implemented as `GeneralIpns`
+* 'iptn' implemented as `GeneralIptn`
+* 'misc_communications' implemented as `GeneralMiscCommunications`
+* 'org_changes' implemented as `GeneralOrgChanges`
+* 'sanc' implemented as `GeneralSancs`
+* 'service_restrictions' implemented as `GeneralServiceRestrictions`
+* 'telephone_service_2' implemented as `GeneralTelephoneServices` // # separates messages and inserts
 
 [source,sh]
 ----
@@ -250,8 +300,11 @@ Examples:
 
 [source,sh]
 ----
-# Parse all E118_IIN amendments (default behavior)
+# Parse all amendments (default behavior)
 $ ruby parse_amendments.rb
+
+# Parse all E118_IIN amendments (default behavior)
+$ ruby parse_amendments.rb E118_IIN
 
 # Parse all E164_ACN amendments
 $ ruby parse_amendments.rb E164_ACN
