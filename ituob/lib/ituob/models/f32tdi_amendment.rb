@@ -39,7 +39,7 @@ module Ituob
           action_type: nil,
         }
 
-        @action = F32TDIAction.new 
+        @action = F32TDIAction.new
         @action.entries = []
         amendment.notes = []
 
@@ -48,12 +48,12 @@ module Ituob
         simplified_doc.each_with_index do |c, ci|
           raise "Unexpected non-array item" unless c.is_a?(Array)
 
-          first_elem = c[0] 
+          first_elem = c[0]
 
-          if first_elem.is_a?(String) && (first_elem.match(/^__/) || first_elem.match(/^----/)) 
+          if first_elem.is_a?(String) && (first_elem.match(/^__/) || first_elem.match(/^----/))
             parse_state[:elem] = 'notes'
           elsif parse_state[:elem] == 'notes'
-            amendment.notes << c 
+            amendment.notes << c
           elsif first_elem.is_a?(String)
             str = Ituob::Helpers.replace_legacy_space(first_elem)
 
@@ -61,7 +61,7 @@ module Ituob
               # reinitialize action
               if @action
                 amendment.actions << @action
-                @action = F32TDIAction.new 
+                @action = F32TDIAction.new
                 @action.entries = []
               end
               if str.match(/^P /)
@@ -81,13 +81,13 @@ module Ituob
 
             entry_rows = []
             c.each_with_index do |tc, tci|
-              if tc.length < 3 
+              if tc.length < 3
                 @action.notes = tc[0]
               elsif tc.all?{|x| x[0].strip.length == 0}
                 # discard
-              elsif tc[0][0].strip.match?(/^Country/) 
-                # header - discard 
-              elsif tc[0][0].strip.match?(/^1$/) 
+              elsif tc[0][0].strip.match?(/^Country/)
+                # header - discard
+              elsif tc[0][0].strip.match?(/^1$/)
                 # numbers header, discard
               elsif tc.length == 5 && [3,2].include?(tci)
                 # semi header row, i guess
@@ -103,7 +103,7 @@ module Ituob
             country_or_area = MultilingualString.new( fr: countries[0], en: countries[1], es: countries[2] )
 
             network = entry_rows.map{|x|x[1]}.flatten.select{|x|x.length > 0}.join(" ")
-        
+
             entry_rows.each do |r|
               e = F32TDIEntry.new
 
@@ -119,7 +119,7 @@ module Ituob
               #e.office_code_note =   # MultilingualString
               e.subarea = MultilingualString.new(en: r[3])  # MultilingualString
 
-              @action.entries << e 
+              @action.entries << e
             end
           else
             raise "Unexpected non-string/array elem in c[0]" unless c[0].nil?
