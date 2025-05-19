@@ -45,8 +45,6 @@ module Ituob
         map "amendments", to: :amendments, polymorphic: {
           attribute: "_class",
           class_map: {
-            "E118Amendment" => Ituob::Models::E118Amendment # 1161-E.118 ## 
-            "DPAmendment" => Ituob::Models::DPAmendment, # 994-E.164C ## 
             "E164ACNAmendment" => Ituob::Models::E164ACNAmendment, # 1015-E.164B ##
             "E164CCAmendment" => Ituob::Models::E164CCAmendment, # 1114-E.164D-Note-O/P/etc. # significant quality control problems
             "E212ICCAmendment" => Ituob::Models::E212ICCAmendment, # ?????????????????
@@ -61,6 +59,8 @@ module Ituob
             "X121DNICAmendment" => Ituob::Models::X121DNICAmendment, # 977-X.121B ##
 
             "TextAmendment" => Ituob::Models::TextAmendment,  # ##
+            "E118Amendment" => Ituob::Models::E118Amendment, # 1161-E.118 ##
+            "DPAmendment" => Ituob::Models::DPAmendment, # 994-E.164C ##
             #"RR251Amendment" => Ituob::Models::TextAmendment, # 1154-RR.25.1 # Putting these in as text, there seems to be zero data conformance here
             # "NNPAmendment" => Ituob::Models::NNPAmendment, # ## 
             # "ListCS4Amendment" => Ituob::Models::ListCS4Amendment,# ## 
@@ -78,6 +78,9 @@ module Ituob
           amendments: load_file_amendment(path),
           general: load_file_general(path)
         )
+      rescue Errno::ENOENT => e
+        puts "Error loading issue from #{path}: #{e.message}"
+        nil
       end
 
       def self.load_file_general(path)
@@ -105,7 +108,8 @@ module Ituob
 
       AMENDMENT_TYPE_TO_CLASS = {
         'E118_IIN' => E118Amendment,
-        # new 
+
+        # new
         'DP' => DPAmendment,
         'E164_ACN' => E164ACNAmendment,
         'E164_CC' => E164CCAmendment,
