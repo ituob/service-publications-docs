@@ -152,21 +152,25 @@ module Ituob
 
         # Pattern: {P} {positions} {country} {action_type}
         # Example: "P 42 ADD" or "P 16 and 17 Denmark SUP (delete)" or "P  8  Bermuda   ADD"
-        pattern_1 = /\AP?[[:space:]]*(?<positions>\d+[\sand]*\d+)?[[:space:]]+(?<country>[\w\s-]+)[[:space:]]+\b(?<action>(ADD|SUP|LIR|REP))\b/
+        pattern_1 = /\AP?[[:space:]]*(?<positions>\d+[\sand]*\d+)?[[:space:]]+(?<country>[\w\s,ç\.\(\)-]+)[[:space:]]+\b(?<action>(ADD|SUP|LIR|REP))\b/
         # Pattern: {action_type} {P} {positions} {country}
         # Example: "ADD  P  39   Mongolia"
-        pattern_2 = /\A(?<action>(ADD|SUP|LIR|REP))\bP?[[:space:]]*(?<positions>\d+[\sand]*\d+)?[[:space:]]+(?<country>[\w\s-]+)\b/
+        pattern_2 = /\A(?<action>(ADD|SUP|LIR|REP))\bP?[[:space:]]*(?<positions>\d+[\sand]*\d+)?[[:space:]]+(?<country>[\w\s,ç\.\(\)-]+)\b/
 
         # Pattern (missing position)
-        # Example: "Japan     ADD"
-        pattern_3 = /\A(?<country>[\w\s-]+)[[:space:]]+(?<action>(ADD|SUP|LIR|REP))\b/
+        # Example: "Japan     ADD", "Korea (Rep. of)       ADD"
+        pattern_3 = /\A(?<country>[\w\s,ç\.\(\)-]+)[[:space:]]+(?<action>(ADD|SUP|LIR|REP))\b/
 
-        # Pattern (missing action, with ellipsis)
+        # Pattern (missing position, with ellipsis)
         # Example: "Kenya…..SUP"
-        pattern_4 = /\A(?<country>[\w\s-]+)…+\.*\b(?<action>(ADD|SUP|LIR|REP))\b/
+        pattern_4 = /\A(?<country>[\w\s,ç\.\(\)-]+)…+\.*\b(?<action>(ADD|SUP|LIR|REP))\b/
+
+        # Pattern (missing action)
+        # Example: "Kenya…..SUP"
+        pattern_5 = /\A(?<country>[\w\s,ç\.\(\)-]+)\s*\b/
 
         # Match the text against the patterns using rescue and loop
-        match = text.match(pattern_1) || text.match(pattern_2) || text.match(pattern_3) || text.match(pattern_4)
+        match = text.match(pattern_1) || text.match(pattern_2) || text.match(pattern_3) || text.match(pattern_4) || text.match(pattern_5)
         # puts "Match: #{match.inspect}"
 
         raise "Invalid paragraph format: #{text}" unless match
@@ -177,8 +181,8 @@ module Ituob
 
         country = match.named_captures["country"]
 
-        if match.named_captures["action"]
-          action_type = case match.named_captures["action"]
+        action_type = if match.named_captures["action"]
+          case match.named_captures["action"]
           when 'ADD'
             'ADD'
           when 'SUP'
@@ -189,6 +193,10 @@ module Ituob
           else
             raise "Unknown action type: #{match.named_captures['action']}"
           end
+        else
+          # If no action type is found, default to 'ADD'
+          # This is a fallback for pattern 5 where the action type is missing
+          'ADD'
         end
 
         if positions =~ /and/
