@@ -32,7 +32,11 @@ module Ituob
         end
       end
     end
-          
+
+    def self.dump_doc_full(doc)
+      dump_doc_verbose(Prosereflect::Parser.parse_document(doc))
+    end
+
     def self.split_str(str)
       str.split(/\p{Space}+/)
     end
