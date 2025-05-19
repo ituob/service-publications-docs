@@ -23,7 +23,7 @@ module Ituob
     def self.dump_doc_verbose(doc)
       doc.content.map do |ct|
         case ct.type
-        when 'paragraph', 'heading'
+        when 'paragraph', 'heading', 'bullet_list'
           {type: 'paragraph', value: para_to_t(ct)}
         when 'table'
           {type: 'table', value: dump_table(ct)}
