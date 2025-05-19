@@ -244,6 +244,11 @@ $ bundle exec ./parse_issue.rb running_annexes
 
 # To show all data (default behavior)
 $ bundle exec ./parse_issue.rb
+
+# To show help information with supported amendment and general message types
+$ bundle exec ./parse_issue.rb --help
+# or
+$ bundle exec ./parse_issue.rb -h
 ----
 
 Available amendment types:
