@@ -188,8 +188,9 @@ The script parses the issue data and outputs it in YAML format to the console.
 === parse_amendments.rb (ONLY USE THIS)
 
 The `parse_amendments.rb` script allows you to process and parse specific
-amendment types from extracted amendment files. This is particularly useful when
-working on implementing or testing a specific amendment type parser.
+amendment types from extracted amendment files or general message types from
+extracted general message files. This is particularly useful when
+working on implementing or testing a specific message type parser.
 
 Only the following types of messages are properly parsed:
 
@@ -243,13 +244,25 @@ General types:
 ----
 $ cd scripts/
 $ bundle install
-$ ruby parse_amendments.rb [AMENDMENT_TYPE] [FILE_PATH_PATTERN]
+$ ruby parse_amendments.rb [--type TYPE] [MESSAGE_TYPE] [FILE_PATH_PATTERN]
 ----
 
-Parameters:
+Where:
 
-* `AMENDMENT_TYPE` - Optional. The type of amendment to parse (default: E118_IIN). Must be one of the supported amendment types listed in `Ituob::Models::OldIssue::AMENDMENT_TYPE_TO_CLASS`.
-* `FILE_PATH_PATTERN` - Optional. A specific file or pattern to process. If not provided, all files of the specified amendment type will be processed.
+`--type`, `-t TYPE`:: Optional. The type of message to parse: 'amendment' or
+'general' (default: amendment).
+
+`MESSAGE_TYPE`:: Optional. The specific message type to parse.
+
+** For amendment messages (default: E118_IIN), must be one of the supported
+amendment types listed in `Ituob::Models::OldIssue::AMENDMENT_TYPE_TO_CLASS`.
+
+** For general messages (default: running_annexes), must be one of the supported
+general message types listed in
+`Ituob::Models::OldIssue::GENERAL_TYPE_TO_CLASS`.
+
+`FILE_PATH_PATTERN`:: Optional. A specific file or pattern to process. If not
+provided, all files of the specified message type will be processed.
 
 Examples:
 
@@ -267,6 +280,15 @@ $ ruby parse_amendments.rb E164_ACN
 # Parse a specific F32_TDI amendment file
 $ ruby parse_amendments.rb F32_TDI specific.yaml
 
+# Parse all running_annexes general messages
+$ ruby parse_amendments.rb -t general
+
+# Parse all approved_recommendations general messages
+$ ruby parse_amendments.rb -t general approved_recommendations
+
+# Parse a specific running_annexes general message file
+$ ruby parse_amendments.rb -t general running_annexes 1000.yaml
+
 # Show help information
 $ ruby parse_amendments.rb --help
 # or
@@ -275,11 +297,19 @@ $ ruby parse_amendments.rb -h
 
 The script will:
 
-1. Look for amendment files in the `messages/amendments/[AMENDMENT_TYPE]/` directory
-2. Parse each file using the appropriate amendment class
-3. Output the parsed content in YAML format to the console
+. Look for message files in the appropriate directory:
 
-This is particularly useful when developing and testing new amendment type parsers, as it allows you to focus on a specific amendment type without processing all issues.
+** For amendment messages: `messages/amendments/[MESSAGE_TYPE]/`
+** For general messages: `messages/general/[MESSAGE_TYPE]/`
+
+. Parse each file using the appropriate message class
+
+. Output the parsed content in YAML format to the console
+
+This is particularly useful when developing and testing new message type
+parsers, as it allows you to focus on a specific message type without processing
+all issues.
+
 
 === Filtering by type
 
