@@ -162,57 +162,12 @@ What needs to be done:
 
 * Extend the Amendments to support all the amendment types
 (see `AMENDMENT_TYPE_TO_CLASS` in `ituob/models/old_issue.rb`)
-+
-[source,ruby]
-----
-# TODO: Support more amendment types
-AMENDMENT_TYPE_TO_CLASS = {
-  'E118_IIN' => E118Amendment,
-  #  BUREAUFAX
-  #  DP
-  #  E164_ACN
-  #  E164_CC
-  #  E212_ICC
-  #  E212_MNC
-  #  E218_TRCC
-  #  F32_TDI
-  #  F400_ADMD
-  #  List of Coast Stations and Special Service Stations
-  #  M1400_ICC
-  #  NNP
-  #  Q708_ISPC
-  #  Q708_SANC
-  #  R_SP_LM.V
-  #  R_SP_LN.VIII
-  #  RR.25.1
-  #  T35_NA
-  #  X121_DNIC
-}
-----
 
 * Extend the General messages to support all the general message types
 (see `GENERAL_TYPE_TO_CLASS` in `ituob/models/old_issue.rb`)
-+
-[source,ruby]
-----
-# TODO: Support more general types
-GENERAL_TYPE_TO_CLASS = {
-  'running_annexes' => GeneralRunningAnnexes,
-  'approved_recommendations' => GeneralApprovedRecommendations,
-  # 'callback_procedures' => GeneralCallbackProcedures,
-  # 'custom' => GeneralCustom,
-  # 'ipns' => GeneralIpns,
-  # 'iptn' => GeneralIptn,
-  # 'misc_communications' => GeneralMiscCommunications,
-  # 'org_changes' => GeneralOrgChanges,
-  # 'sanc' => GeneralSanc,
-  # 'service_restrictions' => GeneralServiceRestrictions,
-  # 'telephone_service_2' => GeneralTelephoneService.
-}
-----
 
-* Extend the `parse_issue.rb` script to parse all issues in the
-  `itu-ob-data/issues/` directory.
+* Extend the `parse_amendments.rb` script to parse all messages in the
+  `messages/` directory.
 
 
 == Usage
@@ -241,6 +196,7 @@ Only the following types of messages are properly parsed:
 Amendment types:
 
 * E118_IIN implemented as `E118Amendment`
+* 'DP' implemented as `DPAmendment`,
 
 General types:
 
@@ -252,7 +208,6 @@ These types of messages are not fully working yet, to be implemented:
 Amendment types:
 
 * 'F32_TDI' implemented as `F32TDIAmendment`,
-* 'DP' implemented as `DPAmendment`,
 * 'E164_ACN' implemented as `E164ACNAmendment`, // datasets/1015-E.164B/data.yaml
 * 'E164_CC' implemented as `E164CCAmendment`,
 * 'E212_MNC' implemented as `E212MNCAmendment`,

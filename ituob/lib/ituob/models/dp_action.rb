@@ -7,13 +7,13 @@ module Ituob
     class DPAction < Lutaml::Model::Serializable
       attribute :action_type, :string
       attribute :position, :string
-      attribute :entries, DPEntry, collection: true 
+      attribute :entries, DPEntry, collection: true
       attribute :notes, :string
 
-      # def initialize(attributes = {})
-      #   #@entry = DPEntry.new
-      #   super
-      # end
+      def initialize(attributes = {})
+        super
+        @entries ||= []
+      end
     end
   end
 end
