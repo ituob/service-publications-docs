@@ -197,12 +197,14 @@ Only the following types of messages are properly parsed:
 Amendment types:
 
 * E118_IIN implemented as `E118Amendment`
-* 'DP' implemented as `DPAmendment`,
+* 'DP' implemented as `DPAmendment`
 
 General types:
 
 * 'running_annexes' implemented as `GeneralRunningAnnexes`
 * 'approved_recommendations' implemented as `GeneralApprovedRecommendations`
+* 'callback_procedures' implemented as `GeneralCallbackProcedures`
+* 'ipns' implemented as `GeneralIpns`
 
 These types of messages are not fully working yet, to be implemented:
 
@@ -230,9 +232,7 @@ Amendment types:
 
 General types:
 
-* 'callback_procedures' implemented as `GeneralCallbackProcedures`
 * 'custom' implemented as `GeneralCustom`
-* 'ipns' implemented as `GeneralIpns`
 * 'iptn' implemented as `GeneralIptn`
 * 'misc_communications' implemented as `GeneralMiscCommunications`
 * 'org_changes' implemented as `GeneralOrgChanges`
@@ -288,6 +288,12 @@ $ ruby parse_amendments.rb -t general approved_recommendations
 
 # Parse a specific running_annexes general message file
 $ ruby parse_amendments.rb -t general running_annexes 1000.yaml
+
+# Parse all ipns general messages
+$ ruby parse_amendments.rb -t general ipns
+
+# Parse a specific ipns general message file
+$ ruby parse_amendments.rb -t general ipns 993.yaml
 
 # Show help information
 $ ruby parse_amendments.rb --help
