@@ -9,34 +9,6 @@ module Ituob
       tbl.content.map{|x|x.content.map{|y|y.content.map{|z|z.content[0].text.strip rescue ""}}}
     end
 
-    def self.dump_doc(doc)
-      doc.content.map do |ct|
-        case ct.type
-        when 'paragraph', 'heading', 'bullet_list'
-          para_to_t(ct)
-        when 'table'
-          dump_table(ct)
-        end
-      end
-    end
-
-    def self.dump_doc_verbose(doc)
-      doc.content.map do |ct|
-        case ct.type
-        when 'paragraph', 'heading', 'bullet_list'
-          {type: 'paragraph', value: para_to_t(ct)}
-        when 'table'
-          {type: 'table', value: dump_table(ct)}
-        else
-          raise "Unexpected type: #{ct.type.to_s}"
-        end
-      end
-    end
-
-    def self.dump_doc_full(doc)
-      dump_doc_verbose(Prosereflect::Parser.parse_document(doc))
-    end
-
     def self.split_str(str)
       str.split(/\p{Space}+/)
     end
