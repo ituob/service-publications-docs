@@ -205,6 +205,9 @@ General types:
 * 'approved_recommendations' implemented as `GeneralApprovedRecommendations`
 * 'callback_procedures' implemented as `GeneralCallbackProcedures`
 * 'ipns' implemented as `GeneralIpns`
+* 'iptn' implemented as `GeneralIptn` (Identification codes for international networks, global mobile satellite systems, IoT/M2M (country codes 881, 882, 883, 888, 991))
+
+NOTE: For IPTN messages that cannot be automatically parsed, a manual curation workflow is available. Run `scripts/generate_iptn_template.rb` to create template files in `messages/general/iptn/manual/` that can be manually filled with structured data. The `parse_amendments.rb` script will automatically use these manual files when available.
 
 These types of messages are not fully working yet, to be implemented:
 
@@ -233,7 +236,6 @@ Amendment types:
 General types:
 
 * 'custom' implemented as `GeneralCustom`
-* 'iptn' implemented as `GeneralIptn`
 * 'misc_communications' implemented as `GeneralMiscCommunications`
 * 'org_changes' implemented as `GeneralOrgChanges`
 * 'sanc' implemented as `GeneralSancs`
@@ -294,6 +296,12 @@ $ ruby parse_amendments.rb -t general ipns
 
 # Parse a specific ipns general message file
 $ ruby parse_amendments.rb -t general ipns 993.yaml
+
+# Parse all iptn general messages
+$ ruby parse_amendments.rb -t general iptn
+
+# Parse a specific iptn general message file
+$ ruby parse_amendments.rb -t general iptn 981.yaml
 
 # Show help information
 $ ruby parse_amendments.rb --help
