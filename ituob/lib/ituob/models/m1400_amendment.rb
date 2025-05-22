@@ -119,6 +119,7 @@ module Ituob
         end
 
         amendment.actions = amendment.actions.filter{|x| x.entries.length > 0}
+        amendment
       end
 
     end

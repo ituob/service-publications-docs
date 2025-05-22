@@ -89,6 +89,17 @@ module Ituob
       end
     end
 
+    def self.dump_doc_verbose(doc)
+      doc.content.map do |ct|
+        case ct.type
+        when 'paragraph'
+          {type: "paragraph", value: para_to_t(ct)}
+        when 'table'
+          {type: 'table', value: dump_table(ct)}
+        end
+      end
+    end
+
     def self.dump_doc_full(m)
       dump_doc(Prosereflect::Parser.parse_document(m))
     end

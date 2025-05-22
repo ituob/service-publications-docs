@@ -74,7 +74,7 @@ module Ituob
               if row[1].count > 1
                 row[1].zip(row[2]).each do |r|
                   entry = E212MNCEntry.new 
-                  entry.country_or_area = row[0] # the outer row
+                  entry.country_or_area = MultilingualString.new(en: row[0]) # the outer row
                   entry.mcc_mnc_codes = r[0]
                   entry.networks  = r[1]
                   @action.entries << entry
@@ -82,7 +82,7 @@ module Ituob
               else
                 segs = row.flatten
                 entry = E212MNCEntry.new 
-                entry.country_or_area = segs[0]
+                entry.country_or_area = MultilingualString.new(en: segs[0])
                 entry.mcc_mnc_codes = segs[1]
                 entry.networks  = segs[2]
                 @action.entries << entry

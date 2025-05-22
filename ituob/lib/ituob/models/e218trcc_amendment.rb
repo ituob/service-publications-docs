@@ -66,7 +66,7 @@ module Ituob
             @entry.tmcc_code = first_elem[0]
             @entry.country_or_area = MultilingualString.new(en: first_elem[1])
             # @entry.reserved = 
-            @entry.note = first_elem[2]
+            @entry.note = MultilingualString.new(en: first_elem[2])
 
             @action.entries << @entry
           else

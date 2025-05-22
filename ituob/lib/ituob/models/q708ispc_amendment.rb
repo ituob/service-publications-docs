@@ -29,8 +29,8 @@ module Ituob
         # Set the position_on if it exists
         amendment.position_on = position_on if position_on
 
+        puts hash.inspect 
         doc = Prosereflect::Parser.parse_document(hash)
-
 
         simplified_doc = Ituob::Helpers.dump_doc(doc)
 

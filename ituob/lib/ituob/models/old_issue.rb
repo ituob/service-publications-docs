@@ -50,20 +50,20 @@ module Ituob
           class_map: {
             "E118Amendment" => Ituob::Models::E118Amendment, # 1161-E.118 ##
             "DPAmendment" => Ituob::Models::DPAmendment, # 994-E.164C ##
-        "E164ACNAmendment" => Ituob::Models::E164ACNAmendment, # 1015-E.164B ##
-        # "E164CCAmendment" => Ituob::Models::E164CCAmendment, # 1114-E.164D-Note-O/P/etc. # significant quality control problems
-        # # "E212ICCAmendment" => Ituob::Models::E212ICCAmendment, # ?????????????????
-        # "E212MNCAmendment" => Ituob::Models::E212MNCAmendment, # 1162-E.212 ##
-        # "E218TRCCAmendment" => Ituob::Models::E218TRCCAmendment, # 1125-E.218 ##
-        "F32TDIAmendment" => Ituob::Models::F32TDIAmendment, # 980-F.32 ##
-        # "F400Amendment" => Ituob::Models::F400Amendment, # 974-F.400  # some data quality issues
-        # "M1400Amendment" => Ituob::Models::M1400Amendment, # 1060-M.1400  # some data quality issues
-        # "Q708ISPCAmendment" => Ituob::Models::Q708ISPCAmendment, # 1109-Q.708B ## some data quality issues (especially with P lines, mostly accounted for)
-        # "Q708SANCAmendment" => Ituob::Models::Q708SANCAmendment, # 1125-Q.708A ## fairly good data quality
-        # "T35NAAmendment" => Ituob::Models::T35NAAmendment, # 1001-T.35B ##
-        # "X121DNICAmendment" => Ituob::Models::X121DNICAmendment, # 977-X.121B ##
+            "E164ACNAmendment" => Ituob::Models::E164ACNAmendment, # 1015-E.164B ##
+            "E164CCAmendment" => Ituob::Models::E164CCAmendment, # 1114-E.164D-Note-O/P/etc. # significant quality control problems
+            # "E212ICCAmendment" => Ituob::Models::E212ICCAmendment, # ?????????????????
+            "E212MNCAmendment" => Ituob::Models::E212MNCAmendment, # 1162-E.212 ##
+            "E218TRCCAmendment" => Ituob::Models::E218TRCCAmendment, # 1125-E.218 ##
+            "F32TDIAmendment" => Ituob::Models::F32TDIAmendment, # 980-F.32 ##
+            "F400Amendment" => Ituob::Models::F400Amendment, # 974-F.400  # some data quality issues
+            "M1400Amendment" => Ituob::Models::M1400Amendment, # 1060-M.1400  # some data quality issues
+            "Q708ISPCAmendment" => Ituob::Models::Q708ISPCAmendment, # 1109-Q.708B ## some data quality issues (especially with P lines, mostly accounted for)
+            "Q708SANCAmendment" => Ituob::Models::Q708SANCAmendment, # 1125-Q.708A ## fairly good data quality
+            "T35NAAmendment" => Ituob::Models::T35NAAmendment, # 1001-T.35B ##
+            "X121DNICAmendment" => Ituob::Models::X121DNICAmendment, # 977-X.121B ##
 
-        # "TextAmendment" => Ituob::Models::TextAmendment,  # ##
+            "TextAmendment" => Ituob::Models::TextAmendment,  # ##
             #"RR251Amendment" => Ituob::Models::TextAmendment, # 1154-RR.25.1 # Putting these in as text, there seems to be zero data conformance here
             # "NNPAmendment" => Ituob::Models::NNPAmendment, # ##
             # "ListCS4Amendment" => Ituob::Models::ListCS4Amendment,# ##
@@ -115,24 +115,24 @@ module Ituob
         # new
         'DP' => DPAmendment,
         'E164_ACN' => E164ACNAmendment, # datasets/1015-E.164B/data.yaml
-      # 'E164_CC' => E164CCAmendment,
-    # # 'E212_ICC' => E212ICCAmendment,
-    # 'E212_MNC' => E212MNCAmendment,
-    # 'E218_TRCC' => E218TRCCAmendment,
-    'F32_TDI' => F32TDIAmendment,
-    # 'F400_ADMD' => F400Amendment,
-    # 'M1400_ICC' => M1400Amendment,
-    # 'Q708_ISPC' => Q708ISPCAmendment,
-    # 'Q708_SANC' => Q708SANCAmendment,
-    # 'T35_NA' => T35NAAmendment,
-    # 'X121_DNIC' => X121DNICAmendment,
+        'E164_CC' => E164CCAmendment,
+        # 'E212_ICC' => E212ICCAmendment,
+        'E212_MNC' => E212MNCAmendment,
+        'E218_TRCC' => E218TRCCAmendment,
+        'F32_TDI' => F32TDIAmendment,
+        'F400_ADMD' => F400Amendment,
+        'M1400_ICC' => M1400Amendment,
+        'Q708_ISPC' => Q708ISPCAmendment,
+        'Q708_SANC' => Q708SANCAmendment,
+        'T35_NA' => T35NAAmendment,
+        'X121_DNIC' => X121DNICAmendment,
 
-    # 'RR.25.1' => TextAmendment,
-    # 'BUREAUFAX' => TextAmendment,
-    # 'List of Coast Stations and Special Service Stations' => TextAmendment,
-    # 'R_SP_LM.V' => TextAmendment,
-    # 'R_SP_LN.VIII' => TextAmendment,
-    # 'NNP' => TextAmendment,
+        'RR.25.1' => TextAmendment,
+        'BUREAUFAX' => TextAmendment,
+        'List of Coast Stations and Special Service Stations' => TextAmendment,
+        'R_SP_LM.V' => TextAmendment,
+        'R_SP_LN.VIII' => TextAmendment,
+        'NNP' => TextAmendment,
       }
 
       # Parse the YAML file and extract E118 amendments
@@ -149,6 +149,8 @@ module Ituob
             puts "Unknown amendment type: #{target}" if DEBUG
             next
           end
+
+          return if amendment['contents']['en'].nil?
 
           # Set the position_on if it exists
           klass.parse(amendment['contents']['en'], position_on: position_on, dataset_code: target)
