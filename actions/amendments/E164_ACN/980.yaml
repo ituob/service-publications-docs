@@ -1,0 +1,29 @@
+---
+_class: E164ACNAmendment
+actions:
+- action_type: LIR
+  position: '5'
+  entries:
+  - country_or_area:
+      en: Cyprus (Republic of)
+    country_code: '357'
+    mobile_telephone_numbers:
+      en: 95, 96, 97, 99
+  - country_or_area:
+      en: Seychelles (Republic of)
+    country_code: '248'
+    mobile_telephone_numbers:
+      en: '2'
+- action_type: LIR
+  position: '4'
+  entries:
+  - country_or_area:
+      en: Cyprus (Republic of)
+    country_code: '357'
+    mobile_telephone_numbers:
+      en: 95, 96, 97, 99
+  - country_or_area:
+      en: Seychelles (Republic of)
+    country_code: '248'
+    mobile_telephone_numbers:
+      en: '2'

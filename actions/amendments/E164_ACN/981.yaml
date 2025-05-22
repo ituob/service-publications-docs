@@ -1,0 +1,29 @@
+---
+_class: E164ACNAmendment
+actions:
+- action_type: LIR
+  position: '5'
+  entries:
+  - country_or_area:
+      en: Aruba
+    country_code: '297'
+    mobile_telephone_numbers:
+      en: 56, 59, 600, 622, 630, 640, 641, 660, 661, 690, 73, 74, 995, 996, 997, 998
+  - country_or_area:
+      en: Czech Republic
+    country_code: '420'
+    mobile_telephone_numbers:
+      en: 601-608, 702-705, 72-73, 77, 79
+- action_type: LIR
+  position: '6'
+  entries:
+  - country_or_area:
+      en: Aruba
+    country_code: '297'
+    mobile_telephone_numbers:
+      en: 56, 59, 600, 622, 630, 640, 641, 660, 661, 690, 73, 74, 995, 996, 997, 998
+  - country_or_area:
+      en: Czech Republic
+    country_code: '420'
+    mobile_telephone_numbers:
+      en: 601-608, 702-705, 72-73, 77, 79

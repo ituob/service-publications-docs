@@ -162,60 +162,17 @@ What needs to be done:
 
 * Extend the Amendments to support all the amendment types
 (see `AMENDMENT_TYPE_TO_CLASS` in `ituob/models/old_issue.rb`)
-+
-[source,ruby]
-----
-# TODO: Support more amendment types
-AMENDMENT_TYPE_TO_CLASS = {
-  'E118_IIN' => E118Amendment,
-  #  BUREAUFAX
-  #  DP
-  #  E164_ACN
-  #  E164_CC
-  #  E212_ICC
-  #  E212_MNC
-  #  E218_TRCC
-  #  F32_TDI
-  #  F400_ADMD
-  #  List of Coast Stations and Special Service Stations
-  #  M1400_ICC
-  #  NNP
-  #  Q708_ISPC
-  #  Q708_SANC
-  #  R_SP_LM.V
-  #  R_SP_LN.VIII
-  #  RR.25.1
-  #  T35_NA
-  #  X121_DNIC
-}
-----
 
 * Extend the General messages to support all the general message types
 (see `GENERAL_TYPE_TO_CLASS` in `ituob/models/old_issue.rb`)
-+
-[source,ruby]
-----
-# TODO: Support more general types
-GENERAL_TYPE_TO_CLASS = {
-  'running_annexes' => GeneralRunningAnnexes,
-  'approved_recommendations' => GeneralApprovedRecommendations,
-  # 'callback_procedures' => GeneralCallbackProcedures,
-  # 'custom' => GeneralCustom,
-  # 'ipns' => GeneralIpns,
-  # 'iptn' => GeneralIptn,
-  # 'misc_communications' => GeneralMiscCommunications,
-  # 'org_changes' => GeneralOrgChanges,
-  # 'sanc' => GeneralSanc,
-  # 'service_restrictions' => GeneralServiceRestrictions,
-  # 'telephone_service_2' => GeneralTelephoneService.
-}
-----
 
-* Extend the `parse_issue.rb` script to parse all issues in the
-  `itu-ob-data/issues/` directory.
+* Extend the `parse_amendments.rb` script to parse all messages in the
+  `messages/` directory.
 
 
 == Usage
+
+=== parse_issue.rb (DO NOT USE AT CURRENT STAGE)
 
 Run the `scripts/parse_issue.rb` test script as follows:
 
@@ -226,10 +183,304 @@ $ bundle install
 $ bundle exec ./parse_issue.rb
 ----
 
-Currently, the script only parses the issues 1000 and 1001. This should be
-extended to parse all issues in the `itu-ob-data/issues/` directory.
-
 The script parses the issue data and outputs it in YAML format to the console.
+
+=== parse_amendments.rb (ONLY USE THIS)
+
+The `parse_amendments.rb` script allows you to process and parse specific
+amendment types from extracted amendment files or general message types from
+extracted general message files. This is particularly useful when
+working on implementing or testing a specific message type parser.
+
+Only the following types of messages are properly parsed:
+
+Amendment types:
+
+* E118_IIN implemented as `E118Amendment`
+* 'DP' implemented as `DPAmendment`
+* 'E164_ACN' implemented as `E164ACNAmendment` // datasets/1015-E.164B/data.yaml
+
+General types:
+
+* 'running_annexes' implemented as `GeneralRunningAnnexes`
+* 'approved_recommendations' implemented as `GeneralApprovedRecommendations`
+* 'callback_procedures' implemented as `GeneralCallbackProcedures`
+* 'ipns' implemented as `GeneralIpns`
+* 'iptn' implemented as `GeneralIptn` (Identification codes for international networks, global mobile satellite systems, IoT/M2M (country codes 881, 882, 883, 888, 991))
+
+NOTE: For IPTN messages that cannot be automatically parsed, a manual curation workflow is available. Run `scripts/generate_iptn_template.rb` to create template files in `messages/general/iptn/manual/` that can be manually filled with structured data. The `parse_amendments.rb` script will automatically use these manual files when available.
+
+These types of messages are not fully working yet, to be implemented:
+
+Amendment types:
+
+* 'F32_TDI' implemented as `F32TDIAmendment`,
+* 'E164_CC' implemented as `E164CCAmendment`,
+* 'E212_MNC' implemented as `E212MNCAmendment`,
+* 'E218_TRCC' implemented as `E218TRCCAmendment`,
+* 'F400_ADMD' implemented as `F400Amendment`,
+* 'M1400_ICC' implemented as `M1400Amendment`,
+* 'Q708_ISPC' implemented as `Q708ISPCAmendment`,
+* 'Q708_SANC' implemented as `Q708SANCAmendment`,
+* 'T35_NA' implemented as `T35NAAmendment`,
+* 'X121_DNIC' implemented as `X121DNICAmendment`,
+* 'RR.25.1' implemented as `TextAmendment`,
+* 'BUREAUFAX' implemented as `TextAmendment`,
+* 'List of Coast Stations and Special Service Stations' implemented as `TextAmendment`,
+* 'R_SP_LM.V' implemented as `TextAmendment`,
+* 'R_SP_LN.VIII' implemented as `TextAmendment`,
+* 'NNP' implemented as `TextAmendment`,
+// 'E212_ICC' implemented as `E212ICCAmendment`,
+
+
+General types:
+
+* 'custom' implemented as `GeneralCustom`
+* 'misc_communications' implemented as `GeneralMiscCommunications`
+* 'org_changes' implemented as `GeneralOrgChanges`
+* 'sanc' implemented as `GeneralSancs`
+* 'service_restrictions' implemented as `GeneralServiceRestrictions`
+* 'telephone_service_2' implemented as `GeneralTelephoneServices` // # separates messages and inserts
+
+[source,sh]
+----
+$ cd scripts/
+$ bundle install
+$ ruby parse_amendments.rb [--type TYPE] [MESSAGE_TYPE] [FILE_PATH_PATTERN]
+----
+
+Where:
+
+`--type`, `-t TYPE`:: Optional. The type of message to parse: 'amendment' or
+'general' (default: amendment).
+
+`MESSAGE_TYPE`:: Optional. The specific message type to parse.
+
+** For amendment messages (default: E118_IIN), must be one of the supported
+amendment types listed in `Ituob::Models::OldIssue::AMENDMENT_TYPE_TO_CLASS`.
+
+** For general messages (default: running_annexes), must be one of the supported
+general message types listed in
+`Ituob::Models::OldIssue::GENERAL_TYPE_TO_CLASS`.
+
+`FILE_PATH_PATTERN`:: Optional. A specific file or pattern to process. If not
+provided, all files of the specified message type will be processed.
+
+Examples:
+
+[source,sh]
+----
+# Parse all amendments (default behavior)
+$ ruby parse_amendments.rb
+
+# Parse all E118_IIN amendments (default behavior)
+$ ruby parse_amendments.rb E118_IIN
+
+# Parse all E164_ACN amendments
+$ ruby parse_amendments.rb E164_ACN
+
+# Parse a specific F32_TDI amendment file
+$ ruby parse_amendments.rb F32_TDI specific.yaml
+
+# Parse all running_annexes general messages
+$ ruby parse_amendments.rb -t general
+
+# Parse all approved_recommendations general messages
+$ ruby parse_amendments.rb -t general approved_recommendations
+
+# Parse a specific running_annexes general message file
+$ ruby parse_amendments.rb -t general running_annexes 1000.yaml
+
+# Parse all ipns general messages
+$ ruby parse_amendments.rb -t general ipns
+
+# Parse a specific ipns general message file
+$ ruby parse_amendments.rb -t general ipns 993.yaml
+
+# Parse all iptn general messages
+$ ruby parse_amendments.rb -t general iptn
+
+# Parse a specific iptn general message file
+$ ruby parse_amendments.rb -t general iptn 981.yaml
+
+# Show help information
+$ ruby parse_amendments.rb --help
+# or
+$ ruby parse_amendments.rb -h
+----
+
+The script will:
+
+. Look for message files in the appropriate directory:
+
+** For amendment messages: `messages/amendments/[MESSAGE_TYPE]/`
+** For general messages: `messages/general/[MESSAGE_TYPE]/`
+
+. Parse each file using the appropriate message class
+
+. Output the parsed content in YAML format to the console
+
+This is particularly useful when developing and testing new message type
+parsers, as it allows you to focus on a specific message type without processing
+all issues.
+
+
+=== Filtering by type
+
+The `parse_issue.rb` script can now filter output by a specific amendment type or general message type. This is useful for testing and debugging specific implementations.
+
+To use this feature, pass the type name as a command-line argument:
+
+[source,sh]
+----
+# To only show E118_IIN amendments
+$ bundle exec ./parse_issue.rb E118_IIN
+
+# To only show running_annexes general messages
+$ bundle exec ./parse_issue.rb running_annexes
+
+# To show all data (default behavior)
+$ bundle exec ./parse_issue.rb
+
+# To show help information with supported amendment and general message types
+$ bundle exec ./parse_issue.rb --help
+# or
+$ bundle exec ./parse_issue.rb -h
+----
+
+=== Issue selection
+
+The `parse_issue.rb` script now supports issue selection, allowing you to process specific issues rather than all issues:
+
+[source,sh]
+----
+# Process a single issue
+$ bundle exec ./parse_issue.rb E164_ACN 1000
+
+# Process a range of issues
+$ bundle exec ./parse_issue.rb E164_ACN 1000-1005
+
+# Process a specific list of issues
+$ bundle exec ./parse_issue.rb E164_ACN 1000,1002,1005
+----
+
+=== DEBUG mode
+
+The script supports a DEBUG environment variable that controls the verbosity of the output. When DEBUG is not set or is set to false, the script will only display information about issues that match the filter criteria. When DEBUG is set to true, the script will display more verbose output, including information about all issues being processed:
+
+[source,sh]
+----
+# Run with minimal output (only shows matching issues)
+$ bundle exec ./parse_issue.rb E164_ACN
+
+# Run with verbose output (shows all issues being processed)
+$ DEBUG=true bundle exec ./parse_issue.rb E164_ACN
+----
+
+=== Summary display
+
+When a filter is specified, the script now displays a summary at the end showing how many issues had the specified amendment type out of the total processed:
+
+[source]
+----
+#==============================================================================#
+Summary: Found 45 issues with E164_ACN amendments out of 356 total issues processed.
+#==============================================================================#
+----
+
+Available amendment types:
+[source]
+----
+E118_IIN
+DP
+E164_ACN
+E164_CC
+E212_ICC
+E212_MNC
+E218_TRCC
+F32_TDI
+F400_ADMD
+M1400_ICC
+Q708_ISPC
+Q708_SANC
+T35_NA
+X121_DNIC
+RR.25.1
+BUREAUFAX
+List of Coast Stations and Special Service Stations
+R_SP_LM.V
+R_SP_LN.VIII
+NNP
+----
+
+Available general message types:
+[source]
+----
+running_annexes
+approved_recommendations
+callback_procedures
+custom
+ipns
+iptn
+misc_communications
+org_changes
+sanc
+service_restrictions
+telephone_service_2
+----
+
+
+
+== Extraction Scripts
+
+=== extract_messages.rb
+
+This script extracts:
+
+* amendments from the
+`itu-ob-data/issues/{issue-no}/amendments.yaml` files and saves them to the
+`messages/amendments/{type}/{issue-no}.yaml` directory structure.
+
+* general messages from the `itu-ob-data/issues/{issue-no}/general.yaml` files
+and saves them to the `messages/general/{type}/{issue-no}.yaml` directory
+structure.
+
+The script handles two main structures in the general.yaml files:
+
+. Messages with `contents.en`:
++
+[source,yaml]
+----
+messages:
+- type: {type}
+  contents:
+    en: {content to extract}
+----
+
+. Messages with other content:
++
+[source,yaml]
+----
+messages:
+- type: {type}
+  {extract all content in this object}
+----
+
+Messages with no type are saved to the `messages/general/no_type/` directory.
+
+If there are multiple messages of the same type in an issue, they are saved to
+separate files with a suffix, e.g., `{issue-no}-1.yaml`, `{issue-no}-2.yaml`,
+etc.
+
+Usage:
+
+[source,sh]
+----
+$ cd scripts/
+$ bundle install
+$ ruby extract_messages.rb
+----
+
 
 
 == Implementation approach

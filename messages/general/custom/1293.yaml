@@ -1,0 +1,135 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    text: 'According to the '
+  - type: text
+    marks:
+    - type: link
+      attrs:
+        href: https://www.itu.int/en/ITU-T/studygroups/com11/casc/Documents/TL-RP_pub_2022-07-15.pdf
+        title:
+    text: ITU-T Guideline on “Testing Laboratories recognition procedure” (2022)
+  - type: text
+    text: " and based on the application received as of 15 May 2024, the following
+      Testing Laboratory, which fulfils the criteria defined in the clause 9 of the
+      above-mentioned ITU-T Guideline, was registered in the ITU Testing Laboratory
+      Database ("
+  - type: text
+    marks:
+    - type: link
+      attrs:
+        href: https://itu.int/go/tldb
+        title:
+    text: https://itu.int/go/tldb
+  - type: text
+    text: "):"
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: Testing Laboratory
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: Country
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: Scope of Accreditation
+        - type: hard_break
+          marks:
+          - type: strong
+        - type: text
+          marks:
+          - type: strong
+          text: "(ITU-T Recommendations)"
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Indonesia Digital Test House (IDTH) - Balai Besar Pengujian Perangkat
+            Telekomunikasi
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Indonesia
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: ITU-T K.116
+- type: paragraph
+  content:
+  - type: text
+    text: 'Any queries can be addressed to '
+  - type: text
+    marks:
+    - type: link
+      attrs:
+        href: mailto:conformity@itu.int
+        title:
+    text: conformity@itu.int
+  - type: text
+    text: ". More details are available on ITU C&I Portal at: "
+  - type: hard_break
+  - type: text
+    marks:
+    - type: link
+      attrs:
+        href: https://itu.int/go/citest
+        title:
+    text: https://itu.int/go/citest
+  - type: text
+    text: "."

@@ -1,0 +1,120 @@
+---
+contents:
+- country_name:
+    en: 'Belgium '
+  phone_code: '32'
+  contact:
+    en: "Belgian Institute for Postal services and Telecommunications\nEllipse Building\nBoulevard
+      du Roi Albert II, 35\n1030 BRUSSELS\nBelgium\nTel: \t+32 2 226 89 65\nFax: \t+32
+      2 226 88 77\nE-mail:\tnumbering@bipt.be\nURL: \twww.bipt.be"
+  communications:
+  - date: 2016-01-12
+    contents:
+      en:
+        type: doc
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 'The '
+          - type: text
+            marks:
+            - type: em
+            text: Belgian Institute for Postal services and Telecommunications
+          - type: text
+            text: ", Brussels, announces the following change to the Belgian telephone
+              numbering plan:"
+        - type: bullet_list
+          content:
+          - type: list_item
+            content:
+            - type: paragraph
+              content:
+              - type: text
+                text: assignment – geographical numbers
+        - type: table
+          content:
+          - type: table_row
+            content:
+            - type: table_cell
+              attrs:
+                colspan: 1
+                rowspan: 1
+                colwidth:
+              content:
+              - type: paragraph
+                content:
+                - type: text
+                  marks:
+                  - type: em
+                  text: Area code/area
+            - type: table_cell
+              attrs:
+                colspan: 1
+                rowspan: 1
+                colwidth:
+              content:
+              - type: paragraph
+                content:
+                - type: text
+                  marks:
+                  - type: em
+                  text: Numbering series
+            - type: table_cell
+              attrs:
+                colspan: 1
+                rowspan: 1
+                colwidth:
+              content:
+              - type: paragraph
+                content:
+                - type: text
+                  marks:
+                  - type: em
+                  text: Date of assignment
+          - type: table_row
+            content:
+            - type: table_cell
+              attrs:
+                colspan: 1
+                rowspan: 1
+                colwidth:
+              content:
+              - type: paragraph
+                content:
+                - type: text
+                  text: 94 for geographical area Ghent
+            - type: table_cell
+              attrs:
+                colspan: 1
+                rowspan: 1
+                colwidth:
+              content:
+              - type: paragraph
+                content:
+                - type: text
+                  text: "+32 94 XXXXXX"
+              - type: paragraph
+                content:
+                - type: text
+                  text: "(national dialling format: 094 XXXXXX)"
+            - type: table_cell
+              attrs:
+                colspan: 1
+                rowspan: 1
+                colwidth:
+              content:
+              - type: paragraph
+                content:
+                - type: text
+                  text: 01.I.2016
+        - type: paragraph
+          content:
+          - type: text
+            text: " "
+        - type: paragraph
+          content:
+          - type: text
+            text: 'This area code is in addition of the already existing area codes
+              of Ghent: 92 and 93'
+type: telephone_service_2

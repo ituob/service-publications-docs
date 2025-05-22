@@ -1,0 +1,226 @@
+---
+type: doc
+content:
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Country or area/ISO code
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Company Code
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Contact
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          text: "  "
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Company Name/Address
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: "(carrier code)"
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: " "
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: em
+    - type: strong
+    text: 'Germany (Federal Republic of) / DEU                '
+  - type: text
+    marks:
+    - type: strong
+    text: ADD
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: CANCOM Managed Services GmbH
+      - type: paragraph
+        content:
+        - type: text
+          text: Erika-Mann-Strasse 69
+      - type: paragraph
+        content:
+        - type: text
+          text: D-80636 MUNICH
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: CANCOM
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Carriermanagement
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Tel: +49 69 66009 3203'
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Fax: +49 221 94881 7387'
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Email: carriermanagement@cancom.de'
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Teletechnik Freiburg e.K.
+      - type: paragraph
+        content:
+        - type: text
+          text: Ziegelhofstrasse 228 A
+      - type: paragraph
+        content:
+        - type: text
+          text: D-79110 FREIBURG
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: TELFRE
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mr Stefan Flemming
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Tel: +49 761 1202532'
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Fax: +49 761 1202525'
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Email: service@teletechnik-freiburg.de'

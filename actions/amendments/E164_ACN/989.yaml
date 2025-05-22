@@ -1,0 +1,29 @@
+---
+_class: E164ACNAmendment
+actions:
+- action_type: LIR
+  position: '4'
+  entries:
+  - country_or_area:
+      en: Lebanon
+    country_code: '961'
+    mobile_telephone_numbers:
+      en: 3, 70, 71, 761, 763, 766, 767, 768, 769
+  - country_or_area:
+      en: Sudan (Republic of)
+    country_code: '249'
+    mobile_telephone_numbers:
+      en: 91, 92, 95, 96, 99
+- action_type: LIR
+  position: '8'
+  entries:
+  - country_or_area:
+      en: Lebanon
+    country_code: '961'
+    mobile_telephone_numbers:
+      en: 3, 70, 71, 761, 763, 766, 767, 768, 769
+  - country_or_area:
+      en: Sudan (Republic of)
+    country_code: '249'
+    mobile_telephone_numbers:
+      en: 91, 92, 95, 96, 99

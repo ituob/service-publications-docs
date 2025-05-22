@@ -1,0 +1,228 @@
+---
+type: doc
+content:
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Country or area/ISO code
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Company Code
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Contact
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          text: "  "
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Company Name/Address
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: "(carrier code)"
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: " "
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: em
+    - type: strong
+    text: 'Germany (Federal Republic of) / DEU                '
+  - type: text
+    marks:
+    - type: strong
+    text: ADD
+- type: paragraph
+  content:
+  - type: text
+    text: "  "
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Cloudmanufaktur GmbH
+      - type: paragraph
+        content:
+        - type: text
+          text: Seestrasse 46
+      - type: paragraph
+        content:
+        - type: text
+          text: CH-8598 BOTTIGHOFEN
+      - type: paragraph
+        content:
+        - type: text
+          text: Switzerland
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: CLOUD1
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mr Sebastian Kursawe
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Tel.: +41 715712325'
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Email: service@cloudmanufaktur.digital'
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: " "
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: LIPINSKI TELEKOM GmbH
+      - type: paragraph
+        content:
+        - type: text
+          text: Winterstrasse 36
+      - type: paragraph
+        content:
+        - type: text
+          text: D-13409 BERLIN
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: LIPKOM
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mr Thilo Weise
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Tel.: +49 30 986 003 111'
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Fax: +49 30 986 003 130'
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Email: thilo.weise@lipinski-telekom.de'

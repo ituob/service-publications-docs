@@ -1,0 +1,41 @@
+﻿Dataset list,Title,Message name
+1000-SR.1,Service Restrictions,SR
+1001-T.35B,List of the national authorities designated to assign ITU-T Recommendation: T.35 terminal provider codes,T35_NA
+1002-T.35,List of Country or Geographical Area Codes for non standard facilities in telematic services,T35_CC
+1015-E.164B,List of Access codes/numbers for mobile networks,E164 ACN
+1060-M.1400,List of ITU Carrier Codes,M1400_ICC
+1109-Q.708B,List of International Signalling Point Codes (ISPC),Q708_ISPC
+1114-E.164D,List of Recommendation ITU-T E.164 Assigned Country Codes,E164_CC
+1114-E.164D-Note-N,"881, Global Mobile Satellite System (GMSS), shared code",(MIXED IN MAIN DATASET)
+1114-E.164D-Note-O,"882, International Networks, shared code",(MIXED IN MAIN DATASET)
+1114-E.164D-Note-PQ,"883, International Networks, shared code",(MIXED IN MAIN DATASET)
+1117-E.212A,List of mobile country or geographical area codes,E212_ICC
+1117-E.212A-MCCMNC,"Associated with shared mobile country code 901, the following two-digit mobile network codes (MNC) have been reserved for or assigned to the international mobile networks",(MIXED IN MAIN DATASET)
+1125-E.218,List of terrestrial trunk radio mobile country codes,E218_TRCC
+1125-Q.708A,List of Signalling Area/Network Codes (SANC),Q708_SANC
+1154-RR.25.1,Status of Radiocommunications between Amateur Stations of different Countries,RR.25.1
+1161-E.118,List of Issuer Identifier Numbers for the international Telecommunication charge card,E118_1IN
+1162-E.212,Mobile Network Codes (MNC) for the international identification plan for public networks and subscriptions,E212_MNC
+1162-E.212-ET,"Extra-territorial use* of MCC/MNC, Annex E to Recommendation ITU-T E.212",(MIXED IN MAIN DATASET)
+1162-E.212-MCC-Others,Shared Mobile Country Codes (MCC) for other purposes,(MIXED IN MAIN DATASET)
+1162-E.212-Shared-MCC,Shared Mobile Country Codes (MCC) for networks and their respective Mobile Network Codes (MNC),(MIXED IN MAIN DATASET)
+669-F.1,Five-letter Code Groups for the use of the International Public Telegram Service,(NO DATASET)
+955-E.180,Various tones used in national networks,E180_TNN
+974-F.400,List of Names of Administration Management Domains (ADMD),F400_ADMD
+976-X.121A,List of Data Country or Geographical Area Codes,X121_DCC
+977-X.121B,List of Data Network Identification Codes (DNIC),X121_DNIC
+978-F.68,List of Telex Destination Codes (TDC) and Telex Network Identification Codes (TNIC),TELEX_TNIC / type: custom -> en: Telex Service
+978-F.68-A1,Two-letter telegram network codes corresponding to one-letter Telex Network Identification Codes (TNIC),TELEX_TNIC / type: custom -> en: Telex Service
+978-F.68-A2,Countries or geographical areas for which information regarding cessation of telex service has been published in the ITU Operational Bulletin (No.),TELEX_TNIC / type: custom -> en: Telex Service
+980-F.32,List of Telegram Destination Indicators,F32_TDI
+991-PP.RES.21.pp,Call-Back and alternative calling procedures,(NO DATASET)
+994-E.164C,"Dialling procedures (international prefix, national (trunk) prefix and national (significant) number)",DP
+country-names,IGNORE,
+,,
+bureaufax,BUREAUFAX,BUREAUFAX
+roa,List of recognized operating agencies (ROAs),ROA
+https://github.com/ituob/service-publications-data/blob/main/icc/icc.yaml,ICC (Same as 1060-M.1400?),
+DON'T HAVE,List of Coast Stations and Special Service Stations,List of Coast Stations and Special Service Stations
+DON'T HAVE,List V - List of Ship Stations and Maritime Mobile Service Identity Assignments,R_SP_LM.V
+DON'T HAVE,List VIII - List of International Monitoring Stations,R_SP_LN.VIII
+DON'T HAVE,National Numbering Plan,NNP

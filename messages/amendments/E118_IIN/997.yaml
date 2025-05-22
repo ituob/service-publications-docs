@@ -1,0 +1,181 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: 'P '
+  - type: text
+    text: " "
+  - type: text
+    marks:
+    - type: strong
+    text: '34'
+  - type: text
+    text: "    "
+  - type: text
+    marks:
+    - type: em
+    - type: strong
+    text: 'Mauritius    '
+  - type: text
+    text: " "
+  - type: text
+    marks:
+    - type: strong
+    text: ADD
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Country/
+        - type: hard_break
+        - type: text
+          text: geographical area
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Company Name/Address
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Issuer Identifier Number
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Contact
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Effective date of usage
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mauritius
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: Mahanagar Telephone (Mauritius) Limited
+        - type: hard_break
+          marks:
+          - type: strong
+        - type: text
+          text: MTLM Square, No 63
+        - type: hard_break
+        - type: text
+          text: Cyber City
+        - type: hard_break
+        - type: text
+          text: EBENE
+        - type: hard_break
+        - type: text
+          text: Mauritius
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: 89 230 03
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mr Sanjay Garg
+        - type: hard_break
+        - type: text
+          text: Mahanagar Telephone (Mauritius) Limited
+      - type: paragraph
+        content:
+        - type: text
+          text: MTLM Square, No 63
+        - type: hard_break
+        - type: text
+          text: Cyber City
+        - type: hard_break
+        - type: text
+          text: EBENE
+        - type: hard_break
+        - type: text
+          text: Mauritius
+        - type: hard_break
+        - type: text
+          text: Tel:        +230 294 3333
+        - type: hard_break
+        - type: text
+          text: 'Fax:       +230 427 8092'
+        - type: hard_break
+        - type: text
+          text: 'E-mail: ceo@mtmltd.net'
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 10.XI.2011
+- type: paragraph
