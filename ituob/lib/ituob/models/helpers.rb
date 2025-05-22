@@ -52,6 +52,54 @@ module Ituob
       end
     end
 
+    def self.dump_doc_safe (doc)
+      begin
+        doc.content.map do |ct|
+          case ct.type
+          when 'paragraph'
+            para_to_t(ct)
+          when 'table'
+            dump_table(ct)
+          end
+        end
+      rescue => e 
+        nil
+      end
+    end
+
+    def self.dump_doc_low(doc)
+      doc.content.map do |ct|
+        case ct.type
+        when 'paragraph'
+          para_to_t(ct)
+        when 'table'
+          dump_table(ct)
+        end
+      end
+    end
+
+    def self.dump_doc(doc)
+      doc.content.map do |ct|
+        case ct.type
+        when 'paragraph'
+          para_to_t(ct)
+        when 'table'
+          dump_table(ct)
+        end
+      end
+    end
+
+    def self.dump_doc_full(m)
+      dump_doc(Prosereflect::Parser.parse_document(m))
+    end
+
+    def self.dump_doc_full_safe(m)
+      begin
+        dump_doc_safe(Prosereflect::Parser.parse_document(m))
+      rescue => e 
+      end
+    end
+
   end
 end
 
