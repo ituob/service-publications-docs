@@ -198,6 +198,7 @@ Amendment types:
 
 * E118_IIN implemented as `E118Amendment`
 * 'DP' implemented as `DPAmendment`
+* 'E164_ACN' implemented as `E164ACNAmendment` // datasets/1015-E.164B/data.yaml
 
 General types:
 
@@ -214,7 +215,6 @@ These types of messages are not fully working yet, to be implemented:
 Amendment types:
 
 * 'F32_TDI' implemented as `F32TDIAmendment`,
-* 'E164_ACN' implemented as `E164ACNAmendment`, // datasets/1015-E.164B/data.yaml
 * 'E164_CC' implemented as `E164CCAmendment`,
 * 'E212_MNC' implemented as `E212MNCAmendment`,
 * 'E218_TRCC' implemented as `E218TRCCAmendment`,

@@ -1,0 +1,29 @@
+---
+_class: E164ACNAmendment
+actions:
+- action_type: LIR
+  position: '4'
+  entries:
+  - country_or_area:
+      en: Guinea (Republic of)
+    country_code: '224'
+    mobile_telephone_numbers:
+      en: 55, 60, 62, 63, 64, 65, 67
+  - country_or_area:
+      en: Peru
+    country_code: '51'
+    mobile_telephone_numbers:
+      en: '9'
+- action_type: LIR
+  position: '6'
+  entries:
+  - country_or_area:
+      en: Guinea (Republic of)
+    country_code: '224'
+    mobile_telephone_numbers:
+      en: 55, 60, 62, 63, 64, 65, 67
+  - country_or_area:
+      en: Peru
+    country_code: '51'
+    mobile_telephone_numbers:
+      en: '9'
