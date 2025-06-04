@@ -1,0 +1,83 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: Note from TSB
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: em
+    text: Identification codes for International Mobile Networks
+- type: paragraph
+  content:
+  - type: text
+    text: 'Associated with shared mobile country code 901 (MCC), the following two-digit
+      mobile network code (MNC) has been assigned on 5 June 2015:'
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Network
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mobile Country Code (MCC)* and Mobile Network Code (MNC)**
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Ooredoo
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 901 47
+- type: paragraph
+  content:
+  - type: text
+    text: ______________
+- type: paragraph
+  content:
+  - type: text
+    text: "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo
+      de país para el servicio móvil"
+  - type: hard_break
+  - type: text
+    text: "**          MNC: Mobile Network Code / Code de réseau mobile / Indicativo
+      de red para el servicio móvil"

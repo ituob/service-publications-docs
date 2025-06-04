@@ -1,0 +1,32 @@
+---
+type: iptn
+entries:
+- applicant: Vodafone Group
+  network: eCall service
+  cc_ic: "+882 39"
+  action: assigned
+  action_date: ''
+  formerly: ''
+  notes: 'Contact: Robert MacDougall (Robert.MacDougall@vodafone.com)'
+  trial: false
+- applicant: AT&T
+  network: eCall service
+  cc_ic: "+882 37"
+  action: assigned
+  action_date: ''
+  formerly: ''
+  notes: 'Contact: Mike Corkerry (Mike.Corkerry@intl.att.com)'
+  trial: false
+- applicant: Orange
+  network: eCall service
+  cc_ic: "+883 130"
+  action: assigned
+  action_date: ''
+  formerly: ''
+  notes: 'Contact: Philippe Fouquart (Philippe.fouquart@orange.com)'
+  trial: false
+notes: Global numbers used for the European eCall service. From 31 March 2018, all
+  new type cars sold in Europe must have eCall capability. For the emergency services
+  to dial back the phone numbers, it is crucial that the eCall ranges be opened in
+  all networks and that the CLI is passed correctly.
+manual: true

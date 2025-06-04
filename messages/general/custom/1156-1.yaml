@@ -1,0 +1,156 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    text: "(Recommendation ITU-T E.212 (09/2016))"
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: Note from TSB
+- type: paragraph
+  content:
+  - type: text
+    text: 'Following the agreement on the Appendix to Recommendation ITU-T E.212 on
+      “shared E.212 MCC 999 for internal use within a private network” at the closing
+      plenary of ITU-T SG2 meeting of 4 to 13 July 2018, upon the advice of ITU-T
+      Study Group 2, the Director of TSB has assigned the '
+  - type: text
+    marks:
+    - type: strong
+    text: 'Mobile Country Code (MCC) “999” '
+  - type: text
+    text: 'for internal use within a private network. Mobile Network Codes (MNCs)
+      under this MCC are not subject to assignment and therefore may not be globally
+      unique. No interaction with ITU is required for using a MNC value under this
+      MCC for internal use within a private network. Any MNC value under this MCC
+      used in a network has significance only within that network. The MNCs under
+      this MCC are not routable between networks. The MNCs under this MCC shall not
+      be used for roaming. For purposes of testing and examples using this MCC, it
+      is encouraged to use '
+  - type: text
+    marks:
+    - type: strong
+    text: MNC value 99 or 999
+  - type: text
+    text: ". MNCs under this MCC cannot be used outside of the network for which they
+      apply. MNCs under this MCC may be 2- or 3-digit."
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: Note from TSB
+- type: paragraph
+  content:
+  - type: text
+    text: Following the decisions reached at ITU-T Study Group 2 meeting in July 2018,
+      Geneva, the Director of the TSB has assigned the Mobile Country Code (MCC) (ITU-T
+      Recommendation E.212) 902 as a shared MCC.
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: Note from TSB
+- type: paragraph
+  content:
+  - type: text
+    text: Associated with shared mobile country code 902 (MCC), the following two-digit
+      mobile network code (MNC) has been assigned.
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          text: Applicant/Network
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          text: 'Mobile Country Code (MCC)* and '
+        - type: hard_break
+          marks:
+          - type: em
+        - type: text
+          marks:
+          - type: em
+          text: Mobile Network Code (MNC)**
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          text: Date of assignment
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: MulteFire Alliance
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 902 01
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 6.IX.2018
+- type: paragraph
+  content:
+  - type: text
+    text: ______________
+- type: paragraph
+  content:
+  - type: text
+    text: "*        MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo
+      de país para el servicio móvil"
+- type: paragraph
+  content:
+  - type: text
+    text: "**      MNC: Mobile Network Code / Code de réseau mobile / Indicativo de
+      red para el servicio móvil"

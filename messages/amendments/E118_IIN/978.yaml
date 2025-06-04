@@ -1,0 +1,160 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: 'P '
+  - type: text
+    text: " 37    "
+  - type: text
+    marks:
+    - type: em
+    - type: strong
+    text: 'Netherlands    '
+  - type: text
+    text: " "
+  - type: text
+    marks:
+    - type: strong
+    text: ADD
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Country/
+        - type: hard_break
+        - type: text
+          text: geographical area
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Company Name/Address
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Issuer Identifier Number
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Contact
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Effective date of usage
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Netherlands
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: 'Intercity Communications B.V. '
+        - type: hard_break
+          marks:
+          - type: strong
+        - type: text
+          text: Kruisweg 659
+      - type: paragraph
+        content:
+        - type: text
+          text: 2132 NC HOOFDDORP
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: 89 31 17
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mr G.A. (Tony) Rijkers
+        - type: hard_break
+        - type: text
+          text: Kruisweg 659
+        - type: hard_break
+        - type: text
+          text: '2132 NC HOOFDDORP '
+        - type: hard_break
+        - type: text
+          text: Tel:        +31 20 655 3000
+        - type: hard_break
+        - type: text
+          text: Fax:       +31 20 653 1534
+        - type: hard_break
+        - type: text
+          text: 'E-mail: tony.rijkers@intercityzakelijk.nl'
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 1.V.2011
+- type: paragraph

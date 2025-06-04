@@ -1,0 +1,19 @@
+---
+_class: E164ACNAmendment
+actions:
+- action_type: LIR
+  position: '4'
+  entries:
+  - country_or_area:
+      en: Togolese Republic
+    country_code: '228'
+    mobile_telephone_numbers:
+      en: '9'
+- action_type: '011'
+  position: "*"
+  entries:
+  - country_or_area:
+      en: Togolese Republic
+    country_code: '228'
+    mobile_telephone_numbers:
+      en: '9'
