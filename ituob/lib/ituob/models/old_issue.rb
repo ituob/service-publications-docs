@@ -110,29 +110,28 @@ module Ituob
       end
 
       AMENDMENT_TYPE_TO_CLASS = {
-        'E118_IIN' => E118Amendment, # 1161-E.118
+        'E118_IIN' => E118Amendment, # 1161-E.118 # DONE Verify
+        'DP' => DPAmendment, # DONE Verify
+        'E164_ACN' => E164ACNAmendment, # datasets/1015-E.164B/data.yaml # DONE Verify
+        'E164_CC' => E164CCAmendment, # DONE Verify
+        'F32_TDI' => F32TDIAmendment, # DONE Verify
 
-        # new
-        'DP' => DPAmendment,
-        'E164_ACN' => E164ACNAmendment, # datasets/1015-E.164B/data.yaml
-        'E164_CC' => E164CCAmendment,
-        # 'E212_ICC' => E212ICCAmendment,
-        'E212_MNC' => E212MNCAmendment,
-        'E218_TRCC' => E218TRCCAmendment,
-        'F32_TDI' => F32TDIAmendment,
-        'F400_ADMD' => F400Amendment,
-        'M1400_ICC' => M1400Amendment,
-        'Q708_ISPC' => Q708ISPCAmendment,
-        'Q708_SANC' => Q708SANCAmendment,
-        'T35_NA' => T35NAAmendment,
-        'X121_DNIC' => X121DNICAmendment,
-
-        'RR.25.1' => TextAmendment,
-        'BUREAUFAX' => TextAmendment,
-        'List of Coast Stations and Special Service Stations' => TextAmendment,
-        'R_SP_LM.V' => TextAmendment,
-        'R_SP_LN.VIII' => TextAmendment,
-        'NNP' => TextAmendment,
+        # NEW
+        # 'E212_ICC' => E212ICCAmendment, # TODO Verify
+        'E212_MNC' => E212MNCAmendment, # TODO Verify
+        'E218_TRCC' => E218TRCCAmendment, # TODO Verify
+        'F400_ADMD' => F400Amendment, # TODO Verify
+        'M1400_ICC' => M1400Amendment, # TODO Verify
+        'Q708_ISPC' => Q708ISPCAmendment, # TODO Verify
+        'Q708_SANC' => Q708SANCAmendment, # TODO Verify
+        'T35_NA' => T35NAAmendment, # TODO Verify
+        'X121_DNIC' => X121DNICAmendment, # TODO Verify
+        'RR.25.1' => TextAmendment, # TODO Verify
+        'BUREAUFAX' => TextAmendment, # TODO Verify
+        'List of Coast Stations and Special Service Stations' => TextAmendment, # TODO Verify
+        'R_SP_LM.V' => TextAmendment, # TODO Verify
+        'R_SP_LN.VIII' => TextAmendment, # TODO Verify
+        'NNP' => TextAmendment, # TODO Verify
       }
 
       # Parse the YAML file and extract E118 amendments
@@ -158,18 +157,19 @@ module Ituob
       end
 
       GENERAL_TYPE_TO_CLASS = {
-        'running_annexes' => GeneralRunningAnnexes, ##
-        'approved_recommendations' => GeneralApprovedRecommendations, ##
-        # new
-        'callback_procedures' => GeneralCallbackProcedures, ##
-        'custom' => GeneralCustom, ##
-        'ipns' => GeneralIpns,##
-        'iptn' => GeneralIptn, ##
-        'misc_communications' => GeneralMiscCommunications, ##
-        'org_changes' => GeneralOrgChanges, ##
-        'sanc' => GeneralSancs, ##
-        'service_restrictions' => GeneralServiceRestrictions,
-        'telephone_service_2' => GeneralTelephoneServices # separates messages and inserts to text
+        'running_annexes' => GeneralRunningAnnexes, # DONE Verify
+        'approved_recommendations' => GeneralApprovedRecommendations, # DONE Verify
+        'callback_procedures' => GeneralCallbackProcedures, # DONE Verify
+        'ipns' => GeneralIpns, # DONE Verify
+        'iptn' => GeneralIptn, # DONE Verify
+
+        # NEW
+        'custom' => GeneralCustom, ## # TODO Verify
+        'misc_communications' => GeneralMiscCommunications, ## # TODO Verify
+        'org_changes' => GeneralOrgChanges, ## # TODO Verify
+        'sanc' => GeneralSancs, ## # TODO Verify
+        'service_restrictions' => GeneralServiceRestrictions, # TODO Verify
+        'telephone_service_2' => GeneralTelephoneServices # separates messages and inserts to text # TODO Verify
       }
 
       # Parse the YAML file and extract general messages
