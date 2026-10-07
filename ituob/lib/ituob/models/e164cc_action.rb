@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'e164cc_entry'
 
 module Ituob
   module Models

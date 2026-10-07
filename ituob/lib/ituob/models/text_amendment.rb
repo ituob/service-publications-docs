@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'amendment'
-# require_relative 'text_entry'
-# require_relative 'text_action'
-require_relative 'helpers'
+# (was require_relative) 'text_entry'
+# (was require_relative) 'text_action'
 require 'prosereflect'
 
 module Ituob
@@ -14,10 +12,6 @@ module Ituob
       attribute :position, :string
       # attribute :entries, E118Entry, collection: true
 
-      def initialize(attributes = {})
-        super
-        # self.entries = []
-      end
     end
 
     class TextAmendment < Amendment
@@ -32,11 +26,6 @@ module Ituob
         map 'actions', to: :actions
       end
 
-      def initialize(attributes = {})
-        super
-        @actions ||= []
-      end
-
       def self.parse(hash, position_on: nil, dataset_code: nil)
         amendment = new
 
@@ -46,7 +35,7 @@ module Ituob
         doc = Prosereflect::Parser.parse_document(hash)
 
         amendment.dataset_code = dataset_code
-        amendment.text = Ituob::Helpers.dump_doc_verbose(doc).to_json
+        amendment.text = Ituob::Helpers.dump_doc(doc).to_json
 
         amendment
       end

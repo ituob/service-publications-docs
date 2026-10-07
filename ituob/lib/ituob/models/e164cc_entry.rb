@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'multilingual_string'
-require_relative 'entry'
 
 module Ituob
   module Models
@@ -13,6 +11,8 @@ module Ituob
       attribute :cc_ic, :string
       attribute :status, :string
       attribute :formerly, :string
+      attribute :action_date, :string
+      attribute :reclamation_date, :string
     end
   end
 end

@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'multilingual_string'
-require_relative 'entry'
-require_relative 'helpers'
 require 'prosereflect'
 
 module Ituob
@@ -28,11 +25,40 @@ module Ituob
       attribute :issue_id_number, :string
       attribute :effective_date, :string
 
+      # Set a numbered company_address_N attribute explicitly without
+      # using send. Kept private so callers use the proper attribute API.
+      def assign_company_address(index, value)
+        case index
+        when 1 then self.company_address_1 = value
+        when 2 then self.company_address_2 = value
+        when 3 then self.company_address_3 = value
+        end
+      end
+
+      def assign_contact_address(index, value)
+        case index
+        when 1 then self.contact_address_1 = value
+        when 2 then self.contact_address_2 = value
+        when 3 then self.contact_address_3 = value
+        when 4 then self.contact_address_4 = value
+        when 5 then self.contact_address_5 = value
+        when 6 then self.contact_address_6 = value
+        end
+      end
+
+      def read_contact_address(index)
+        case index
+        when 1 then contact_address_1
+        when 2 then contact_address_2
+        when 3 then contact_address_3
+        when 4 then contact_address_4
+        when 5 then contact_address_5
+        when 6 then contact_address_6
+        end
+      end
+
       def self.parse(prosemirror_row)
         entry = new
-
-        # puts "Parsing row: #{row.inspect}"
-        # puts "Parsing row text: #{row.text_content.inspect}"
 
         # Extract country/area
         if prosemirror_row.cells.size > 0
@@ -46,7 +72,7 @@ module Ituob
           entry.company_name = lines[0] if lines.size > 0
           (1..3).each do |i|
             if lines.size > i && lines[i]
-              entry.send("company_address_#{i}=", lines[i].gsub(/[[:space:]]/, ' ').strip)
+              entry.assign_company_address(i, lines[i].gsub(/[[:space:]]/, ' ').strip)
             end
           end
         end
@@ -64,7 +90,6 @@ module Ituob
           contact_info_started = false
 
           lines.each do |line|
-            # More comprehensive pattern matching for contact info detection
             if !contact_info_started && (
               line =~ /^(Tel|Tél|Cell|Mobile)(?:\.|:|\s)/i ||
               line =~ /^Fax\s*(?:\.|:)/i ||
@@ -85,19 +110,16 @@ module Ituob
           entry.contact = Ituob::Helpers.strip_legacy(contact_lines[0]) || nil
           (1..6).each do |i|
             if contact_lines.size > i && contact_lines[i]
-              entry.send("contact_address_#{i}=", contact_lines[i].gsub(/[[:space:]]/, ' ').strip)
+              entry.assign_contact_address(i, contact_lines[i].gsub(/[[:space:]]/, ' ').strip)
             end
           end
 
-          # Extract tel, fax, email from remaining lines
           tel = []
           fax = []
           email = []
 
           tel_fax_email_lines.each do |line|
-            # Handle various phone number formats (Tel:, Tel.:, Tél:, Cell:, etc.)
             if line =~ /^(Tel|Tél|Cell|Mobile)(?:\.|:|\s)/i || line =~ /^:/
-              # Handle all variations including "Tel: +1234", "Tél: +1234", "Tel +1234", "Tel : +1234" or just ": +1234"
               text = line.gsub(/^(?:(Tel|Tél|Cell|Mobile)(?:\.|:|\s)?|:)[[:space:]]*/, '').strip
               tel << text unless text.empty?
 
@@ -106,9 +128,7 @@ module Ituob
               fax << text unless text.empty?
 
             elsif line =~ /^E-?mail\s*(?:\.|:)/i || line.include?('@')
-              # Handle multiple email addresses on a single line
               if line.count('@') > 1
-                # Split by whitespace and filter for valid email addresses
                 emails = line.sub(/^E-?mail(?:\.|:)[[:space:]]*/, '').split(/\s+/).select { |e| e.include?('@') }
                 email.concat(emails)
               else
@@ -118,38 +138,31 @@ module Ituob
             end
           end
 
-          # Also check contact_address fields for misclassified phone numbers or emails
+          # Sweep contact_address fields for misclassified phone numbers/emails.
           (1..6).each do |i|
-            addr_field = entry.send("contact_address_#{i}")
+            addr_field = entry.read_contact_address(i)
             next unless addr_field
 
-            # Check for phone numbers - handles various formats
             if addr_field =~ /^(Tel|Tél|Cell|Mobile)(?:\.|:|\s)/i || addr_field =~ /^:/
-              # Handle cases like "Tel: +1234", "Tél: +1234", "Tel : +1234", "Tel +1234", or simply ": +1234"
               text = addr_field.gsub(/^(?:(Tel|Tél|Cell|Mobile)(?:\.|:|\s)?|:)[[:space:]]*/, '').strip
               tel << text
-              entry.send("contact_address_#{i}=", nil) # Clear the field as it's been moved to tel
+              entry.assign_contact_address(i, nil)
             elsif addr_field =~ /^Fax(?:\.|:)/i
               text = addr_field.gsub(/^Fax(?:\.|:)[[:space:]]*/, '').strip
               fax << text
-              entry.send("contact_address_#{i}=", nil) # Clear the field
+              entry.assign_contact_address(i, nil)
             elsif addr_field.include?('@')
-              # Handle multiple email addresses
               if addr_field.count('@') > 1
                 emails = addr_field.split(/\s+/).select { |e| e.include?('@') }
                 email.concat(emails)
               else
                 email << addr_field.strip
               end
-              entry.send("contact_address_#{i}=", nil) # Clear the field
+              entry.assign_contact_address(i, nil)
             end
           end
 
-          # Clean telephone numbers before setting them (remove leading colons, normalize spaces)
-          tel = tel.map do |t|
-            # Remove leading colon and normalize spaces
-            t.sub(/^:/, '').strip
-          end unless tel.empty?
+          tel = tel.map { |t| t.sub(/^:/, '').strip } unless tel.empty?
 
           entry.tel = tel unless tel.empty?
           entry.fax = fax unless fax.empty?

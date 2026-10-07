@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'amendment'
-require_relative 'e164acn_entry'
-require_relative 'e164acn_action'
-require_relative 'helpers'
 require 'prosereflect'
 
 module Ituob
@@ -16,11 +12,6 @@ module Ituob
         map '_class', to: :_class, render_default: true
         map 'position_on', to: :position_on
         map 'actions', to: :actions
-      end
-
-      def initialize(attributes = {})
-        super
-        @actions ||= []
       end
 
       def self.extract_text_from_cell(cell)

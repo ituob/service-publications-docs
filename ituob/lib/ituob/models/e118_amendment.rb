@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'amendment'
-require_relative 'e118_action'
-require_relative 'e118_entry'
 require 'prosereflect'
 
 module Ituob
@@ -15,11 +12,6 @@ module Ituob
         map '_class', to: :_class, render_default: true
         map 'position_on', to: :position_on
         map 'actions', to: :actions
-      end
-
-      def initialize(attributes = {})
-        super
-        @actions ||= []
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
@@ -84,19 +76,22 @@ module Ituob
 
           # Process each table associated with this paragraph
           tables.each do |table|
-            if table && table.data_rows.any?
-              # Process the table's data rows
-              # - type: table_cell
-              #   attrs:
-              #     colspan: 1
-              #     rowspan: 3
-              #     colwidth: null
-              #   content:
-              #     - type: paragraph
-              #       content:
-              #         - type: text
-              #           text: Denmark
-              country_cell = table.data_rows[0].cells[0]
+            if table && table.content.any?
+              # Use table.content (all rows) directly — data_rows
+              # returns 0 when all cells are table_cell (no headers).
+              all_rows = table.content.select { |r| r.is_a?(Prosereflect::TableRow) }
+              next if all_rows.empty?
+
+              # Skip the first row if it looks like a header.
+              first_text = all_rows[0].cells.map { |c| c.text_content.strip }.join(' ').downcase
+              data_rows = if first_text.match?(/country.*geographical/) || first_text.match?(/company.*name/)
+                            all_rows[1..]
+                          else
+                            all_rows
+                          end
+              next if data_rows.nil? || data_rows.empty?
+
+              country_cell = data_rows[0].cells[0]
               # If the country cell has rowspan, we need to inject this same table cell to all subsequent rows for those number of rowspans.
 
               # puts "+"*30
@@ -106,14 +101,13 @@ module Ituob
               rowspan = country_cell.attrs['rowspan']
               if rowspan > 1
                 (1...rowspan).each do |i|
-                  if table.data_rows[i]
-                    # puts "Adding country cell to row #{i}: #{table.data_rows[i].inspect}"
-                    table.data_rows[i].content.prepend(country_cell)
+                  if data_rows[i]
+                    data_rows[i].content.prepend(country_cell)
                   end
                 end
               end
 
-              table.data_rows.each do |row|
+              data_rows.each do |row|
                 entry = E118Entry.parse(row)
 
                 # Create a new action with this entry

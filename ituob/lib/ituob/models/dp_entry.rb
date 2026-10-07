@@ -1,19 +1,12 @@
 # frozen_string_literal: true
 
-require_relative 'multilingual_string'
-
 module Ituob
   module Models
-    class DPEntry < Entry
+    # The DP (national numbering plan) dataset prints the full
+    # 7-column plan row; the fields live on the shared
+    # NumberingPlanEntry.
+    class DPEntry < NumberingPlanEntry
       DATASET_CODE = 'DP'
-
-      attribute :country_or_area, MultilingualString
-      attribute :country_code, :string
-      attribute :international_prefix, :string
-      attribute :national_prefix, :string
-      attribute :national_sig_number, :string
-      attribute :utc_dst, :string
-      attribute :note, MultilingualString
     end
   end
 end

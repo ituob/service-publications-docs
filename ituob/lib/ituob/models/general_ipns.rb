@@ -1,6 +1,6 @@
+# frozen_string_literal: true
+
 require 'lutaml/model'
-require_relative 'general_message'
-require_relative 'helpers'
 require 'prosereflect'
 
 module Ituob

@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'multilingual_string'
-require_relative 'entry'
 
 module Ituob
   module Models
     class M1400Entry < Entry
-      DATASET_CODE = 'E164_CC'
+      DATASET_CODE = 'M1400_ICC'
 
       attribute :iso_code, :string
       attribute :country_or_area, MultilingualString

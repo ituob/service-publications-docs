@@ -1,82 +1,86 @@
 # frozen_string_literal: true
 
-require_relative 'amendment'
-require_relative 'e218trcc_entry'
-require_relative 'e218trcc_action'
-require_relative 'helpers'
 require 'prosereflect'
 
 module Ituob
   module Models
     class E218TRCCAmendment < Amendment
       attribute :actions, E218TRCCAction, collection: true
+      attribute :notes, :string, collection: true
       attribute :_class, :string, default: -> { self.name.split('::').last }
 
       key_value do
         map '_class', to: :_class, render_default: true
         map 'position_on', to: :position_on
         map 'actions', to: :actions
-      end
-
-      def initialize(attributes = {})
-        super
-        @actions ||= []
+        map 'notes', to: :notes
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
         amendment = new
-
-        # Set the position_on if it exists
         amendment.position_on = position_on if position_on
+        return amendment if hash.nil? || hash == {} || !hash.is_a?(Hash)
 
         doc = Prosereflect::Parser.parse_document(hash)
-
-
         simplified_doc = Ituob::Helpers.dump_doc(doc)
 
-        @action = E218TRCCAction.new 
-        @action.entries = []
-        amendment.actions << @action 
+        action = E218TRCCAction.new
+        action.entries = []
+        amendment.actions << action
 
-        # These should probably just be written manually instead of through this parser...there's only 2 of these messages and the format is a mess
         simplified_doc.each_with_index do |c, ci|
           raise "Unexpected non-array item" unless c.is_a?(Array)
-          next if c.inspect.include?("Country or Geographical Area")
-          next if c.flatten[0] && c.flatten[0].match(/^Code/)
 
-
-          first_elem = c[0] 
+          first_elem = c[0]
           if first_elem.is_a?(String)
-            next if first_elem.length < 3 
-            next unless first_elem.match(/.*Order.*ADD/)
-            basestr = c.join('')
+            basestr = c.join(' ')
+            fixed_str = Ituob::Helpers.replace_legacy_space(basestr)
+
+            # Capture trailing glossary / reference notes.
+            if fixed_str.match?(/^_{3,}/) || fixed_str.match?(/^See page/) ||
+               fixed_str.match?(/^Notes common/) || fixed_str.match?(/^[a-z]\./)
+              amendment.notes << fixed_str.strip
+              next
+            end
+
+            next if first_elem.length < 3
+            next unless first_elem.match(/.*Order.*ADD/) || fixed_str.match(/ADD$/)
             segs = Ituob::Helpers.split_str(basestr)
 
-            @action = E218TRCCAction.new 
-            @action.entries = []
-            @action.position = segs[0..-2].join(" ")
-            @action.action_type = segs[-1]
-            amendment.actions << @action 
+            action = E218TRCCAction.new
+            action.entries = []
+            action.position = segs[0..-2].join(" ")
+            action.action_type = segs[-1]
+            amendment.actions << action
 
           elsif first_elem.is_a?(Array) # table
+            # Skip the header row whose first cell is "Applicant / Network".
+            data_rows = c.select do |row|
+              first_cell = row[0].is_a?(Array) ? row[0][0].to_s : row[0].to_s
+              !first_cell.match?(/^Applicant/) &&
+                !first_cell.match?(/^Country/) &&
+                first_cell.strip.length > 0
+            end
 
-            # they're all one row
-            @entry = E218TRCCEntry.new 
-            segs = c.flatten
-            @entry.tmcc_code = first_elem[0]
-            @entry.country_or_area = MultilingualString.new(en: first_elem[1])
-            # @entry.reserved = 
-            @entry.note = MultilingualString.new(en: first_elem[2])
+            data_rows.each do |row|
+              cells = row.map { |cell| cell.is_a?(Array) ? cell.join(' ').strip : cell.to_s.strip }
+              next if cells.all? { |x| x.empty? }
 
-            @action.entries << @entry
+              entry = E218TRCCEntry.new
+              entry.tmcc_code = cells[1] # MCC+MNC is column 2
+              entry.country_or_area = MultilingualString.new(en: cells[0]) # Applicant is column 1
+              entry.note = MultilingualString.new(en: cells[2]) if cells[2] # Date of assignment
+              action.entries << entry
+            end
           else
             next if first_elem.nil?
             raise "Unexpected non-string/array elem in c[0]"
           end
         end
+
+        amendment.actions = amendment.actions.filter { |x| x.entries.length > 0 }
         amendment
       end
-
     end
   end
 end

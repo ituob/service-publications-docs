@@ -1,6 +1,6 @@
+# frozen_string_literal: true
+
 require 'lutaml/model'
-require_relative 'general_message'
-require_relative 'helpers'
 require 'prosereflect'
 require 'date'
 
@@ -114,7 +114,7 @@ module Ituob
               end
 
               # Also check for reclamation date in the entry itself
-              if !entry.reclamation_date && entry.respond_to?(:reclamation_date) && entry.reclamation_date.nil?
+              if entry.is_a?(Ituob::Models::Entry) && entry.reclamation_date.nil?
                 # Check if there's a reclamation date in the table (for entries parsed from tables)
                 if doc.content.any? { |node| node.type == "table" }
                   doc.content.each do |node|
@@ -807,16 +807,16 @@ module Ituob
         return "" unless node
 
         # If the node has content, process it recursively
-        if node.respond_to?(:content) && node.content
+        if node.is_a?(Hash) && node.key?("content")
           text = ""
           node.content.each do |child|
             if child.type == "paragraph"
               text += extract_text_with_breaks(child) + " "
             elsif child.type == "hard_break"
               text += " " # Replace hard breaks with spaces
-            elsif child.respond_to?(:text)
+            elsif child.is_a?(Hash) && child.key?("text")
               text += child.text
-            elsif child.respond_to?(:text_content)
+            elsif child.is_a?(Hash) && child.key?("text_content")
               text += child.text_content
             end
           end
@@ -824,7 +824,7 @@ module Ituob
         end
 
         # If the node has text, return it
-        if node.respond_to?(:text)
+        if node.is_a?(Hash) && node.key?("text")
           return node.text
         end
 

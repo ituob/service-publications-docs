@@ -34,8 +34,8 @@ models = dataset.load_models
 models.each do |model|
   puts model.class
   # Access attributes based on model type
-  puts model.code if model.respond_to?(:code)
-  puts model.country_or_area if model.respond_to?(:country_or_area)
+  puts model.code if model.is_a?(Ituob::Models::E164CCEntry) && model.code
+  puts model.country_or_area if model.is_a?(Ituob::Models::Entry) && model.country_or_area
 end
 ```
 

@@ -87,7 +87,7 @@ module Ituob
     # @return [String] dataset title or directory name if not available
     def title
       metadata&.dig("title", "en") || @name
-    rescue
+    rescue NoMethodError, TypeError
       @name
     end
 

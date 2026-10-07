@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'lutaml/model'
-require_relative 'multilingual_string'
 
 # id: 1000
 # publication_date: 2012-03-15T00:00:00.000Z

@@ -1,226 +1,233 @@
 # frozen_string_literal: true
 
-require_relative 'amendment'
-require_relative 'f32tdi_entry'
-require_relative 'f32tdi_action'
-require_relative 'helpers'
-require 'prosereflect'
-
 module Ituob
   module Models
+    # F.32 TDI (List of Telegram Destination Indicators) amendment.
+    #
+    # Source document model (one ProseMirror document per amendment):
+    #
+    #   "P  N  COUNTRY  ACTION"  paragraph — opens an action: position
+    #                             ("P 27"), printed description, coarse
+    #                             action keyword.
+    #   "COL n ACTION ..."       paragraph — refines the position
+    #                             ("P 27 COL 2"), sets the per-column
+    #                             action and carries the change text
+    #                             ("COL 2 REP Batelco ... by Unitel").
+    #   table                    — 5-column data rows become entries;
+    #                             1-cell rows are footnotes; 7-column
+    #                             rows are embedded numbering-plan
+    #                             notes ("Country code / International
+    #                             prefix / ...").
+    #   "*...", "N) ...", "Corrigendum*", and everything after a
+    #   "____" separator are notes.
+    #
+    # Trilingual country cells print the fr/en/es name either as three
+    # paragraphs ("LITUANIE | LITHUANIA | LITUANIA"), one paragraph
+    # ("ALLEMAGNE GERMANY ALEMANIA"), or three consecutive rows
+    # ("EGYPTE" / "EGYPT" / "EGIPTO"). Empty leading cells continue the
+    # previous row's country/network, matching how the register prints.
     class F32TDIAmendment < Amendment
+
       attribute :actions, F32TDIAction, collection: true
-      attribute :notes, :string
       attribute :_class, :string, default: -> { self.name.split('::').last }
 
       key_value do
         map '_class', to: :_class, render_default: true
         map 'position_on', to: :position_on
         map 'actions', to: :actions
+        map 'notes', to: :notes
       end
 
-      def initialize(attributes = {})
-        super
-        @actions ||= []
+      # Walk payload for one document parse: the action lifecycle
+      # lives on the shared WalkState; this adds the F.32 walk fields.
+      class State < WalkState
+        ACTION_CLASS = F32TDIAction
+
+        attr_accessor :country, :network_roa, :network_code, :in_notes
+        attr_reader :notes
+
+        def initialize
+          super(action_class: ACTION_CLASS)
+          @notes = []
+        end
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
         amendment = new
-
-        # Set the position_on if it exists
         amendment.position_on = position_on if position_on
 
-        doc = Prosereflect::Parser.parse_document(hash)
+        blocks = Ituob::Helpers.dump_doc(Prosereflect::Parser.parse_document(hash))
+        state = State.new
+        blocks.each { |block| consume_block(block, state) }
+        state.close
 
-        parse_state = {
-          elem: "para", # or "table"
-          page: nil,
-          country: nil,
-          action_type: nil,
-        }
-
-        @action = F32TDIAction.new
-        @action.entries = []
-        amendment.notes = []
-
-        simplified_doc = Ituob::Helpers.dump_doc(doc)
-
-        simplified_doc.each_with_index do |c, ci|
-          raise "Unexpected non-array item" unless c.is_a?(Array)
-
-          first_elem = c[0]
-
-          if first_elem.is_a?(String) && (first_elem.match(/^__/) || first_elem.match(/^----/))
-            parse_state[:elem] = 'notes'
-          elsif parse_state[:elem] == 'notes'
-            amendment.notes << c
-          elsif first_elem.is_a?(String)
-            str = Ituob::Helpers.replace_legacy_space(first_elem)
-
-            if parse_state[:elem] == 'table'
-              # reinitialize action
-              if @action
-                amendment.actions << @action
-                @action = F32TDIAction.new
-                @action.entries = []
-              end
-              if str.match(/^P /)
-                segs = Ituob::Helpers.split_str(str)
-                @action.position = segs[0..1].join(" ")
-                # @action.country = segs[2]
-              elsif str.match(/^COL /)
-                segs = Ituob::Helpers.split_str(str)
-                @action.position += " " + segs[0..1].join(" ")
-                @action.action_type = segs[-1]
-              end
-            end
-
-            parse_state[:elem] = 'para'
-          elsif first_elem.is_a?(Array) # table
-            parse_state[:elem] = 'table'
-
-            entry_rows = []
-            c.each_with_index do |tc, tci|
-              if tc.length < 3
-                @action.notes = tc[0]
-              elsif tc.all?{|x| x[0].strip.length == 0}
-                # discard
-              elsif tc[0][0].strip.match?(/^Country/)
-                # header - discard
-              elsif tc[0][0].strip.match?(/^1$/)
-                # numbers header, discard
-              elsif tc.length == 5 && [3,2].include?(tci)
-                # semi header row, i guess
-                @network_roa = tc[1][0].strip if tc[1][0].strip.length > 1
-                @network_code = tc[2][0].strip if tc[2][0].strip.length > 1
-                entry_rows << tc.map{|x| Ituob::Helpers.replace_legacy_space(x[0]).strip }
-              elsif tc.count == 5
-                entry_rows << tc.map{|x| Ituob::Helpers.replace_legacy_space(x[0]).strip }
-              end
-            end
-
-            countries = c.map{|x| x[0]}.flatten.select{|x|x.length > 1 && x != "1" && !x.match(/^Country/)}.uniq
-            country_or_area = MultilingualString.new( fr: countries[0], en: countries[1], es: countries[2] )
-
-            network = entry_rows.map{|x|x[1]}.flatten.select{|x|x.length > 0}.join(" ")
-
-            # Parse the telegraph offices and office codes from the table structure
-            # In F32_TDI amendments, telegraph offices and office codes are stored as multiple paragraphs
-            # within cells in the table structure
-
-            # Find the row that contains the telegraph offices and office codes
-            # This is typically the row with country information
-            telegraph_offices_row = nil
-
-            # Look for the row with country information by checking the first column
-            c.each do |tc|
-              if tc.is_a?(Array) && tc.length >= 5
-                cell0 = tc[0]
-                if cell0.is_a?(Array) && cell0.length > 0
-                  # Check if this cell contains country information by joining all paragraphs
-                  content = cell0.join(" ")
-                  # Look for any country name - this is a generic approach that will work for any country
-                  if content.length > 0 && !content.match?(/^Country/) && !content.match?(/^1$/)
-                    telegraph_offices_row = tc
-                    break
-                  end
-                end
-              end
-            end
-
-            if telegraph_offices_row
-              # Extract telegraph offices and office codes from the row
-              telegraph_offices = []
-              office_codes = []
-
-              # Extract telegraph offices from column 4 (index 3)
-              if telegraph_offices_row[3].is_a?(Array)
-                # Each paragraph is a separate telegraph office
-                telegraph_offices_row[3].each do |office|
-                  if office.is_a?(String) && office.strip.length > 0 &&
-                     office.strip != "4" && !office.strip.match?(/^Name of/)
-                    telegraph_offices << office.strip
-                  end
-                end
-              end
-
-              # Extract office codes from column 5 (index 4)
-              if telegraph_offices_row[4].is_a?(Array)
-                # Each paragraph is a separate office code
-                telegraph_offices_row[4].each do |code|
-                  if code.is_a?(String) && code.strip.length > 0 &&
-                     code.strip != "5" && !code.strip.match?(/^Office code/)
-                    office_codes << code.strip
-                  end
-                end
-              end
-
-              # Create entries for each telegraph office and office code pair
-              if telegraph_offices.length > 0 && office_codes.length > 0
-                # Make sure we have the same number of offices and codes
-                if telegraph_offices.length == office_codes.length
-                  telegraph_offices.each_with_index do |office, index|
-                    e = F32TDIEntry.new
-
-                    e.country_or_area = country_or_area # MultilingualString
-                    e.network_roa = @network_roa  # :string
-                    e.network_code = @network_code  # :string
-                    e.office_code = office_codes[index]  # :string
-                    e.subarea = MultilingualString.new(en: office)  # MultilingualString
-
-                    @action.entries << e
-                  end
-                else
-                  puts "WARNING: Mismatch between number of telegraph offices (#{telegraph_offices.length}) and office codes (#{office_codes.length})"
-                  # Try to create as many entries as possible
-                  min_length = [telegraph_offices.length, office_codes.length].min
-                  min_length.times do |index|
-                    e = F32TDIEntry.new
-
-                    e.country_or_area = country_or_area # MultilingualString
-                    e.network_roa = @network_roa  # :string
-                    e.network_code = @network_code  # :string
-                    e.office_code = office_codes[index]  # :string
-                    e.subarea = MultilingualString.new(en: telegraph_offices[index])  # MultilingualString
-
-                    @action.entries << e
-                  end
-                end
-              else
-                # Fallback to the original implementation if we couldn't find telegraph offices and office codes
-                entry_rows.each do |r|
-                  e = F32TDIEntry.new
-
-                  e.country_or_area = country_or_area # MultilingualString
-                  e.network_roa = @network_roa  # :string
-                  e.network_code = @network_code  # :string
-                  e.office_code = r[4]  # :string
-                  e.subarea = MultilingualString.new(en: r[3])  # MultilingualString
-
-                  @action.entries << e
-                end
-              end
-            else
-              # Fallback to the original implementation if we couldn't find the row with telegraph offices and office codes
-              entry_rows.each do |r|
-                e = F32TDIEntry.new
-
-                e.country_or_area = country_or_area # MultilingualString
-                e.network_roa = @network_roa  # :string
-                e.network_code = @network_code  # :string
-                e.office_code = r[4]  # :string
-                e.subarea = MultilingualString.new(en: r[3])  # MultilingualString
-
-                @action.entries << e
-              end
-            end
-          else
-            raise "Unexpected non-string/array elem in c[0]" unless c[0].nil?
-          end
-        end
+        amendment.actions.concat(state.actions)
+        amendment.notes.concat(state.notes)
         amendment
       end
 
+      def self.consume_block(block, state)
+        return if block.nil? || block.empty?
+
+        if block.first.is_a?(String)
+          consume_paragraph(block, state)
+        else
+          consume_table(block, state)
+        end
+      end
+
+      def self.consume_paragraph(paragraph_texts, state)
+        text = paragraph_texts
+               .map { |p| Ituob::Helpers.replace_legacy_space(p.to_s) }
+               .join(' ').gsub(/\s+/, ' ').strip
+        return if text.empty?
+
+        if text.match?(/\A_{3,}/)
+          state.in_notes = true
+          return
+        end
+        if state.in_notes || note_paragraph?(text)
+          state.notes << text
+          return
+        end
+
+        if (p_line = text.match(/\AP\s*(\d+(?:-\d+)?)?\s+(.*)\z/))
+          action = state.open_action
+          action.position = p_line[1] ? "P #{p_line[1]}" : 'P'
+          action.description = text
+          action.action_type = action_keyword_in(p_line[2]) || action.action_type
+        elsif (col_line = text.match(/\ACOL\s*(\d+)\s*(.*)\z/))
+          action = state.ensure_action
+          action.position = "#{action.position} COL #{col_line[1]}".strip
+          action.description = "#{action.description} #{text}".strip
+          action.action_type = action_keyword_in(col_line[2]) || action.action_type
+        else
+          # Continuation of the change description ("by Unitel", "… Manama").
+          state.ensure_action.description = "#{state.action.description} #{text}".strip
+        end
+      end
+
+      # Footnote-like printed paragraphs that never belong to a change line.
+      def self.note_paragraph?(text)
+        text.match?(/\A\*/) ||
+          text.match?(/\A\d+\)/) ||
+          text.match?(/\ACorrigendum/i)
+      end
+
+      def self.consume_table(rows, state)
+        rows.each do |cells|
+          texts = cells.map { |cell| cell.map { |p| Ituob::Helpers.normalize_whitespace(p) }.reject(&:empty?) }
+          next if texts.all?(&:empty?)
+
+          if texts.length == 1
+            state.notes << texts[0].join(' ')
+          elsif numbering_header?(texts)
+            # Printed header of the embedded numbering-plan table —
+            # kept as a note so the printed wording renders.
+            state.notes << texts.map { |cell| cell.join(' ') }.reject(&:empty?).join(' — ')
+          elsif country_header?(texts) || column_header?(texts)
+            # printed header rows — no data
+          elsif texts.length == 7
+            # Embedded numbering-plan table ("Country code / International
+            # prefix / ...") carried inside the amendment for context.
+            state.notes << texts.map { |cell| cell.join(' ') }.reject(&:empty?).join(' — ')
+          elsif country_only_row?(texts)
+            # Row printing only the country column: a fr/en/es variant of
+            # the current country ("EGYPTE" / "EGYPT" / "EGIPTO" across
+            # rows) — fill the next empty language slot.
+            merge_country_variant(state, texts[0])
+          elsif texts.length >= 5
+            state.ensure_action.entries << build_entry(texts, state)
+          elsif texts.length == 4
+            merge_country_variant(state, texts[0])
+          end
+        end
+      end
+
+      def self.country_header?(texts)
+        texts[0].first.to_s.match?(/\ACountry\/?\b/i)
+      end
+
+      def self.numbering_header?(texts)
+        texts.length == 7 && texts[1].first.to_s.match?(/\ACountry code\z/i)
+      end
+
+      # Column-number header row ("1 | 2 | 3 | 4 | 5").
+      def self.column_header?(texts)
+        texts.length == 5 && texts[0] == ['1']
+      end
+
+      # Data row whose only populated cell is the country column.
+      def self.country_only_row?(texts)
+        texts.drop(1).all?(&:empty?) && !texts[0].empty?
+      end
+
+      # A country-only row prints one language of the current country.
+      # Fill the first empty fr/en/es slot (or open a new country).
+      def self.merge_country_variant(state, paragraphs)
+        value = paragraphs.join(' ').strip
+        return if value.empty?
+
+        if state.country.nil?
+          state.country = trilingual_country(paragraphs)
+          return
+        end
+
+        %i[en es fr].each do |lang|
+          next if state.country.public_send(lang)
+
+          state.country.public_send("#{lang}=", value) unless language_values(state.country).include?(value)
+          break
+        end
+      end
+
+      def self.language_values(country)
+        %i[fr en es].map { |lang| country.public_send(lang) }.compact
+      end
+
+      def self.build_entry(texts, state)
+        country = texts[0].join(' ').strip
+        state.country = trilingual_country(texts[0]) unless country.empty?
+
+        roa = texts[1].join(' ').strip
+        state.network_roa = roa unless roa.empty?
+
+        code = texts[2].join(' ').strip
+        state.network_code = code unless code.empty?
+
+        F32TDIEntry.new(
+          country_or_area: state.country,
+          network_roa: state.network_roa,
+          network_code: state.network_code,
+          telegraph_office_name: MultilingualString.new(en: texts[3].join(' ').strip),
+          office_code: texts[4].to_a.join(' ').strip,
+        )
+      end
+
+      # Country cells print fr/en/es as three paragraphs, one
+      # space-separated line, or (across rows) one language per row
+      # (the register prints FR first). Three paragraphs or a
+      # three-word trilingual line map positionally; any other single
+      # value defaults to the fr slot, and later variant rows fill
+      # the remaining languages.
+      def self.trilingual_country(paragraphs)
+        parts = paragraphs.map { |p| Ituob::Helpers.normalize_whitespace(p) }.reject(&:empty?)
+        if parts.length == 3
+          MultilingualString.new(fr: parts[0], en: parts[1], es: parts[2])
+        elsif parts.length == 1 && trilingual_line?(parts[0])
+          words = parts[0].split(/\s+/)
+          MultilingualString.new(fr: words[0], en: words[1], es: words[2])
+        else
+          MultilingualString.new(fr: parts.join(' '))
+        end
+      end
+
+      def self.trilingual_line?(text)
+        words = text.split(/\s+/)
+        words.length == 3 &&
+          words.all? { |w| w.length >= 3 } &&
+          words.all? { |w| w.match?(/\A[\p{Lu}\p{M}'’\-\.]+\z/) || words.uniq.one? }
+      end
     end
   end
 end

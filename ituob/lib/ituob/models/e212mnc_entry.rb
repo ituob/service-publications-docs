@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'multilingual_string'
-require_relative 'entry'
 
 module Ituob
   module Models
@@ -13,6 +11,7 @@ module Ituob
       attribute :networks, :string
       attribute :note, MultilingualString
       attribute :former_name, :string
+      attribute :range, :string
     end
   end
 end

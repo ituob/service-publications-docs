@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
-require_relative 'amendment'
-require_relative 'rr251_entry'
-require_relative 'rr251_action'
-require_relative 'helpers'
 require 'prosereflect'
 
 module Ituob
   module Models
+    # UNREGISTERED — kept for reference. Verified 2026-08-17 (see
+    # TODO.complete/45): parsing the four RR.25.1 sources yields zero
+    # actions on OB 1035/1061/1252 and raises on OB 973. RR.25.1 maps
+    # to TextAmendment in AMENDMENT_TYPE_TO_CLASS; do not register
+    # this parser without new source data.
     class RR251Amendment < Amendment
       attribute :actions, RR251Action, collection: true
       attribute :_class, :string, default: -> { self.name.split('::').last }
@@ -16,11 +17,6 @@ module Ituob
         map '_class', to: :_class, render_default: true
         map 'position_on', to: :position_on
         map 'actions', to: :actions
-      end
-
-      def initialize(attributes = {})
-        super
-        @actions ||= []
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
@@ -38,8 +34,8 @@ module Ituob
           action_type: nil,
         }
 
-        @action = RR251Action.new 
-        @action.entries = []
+        action = RR251Action.new 
+        action.entries = []
 
         simplified_doc = Ituob::Helpers.dump_doc(doc)
 
@@ -52,19 +48,19 @@ module Ituob
 
             if parse_state[:elem] == 'table'
               # reinitialize action
-              if @action
-                amendment.actions << @action
-                @action = RR251Action.new 
-                @action.entries = []
+              if action
+                amendment.actions << action
+                action = RR251Action.new 
+                action.entries = []
               end
               if str.match(/^P /)
                 segs = Ituob::Helpers.split_str(str)
-                @action.position = segs[0..1].join(" ")
+                action.position = segs[0..1].join(" ")
                 # @action.country = segs[2]
               elsif str.match(/^COL /)
                 segs = Ituob::Helpers.split_str(str)
-                @action.position += " " + segs[0..1].join(" ")
-                @action.action_type = segs[-1]
+                action.position += " " + segs[0..1].join(" ")
+                action.action_type = segs[-1]
               end
             end
 
@@ -75,7 +71,7 @@ module Ituob
             entry_rows = []
             c.each_with_index do |tc, tci|
               if tc.length < 3 
-                @action.notes = tc[0]
+                action.notes = tc[0]
               elsif tc.all?{|x| x[0].strip.length == 0}
                 # discard
               elsif tc[0][0].strip.match?(/^Country/) 
@@ -84,8 +80,8 @@ module Ituob
                 # numbers header, discard
               elsif tc.length == 5 && [3,2].include?(tci)
                 # semi header row, i guess
-                @network_roa = tc[1][0].strip
-                @network_code = tc[2][0].strip
+                network_roa = tc[1][0].strip
+                network_code = tc[2][0].strip
               elsif tc.count == 5
                 entry_rows << tc.map{|x| Ituob::Helpers.replace_legacy_space(x[0]).strip }
               end
@@ -102,16 +98,16 @@ module Ituob
               e.country_or_area = country_or_area # MultilingualString
               # e.country_or_area_note =   # MultilingualString
               # e.notes =   # MultilingualString
-              e.network_roa = @network_roa  # :string
+              e.network_roa = network_roa  # :string
               #e.network_roa_note =   # :string
-              e.network_code = @network_code  # :string
+              e.network_code = network_code  # :string
               #e.network_code_note =   # MultilingualString
               #e.telegraph_office_name =   # MultilingualString
               e.office_code = r[4]  # :string
               #e.office_code_note =   # MultilingualString
               e.subarea = r[3]  # MultilingualString
 
-              @action.entries << e 
+              action.entries << e 
             end
           else
             raise "Unexpected non-string/array elem in c[0]"

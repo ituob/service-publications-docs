@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'multilingual_string'
 
 module Ituob
   module Models

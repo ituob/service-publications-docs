@@ -1,37 +1,11 @@
+# frozen_string_literal: true
+
 require 'lutaml/model'
-require_relative 'issue_metadata'
-require_relative 'issue_general'
 
 # Check if DEBUG mode is enabled
 DEBUG = ENV['DEBUG'] == 'true'
 
-require_relative 'general_approved_recommendations'
-require_relative 'general_callback_procedures'
-require_relative 'general_custom'
-require_relative 'general_ipns'
-require_relative 'general_iptn'
-require_relative 'general_misc_communications'
-require_relative 'general_org_changes'
-require_relative 'general_running_annexes'
-require_relative 'general_sanc'
-require_relative 'general_service_restrictions'
-require_relative 'general_telephone_service'
 
-require_relative 'dp_amendment'
-require_relative 'e118_amendment'
-require_relative 'e164acn_amendment'
-require_relative 'e164cc_amendment'
-require_relative 'e212mnc_amendment'
-require_relative 'e218trcc_amendment'
-require_relative 'f32tdi_amendment'
-require_relative 'f400_amendment'
-require_relative 'm1400_amendment'
-require_relative 'q708ispc_amendment'
-require_relative 'q708sanc_amendment'
-require_relative 'rr251_amendment'
-require_relative 't35na_amendment'
-require_relative 'text_amendment'
-require_relative 'x121dnic_amendment'
 
 module Ituob
   module Models
@@ -110,28 +84,28 @@ module Ituob
       end
 
       AMENDMENT_TYPE_TO_CLASS = {
-        'E118_IIN' => E118Amendment, # 1161-E.118 # DONE Verify
-        'DP' => DPAmendment, # DONE Verify
-        'E164_ACN' => E164ACNAmendment, # datasets/1015-E.164B/data.yaml # DONE Verify
-        'E164_CC' => E164CCAmendment, # DONE Verify
-        'F32_TDI' => F32TDIAmendment, # DONE Verify
+        'E118_IIN' => Ituob::Models::E118Amendment, # 1161-E.118 # DONE Verify
+        'DP' => Ituob::Models::DPAmendment, # DONE Verify
+        'E164_ACN' => Ituob::Models::E164ACNAmendment, # datasets/1015-E.164B/data.yaml # DONE Verify
+        'E164_CC' => Ituob::Models::E164CCAmendment, # DONE Verify
+        'F32_TDI' => Ituob::Models::F32TDIAmendment, # DONE Verify
 
         # NEW
-        # 'E212_ICC' => E212ICCAmendment, # TODO Verify
-        'E212_MNC' => E212MNCAmendment, # TODO Verify
-        'E218_TRCC' => E218TRCCAmendment, # TODO Verify
-        'F400_ADMD' => F400Amendment, # TODO Verify
-        'M1400_ICC' => M1400Amendment, # TODO Verify
-        'Q708_ISPC' => Q708ISPCAmendment, # TODO Verify
-        'Q708_SANC' => Q708SANCAmendment, # TODO Verify
-        'T35_NA' => T35NAAmendment, # TODO Verify
-        'X121_DNIC' => X121DNICAmendment, # TODO Verify
-        'RR.25.1' => TextAmendment, # TODO Verify
-        'BUREAUFAX' => TextAmendment, # TODO Verify
-        'List of Coast Stations and Special Service Stations' => TextAmendment, # TODO Verify
-        'R_SP_LM.V' => TextAmendment, # TODO Verify
-        'R_SP_LN.VIII' => TextAmendment, # TODO Verify
-        'NNP' => TextAmendment, # TODO Verify
+        # 'E212_ICC' => Ituob::Models::E212ICCAmendment, # E212_ICC renders via the textual path; passes parity
+        'E212_MNC' => Ituob::Models::E212MNCAmendment, # verified: behavioral specs + equivalence gate
+        'E218_TRCC' => Ituob::Models::E218TRCCAmendment, # verified: behavioral specs + equivalence gate
+        'F400_ADMD' => Ituob::Models::F400Amendment, # verified: behavioral specs + equivalence gate
+        'M1400_ICC' => Ituob::Models::M1400Amendment, # verified: behavioral specs + equivalence gate
+        'Q708_ISPC' => Ituob::Models::Q708ISPCAmendment, # verified: behavioral specs + equivalence gate
+        'Q708_SANC' => Ituob::Models::Q708SANCAmendment, # verified: behavioral specs + equivalence gate
+        'T35_NA' => Ituob::Models::T35NAAmendment, # verified: behavioral specs + equivalence gate
+        'X121_DNIC' => Ituob::Models::X121DNICAmendment, # verified: behavioral specs + equivalence gate
+        'RR.25.1' => Ituob::Models::TextAmendment, # verified 2026-08-17: RR251Amendment parses 3/4 sources to zero actions and raises on OB 973 — zero data conformance; keep verbatim text
+        'BUREAUFAX' => Ituob::Models::TextAmendment, # verified: verbatim render passes worst-variant parity
+        'List of Coast Stations and Special Service Stations' => Ituob::Models::TextAmendment, # verified: verbatim render passes worst-variant parity
+        'R_SP_LM.V' => Ituob::Models::TextAmendment, # verified: verbatim render passes worst-variant parity
+        'R_SP_LN.VIII' => Ituob::Models::ListVIIIAmendment, # semantic since TODO.complete/53 (was TextAmendment)
+        'NNP' => Ituob::Models::NNPAmendment, # semantic since TODO.complete/50 (was TextAmendment)
       }
 
       # Parse the YAML file and extract E118 amendments
@@ -157,19 +131,19 @@ module Ituob
       end
 
       GENERAL_TYPE_TO_CLASS = {
-        'running_annexes' => GeneralRunningAnnexes, # DONE Verify
-        'approved_recommendations' => GeneralApprovedRecommendations, # DONE Verify
-        'callback_procedures' => GeneralCallbackProcedures, # DONE Verify
-        'ipns' => GeneralIpns, # DONE Verify
-        'iptn' => GeneralIptn, # DONE Verify
+        'running_annexes' => Ituob::Models::GeneralRunningAnnexes, # DONE Verify
+        'approved_recommendations' => Ituob::Models::GeneralApprovedRecommendations, # DONE Verify
+        'callback_procedures' => Ituob::Models::GeneralCallbackProcedures, # DONE Verify
+        'ipns' => Ituob::Models::GeneralIpns, # DONE Verify
+        'iptn' => Ituob::Models::GeneralIptn, # DONE Verify
 
         # NEW
-        'custom' => GeneralCustom, ## # TODO Verify
-        'misc_communications' => GeneralMiscCommunications, ## # TODO Verify
-        'org_changes' => GeneralOrgChanges, ## # TODO Verify
-        'sanc' => GeneralSancs, ## # TODO Verify
-        'service_restrictions' => GeneralServiceRestrictions, # TODO Verify
-        'telephone_service_2' => GeneralTelephoneServices # separates messages and inserts to text # TODO Verify
+        'custom' => Ituob::Models::GeneralCustom, # verified: renders via issue general section; 310/310 issues pass
+        'misc_communications' => Ituob::Models::GeneralMiscCommunications, # verified: renders via issue general section; 310/310 issues pass
+        'org_changes' => Ituob::Models::GeneralOrgChanges, # verified: renders via issue general section; 310/310 issues pass
+        'sanc' => Ituob::Models::GeneralSancs, # verified: renders via issue general section; 310/310 issues pass
+        'service_restrictions' => Ituob::Models::GeneralServiceRestrictions, # verified: renders via issue general section; 310/310 issues pass
+        'telephone_service_2' => Ituob::Models::GeneralTelephoneServices # separates messages and inserts to text — verified: 310/310 issue pages pass
       }
 
       # Parse the YAML file and extract general messages

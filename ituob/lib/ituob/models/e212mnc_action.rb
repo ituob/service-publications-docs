@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'e212mnc_entry'
 
 module Ituob
   module Models
