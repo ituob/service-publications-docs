@@ -1,0 +1,254 @@
+# Canonical catalog of OB Registers.
+#
+# A Register is a named dataset mandated by exactly one ITU-T
+# Recommendation (see recommendations.yaml). One Recommendation can
+# create multiple Registers.
+#
+# Single source of truth consumed by:
+#   - ituob/lib/ituob/catalogs/registers.rb (Ruby)
+#   - ituob.org-v2/src/lib/catalogs.ts (TypeScript/Astro)
+#
+# Adding a new register = appending one entry below. No other module
+# needs to change.
+
+registers:
+  # === E.118 ===
+  - register_id: E118_IIN
+    slug: e118-iin
+    recommendation: E.118
+    title: { en: List of Issuer Identifier Numbers for the International Telecommunication Charge Card }
+    key_field: issue_id_number
+    classification: structured
+    parser_class: Ituob::Models::E118Amendment
+    renderer: iin-table
+    seed_issue: 1161
+    seed_path: datasets/1161-E.118
+
+  # === E.164 ===
+  - register_id: DP
+    slug: dp
+    recommendation: E.164
+    title:
+      en: Dialling Procedures (International prefix, national (trunk) prefix and national (significant) number)
+    key_field: country_code
+    classification: structured
+    parser_class: Ituob::Models::DPAmendment
+    renderer: dp-table
+    seed_issue: 994
+    seed_path: datasets/994-E.164C
+
+  - register_id: E164_ACN
+    slug: e164-acn
+    recommendation: E.164
+    title: { en: List of Access codes/numbers for mobile networks }
+    key_field: country_code
+    classification: structured
+    parser_class: Ituob::Models::E164ACNAmendment
+    renderer: acn-table
+    seed_issue: 1015
+    seed_path: datasets/1015-E.164B
+
+  - register_id: E164_CC
+    slug: e164-cc
+    recommendation: E.164
+    title: { en: List of Recommendation ITU-T E.164 Assigned Country Codes }
+    key_field: country_code
+    classification: structured
+    parser_class: Ituob::Models::E164CCAmendment
+    renderer: cc-table
+    seed_issue: 1114
+    seed_path: datasets/1114-E.164D
+
+  - register_id: NNP
+    slug: nnp
+    recommendation: E.129
+    title: { en: National Numbering Plan }
+    key_field: country_or_area
+    classification: textual
+    renderer: nnp-text
+    external: true
+
+  # === E.212 ===
+  - register_id: E212_MNC
+    slug: e212-mnc
+    recommendation: E.212
+    title: { en: Mobile Network Codes (MNC) for the international identification plan for public networks and subscriptions }
+    key_field: mcc_mnc_codes
+    classification: structured
+    parser_class: Ituob::Models::E212MNCAmendment
+    renderer: mnc-table
+    seed_issue: 1162
+    seed_path: datasets/1162-E.212
+
+  - register_id: E212_ICC
+    slug: e212-icc
+    recommendation: E.212
+    title: { en: List of mobile country or geographical area codes }
+    key_field: tmcc_code
+    classification: textual
+    renderer: text-amendment
+    external: true
+
+  # === E.218 ===
+  - register_id: E218_TRCC
+    slug: e218-trcc
+    recommendation: E.218
+    title: { en: List of terrestrial trunk radio mobile country codes }
+    key_field: tmcc_code
+    classification: structured
+    parser_class: Ituob::Models::E218TRCCAmendment
+    renderer: trcc-table
+    seed_issue: 1125
+    seed_path: datasets/1125-E.218
+
+  # === F.1 ===
+  - register_id: F1
+    slug: f1
+    recommendation: F.1
+    title: { en: Five-letter Code Groups for the use of the International Public Telegram Service }
+    key_field: code
+    classification: structured
+    seed_issue: 669
+    seed_path: datasets/669-F.1
+
+  # === F.32 ===
+  - register_id: F32_TDI
+    slug: f32-tdi
+    recommendation: F.32
+    title: { en: List of Telegram Destination Indicators }
+    key_field: country_or_area
+    classification: structured
+    parser_class: Ituob::Models::F32TDIAmendment
+    renderer: tdi-table
+    seed_issue: 980
+    seed_path: datasets/980-F.32
+
+  # === F.170 ===
+  - register_id: BUREAUFAX
+    slug: bureaufax
+    recommendation: F.170
+    title: { en: Bureaufax Table }
+    key_field: bureaufax_number
+    classification: structured
+    renderer: bureaufax-text
+    seed_issue: 1061
+    seed_path: datasets/bureaufax
+
+  # === F.400 ===
+  - register_id: F400_ADMD
+    slug: f400-admd
+    recommendation: F.400
+    title: { en: List of Names of Administration Management Domains (ADMD) }
+    key_field: admd_name
+    classification: structured
+    parser_class: Ituob::Models::F400Amendment
+    renderer: admd-table
+    seed_issue: 974
+    seed_path: datasets/974-F.400
+
+  # === M.1400 ===
+  - register_id: M1400_ICC
+    slug: m1400-icc
+    recommendation: M.1400
+    title: { en: List of ITU Carrier Codes }
+    key_field: carrier_code
+    classification: structured
+    parser_class: Ituob::Models::M1400Amendment
+    renderer: icc-table
+    seed_issue: 1060
+    seed_path: datasets/1060-M.1400
+
+  # === Q.708 ===
+  - register_id: Q708_ISPC
+    slug: q708-ispc
+    recommendation: Q.708
+    title: { en: List of International Signalling Point Codes (ISPC) }
+    key_field: ipsc
+    classification: structured
+    parser_class: Ituob::Models::Q708ISPCAmendment
+    renderer: ispc-table
+    seed_issue: 1109
+    seed_path: datasets/1109-Q.708B
+
+  - register_id: Q708_SANC
+    slug: q708-sanc
+    recommendation: Q.708
+    title: { en: List of Signalling Area/Network Codes (SANC) }
+    key_field: code
+    classification: structured
+    parser_class: Ituob::Models::Q708SANCAmendment
+    renderer: sanc-table
+    seed_issue: 1125
+    seed_path: datasets/1125-Q.708A
+
+  # === T.35 ===
+  - register_id: T35_NA
+    slug: t35-na
+    recommendation: T.35
+    title: { en: List of the national authorities designated to assign ITU-T Recommendation T.35 terminal provider codes }
+    key_field: country
+    classification: structured
+    parser_class: Ituob::Models::T35NAAmendment
+    renderer: t35-table
+    seed_issue: 1001
+    seed_path: datasets/1001-T.35B
+
+  - register_id: T35_CC
+    slug: t35-cc
+    recommendation: T.35
+    title: { en: List of Country or Geographical Area Codes for non standard facilities in telematic services }
+    key_field: code_bit
+    classification: structured
+    seed_issue: 1002
+    seed_path: datasets/1002-T.35
+
+  # === X.121 ===
+  - register_id: X121_DNIC
+    slug: x121-dnic
+    recommendation: X.121
+    title: { en: List of Data Network Identification Codes (DNIC) }
+    key_field: dnic_number
+    classification: structured
+    parser_class: Ituob::Models::X121DNICAmendment
+    renderer: dnic-table
+    seed_issue: 977
+    seed_path: datasets/977-X.121B
+
+  # === RR.25.1 ===
+  - register_id: RR.25.1
+    slug: rr251
+    recommendation: RR.25.1
+    title: { en: "Status of Radiocommunications between Amateur Stations of different Countries (in accordance with optional provision No. 25.1 of the Radio Regulations) and Form of Call Signs assigned by each Administration to its Amateur and Experimental Stations" }
+    key_field: country_or_area
+    classification: textual
+    renderer: text-amendment
+    seed_issue: 1154
+    seed_path: datasets/1154-RR.25.1
+
+  # === External (not annexed) ===
+  - register_id: List of Coast Stations and Special Service Stations
+    slug: coast-stations
+    recommendation: RR.25.1
+    title: { en: List of Coast Stations and Special Service Stations }
+    key_field: callsign
+    classification: textual
+    renderer: text-amendment
+    external: true
+
+  - register_id: R_SP_LM.V
+    slug: list-v
+    recommendation: RR.25.1
+    title: { en: List V - List of Ship Stations and Maritime Mobile Service Identity Assignments }
+    key_field: mmsi
+    classification: textual
+    renderer: text-amendment
+    external: true
+
+  - register_id: R_SP_LN.VIII
+    slug: list-viii
+    recommendation: RR.25.1
+    title: { en: List VIII - List of Coast Stations and Special Service Stations }
+    key_field: callsign
+    classification: textual
+    renderer: text-amendment
+    external: true

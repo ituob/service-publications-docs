@@ -1,0 +1,2333 @@
+---
+- groups:
+    amateur:
+    - regex: 7X(02-5)[A-Z]{2,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: 7X
+      - key: '2'
+        segment_type: enum
+        values:
+        - segment_type: string
+          value: '0'
+        - segment_type: range
+          range:
+            from: '2'
+            to: '5'
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 2-3
+    experimental:
+    - regex: 7X(6-7)[A-Z]{2,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: 7X
+      - key: '2'
+        segment_type: range
+        range:
+          from: '6'
+          to: '7'
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 2-3
+  country_or_area: Algeria
+- groups:
+    amateur:
+    - regex: "(AY|AZ|LU|LW)[:digit:][:province:][A-Z]"
+      criteria:
+      - key: '1'
+        segment_type: enum
+        values:
+        - segment_type: string
+          value: AY
+        - segment_type: string
+          value: AZ
+        - segment_type: string
+          value: LU
+        - segment_type: string
+          value: LW
+      - key: '2'
+        segment_type: range
+        range:
+          from: '0'
+          to: '9'
+      - key: '3'
+        segment_type: codelist
+        codelist: province
+      - key: '4'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+  codelists:
+  - name: province
+    list:
+    - name: Federal Capital
+      code:
+        from: A
+        to: C
+    - name: Province of Buenos Aires
+      code:
+        from: D
+        to: E
+    - name: Province of Santa Fé
+      code: F
+    - name: Province of Chaco
+      code:
+        from: GA
+        to: GO
+    - name: Province of Formosa
+      code:
+        from: GP
+        to: GZ
+    - name: Province of Córdoba
+      code: H
+    - name: Province of Misiones
+      code: I
+    - name: Province of Entre Ríos
+      code: J
+    - name: Province of Tucumán
+      code: K
+    - name: Province of Corrientes
+      code: L
+    - name: Province of Mendoza
+      code: M
+    - name: Province of Santiago del Estero
+      code: "N"
+    - name: Province of Salta
+      code: O
+    - name: Province of San Juan
+      code: P
+    - name: Province of San Luis
+      code: Q
+    - name: Province of Catamarca
+      code: R
+    - name: Province of La Rioja
+      code: S
+    - name: Province of Jujuy
+      code: T
+    - name: Province of La Pampa
+      code: U
+    - name: Province of Rio Negro
+      code: V
+    - name: Province of Chubut
+      code: W
+    - name: Province of Santa Cruz
+      code:
+        from: XA
+        to: XO
+    - name: Province of Tierra del Fuego, Antarctic and Islands of South Atlantic
+      code:
+        from: XP
+        to: XZ
+    - name: Neuquén
+      code: "Y"
+    - name: Antarctic
+      code: Z
+  country_or_area: Argentina
+- groups:
+    amateur:
+    - name: Amateur stations
+      regex: P4[39][A-Z]{2,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: P4
+      - segment_type: enum
+        key: '2'
+        values:
+        - segment_type: string
+          value: '3'
+        - segment_type: string
+          value: '9'
+      - segment_type: range
+        key: '3'
+        range:
+          from: A
+          to: Z
+          cardinality: 2-3
+    - name: Special events (see Note 2)
+      regex: P4[01][A-Z]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: P4
+      - segment_type: enum
+        key: '2'
+        values:
+        - segment_type: string
+          value: '0'
+        - segment_type: string
+          value: '1'
+      - segment_type: range
+        key: '3'
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+  notes:
+  - i)  Foreign amateurs will use the call sign assigned to them by their administration
+    followed by a stroke (/) and then P4 for a duration of one year.
+  - ii)  The prefix P40 or P41 followed by a group of not more than 3 letters is assigned
+    during special events for not more than one month.
+  country_or_area: Aruba
+- groups:
+    amateur:
+    - name: Advanced license
+      regex: "(VK|AX|VI)[:amateur_area:][A-GI-KS-UW-Z][A-Z]{2,3}"
+      criteria:
+      - segment_type: enum
+        key: '1'
+        values:
+        - segment_type: string
+          value: VK
+        - segment_type: string
+          value: AX
+        - segment_type: string
+          value: VI
+      - segment_type: codelist
+        key: '2'
+        codelist: amateur_area
+      - segment_type: enum
+        key: '3'
+        values:
+        - segment_type: range
+          range:
+            from: A
+            to: G
+        - segment_type: range
+          range:
+            from: I
+            to: K
+        - segment_type: range
+          range:
+            from: S
+            to: U
+        - segment_type: range
+          range:
+            from: W
+            to: Z
+      - segment_type: range
+        key: '4'
+        range:
+          from: A
+          to: Z
+          cardinality: 2-3
+    - name: Standard license
+      regex: "(VK|AX|VI)[:amateur_area:][HLMNPV][A-Z]{2}"
+      criteria:
+      - segment_type: enum
+        key: '1'
+        values:
+        - segment_type: string
+          value: VK
+        - segment_type: string
+          value: AX
+        - segment_type: string
+          value: VI
+      - segment_type: codelist
+        key: '2'
+        codelist: amateur_area
+      - segment_type: enum
+        key: '3'
+        values:
+        - segment_type: string
+          value: H
+        - segment_type: string
+          value: L
+        - segment_type: string
+          value: M
+        - segment_type: string
+          value: P
+        - segment_type: string
+          value: V
+      - segment_type: range
+        key: '4'
+        range:
+          from: A
+          to: Z
+          cardinality: '2'
+    - name: Foundation license
+      regex: "(VK|AX|VI)[:amateur_area:][F][A-Z]{3}"
+      criteria:
+      - segment_type: enum
+        key: '1'
+        values:
+        - segment_type: string
+          value: VK
+        - segment_type: string
+          value: AX
+        - segment_type: string
+          value: VI
+      - segment_type: codelist
+        key: '2'
+        codelist: amateur_area
+      - segment_type: string
+        key: '3'
+        value: F
+      - segment_type: range
+        key: '4'
+        range:
+          from: A
+          to: Z
+          cardinality: '3'
+    experimental:
+    - regex: AX[:digit:][:experimental_area:][:upper:]{2}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: AX
+      - key: '2'
+        segment_type: range
+        range:
+          from: '0'
+          to: '9'
+      - key: '3'
+        segment_type: codelist
+        codelist: experimental_area
+      - key: '4'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: '2'
+  codelists:
+  - name: amateur_area
+    list:
+    - code: '1'
+      name: Australian Capital Territory
+    - code: '2'
+      name: New South Wales
+    - code: '3'
+      name: Victoria
+    - code: '4'
+      name: Queensland
+    - code: '5'
+      name: South Australia
+    - code: '6'
+      name: Western Australia
+    - code: '7'
+      name: Tasmania
+    - code: '8'
+      name: Northern Territory
+    - code: '9'
+      name: Australian External Territories
+  - name: experimental_area
+    list:
+    - code: A
+      name: Australian Capital Territory
+    - code: "N"
+      name: New South Wales
+    - code: V
+      name: Victoria
+    - code: Q
+      name: Queensland
+    - code: S
+      name: South Australia
+    - code: W
+      name: Western Australia
+    - code: T
+      name: Tasmania
+    - code: D
+      name: Northern Territory
+  country_or_area: Australia
+- groups:
+    amateur:
+    - regex: OE[:amateur_area:][:upper:]{2,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: OE
+      - key: '2'
+        segment_type: codelist
+        codelist: amateur_area
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 2-3
+    experimental:
+    - regex: OE[:experimental_area:]Q[:upper:]
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: OE
+      - key: '2'
+        segment_type: codelist
+        codelist: experimental_area
+      - segment_type: string
+        key: '3'
+        value: Q
+      - key: '4'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: '1'
+  codelists:
+  - name: amateur_area
+    list:
+    - code: '1'
+      name: Vienna (amateur stations only)
+    - code: '2'
+      name: Salzburg
+    - code: '3'
+      name: Vienna (experimental stations only) and Lower Austria
+    - code: '4'
+      name: Burgenland
+    - code: '5'
+      name: Upper Austria
+    - code: '6'
+      name: Styria
+    - code: '7'
+      name: Tyrol
+    - code: '8'
+      name: Carinthia
+    - code: '9'
+      name: Vorarlberg
+    - code: '0'
+      name: extraterritorial (on board ships or on board aircraft)
+  - name: experimental_area
+    list:
+    - code: '2'
+      name: Salzburg
+    - code: '3'
+      name: Vienna (experimental stations only) and Lower Austria
+    - code: '4'
+      name: Burgenland
+    - code: '5'
+      name: Upper Austria
+    - code: '6'
+      name: Styria
+    - code: '7'
+      name: Tyrol
+    - code: '8'
+      name: Carinthia
+    - code: '9'
+      name: Vorarlberg
+  country_or_area: Austria
+- groups:
+    amateur: &1
+    - regex: C6[2-9][:upper:]{2}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: C6
+      - key: '2'
+        segment_type: range
+        range:
+          from: '2'
+          to: '9'
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: '2'
+    experimental: *1
+  country_or_area: Bahamas
+- groups:
+    amateur:
+    - regex: A9[:digit:][0-9A-Z]{2,4}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: A9
+      - key: '2'
+        segment_type: range
+        range:
+          from: '0'
+          to: '9'
+      - key: '3'
+        segment_type: enum
+        values:
+        - segment_type: range
+          range:
+            from: '0'
+            to: '9'
+        - segment_type: range
+          range:
+            from: A
+            to: Z
+        - segment_type: range
+          range:
+            cardinality: 2-4
+  country_or_area: Bahrain
+- groups:
+    amateur:
+    - name: National radio amateurs
+      regex: 8P6[:upper:]{2}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: 8P6
+      - segment_type: range
+        key: '2'
+        range:
+          from: A
+          to: Z
+          cardinality: '2'
+    - name: Foreign radio amateurs, visitors and short-term licence holders.
+      regex: 8P9[:upper:]{2}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: 8P6
+      - segment_type: range
+        key: '2'
+        range:
+          from: A
+          to: Z
+          cardinality: '2'
+  country_or_area: Barbedos
+- groups:
+    amateur:
+    - name: class A (operator with CEPT licence, HAREC certificate)
+      regex: E[UVW][:city_region:][:upper:]{1}
+    - name: Class A and class B (operator with CEPT licence, HAREC certificate)
+      regex: E[UVW][:city_region:][:upper:]{2}
+    - name: Class C (operator with novice licence, ARNEC certificate)
+      regex: E[UVW][:city_region:][:upper:]{3}
+    - name: Club stations
+      regex: E[UVW][:city_region:](W|X|Z)[:upper:]{1}
+    - name: Foreign radio amateurs
+      regex: EW/.*
+    experimental:
+    - name: repeaters
+      regex: EU[1-4|6-8][:digit:]{2}R
+    - name: radiobeacons
+      regex: EU[1-4|6-8][:digit:]{2}B
+    - name: satellites
+      regex: EU[1-8][:digit:]S
+    - name: stations operating in radio contests
+      regex: EV[:digit:][:upper:]{2}
+    - name: expeditions to space-based facilities
+      regex: EV[1-8][:digit:]ISS
+    - name: stations operating in the Antartic
+      regex: EV0AN[:upper:]
+    - name: stations operating on days of special national and international events
+      regex: EV[:digit:]{1-4}[:upper:]
+    - name: participants in international SW and USW radio communication competitions
+        (up to one year)
+      regex: E[UVW]5[:upper:]
+  codelists:
+  - name: city_region
+    list:
+    - code: '1'
+      name: City of Minsk
+    - code: '2'
+      name: Minsk Region
+    - code: '3'
+      name: Brest Region
+    - code: '4'
+      name: Grodno Region
+    - code: '5'
+      name: Vitebsk Region
+    - code: '6'
+      name: Mogilev Region
+    - code: '7'
+      name: Gomel Region
+  notes:
+  - Foreign radio amateurs with a licence must use EW followed by slash (/) and their
+    own call sign.
+  country_or_area: Belarus
+- groups:
+    amateur:
+    - name: Automatic stations
+      regex: ON0[:upper:]{2,3}
+    - name: Class 2 stations
+      regex: ON1[:upper:]{2,3}
+    - name: Currently not in use
+      regex: ON2[:upper:]{2,3}
+    - name: Class 3 stations
+      regex: ON3[:upper:]{2,3}
+    - name: Class 1 stations
+      regex: ON[4-8][:upper:]{2,3}
+    - name: Class 3 stations for foreigners
+      regex: ON9A[:upper:]{2}
+    - name: Class 2 stations for foreigners
+      regex: ON9B[:upper:]{2}
+    - name: Class 1 stations for foreigners
+      regex: ON9C[:upper:]{2}
+    - name: Club stations in Antarctica
+      regex: OP0(LE|OL)
+    - name: Temporary class 3 stations in Antarctica
+      regex: OR3C[:upper:]{2,3}
+    - name: Temporary class 1 stations in Antarctica
+      regex: OR4C[:upper:]{2,3}
+    - name: On board ISS
+      regex: OR4ISS
+    - name: Supplementary call signs for class 1 stations
+      regex: O[OPQS]0[:upper:]
+    - name: Supplementary call signs for class 1 stations
+      regex: O[RT][0-46-9][:upper:]
+    - name: Stations for high power contests
+      regex: O[RT]5[:upper:]
+  country_or_area: Belgium
+- groups:
+    amateur:
+    - name: Class 1 licence
+      regex: V31[:upper:]{2}
+    - name: Class 2 licence
+      regex: V32[:upper:]{2}
+  country_or_area: Belize
+- groups:
+    amateur:
+    - regex: TY[:digit:][:upper:]{2}
+  country_or_area: Benin
+- groups:
+    amateur:
+    - name: amateur clubs and stations
+      regex: A50[:upper]{2}
+    - name: national radio amateurs
+      regex: A51[:upper]{2}
+    - name: visiting radio amateurs
+      regex: A52[:upper]{2}
+  country_or_area: Bhutan
+- groups:
+    amateur:
+    - regex: CP[:departments:][:upper:]{2}[:labels:]?
+  codelists:
+  - name: departments
+    list:
+    - code: '1'
+      name: La Paz
+    - code: '2'
+      name: Chuquisaca
+    - code: '3'
+      name: Oruro
+    - code: '4'
+      name: Potosí
+    - code: '5'
+      name: Cochabamba
+    - code: '6'
+      name: Santa Cruz
+    - code: '7'
+      name: Tarija
+    - code: '8'
+      name: Beni
+    - code: '9'
+      name: Pando
+  - name: labels
+    list:
+    - code: M
+      name: for mobile earth stations
+    - code: MA
+      name: for mobile aeronautical stations
+    - code: MF
+      name: for mobile river stations
+    - code: MM
+      name: for mobile maritime stations
+    - code: S
+      name: for second category stations
+    - code: C
+      name: for stations operating on a temporary basis
+  country_or_area: Bolivia
+- groups:
+    amateur:
+    - name: Bonaire
+      regex: PJ4[:upper]{2,3}
+    - name: S. Eustatius
+      regex: PJ5[:upper]{2,3}
+    - name: Saba
+      regex: PJ6[:upper]{2,3}
+  country_or_area: Bonaire
+- groups:
+    amateur:
+    - regex: A22[:upper:]{2}
+  country_or_area: Botswana
+- groups:
+    amateur:
+    - name: communications HF and VHF
+      regex: V85[:upper:]{2,3}
+    - name: communications VHF only
+      regex: V85[:upper:]
+  country_or_area: Brunei
+- groups:
+    amateur:
+    - regex: LZ[1-9][:upper:]{1,3}
+  country_or_area: Bulgaria
+- groups:
+    amateur: &2
+    - regex: XT[2-3][:upper:]{2}
+    experimental: *2
+  country_or_area: Burkina Faso
+- groups:
+    amateur:
+    - regex: 9U5[:upper:]{2}
+  country_or_area: Burundi
+- groups:
+    amateur:
+    - regex: D44[:upper:]{2}
+  country_or_area: Cabo Verde
+- groups:
+    amateur:
+    - regex: TJ1[:upper:]{2}
+  country_or_area: Cameroon
+- groups:
+    amateur:
+    - regex: V[:province_or_area:][:upper:]{1,3}
+    experimental:
+    - name: Canada (all provinces and territories)
+      regex: VX9[:upper:]{2,3}
+  codelists:
+  - name: province_or_area
+    list:
+    - code: E1
+      name: Provinces of Nova Scotia and New Brunswick
+    - code: A1
+      name: Provinces of Nova Scotia and New Brunswick
+    - code: E2
+      name: Province of Quebec
+    - code: A2
+      name: Province of Quebec
+    - code: E3
+      name: Province of Ontario
+    - code: A3
+      name: Province of Ontario
+    - code: E4
+      name: Province of Manitoba
+    - code: A4
+      name: Province of Manitoba
+    - code: E5
+      name: Province of Saskatchewan
+    - code: A5
+      name: Province of Saskatchewan
+    - code: E6
+      name: Province of Alberta
+    - code: A6
+      name: Province of Alberta
+    - code: E7
+      name: Province of British Columbia
+    - code: A7
+      name: Province of British Columbia
+    - code: E8
+      name: Northwest Territories (excluding Nunavut)
+    - code: E9
+      name: Province of New Brunswick
+    - code: E0
+      name: Amateur station on board a ship
+    - code: O1
+      name: Province of Newfoundland (excluding Labrador)
+    - code: O2
+      name: Labrador
+    - code: Y0
+      name: Nunavut Territory
+    - code: Y1
+      name: Yukon Territory
+    - code: Y2
+      name: Province of Prince Edward Island
+  notes:
+  - VE0 is intended for use when the amateur radio station is operated from a vessel
+    that makes international voyages.
+  country_or_area: Canada
+- groups:
+    amateur:
+    - regex: TL8[:upper:]{2,3}
+  country_or_area: Central African Republic
+- groups:
+    amateur:
+    - regex: TT8A[:upper:]{1}
+  country_or_area: Chad
+- groups:
+    amateur:
+    - name: Chile
+      regex: "(CE|XQ)[:digit:][:upper:]{2,3}"
+    - name: Mainland Chile
+      regex: CE[1-8][:upper:]{2,3}
+    - name: Antarctic
+      regex: CE9[:upper:]{2,3}
+    - name: Easter Island
+      regex: CE0Y[:upper:]{2,3}
+    - name: Juan Fernández and San Félix Islands
+      regex: CE0Z[:upper:]{2}
+  country_or_area: Chile
+- groups:
+    amateur:
+    - name: Amateur stations
+      regex: H[JK][:zone:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: H
+      - segment_type: enum
+        key: '2'
+        values:
+        - segment_type: string
+          value: J
+        - segment_type: string
+          value: K
+      - segment_type: codelist
+        key: '3'
+        codelist: zone
+      - segment_type: range
+        key: '4'
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+    - name: Amateur stations operating during contests or special events
+      regex: 5[JK][:zone:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: '5'
+      - segment_type: enum
+        key: '2'
+        values:
+        - segment_type: string
+          value: J
+        - segment_type: string
+          value: K
+      - segment_type: codelist
+        key: '3'
+        codelist: zone
+      - segment_type: range
+        key: '4'
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+  codelists:
+  - name: zone
+    list:
+    - code: '0'
+      name: Insular Colombian Territory and mobile maritime service
+    - code: '1'
+      name: Departments of Atlántico, Bolívar, Córdoba and Sucre
+    - code: '2'
+      name: Departments of Guajira, Magdalena, Cesar and North of Santander
+    - code: '3'
+      name: Departments of Cundinamarca, Meta and Vichada
+    - code: '4'
+      name: Departments of Antioquia and Chocó
+    - code: '5'
+      name: Departments of Cauca and Valle del Cauca
+    - code: '6'
+      name: Departments of Caldas, Tolima, Risaralda, Quindío and Huila
+    - code: '7'
+      name: Departments of Santander, Boyacá, Arauca and Casanare
+    - code: '8'
+      name: Departments of Nariño, Caquetá and Putumayo
+    - code: '9'
+      name: Departments of Amazonas, Vaupés, Guainía and Guaviare
+  notes:
+  - 5J or 5K followed by a digit (0-9) and by 1, 2 or 3 letters is authorised on a
+    temporary basis to amateur stations operating during contests or special events.
+  country_or_area: Colombia
+- groups:
+    amateur:
+    - regex: D68[:upper:]{2}
+  notes:
+  - The 2 letters are the operator identity.
+  country_or_area: Comoros
+- groups:
+    amateur:
+    - regex: TN8[:upper:]{2}
+    experimental:
+    - regex: TN8[:upper:]{2}
+  country_or_area: Congo
+- groups:
+    amateur:
+    - regex: ZK1[:upper:]{2}
+  country_or_area: Cook Islands
+- groups:
+    amateur:
+    - regex: T[EI][:digit:][:upper:]{1,3}
+  country_or_area: Costa Rica
+- groups:
+    amateur:
+    - regex: TU2[:upper:]{2}
+    experimential:
+    - regex: TU3[:upper:]{2}
+  country_or_area: Cote Divoire
+- groups:
+    amateur:
+    - regex: 9A[:digit:][:upper:]{1,3}
+  country_or_area: Croatia
+- groups:
+    amateur:
+    - regex: "(T4|CL|CM|CO)[:amateur_area:][:upper:]{1,3}"
+      criteria:
+      - key: '1'
+        segment_type: enum
+        values:
+        - segment_type: string
+          value: T4
+        - segment_type: string
+          value: CL
+        - segment_type: string
+          value: CM
+        - segment_type: string
+          value: CO
+      - key: '2'
+        segment_type: codelist
+        codelist: amateur_area
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+  codelists:
+  - name: amateur_area
+    list:
+    - code: '1'
+      name: Province of Pinar del Río
+    - code: '2'
+      name: Province of Havana City
+    - code: '3'
+      name: Province of Havana
+    - code: '4'
+      name: Municipality of Isla de la Juventud
+    - code: '5'
+      name: Province of Matanzas
+    - code: '6'
+      name: Provinces of Villa Clara, Cienfuegos and Sancti Spíritus
+    - code: '7'
+      name: Provinces of Ciego de Ávila and Camagüey
+    - code: '8'
+      name: Provinces of Santiago de Cuba, Granma, Holguín, Las Tunas and Guantánamo
+  country_or_area: Cuba
+- groups:
+    amateur:
+    - regex: PJ2[:upper:]{2,3}
+  country_or_area: Curacao
+- groups:
+    amateur:
+    - regex: 5B4[:upper:]{3}
+  notes:
+  - Foreign amateurs will use the call sign assigned to them by their administration
+    followed by a stroke (/) and then 5B4 on a temporary basis.
+  country_or_area: Cyprus
+- groups:
+    amateur:
+    - name: Amateur stations
+      regex: OK[0-8][:upper:]{1,3}
+    - name: Amateur stations
+      regex: OL[:digit:][:upper:]{1,3}
+    - name: for foreigners transmitting from territory of the Czech Republic
+      regex: OK8[:upper:]{2,3}
+    - name: exceptionally for extraordinary purposes
+      regex: OK0[:upper:]{2,3}
+    - name: for purposes of international amateur contests only
+      regex: OL[:digit:][:upper:]
+    - name: for extraordinary purposes and for period of persistence of such purposes
+        only
+      regex: OL[:digit:][:upper:]{2,3}
+    experimental:
+    - regex: OK9[:upper:]{2,3}
+  country_or_area: Czech
+- groups:
+    amateur:
+    - name: Denmark
+      regex: "(OU|OV|OZ|5P|5Q)[:digit:][0-9A-Z]{3}[:upper:]"
+    - name: Faroe Islands
+      regex: OY[1-9][:upper:]{1,3}
+    - name: Greenland
+      regex: OX[1-9][:upper:]{2,3}
+  country_or_area: Denmark
+- groups:
+    amateur:
+    - name: For amateur stations operating on a permanent basis.
+      regex: J28[:upper:]{2}
+    - name: For amateur stations operating on a temporary basis.
+      regex: J20[:upper:]{2}
+    - name: For special events (see Note 1)
+      regex: J20[:upper:]{3}
+  notes:
+  - For special events the radio amateurs will use J20 followed by a group of 3 letters.
+  country_or_area: Djibouti
+- groups:
+    amateur:
+    - regex: J73[:upper:]{2}
+  country_or_area: Dominica
+- groups:
+    amateur:
+    - regex: HI[:zone:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: HI
+      - key: '2'
+        segment_type: codelist
+        codelist: zone
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+  codelists:
+  - name: zone
+    list:
+    - code: '1'
+      name: Beata Island
+    - code: '2'
+      name: Saona Island
+    - code: '3'
+      name: Central Cibao Region
+    - code: '4'
+      name: Northwest Line Region
+    - code: '5'
+      name: Southwest Region
+    - code: '6'
+      name: South Central Region
+    - code: '7'
+      name: East Region
+    - code: '8'
+      name: South Region
+    - code: '9'
+      name: Northwest Region
+  country_or_area: Dominican Republic
+- groups:
+    amateur:
+    - regex: H[CD][:province:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: H
+      - key: '2'
+        segment_type: enum
+        values:
+        - segment_type: string
+          value: C
+        - segment_type: string
+          value: D
+      - key: '3'
+        segment_type: codelist
+        codelist: province
+      - key: '4'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+    experimental:
+    - name: Ecuador
+      regex: HD9[:upper:]{3}
+  codelists:
+  - name: province
+    list:
+    - code: '1'
+      name: Provinces of Carchi, Imbabura and Pichincha
+    - code: '2'
+      name: Provinces of Guayas (Coast) and Los Ríos
+    - code: '3'
+      name: Provinces of El Oro (Coast) and Loja
+    - code: '4'
+      name: Provinces of Manabí (Coast) and Esmeraldas (Coast)
+    - code: '5'
+      name: Provinces of Chimborazo, Cañar and Azuay
+    - code: '6'
+      name: Provinces of Cotopaxi, Tungurahua and Bolívar
+    - code: '7'
+      name: Provinces of Napo, Pastaza, Morona Santiago, Zamora and Sucumbios
+    - code: '8'
+      name: South Region
+    - code: '9'
+      name: Province of the Galápagos (Islands)
+  notes:
+  - The radio amateurs operating during competitions have to use HD9 followed by 1
+    letter on a temporary basis.
+  - The beginners have to use the letter N after the digit indicating the province.
+  country_or_area: Ecuador
+- groups:
+    amateur:
+    - regex: SU[:digit:][:upper:]{2}
+  country_or_area: Egypt
+- groups:
+    amateur:
+    - regex: YS[:zone:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: YS
+      - key: '2'
+        segment_type: codelist
+        codelist: zone
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+    experimental:
+    - regex: HU9[:upper:]{2}
+  codelists:
+  - name: zone
+    list:
+    - code: '1'
+      name: Department of San Salvador
+    - code: '2'
+      name: Department of Santa Ana
+    - code: '3'
+      name: Department of San Miguel
+    - code: '4'
+      name: Department of La Libertad
+    - code: '5'
+      name: Departments of La Paz, Cuscatlán and Chalatenango
+    - code: '6'
+      name: Departments of Usulután, San Vicente and Cabañas
+    - code: '7'
+      name: Department of Sonsonate
+    - code: '8'
+      name: Department of Ahuachapán
+    - code: '9'
+      name: Departments of Morazán and La Unión
+  notes:
+  - Foreign radio amateurs must use YS followed by a digit (1-9, indicating the operational
+    zone), by a stroke (/) and by their own call sign.
+  country_or_area: El Salvador
+- groups:
+    amateur:
+    - name: Ethiopia
+      regex: ET3[:upper:]{2}
+    - name: Ethiopia
+      regex: 9[EF]3[:upper:]{2}
+  country_or_area: Ethiopia
+- groups:
+    amateur:
+    - regex: 3D2[:upper:]{2}
+    experimental:
+    - regex: 3D3[:upper:]{2}
+  country_or_area: Fiji
+- groups:
+    amateur: &3
+    - regex: O[F-J][:digit:][0-9A-Z]{3}[:upper:]{1}
+    experimental: *3
+  country_or_area: Finland
+- groups:
+    amateur:
+    - regex: TR8[:upper:]{2}
+  country_or_area: Gabon
+- groups:
+    amateur:
+    - regex: C53[:upper:]{2}
+  country_or_area: Gambia
+- groups:
+    amateur:
+    - regex: 4L[:digit:][:upper:]{1,3}
+  country_or_area: Georgia
+- groups:
+    amateur:
+    - name: For national radio amateurs
+      regex: 9G1[:upper:]{2,}
+    - name: For foreign radio amateurs
+      regex: 9G5[:upper:]{2,}
+    experimental:
+    - regex: 9G2[:upper:]{2}
+  country_or_area: Ghana
+- groups:
+    amateur: &4
+    - name: Class 1
+      regex: SV[:regions:][:upper:]{2,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: SV
+      - segment_type: codelist
+        key: '2'
+        codelist: regions
+      - segment_type: range
+        key: '3'
+        range:
+          from: A
+          to: Z
+          cardinality: 2-3
+    - name: Class 2
+      regex: SW[:regions:][:upper:]{2,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: SW
+      - segment_type: codelist
+        key: '2'
+        codelist: regions
+      - segment_type: range
+        key: '3'
+        range:
+          from: A
+          to: Z
+          cardinality: 2-3
+    experimental: *4
+  codelists:
+  - name: regions
+    list:
+    - code: '0'
+      name: For radio amateurs with a foreign licence and to foreign radio amateurs
+        with permanent residence
+    - code: '1'
+      name: Sterea Hellas
+    - code: '2'
+      name: Central and Western Macedonia
+    - code: '3'
+      name: Peloponnese
+    - code: '4'
+      name: Thessaly
+    - code: '5'
+      name: Dodecanese Prefecture
+    - code: '6'
+      name: Epirus
+    - code: '7'
+      name: Eastern Macedonia and Thrace
+    - code: '8'
+      name: All the islands (except those belonging to Cretian Prefectures and to
+        Dodecanese Prefecture)
+    - code: '9'
+      name: Cretian Prefectures and their islands
+  notes:
+  - i) SV0 or SW0 followed by 2 or 3 letters is assigned to Greek radio amateurs with
+    a foreign licence and to foreign radio amateurs with permanent residence.
+  - ii) The prefix J4, SX or SY is assigned as a special call sign to Greek unions
+    of radio amateurs, Greek teams of radio amateurs, Greek radio amateurs and foreign
+    radio amateurs.
+  - iii) The prefix SZ is assigned to the Greek Radio Amateur Union and Greek university
+    laboratories in the area of wireless telecommunications.
+  country_or_area: Greece
+- groups:
+    amateur:
+    - regex: TG[:departments:][:upper:]{2}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: TG
+      - key: '2'
+        segment_type: codelist
+        codelist: departments
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: '2'
+    experimental:
+    - name: Ecuador
+      regex: TD9[:upper:]
+  codelists:
+  - name: departments
+    list:
+    - code: '4'
+      name: Sololá, Chimaltenango, Suchitepéquez, Escuintla and Santa Rosa
+    - code: '5'
+      name: Huehuetenango, Quiché and Totonicapán
+    - code: '6'
+      name: Zacapa, Chiquimula and Jutiapa
+    - code: '7'
+      name: Petén, Alta Verapaz and Izabal
+    - code: '8'
+      name: San Marcos, Quetzaltenango and Retalhuleu
+    - code: '9'
+      name: Guatemala, Jalapa, El Progreso, Baja Verapaz and Sacatepéquez
+  country_or_area: Guatemala
+- groups:
+    amateur:
+    - regex: J52UA[B-I]
+  country_or_area: Guinea Bissau
+- groups:
+    amateur:
+    - regex: 3X[:digit:][:upper:]{2}
+    experimental:
+    - regex: 3X[2-9][:upper:]{3}
+  country_or_area: Guinea
+- groups:
+    amateur: &5
+    - regex: 8R[:region:][:upper:]{3}
+    experimental: *5
+  codelists:
+  - name: region
+    list:
+    - code: '1'
+      name: Demerara
+    - code: '2'
+      name: Berbice
+    - code: '3'
+      name: Essequibo
+  country_or_area: Guyana
+- groups:
+    amateur:
+    - regex: HH[:digit:][:upper:]{2}
+  country_or_area: Haiti
+- groups:
+    amateur:
+    - regex: H[A|G][:digit:][0-9A-Z]{3}[:upper:]{1}
+  country_or_area: Hungary
+- groups:
+    amateur:
+    - name: Mainland India
+      regex: VU[23][:upper:]{2,3}
+    - name: National Islands
+      regex: VU[47][:upper:]{2,3}
+    experimental:
+    - name: India
+      regex: VU4[:upper:]{2}
+  country_or_area: India
+- groups:
+    amateur:
+    - name: Advanced licence
+      regex: Y[BE][:digit:][:upper:]{1,3}
+    - name: General licence
+      regex: Y[CF][:digit:][:upper:]{1,3}
+    - name: Novice licence
+      regex: Y[DGH][:digit:][:upper:]{1,3}
+  notes:
+  - The 1 letter suffix is not for personal call sign use, but only for organizational
+    stations with special event activities.
+  country_or_area: Indonesia
+- groups:
+    amateur:
+    - regex: EP[:digit:][:upper:]{2}
+  country_or_area: Iran
+- groups:
+    amateur:
+    - regex: YI1[:upper:]{3}
+  country_or_area: Iraq
+- groups:
+    amateur:
+    - regex: EI[2-9][:upper:]{1,3}
+  country_or_area: Ireland
+- groups:
+    amateur:
+    - name: Pattern 1
+      regex: 4X[1468][:upper:]{2,3}
+    - name: Pattern 2
+      regex: 4Z[1457][:upper:]{2,3}
+    - name: Pattern 3
+      regex: Z9[:upper:]{2,3}
+  country_or_area: Israel
+- groups:
+    amateur:
+    - regex: I[:region:][:upper:]{2,3}
+  codelists:
+  - name: region
+    list:
+    - code: '0'
+      name: Lazio and Umbria
+    - code: '1'
+      name: Liguria, Piemonte and the Province of Novara
+    - code: '2'
+      name: Lombardia and the Province of Mantova
+    - code: '3'
+      name: Veneto and the Province of Rovigo
+    - code: '4'
+      name: Emilia-Romagna and the Province of Piacenza
+    - code: '5'
+      name: Toscana
+    - code: '6'
+      name: Marche and Abruzzi
+    - code: '7'
+      name: Puglie and the Province of Matera
+    - code: '8'
+      name: Campania, Molise, Calabria and the Province of Potenza
+    - code: K0
+      name: Lazio and Umbria
+    - code: K1
+      name: Liguria, Piemonte and the Province of Novara
+    - code: K2
+      name: Lombardia and the Province of Mantova
+    - code: K3
+      name: Veneto and the Province of Rovigo
+    - code: K4
+      name: Emilia-Romagna and the Province of Piacenza
+    - code: K5
+      name: Toscana
+    - code: K6
+      name: Marche and Abruzzi
+    - code: K7
+      name: Puglie and the Province of Matera
+    - code: K8
+      name: Campania, Molise, Calabria and the Province of Potenza
+    - code: A5
+      name: "“Toscane” Islands (Capraia, Cerboli, Elba, Formica di Burano, Formiche
+        di Grosseto, Giannutri, Giglio, Gorgona, Montecristo, Pianosa, Scoglio d’Affrica)"
+    - code: B0
+      name: "“Ponziane” Islands (Palmarola, Ponza, Scoglio della Botte, Santo Stefano,
+        Ventotene, Zanone)"
+    - code: C8
+      name: "“Napoletane” Islands (Capri, Ischia, Li Galli, Procida, Vivara)"
+    - code: D9
+      name: "“Eolie” Islands (Alicudi, Basiluzzo, Dino, Filicudi, Formiche, Lipari,
+        Lisca Bianca, Panarea, Salina, San Pietro a Canna, Stromboli, Strombolicchio,
+        Vulcano)"
+    - code: E9
+      name: Island of Ustica
+    - code: F9
+      name: "“Egadi” Islands (Asinelli, Favignana, La Formica, Levanzo, Maraone, Marettimo,
+        Stagnone)"
+    - code: G9
+      name: "“Pelagie” Islands (Lampedusa, Lampione, Linosa)"
+    - code: H9
+      name: Island of Pantelleria
+    - code: J7
+      name: Archipelago of “Cheradi”
+    - code: L7
+      name: "“Tremiti” Islands (Caprara, Pianosa, San Domino, San Nicola)"
+    - code: M0
+      name: "“Sardegna” Islands (Asinara, Bisce, Budelli, Carbonara, Caprera, Cavoli,
+        Corcelli, Cretaccio, Foradada, Il Catalano, Il Toro, Il Vitello, La Maddalena,
+        La Vacca, Mal di Ventre, Molara, Mortorio, Nibani, Ogliastra, Pan di Zucchero,
+        Piana, Quirra, Razzoli, Rossa, Ruglia, S. Antioco, S. Pietro, S. Macario,
+        S. Maria, Serpentara, Soffi, Spargi, Su Giudeu, Tavolara)"
+    - code: N3
+      name: Trentino-Alto Adige
+    - code: S0
+      name: Sardegna
+    - code: T9
+      name: Sicilia
+    - code: V3
+      name: Friuli and Venezia Giulia
+    - code: W0
+      name: Special licences
+    - code: X1
+      name: Aosta Valley
+  country_or_area: Italy
+- groups:
+    amateur: &6
+    - regex: 6Y5[:upper:]{2}
+    experimental: *6
+  notes:
+  - Foreign amateurs will use the call sign assigned to them by their administration
+    followed by a stroke (/) and then 6Y5.
+  country_or_area: Jamaica
+- groups:
+    amateur:
+    - regex: JY[:digit:][:upper:]{2}
+  country_or_area: Jordan
+- groups:
+    amateur:
+    - regex: 5Z4[:upper:]{2}
+    experimental:
+    - regex: 5Z5[:upper:]{2}
+  country_or_area: Kenya
+- groups:
+    amateur:
+    - regex: T3[:digit:][:upper:]{1,3}
+    experimental:
+    - regex: T3[2-9][:upper:]{1,3}
+  country_or_area: Kiribati
+- groups:
+    amateur:
+    - name: Pattern 1
+      regex: HL[:digit:][:upper:]{2,3}
+    - name: Pattern 2
+      regex: HL0[:upper:]{2,3}
+    experimental:
+    - name: General
+      regex: 6[MN]2[:upper:]{2}
+    - name: Temporary for special occasions
+      regex: "(D[ST7-9]|6[KLMN])\\d[A-Z]{2,3}"
+  notes:
+  - DS, DT, D7, D8, D9, 6K, 6L, 6M, 6N followed by a digit and by 2 or 3 letters are
+    assigned on a temporary basis on special occasions.
+  country_or_area: Korea
+- groups:
+    amateur:
+    - regex: 9K[29][:upper:]{1,2}
+  country_or_area: Kuwait
+- groups:
+    amateur:
+    - regex: EX[:digit:][:upper:]{1,2}
+  notes:
+  - Foreign radio amateurs will use EX followed by a stroke (/) and their home call
+    sign.
+  country_or_area: Kyrgyz
+- groups:
+    amateur:
+    - regex: XW8[A-D][:upper:]
+    experimental:
+    - regex: XW8E[:upper:]
+  country_or_area: Lao
+- groups:
+    amateur: &7
+    - regex: YL[:digit:][:upper:]{1,3}
+    experimental: *7
+  country_or_area: Latvia
+- groups:
+    amateur:
+    - regex: OD5[:upper:]{2}
+    experimental:
+    - regex: OD9[:upper:]{2}
+  country_or_area: Lebanon
+- groups:
+    amateur: &8
+    - regex: 7P8[:upper:]{1,3}
+    experimental: *8
+  country_or_area: Lesotho
+- groups:
+    amateur:
+    - regex: 5A[:digit:][:upper:]{1,3}
+    experimental:
+    - regex: 5A[2-9][:upper:]{1,3}
+  country_or_area: Libya
+- groups:
+    amateur:
+    - name: Pattern 1
+      regex: HB0[A-X]{3}
+    - name: Pattern 2
+      regex: HB0Z[:upper:]{2}
+    - name: Novice licence
+      regex: HB0Y[:upper:]{2}
+  country_or_area: Liechtenstein
+- groups:
+    amateur: &9
+    - regex: LY[1-4][:upper:]{1,4}
+    experimental: *9
+  notes:
+  - LY followed by 2 to 4 digits and by 1 letter is authorized only for the formation
+    of occasional radio call signs.
+  country_or_area: Lithuania
+- groups:
+    amateur:
+    - regex: LX[:station_types:][:upper:]{1,4}
+  codelists:
+  - name: station_types
+    list:
+    - code: '0'
+      name: Repeaters, beacons, group stations
+    - code: '1'
+      name: Individual stations operating with a HAREC certificate
+    - code: '2'
+      name: Individual stations operating with a HAREC certificate
+    - code: '3'
+      name: Individual stations operating with a HAREC certificate
+    - code: '4'
+      name: Group stations
+    - code: '5'
+      name: Group stations, experimental stations
+    - code: '6'
+      name: Individual stations operated by beginners
+    - code: '7'
+      name: Individual stations operated during competitions
+    - code: '8'
+      name: Group stations
+    - code: '9'
+      name: Group stations
+  notes:
+  - Foreign radio amateurs with temporary licence must use LX followed by a stroke
+    (/) and their own call sign.
+  country_or_area: Luxembourg
+- groups:
+    amateur:
+    - regex: 5R8[:upper:]{1,3}
+    experimental:
+    - regex: 5S6[:upper:]{1,3}
+  country_or_area: Madagascar
+- groups:
+    amateur:
+    - regex: 7Q7[:upper:]{2}
+  country_or_area: Malawi
+- groups:
+    amateur:
+    - regex: 8Q7[:upper:]{2}
+  country_or_area: Maldives
+- groups:
+    amateur:
+    - regex: 5T5[:upper:]{2}
+    experimental:
+    - regex: 5T2[:upper:]{2}
+  country_or_area: Mauritania
+- groups:
+    amateur:
+    - regex: 3B[:area:][:upper:]{2}
+  codelists:
+  - name: area
+    list:
+    - code: '6'
+      name: Agalega
+    - code: '7'
+      name: S. Brandon
+    - code: '8'
+      name: Mauritius
+    - code: '9'
+      name: Rodrigues
+  notes:
+  - Foreign radio amateurs with visitor licence must use 3B8 followed by a stroke
+    (/) and their own call sign.
+  country_or_area: Mauritius
+- groups:
+    amateur:
+    - regex: V63[:upper:]{2}
+    experimental:
+    - regex: V62X[:upper:]{2}
+  country_or_area: Micronesia
+- groups:
+    amateur:
+    - name: Class 1 - General licence
+      regex: 3A2[:upper:]{2}
+    - name: Class 2 - Licence restricted to bands 144-146 MHz and 430-440 MHz
+      regex: 3A1[:upper:]{2}
+    - name: Radio Club
+      regex: 3A2[:upper:]{3}
+    experimental:
+    - name: Monaco
+      regex: 3A9[:upper:]
+  country_or_area: Monaco
+- groups:
+    amateur:
+    - regex: CN[28][:upper:]{2}
+    experimental:
+    - name: Morocco
+      regex: CN4[:upper:]{2}
+  country_or_area: Morocco
+- groups:
+    amateur:
+    - regex: C9[:province:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: C9
+      - key: '2'
+        segment_type: codelist
+        codelist: province
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+  codelists:
+  - name: province
+    list:
+    - code: '1'
+      name: Maputo
+    - code: '2'
+      name: Gaza-Inhambane
+    - code: '3'
+      name: Sofala-Manica
+    - code: '4'
+      name: Zambezia-Nampula
+    - code: '5'
+      name: Tete-Niassa
+    - code: '6'
+      name: C. Delgado
+  country_or_area: Mozambique
+- groups:
+    amateur: &10
+    - regex: XZ2[:upper:]{2}
+    experimental: *10
+  country_or_area: Myanmar
+- groups:
+    amateur:
+    - name: Restricted licence station
+      regex: V50[:upper:]{1,3}
+    - name: Full licence station
+      regex: V51[:upper:]{1,3}
+    experimental:
+    - regex: V59[:upper:]{1,3}
+  country_or_area: Namibia
+- groups:
+    amateur:
+    - regex: C2[:digit:][:upper:]{2}
+  country_or_area: Nauru
+- groups:
+    amateur:
+    - regex: 9N1[:upper:]{2,3}
+  country_or_area: Nepal
+- groups:
+    amateur:
+    - name: Netherlands
+      regex: P[A0|A1|A6|I6|I7|I8][:upper:]{2,3}
+    - name: Netherlands
+      regex: P[A2|A3|B0|D0|E0|E1|I1|I2|I3][:upper:]{3}
+    experimental:
+    - name: Netherlands
+      regex: PI[59][:upper:]{2,3}
+  country_or_area: Netherlands
+- groups:
+    amateur:
+    - regex: YN[:zone:][:upper:]{2,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: YN
+      - key: '2'
+        segment_type: codelist
+        codelist: zone
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 2-3
+  codelists:
+  - name: zone
+    list:
+    - code: '1'
+      name: Managua
+    - code: '2'
+      name: Granada
+    - code: '3'
+      name: León
+    - code: '4'
+      name: Zelaya
+    - code: '5'
+      name: Carazo and Rivas
+    - code: '6'
+      name: Chinandega
+    - code: '7'
+      name: Masaya
+    - code: '8'
+      name: Estelí, Madriz and Nueva Segovia
+    - code: '9'
+      name: Matagalpa, Jinotega, Boaco, Chontales and Río San Juan
+  country_or_area: Nicaragua
+- groups:
+    amateur: &11
+    - regex: 5U[2-9]V[:upper:]{1,2}
+    experimental: *11
+  notes:
+  - When stations operate as fixed stations, their call signs are followed by the
+    letter “F”.
+  - When stations operate as mobile stations, their call signs are followed by the
+    letters “MOB”.
+  country_or_area: Niger
+- groups:
+    amateur:
+    - regex: 5N[:zone:][:upper:]{3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: 5N
+      - key: '2'
+        segment_type: codelist
+        codelist: zone
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: '3'
+    experimental:
+    - name: Pattern 1
+      regex: 5N[2468][X-Z][:upper:]
+    - name: Pattern 2
+      regex: 5N[3579]E[:upper:]
+  codelists:
+  - name: zone
+    list:
+    - code: '0'
+      name: Lagos State and Federal Capital Territory
+    - code: '1'
+      name: Ogun, Oyo, Ondo and Ekiti States
+    - code: '2'
+      name: Osun, Kwara, Kogi and Niger States
+    - code: '3'
+      name: Edo, Delta, Bayelsa and Anambra States
+    - code: '4'
+      name: Enugu, Abia, Ebonyi and Rivers States
+    - code: '5'
+      name: Imo, Akwa lbom and Cross River States
+    - code: '6'
+      name: Benue, Plateau, Nassarawa and Taraba States
+    - code: '7'
+      name: Bauchi, Gombe, Adamawa and Borno States
+    - code: '8'
+      name: Jigawa, Kano, Yobe and Katsina States
+    - code: '9'
+      name: Zamfara, Sokoto, Kaduna and Kebbi States
+  country_or_area: Nigeria
+- groups:
+    amateur:
+    - regex: ZK2[:upper:]{2}
+  country_or_area: Niue
+- groups:
+    amateur:
+    - name: Pattern 1
+      regex: "[JW|LA|LB|LC|LD|3Y][:digit:][:upper:]{3}"
+    - name: Pattern 2
+      regex: JX0[:upper:]{3}
+    experimental:
+    - name: Norway
+      regex: LF[:digit:][:upper:]{3}
+  country_or_area: Norway
+- groups:
+    amateur:
+    - regex: A4[0-8][:upper:]{2}
+    experimental:
+    - regex: A49[:upper:]{2}
+  country_or_area: Oman
+- groups:
+    amateur: &12
+    - regex: AP[2-9][:upper:]{1,3}
+    experimental: *12
+  country_or_area: Pakistan
+- groups:
+    amateur:
+    - name: Beacons
+      regex: P29B[:upper:]{2}
+    - name: Club stations
+      regex: P29C[:upper:]{2}
+    - name: Combined licences
+      regex: P29K[:upper:]{2}
+    - name: Novice licence
+      regex: P29N[:upper:]{2}
+    - name: Repeaters
+      regex: P29R[:upper:]{2}
+    - name: Limited licence
+      regex: P29Z[:upper:]{2}
+  country_or_area: Papua New Guinea
+- groups:
+    amateur:
+    - regex: OA[:zone:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: OA
+      - key: '2'
+        segment_type: codelist
+        codelist: zone
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+  codelists:
+  - name: zone
+    list:
+    - code: '0'
+      name: Peruvian Antarctic
+    - code: '1'
+      name: Tumbes, Piura, Lambayeque
+    - code: '2'
+      name: Cajamarca, La Libertad
+    - code: '3'
+      name: Huánuco, Ancash
+    - code: '4'
+      name: Lima, Pasco Junín
+    - code: '5'
+      name: Ica, Ayacucho, Apurímac, Huancavelica
+    - code: '6'
+      name: Arequipa, Moquegua, Tacna
+    - code: '7'
+      name: Cuzco, Puno, Madre de Dios
+    - code: '8'
+      name: Loreto, Ucayali
+    - code: '9'
+      name: Amazonas, San Martín
+  notes:
+  - The prefix 4T is assigned on a temporary basis.
+  country_or_area: Peru
+- groups:
+    amateur:
+    - regex: A71[:upper:]{2}
+    experimental:
+    - regex: A73[:upper:]{2}
+  country_or_area: Qatar
+- groups:
+    amateur:
+    - name: Individual
+      regex: YO[:digit:][:upper:]{1,3}
+    - name: Club
+      regex: YO[:digit:]K[:upper:]{1,2}
+    - name: Temporary, contests or special events
+      regex: Y[PQR][:digit:]K[:upper:]{1,2}
+  notes:
+  - YP, YQ and YR followed by a digit and a group of not more than 3 letters are assigned
+    to amateur stations operating during contests or special events.
+  country_or_area: Romania
+- groups:
+    amateur: &13
+    - name: Stations in the first qualification category operating with a HAREC certificate
+      regex: R[:upper:][:digit:][:upper:]{2}
+    - name: Stations in the first qualification category operating with a HAREC certificate
+      regex: U[A-I][:digit:][:upper:]{2}
+    - name: Stations in the first qualification category operating with a HAREC certificate
+        (see Note 1)
+      regex: R[:digit:][:upper:]{2}
+    - name: Stations in the first qualification category operating with a HAREC certificate
+        (see Note 2)
+      regex: R[:upper:][:digit:][:upper:]
+    - name: Stations in the first qualification category operating with a HAREC certificate
+      regex: U[A-I][:digit:][:upper:]
+    - name: Stations in the first qualification category operating with a HAREC certificate
+      regex: U[A-I][:digit:][:upper:]
+    - name: Stations in the second qualification category operating with a HAREC certificate
+      regex: R[:digit:][:upper:]{3}
+    - name: Stations in the second qualification category operating with a HAREC certificate
+      regex: R[:upper:][:digit:][:upper:]{3}
+    - name: Stations in the second qualification category operating with a HAREC certificate
+      regex: UA[:digit:][:upper:]{3}
+    - name: Stations in the third qualification category operating with an ARNEC certificate
+        (novice licence)
+      regex: U[B-DF-G][:digit:][:upper:]{3}
+    - name: Stations in the fourth qualification category (initial level)
+      regex: U[EH-I][:digit:][:upper:]{3}
+    - name: Repeaters
+      regex: RR[:digit:][:upper:]{2,3}
+    - name: Radiobeacons
+      regex: RB[:digit:][:upper:]{3}
+    - name: Stations of the amateur-satellite service
+      regex: RS[1-9]?[:digit:]S
+    - name: Temporary use in special circumstances
+      regex: R[:digit:][:upper:]{4}
+    - name: Temporary use in special circumstances
+      regex: R[:digit:]{2}[:upper:]{3}
+    - name: Temporary use in special circumstances
+      regex: R[:digit:]{3,4}[:upper:]
+    - name: Temporary use in special circumstances
+      regex: R[:digit:]{3}[:upper:]{2}
+    - name: Temporary use in special circumstances
+      regex: R[:upper:][:digit:]{2}[:upper:]{1,3}
+    - name: Temporary use in special circumstances
+      regex: R[:upper:][:digit:]{3}[:upper:]{1,2}
+    - name: Stations participating in internal rounds of competitions
+      regex: R[:digit:]{1,2}[:upper:]
+    - name: Stations participating in internal rounds of competitions (see Note 3)
+      regex: R[:digit:]{2}[:upper:]{2}
+    - name: Amateur stations of polar expeditions operating on the drift-ice of the
+        Arctic Ocean
+      regex: R[:digit:]{2}SP
+    experimental: *13
+  notes:
+  - Subject to use of the amateur station for a period of not less than 25 calendar
+    years.
+  - Subject to participation over the past five years in no fewer than ten international
+    or all Russian wireless communication contests.
+  - With the exclusion of call signs in the series R00SP - R99SP exclusively assigned
+    to amateur stations of polar expeditions operating on the drift-ice of the Arctic
+    Ocean.
+  country_or_area: Russia
+- groups:
+    amateur:
+    - regex: 9X5[:upper:]{2}
+  country_or_area: Rwanda
+- groups:
+    amateur:
+    - regex: 5W[:digit:][:upper:]{2}
+  country_or_area: Samoa
+- groups:
+    amateur:
+    - name: VHF and above VHF
+      regex: T72[:upper:]{2}
+    - name: All bands
+      regex: T77[:upper:]{2}
+    - name: Radio Club
+      regex: T70A
+    - name: Temporary Radio Club
+      regex: T71CE
+  country_or_area: San Marino
+- groups:
+    amateur:
+    - regex: S92[:upper:]{2}
+  country_or_area: Sao Tome And Principe
+- groups:
+    amateur: &14
+    - regex: 7Z[:digit:][:upper:]{2}
+    experimental: *14
+  country_or_area: Saudi Arabia
+- groups:
+    amateur:
+    - regex: 6V3[:upper:]{2}
+  country_or_area: Senegal
+- groups:
+    amateur:
+    - regex: S79[:upper:]{3}
+    experimental:
+    - regex: S78A[:upper:]
+  country_or_area: Seychelles
+- groups:
+    amateur:
+    - regex: 9L[:area_or_province:][:upper:]{2}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: 9L
+      - key: '2'
+        segment_type: codelist
+        codelist: area_or_province
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: '2'
+  codelists:
+  - name: area_or_province
+    list:
+    - code: '0'
+      name: Small craft and off-shore islands
+    - code: '1'
+      name: Western area
+    - code: '2'
+      name: Northern province
+    - code: '3'
+      name: Southern province
+    - code: '4'
+      name: Eastern province
+    - code: '7'
+      name: Novice licence
+    - code: '8'
+      name: Class B licence (VHF/UHF)
+  notes:
+  - Foreign radio amateurs with temporary licence must use 9L followed by a stroke
+    (/) and their own call sign.
+  country_or_area: Sierra Leone
+- groups:
+    amateur:
+    - name: Amateur
+      regex: 9V1[:upper:]{2}
+    - name: Special occasions
+      regex: 9V0[:upper:]{2,3}
+    experimental:
+    - name: Singapore
+      regex: 9V2[:upper:]{1,2}
+  notes:
+  - 9V0 followed by 2 or 3 letters is authorised to amateur stations on special occasions.
+  country_or_area: Singapore
+- groups:
+    amateur:
+    - regex: PJ7[:upper:]{2,3}
+  country_or_area: Sint Maarten
+- groups:
+    amateur:
+    - name: Amateur stations
+      regex: OM[0-8][:upper:]{2,3}
+    - name: For international amateur contests
+      regex: OM[:digit:]Z
+    - name: For extraordinary purposes and for period of persistence of such purposes
+        only
+      regex: OM9[:upper:]{2}
+    - name: For foreigners transmitting from the Slovak Republic territory
+      regex: OM9[A-S][:upper:]{2}
+    experimental:
+    - regex: OM9[T-Z][:upper:]{2}
+  country_or_area: Slovakia
+- groups:
+    amateur:
+    - regex: S5[:digit:][:upper:]{1,3}
+  country_or_area: Slovenia
+- groups:
+    amateur: &15
+    - regex: H44[:upper:]{2}
+    experimental: *15
+  country_or_area: Solomon Islands
+- groups:
+    amateur:
+    - name: Full licence except VHF
+      regex: ZR[:province:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: ZR
+      - segment_type: codelist
+        key: '2'
+        codelist: province
+      - segment_type: range
+        key: '3'
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+    - name: Full licence
+      regex: ZS[:province:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: ZS
+      - segment_type: codelist
+        key: '2'
+        codelist: province
+      - segment_type: range
+        key: '3'
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+    - name: Novice licence
+      regex: ZU[:province:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: ZU
+      - segment_type: codelist
+        key: '2'
+        codelist: province
+      - segment_type: range
+        key: '3'
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+    experimental:
+    - name: South Africa
+      regex: ZT[:digit:][:upper:]{1,3}
+  codelists:
+  - name: province
+    list:
+    - code: '1'
+      name: Western Cape
+    - code: '2'
+      name: Eastern Cape
+    - code: '3'
+      name: Northern Cape
+    - code: '4'
+      name: Free State
+    - code: '5'
+      name: Kwazulu-Natal
+    - code: '6'
+      name: Gauteng, North-West Province, Mpumalanga, Northern Province
+    - code: '7'
+      name: Sanae Antarctica
+    - code: '8'
+      name: Marion Island
+    - code: '9'
+      name: Namibia
+    - code: '0'
+      name: DIG repeaters and bulletins boards
+  country_or_area: South Africa
+- groups:
+    amateur:
+    - name: Novice class B (VHF only)
+      regex: 4S5[:upper:]{2,3}
+    - name: Novice class A
+      regex: 4S6[:upper:]{2,3}
+    - name: General/Advanced class
+      regex: 4S7[:upper:]{2,3}
+  notes:
+  - i) Local radio amateurs who have received licence by submitting licences issued
+    from foreign administrations will use 4S7 followed by 3 letters with last letter
+    as R.
+  - ii) Visiting radio amateurs will use 4S7 followed by home call sign.
+  - iii) Foreign radio amateurs from administrations having reciprocal agreement will
+    use 4S7 followed by 3 letters with last letter as G.
+  country_or_area: Sri Lanka
+- groups:
+    amateur: &16
+    - regex: PZ[2-9][:upper:]{1,3}
+    experimental: *16
+  country_or_area: Suriname
+- groups:
+    amateur:
+    - name: Full licence
+      regex: 3DA0[:upper:]{2}
+    - name: Restricted licence
+      regex: 3DA1[:upper:]{2}
+  country_or_area: Swaziland
+- groups:
+    amateur:
+    - name: Amateur stations
+      regex: HB9[0-9A-Z]{3}[:upper:]
+    - name: Novice licence
+      regex: HB3[0-9A-Z]{3}[:upper:]
+  country_or_area: Switzerland
+- groups:
+    amateur:
+    - name: Amateur stations
+      regex: YK[:zone:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: YK
+      - segment_type: codelist
+        key: '2'
+        codelist: zone
+      - segment_type: range
+        key: '3'
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+    - name: Special events
+      regex: 6C[:digit:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: 6C
+      - segment_type: range
+        key: '2'
+        range:
+          from: '0'
+          to: '9'
+      - segment_type: range
+        key: '3'
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+    experimental:
+    - regex: YK[:zone:][:upper:]{1,3}
+      criteria:
+      - segment_type: string
+        key: '1'
+        value: YK
+      - key: '2'
+        segment_type: codelist
+        codelist: zone
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 1-3
+  codelists:
+  - name: zone
+    list:
+    - code: '1'
+      name: Southern Region
+    - code: '2'
+      name: Northern Region
+    - code: '3'
+      name: Eastern Region
+    - code: '4'
+      name: Western Region
+    - code: '8'
+      name: Beacons
+    - code: '9'
+      name: Groups of foreign radio amateurs
+    - code: '0'
+      name: Club stations
+  notes:
+  - i) Foreign individual radio amateurs will use YK followed by a stroke (/) and
+    their home call sign.
+  - ii) Only for special events the radio amateurs will use 6C followed by a digit
+    and by a group of not more than 3 letters.
+  country_or_area: Syrian Arab Republic
+- groups:
+    amateur:
+    - name: Mainland
+      regex: 5H3[:upper:]{2}
+    - name: Zanzibar
+      regex: 5H1[:upper:]{2}
+  country_or_area: Tanzania
+- groups:
+    amateur:
+    - regex: "[E2|HS][:area:][:upper:]{2,3}"
+      criteria:
+      - key: '1'
+        segment_type: enum
+        values:
+        - segment_type: string
+          value: E2
+        - segment_type: string
+          value: HS
+      - key: '2'
+        segment_type: codelist
+        codelist: area
+      - key: '3'
+        segment_type: range
+        range:
+          from: A
+          to: Z
+          cardinality: 2-3
+    experimental:
+    - name: Thailand
+      regex: E22A[:upper:]{2}
+  codelists:
+  - name: area
+    list:
+    - code: '0'
+      name: Bangkok, Samut Prakan, Pathum Thani, Nonthaburi, Phra Nakhon Si Ayutthaya,
+        Angthong, Saraburi, Lop Buri, Sing Buri, Chainat
+    - code: '1'
+      name: Bangkok, Samut Prakan, Pathum Thani, Nonthaburi, Phra Nakhon Si Ayutthaya,
+        Angthong, Saraburi, Lop Buri, Sing Buri, Chainat
+    - code: '2'
+      name: Chon Buri, Rayong, Chanthaburi, Trat, Chachoengsao, Nakhon Nayok, Prachin
+        Buri, Srakaew
+    - code: '3'
+      name: Nakhon Ratchasima, Chaiyaphum, Buriram, Surin, Sisaket, Ubon Ratchathani,
+        Yasothon, Amnat Chareon
+    - code: '4'
+      name: Khon Kaen, Loei, Nong Khai, Udon Thani, Maha Sarakham, Kalasin, Sakon
+        Nakhon, Mukdahan, Nakhon Phanom, Roi Et, Nong Bua Lum Phu
+    - code: '5'
+      name: Mae Hong Son, Chiang Mai, Lamphun, Lampang, Phrae, Uttaradit, Nan, Chiang
+        Rai, Phayao
+    - code: '6'
+      name: Nakhon Sawan, Uthai Thani, Kamphaeng Phet, Tak, Phichit, Sukhothai, Phitsanulok,
+        Phetchabun
+    - code: '7'
+      name: Ratchaburi, Samut Sokhon, Samut Songkhram, Nakhon Pathom, Suphan Buri,
+        Kanchanaburi, Phetchaburi, Prachuap Khiri Khan
+    - code: '8'
+      name: Nakhon Si Thammarat, Krabi, Phangnga, Ranong, Surat Thani, Chumphon, Phuket
+    - code: '9'
+      name: Songkhla, Pattani, Yala, Narathiwat, Trang, Phatthalung, Satun
+  country_or_area: Thailand
+- groups:
+    amateur:
+    - regex: A35[:upper:]{2}
+    experimental:
+    - regex: A35X[:upper:]{2}
+  country_or_area: Tonga
+- groups:
+    amateur: &17
+    - regex: 9Y4[:upper:]{2}
+    experimental: *17
+  country_or_area: Trinidad And Tobago
+- groups:
+    amateur:
+    - regex: 3V8[:upper:]{2}
+    experimental:
+    - regex: TS8[:upper:]{2}
+  country_or_area: Tunisia
+- groups:
+    amateur:
+    - regex: TA[:digit:][:upper:]{1,3}
+  country_or_area: Turkey
+- groups:
+    amateur:
+    - regex: T2[:digit:][:upper:]{2}
+    experimental:
+    - regex: T2[2-9][:upper:]{2}
+  country_or_area: Tuvalu
+- groups:
+    amateur:
+    - regex: 5X5[:upper:]{2}
+  country_or_area: Uganda
+- groups:
+    amateur:
+    - regex: "[UR|US|UT|UU|UV|UW|UX|UY|UZ|EM|EN|EO][:digit:][:upper:]{2,3}"
+  country_or_area: Ukraine
+- groups:
+    amateur:
+    - regex: A61[:upper:]{1,3}
+    experimental:
+    - regex: A62[:upper:]{1,3}
+  country_or_area: United Arab Emirates
+- groups:
+    amateur:
+    - regex: CX[1-9][:upper:]{1,3}
+    experimental:
+    - regex: C[VWX][1-9][:upper:]{1,3}
+  country_or_area: Uruguay
+- groups:
+    amateur:
+    - name: Licensed radio amateurs (2 letters the initials of the licensed radio
+        amateur)
+      regex: YJ8[:upper:]{2}
+    - name: For amateur stations operated by beginners
+      regex: YJ8N[:upper:]{2}
+    - name: For restricted licensees' amateur stations (VHF)
+      regex: YJ8V[:upper:]{2}
+  country_or_area: Vanuatu
+- groups:
+    amateur:
+    - regex: HV[:digit:][:upper:]{2}
+  country_or_area: Vatican
+- groups:
+    amateur:
+    - regex: "[YV|YX|4M][:digit:][:upper:]{3}"
+  country_or_area: Venezuela
+- groups:
+    amateur:
+    - regex: "[XV|3W][2-9][:upper:]{1,4}"
+  country_or_area: Vietnam
+- groups:
+    amateur:
+    - regex: 9J2[0-9A-Z][:upper:]
+  country_or_area: Zambia
+- groups:
+    amateur:
+    - regex: Z2[:digit:][:upper:]{2}
+  country_or_area: Zimbabwe

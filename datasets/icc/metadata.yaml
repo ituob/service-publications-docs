@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of ITU Carrier Codes (ICC)
+  fr: Liste des codes de transporteur de l'UIT (ICC)
+  es: Lista de códigos de operador de la UIT (ICC)
+url: https://www.itu.int/oth/T0201
+source: service-publications-data/icc/icc.yaml
+alias_of: 1060-M.1400
+note:
+  en: >
+    The ITU Carrier Codes (ICC) listing is the same data as the M.1400 ITU
+    Carrier Codes dataset. This stub exists so OB messages that reference the
+    ICC publication are routed correctly. All data lives in datasets/1060-M.1400/.

@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for bureaufax
+description: ITU OB Dataset Schema for bureaufax (Recommendation ITU-T F.170)
+type: array
+items:
+  type: object
+  required:
+    - country_or_area
+    - location
+  properties:
+    country_or_area:
+      type: string
+      description: Country or geographical area where the bureaufax bureau is located.
+    access_code:
+      type: string
+      description: The bureaufax access code (Part III 1a) if assigned.
+    location:
+      type: string
+      description: City or location of the bureaufax bureau (Part III 1b).
+    bureaufax_number:
+      type: string
+      description: The bureaufax number (Part III 2).
+    destination_priority:
+      type: string
+      description: The destination priority code (Part III 3).
+    availability:
+      type: object
+      description: Service availability windows (Part III 4).
+      properties:
+        monday_friday:
+          type: string
+        saturday:
+          type: string
+        sunday_public_holidays:
+          type: string
+    hours:
+      type: object
+      properties:
+        monday:
+          type: string
+        tuesday:
+          type: string
+        wednesday:
+          type: string
+        thursday:
+          type: string
+        friday:
+          type: string
+        saturday:
+          type: string
+        sunday:
+          type: string
+        public_holidays:
+          type: string
+  additionalProperties: false

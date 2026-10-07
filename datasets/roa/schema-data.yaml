@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for roa
+description: ITU OB Dataset Schema for the List of Recognized Operating Agencies (ROAs)
+type: array
+items:
+  type: object
+  required:
+    - country_or_area
+    - company_name
+  properties:
+    country_or_area:
+      type: string
+      description: Country or geographic area where the ROA is registered.
+    company_name:
+      type: string
+      description: The ROA's official company name.
+    address:
+      type: string
+      description: Postal address of the ROA.
+    tel:
+      type: string
+      description: Telephone contact number.
+    fax:
+      type: string
+      description: Fax contact number.
+    email:
+      type: string
+      description: Email contact address.
+    url:
+      type: string
+      description: Public website URL.
+    ob_issue_number:
+      type: string
+      description: The OB issue number in which this ROA was last updated.
+  additionalProperties: false

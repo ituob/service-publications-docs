@@ -1,0 +1,28 @@
+# Canonical catalog of valid action types.
+#
+# Consumed by:
+#   - ituob/lib/ituob/catalogs/action_types.rb
+#   - ituob.org-v2/src/lib/catalogs.ts
+---
+all:
+  - ADD
+  - SUP
+  - REP
+  - LIR
+  - MOD
+  - DEL
+
+# Action types that are semantically equivalent to REP for carrier-code
+# purposes (LIR = "Lapsed / Inactive Record").
+rep_equivalent:
+  - REP
+  - LIR
+
+# Human-readable labels per action.
+labels:
+  ADD: Addition
+  SUP: Supersession
+  REP: Replacement
+  LIR: Lapsed / Inactive Record
+  MOD: Modification
+  DEL: Deletion

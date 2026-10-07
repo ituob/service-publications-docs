@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://github.com/ituob/service-publications-docs/datasets/nnp/schema-data
+title: ITU OB Dataset Schema for nnp
+description: >-
+  Stub schema for the external National Numbering Plan publication. No local
+  data is maintained; see metadata.yaml:external.
+type: array
+items: {}
