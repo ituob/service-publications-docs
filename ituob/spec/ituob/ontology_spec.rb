@@ -4,7 +4,7 @@ require 'spec_helper'
 require 'lutaml/lml'
 
 RSpec.describe 'Ituob model ontology (ituob/ontology/messages.lml)' do
-  ONTOLOGY_PATH = File.expand_path('../../ontology/messages.lml', __dir__)
+  ONTOLOGY_PATH = File.expand_path('../../lib/ituob/ontology/messages.lml', __dir__)
 
   # Ruby attributes typed :hash have no LML primitive — the ontology
   # declares them String. Attribute NAMES and cardinality are still

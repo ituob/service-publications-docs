@@ -29,8 +29,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "json-schema", "~> 3.0"
   spec.add_dependency "colorize", "~> 0.8"
   spec.add_dependency "lutaml-model", "~> 0.8"
+  spec.add_dependency "lutaml-lml", "~> 0.2"
   spec.add_dependency "prosereflect"
   spec.add_dependency "nokogiri", ">= 1.13"
   spec.add_dependency "rubyzip", ">= 2.3"
-  spec.add_development_dependency "lutaml-lml", "~> 0.2"
 end

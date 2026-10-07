@@ -10,7 +10,7 @@
 require 'json'
 
 inventory = JSON.parse(File.read(File.expand_path('output/model_inventory.json', __dir__)))
-out_path = File.expand_path('../ituob/ontology/messages.lml', __dir__)
+out_path = File.expand_path('../ituob/lib/ituob/ontology/messages.lml', __dir__)
 
 FAMILY_ORDER = [
   ['Shared value types', %w[MultilingualString]],

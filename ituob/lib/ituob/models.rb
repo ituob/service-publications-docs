@@ -101,9 +101,6 @@ module Ituob
     # List VIII (coast stations / monitoring stations)
     autoload :ListVIIIAmendment, 'ituob/models/list_viii_amendment'
     autoload :ListVIIIAction, 'ituob/models/list_viii_action'
-    autoload :ListVIIIStation, 'ituob/models/list_viii_station'
-    autoload :ListVIIIMeasurement, 'ituob/models/list_viii_measurement'
-    autoload :ListVIIICentralizingOffice, 'ituob/models/list_viii_centralizing_office'
 
     # General message types
     autoload :GeneralMessage, 'ituob/models/general_message'
@@ -120,5 +117,11 @@ module Ituob
     autoload :GeneralServiceRestrictions, 'ituob/models/general_service_restrictions'
     autoload :GeneralTelephoneService, 'ituob/models/general_telephone_service'
     autoload :GeneralTelephoneServices, 'ituob/models/general_telephone_service'
+
+    # Data-shape classes compiled from the LML ontology; loaded
+    # eagerly because sibling leaf files reference these constants at
+    # load time (e.g. ListVIIIAction's entries type).
+    autoload :Compiled, 'ituob/models/compiled'
+    Compiled.load!
   end
 end
