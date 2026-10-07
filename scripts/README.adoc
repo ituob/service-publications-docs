@@ -676,6 +676,26 @@ Finally the goal is to have all ITU OB data in:
 `ob-issue/{issue-no}/{text-dataset-name}/{message-id}`:: a textual general message
 
 
+== Ontology toolchain (LML)
+
+The model ontology `ituob/lib/ituob/ontology/messages.lml` is the
+single declarative source for every model class's data shape. It is
+enforced by `ituob/spec/ituob/ontology_spec.rb` (drift guard) and
+compiled into executable classes at load time
+(`ituob/lib/ituob/models/compiled.rb`).
+
+`dump_model_inventory.rb`:: dumps the live model inventory (classes,
+attributes, cardinality, behavior surface) to
+`scripts/output/model_inventory.json`.
+
+`generate_ontology_lml.rb`:: regenerates `messages.lml` from the
+inventory. Bulk edits only — the `.lml` is hand-maintained source
+afterwards; review the diff and keep `ontology_spec.rb` green.
+
+`generate_ts_types.rb`:: emits the site's TypeScript wire interfaces
+(`schema.generated.ts` in ituob.org) from the ontology. The site CI
+regenerates it before every build.
+
 == Copyright and license
 
 Content copyright ITU.

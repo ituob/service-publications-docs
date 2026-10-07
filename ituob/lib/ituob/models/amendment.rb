@@ -22,6 +22,9 @@ module Ituob
         @notes
       end
 
+      # Manual accessors stay: lutaml-model 0.8's generated setter does
+      # not coerce nil/single strings to an array, and the parsers rely
+      # on that coercion.
       def notes=(value)
         @notes = Array(value)
       end

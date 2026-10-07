@@ -8,6 +8,20 @@ Operational Bulletin system.
 Domain vocabulary is documented in link:../CONTEXT.md[CONTEXT.md]. This
 file uses those terms verbatim.
 
+== Model ontology (LML)
+
+All model data shapes are declared once in
+`lib/ituob/ontology/messages.lml` (LutaML Model Language). The
+ontology is validated by the RS 3001 rules, compiled by
+`Lutaml::Lml::ModelCompiler`, and enforced against the Ruby classes by
+`spec/ituob/ontology_spec.rb` — a failing spec means the ontology and
+the classes have drifted apart.
+
+Pure data-shape classes are compiled from the ontology at load time
+(`lib/ituob/models/compiled.rb`, currently the List VIII family);
+classes whose behavior dominates (the per-publication parsers) remain
+hand-written and are kept in lockstep by the drift guard instead.
+
 == Layering
 
 The package is organized in MECE layers. Each layer depends only on the
