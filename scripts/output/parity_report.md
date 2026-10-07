@@ -2,7 +2,7 @@
 
 Generated against:
 - deployed reference: `/Users/mulgogi/src/ituob/.parity-reference/jekyll/_site`
-- new site: `/Users/mulgogi/src/ituob/ituob.org-v2/dist`
+- new site: `/Users/mulgogi/src/ituob/ituob.org/dist`
 
 Worst-variant rule: a page passes only when EVERY deployed
 variant of it passes ≥95%.
