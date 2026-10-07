@@ -3,11 +3,6 @@ require 'lutaml/model'
 
 module Ituob
   module Models
-    class GeneralApprovedRecommendation < ::Lutaml::Model::Serializable
-      attribute :recommendation, :string
-      attribute :approved_date, :date
-    end
-
     class GeneralApprovedRecommendations < GeneralMessage
       attribute :items, GeneralApprovedRecommendation, collection: true
       attribute :by, :string

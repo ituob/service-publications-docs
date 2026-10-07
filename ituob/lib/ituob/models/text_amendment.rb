@@ -7,13 +7,6 @@ require 'prosereflect'
 module Ituob
   module Models
 
-    class TextAction < Lutaml::Model::Serializable
-      attribute :action_type, :string
-      attribute :position, :string
-      # attribute :entries, E118Entry, collection: true
-
-    end
-
     class TextAmendment < Amendment
       attribute :actions, TextAction, collection: true
       attribute :_class, :string, default: -> { self.name.split('::').last }

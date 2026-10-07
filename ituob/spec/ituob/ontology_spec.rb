@@ -14,11 +14,9 @@ RSpec.describe 'Ituob model ontology (ituob/ontology/messages.lml)' do
   }.freeze
 
   let(:document) { Lutaml::Lml.parse_document(File.open(ONTOLOGY_PATH)) }
-  let(:compiler) do
-    Lutaml::Lml::ModelCompiler.new.tap do |c|
-      c.compile(File.open(ONTOLOGY_PATH))
-    end
-  end
+  # Reuse the boot-time compiler so the anonymous compiled classes in
+  # the parity check are the very objects registered under Ituob::Models.
+  let(:compiler) { Ituob::Models::Compiled.compiler }
 
   def eager_load_models
     Ituob::Models.constants.each { |c| (Ituob::Models.const_get(c) rescue nil) }
@@ -92,7 +90,7 @@ RSpec.describe 'Ituob model ontology (ituob/ontology/messages.lml)' do
         # Compiled class-ref types are anonymous classes; name them via
         # the compiler's registry so both sides speak in ontology names.
         anonymous_names = compiler.compiled_classes.invert
-        hand_shape = shape_of(hand)
+        hand_shape = shape_of(hand, anonymous_names)
         compiled_shape = shape_of(compiled, anonymous_names)
         waivers = TYPE_WAIVERS.fetch(name, [])
 

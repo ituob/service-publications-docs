@@ -9,7 +9,6 @@
 module Ituob
   module Models
     # Shared base classes
-    autoload :MultilingualString, 'ituob/models/multilingual_string'
     autoload :WalkState, 'ituob/models/walk_state'
     autoload :Change, 'ituob/models/change'
     autoload :ChangeSet, 'ituob/models/change_set'
@@ -17,7 +16,6 @@ module Ituob
     autoload :Amendment, 'ituob/models/amendment'
 
     # Issue-level models
-    autoload :IssueMetadata, 'ituob/models/issue_metadata'
     autoload :IssueGeneral, 'ituob/models/issue_general'
     autoload :OldIssue, 'ituob/models/old_issue'
 
@@ -76,7 +74,6 @@ module Ituob
     autoload :T35NAAmendment, 'ituob/models/t35na_amendment'
     autoload :T35NAAction, 'ituob/models/t35na_action'
     autoload :T35NAEntry, 'ituob/models/t35na_entry'
-    autoload :T35AssignmentAuthority, 'ituob/models/t35_assignment_authority'
 
     # X.121
     autoload :X121DNICAmendment, 'ituob/models/x121dnic_amendment'

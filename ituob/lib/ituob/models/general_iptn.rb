@@ -6,31 +6,6 @@ require 'date'
 
 module Ituob
   module Models
-    # Entry class for IPTN messages
-    class IptnEntry < Lutaml::Model::Serializable
-      attribute :applicant, :string
-      attribute :network, :string
-      attribute :cc_ic, :string
-      attribute :action, :string
-      attribute :action_date, :string
-      attribute :formerly, :string
-      attribute :notes, :string
-      attribute :reclamation_date, :string
-      attribute :trial, :boolean
-
-      key_value do
-        map 'applicant', to: :applicant
-        map 'network', to: :network
-        map 'cc_ic', to: :cc_ic
-        map 'action', to: :action
-        map 'action_date', to: :action_date
-        map 'formerly', to: :formerly
-        map 'notes', to: :notes
-        map 'reclamation_date', to: :reclamation_date
-        map 'trial', to: :trial
-      end
-    end
-
     class GeneralIptn < GeneralMessage
       attribute :entries, IptnEntry, collection: true
       attribute :notes, :string
