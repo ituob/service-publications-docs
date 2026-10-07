@@ -1,0 +1,20 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: ADD
+  position: P 19
+  entries:
+  - mcc_mnc_codes: 425 18
+    country_or_area:
+      en: Israel
+    networks: Cellact Communications  Ltd (MVNO)
+  note: '19'
+- action_type: SUP
+  position: P 31
+  entries:
+  - mcc_mnc_codes: 228 07
+    country_or_area:
+      en: Switzerland
+    networks: In & Phone S.A.
+  note: '31'
+- {}

@@ -1,0 +1,36 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: LIR
+  position: c
+  entries:
+  - applicant: '997'
+    network: Kazakhstan (Republic of)
+    cc_ic: f
+    status: Assigned
+  - applicant: A1 Telekom Austria AG
+    network: A1 Telekom Austria AG
+    cc_ic: "+883 370"
+    status: Assigned
+- action_type: ADD
+  position: f
+  entries:
+  - applicant: '997'
+    network: Kazakhstan (Republic of)
+    cc_ic: f
+    status: Assigned
+  - applicant: A1 Telekom Austria AG
+    network: A1 Telekom Austria AG
+    cc_ic: "+883 370"
+    status: Assigned
+- action_type: ADD
+  position: N
+  entries:
+  - applicant: A1 Telekom Austria AG
+    network: A1 Telekom Austria AG
+    cc_ic: "+883 370"
+    status: Assigned
+  - applicant: '997'
+    network: Kazakhstan (Republic of)
+    cc_ic: f
+    status: Assigned

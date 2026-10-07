@@ -1,0 +1,64 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: SUP
+  position: N
+  entries:
+  - applicant: Athalos Global Services BV
+    network: Athalos Global Services BV
+    cc_ic: "+882 51"
+    status: Withdrawn
+  - applicant: SITA (Formerly OnAir N.V.)
+    network: SITA (Formerly Onair GSM services)
+    cc_ic: "+882 98"
+    status: Withdrawn
+  - applicant: Bird B.V.
+    network: Bird B.V.
+    cc_ic: "+883 250"
+    status: Assigned
+  - applicant: Lynk Global, Inc.
+    network: Lynk Global, Inc.
+    cc_ic: "+883 500"
+    status: Assigned
+- action_type: LIR
+  position: N
+  entries:
+  - applicant: Bird B.V.  (formerly MessageBird B.V.)
+    network: Bird B.V.  (formerly MessageBird B.V.)
+    cc_ic: "+883 250"
+    status: Assigned
+  - applicant: Athalos Global Services BV
+    network: Athalos Global Services BV
+    cc_ic: "+882 51"
+    status: Withdrawn
+  - applicant: SITA (Formerly OnAir N.V.)
+    network: SITA (Formerly Onair GSM services)
+    cc_ic: "+882 98"
+    status: Withdrawn
+  - applicant: Bird B.V.
+    network: Bird B.V.
+    cc_ic: "+883 250"
+    status: Assigned
+  - applicant: Lynk Global, Inc.
+    network: Lynk Global, Inc.
+    cc_ic: "+883 500"
+    status: Assigned
+- action_type: ADD
+  position: N
+  entries:
+  - applicant: Lynk Global, Inc.
+    network: Lynk Global, Inc.
+    cc_ic: "+883 500"
+    status: Assigned
+  - applicant: Athalos Global Services BV
+    network: Athalos Global Services BV
+    cc_ic: "+882 51"
+    status: Withdrawn
+  - applicant: SITA (Formerly OnAir N.V.)
+    network: SITA (Formerly Onair GSM services)
+    cc_ic: "+882 98"
+    status: Withdrawn
+  - applicant: Bird B.V.
+    network: Bird B.V.
+    cc_ic: "+883 250"
+    status: Assigned

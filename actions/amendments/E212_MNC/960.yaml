@@ -1,0 +1,20 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: ADD
+  position: P 32
+  entries:
+  - mcc_mnc_codes: 234 07
+    country_or_area:
+      en: United Kingdom
+    networks: Cable & Wireless UK
+  note: '32'
+- action_type: ADD
+  position: P 27
+  entries:
+  - mcc_mnc_codes: 608 03
+    country_or_area:
+      en: Senegal
+    networks: Expresso Sénégal
+  note: '27'
+- {}

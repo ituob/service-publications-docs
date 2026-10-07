@@ -1,0 +1,52 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: ADD
+  position: N
+  entries:
+  - applicant: Athalos Global Services BV
+    network: Athalos Global Services BV
+    cc_ic: "+882 51"
+    status: Assigned
+  - applicant: Telstra
+    network: Global international ATM Network
+    cc_ic: "+882 15"
+    status: Withdrawn
+  - applicant: Mobile Telecommunications Company K.S.C.P. (Zain Group)
+    network: Mobile Telecommunications Company K.S.C.P. (Zain Group)
+    cc_ic: "+883 420"
+    status: Assigned
+- action_type: SUP
+  position: N
+  entries:
+  - applicant: Telstra  (Formerly REACH)
+    network: Global international ATM Network
+    cc_ic: "+882 15"
+    status: Withdrawn
+  - applicant: Athalos Global Services BV
+    network: Athalos Global Services BV
+    cc_ic: "+882 51"
+    status: Assigned
+  - applicant: Telstra
+    network: Global international ATM Network
+    cc_ic: "+882 15"
+    status: Withdrawn
+  - applicant: Mobile Telecommunications Company K.S.C.P. (Zain Group)
+    network: Mobile Telecommunications Company K.S.C.P. (Zain Group)
+    cc_ic: "+883 420"
+    status: Assigned
+- action_type: ADD
+  position: N
+  entries:
+  - applicant: Mobile Telecommunications Company K.S.C.P. (Zain Group)
+    network: Mobile Telecommunications Company K.S.C.P. (Zain Group)
+    cc_ic: "+883 420"
+    status: Assigned
+  - applicant: Athalos Global Services BV
+    network: Athalos Global Services BV
+    cc_ic: "+882 51"
+    status: Assigned
+  - applicant: Telstra
+    network: Global international ATM Network
+    cc_ic: "+882 15"
+    status: Withdrawn

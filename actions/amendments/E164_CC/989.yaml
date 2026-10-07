@@ -1,0 +1,25 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: SUP
+  position: '17'
+  entries:
+  - applicant: ICO Global Communications
+    network: ICO Global Communications
+    cc_ic: "+881 0 and +881 1"
+    status: Withdrawn
+  - applicant: Smart Communications, Inc
+    network: Smart Communications, Inc
+    cc_ic: "+882 97"
+    status: Assigned
+- action_type: ADD
+  position: '17'
+  entries:
+  - applicant: Smart Communications, Inc
+    network: Smart Communications, Inc
+    cc_ic: "+882 97"
+    status: Assigned
+  - applicant: ICO Global Communications
+    network: ICO Global Communications
+    cc_ic: "+881 0 and +881 1"
+    status: Withdrawn

@@ -1,0 +1,25 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: SUP
+  position: N
+  entries:
+  - applicant: Plintron Global Technology Solutions Private Limited
+    network: Plintron Global Technology Solutions Private Limited
+    cc_ic: "+883 280"
+    status: Withdrawn
+  - applicant: HMD Global Oy
+    network: HMD Global Oy
+    cc_ic: "+883 450"
+    status: Assigned
+- action_type: ADD
+  position: N
+  entries:
+  - applicant: HMD Global Oy
+    network: HMD Global Oy
+    cc_ic: "+883 450"
+    status: Assigned
+  - applicant: Plintron Global Technology Solutions Private Limited
+    network: Plintron Global Technology Solutions Private Limited
+    cc_ic: "+883 280"
+    status: Withdrawn

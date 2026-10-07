@@ -1,0 +1,53 @@
+---
+_class: E118Amendment
+actions:
+- action_type: ADD
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: NXP Semiconductors Germany GmbH
+    company_address_1: Troplowitzstr. 20
+    company_address_2: 22529 HAMBURG
+    contact: Hauke Meyn
+    contact_address_1: Troplowitzstr. 20
+    contact_address_2: 22529 HAMBURG
+    issue_id_number: 89 49 41
+    effective_date: 1.IV.2021
+- action_type: LIR
+  entries:
+  - country_or_area:
+      en: Palau
+    company_name: Palau National Communications Corporation
+    company_address_1: PNCC Airai HQ Building,
+    company_address_2: One Airport Rd,
+    company_address_3: P.O. Box 99
+    contact: Myers Techitong
+    contact_address_1: PNCC Airai HQ Building,
+    contact_address_2: One Airport Rd,
+    contact_address_3: P.O. Box 99
+    contact_address_4: KOROR, PW 96940
+    tel:
+    - "+680 587 9000"
+    fax:
+    - "+680 587 1888"
+    email:
+    - tmyers@pnccpalau.com
+    issue_id_number: 89 680 01
+- action_type: LIR
+  entries:
+  - country_or_area:
+      en: Palau
+    company_name: Palau Mobile Communications Inc.
+    company_address_1: PDC Building
+    company_address_2: P.O. Box 401461
+    company_address_3: Medalaii, Koror
+    contact: Billy Takamine
+    contact_address_1: PDC Building
+    contact_address_2: P.O. Box 401461
+    contact_address_3: Medalaii, Koror
+    contact_address_4: PW 96940
+    tel:
+    - "+680 488 1189"
+    email:
+    - info@pmci.pw
+    issue_id_number: 89 680 99
