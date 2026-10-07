@@ -42,8 +42,8 @@ module Ituob
                      data: nil, ob_issue_no: nil, date_active: nil,
                      date_requested: nil, reference: nil,
                      description: nil, superseded_by: nil, reason: nil,
-                     merge_strategy: nil)
-        super()
+                     merge_strategy: nil, **lutaml_options)
+        super(lutaml_options)
         return unless type || register_id
 
         self.type = ActionType.coerce(type).value

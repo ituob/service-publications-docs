@@ -9,13 +9,10 @@
 # Domain vocabulary is documented in +CONTEXT.md+ at the repository root.
 
 require 'lutaml/model'
-require 'lutaml/model/xml/nokogiri_adapter'
 
-Lutaml::Model::Config.configure do |config|
-  config.xml_adapter = Lutaml::Model::Xml::NokogiriAdapter
-  config.yaml_adapter_type = :standard_yaml
-  config.json_adapter_type = :standard_json
-end
+Lutaml::Model::Config.xml_adapter_type = :nokogiri
+Lutaml::Model::Config.yaml_adapter_type = :standard_yaml
+Lutaml::Model::Config.json_adapter_type = :standard_json
 
 # Top-level namespace. Submodules are autoloaded on first reference.
 module Ituob

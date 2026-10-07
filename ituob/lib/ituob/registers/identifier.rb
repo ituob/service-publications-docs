@@ -29,8 +29,8 @@ module Ituob
         map :query, to: :query
       end
 
-      def initialize(code: nil, query: nil)
-        super()
+      def initialize(code: nil, query: nil, **lutaml_options)
+        super(lutaml_options)
         self.code = code&.to_s
         self.query = query ? query.transform_keys(&:to_s) : nil
         # Only validate+freeze when constructed directly (not by lutaml from_hash,
