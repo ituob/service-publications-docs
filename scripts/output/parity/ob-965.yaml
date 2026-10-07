@@ -1,0 +1,310 @@
+---
+:id: 965
+:deployed_tokens: 2776
+:actual_tokens: 3353
+:coverage: 0.9915
+:missing_headings:
+- maritime identification digits
+- telegram service
+- list of signalling area/network codes (sanc)
+:missing_links:
+- :href: www.itu.int/ITU-T/inr/roa/index.html
+  :text: List of recognized operating agencies (ROAs)
+- :href: https://www.itu.int/pub/T-SP-Q.708A-2013
+  :text: List of Signalling Area/Network Codes (SANC)
+:missing_tables: []
+:sections:
+- :heading: ITU Operational Bulletin
+  :deployed_tokens: 3
+  :actual_tokens: 6
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: No. 965
+  :deployed_tokens: 78
+  :actual_tokens: 15
+  :missing_tokens:
+  - '1211'
+  - '5111'
+  - '5211'
+  - '5560'
+  - '5785'
+  - '5853'
+  - '730'
+  - access
+  - administrations
+  - amendments
+  - annexed
+  - annexes
+  - approval
+  - authoritative
+  - brmail
+  - bulletin
+  - bureau
+  - changes
+  - codes
+  - des
+  - destination
+  - digits
+  - edition
+  - email
+  - entities
+  - fax
+  - genève
+  - identification
+  - indicators
+  - information
+  - int
+  - international
+  - ispc
+  - itu
+  - itumail
+  - list
+  - lists
+  - maritime
+  - mnc
+  - mobile
+  - national
+  - nations
+  - network
+  - networks
+  - numbering
+  - numbers
+  - online
+  - operational
+  - organizations
+  - place
+  - plan
+  - point
+  - public
+  - publications
+  - radiocommunication
+  - received
+  - recommendations
+  - resource
+  - roas
+  - see
+  - service
+  - signalling
+  - standardization
+  - subscriptions
+  - switzerland
+  - tel
+  - telegram
+  - telephone
+  - tsb
+  - tsbmail
+  - tsbtson
+  - website
+  :coverage: 0.0769
+- :heading: Dates of publication of the next Operational Bulletins
+  :deployed_tokens: 40
+  :actual_tokens: 41
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: General information
+  :deployed_tokens: 2
+  :actual_tokens: 2
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Lists annexed to the ITU Operational Bulletin
+  :deployed_tokens: 62
+  :actual_tokens: 62
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Approval of ITU-T Recommendations
+  :deployed_tokens: 119
+  :actual_tokens: 120
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Maritime Identification Digits
+  :deployed_tokens: 12
+  :actual_tokens: 12
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Telephone Service
+  :deployed_tokens: 298
+  :actual_tokens: 347
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Data Transmission Service
+  :deployed_tokens: 63
+  :actual_tokens: 134
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Telegram Service
+  :deployed_tokens: 89
+  :actual_tokens: 0
+  :missing_tokens:
+  - '0330'
+  - '0451'
+  - '1244'
+  - '2010'
+  - '217'
+  - '231'
+  - '4440'
+  - '4483'
+  - '5004224'
+  - '571'
+  - '6300'
+  - '965'
+  - '974'
+  - abbey
+  - abdulla
+  - access
+  - accounting
+  - all
+  - allocated
+  - announces
+  - applies
+  - apply
+  - apu80
+  - arrange
+  - basis
+  - below
+  - box
+  - bulletin
+  - cascade
+  - change
+  - com
+  - communication
+  - companies
+  - contact
+  - david
+  - destination
+  - dhxx
+  - directly
+  - doha
+  - effect
+  - fax
+  - force
+  - further
+  - gmbh
+  - haiki
+  - handle
+  - immediate
+  - indicator
+  - information
+  - international
+  - ita2
+  - itu
+  - kindly
+  - mail
+  - negotiate
+  - operating
+  - operational
+  - page
+  - please
+  - poststrasse
+  - present
+  - provision
+  - qatar
+  - qtel
+  - rates
+  - relating
+  - remains
+  - requested
+  - reside
+  - responsibility
+  - routed
+  - see
+  - service
+  - settlements
+  - shown
+  - switzerland
+  - tel
+  - telecom
+  - telegram
+  - telegrams
+  - therefore
+  - through
+  - traffic
+  - unitel
+  - uniteltelegram
+  - used
+  - uts
+  - which
+  - zug
+  :coverage: 0.0
+- :heading: Changes in Administrations/ROAs and other entities or Organizations
+  :deployed_tokens: 149
+  :actual_tokens: 149
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Amendments
+  :deployed_tokens: 17
+  :actual_tokens: 18
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Amd. to List of Access codes/numbers for mobile networks
+  :deployed_tokens: 26
+  :actual_tokens: 23
+  :missing_tokens:
+  - accordance
+  - after
+  - digits
+  - first
+  - recommendation
+  - resource
+  :coverage: 0.7692
+- :heading: Amd. no. 7 to Mobile Network Codes (MNC) for the international identification
+    plan for public networks and subscriptions
+  :deployed_tokens: 46
+  :actual_tokens: 49
+  :missing_tokens:
+  - accordance
+  - bulletin
+  - name
+  - operational
+  - operator
+  - recommendation
+  - resource
+  :coverage: 0.8478
+- :heading: Amd. to List of Telegram Destination Indicators
+  :deployed_tokens: 44
+  :actual_tokens: 36
+  :missing_tokens:
+  - accordance
+  - administration
+  - assigned
+  - first
+  - fourth
+  - indicator
+  - letters
+  - recommendation
+  - third
+  :coverage: 0.7955
+- :heading: Amd. no. 8 to List of International Signalling Point Codes (ISPC)
+  :deployed_tokens: 65
+  :actual_tokens: 62
+  :missing_tokens:
+  - accordance
+  - area
+  - bulletin
+  - operational
+  - recommendation
+  - resource
+  - unique
+  :coverage: 0.8923
+- :heading: Amd. to National Numbering Plan
+  :deployed_tokens: 57
+  :actual_tokens: 55
+  :missing_tokens:
+  - accordance
+  - resource
+  :coverage: 0.9649
+- :heading: Annexes to this issue
+  :deployed_tokens: 2
+  :actual_tokens: 4
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: List of Signalling Area/Network Codes (SANC)
+  :deployed_tokens: 6
+  :actual_tokens: 0
+  :missing_tokens:
+  - area
+  - codes
+  - list
+  - network
+  - sanc
+  - signalling
+  :coverage: 0.0

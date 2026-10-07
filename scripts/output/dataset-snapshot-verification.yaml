@@ -1,0 +1,258 @@
+datasets:
+- entries: 88
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 1000-SR.1
+  source_body_chars: 2140
+  source_doc: T-SP-SR.1-2012-MSW-E.docx
+  source_total_table_rows: 310
+  status: ok
+- entries: 25
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 1001-T.35B
+  source_body_chars: 17526
+  source_doc: T-SP-T.35B-2012-MSW-E.doc
+  source_total_table_rows: 0
+  status: ok
+- entries: 209
+  sample_details:
+  - needles:
+    - '11111111'
+    - Escape code to extension list (currently empty). See NOTE 1.
+    - Code d'échappement vers la liste complémentaire (actuellemen
+    reason: no candidate string found in source text or tables
+  sample_hits: 9
+  sample_misses: 1
+  slug: 1002-T.35
+  source_body_chars: 8769
+  source_doc: T-SP-T.35-2012-OAS-MSW-E.doc
+  source_total_table_rows: 0
+  status: ok
+- entries: 230
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 1015-E.164B
+  source_body_chars: 12758
+  source_doc: T-SP-E.164B-2012-MSW-E.doc
+  source_total_table_rows: 0
+  status: ok
+- entries: 1164
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 1060-M.1400
+  source_body_chars: 6042
+  source_doc: T-SP-M.1400-2014-MSW-E.docx
+  source_total_table_rows: 1201
+  status: ok
+- entries: 6154
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 1109-Q.708B
+  source_body_chars: 3600
+  source_doc: T-SP-Q.708B-2016-MSW-E.docx
+  source_total_table_rows: 6425
+  status: ok
+- entries: 334
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 1114-E.164D
+  source_body_chars: 4041
+  source_doc: T-SP-E.164D-2016-MSW-E.docx
+  source_total_table_rows: 752
+  status: ok
+- entries: 4
+  slug: 1114-E.164D-Note-N
+  status: no ref mapping
+- entries: 24
+  slug: 1114-E.164D-Note-O
+  status: no ref mapping
+- entries: 18
+  slug: 1114-E.164D-Note-PQ
+  status: no ref mapping
+- entries: 244
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 1117-E.212A
+  source_body_chars: 2150
+  source_doc: T-SP-E.212A-2017-MSW-E.docx
+  source_total_table_rows: 580
+  status: ok
+- entries: 44
+  slug: 1117-E.212A-MCCMNC
+  status: no ref mapping
+- entries: 244
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 1125-E.218
+  source_body_chars: 1722
+  source_doc: T-SP-E.218-2017-MSW-E.docx
+  source_total_table_rows: 524
+  status: ok
+- entries: 1044
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 1125-Q.708A
+  source_body_chars: 3016
+  source_doc: T-SP-Q.708A-2017-MSW-E.docx
+  source_total_table_rows: 2132
+  status: ok
+- slug: 1154-RR.25.1
+  status: no data.yaml
+- entries: 791
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 1161-E.118
+  source_body_chars: 4730
+  source_doc: T-SP-E.118-2018-MSW-E.docx
+  source_total_table_rows: 827
+  status: ok
+- entries: 1979
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 1162-E.212
+  source_body_chars: 4324
+  source_doc: T-SP-E.212B-2018-MSW-E.docx
+  source_total_table_rows: 2333
+  status: ok
+- entries: 35
+  slug: 1162-E.212-ET
+  status: no ref mapping
+- entries: 2
+  slug: 1162-E.212-MCC-Others
+  status: no ref mapping
+- entries: 55
+  slug: 1162-E.212-Shared-MCC
+  status: no ref mapping
+- entries: 170
+  slug: 669-F.1
+  status: no ref mapping
+- entries: 1552
+  slug: 955-E.180
+  status: no ref mapping
+- entries: 222
+  slug: 974-F.400
+  status: no ref mapping
+- entries: 262
+  sample_details:
+  - needles:
+    - '64'
+    - Spare code
+    - Code de réserve
+    reason: no candidate string found in source text or tables
+  - needles:
+    - '52'
+    - Spare code
+    - Code de réserve
+    reason: no candidate string found in source text or tables
+  - needles:
+    - '75'
+    - Spare code
+    - Code de réserve
+    reason: no candidate string found in source text or tables
+  - needles:
+    - '46'
+    - Spare code
+    - Code de réserve
+    reason: no candidate string found in source text or tables
+  - needles:
+    - '79'
+    - Spare code
+    - Code de réserve
+    reason: no candidate string found in source text or tables
+  sample_hits: 5
+  sample_misses: 5
+  slug: 976-X.121A
+  source_body_chars: 9259
+  source_doc: T-SP-X.121A-2011-MSW-E.doc
+  source_total_table_rows: 0
+  status: ok
+- entries: 485
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 977-X.121B
+  source_body_chars: 27162
+  source_doc: T-SP-X.121B-2011-MSW-E.doc
+  source_total_table_rows: 0
+  status: ok
+- entries: 396
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 978-F.68
+  source_body_chars: 19223
+  source_doc: T-SP-F.68-2011-MSW-E.doc
+  source_total_table_rows: 0
+  status: ok
+- entries: 16
+  slug: 978-F.68-A1
+  status: no ref mapping
+- entries: 46
+  slug: 978-F.68-A2
+  status: no ref mapping
+- entries: 816
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 980-F.32
+  source_body_chars: 83750
+  source_doc: T-SP-F.32-2011-MSW-E.doc
+  source_total_table_rows: 0
+  status: ok
+- entries: 118
+  slug: 991-PP.RES.21.pp
+  status: no ref mapping
+- entries: 244
+  sample_details: []
+  sample_hits: 10
+  sample_misses: 0
+  slug: 994-E.164C
+  source_body_chars: 19287
+  source_doc: T-SP-E.164C-2011-MSW-E.doc
+  source_total_table_rows: 0
+  status: ok
+- entries: 1018
+  slug: bureaufax
+  status: no source doc
+- entries: 0
+  slug: coast-stations
+  status: no ref mapping
+- entries: 142
+  slug: country-names
+  status: no ref mapping
+- entries: 0
+  slug: icc
+  status: no ref mapping
+- entries: 25
+  slug: iso-3166
+  status: no ref mapping
+- entries: 0
+  slug: list-v
+  status: no ref mapping
+- entries: 0
+  slug: list-viii
+  status: no ref mapping
+- entries: 0
+  slug: nnp
+  status: no ref mapping
+- entries: 1033
+  slug: roa
+  status: no source doc
+summary:
+  content_mismatch: 0
+  no_source: 22
+  ok: 17
+  other: 1
+  partial_mismatch: 0

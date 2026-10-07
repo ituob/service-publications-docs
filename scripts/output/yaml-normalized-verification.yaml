@@ -1,0 +1,123 @@
+datasets:
+- extra_count: 0
+  extra_in_normalized: []
+  field_match_pct: 100.0
+  field_spot_checks:
+  - field: location
+    key: Czech Rep
+    match: true
+  - field: access_code
+    key: Czech Rep
+    match: true
+  - field: bureaufax_number
+    key: Czech Rep
+    match: true
+  - field: destination_priority
+    key: Czech Rep
+    match: true
+  - field: location
+    key: Uganda
+    match: true
+  - field: bureaufax_number
+    key: Uganda
+    match: true
+  - field: destination_priority
+    key: Uganda
+    match: true
+  - field: location
+    key: Togo
+    match: true
+  - field: bureaufax_number
+    key: Togo
+    match: true
+  - field: destination_priority
+    key: Togo
+    match: true
+  - field: location
+    key: Colombia
+    match: true
+  - field: bureaufax_number
+    key: Colombia
+    match: true
+  - field: destination_priority
+    key: Colombia
+    match: true
+  - field: location
+    key: Eritrea
+    match: true
+  - field: bureaufax_number
+    key: Eritrea
+    match: true
+  - field: destination_priority
+    key: Eritrea
+    match: true
+  missing_count: 0
+  missing_in_normalized: []
+  normalized_count: 1018
+  raw_count: 1018
+  slug: bureaufax
+  status: ok
+- extra_count: 0
+  extra_in_normalized: []
+  field_match_pct: 100.0
+  field_spot_checks:
+  - field: country_or_area
+    key: Telenor ASA
+    match: true
+  - field: address
+    key: Telenor ASA
+    match: true
+  - field: tel
+    key: Telenor ASA
+    match: true
+  - field: fax
+    key: Telenor ASA
+    match: true
+  - field: email
+    key: Telenor ASA
+    match: true
+  - field: url
+    key: Telenor ASA
+    match: true
+  - field: country_or_area
+    key: LLC Equant (trademark “Orange”)
+    match: true
+  - field: address
+    key: LLC Equant (trademark “Orange”)
+    match: true
+  - field: tel
+    key: LLC Equant (trademark “Orange”)
+    match: true
+  - field: fax
+    key: LLC Equant (trademark “Orange”)
+    match: true
+  - field: url
+    key: LLC Equant (trademark “Orange”)
+    match: true
+  - field: country_or_area
+    key: KDDI Corporation
+    match: true
+  - field: address
+    key: KDDI Corporation
+    match: true
+  - field: tel
+    key: KDDI Corporation
+    match: true
+  - field: fax
+    key: KDDI Corporation
+    match: true
+  - field: url
+    key: KDDI Corporation
+    match: true
+  - field: country_or_area
+    key: ICO Services Ltd
+    match: true
+  - field: country_or_area
+    key: Hutchison 3G UK Ltd
+    match: true
+  missing_count: 0
+  missing_in_normalized: []
+  normalized_count: 1033
+  raw_count: 1033
+  slug: roa
+  status: ok

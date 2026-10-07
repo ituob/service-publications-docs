@@ -1,0 +1,369 @@
+{
+  "1014": {
+    "actions": [
+      {
+        "action_type": "SUP",
+        "position": "P 206 6",
+        "caption": "Country/Area — DNIC No. — Name of network to which a DNIC is allocated",
+        "description": "P 206 6 SUP",
+        "entries": [
+          {
+            "dnic_number": "206 6",
+            "country_or_area": {
+              "en": "BELGIUM",
+              "fr": "BELGIQUE",
+              "es": "BÉLGICA"
+            },
+            "network_name": "Unisource Belgium X.25 Service"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "1021": {
+    "actions": [
+      {
+        "action_type": "ADD",
+        "position": "P 13",
+        "country": "United States",
+        "caption": "Country/Area — DNIC No. — Name of network to which a DNIC is allocated",
+        "description": "P 13 United States ADD",
+        "entries": [
+          {
+            "dnic_number": "316 3",
+            "country_or_area": {
+              "fr": "ETATS-UNIS UNITED STATES ESTADOS UNIDOS"
+            },
+            "network_name": "Konnect, LLC – International data network"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "1023": {
+    "actions": [
+      {
+        "action_type": "SUP",
+        "position": "P 26",
+        "country": "SWITZERLAND",
+        "caption": "Country/Area — DNIC No. — Name of network to which a DNIC is allocated",
+        "description": "P 26 SWITZERLAND SUP",
+        "entries": [
+          {
+            "dnic_number": "228 3",
+            "country_or_area": {
+              "en": "SWITZERLAND",
+              "fr": "SUISSE",
+              "es": "SUIZA"
+            },
+            "network_name": "Bebbicell AG"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "1027": {
+    "actions": [
+      {
+        "action_type": "ADD",
+        "position": "P 26",
+        "country": "Ukraine",
+        "caption": "Country/Area — DNIC No. — Name of network to which a DNIC is allocated",
+        "description": "P 26 Ukraine ADD",
+        "entries": [
+          {
+            "dnic_number": "255 1",
+            "country_or_area": {
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
+            },
+            "network_name": "bkcNET (RADIOCONNECT Ltd)"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "1054": {
+    "actions": [
+      {
+        "action_type": "LIR",
+        "country": "SENEGAL",
+        "caption": "Country/Area — DNIC No. — Name of network to which a DNIC is allocated",
+        "description": "SENEGAL LIR",
+        "entries": [
+          {
+            "dnic_number": "608 1",
+            "country_or_area": {
+              "en": "SENEGAL",
+              "fr": "SÉNÉGAL"
+            },
+            "network_name": "SENPAC/Orange (Sonatel)"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "1081": {
+    "actions": [
+      {
+        "action_type": "SUP",
+        "caption": "Country/Geographical area — DNIC No. — Name of network to which a DNIC is withdrawn",
+        "description": "206 1, 206 2, 206 4, 206 5, 206 8 and 206 9 SUP",
+        "entries": [
+          {
+            "dnic_number": "206 1",
+            "country_or_area": {
+              "fr": "BELGIQUE"
+            },
+            "network_name": "Proximus"
+          },
+          {
+            "dnic_number": "206 2",
+            "country_or_area": {
+              "fr": "BELGIUM"
+            },
+            "network_name": "Proximus - Réseau de transmission de données à commutation par paquets (DCS)"
+          },
+          {
+            "dnic_number": "206 4",
+            "country_or_area": {
+              "fr": "BÉLGICA"
+            },
+            "network_name": "Proximus - CODENET"
+          },
+          {
+            "dnic_number": "206 5",
+            "country_or_area": {
+              "fr": "BÉLGICA"
+            },
+            "network_name": "Proximus - (Le code est utilisé au niveau national pour le réseau DCS)"
+          },
+          {
+            "dnic_number": "206 8",
+            "country_or_area": {
+              "fr": "BÉLGICA"
+            },
+            "network_name": "Proximus - Accès au réseau DCS via le réseau télex commuté national"
+          },
+          {
+            "dnic_number": "206 9",
+            "country_or_area": {
+              "fr": "BÉLGICA"
+            },
+            "network_name": "Proximus - Accès au réseau DCS via le réseau téléphonique commuté national"
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "(Annex to ITU Operational Bulletin No. 977 – 1.IV.2011) (Amendment No. 8)"
+    ]
+  },
+  "1098": {
+    "actions": [
+      {
+        "action_type": "LIR",
+        "country": "SENEGAL",
+        "caption": "Country/Area — DNIC No. — Name of network to which a DNIC is allocated",
+        "description": "SENEGAL LIR",
+        "entries": [
+          {
+            "dnic_number": "608 1",
+            "country_or_area": {
+              "en": "SENEGAL",
+              "fr": "SÉNÉGAL"
+            },
+            "network_name": "SENPAC/Sonatel (Orange)"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "1129": {
+    "actions": [
+      {
+        "action_type": "REP",
+        "position": "P 14",
+        "country": "Japan",
+        "caption": "Country/Geographical area — DNIC No. — Name of network to which a DNIC is allocated",
+        "description": "P 14 Japan REP all information by:",
+        "entries": [
+          {
+            "dnic_number": "440 1",
+            "country_or_area": {
+              "fr": "JAPON"
+            },
+            "network_name": "DDX-P (NTT Communications Corporation)"
+          },
+          {
+            "dnic_number": "440 2",
+            "country_or_area": {
+              "fr": "JAPAN"
+            },
+            "network_name": "NEC-NET (NEC Corporation)"
+          },
+          {
+            "dnic_number": "440 5",
+            "country_or_area": {
+              "fr": "JAPÓN"
+            },
+            "network_name": "NCC-VAN (Nomura Research Institute, Ltd.)"
+          },
+          {
+            "dnic_number": "441 7",
+            "country_or_area": {
+              "fr": "JAPÓN"
+            },
+            "network_name": "TIS-Net (TIS Inc.)"
+          },
+          {
+            "dnic_number": "441 8",
+            "country_or_area": {
+              "fr": "JAPÓN"
+            },
+            "network_name": "TG-VAN (TOSHIBA Corporation)"
+          },
+          {
+            "dnic_number": "442 4",
+            "country_or_area": {
+              "fr": "JAPÓN"
+            },
+            "network_name": "SITA NETWORK"
+          },
+          {
+            "dnic_number": "442 5",
+            "country_or_area": {
+              "fr": "JAPÓN"
+            },
+            "network_name": "GLOBAL MANAGED DATA SERVICE (Cable & Wireless IDC-Si)"
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "See also pages 4-5 of this ITU Operational Bulletin No. 1129."
+    ]
+  },
+  "1179": {
+    "actions": [
+      {
+        "action_type": "SUP",
+        "position": "P 13 216 1",
+        "caption": "Country/Area — DNIC No — Name of network to which a DNIC is allocated",
+        "description": "P 13 216 1 SUP",
+        "entries": [
+          {
+            "dnic_number": "216 1",
+            "country_or_area": {
+              "en": "HUNGARY",
+              "fr": "HONGRIE",
+              "es": "HUNGRÍA"
+            },
+            "network_name": "Packet Switched Data Service 1)",
+            "note": "1)use internally, see OB 965"
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "See also Data Transmission Service message in this ITU Operational Bulletin No. 1179"
+    ]
+  },
+  "1273": {
+    "actions": [
+      {
+        "action_type": "ADD",
+        "country": "United States",
+        "caption": "Country/Area — DNIC No. — Name of network to which a DNIC is allocated",
+        "description": "United States ADD",
+        "entries": [
+          {
+            "dnic_number": "310 0",
+            "country_or_area": {
+              "en": "UNITED STATES",
+              "fr": "ÉTATS-UNIS",
+              "es": "ESTADOS UNIDOS"
+            },
+            "network_name": "EMARCONI"
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "See also pages 5 and 6 of the present ITU Operational Bulletin No. 1273 of 1.VIII.2023."
+    ]
+  },
+  "1314": {
+    "actions": [
+      {
+        "action_type": "SUP",
+        "country": "Spain",
+        "caption": "Country/Area — DNIC No. — Name of network to which a DNIC is allocated",
+        "description": "Spain SUP",
+        "entries": [
+          {
+            "dnic_number": "214 1",
+            "country_or_area": {
+              "en": "SPAIN",
+              "fr": "ESPAGNE",
+              "es": "ESPAÑA"
+            },
+            "network_name": "Telefónica de España, S.A.U. (formerly Nodo internacional de datos)"
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "See page 8 of the present Operational Bulletin No. 1314 of 15.IV.2025."
+    ]
+  },
+  "982": {
+    "actions": [
+      {
+        "action_type": "SUP",
+        "position": "P 23 230 30",
+        "caption": "Country/Area — DNIC No. — Name of network to which a DNIC is allocated",
+        "description": "P 23 230 30 SUP",
+        "entries": [
+          {
+            "dnic_number": "230 30",
+            "country_or_area": {
+              "fr": "RÉP. TCHÈQUE CZECH REP. REP. CHECA"
+            },
+            "network_name": "G-NET"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  },
+  "998": {
+    "actions": [
+      {
+        "action_type": "SUP",
+        "position": "P 21 240 2",
+        "caption": "Country/Area — DNIC No. — Name of network to which a DNIC is withdrawn",
+        "description": "P21 240 2 SUP",
+        "entries": [
+          {
+            "dnic_number": "240 2",
+            "country_or_area": {
+              "en": "SWEDEN",
+              "fr": "SUÈDE",
+              "es": "SUECIA"
+            },
+            "network_name": "WM-data Infrastructur"
+          }
+        ]
+      }
+    ],
+    "notes": []
+  }
+}
