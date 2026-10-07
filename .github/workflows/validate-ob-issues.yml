@@ -1,0 +1,36 @@
+name: Validate OB Issues
+
+on:
+  pull_request:
+    paths:
+      - 'datasets/**'
+      - 'ob-issues/**'
+      - 'scripts/validate_references.rb'
+      - 'scripts/build_ob_issues.rb'
+  push:
+    branches: [ main ]
+    paths:
+      - 'datasets/**'
+      - 'ob-issues/**'
+      - 'scripts/validate_references.rb'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3'
+        bundler-cache: true
+
+    - name: Validate dataset shapes
+      run: bundle exec ituob dataset validate
+
+    - name: Cross-reference validation
+      run: bundle exec ruby scripts/validate_references.rb
