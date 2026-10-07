@@ -1,0 +1,45 @@
+type: REP
+date_requested:
+date_active:
+ob_issue_no: '1129'
+reference: OB-1129
+identifier:
+  code: P 14
+data:
+  _class: X121DNICAmendment
+  position: P 14
+  country: Japan
+  description: 'P 14 Japan REP all information by:'
+  caption: Country/Geographical area — DNIC No. — Name of network to which a DNIC
+    is allocated
+  entries:
+  - dnic_number: 440 1
+    country_or_area:
+      fr: JAPON
+    network_name: DDX-P (NTT Communications Corporation)
+  - dnic_number: 440 2
+    country_or_area:
+      fr: JAPAN
+    network_name: NEC-NET (NEC Corporation)
+  - dnic_number: 440 5
+    country_or_area:
+      fr: JAPÓN
+    network_name: NCC-VAN (Nomura Research Institute, Ltd.)
+  - dnic_number: 441 7
+    country_or_area:
+      fr: JAPÓN
+    network_name: TIS-Net (TIS Inc.)
+  - dnic_number: 441 8
+    country_or_area:
+      fr: JAPÓN
+    network_name: TG-VAN (TOSHIBA Corporation)
+  - dnic_number: 442 4
+    country_or_area:
+      fr: JAPÓN
+    network_name: SITA NETWORK
+  - dnic_number: 442 5
+    country_or_area:
+      fr: JAPÓN
+    network_name: GLOBAL MANAGED DATA SERVICE (Cable & Wireless IDC-Si)
+  notes:
+  - See also pages 4-5 of this ITU Operational Bulletin No. 1129.

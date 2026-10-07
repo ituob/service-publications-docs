@@ -1,0 +1,23 @@
+type: ADD
+date_requested: &1 2017-06-01
+date_active: *1
+ob_issue_no: '1169'
+reference: OB-1169
+identifier:
+  code: ''
+data:
+  _class: Q708SANCAmendment
+  position: ''
+  entries:
+  - code: 7-208
+    area_or_network:
+      en: Sweden
+    note:
+      en: |-
+        SANC:    Signalling Area/Network Code.
+        Code de zone/réseau sémaphore (CZRS).
+        Código de zona/red de señalización (CZRS).
+  notes:
+  - 'SANC:    Signalling Area/Network Code.'
+  - Code de zone/réseau sémaphore (CZRS).
+  - Código de zona/red de señalización (CZRS).

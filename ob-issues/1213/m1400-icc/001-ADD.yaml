@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1213'
+reference: OB-1213
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Alnitak GmbH
+    address_line_1: Friedrichstrasse 78
+    address_line_2: D-10117 BERLIN
+    carrier_code: ALNITA
+    contact: Mr Robert Gruettner
+    tel: "+49 30 22385050"
+    fax: "+49 30 22385051"
+  notes: []

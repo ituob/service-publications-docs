@@ -1,0 +1,42 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1190'
+reference: OB-1190
+identifier:
+  code: 1190-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Estonia    ADD
+    networks: " "
+  - mcc_mnc_codes: 248 17
+    networks: Baltergo OÜ
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Turks and Caicos Islands    SUP
+    networks: " "
+  - mcc_mnc_codes: 376 352
+    networks: IslandCom Communication Ltd.
+  - mcc_mnc_codes: 376 360
+    networks: IslandCom Communication Ltd
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Turks and Caicos Islands    ADD
+    networks: " "
+  - mcc_mnc_codes: 376 351
+    networks: Digicel TCI Ltd
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Trial of a proposed new international telecommunication service, shared
+        code   LIR
+    networks: " "
+  - mcc_mnc_codes: 991 01
+    networks: World's Global Telecom (temporary assignment for trial until 14.I.2021)
+  notes:
+  - "*    MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

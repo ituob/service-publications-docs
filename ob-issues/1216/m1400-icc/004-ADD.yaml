@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1216'
+reference: OB-1216
+identifier:
+  code: 1216-004
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: SachsenGigaBit GmbH
+    address_line_1: Friedrich-List-Platz 2
+    address_line_2: D-01069 DRESDEN
+    carrier_code: GIGA
+    contact: Mr Andre Winterling
+    tel: "+49 351 468 4669"
+    fax: "+49 351 468 4662"
+  notes: []

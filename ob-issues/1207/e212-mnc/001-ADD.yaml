@@ -1,0 +1,29 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1207'
+reference: OB-1207
+identifier:
+  code: 1207-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Brazil ADD
+    networks: " "
+  - mcc_mnc_codes: 724 21
+    networks: LIGUE
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Kenya ADD
+    networks: " "
+  - mcc_mnc_codes: 639 11
+    networks: Jambo Telcoms Limited
+  - mcc_mnc_codes: 639 12
+    networks: Infura Limited
+  notes:
+  - "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile /
+    Indicativo de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

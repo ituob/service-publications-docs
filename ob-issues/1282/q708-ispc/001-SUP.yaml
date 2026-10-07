@@ -1,0 +1,27 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1282'
+reference: OB-1282
+identifier:
+  code: 1282-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-146-5
+    country:
+      en: Ireland
+    dec: '5269'
+    signal_point_name: East Wall Dublin
+    signal_point_operator: Colt Technology Services Limited (formerly Colt Telecommunications)
+  - ipsc: 2-146-6
+    country:
+      en: Ireland
+    dec: '5270'
+    signal_point_name: East Wall Dublin
+    signal_point_operator: Colt Technology Services Limited (formerly Colt Telecommunications)
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

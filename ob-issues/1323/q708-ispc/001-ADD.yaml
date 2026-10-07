@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1323'
+reference: OB-1323
+identifier:
+  code: 1323-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-096-4
+    country:
+      en: Cook Islands
+    dec: '11012'
+    signal_point_name: ARO-MSS
+    signal_point_operator: Telecom Cook Islands
+  - ipsc: 5-096-5
+    country:
+      en: Cook Islands
+    dec: '11013'
+    signal_point_name: AVR-MSS
+    signal_point_operator: Telecom Cook Islands

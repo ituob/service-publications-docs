@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '993'
+reference: OB-993
+identifier:
+  code: P 3
+data:
+  _class: Q708ISPCAmendment
+  position: P 3
+  entries:
+  - ipsc: 4-137-4
+    country:
+      en: Afghanistan
+    dec: '9292'
+    signal_point_name: KBL1 MSC
+    signal_point_operator: Etisalat
+  - ipsc: 4-137-5
+    country:
+      en: Afghanistan
+    dec: '9293'
+    signal_point_name: KBL2 MSC
+    signal_point_operator: Etisalat
+  - ipsc: 4-137-6
+    country:
+      en: Afghanistan
+    dec: '9294'
+    signal_point_name: STP1
+    signal_point_operator: Etisalat
+  - ipsc: 4-137-7
+    country:
+      en: Afghanistan
+    dec: '9295'
+    signal_point_name: STP2
+    signal_point_operator: Etisalat
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

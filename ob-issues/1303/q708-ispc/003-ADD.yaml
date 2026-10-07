@@ -1,0 +1,63 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1303'
+reference: OB-1303
+identifier:
+  code: 1303-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-174-1
+    country:
+      en: United Kingdom
+    dec: '5489'
+    signal_point_name: Ernie
+    signal_point_operator: 3 G TELECOMMUNICATIONS LIMITED
+  - ipsc: 4-229-6
+    country:
+      en: United Kingdom
+    dec: '10030'
+    signal_point_name: ISTP-3
+    signal_point_operator: TP GLOBAL OPERATIONS LIMITED
+  - ipsc: 5-227-3
+    country:
+      en: United Kingdom
+    dec: '12059'
+    signal_point_name: ISTP-4
+    signal_point_operator: TP GLOBAL OPERATIONS LIMITED
+  - ipsc: 6-242-7
+    country:
+      en: United Kingdom
+    dec: '14231'
+    signal_point_name: ISTP-1
+    signal_point_operator: TP GLOBAL OPERATIONS LIMITED
+  - ipsc: 6-252-6
+    country:
+      en: United Kingdom
+    dec: '14310'
+    signal_point_name: ISTP-2
+    signal_point_operator: TP GLOBAL OPERATIONS LIMITED
+  - ipsc: 7-229-4
+    country:
+      en: United Kingdom
+    dec: '16172'
+    signal_point_name: ISTP-5
+    signal_point_operator: TP GLOBAL OPERATIONS LIMITED
+  - ipsc: 7-234-1
+    country:
+      en: United Kingdom
+    dec: '16209'
+    signal_point_name: Volta-STP3
+    signal_point_operator: BRINGO GROUP LTD
+  - ipsc: 7-234-5
+    country:
+      en: United Kingdom
+    dec: '16213'
+    signal_point_name: Volta-STP4
+    signal_point_operator: BRINGO GROUP LTD
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

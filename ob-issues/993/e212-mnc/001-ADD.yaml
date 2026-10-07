@@ -1,0 +1,25 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '993'
+reference: OB-993
+identifier:
+  code: P 17
+data:
+  _class: E212MNCAmendment
+  position: P 17
+  entries:
+  - mcc_mnc_codes: 901 34
+    country_or_area:
+      en: International Mobile, shared code
+    networks: 30.X. 2011
+    range: Tyntec GmbH
+  - mcc_mnc_codes: Globecomm Network Services
+    country_or_area:
+      en: 901 35
+    networks: 15.XI.2011
+  notes:
+  - "*         MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC: Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

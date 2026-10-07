@@ -1,0 +1,34 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1061'
+reference: OB-1061
+identifier:
+  code: 1061-005
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Dialogika Gesellschaft für angewandte Informatik mbH
+    carrier_code: DIALOG
+    contact: Mr. Rainer Kirchhoff
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Pascalschacht 1
+    contact: 'Tel.: + 49 6897 935 138'
+    tel: "+ 49 6897 935 138"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 66125 SAARBRUECKEN
+    contact: 'Fax: + 49 6897 935 438'
+    fax: "+ 49 6897 935 438"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail: rainer.kirchhoff@dialogika.de'
+    email: rainer.kirchhoff@dialogika.de
+  notes: []

@@ -1,0 +1,165 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1251'
+reference: OB-1251
+identifier:
+  code: 1251-006
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-188-2
+    country:
+      en: United Kingdom
+    dec: '5602'
+    signal_point_name: RAN1
+    signal_point_operator: BlueWave Communications
+  - ipsc: 2-190-2
+    country:
+      en: United Kingdom
+    dec: '5618'
+    signal_point_name: TEUM-INT-STP-1
+    signal_point_operator: Pareteum Europe B.V.
+  - ipsc: 2-210-4
+    country:
+      en: United Kingdom
+    dec: '5780'
+    signal_point_name: TEUM-INT-STP-2
+    signal_point_operator: Pareteum Europe B.V.
+  - ipsc: 2-211-2
+    country:
+      en: United Kingdom
+    dec: '5786'
+    signal_point_name: RAN1
+    signal_point_operator: BlueWave Communications
+  - ipsc: 3-230-6
+    country:
+      en: United Kingdom
+    dec: '7990'
+    signal_point_name: LEBSTP3
+    signal_point_operator: LEBARA LIMITED
+  - ipsc: 3-235-0
+    country:
+      en: United Kingdom
+    dec: '8024'
+    signal_point_name: Slough Colo Site (SL02)
+    signal_point_operator: Hutchison 3G UK Ltd
+  - ipsc: 3-235-1
+    country:
+      en: United Kingdom
+    dec: '8025'
+    signal_point_name: London Telehouse North 2 Colo Site (LN03)
+    signal_point_operator: Hutchison 3G UK Ltd
+  - ipsc: 3-235-2
+    country:
+      en: United Kingdom
+    dec: '8026'
+    signal_point_name: London Powergate Colo (LN02)
+    signal_point_operator: Hutchison 3G UK Ltd
+  - ipsc: 3-235-3
+    country:
+      en: United Kingdom
+    dec: '8027'
+    signal_point_name: AMCSTP3
+    signal_point_operator: AEROMOBILE COMMUNICATIONS LIMITED
+  - ipsc: 3-235-4
+    country:
+      en: United Kingdom
+    dec: '8028'
+    signal_point_name: AMCSTP4
+    signal_point_operator: AEROMOBILE COMMUNICATIONS LIMITED
+  - ipsc: 3-235-5
+    country:
+      en: United Kingdom
+    dec: '8029'
+    signal_point_name: LEBSTP4
+    signal_point_operator: LEBARA LIMITED
+  - ipsc: 4-240-0
+    country:
+      en: United Kingdom
+    dec: '10112'
+    signal_point_name: HGCUKSTP5
+    signal_point_operator: HGC Global Communications (UK) Limited
+  - ipsc: 4-240-3
+    country:
+      en: United Kingdom
+    dec: '10115'
+    signal_point_name: HGCUKSTP6
+    signal_point_operator: HGC Global Communications (UK) Limited
+  - ipsc: 4-254-6
+    country:
+      en: United Kingdom
+    dec: '10230'
+    signal_point_name: Mobile App FW
+    signal_point_operator: Sky UK Limited
+  - ipsc: 4-255-4
+    country:
+      en: United Kingdom
+    dec: '10236'
+    signal_point_name: Mobile App FW
+    signal_point_operator: Sky UK Limited
+  - ipsc: 5-243-0
+    country:
+      en: United Kingdom
+    dec: '12184'
+    signal_point_name: amsg-tchub-c01-n02
+    signal_point_operator: Annecto Telecom
+  - ipsc: 5-243-1
+    country:
+      en: United Kingdom
+    dec: '12185'
+    signal_point_name: Mobile App FW
+    signal_point_operator: Sky UK Limited
+  - ipsc: 5-248-2
+    country:
+      en: United Kingdom
+    dec: '12226'
+    signal_point_name: Mobile App FW
+    signal_point_operator: Sky UK Limited
+  - ipsc: 6-242-2
+    country:
+      en: United Kingdom
+    dec: '14226'
+    signal_point_name: Mobile App FW
+    signal_point_operator: Sky UK Limited
+  - ipsc: 6-242-5
+    country:
+      en: United Kingdom
+    dec: '14229'
+    signal_point_name: Mobile App FW
+    signal_point_operator: Sky UK Limited
+  - ipsc: 6-254-0
+    country:
+      en: United Kingdom
+    dec: '14320'
+    signal_point_name: STP-1 Volta
+    signal_point_operator: BRINGO GROUP LTD
+  - ipsc: 6-254-1
+    country:
+      en: United Kingdom
+    dec: '14321'
+    signal_point_name: STP-2 Volta
+    signal_point_operator: BRINGO GROUP LTD
+  - ipsc: 7-224-3
+    country:
+      en: United Kingdom
+    dec: '16131'
+    signal_point_name: atl-uk01-stp-01
+    signal_point_operator: Annecto Telecom
+  - ipsc: 7-234-0
+    country:
+      en: United Kingdom
+    dec: '16208'
+    signal_point_name: Stour Marine 3
+    signal_point_operator: Stour Marine Limited
+  - ipsc: 7-237-1
+    country:
+      en: United Kingdom
+    dec: '16233'
+    signal_point_name: Alaris_002
+    signal_point_operator: Protel S.A.L offshore
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

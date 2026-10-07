@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1290'
+reference: OB-1290
+identifier:
+  code: 1290-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-066-3
+    country:
+      en: Seychelles
+    dec: '12819'
+    signal_point_name: CWS_TH_USC01
+    signal_point_operator: Cable and Wireless (Seychelles) Ltd.
+  - ipsc: 6-067-1
+    country:
+      en: Seychelles
+    dec: '12825'
+    signal_point_name: CWS_SLH_USC01
+    signal_point_operator: Cable and Wireless (Seychelles) Ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

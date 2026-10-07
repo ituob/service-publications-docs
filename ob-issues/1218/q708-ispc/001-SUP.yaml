@@ -1,0 +1,57 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1218'
+reference: OB-1218
+identifier:
+  code: 1218-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-111-0
+    country:
+      en: Hong Kong, China
+    dec: '9080'
+    signal_point_name: CCS1582
+    signal_point_operator: 1582HK Ltd
+  - ipsc: 4-176-2
+    country:
+      en: Hong Kong, China
+    dec: '9602'
+    signal_point_name: China Virtual (HR) Ltd
+    signal_point_operator: China Virtual (Hong Kong) Ltd
+  - ipsc: 4-180-2
+    country:
+      en: Hong Kong, China
+    dec: '9634'
+    signal_point_name: PIDD
+    signal_point_operator: Pacific IDD Ltd
+  - ipsc: 4-181-4
+    country:
+      en: Hong Kong, China
+    dec: '9644'
+    signal_point_name: HKGW02
+    signal_point_operator: China Virtual (Hong Kong) Ltd
+  - ipsc: 4-182-0
+    country:
+      en: Hong Kong, China
+    dec: '9648'
+    signal_point_name: MARU
+    signal_point_operator: Maruma Networks Ltd
+  - ipsc: 4-183-2
+    country:
+      en: Hong Kong, China
+    dec: '9658'
+    signal_point_name: TWHK01
+    signal_point_operator: Telewhite (HK) Ltd
+  - ipsc: 4-183-6
+    country:
+      en: Hong Kong, China
+    dec: '9662'
+    signal_point_name: CMTHK01
+    signal_point_operator: CMMobile Global Communications Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

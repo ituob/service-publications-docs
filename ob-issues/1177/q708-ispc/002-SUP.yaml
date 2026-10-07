@@ -1,0 +1,47 @@
+type: SUP
+date_requested:
+date_active:
+ob_issue_no: '1177'
+reference: OB-1177
+identifier:
+  code: 1177-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-167-3
+    country:
+      en: United Kingdom
+    dec: '5435'
+    signal_point_name: SU_UK1
+    signal_point_operator: SuperLINE Telecommunications Ltd
+  - ipsc: 2-167-4
+    country:
+      en: United Kingdom
+    dec: '5436'
+    signal_point_name: SU_UK2
+    signal_point_operator: SuperLINE Telecommunications Ltd
+  - ipsc: 2-188-4
+    country:
+      en: United Kingdom
+    dec: '5604'
+    signal_point_name: LDNSTP1
+    signal_point_operator: SMSRelay AG
+  - ipsc: 2-188-5
+    country:
+      en: United Kingdom
+    dec: '5605'
+    signal_point_name: LDNSTP2
+    signal_point_operator: SMSRelay AG
+  - ipsc: 2-188-6
+    country:
+      en: United Kingdom
+    dec: '5606'
+    signal_point_name: MSC1
+    signal_point_operator: SMSRelay AG
+  - ipsc: 5-227-4
+    country:
+      en: United Kingdom
+    dec: '12060'
+    signal_point_name: Croydon 1
+    signal_point_operator: SOS Technology Limited
+  notes: []

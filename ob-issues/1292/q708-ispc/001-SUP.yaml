@@ -1,0 +1,81 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1292'
+reference: OB-1292
+identifier:
+  code: 1292-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-038-4
+    country:
+      en: Germany
+    dec: '4404'
+    signal_point_name: Düsseldorf
+    signal_point_operator: Ventelo GmbH
+  - ipsc: 2-123-5
+    country:
+      en: Germany
+    dec: '5085'
+    signal_point_name: Düsseldorf
+    signal_point_operator: Ventelo GmbH
+  - ipsc: 2-242-4
+    country:
+      en: Germany
+    dec: '6036'
+    signal_point_name: Frankfurt
+    signal_point_operator: Ventelo GmbH
+  - ipsc: 2-242-5
+    country:
+      en: Germany
+    dec: '6037'
+    signal_point_name: Frankfurt
+    signal_point_operator: Ventelo GmbH
+  - ipsc: 2-245-5
+    country:
+      en: Germany
+    dec: '6061'
+    signal_point_name: Frankfurt
+    signal_point_operator: Ventelo GmbH
+  - ipsc: 2-247-7
+    country:
+      en: Germany
+    dec: '6079'
+    signal_point_name: Mannheim
+    signal_point_operator: Ventelo GmbH
+  - ipsc: 2-251-7
+    country:
+      en: Germany
+    dec: '6111'
+    signal_point_name: Düsseldorf
+    signal_point_operator: Ventelo GmbH
+  - ipsc: 2-252-2
+    country:
+      en: Germany
+    dec: '6114'
+    signal_point_name: Essen
+    signal_point_operator: Ventelo GmbH
+  - ipsc: 2-252-3
+    country:
+      en: Germany
+    dec: '6115'
+    signal_point_name: Hannover
+    signal_point_operator: Ventelo GmbH
+  - ipsc: 2-252-4
+    country:
+      en: Germany
+    dec: '6116'
+    signal_point_name: Leinfelden-Echterdingen
+    signal_point_operator: Ventelo GmbH
+  - ipsc: 4-244-5
+    country:
+      en: Germany
+    dec: '10149'
+    signal_point_name: Hannover
+    signal_point_operator: Limitless Mobile GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

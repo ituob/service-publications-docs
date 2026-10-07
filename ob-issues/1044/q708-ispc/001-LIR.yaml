@@ -1,0 +1,51 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '1044'
+reference: OB-1044
+identifier:
+  code: 1044-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-081-1
+    country:
+      en: Sweden
+    dec: '4745'
+    signal_point_name: UR1 STX (Stockholm)
+    signal_point_operator: TeliaSonera Sverige AB
+  - ipsc: 2-081-2
+    country:
+      en: Sweden
+    dec: '4746'
+    signal_point_name: UR2 STX (Stockholm)
+    signal_point_operator: TeliaSonera Sverige AB
+  - ipsc: 2-082-0
+    country:
+      en: Sweden
+    dec: '4752'
+    signal_point_name: RIX1
+    signal_point_operator: Phonera Företag AB
+  - ipsc: 2-082-7
+    country:
+      en: Sweden
+    dec: '4759'
+    signal_point_name: STHTELINT-1 (Stockholm)
+    signal_point_operator: IP-Only Telecommunication Networks AB
+  - ipsc: 2-194-0
+    country:
+      en: Sweden
+    dec: '5648'
+    signal_point_name: SOLTELINT-1 (Sollefteä)
+    signal_point_operator: IP-Only Telecommunication Networks AB
+  - ipsc: 6-232-5
+    country:
+      en: Sweden
+    dec: '14149'
+    signal_point_name: TIG9 MSC (Stockholm)
+    signal_point_operator: Pro Net Telecommunications Services Ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

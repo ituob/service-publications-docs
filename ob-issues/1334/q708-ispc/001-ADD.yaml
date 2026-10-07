@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1334'
+reference: OB-1334
+identifier:
+  code: 1334-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-244-1
+    country:
+      en: Estonia
+    dec: '8097'
+    signal_point_name: TLQ1
+    signal_point_operator: TELIQON COMMUNICATIONS OÜ
+  - ipsc: 7-247-2
+    country:
+      en: Switzerland
+    dec: '16314'
+    signal_point_name: Solothurn
+    signal_point_operator: BSE Software GmbH

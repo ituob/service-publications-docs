@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1244'
+reference: OB-1244
+identifier:
+  code: 1244-005
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-232-5
+    country:
+      en: Slovenia
+    dec: '10053'
+    signal_point_name: MGW2 T-2 Mobile T-2 d.o.o
+    signal_point_operator: T-2 d.o.o.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

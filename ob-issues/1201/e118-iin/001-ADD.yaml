@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1201'
+reference: OB-1201
+identifier:
+  code: 1201-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: France
+    company_name: Coriolis Telecom S.A.S.
+    company_address_1: 2, rue du Capitaine Scott
+    company_address_2: 75015 Paris
+    contact: Luc Chonkel
+    contact_address_1: 2, rue du Capitaine Scott
+    contact_address_2: 75015 Paris
+    tel:
+    - "+33 1 41 45 57 01"
+    email:
+    - lucchonkel@coriolis.fr
+    issue_id_number: 89 33 27
+    effective_date: 1.VII.2020
+  notes: []

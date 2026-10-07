@@ -1,0 +1,39 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1266'
+reference: OB-1266
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: HAKOM Enterprise Communications GmbH
+    address_line_1: Benno-Strauss-Str. 7
+    address_line_2: D-90763 FUERTH
+    carrier_code: HAKOM
+    contact: Mr Alexander Hahn
+    tel: "+49 911 4771660"
+    fax: "+49 911 47716690"
+  - country_or_area:
+      en: Germany
+    company_name: myLoc managed IT AG
+    address_line_1: Am Gatherhof 44
+    address_line_2: D-40472 DÜSSELDORF
+    carrier_code: WIIT
+    contact: Mr Peter Hansen
+    tel: "+49 211 617080"
+    fax: "+49 211 61708556"
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Nürtingen GmbH
+    address_line_1: Porschestr. 5-9
+    address_line_2: D-72622 NUERTINGEN
+    carrier_code: SWN726
+    contact: Goetz Bantleon
+    tel: "+49 7022 406628"
+    fax: "+49 7022 406123"
+  notes: []

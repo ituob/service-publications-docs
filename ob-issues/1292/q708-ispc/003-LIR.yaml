@@ -1,0 +1,27 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1292'
+reference: OB-1292
+identifier:
+  code: 1292-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-247-0
+    country:
+      en: Germany
+    dec: '6072'
+    signal_point_name: Hamburg
+    signal_point_operator: thyssenkrupp Technologies Beteiligungen GmbH
+  - ipsc: 4-246-3
+    country:
+      en: Germany
+    dec: '10163'
+    signal_point_name: Frankfurt
+    signal_point_operator: Alo Vatan Telefondienste GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

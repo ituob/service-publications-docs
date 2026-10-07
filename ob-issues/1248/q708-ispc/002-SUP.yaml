@@ -1,0 +1,51 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1248'
+reference: OB-1248
+identifier:
+  code: 1248-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-035-4
+    country:
+      en: United States
+    dec: '6428'
+    signal_point_name: Newark, NJ
+    signal_point_operator: TotalTel
+  - ipsc: 3-053-3
+    country:
+      en: United States
+    dec: '6571'
+    signal_point_name: New York, NY
+    signal_point_operator: Dial-Around Telecom, Inc
+  - ipsc: 3-184-0
+    country:
+      en: United States
+    dec: '7616'
+    signal_point_name: New York, NY
+    signal_point_operator: Tricom USA, Inc
+  - ipsc: 3-185-4
+    country:
+      en: United States
+    dec: '7628'
+    signal_point_name: Miami, FL
+    signal_point_operator: IDS Telcom
+  - ipsc: 3-187-3
+    country:
+      en: United States
+    dec: '7643'
+    signal_point_name: Miami, FL
+    signal_point_operator: Tricom USA, Inc
+  - ipsc: 3-194-4
+    country:
+      en: United States
+    dec: '7700'
+    signal_point_name: Miami, FL
+    signal_point_operator: Latin Node, Inc
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

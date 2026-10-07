@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1018'
+reference: OB-1018
+identifier:
+  code: P 82
+data:
+  _class: Q708ISPCAmendment
+  position: P 82
+  entries:
+  - ipsc: 7-231-0
+    country:
+      en: Norway
+    dec: '16184'
+    signal_point_name: HMG9-MSS01
+    signal_point_operator: Ventelo AS
+  - ipsc: 7-231-1
+    country:
+      en: Norway
+    dec: '16185'
+    signal_point_name: HMG9-MGW01
+    signal_point_operator: Ventelo AS
+  - ipsc: 7-231-2
+    country:
+      en: Norway
+    dec: '16186'
+    signal_point_name: SIG14-MSS02
+    signal_point_operator: Ventelo AS
+  - ipsc: 7-231-3
+    country:
+      en: Norway
+    dec: '16187'
+    signal_point_name: SIG14-MGW02
+    signal_point_operator: Ventelo AS
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

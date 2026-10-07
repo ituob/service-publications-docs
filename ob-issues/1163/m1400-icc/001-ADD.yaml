@@ -1,0 +1,61 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1163'
+reference: OB-1163
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: EWR Aktiengesellschaft
+    address_line_1: Lutherring 5
+    address_line_2: 67547 WORMS
+    carrier_code: EWRAG
+    contact: Mr Thorsten Volz
+    tel: "+49 6241 848 328"
+    fax: "+49 6241 848 500"
+    email: volz@ewr.de
+  - country_or_area:
+      en: Germany
+    company_name: FairNetz GmbH
+    address_line_1: Hauffstrasse 89
+    address_line_2: 72762 REUTLINGEN
+    carrier_code: FNETRT
+    contact: Mr Erwin Romeser
+    tel: "+49 7121 5823250"
+    fax: "+49 7121 5823114"
+    email: erwin.romeser@fairnetzgmbh.de
+  - country_or_area:
+      en: Germany
+    company_name: LWLcom GmbH
+    address_line_1: Ladestrasse 35a
+    address_line_2: 28197 BREMEN
+    carrier_code: LWLCOM
+    contact: Mr Simon Frerichs
+    tel: "+49 421 9888878"
+    fax: "+49 421 9888899"
+    email: support@lwlcom.com
+  - country_or_area:
+      en: Germany
+    company_name: nvb Nordhorner Versorgungsbetriebe GmbH
+    address_line_1: Gildkamp 10
+    address_line_2: 48529 NORDHORN
+    carrier_code: '130010'
+    contact: Mr Frank Beernink
+    tel: "+49 5921 301 254"
+    email: frank.beernink@nvb.de
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Rostock AG
+    address_line_1: Schmarler Damm 5
+    address_line_2: 18069 ROSTOCK
+    carrier_code: SWRAG
+    contact: Mr Hubert Enders
+    tel: "+49 381 805 1765"
+    fax: "+49 381 805 2701"
+    email: provider@swrag.de
+  notes: []

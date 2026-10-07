@@ -1,0 +1,24 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '981'
+reference: OB-981
+identifier:
+  code: P 4
+data:
+  _class: E212MNCAmendment
+  position: P 4
+  entries:
+  - mcc_mnc_codes: 505 62
+    country_or_area:
+      en: Australia 
+    networks: NBNCo Limited
+  - mcc_mnc_codes: 505 68
+    country_or_area:
+      en: " "
+    networks: NBNCo Limited
+  notes:
+  - "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"
+  - 'MNC: Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

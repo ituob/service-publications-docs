@@ -1,0 +1,41 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1215'
+reference: OB-1215
+identifier:
+  code: 1215-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-026-3
+    country:
+      en: Panama
+    dec: '14547'
+    signal_point_name: NetUno INT
+    signal_point_operator: Telecomunicaciones NetUno de Panama SA
+  - ipsc: 7-028-4
+    country:
+      en: Panama
+    dec: '14564'
+    signal_point_name: BSC
+    signal_point_operator: Telefónica Móviles de Panamá
+  - ipsc: 7-031-0
+    country:
+      en: Panama
+    dec: '14584'
+    signal_point_name: BTPTY1
+    signal_point_operator: Telecomunicaciones NetUno de Panama SA
+  - ipsc: 7-031-3
+    country:
+      en: Panama
+    dec: '14587'
+    signal_point_name: PANSL 2M
+    signal_point_operator: Telefónica Móviles de Panamá
+  - ipsc: 7-031-4
+    country:
+      en: Panama
+    dec: '14588'
+    signal_point_name: PANSL 1P
+    signal_point_operator: Telefónica Móviles de Panamá
+  notes: []

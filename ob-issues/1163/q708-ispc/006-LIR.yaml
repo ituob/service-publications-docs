@@ -1,0 +1,45 @@
+type: LIR
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1163'
+reference: OB-1163
+identifier:
+  code: 1163-006
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-095-1
+    country:
+      en: Zimbabwe
+    dec: '13049'
+    signal_point_name: Econet Pockets Hill STP
+    signal_point_operator: Econet
+  - ipsc: 6-095-2
+    country:
+      en: Zimbabwe
+    dec: '13050'
+    signal_point_name: Econet Willowvale STP
+    signal_point_operator: Econet
+  - ipsc: 6-095-3
+    country:
+      en: Zimbabwe
+    dec: '13051'
+    signal_point_name: HRE-ZTE-MSC1-2
+    signal_point_operator: NetOne (Pvt) Ltd
+  - ipsc: 6-096-5
+    country:
+      en: Zimbabwe
+    dec: '13061'
+    signal_point_name: Econet Pockets Hill GMSC
+    signal_point_operator: Econet Wireless
+  - ipsc: 6-097-0
+    country:
+      en: Zimbabwe
+    dec: '13064'
+    signal_point_name: Econet Willowvale GMSC
+    signal_point_operator: Econet Wireless
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

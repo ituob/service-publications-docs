@@ -1,0 +1,40 @@
+type: an 
+date_requested:
+date_active:
+ob_issue_no: '997'
+reference: OB-997
+identifier:
+  code: P 29
+data:
+  _class: E212MNCAmendment
+  position: P 29
+  entries:
+  - mcc_mnc_codes: 659 92
+    country_or_area:
+      en:
+      - South Sudan
+    networks: MTN-South Sudan
+  - mcc_mnc_codes: 659 91
+    country_or_area:
+      en:
+      - South Sudan
+    networks: Zain-South Sudan
+  - mcc_mnc_codes: 659 12
+    country_or_area:
+      en:
+      - South Sudan
+    networks: Sudani/Sudatel
+  - mcc_mnc_codes: 659 97
+    country_or_area:
+      en:
+      - South Sudan
+    networks: Gemtel
+  - mcc_mnc_codes: 659 95
+    country_or_area:
+      en:
+      - South Sudan
+    networks: Vivacel/NOW
+  notes:
+  - ______________
+  - "*         MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"

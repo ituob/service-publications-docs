@@ -1,0 +1,60 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1206'
+reference: OB-1206
+identifier:
+  code: 1206-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Estonia ADD
+    networks: " "
+  - mcc_mnc_codes: 248 19
+    networks: OkTelecom OÜ
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Mexico ADD
+    networks: " "
+  - mcc_mnc_codes: 334 100
+    networks: TELECOMUNICACIONES DE MÉXICO
+  - mcc_mnc_codes: 334 110
+    networks: MAXCOM TELECOMUNICACIONES, S.A.B. DE C.V.
+  - mcc_mnc_codes: 334 120
+    networks: QUICKLY PHONE, S.A. DE C.V.
+  - mcc_mnc_codes: 334 130
+    networks: AXTEL, S.A.B. DE C.V.
+  - mcc_mnc_codes: 334 140
+    networks: ALTÁN REDES, S.A.P.I. DE C.V.
+  - mcc_mnc_codes: 334 150
+    networks: ULTRAVISIÓN, S.A. DE C.V.
+  - mcc_mnc_codes: 334 160
+    networks: CABLEVISIÓN RED, S.A. DE C.V.
+  - mcc_mnc_codes: 334 170
+    networks: OXIO MOBILE, S.A. DE C.V.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Mexico LIR
+    networks: " "
+  - mcc_mnc_codes: 334 010
+    networks: AT&T COMUNICACIONES DIGITALES, S. DE R.L. DE C.V.
+  - mcc_mnc_codes: 334 030
+    networks: PEGASO PCS, S.A. DE C.V.
+  - mcc_mnc_codes: 334 040
+    networks: AT&T NORTE, S. DE R.L. DE C.V. Y AT&T DESARROLLO EN COMUNICACIONES DE
+      MÉXICO, S. DE R.L. DE C.V.
+  - mcc_mnc_codes: 334 050
+    networks: GRUPO AT&T CELULLAR, S. DE R.L. DE C.V.
+  - mcc_mnc_codes: 334 070
+    networks: AT&T COMERCIALIZACIÓN MÓVIL, S. DE R.L. DE C.V.
+  - mcc_mnc_codes: 334 080
+    networks: AT&T COMERCIALIZACIÓN MÓVIL, S. DE R.L. DE C.V.
+  - mcc_mnc_codes: 334 090
+    networks: AT&T COMUNICACIONES DIGITALES, S. DE R.L. DE C.V.
+  notes:
+  - "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile /
+    Indicativo de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

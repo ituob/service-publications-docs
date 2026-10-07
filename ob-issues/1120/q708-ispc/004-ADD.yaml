@@ -1,0 +1,27 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1120'
+reference: OB-1120
+identifier:
+  code: 1120-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-252-5
+    country:
+      en: Germany
+    dec: '8165'
+    signal_point_name: FRA SCP1
+    signal_point_operator: TelcoVillage GmbH
+  - ipsc: 3-254-4
+    country:
+      en: Germany
+    dec: '8180'
+    signal_point_name: FRA SCP2
+    signal_point_operator: TelcoVillage GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

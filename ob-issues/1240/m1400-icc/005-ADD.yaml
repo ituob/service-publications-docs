@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1240'
+reference: OB-1240
+identifier:
+  code: 1240-005
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Onvoy Communications Limited
+    address_line_1: c/o Baker McKenzie Rechtsanwaltsgesellschaft mbH
+    address_line_2: von Rechtsanwälten und Steuerberatern
+    address_line_3: Ms. Caroline Heinickel
+    carrier_code: OCOMM
+    contact: Mr Jeff Slater
+    tel: "+1 262 357 1344"
+    fax: "+1 262 357 344"
+    email: jeff.slater@ocomm.co
+  notes: []

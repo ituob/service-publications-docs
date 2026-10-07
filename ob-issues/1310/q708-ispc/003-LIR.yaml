@@ -1,0 +1,27 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1310'
+reference: OB-1310
+identifier:
+  code: 1310-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-208-1
+    country:
+      en: Sweden
+    dec: '16001'
+    signal_point_name: TVX-STP1
+    signal_point_operator: eRate Sverige AB
+  - ipsc: 7-208-2
+    country:
+      en: Sweden
+    dec: '16002'
+    signal_point_name: TVX-STP2
+    signal_point_operator: eRate Sverige AB
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

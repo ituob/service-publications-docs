@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1240'
+reference: OB-1240
+identifier:
+  code: 1240-004
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: ONENEO GmbH
+    address_line_1: Am Alten Gericht 25
+    address_line_2: D-95131 SCHWARZENBACH AM WALD
+    carrier_code: ONENEO
+    contact: Mr Martin Pister
+    tel: "+49 9289 8575 471"
+    email: martin.pister@oneneo.de
+  notes: []

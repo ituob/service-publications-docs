@@ -1,0 +1,75 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1238'
+reference: OB-1238
+identifier:
+  code: 1238-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-088-6
+    country:
+      en: Finland
+    dec: '4806'
+    signal_point_name: Helsinki (MGTS)
+    signal_point_operator: Telia Finland Oyj
+  - ipsc: 2-089-1
+    country:
+      en: Finland
+    dec: '4809'
+    signal_point_name: Helsinki (GIWU)
+    signal_point_operator: Telia Finland Oyj
+  - ipsc: 2-089-3
+    country:
+      en: Finland
+    dec: '4811'
+    signal_point_name: Hämeenlinna (HML1 Surpass MGC)
+    signal_point_operator: Telia Finland Oyj
+  - ipsc: 2-089-7
+    country:
+      en: Finland
+    dec: '4815'
+    signal_point_name: Hyvinkää (KOE10 Surpass)
+    signal_point_operator: Telia Finland Oyj
+  - ipsc: 2-090-7
+    country:
+      en: Finland
+    dec: '4823'
+    signal_point_name: Helsinki (SMS02HKP)
+    signal_point_operator: Telia Finland Oyj
+  - ipsc: 2-091-0
+    country:
+      en: Finland
+    dec: '4824'
+    signal_point_name: Tampere (SMS03TRE)
+    signal_point_operator: Telia Finland Oyj
+  - ipsc: 2-254-0
+    country:
+      en: Finland
+    dec: '6128'
+    signal_point_name: Helsinki (HKISTP4)
+    signal_point_operator: Telia Finland Oyj
+  - ipsc: 2-254-1
+    country:
+      en: Finland
+    dec: '6129'
+    signal_point_name: Helsinki (SMS01HKI)
+    signal_point_operator: Telia Finland Oyj
+  - ipsc: 2-254-2
+    country:
+      en: Finland
+    dec: '6130'
+    signal_point_name: Helsinki (Globetel1)
+    signal_point_operator: Globetel Oy
+  - ipsc: 2-254-5
+    country:
+      en: Finland
+    dec: '6133'
+    signal_point_name: Tampere (TRESTP5)
+    signal_point_operator: Telia Finland Oyj
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

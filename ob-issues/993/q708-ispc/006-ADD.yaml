@@ -1,0 +1,34 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '993'
+reference: OB-993
+identifier:
+  code: P 36 to P 40
+data:
+  _class: Q708ISPCAmendment
+  position: P 36 to P 40
+  entries:
+  - ipsc: 2-035-3
+    country:
+      en: Germany
+    dec: '4379'
+    signal_point_name: Frankfurt
+    signal_point_operator: Cube Communication GmbH
+  - ipsc: 2-039-2
+    country:
+      en: Germany
+    dec: '4410'
+    signal_point_name: Frankfurt
+    signal_point_operator: Express Teleservice Corp.
+  - ipsc: 3-252-4
+    country:
+      en: Germany
+    dec: '8164'
+    signal_point_name: Frankfurt
+    signal_point_operator: 010040 GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

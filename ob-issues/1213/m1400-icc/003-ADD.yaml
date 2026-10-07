@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1213'
+reference: OB-1213
+identifier:
+  code: 1213-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Speyer GmbH
+    address_line_1: Georg-Peter-Süß-Strasse 2
+    address_line_2: D-67346 SPEYER
+    carrier_code: SWSP
+    contact: Mr Fabian Lorenz
+    tel: "+49 6232 625 2070"
+    fax: "+49 6232 625 482070"
+  notes: []

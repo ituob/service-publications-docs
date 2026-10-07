@@ -1,0 +1,29 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1113'
+reference: OB-1113
+identifier:
+  code: 1113-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Kiribati ADD
+    networks: " "
+  - mcc_mnc_codes: 545 01
+    networks: ATHKL
+  - mcc_mnc_codes: 545 02
+    networks: OceanLink
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code LIR
+    networks: " "
+  - mcc_mnc_codes: 901 27
+    networks: Monaco Telecom
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

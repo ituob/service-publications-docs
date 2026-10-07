@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1256'
+reference: OB-1256
+identifier:
+  code: 1256-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Rotenburg (Wümme) GmbH
+    address_line_1: Mittelweg 19
+    address_line_2: D-27356 ROTENBURG (WUEMME)
+    carrier_code: ROWTEL
+    contact: Mr Henning Meyer
+    tel: "+49 4261 675 900"
+  notes: []

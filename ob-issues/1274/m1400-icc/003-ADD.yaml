@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1274'
+reference: OB-1274
+identifier:
+  code: 1274-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: yuutel GmbH
+    address_line_1: Leonard-Bernstein-Strasse 10
+    address_line_2: A-1220 WIEN
+    address_line_3: "(Austria)"
+    carrier_code: YUUTEL
+    contact: Mr Markus Scherer
+    tel: "+43 121 451 305 30"
+    email: solutions@yuutel.at
+  notes: []

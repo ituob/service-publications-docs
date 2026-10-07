@@ -1,0 +1,39 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1136'
+reference: OB-1136
+identifier:
+  code: 1136-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-144-4
+    country:
+      en: Singapore
+    dec: '11396'
+    signal_point_name: DC1_CloudCS01
+    signal_point_operator: TPG Telecom Pte Ltd
+  - ipsc: 5-144-5
+    country:
+      en: Singapore
+    dec: '11397'
+    signal_point_name: DC2_CloudCS01
+    signal_point_operator: TPG Telecom Pte Ltd
+  - ipsc: 5-144-6
+    country:
+      en: Singapore
+    dec: '11398'
+    signal_point_name: DC1_MGW01
+    signal_point_operator: TPG Telecom Pte Ltd
+  - ipsc: 5-144-7
+    country:
+      en: Singapore
+    dec: '11399'
+    signal_point_name: DC2_MGW01
+    signal_point_operator: TPG Telecom Pte Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

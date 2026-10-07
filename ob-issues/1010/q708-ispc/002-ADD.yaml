@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1010'
+reference: OB-1010
+identifier:
+  code: P 38 to P 41
+data:
+  _class: Q708ISPCAmendment
+  position: P 38 to P 41
+  entries:
+  - ipsc: 2-038-0
+    country:
+      en: Germany
+    dec: '4400'
+    signal_point_name: Frankfurt
+    signal_point_operator: Vodafone D2 GmbH
+  - ipsc: 2-038-1
+    country:
+      en: Germany
+    dec: '4401'
+    signal_point_name: Düsseldorf
+    signal_point_operator: Vodafone D2 GmbH
+  - ipsc: 2-121-4
+    country:
+      en: Germany
+    dec: '5068'
+    signal_point_name: Eschborn
+    signal_point_operator: Vodafone D2 GmbH
+  - ipsc: 2-244-1
+    country:
+      en: Germany
+    dec: '6049'
+    signal_point_name: Düsseldorf
+    signal_point_operator: Vodafone D2 GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1225'
+reference: OB-1225
+identifier:
+  code: 1225-009
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Ansbach GmbH
+    address_line_1: Rueglaender Strasse 1
+    address_line_2: D-91522 ANSBACH
+    carrier_code: STWAN
+    contact: Mr Stefan Klement
+    tel: "+49 981 8904 267"
+    fax: "+49 981 8904 33267"
+  notes: []

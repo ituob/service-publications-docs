@@ -1,0 +1,25 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1305'
+reference: OB-1305
+identifier:
+  code: 1305-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-235-5
+    country:
+      en: Spain
+    dec: '10077'
+    signal_point_operator: Telefónica de España, S.A.U.
+  - ipsc: 4-235-6
+    country:
+      en: Spain
+    dec: '10078'
+    signal_point_operator: Telefónica de España, S.A.U.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

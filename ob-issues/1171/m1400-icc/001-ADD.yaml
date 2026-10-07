@@ -1,0 +1,31 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1171'
+reference: OB-1171
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Amtswerke Eggebek GmbH & Co.KG
+    address_line_1: Am Klinkenberg 1
+    address_line_2: D-24852 EGGEBEK
+    carrier_code: AETN
+    contact: Mrs Jana Hünefeld
+    tel: "+49 4609 95390 15"
+    email: info@amtswerke-eggebek.de
+  - country_or_area:
+      en: Germany
+    company_name: TKS Telepost Kabel-Service Kaiserslautern GmbH
+    address_line_1: Altes Forsthaus 2
+    address_line_2: D-67661 KAISERSLAUTERN
+    carrier_code: TKS1
+    contact: Mr Klaus Rock-Lesk
+    tel: "+49 631 3522275"
+    fax: "+49 631 3522801"
+    email: klaus.rock-lesk@vodafone.com
+  notes: []

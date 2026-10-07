@@ -1,0 +1,192 @@
+_class: TextAmendment
+ob_issue_no: '1335'
+reference: OB-1335
+contents:
+  type: doc
+  content:
+  - type: table
+    content:
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: Country / Geographical area
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: MCC + MNC
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: Operator / Network
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Australia   ADD
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 505 54
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: SimCorner Pty Ltd
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Costa Rica   ADD
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 712 07
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: RING CENTRALES DE COSTA RICA S.A.
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Germany   ADD
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 262 26
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Simsalasim Germany GmbH
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Germany   LIR
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 262 21
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: spusu Deutschland GmbH
+  - type: paragraph
+    content:
+    - type: text
+      text: 'MCC: Mobile Country Code'
+    - type: hard_break
+    - type: text
+      text: 'MNC: Mobile Network Code'
+note: Filled from source ProseMirror content after parser produced no structured actions

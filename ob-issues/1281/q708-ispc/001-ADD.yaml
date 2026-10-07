@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1281'
+reference: OB-1281
+identifier:
+  code: 1281-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-222-1
+    country:
+      en: Malta
+    dec: '16113'
+    signal_point_name: Melita-STP01
+    signal_point_operator: Melita Ltd
+  - ipsc: 7-222-2
+    country:
+      en: Malta
+    dec: '16114'
+    signal_point_name: Melita-STP02
+    signal_point_operator: Melita Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

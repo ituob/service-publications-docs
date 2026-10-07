@@ -1,0 +1,29 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1235'
+reference: OB-1235
+identifier:
+  code: 1235-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Barbados     ADD
+    networks: " "
+  - mcc_mnc_codes: 342 646
+    networks: KW Telecommunications Inc.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code     ADD
+    networks: " "
+  - mcc_mnc_codes: 901 84
+    networks: TELEFONICA MOVILES ESPAÑA, S.A. UNIPERSONAL (TME)
+  - mcc_mnc_codes: 901 85
+    networks: Telefónica Germany GmbH & Co. OHG
+  notes:
+  - "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

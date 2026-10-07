@@ -1,0 +1,27 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1244'
+reference: OB-1244
+identifier:
+  code: 1244-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-240-3
+    country:
+      en: Germany
+    dec: '12163'
+    signal_point_name: Köln
+    signal_point_operator: NetCologne Gesellschaft für Telekommunikation mbH
+  - ipsc: 6-237-6
+    country:
+      en: Germany
+    dec: '14190'
+    signal_point_name: Köln
+    signal_point_operator: NetCologne Gesellschaft für Telekommunikation mbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

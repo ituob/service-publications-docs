@@ -1,0 +1,34 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1020'
+reference: OB-1020
+identifier:
+  code: P 38
+data:
+  _class: Q708ISPCAmendment
+  position: P 38
+  entries:
+  - ipsc: 2-038-0
+    country:
+      en: Germany
+    dec: '4400'
+    signal_point_name: Frankfurt
+    signal_point_operator: MTX Communications Ltd.
+  - ipsc: 2-038-1
+    country:
+      en: Germany
+    dec: '4401'
+    signal_point_name: Frankfurt
+    signal_point_operator: Cronosell Telecom Ltd.
+  - ipsc: 2-121-4
+    country:
+      en: Germany
+    dec: '5068'
+    signal_point_name: Frankfurt
+    signal_point_operator: DIDWW Ireland Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

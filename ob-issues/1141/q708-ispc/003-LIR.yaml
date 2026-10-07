@@ -1,0 +1,51 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '1141'
+reference: OB-1141
+identifier:
+  code: 1141-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-052-0
+    country:
+      en: Singapore
+    dec: '10656'
+    signal_point_name: International standalone STP-2
+    signal_point_operator: Singapore Telecommunications Ltd
+  - ipsc: 5-052-1
+    country:
+      en: Singapore
+    dec: '10657'
+    signal_point_name: East Gateway - Trunk (EGT)
+    signal_point_operator: Singapore Telecommunications Ltd
+  - ipsc: 5-141-5
+    country:
+      en: Singapore
+    dec: '11373'
+    signal_point_name: M1-MOC-NGN SG
+    signal_point_operator: M1 Limited
+  - ipsc: 5-141-6
+    country:
+      en: Singapore
+    dec: '11374'
+    signal_point_name: M1-MOC-NGN SS
+    signal_point_operator: M1 Limited
+  - ipsc: 5-141-7
+    country:
+      en: Singapore
+    dec: '11375'
+    signal_point_name: M1-TMOC2
+    signal_point_operator: M1 Limited
+  - ipsc: 5-142-0
+    country:
+      en: Singapore
+    dec: '11376'
+    signal_point_name: M1-TROC2
+    signal_point_operator: M1 Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

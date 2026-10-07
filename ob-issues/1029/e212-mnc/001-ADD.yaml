@@ -1,0 +1,21 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1029'
+reference: OB-1029
+identifier:
+  code: 1029-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 242 06
+    networks: ICE Norge AS
+  - mcc_mnc_codes: Tele 2 Sverige AB
+    country_or_area:
+      en: 240 07
+    networks: The range dedicated for the Netherlands will not be used in Sweden
+    range: The Netherlands
+  notes:
+  - "*MCC:              Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil  MNC:                Network Code / Code de réseau
+    mobile / Indicativo de red para el servicio móvil"

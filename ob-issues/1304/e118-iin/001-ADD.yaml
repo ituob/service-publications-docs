@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2024-01-01
+date_active: *1
+ob_issue_no: '1304'
+reference: OB-1304
+identifier:
+  code: 1304-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Colombia
+    company_name: PLINTRON COLOMBIA SAS
+    company_address_1: 'Carrera 19 # 100-45'
+    company_address_2: Oficina 13-107
+    company_address_3: BOGOTÁ D.C.
+    contact: Legal, PLINTRON COLOMBIA SAS
+    contact_address_1: 'Carrera 19 # 100-45'
+    contact_address_2: Oficina 13-107
+    contact_address_3: BOGOTÁ D.C.
+    email:
+    - legal@plintron.com
+    issue_id_number: 89 57 111
+    effective_date: 1.III.2022
+  notes: []

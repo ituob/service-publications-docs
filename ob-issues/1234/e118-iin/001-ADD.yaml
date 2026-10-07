@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1234'
+reference: OB-1234
+identifier:
+  code: 1234-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Colombia
+    company_name: LIWA S.A.S. E.S.P.
+    company_address_1: 'Calle 127 B # 49-48'
+    company_address_2: BOGOTÁ D.C.
+    contact: Nancy Johanna Cañon
+    contact_address_1: 'Calle 127 B Bis # 49-48'
+    contact_address_2: BOGOTÁ D.C.
+    tel:
+    - "       +57 601 4864710"
+    email:
+    - nancy.canon@cellvoz.com.co
+    issue_id_number: 89 57 700
+    effective_date: 1.II.2022
+  notes: []

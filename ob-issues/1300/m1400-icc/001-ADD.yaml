@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1300'
+reference: OB-1300
+identifier:
+  code: Austria /
+data:
+  _class: M1400Amendment
+  position: Austria /
+  entries:
+  - country_or_area:
+      en: Austria
+    company_name: FiberEins TK GmbH
+    address_line_1: Castelligasse 1/15
+    address_line_2: 1050 WIEN
+    carrier_code: FIBER
+    contact: Mr Herbert Flatscher
+    tel: "+43 1 2810281"
+    fax: "+43 1 2810281-99"
+    email: flatscher@fibereins.at
+  notes: []

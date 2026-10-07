@@ -1,0 +1,45 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1224'
+reference: OB-1224
+identifier:
+  code: 1224-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-152-6
+    country:
+      en: Albania
+    dec: '5318'
+    signal_point_name: GMSC – Tirana
+    signal_point_operator: Mobile 4 AL
+  - ipsc: 2-152-7
+    country:
+      en: Albania
+    dec: '5319'
+    signal_point_name: STP- Tirana
+    signal_point_operator: PLUS COMMUNICATIONS
+  - ipsc: 7-219-1
+    country:
+      en: Albania
+    dec: '16089'
+    signal_point_name: Alb.Tel.Partner
+    signal_point_operator: Albanian Telecommunication Partners sh.p.k
+  - ipsc: 7-219-2
+    country:
+      en: Albania
+    dec: '16090'
+    signal_point_name: PROTON Communication
+    signal_point_operator: Proton Communication Sh.p.k
+  - ipsc: 7-219-4
+    country:
+      en: Albania
+    dec: '16092'
+    signal_point_name: UNIFI Albania
+    signal_point_operator: UNIFI Holdings INC Dega në Shqiperi
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

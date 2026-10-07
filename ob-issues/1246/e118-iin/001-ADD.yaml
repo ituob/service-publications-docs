@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1246'
+reference: OB-1246
+identifier:
+  code: 1246-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: France
+    company_name: AIRBUS DEFENCE AND SPACE SAS
+    company_address_1: 31, rue des cosmonautes
+    company_address_2: ZI PALAYS –
+    company_address_3: 333402 TOULOUSE Cedex 4
+    contact: Jean-Bernard Loiseau
+    contact_address_1: Airbus Defence and Space
+    contact_address_2: 1, boulevard Jean-Moulin
+    contact_address_3: 78996 ELANCOURT Cedex
+    email:
+    - jean-bernard.loiseau@airbus.com
+    issue_id_number: 89 33 87
+    effective_date: 1.IV.2022
+  notes: []

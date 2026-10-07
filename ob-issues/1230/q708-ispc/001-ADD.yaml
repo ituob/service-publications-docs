@@ -1,0 +1,57 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1230'
+reference: OB-1230
+identifier:
+  code: 1230-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-003-6
+    country:
+      en: Egypt
+    dec: '12318'
+    signal_point_name: SGW
+    signal_point_operator: Telecom Egypt
+  - ipsc: 6-003-7
+    country:
+      en: Egypt
+    dec: '12319'
+    signal_point_name: MSC
+    signal_point_operator: Telecom Egypt
+  - ipsc: 6-004-4
+    country:
+      en: Egypt
+    dec: '12324'
+    signal_point_name: vCTC Ramsis
+    signal_point_operator: Telecom Egypt
+  - ipsc: 6-004-7
+    country:
+      en: Egypt
+    dec: '12327'
+    signal_point_name: Vctc Auto
+    signal_point_operator: Telecom Egypt
+  - ipsc: 6-005-0
+    country:
+      en: Egypt
+    dec: '12328'
+    signal_point_name: IP-STP Ramsis
+    signal_point_operator: Telecom Egypt
+  - ipsc: 6-005-1
+    country:
+      en: Egypt
+    dec: '12329'
+    signal_point_name: IP-STP Auto
+    signal_point_operator: Telecom Egypt
+  - ipsc: 6-005-7
+    country:
+      en: Egypt
+    dec: '12335'
+    signal_point_name: EL AMMARIYA  INT
+    signal_point_operator: Telecom Egypt
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

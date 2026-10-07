@@ -1,0 +1,33 @@
+type: SUP
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1174'
+reference: OB-1174
+identifier:
+  code: 1174-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-083-5
+    country:
+      en: Uganda
+    dec: '12957'
+    signal_point_name: Kampala/H1I
+    signal_point_operator: House of Integrated Technology & Systems (U) Ltd
+  - ipsc: 6-083-6
+    country:
+      en: Uganda
+    dec: '12958'
+    signal_point_name: Kampala/H2I
+    signal_point_operator: House of Integrated Technology & Systems (U) Ltd
+  - ipsc: 6-130-2
+    country:
+      en: Uganda
+    dec: '13330'
+    signal_point_name: AFRUG – GW1
+    signal_point_operator: Afrimax Uganda Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,24 @@
+type: ADD*
+date_requested: &1 2016-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1198'
+reference: OB-1198
+identifier:
+  code: Note p)
+data:
+  _class: E164CCAmendment
+  position: Note p)
+  entries:
+  - applicant: Tele2 IoT
+    network: Tele2 IoT
+    cc_ic: "+883 320"
+    status: Assigned
+  - applicant: Cubic Telecom Limited
+    network: Cubic Telecom Limited
+    cc_ic: "+883 330"
+    status: Assigned
+  notes:
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes
+  - __________
+  - See page 5 of the present Operational Bulletin No. 1198 of 15.VI.2020.

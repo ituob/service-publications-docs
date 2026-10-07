@@ -1,0 +1,170 @@
+_class: TextAmendment
+ob_issue_no: '1323'
+reference: OB-1323
+contents:
+  type: doc
+  content:
+  - type: table
+    content:
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            - type: strong
+            text: Country or area/ISO code
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            - type: strong
+            text: Company Code
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            - type: strong
+            text: Contact
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: "  "
+          - type: text
+            marks:
+            - type: em
+            - type: strong
+            text: Company Name/Address
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            - type: strong
+            text: "(carrier code)"
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            - type: strong
+            text: " "
+  - type: paragraph
+    content:
+    - type: text
+      text: " "
+  - type: paragraph
+    content:
+    - type: text
+      marks:
+      - type: em
+      - type: strong
+      text: 'Germany (Federal Republic of) / DEU                '
+    - type: text
+      marks:
+      - type: strong
+      text: ADD
+  - type: paragraph
+    content:
+    - type: text
+      text: " "
+  - type: table
+    content:
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Steam-connect Partner Services BV
+        - type: paragraph
+          content:
+          - type: text
+            text: Parallelweg 96
+        - type: paragraph
+          content:
+          - type: text
+            text: NL-1948NM BEVERWIJK
+        - type: paragraph
+          content:
+          - type: text
+            text: Netherlands
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: strong
+            text: SCPS01
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Mr Robin van Leyden
+        - type: paragraph
+          content:
+          - type: text
+            text: 'Tel.: +31 207192333'
+        - type: paragraph
+          content:
+          - type: text
+            text: 'Email: robin.vanleyden@steam-connect.com'
+note: Filled from source ProseMirror content after parser produced no structured actions

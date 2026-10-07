@@ -1,0 +1,786 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1303'
+reference: OB-1303
+identifier:
+  code: 1303-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-068-1
+    country:
+      en: United Kingdom
+    dec: '4641'
+    signal_point_name: ZZ5
+    signal_point_operator: Vodafone Ltd (C&W)
+  - ipsc: 2-068-3
+    country:
+      en: United Kingdom
+    dec: '4643'
+    signal_point_name: ZZ6
+    signal_point_operator: Vodafone Ltd (C&W)
+  - ipsc: 2-068-5
+    country:
+      en: United Kingdom
+    dec: '4645'
+    signal_point_name: Belfast Cromac DXA
+    signal_point_operator: British Telecom
+  - ipsc: 2-069-0
+    country:
+      en: United Kingdom
+    dec: '4648'
+    signal_point_name: JER-TPSTA
+    signal_point_operator: Truphone Ltd
+  - ipsc: 2-069-1
+    country:
+      en: United Kingdom
+    dec: '4649'
+    signal_point_name: Belfast City Unit B
+    signal_point_operator: British Telecom
+  - ipsc: 2-069-2
+    country:
+      en: United Kingdom
+    dec: '4650'
+    signal_point_name: Portadown DCCE Unit 1
+    signal_point_operator: British Telecom
+  - ipsc: 2-069-4
+    country:
+      en: United Kingdom
+    dec: '4652'
+    signal_point_name: LON-TPSTB
+    signal_point_operator: Truphone Ltd
+  - ipsc: 2-070-1
+    country:
+      en: United Kingdom
+    dec: '4657'
+    signal_point_name: London GSX 9
+    signal_point_operator: TalkTalk Communications Limited
+  - ipsc: 2-071-2
+    country:
+      en: United Kingdom
+    dec: '4666'
+    signal_point_name: Arun
+    signal_point_operator: Vodafone Limited
+  - ipsc: 2-071-3
+    country:
+      en: United Kingdom
+    dec: '4667'
+    signal_point_name: Bollin
+    signal_point_operator: Vodafone Limited
+  - ipsc: 2-071-7
+    country:
+      en: United Kingdom
+    dec: '4671'
+    signal_point_name: Brentwood1
+    signal_point_operator: Greystone Telecom Limited
+  - ipsc: 2-072-0
+    country:
+      en: United Kingdom
+    dec: '4672'
+    signal_point_name: BKLSW2   2-072-0
+    signal_point_operator: Vodafone Ltd (C&W)
+  - ipsc: 2-072-1
+    country:
+      en: United Kingdom
+    dec: '4673'
+    signal_point_name: ZZ1 CT2 Pop
+    signal_point_operator: Vodafone Ltd (C&W)
+  - ipsc: 2-072-2
+    country:
+      en: United Kingdom
+    dec: '4674'
+    signal_point_name: VHXSW2 2-072
+    signal_point_operator: Vodafone Ltd (C&W)
+  - ipsc: 2-072-3
+    country:
+      en: United Kingdom
+    dec: '4675'
+    signal_point_name: BKLSW5   2-072-3
+    signal_point_operator: Vodafone Ltd (C&W)
+  - ipsc: 2-072-4
+    country:
+      en: United Kingdom
+    dec: '4676'
+    signal_point_name: CHTSW3   2-072-4
+    signal_point_operator: Vodafone Ltd (C&W)
+  - ipsc: 2-072-5
+    country:
+      en: United Kingdom
+    dec: '4677'
+    signal_point_name: SQYSW4   2-072-5
+    signal_point_operator: Vodafone Ltd (C&W)
+  - ipsc: 2-072-6
+    country:
+      en: United Kingdom
+    dec: '4678'
+    signal_point_name: Bracknell West 1 International STP
+    signal_point_operator: Vodafone Ltd (C&W)
+  - ipsc: 2-072-7
+    country:
+      en: United Kingdom
+    dec: '4679'
+    signal_point_name: Surrey Quays 5 International STP
+    signal_point_operator: Vodafone Ltd (C&W)
+  - ipsc: 2-073-3
+    country:
+      en: United Kingdom
+    dec: '4683'
+    signal_point_name: Brentwood2
+    signal_point_operator: Greystone Telecom Limited
+  - ipsc: 2-073-4
+    country:
+      en: United Kingdom
+    dec: '4684'
+    signal_point_name: Telsis
+    signal_point_operator: Atlas Interactive Group Limited
+  - ipsc: 2-073-6
+    country:
+      en: United Kingdom
+    dec: '4686'
+    signal_point_name: TELEHOUSE 2
+    signal_point_operator: Global Electroteks Ltd
+  - ipsc: 2-074-0
+    country:
+      en: United Kingdom
+    dec: '4688'
+    signal_point_name: Nokia 1
+    signal_point_operator: Core Communication Services Ltd
+  - ipsc: 2-074-2
+    country:
+      en: United Kingdom
+    dec: '4690'
+    signal_point_name: L/PSX/5
+    signal_point_operator: Orange Business Holdings UK Limited
+  - ipsc: 2-074-4
+    country:
+      en: United Kingdom
+    dec: '4692'
+    signal_point_name: London 1
+    signal_point_operator: GCI Network Solutions Limited
+  - ipsc: 2-075-3
+    country:
+      en: United Kingdom
+    dec: '4699'
+    signal_point_name: UK 2
+    signal_point_operator: Idt Global Ltd
+  - ipsc: 2-075-4
+    country:
+      en: United Kingdom
+    dec: '4700'
+    signal_point_name: London 1
+    signal_point_operator: Interoute Networks Limited
+  - ipsc: 2-147-0
+    country:
+      en: United Kingdom
+    dec: '5272'
+    signal_point_name: LQ-DG1-THO
+    signal_point_operator: Liquid Telecommunications Limited
+  - ipsc: 2-147-3
+    country:
+      en: United Kingdom
+    dec: '5275'
+    signal_point_name: GBS2
+    signal_point_operator: Verizon UK Limited
+  - ipsc: 2-147-7
+    country:
+      en: United Kingdom
+    dec: '5279'
+    signal_point_name: SQTC2
+    signal_point_operator: Bellingham Telecommunications Limited
+  - ipsc: 2-153-2
+    country:
+      en: United Kingdom
+    dec: '5322'
+    signal_point_name: LMUK-iSTP3
+    signal_point_operator: Lycamobile (UK) Limited
+  - ipsc: 2-153-3
+    country:
+      en: United Kingdom
+    dec: '5323'
+    signal_point_name: LMUK-iSTP4
+    signal_point_operator: Lycamobile (UK) Limited
+  - ipsc: 2-154-0
+    country:
+      en: United Kingdom
+    dec: '5328'
+    signal_point_name: London 1
+    signal_point_operator: AT&T Global Network Services (UK) B.V.
+  - ipsc: 2-154-1
+    country:
+      en: United Kingdom
+    dec: '5329'
+    signal_point_name: LONDON TH B
+    signal_point_operator: Magrathea Telecommunications Limited
+  - ipsc: 2-155-0
+    country:
+      en: United Kingdom
+    dec: '5336'
+    signal_point_name: London 178GSX1
+    signal_point_operator: Interoute Networks Limited
+  - ipsc: 2-155-3
+    country:
+      en: United Kingdom
+    dec: '5339'
+    signal_point_name: KJCOPM01
+    signal_point_operator: Colt Technology Services
+  - ipsc: 2-155-6
+    country:
+      en: United Kingdom
+    dec: '5342'
+    signal_point_name: London 178GSX2
+    signal_point_operator: Interoute Networks Limited
+  - ipsc: 2-161-5
+    country:
+      en: United Kingdom
+    dec: '5389'
+    signal_point_name: London 7
+    signal_point_operator: Verizon UK Limited
+  - ipsc: 2-161-6
+    country:
+      en: United Kingdom
+    dec: '5390'
+    signal_point_name: Eircom SQP1
+    signal_point_operator: Eircom UK Ltd
+  - ipsc: 2-161-7
+    country:
+      en: United Kingdom
+    dec: '5391'
+    signal_point_name: London STP
+    signal_point_operator: Tata Communications (UK) Limited
+  - ipsc: 2-162-2
+    country:
+      en: United Kingdom
+    dec: '5394'
+    signal_point_name: Poplar Business Park Local
+    signal_point_operator: Colt Technology Services
+  - ipsc: 2-163-4
+    country:
+      en: United Kingdom
+    dec: '5404'
+    signal_point_name: Fareham01
+    signal_point_operator: Gamma Telecom Holdings Limited
+  - ipsc: 2-164-2
+    country:
+      en: United Kingdom
+    dec: '5410'
+    signal_point_name: TRIAx01
+    signal_point_operator: Triaxcess
+  - ipsc: 2-164-5
+    country:
+      en: United Kingdom
+    dec: '5413'
+    signal_point_name: CMIV01
+    signal_point_operator: China Mobile International (UK) Limited
+  - ipsc: 2-164-7
+    country:
+      en: United Kingdom
+    dec: '5415'
+    signal_point_name: CMIS05
+    signal_point_operator: China Mobile International (UK) Limited
+  - ipsc: 2-165-1
+    country:
+      en: United Kingdom
+    dec: '5417'
+    signal_point_name: L/CWX/1
+    signal_point_operator: CFL Communications Limited
+  - ipsc: 2-165-7
+    country:
+      en: United Kingdom
+    dec: '5423'
+    signal_point_name: Kg John Carrier 1
+    signal_point_operator: Colt Technology Services
+  - ipsc: 2-166-3
+    country:
+      en: United Kingdom
+    dec: '5427'
+    signal_point_name: Telsis
+    signal_point_operator: Atlas Interactive Group Limited
+  - ipsc: 2-166-5
+    country:
+      en: United Kingdom
+    dec: '5429'
+    signal_point_name: L/TZX/6
+    signal_point_operator: TalkTalk Communications Limited
+  - ipsc: 2-169-1
+    country:
+      en: United Kingdom
+    dec: '5449'
+    signal_point_name: GB04
+    signal_point_operator: Verizon UK Limited
+  - ipsc: 2-169-2
+    country:
+      en: United Kingdom
+    dec: '5450'
+    signal_point_name: Telehouse 3
+    signal_point_operator: Global Electroteks Ltd
+  - ipsc: 2-170-0
+    country:
+      en: United Kingdom
+    dec: '5456'
+    signal_point_name: Lond - 03
+    signal_point_operator: Idt Global Ltd
+  - ipsc: 2-170-1
+    country:
+      en: United Kingdom
+    dec: '5457'
+    signal_point_name: Lond - 04
+    signal_point_operator: Idt Global Ltd
+  - ipsc: 2-170-6
+    country:
+      en: United Kingdom
+    dec: '5462'
+    signal_point_name: King Johns Local
+    signal_point_operator: Colt Technology Services
+  - ipsc: 2-170-7
+    country:
+      en: United Kingdom
+    dec: '5463'
+    signal_point_name: Telehouse 1
+    signal_point_operator: Global Electroteks Ltd
+  - ipsc: 2-174-0
+    country:
+      en: United Kingdom
+    dec: '5488'
+    signal_point_name: Kg John Carrier 2
+    signal_point_operator: Colt Technology Services
+  - ipsc: 2-175-1
+    country:
+      en: United Kingdom
+    dec: '5497'
+    signal_point_name: Citrus-1
+    signal_point_operator: Citrus Telecommunications Ltd
+  - ipsc: 2-175-5
+    country:
+      en: United Kingdom
+    dec: '5501'
+    signal_point_name: SQ2
+    signal_point_operator: Symmetric Quorum Limited
+  - ipsc: 2-176-5
+    country:
+      en: United Kingdom
+    dec: '5509'
+    signal_point_name: Cs2k Basingstoke
+    signal_point_operator: Sky UK Limited
+  - ipsc: 2-176-6
+    country:
+      en: United Kingdom
+    dec: '5510'
+    signal_point_name: Cs2k Reading
+    signal_point_operator: Sky UK Limited
+  - ipsc: 2-177-2
+    country:
+      en: United Kingdom
+    dec: '5514'
+    signal_point_name: PLSUKDMS1I
+    signal_point_operator: Idt Global Ltd
+  - ipsc: 2-178-4
+    country:
+      en: United Kingdom
+    dec: '5524'
+    signal_point_name: London 3
+    signal_point_operator: Tata Communications (UK) Limited
+  - ipsc: 2-178-6
+    country:
+      en: United Kingdom
+    dec: '5526'
+    signal_point_name: C&W Jersey
+    signal_point_operator: Sure (Jersey) Limited
+  - ipsc: 2-179-1
+    country:
+      en: United Kingdom
+    dec: '5529'
+    signal_point_operator: CenturyLink Communications UK Limited
+  - ipsc: 2-179-4
+    country:
+      en: United Kingdom
+    dec: '5532'
+    signal_point_name: Watford STP
+    signal_point_operator: Vodafone Ltd (Energis)
+  - ipsc: 2-185-0
+    country:
+      en: United Kingdom
+    dec: '5576'
+    signal_point_name: Marylebone
+    signal_point_operator: Colt Technology Services
+  - ipsc: 2-185-1
+    country:
+      en: United Kingdom
+    dec: '5577'
+    signal_point_name: L/TZX/3
+    signal_point_operator: TalkTalk Communications Limited
+  - ipsc: 2-186-4
+    country:
+      en: United Kingdom
+    dec: '5588'
+    signal_point_name: H18_LN
+    signal_point_operator: CITIC Telecom 1616 (Uk) Ltd
+  - ipsc: 2-186-7
+    country:
+      en: United Kingdom
+    dec: '5591'
+    signal_point_name: Lon1
+    signal_point_operator: Mintaka Limited
+  - ipsc: 2-187-0
+    country:
+      en: United Kingdom
+    dec: '5592'
+    signal_point_name: L/PSX/3
+    signal_point_operator: Orange Business Holdings UK Limited
+  - ipsc: 2-187-4
+    country:
+      en: United Kingdom
+    dec: '5596'
+    signal_point_name: London1
+    signal_point_operator: Teltac Worldwide Offshore
+  - ipsc: 2-187-5
+    country:
+      en: United Kingdom
+    dec: '5597'
+    signal_point_name: London1
+    signal_point_operator: Teltac Worldwide Offshore
+  - ipsc: 2-188-0
+    country:
+      en: United Kingdom
+    dec: '5600'
+    signal_point_name: New STP/SSP
+    signal_point_operator: Nexus Telecommunications Limited
+  - ipsc: 2-188-7
+    country:
+      en: United Kingdom
+    dec: '5607'
+    signal_point_name: London1
+    signal_point_operator: Teltac Worldwide Offshore
+  - ipsc: 2-189-0
+    country:
+      en: United Kingdom
+    dec: '5608'
+    signal_point_name: London1
+    signal_point_operator: Teltac Worldwide Offshore
+  - ipsc: 2-189-6
+    country:
+      en: United Kingdom
+    dec: '5614'
+    signal_point_name: CW IoM No.1
+    signal_point_operator: Sure (Isle of Man) Limited
+  - ipsc: 2-190-0
+    country:
+      en: United Kingdom
+    dec: '5616'
+    signal_point_name: Birmingham STP
+    signal_point_operator: Vodafone Ltd (Energis)
+  - ipsc: 2-190-3
+    country:
+      en: United Kingdom
+    dec: '5619'
+    signal_point_name: ZZ2 BQ3 Pop
+    signal_point_operator: Vodafone Ltd (C&W)
+  - ipsc: 2-190-6
+    country:
+      en: United Kingdom
+    dec: '5622'
+    signal_point_name: Bishopsgate
+    signal_point_operator: Colt Technology Services
+  - ipsc: 2-190-7
+    country:
+      en: United Kingdom
+    dec: '5623'
+    signal_point_name: City
+    signal_point_operator: Colt Technology Services
+  - ipsc: 2-191-7
+    country:
+      en: United Kingdom
+    dec: '5631'
+    signal_point_name: L/TZX/5
+    signal_point_operator: TalkTalk Communications Limited
+  - ipsc: 2-210-0
+    country:
+      en: United Kingdom
+    dec: '5776'
+    signal_point_name: DDCLZTE1
+    signal_point_operator: Docklands Data Centre Ltd
+  - ipsc: 2-210-7
+    country:
+      en: United Kingdom
+    dec: '5783'
+    signal_point_name: Fleet
+    signal_point_operator: Vodafone Limited
+  - ipsc: 2-211-0
+    country:
+      en: United Kingdom
+    dec: '5784'
+    signal_point_name: BM1
+    signal_point_operator: Colt Technology Services
+  - ipsc: 2-211-3
+    country:
+      en: United Kingdom
+    dec: '5787'
+    signal_point_name: Chet
+    signal_point_operator: Vodafone Limited
+  - ipsc: 3-230-0
+    country:
+      en: United Kingdom
+    dec: '7984'
+    signal_point_name: MSCS R1
+    signal_point_operator: Network Rail Infrastructure Limited
+  - ipsc: 3-230-1
+    country:
+      en: United Kingdom
+    dec: '7985'
+    signal_point_name: STP R1
+    signal_point_operator: Network Rail Infrastructure Limited
+  - ipsc: 3-230-2
+    country:
+      en: United Kingdom
+    dec: '7986'
+    signal_point_name: ECO-MSC1-THO
+    signal_point_operator: Liquid Telecommunications Limited
+  - ipsc: 3-230-5
+    country:
+      en: United Kingdom
+    dec: '7989'
+    signal_point_name: TNZUK London 2
+    signal_point_operator: TNZI UK Ltd
+  - ipsc: 3-236-1
+    country:
+      en: United Kingdom
+    dec: '8033'
+    signal_point_name: GBS1
+    signal_point_operator: Verizon UK Limited
+  - ipsc: 3-236-2
+    country:
+      en: United Kingdom
+    dec: '8034'
+    signal_point_name: GVSUKD
+    signal_point_operator: Telekom Malaysia (UK) Limited
+  - ipsc: 3-237-0
+    country:
+      en: United Kingdom
+    dec: '8040'
+    signal_point_name: LON STP1
+    signal_point_operator: TNZI UK Ltd
+  - ipsc: 4-229-1
+    country:
+      en: United Kingdom
+    dec: '10025'
+    signal_point_name: LON STP2
+    signal_point_operator: TNZI UK Ltd
+  - ipsc: 4-229-4
+    country:
+      en: United Kingdom
+    dec: '10028'
+    signal_point_name: LON001 GSX2
+    signal_point_operator: Interoute Networks Limited
+  - ipsc: 4-229-5
+    country:
+      en: United Kingdom
+    dec: '10029'
+    signal_point_name: LON002 GSX2
+    signal_point_operator: Interoute Networks Limited
+  - ipsc: 4-229-6
+    country:
+      en: United Kingdom
+    dec: '10030'
+    signal_point_name: Lon-MSS1
+    signal_point_operator: Truphone Ltd
+  - ipsc: 4-239-3
+    country:
+      en: United Kingdom
+    dec: '10107'
+    signal_point_name: London GSX
+    signal_point_operator: TalkTalk Communications Limited
+  - ipsc: 4-240-4
+    country:
+      en: United Kingdom
+    dec: '10116'
+    signal_point_name: London 1
+    signal_point_operator: China Telecom (Europe) Ltd
+  - ipsc: 4-240-5
+    country:
+      en: United Kingdom
+    dec: '10117'
+    signal_point_name: DDCLVERAZ1
+    signal_point_operator: Docklands Data Centre Ltd
+  - ipsc: 4-247-6
+    country:
+      en: United Kingdom
+    dec: '10174'
+    signal_point_name: Lovat
+    signal_point_operator: Vodafone Limited
+  - ipsc: 4-253-2
+    country:
+      en: United Kingdom
+    dec: '10218'
+    signal_point_name: Colne
+    signal_point_operator: Vodafone Limited
+  - ipsc: 4-253-7
+    country:
+      en: United Kingdom
+    dec: '10223'
+    signal_point_name: UC LONDON1
+    signal_point_operator: United Connect Limited
+  - ipsc: 4-255-0
+    country:
+      en: United Kingdom
+    dec: '10232'
+    signal_point_name: Beult
+    signal_point_operator: Vodafone Limited
+  - ipsc: 4-255-3
+    country:
+      en: United Kingdom
+    dec: '10235'
+    signal_point_name: Belfast Switch 1
+    signal_point_operator: Vodafone Ltd (Energis)
+  - ipsc: 4-255-5
+    country:
+      en: United Kingdom
+    dec: '10237'
+    signal_point_name: Manchester DMS100 1
+    signal_point_operator: Gamma Telecom Holdings Limited
+  - ipsc: 4-255-6
+    country:
+      en: United Kingdom
+    dec: '10238'
+    signal_point_name: Tufnell Park
+    signal_point_operator: British Telecom
+  - ipsc: 5-226-0
+    country:
+      en: United Kingdom
+    dec: '12048'
+    signal_point_name: Islay
+    signal_point_operator: Gamma Telecom Holdings Limited
+  - ipsc: 5-227-0
+    country:
+      en: United Kingdom
+    dec: '12056'
+    signal_point_operator: Hutchison 3G UK Ltd
+  - ipsc: 5-227-1
+    country:
+      en: United Kingdom
+    dec: '12057'
+    signal_point_operator: Hutchison 3G UK Ltd
+  - ipsc: 5-227-3
+    country:
+      en: United Kingdom
+    dec: '12059'
+    signal_point_name: LON-MGW1
+    signal_point_operator: Truphone Ltd
+  - ipsc: 5-227-5
+    country:
+      en: United Kingdom
+    dec: '12061'
+    signal_point_name: EPSILON-VERAZ
+    signal_point_operator: Epsilon Telecommunications Ltd
+  - ipsc: 5-243-6
+    country:
+      en: United Kingdom
+    dec: '12190'
+    signal_point_name: SQ1
+    signal_point_operator: Symmetric Quorum Limited
+  - ipsc: 5-248-0
+    country:
+      en: United Kingdom
+    dec: '12224'
+    signal_point_name: London 2
+    signal_point_operator: Interoute Networks Limited
+  - ipsc: 5-248-7
+    country:
+      en: United Kingdom
+    dec: '12231'
+    signal_point_name: London 3
+    signal_point_operator: Invoco Ltd
+  - ipsc: 6-242-0
+    country:
+      en: United Kingdom
+    dec: '14224'
+    signal_point_name: MLOA - Belfast
+    signal_point_operator: Eircom UK Ltd
+  - ipsc: 6-242-1
+    country:
+      en: United Kingdom
+    dec: '14225'
+    signal_point_name: London 2
+    signal_point_operator: Inclarity Communications Limited
+  - ipsc: 6-242-7
+    country:
+      en: United Kingdom
+    dec: '14231'
+    signal_point_name: JER-TPSTC
+    signal_point_operator: Truphone Ltd
+  - ipsc: 6-252-0
+    country:
+      en: United Kingdom
+    dec: '14304'
+    signal_point_name: Paul Street
+    signal_point_operator: TalkTalk Communications Limited
+  - ipsc: 6-252-1
+    country:
+      en: United Kingdom
+    dec: '14305'
+    signal_point_name: Brentford
+    signal_point_operator: TalkTalk Communications Limited
+  - ipsc: 6-252-6
+    country:
+      en: United Kingdom
+    dec: '14310'
+    signal_point_name: LON-TPSTD
+    signal_point_operator: Truphone Ltd
+  - ipsc: 6-255-7
+    country:
+      en: United Kingdom
+    dec: '14335'
+    signal_point_name: UK STP 3
+    signal_point_operator: Idt Global Ltd
+  - ipsc: 7-229-4
+    country:
+      en: United Kingdom
+    dec: '16172'
+    signal_point_name: LON-TPCPC
+    signal_point_operator: Truphone Ltd
+  - ipsc: 7-234-4
+    country:
+      en: United Kingdom
+    dec: '16212'
+    signal_point_name: London ISC
+    signal_point_operator: Bangla Trac Communication Ltd
+  - ipsc: 7-237-2
+    country:
+      en: United Kingdom
+    dec: '16234'
+    signal_point_name: London Poplar
+    signal_point_operator: PTGI International Carrier Services Ltd
+  - ipsc: 7-251-4
+    country:
+      en: United Kingdom
+    dec: '16348'
+    signal_point_name: UK Sonus
+    signal_point_operator: Idt Global Ltd
+  - ipsc: 7-251-5
+    country:
+      en: United Kingdom
+    dec: '16349'
+    signal_point_name: Meon
+    signal_point_operator: Vodafone Limited
+  - ipsc: 7-251-6
+    country:
+      en: United Kingdom
+    dec: '16350'
+    signal_point_name: Rea
+    signal_point_operator: Vodafone Limited
+  - ipsc: 7-253-0
+    country:
+      en: United Kingdom
+    dec: '16360'
+    signal_point_name: Manchester
+    signal_point_operator: TalkTalk Communications Limited
+  - ipsc: 7-253-2
+    country:
+      en: United Kingdom
+    dec: '16362'
+    signal_point_name: Severn
+    signal_point_operator: Vodafone Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

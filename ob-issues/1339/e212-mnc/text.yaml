@@ -1,0 +1,204 @@
+_class: TextAmendment
+ob_issue_no: '1339'
+reference: OB-1339
+contents:
+  type: doc
+  content:
+  - type: table
+    content:
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: Country/Geographical area
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: MCC + MNC
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: Operator / Network
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Canada   SUP
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 302 151
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Cogeco Connexion Inc.
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 302 152
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Cogeco Connexion Inc.
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 302 160
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Sugar Mobile Inc.
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Canada   ADD
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 302 480
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: SSi Connexions Inc.
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Canada   LIR
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 302 480
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: SSi Micro Ltd.
+  - type: paragraph
+    content:
+    - type: text
+      text: 'MCC: Mobile Country Code'
+    - type: hard_break
+    - type: text
+      text: 'MNC: Mobile Network Code'
+    - type: hard_break
+    - type: hard_break
+note: Filled from source ProseMirror content after parser produced no structured actions

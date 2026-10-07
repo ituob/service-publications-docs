@@ -1,0 +1,39 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1212'
+reference: OB-1212
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: PHILUNET GmbH
+    address_line_1: Vorm Eichholz 2
+    address_line_2: D-42119 WUPPERTAL
+    carrier_code: PNET42
+    contact: Mr. Philip Berndroth
+    tel: "+49 202 404050"
+    fax: "+49 202 404059"
+  - country_or_area:
+      en: Germany
+    company_name: Tecsee GmbH
+    address_line_1: Mannheimer Strasse 12
+    address_line_2: 74072 HEILBRONN
+    carrier_code: TECSEE
+    contact: Mrs Lee-Lou Hellwig
+    tel: "+49 7131 766 9721"
+  - country_or_area:
+      en: Germany
+    company_name: Unsere Grüne Glasfaser GmbH & Co.KG
+    address_line_1: Adalperostr. 82 - 86
+    address_line_2: c/o Telefónica Global Services GmbH
+    address_line_3: D-85737 ISMANING
+    carrier_code: UGGLAS
+    contact: Mr Jens-Olaf Berwig
+    tel: "+49 40 36803 0"
+    fax: "+49 40 36803 280"
+  notes: []

@@ -1,0 +1,63 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1049'
+reference: OB-1049
+identifier:
+  code: 1049-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-231-0
+    country:
+      en: Bulgaria
+    dec: '7992'
+    signal_point_name: TLCBL1
+    signal_point_operator: Telecable
+  - ipsc: 3-231-1
+    country:
+      en: Bulgaria
+    dec: '7993'
+    signal_point_name: TLCBL2
+    signal_point_operator: Telecable
+  - ipsc: 3-231-2
+    country:
+      en: Bulgaria
+    dec: '7994'
+    signal_point_name: NET1BG
+    signal_point_operator: Net 1
+  - ipsc: 3-231-3
+    country:
+      en: Bulgaria
+    dec: '7995'
+    signal_point_name: NISA
+    signal_point_operator: Net Is Sat
+  - ipsc: 3-231-4
+    country:
+      en: Bulgaria
+    dec: '7996'
+    signal_point_name: TTEL
+    signal_point_operator: Tritel
+  - ipsc: 6-239-4
+    country:
+      en: Bulgaria
+    dec: '14204'
+    signal_point_name: NETCONNBG
+    signal_point_operator: Net-Connect Internet
+  - ipsc: 6-239-5
+    country:
+      en: Bulgaria
+    dec: '14205'
+    signal_point_name: P-TEL
+    signal_point_operator: IP World Communications Ltd.
+  - ipsc: 6-239-6
+    country:
+      en: Bulgaria
+    dec: '14206'
+    signal_point_name: NTWS
+    signal_point_operator: Networks-Bulgaria
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.              Codes de points
+    sémaphores internationaux (CPSI).              Códigos de puntos de señalización
+    internacional (CPSI).'

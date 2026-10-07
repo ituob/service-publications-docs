@@ -1,0 +1,39 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1342'
+reference: OB-1342
+identifier:
+  code: 1342-001
+data:
+  entries:
+  - ipsc: 2-204-4
+    country:
+      en: Belarus
+    dec: '5732'
+    signal_point_name: FW1
+    signal_point_operator: Beltelecom
+  - ipsc: 2-204-7
+    country:
+      en: Belarus
+    dec: '5735'
+    signal_point_name: FW2
+    signal_point_operator: Beltelecom
+  - ipsc: 2-081-0
+    country:
+      en: Sweden
+    dec: '4744'
+    signal_point_name: Stockholm/UN STX
+    signal_point_operator: Arelion Sweden AB
+  - ipsc: 2-081-1
+    country:
+      en: Sweden
+    dec: '4745'
+    signal_point_name: Stockholm/UN STX
+    signal_point_operator: Arelion Sweden AB
+  - ipsc: 2-081-2
+    country:
+      en: Sweden
+    dec: '4746'
+    signal_point_name: Malmö/UR STX
+    signal_point_operator: Arelion Sweden AB

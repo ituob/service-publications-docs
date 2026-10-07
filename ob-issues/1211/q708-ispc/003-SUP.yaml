@@ -1,0 +1,33 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1211'
+reference: OB-1211
+identifier:
+  code: 1211-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-027-3
+    country:
+      en: United States
+    dec: '6363'
+    signal_point_name: Los Angeles (2),CA
+    signal_point_operator: China Telecom (Americas) Corporation
+  - ipsc: 3-033-3
+    country:
+      en: United States
+    dec: '6411'
+    signal_point_name: Los Angeles,CA
+    signal_point_operator: China Telecom (Americas) Corporation
+  - ipsc: 3-192-5
+    country:
+      en: United States
+    dec: '7685'
+    signal_point_name: Los Angeles, CA
+    signal_point_operator: China Telecom (USA) Corporation
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

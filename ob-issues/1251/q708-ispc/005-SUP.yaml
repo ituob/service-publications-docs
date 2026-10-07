@@ -1,0 +1,69 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1251'
+reference: OB-1251
+identifier:
+  code: 1251-005
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-167-0
+    country:
+      en: United Kingdom
+    dec: '5432'
+    signal_point_name: BMSTP
+    signal_point_operator: SKD 4 Limited
+  - ipsc: 2-174-7
+    country:
+      en: United Kingdom
+    dec: '5495'
+    signal_point_name: IRT8
+    signal_point_operator: Wavecrest (UK) Ltd
+  - ipsc: 2-176-4
+    country:
+      en: United Kingdom
+    dec: '5508'
+    signal_point_name: UK2
+    signal_point_operator: SKD 4 Limited
+  - ipsc: 2-178-7
+    country:
+      en: United Kingdom
+    dec: '5527'
+    signal_point_name: IRT7
+    signal_point_operator: Wavecrest (UK) Ltd
+  - ipsc: 2-185-4
+    country:
+      en: United Kingdom
+    dec: '5580'
+    signal_point_name: UKLHCO5-Mercur
+    signal_point_operator: Wavecrest (UK) Ltd
+  - ipsc: 4-229-0
+    country:
+      en: United Kingdom
+    dec: '10024'
+    signal_point_name: London 1
+    signal_point_operator: Limitless Mobile Ltd
+  - ipsc: 5-226-3
+    country:
+      en: United Kingdom
+    dec: '12051'
+    signal_point_name: Cisco STP
+    signal_point_operator: Limitless Mobile Ltd
+  - ipsc: 6-252-4
+    country:
+      en: United Kingdom
+    dec: '14308'
+    signal_point_name: Global Switch
+    signal_point_operator: Cheers International Sales Limited
+  - ipsc: 7-253-5
+    country:
+      en: United Kingdom
+    dec: '16365'
+    signal_point_name: London
+    signal_point_operator: Modus Telecom Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

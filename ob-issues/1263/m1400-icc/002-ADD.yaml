@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1263'
+reference: OB-1263
+identifier:
+  code: 1263-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Callone GmbH
+    address_line_1: Posthofstrasse 5
+    address_line_2: D-14467 POTSDAM
+    carrier_code: CALL1
+    contact: Mr Bjoern Bendig
+    tel: "+49 30 92033 500"
+    fax: "+ 49 30 92033 509"
+  notes: []

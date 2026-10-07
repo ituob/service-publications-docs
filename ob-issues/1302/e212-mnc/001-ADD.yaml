@@ -1,0 +1,33 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1302'
+reference: OB-1302
+identifier:
+  code: 1302-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada SUP
+    networks: " "
+  - mcc_mnc_codes: 302 130
+    networks: Xplornet Communications
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada ADD
+    networks: " "
+  - mcc_mnc_codes: 302 971
+    networks: Canadian National Railway
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada LIR
+    networks: " "
+  - mcc_mnc_codes: 302 131
+    networks: Xplore Inc.
+  notes:
+  - "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile /
+    Indicativo de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

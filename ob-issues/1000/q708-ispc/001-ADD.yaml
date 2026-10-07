@@ -1,0 +1,57 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1000'
+reference: OB-1000
+identifier:
+  code: P 34
+data:
+  _class: Q708ISPCAmendment
+  position: P 34
+  entries:
+  - ipsc: 3-232-0
+    country:
+      en: France
+    dec: '8000'
+    signal_point_name: Omer Telecom Limited - Aubervilliers
+    signal_point_operator: Omer Telecom Limited
+  - ipsc: 3-232-1
+    country:
+      en: France
+    dec: '8001'
+    signal_point_name: Omer Telecom Limited - Courbevoie
+    signal_point_operator: Omer Telecom Limited
+  - ipsc: 3-232-2
+    country:
+      en: France
+    dec: '8002'
+    signal_point_name: NRJ Mobile - Aubervilliers 1
+    signal_point_operator: NRJ Mobile
+  - ipsc: 3-232-3
+    country:
+      en: France
+    dec: '8003'
+    signal_point_name: NRJ Mobile  - Aubervilliers 2
+    signal_point_operator: NRJ Mobile
+  - ipsc: 6-233-5
+    country:
+      en: France
+    dec: '14157'
+    signal_point_name: Mobiqui Things - Vitry 1
+    signal_point_operator: Mobiqui Things
+  - ipsc: 6-233-6
+    country:
+      en: France
+    dec: '14158'
+    signal_point_name: Alpha Com - Clichy
+    signal_point_operator: Alpha Com
+  - ipsc: 6-233-7
+    country:
+      en: France
+    dec: '14159'
+    signal_point_name: Mobiqui Things - Vitry 2
+    signal_point_operator: Mobiqui Things
+  notes:
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

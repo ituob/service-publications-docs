@@ -1,0 +1,39 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1189'
+reference: OB-1189
+identifier:
+  code: 1189-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-067-4
+    country:
+      en: Seychelles
+    dec: '12828'
+    signal_point_name: HLR1
+    signal_point_operator: Intelvision Ltd
+  - ipsc: 6-067-5
+    country:
+      en: Seychelles
+    dec: '12829'
+    signal_point_name: HLR2
+    signal_point_operator: Intelvision Ltd
+  - ipsc: 6-067-6
+    country:
+      en: Seychelles
+    dec: '12830'
+    signal_point_name: MSC1
+    signal_point_operator: Intelvision Ltd
+  - ipsc: 6-067-7
+    country:
+      en: Seychelles
+    dec: '12831'
+    signal_point_name: MSC2
+    signal_point_operator: Intelvision Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

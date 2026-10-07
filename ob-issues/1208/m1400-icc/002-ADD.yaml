@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1208'
+reference: OB-1208
+identifier:
+  code: 1208-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: novanetz GmbH & Co.KG
+    address_line_1: Landwehrstrasse 76
+    address_line_2: D-30519 HANNOVER
+    carrier_code: NOVA
+    contact: Mr Dennis Kornehl
+    tel: "+49 511 99998035"
+    fax: "+49 511 99998041"
+  notes: []

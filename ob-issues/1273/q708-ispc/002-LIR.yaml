@@ -1,0 +1,45 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1273'
+reference: OB-1273
+identifier:
+  code: 1273-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-017-3
+    country:
+      en: France
+    dec: '4235'
+    signal_point_name: Vérizon France Mons en Baroeul
+    signal_point_operator: Vérizon France
+  - ipsc: 2-022-2
+    country:
+      en: France
+    dec: '4274'
+    signal_point_name: Orange – Paris NEO POP
+    signal_point_operator: Orange
+  - ipsc: 2-023-0
+    country:
+      en: France
+    dec: '4280'
+    signal_point_name: MINT -  Paris 2
+    signal_point_operator: MINT
+  - ipsc: 2-202-0
+    country:
+      en: France
+    dec: '5712'
+    signal_point_name: BJT Partners - Vitry sur Seine
+    signal_point_operator: BJT Partners
+  - ipsc: 2-221-2
+    country:
+      en: France
+    dec: '5866'
+    signal_point_name: MINT - Paris
+    signal_point_operator: MINT
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

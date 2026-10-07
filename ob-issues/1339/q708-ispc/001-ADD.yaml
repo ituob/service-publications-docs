@@ -1,0 +1,28 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1339'
+reference: OB-1339
+identifier:
+  code: 1339-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-113-3
+    country:
+      en: South Africa
+    dec: '13195'
+    signal_point_name: GQvSTP
+    signal_point_operator: MTN Pty Ltd
+  - ipsc: 3-187-3
+    country:
+      en: United States
+    dec: '7643'
+    signal_point_name: Jacksonville Beach, FL
+    signal_point_operator: Latam Telecommunications, L.L.C.
+  - ipsc: 3-203-0
+    country:
+      en: United States
+    dec: '7768'
+    signal_point_name: Jacksonville Beach, FL
+    signal_point_operator: Latam Telecommunications, L.L.C.

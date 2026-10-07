@@ -1,0 +1,31 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1155'
+reference: OB-1155
+identifier:
+  code: 1155-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Estonia ADD
+    networks: " "
+  - mcc_mnc_codes: 248 12
+    networks: Ntel Solutions OÜ
+  - mcc_mnc_codes: 248 13
+    networks: Telia Eesti AS
+  - mcc_mnc_codes: 248 14
+    networks: Estonian Crafts OÜ
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Lesotho ADD
+    networks: " "
+  - mcc_mnc_codes: 651 10
+    networks: VODACOM LESOTHO
+  notes:
+  - "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

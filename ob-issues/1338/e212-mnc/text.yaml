@@ -1,0 +1,90 @@
+_class: TextAmendment
+ob_issue_no: '1338'
+reference: OB-1338
+contents:
+  type: doc
+  content:
+  - type: table
+    content:
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: Country / Geographical area
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: MCC + MNC
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: Operator / Network
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: South Africa   ADD
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 655 20
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Vodacom Pty Ltd
+  - type: paragraph
+    content:
+    - type: text
+      text: 'MCC: Mobile Country Code'
+    - type: hard_break
+    - type: text
+      text: 'MNC: Mobile Network Code'
+note: Filled from source ProseMirror content after parser produced no structured actions

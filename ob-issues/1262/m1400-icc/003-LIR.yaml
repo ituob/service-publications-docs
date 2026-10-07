@@ -1,0 +1,31 @@
+type: LIR
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1262'
+reference: OB-1262
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: CompuNet Systems GmbH
+    address_line_1: Moislinger Allee 9 d
+    address_line_2: D-23558 LUEBECK
+    carrier_code: CPN1
+    contact: Mr Boris Hoppe
+    tel: "+49 451 3170330"
+    email: b.hoppe@compunet.systems
+  - country_or_area:
+      en: Germany
+    company_name: COM-IN Telekommunikations GmbH
+    address_line_1: Erni-Singerl-Strasse 2 b
+    address_line_2: D-85053 INGOLSTADT
+    carrier_code: COMIN
+    contact: Mr Stefan Ferstl
+    tel: "+49 841 88511 0"
+    fax: "+49 841 88511 1099"
+    email: kontakt@comin-glasfaser.de
+  notes: []

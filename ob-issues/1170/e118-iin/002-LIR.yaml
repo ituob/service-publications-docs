@@ -1,0 +1,27 @@
+type: LIR
+date_requested: &1 2018-12-01
+date_active: *1
+ob_issue_no: '1170'
+reference: OB-1170
+identifier:
+  code: 1170-002
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: New Caledonia
+    company_name: Office des Postes et des Télécommunications (OPT)
+    company_address_1: 2 Rue Paul Monchovet
+    company_address_2: Port Plaisance
+    company_address_3: 98841 NOUMEA CEDEX
+    contact: Olivier Amat
+    contact_address_1: 2, rue Monchovet
+    contact_address_2: 98841 NOUMEA Cedex
+    tel:
+    - "+687 268282"
+    fax:
+    - "+687 289090"
+    email:
+    - olivier.amat@opt.nc
+    issue_id_number: 89 687 01
+  notes: []

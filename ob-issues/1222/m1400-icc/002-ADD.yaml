@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1222'
+reference: OB-1222
+identifier:
+  code: 1222-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: DIDWW Ireland Limited
+    address_line_1: 10/13 Thomas Street
+    address_line_2: IE DUBLIN 8, D08PX8H
+    address_line_3: Ireland
+    carrier_code: DIDWW
+    contact: Mrs Inga Urbiete
+    tel: "+35 3190 15295"
+  notes: []

@@ -1,0 +1,63 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1229'
+reference: OB-1229
+identifier:
+  code: 1229-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-039-6
+    country:
+      en: Thailand
+    dec: '10558'
+    signal_point_name: TUC-MTG(IDD)
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-039-7
+    country:
+      en: Thailand
+    dec: '10559'
+    signal_point_name: TUC-PBI(IDD)
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-135-0
+    country:
+      en: Thailand
+    dec: '11320'
+    signal_point_name: TUC-TYN SCCP
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-135-1
+    country:
+      en: Thailand
+    dec: '11321'
+    signal_point_name: TIC-MTG SCCP
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-135-2
+    country:
+      en: Thailand
+    dec: '11322'
+    signal_point_name: TUC-TYN SCCP
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-135-3
+    country:
+      en: Thailand
+    dec: '11323'
+    signal_point_name: TIC-MTG SCCP
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-135-4
+    country:
+      en: Thailand
+    dec: '11324'
+    signal_point_name: BPL2/POI
+    signal_point_operator: Advance Wireless Network
+  - ipsc: 5-135-5
+    country:
+      en: Thailand
+    dec: '11325'
+    signal_point_name: TWA2/POI
+    signal_point_operator: Advance Wireless Network
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

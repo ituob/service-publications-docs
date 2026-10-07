@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1236'
+reference: OB-1236
+identifier:
+  code: 1236-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Winsen (Luhe) GmbH
+    address_line_1: Schlossring 50
+    address_line_2: D-21423 WINSEN (LUHE)
+    carrier_code: STWWIN
+    contact: Mr Matthias Wolf
+    tel: "+49 4171 7999 450"
+    fax: "+49 4171 7999 9450"
+  notes: []

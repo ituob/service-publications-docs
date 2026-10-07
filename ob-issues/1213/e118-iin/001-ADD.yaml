@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1213'
+reference: OB-1213
+identifier:
+  code: 1213-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: France
+    company_name: Cellhire France SARL
+    company_address_1: 53 Rue du Capitaine Guynemer
+    company_address_2: 92418 COURBEVOIE
+    contact: Fanny Lozé
+    contact_address_1: 53 Rue du Capitaine Guynemer
+    contact_address_2: 92418 COURBEVOIE
+    issue_id_number: 89 33 34
+    effective_date: 1.II.2021
+  notes: []

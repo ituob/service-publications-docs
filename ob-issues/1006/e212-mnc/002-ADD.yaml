@@ -1,0 +1,33 @@
+type: 'by:'
+date_requested:
+date_active:
+ob_issue_no: '1006'
+reference: OB-1006
+identifier:
+  code: P 27
+data:
+  _class: E212MNCAmendment
+  position: P 27
+  entries:
+  - mcc_mnc_codes: 226                 01
+    country_or_area:
+      en: Romania
+    networks: Vodafone
+  - mcc_mnc_codes: 226                 02
+    networks: Romtelecom
+  - mcc_mnc_codes: 226                 03
+    networks: Cosmote
+  - mcc_mnc_codes: 226                 04
+    networks: Cosmote
+  - mcc_mnc_codes: 226                 05
+    networks: Digi.Mobil
+  - mcc_mnc_codes: 226                 06
+    networks: Cosmote
+  - mcc_mnc_codes: 226                 10
+    networks: Orange
+  - mcc_mnc_codes: 226                 11
+    networks: Enigma-System
+  notes:
+  - "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil                MNC: Mobile Network Code / Code
+    de réseau mobile / Indicativo de red para el servicio móvil"

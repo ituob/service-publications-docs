@@ -1,0 +1,35 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1061'
+reference: OB-1061
+identifier:
+  code: 1061-010
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Telepark Passau GmbH
+    carrier_code: TPPASS
+    contact: Mr. Thomas Greiner
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Regensburger Strasse 29
+    contact: 'Tel.: + 49 851 560 398'
+    tel: "+ 49 851 560 398"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 94036  PASSAU
+    contact: 'Fax: + 49 851 560 393'
+    fax: "+ 49 851 560 393"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail: support@telepark-passau.de'
+    tel: 'E-mail: support@epark-passau.de'
+    email: support@telepark-passau.de
+  notes: []

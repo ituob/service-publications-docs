@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2018-12-15
+date_active: *1
+ob_issue_no: '1170'
+reference: OB-1170
+identifier:
+  code: 1170-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Hungary SUP
+    networks: " "
+  - mcc_mnc_codes: 216 04
+    networks: Invitech ICT Services Ltd.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Kenya SUP
+    networks: " "
+  - mcc_mnc_codes: 639 08
+    networks: Sema Mobile Services Limited
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

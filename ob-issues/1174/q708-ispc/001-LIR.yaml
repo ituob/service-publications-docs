@@ -1,0 +1,27 @@
+type: LIR
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1174'
+reference: OB-1174
+identifier:
+  code: 1174-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-108-0
+    country:
+      en: Comoros
+    dec: '13152'
+    signal_point_name: MSC CT Moroni
+    signal_point_operator: Comores Telecom
+  - ipsc: 6-108-1
+    country:
+      en: Comoros
+    dec: '13153'
+    signal_point_name: MSC CT
+    signal_point_operator: Comores Telecom
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

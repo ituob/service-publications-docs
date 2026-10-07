@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1240'
+reference: OB-1240
+identifier:
+  code: 1240-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: EasyFone GmbH
+    address_line_1: Fritz-Boerner-Strasse 5 b
+    address_line_2: D-86929 PENZING
+    carrier_code: EASYFO
+    contact: Mr Philip Gabriel
+    tel: "+49 721 276612877"
+    fax: "+49 721 276612889"
+    email: philip.gabriel@easyfone.de
+  notes: []

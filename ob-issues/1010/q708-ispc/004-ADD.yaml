@@ -1,0 +1,64 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1010'
+reference: OB-1010
+identifier:
+  code: P 121 to P 123
+data:
+  _class: Q708ISPCAmendment
+  position: P 121 to P 123
+  entries:
+  - ipsc: 4-229-0
+    country:
+      en: United Kingdom
+    dec: '10024'
+    signal_point_name: London1
+    signal_point_operator: Fluenta Ltd
+  - ipsc: 4-229-1
+    country:
+      en: United Kingdom
+    dec: '10025'
+    signal_point_name: LON STP2
+    signal_point_operator: Telecom New Zealand UK Limited
+  - ipsc: 4-229-2
+    country:
+      en: United Kingdom
+    dec: '10026'
+    signal_point_name: London
+    signal_point_operator: Zamir Telecom Limited
+  - ipsc: 4-229-4
+    country:
+      en: United Kingdom
+    dec: '10028'
+    signal_point_name: LON001 GSX2
+    signal_point_operator: Interoute Networks Limited
+  - ipsc: 4-229-5
+    country:
+      en: United Kingdom
+    dec: '10029'
+    signal_point_name: LON002 GSX2
+    signal_point_operator: Interoute Networks Limited
+  - ipsc: 4-229-6
+    country:
+      en: United Kingdom
+    dec: '10030'
+    signal_point_name: Lon-MSS1
+    signal_point_operator: Truphone Ltd
+  - ipsc: 4-229-7
+    country:
+      en: United Kingdom
+    dec: '10031'
+    signal_point_name: Slough 454
+    signal_point_operator: InterCall Conferencing Services Ltd
+  - ipsc: 7-229-7
+    country:
+      en: United Kingdom
+    dec: '16175'
+    signal_point_name: London
+    signal_point_operator: Samitel Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

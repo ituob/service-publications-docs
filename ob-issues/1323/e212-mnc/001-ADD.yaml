@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1323'
+reference: OB-1323
+identifier:
+  code: 1323-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada    ADD
+    networks: " "
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Switzerland    SUP
+    networks: " "
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile,
+    networks: " "

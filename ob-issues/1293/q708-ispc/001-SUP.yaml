@@ -1,0 +1,33 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1293'
+reference: OB-1293
+identifier:
+  code: 1293-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-092-6
+    country:
+      en: Estonia
+    dec: '4838'
+    signal_point_name: Tallinn
+    signal_point_operator: OU Top Connect
+  - ipsc: 6-227-6
+    country:
+      en: Estonia
+    dec: '14110'
+    signal_point_name: Tallinn
+    signal_point_operator: AS Eesti Telekom
+  - ipsc: 6-227-7
+    country:
+      en: Estonia
+    dec: '14111'
+    signal_point_name: Tallinn
+    signal_point_operator: AS Eesti Telekom
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

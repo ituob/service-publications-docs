@@ -1,0 +1,63 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1297'
+reference: OB-1297
+identifier:
+  code: 1297-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-027-7
+    country:
+      en: Panama
+    dec: '14559'
+    signal_point_name: Digicel Panama 1
+    signal_point_operator: Digicel Panamá S.A.
+  - ipsc: 7-028-0
+    country:
+      en: Panama
+    dec: '14560'
+    signal_point_name: Gateway MSC Digicel
+    signal_point_operator: Digicel MG INT
+  - ipsc: 7-030-0
+    country:
+      en: Panama
+    dec: '14576'
+    signal_point_name: STP1 Intl Digicel
+    signal_point_operator: Digicel MG INT
+  - ipsc: 7-030-1
+    country:
+      en: Panama
+    dec: '14577'
+    signal_point_name: STP2 Intl Digicel
+    signal_point_operator: Digicel MG INT
+  - ipsc: 7-030-4
+    country:
+      en: Panama
+    dec: '14580'
+    signal_point_name: Digicel MG Intl
+    signal_point_operator: Digicel MG INT
+  - ipsc: 7-031-1
+    country:
+      en: Panama
+    dec: '14585'
+    signal_point_name: Skymond1 MSC
+    signal_point_operator: Digicel (Panama), S.A.
+  - ipsc: 7-031-2
+    country:
+      en: Panama
+    dec: '14586'
+    signal_point_name: Skymond2 MSC
+    signal_point_operator: Digicel (Panama), S.A.
+  - ipsc: 7-031-5
+    country:
+      en: Panama
+    dec: '14589'
+    signal_point_name: ITP Internacional
+    signal_point_operator: Digicel (Panama), S.A.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

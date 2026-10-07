@@ -1,0 +1,27 @@
+_class: TextAmendment
+ob_issue_no: '1243'
+reference: OB-1243
+contents:
+  type: doc
+  content:
+  - type: paragraph
+    content:
+    - type: text
+      marks:
+      - type: strong
+      text: ADD
+  - type: paragraph
+    content:
+    - type: text
+      marks:
+      - type: strong
+      text: 'IL02   '
+    - type: text
+      text: "         NSSLGlobal IL LTD, Yigal Alon Blv 26, Sun Centre, 9906224 Beit
+        Shemesh, Israel."
+  - type: paragraph
+    content:
+    - type: text
+      text: "                         Tel: +972 2 990 4555, +972 74 700 5424, fax:
+        +972 2 999 5490."
+parse_error: 'NoMethodError: undefined method ''dump_doc_verbose'' for class Ituob::Helpers'

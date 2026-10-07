@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1224'
+reference: OB-1224
+identifier:
+  code: 1224-011
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Thüga Energie GmbH
+    address_line_1: Industriestrasse 9
+    address_line_2: D-78224 SINGEN
+    carrier_code: THEVHB
+    contact: Mr Peter Ehret
+    tel: "+49 7731 5900 1444"
+    fax: "+49 7731 5900 1595"
+  notes: []

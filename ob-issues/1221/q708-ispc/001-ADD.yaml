@@ -1,0 +1,63 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1221'
+reference: OB-1221
+identifier:
+  code: 1221-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-044-5
+    country:
+      en: Oman
+    dec: '8549'
+    signal_point_name: MUSTP01(INAT0)
+    signal_point_operator: Ooredoo
+  - ipsc: 4-044-6
+    country:
+      en: Oman
+    dec: '8550'
+    signal_point_name: WCSSS01 and SOHSS02
+    signal_point_operator: Omantel
+  - ipsc: 4-044-7
+    country:
+      en: Oman
+    dec: '8551'
+    signal_point_name: STP Quram
+    signal_point_operator: Omantel
+  - ipsc: 4-045-0
+    country:
+      en: Oman
+    dec: '8552'
+    signal_point_name: STP Gala
+    signal_point_operator: Omantel
+  - ipsc: 4-045-1
+    country:
+      en: Oman
+    dec: '8553'
+    signal_point_name: BOIGW1
+    signal_point_operator: Ooredoo
+  - ipsc: 4-045-2
+    country:
+      en: Oman
+    dec: '8554'
+    signal_point_name: MUSTP1
+    signal_point_operator: Vodafone
+  - ipsc: 4-045-3
+    country:
+      en: Oman
+    dec: '8555'
+    signal_point_name: BSSTP1
+    signal_point_operator: Vodafone
+  - ipsc: 4-045-6
+    country:
+      en: Oman
+    dec: '8558'
+    signal_point_name: SOIGW1
+    signal_point_operator: Ooredoo
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

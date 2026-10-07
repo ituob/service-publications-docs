@@ -1,0 +1,30 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1034'
+reference: OB-1034
+identifier:
+  code: 1034-005
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: outbox AG
+    carrier_code: OUTBOX
+    contact: Mike Behrendt
+  - country_or_area:
+      en: Germany
+    company_name: Emil-Hoffmann-Strasse 1 a
+    contact: 'Tel:         + 49 2236 303 7000'
+    tel: "+ 49 2236 303 7000"
+  - country_or_area:
+      en: Germany
+    company_name: 50996 KOLN
+    contact: 'Fax:        + 49 2236 303 7001'
+    fax: "+ 49 2236 303 7001"
+  - country_or_area:
+      en: Germany
+    contact: 'E-mail:  noc@outbox.de'
+    email: noc@outbox.de
+  notes: []

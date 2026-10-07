@@ -1,0 +1,75 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1123'
+reference: OB-1123
+identifier:
+  code: 1123-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-020-0
+    country:
+      en: Mali
+    dec: '12448'
+    signal_point_name: MSC1-Huawei (Site ACI2000)
+    signal_point_operator: SOTELMA SA
+  - ipsc: 6-020-1
+    country:
+      en: Mali
+    dec: '12449'
+    signal_point_name: Plateforme Roaming Halys( Site ACI2000)
+    signal_point_operator: SOTELMA SA
+  - ipsc: 6-020-2
+    country:
+      en: Mali
+    dec: '12450'
+    signal_point_name: CTI NGN HUAWEI à Bamako-Coura
+    signal_point_operator: SOTELMA SA
+  - ipsc: 6-020-4
+    country:
+      en: Mali
+    dec: '12452'
+    signal_point_name: ATEL-GMSC
+    signal_point_operator: ATEL SA
+  - ipsc: 6-020-5
+    country:
+      en: Mali
+    dec: '12453'
+    signal_point_name: ATEL-STP
+    signal_point_operator: ATEL SA
+  - ipsc: 6-020-6
+    country:
+      en: Mali
+    dec: '12454'
+    signal_point_name: SCCPGW
+    signal_point_operator: Orange Mali SA
+  - ipsc: 6-020-7
+    country:
+      en: Mali
+    dec: '12455'
+    signal_point_name: GMSC1
+    signal_point_operator: Orange Mali SA
+  - ipsc: 6-183-0
+    country:
+      en: Mali
+    dec: '13752'
+    signal_point_name: GMSC2
+    signal_point_operator: Orange Mali SA
+  - ipsc: 6-183-1
+    country:
+      en: Mali
+    dec: '13753'
+    signal_point_name: STP1
+    signal_point_operator: Orange Mali SA
+  - ipsc: 6-183-2
+    country:
+      en: Mali
+    dec: '13754'
+    signal_point_name: STP2
+    signal_point_operator: Orange Mali SA
+  notes:
+  - ___________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

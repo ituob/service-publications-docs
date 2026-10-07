@@ -1,0 +1,152 @@
+type: REP
+date_requested:
+date_active:
+ob_issue_no: '1062'
+reference: OB-1062
+identifier:
+  code: P 74
+data:
+  _class: ListVIIIAmendment
+  position: P 74
+  country: AUT Austria
+  description: P 74-75 REP
+  entries:
+  - country: AUT - Austria
+    name: Klagenfurt
+    postal_address: FMD-Wien Krapfenwaldl 1190 Wien Austria
+    contact: 'TF : +43 1 3201051-30 FAX : +43 1 3201051-36'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 46°38'07''N 014°29'43''E
+      hours_of_service: HX
+      frequency_ranges: 9 kHz - 30 MHz
+      remarks: Monitoring station primary for activities in the HF range.
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 46°38'07''N 014°29'43''E
+      hours_of_service: HX
+      frequency_ranges: 9 kHz - 30 MHz
+      remarks: Monitoring station primary for activities in the HF range.
+    - measurement_type: Direction-finding measurements
+      coordinates: 46°38'07''N 014°29'43''E
+      hours_of_service: HX
+      frequency_ranges: "(100) 300 kHz - 30 MHz"
+      remarks: Monitoring station primary for activities in the HF range. Correlation.
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 46°38'07''N 014°29'43''E
+      hours_of_service: HX
+      frequency_ranges: 9 kHz - 30 MHz
+      remarks: Monitoring station primary for activities in the HF range.
+  - country: AUT Austria
+    name: Wien (IMS)
+    postal_address: FMB/KMB-Wien Krapfenwaldl 1190 Wien Austria
+    contact: 'TF : +43 1 3201051-0 FAX : +43 1 3201051-36'
+    centralizing_office:
+      name: Subdirección General de Inspección de las Telecomunicaciones Dirección
+        General de Telecomunicaciones y Tecnologías de la Información
+      postal_address: C/ Capitán Haya 41 Planta 9.ª 28071 Madrid
+      contact: 'TF : +34 91 3462605 FAX : +34 91 3461567 EMAIL : cter@minetur.es'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 48°15'45''N 016°20'08''E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 90 GHz
+      remarks: Monitoring station primary for activities in the VHF/UHF range.
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 48°15'45''N 016°20'08''E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 90 GHz
+      remarks: Monitoring station primary for activities in the VHF/UHF range. If
+        necessary, measurements are carried out by mobile monitoring stations (van).
+    - measurement_type: Direction-finding measurements
+      coordinates: 48°15'45''N 016°20'08''E
+      hours_of_service: HX
+      frequency_ranges: "(100) 500 kHz - 30 MHz"
+      remarks: Doppler.
+    - measurement_type: Direction-finding measurements
+      coordinates: 48°15'45''N 016°20'08''E
+      hours_of_service: H24
+      frequency_ranges: 30 MHz - 3 GHz
+      remarks: Monitoring station primary for activities in the VHF/UHF range. If
+        necessary, direction-finding measurements are carried out by mobile monitoring
+        stations (van). Correlation.
+    - measurement_type: Bandwidth measurements
+      coordinates: 48°15'45''N 016°20'08''E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 90 GHz
+      remarks: Monitoring station primary for activities in the VHF/UHF range. If
+        necessary, measurements are carried out by mobile monitoring stations (van).
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 48°15'45''N 016°20'08''E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 90 GHz
+      remarks: Monitoring station primary for activities in the VHF/UHF range.
+  notes:
+  - PART II
+  - STATIONS IN THE SPACE RADIOCOMMUNICATION SERVICES
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - 1. Geographical coordinates
+  - 105°24'24''E — 021°20'20''N
+  - 2. Hours of service
+  - 'H24: on request'
+  - 3. Information on antennas in use
+  - 6.3 m Cassegrain antenna for frequency ranges 3.4 GHz to 4.2 GHz and 10.70 GHz
+    to 12.75 GHz; slew rate 0.02° to 2°/second (azimuth), 0.02° to 2°/second (elevation).
+  - 4. Range of azimuth and elevation angles
+  - Azimuth -120° to +120°, elevation 0° to 90°.
+  - 5. Maximum attainable accuracy in determining orbital positions of space stations
+  - "≤ 0.03° and in accordance with ITU-R Recommendations and the Handbook on Spectrum
+    Monitoring."
+  - 6. Information on system polarization
+  - Linear (H, V)
+  - 7. System noise temperature
+  - "(a) C band: 95° K — (b) Ku band: 145° K"
+  - "(cont.)"
+  - 8. Ranges of frequencies with the maximum attainable accuracy of frequency measurement
+    for each frequency range
+  - "(a) C band: 3.4 GHz - 4.2 GHz: 1 × 10 -12 — (b) Ku Band: 10.7 GHz - 12.75 GHz:
+    1 × 10 -12"
+  - 9. Ranges of frequencies in which field strength or power flux-density measurements
+    can be performed
+  - "(a) C band: 3.4 GHz - 4.2 GHz — (b) Ku Band: 10.7 GHz - 12.75 GHz"
+  - 10. Minimum value of measurable field strength or power flux-density with indication
+    of attainable accuracy of measurement
+  - "(a) ~ -168 dBW/m² ± 1.5 dB — (b) ~ -168 dBW/m² ± 1.5 dB — Bandwidth 4 kHz, S/N
+    ≥ 10 dB"
+  - 11. Information available for bandwidth measurements
+  - X dB and β/2% methods, using spectrum analyser.
+  - 12. Information available for spectrum occupancy measurements
+  - Frequency occupancy and channel occupancy measurements.
+  - 13. Information available for orbit occupancy measurements
+  - GSO orbit positions can be measured.
+  - "(Amendment No. 3)"
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - 'Federal Ministry for Transport Innovation and Technology Section III Centralizing
+    Office for Monitoring — Radetzkystrasse 2 1030 Wien — TF : +43 1 71162 654224
+    FAX : +43 1 71162 654209 EMAIL : ernst.cerny@bmvit.gv.at EMAIL : zdf@bmvit.gv.at'
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(Amendment No. 4)"
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - E Spain
+  - E - Spain
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - E Spain (cont.)
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks

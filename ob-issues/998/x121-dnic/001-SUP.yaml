@@ -1,0 +1,20 @@
+type: SUP
+date_requested: 2011-0-1
+date_active: 2011-0-1
+ob_issue_no: '998'
+reference: OB-998
+identifier:
+  code: P 21 240 2
+data:
+  _class: X121DNICAmendment
+  position: P 21 240 2
+  description: P21 240 2 SUP
+  caption: Country/Area — DNIC No. — Name of network to which a DNIC is withdrawn
+  entries:
+  - dnic_number: 240 2
+    country_or_area:
+      en: SWEDEN
+      fr: SUÈDE
+      es: SUECIA
+    network_name: WM-data Infrastructur
+  notes: []

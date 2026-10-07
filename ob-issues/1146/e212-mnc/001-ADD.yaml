@@ -1,0 +1,63 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1146'
+reference: OB-1146
+identifier:
+  code: 1146-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Chile ADD
+    networks: " "
+  - mcc_mnc_codes: 730 22
+    networks: CELLPLUS SPA
+  - mcc_mnc_codes: 730 23
+    networks: CLARO SERVICIOS EMPRESARIALES S.A.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: France SUP
+    networks: " "
+  - mcc_mnc_codes: 208 12
+    networks: Hewlett-Packard France
+  - mcc_mnc_codes: 208 18
+    networks: Voxbone
+  - mcc_mnc_codes: 208 23
+    networks: Omea Telecom
+  - mcc_mnc_codes: 208 29
+    networks: Cubic Telecom France
+  - mcc_mnc_codes: 208 90
+    networks: Images & Réseaux
+  - mcc_mnc_codes: 208 92
+    networks: Plate-forme telecom
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: France ADD
+    networks: " "
+  - mcc_mnc_codes: 208 19
+    networks: Altitude Infrastructure
+  - mcc_mnc_codes: 208 32
+    networks: Orange
+  - mcc_mnc_codes: 208 86
+    networks: Nomotech
+  - mcc_mnc_codes: 208 87
+    networks: Régie Autonome des Transports Parisiens
+  - mcc_mnc_codes: 208 89
+    networks: Fondation b-com
+  - mcc_mnc_codes: 208 93
+    networks: Thales communications & Security
+  - mcc_mnc_codes: 208 95
+    networks: Orange
+  - mcc_mnc_codes: 208 96
+    networks: Axione
+  - mcc_mnc_codes: 208 97
+    networks: Thales communications & Security
+  - mcc_mnc_codes: 208 98
+    networks: Société Air France
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

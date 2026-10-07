@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1272'
+reference: OB-1272
+identifier:
+  code: 1272-009
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-221-1
+    country:
+      en: North Macedonia
+    dec: '12009'
+    signal_point_name: TAG-Wien
+    signal_point_operator: A1 Makedonija
+  - ipsc: 5-221-2
+    country:
+      en: North Macedonia
+    dec: '12010'
+    signal_point_name: TAG-Linz
+    signal_point_operator: A1 Makedonija
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

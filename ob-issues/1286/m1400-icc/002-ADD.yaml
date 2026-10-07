@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1286'
+reference: OB-1286
+identifier:
+  code: 1286-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Blue Sky Operations GmbH
+    address_line_1: Honenberg 27
+    address_line_2: D-21398 NEETZE
+    carrier_code: BSO23
+    contact: Mr Lukas Lange
+    tel: "+49 152 01445123"
+  notes: []

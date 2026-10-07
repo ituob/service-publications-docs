@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1240'
+reference: OB-1240
+identifier:
+  code: 1240-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Drillisch Online GmbH
+    address_line_1: Wilhelm-Roentgen-Strasse 1-5
+    address_line_2: D-63477 MAINTAL
+    carrier_code: DRI001
+    contact: Mr Mario Horcher
+    tel: "+49 6181 412588"
+    fax: "+49 6181 7074063"
+    email: m.horcher@drillisch-online.de
+  notes: []

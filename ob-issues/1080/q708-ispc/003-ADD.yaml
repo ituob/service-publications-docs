@@ -1,0 +1,39 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1080'
+reference: OB-1080
+identifier:
+  code: 1080-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-248-6
+    country:
+      en: Germany
+    dec: '6086'
+    signal_point_name: AlpTelco-Archway-02
+    signal_point_operator: AlpTelco e.K.
+  - ipsc: 2-249-2
+    country:
+      en: Germany
+    dec: '6090'
+    signal_point_name: Duesseldorf HNS Mobilfunk
+    signal_point_operator: HNS GmbH
+  - ipsc: 2-250-0
+    country:
+      en: Germany
+    dec: '6096'
+    signal_point_name: Frankfurt
+    signal_point_operator: SIA Zigma Telecom
+  - ipsc: 2-250-1
+    country:
+      en: Germany
+    dec: '6097'
+    signal_point_name: Frankfurt
+    signal_point_operator: Hansa Telecom SIA
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,21 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1062'
+reference: OB-1062
+identifier:
+  code: 1062-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 295 07
+    networks: First Mobile AG
+  - mcc_mnc_codes: 295 05
+    networks: Telecom Liechtenstein AG
+  - mcc_mnc_codes: 901 43
+    networks: EMnify GmbH
+  notes:
+  - "*MCC:  Country Code / Indicatif de pays du mobile / Indicativo de país para el
+    servicio móvil"
+  - 'MNC:  Network Code / Code de réseau mobile / Indicativo de red para el servicio
+    móvil'

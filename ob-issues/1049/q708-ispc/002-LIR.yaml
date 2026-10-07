@@ -1,0 +1,81 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '1049'
+reference: OB-1049
+identifier:
+  code: 1049-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-168-0
+    country:
+      en: Bulgaria
+    dec: '5440'
+    signal_point_name: TPN
+    signal_point_operator: Interoute Bulgaria
+  - ipsc: 2-168-4
+    country:
+      en: Bulgaria
+    dec: '5444'
+    signal_point_name: SPNET
+    signal_point_operator: Mobiltel
+  - ipsc: 2-168-5
+    country:
+      en: Bulgaria
+    dec: '5445'
+    signal_point_name: GMSC1
+    signal_point_operator: Cosmo Bulgaria Mobile
+  - ipsc: 2-168-6
+    country:
+      en: Bulgaria
+    dec: '5446'
+    signal_point_name: MSC1
+    signal_point_operator: Mobiltel
+  - ipsc: 6-239-0
+    country:
+      en: Bulgaria
+    dec: '14200'
+    signal_point_name: GOLD
+    signal_point_operator: GoldTelecom Bulgaria
+  - ipsc: 6-239-1
+    country:
+      en: Bulgaria
+    dec: '14201'
+    signal_point_name: ESCOM
+    signal_point_operator: Escom
+  - ipsc: 6-239-2
+    country:
+      en: Bulgaria
+    dec: '14202'
+    signal_point_name: BTCNET
+    signal_point_operator: BTCNet
+  - ipsc: 6-247-4
+    country:
+      en: Bulgaria
+    dec: '14268'
+    signal_point_name: NTS
+    signal_point_operator: Varna Net
+  - ipsc: 6-247-5
+    country:
+      en: Bulgaria
+    dec: '14269'
+    signal_point_name: GSM-R BG
+    signal_point_operator: National Railway Infrastructure Company
+  - ipsc: 6-250-2
+    country:
+      en: Bulgaria
+    dec: '14290'
+    signal_point_name: sip.vmobile.eu
+    signal_point_operator: Vmobile
+  - ipsc: 6-250-6
+    country:
+      en: Bulgaria
+    dec: '14294'
+    signal_point_name: NETFINITY
+    signal_point_operator: Netfinity
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.              Codes de points
+    sémaphores internationaux (CPSI).              Códigos de puntos de señalización
+    internacional (CPSI).'

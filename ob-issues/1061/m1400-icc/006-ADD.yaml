@@ -1,0 +1,35 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1061'
+reference: OB-1061
+identifier:
+  code: 1061-006
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: HNS UG
+    carrier_code: HNS
+    contact: Mr. Philipp Hoffmann
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Eckenerstrasse 2
+    contact: 'Tel.: + 49 211 95263 100'
+    tel: "+ 49 211 95263 100"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 45470 MUEHLHEIM/ RUHR
+    contact: 'Fax: + 49 211 95263 111'
+    fax: "+ 49 211 95263 111"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail: philip.hoffmann@hns-telecom.de'
+    tel: 'E-mail: philip.hoffmann@hns-ecom.de'
+    email: philip.hoffmann@hns-telecom.de
+  notes: []

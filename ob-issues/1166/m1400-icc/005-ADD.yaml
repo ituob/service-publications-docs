@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1166'
+reference: OB-1166
+identifier:
+  code: 1166-005
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Bühl GmbH
+    address_line_1: Siemensstrasse 5
+    address_line_2: 77815 BUEHL
+    carrier_code: BUEHL
+    contact: Mr Georg Friedmann
+    tel: "+49 7223 946 110"
+    fax: "+49 7223 946 271110"
+    email: georg.friedmann@stadtwerke-buehl.de
+  notes: []

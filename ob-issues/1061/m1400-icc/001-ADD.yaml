@@ -1,0 +1,35 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1061'
+reference: OB-1061
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Comptertechnik Trenkle e.K.
+    carrier_code: 0 7 0 4 6
+    contact: Mrs. Anja Zibold
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Im Luckenloch 3
+    contact: 'Tel.: + 49 7824 7039911'
+    tel: "+ 49 7824 7039911"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 77974 MEISSENHEIM-KUERZELL
+    contact: 'Fax: + 49 7221 70102786'
+    fax: "+ 49 7221 70102786"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail: anja.zibold@ortenau-dsl.de'
+    email: anja.zibold@ortenau-dsl.de
+  notes: []

@@ -1,0 +1,45 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1291'
+reference: OB-1291
+identifier:
+  code: 1291-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-124-3
+    country:
+      en: Curaçao
+    dec: '7139'
+    signal_point_name: Curaçao/ANM
+    signal_point_operator: Antillean Network Management
+  - ipsc: 3-124-6
+    country:
+      en: Curaçao
+    dec: '7142'
+    signal_point_name: Curaçao/GSN
+    signal_point_operator: GSN International Telecom
+  - ipsc: 3-125-0
+    country:
+      en: Curaçao
+    dec: '7144'
+    signal_point_name: Curaçao/ANM0102
+    signal_point_operator: Antillean Network Management
+  - ipsc: 3-125-2
+    country:
+      en: Curaçao
+    dec: '7146'
+    signal_point_name: Curaçao 1
+    signal_point_operator: Third Wave Int.
+  - ipsc: 3-125-3
+    country:
+      en: Curaçao
+    dec: '7147'
+    signal_point_name: Curaçao 2
+    signal_point_operator: Third Wave Int.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

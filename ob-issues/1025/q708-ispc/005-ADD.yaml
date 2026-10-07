@@ -1,0 +1,52 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1025'
+reference: OB-1025
+identifier:
+  code: P 50
+data:
+  _class: Q708ISPCAmendment
+  position: P 50
+  entries:
+  - ipsc: 4-183-7
+    country:
+      en: Hong Kong, China
+    dec: '9663'
+    signal_point_name: CMIS03
+    signal_point_operator: China Mobile International Ltd
+  - ipsc: 4-184-0
+    country:
+      en: Hong Kong, China
+    dec: '9664'
+    signal_point_name: CMIS04
+    signal_point_operator: China Mobile International Ltd
+  - ipsc: 4-184-1
+    country:
+      en: Hong Kong, China
+    dec: '9665'
+    signal_point_name: CTG_HK_SS1_SS2
+    signal_point_operator: China Telecom Global Limited
+  - ipsc: 4-184-2
+    country:
+      en: Hong Kong, China
+    dec: '9666'
+    signal_point_name: CTG_HK_TG/SG
+    signal_point_operator: China Telecom Global Limited
+  - ipsc: 4-184-3
+    country:
+      en: Hong Kong, China
+    dec: '9667'
+    signal_point_name: CTG_HK_IN_USAU
+    signal_point_operator: China Telecom Global Limited
+  - ipsc: 4-184-4
+    country:
+      en: Hong Kong, China
+    dec: '9668'
+    signal_point_name: CTG_HK_IN_URP
+    signal_point_operator: China Telecom Global Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

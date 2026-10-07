@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1230'
+reference: OB-1230
+identifier:
+  code: 1230-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: GlasfaserPlus GmbH
+    address_line_1: Landgrabenweg 151
+    address_line_2: 53227 BONN
+    carrier_code: GFPS
+    contact: Mr Alexander Overmeyer
+    tel: "+49 171 522 1724"
+  notes: []

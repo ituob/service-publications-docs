@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1292'
+reference: OB-1292
+identifier:
+  code: 1292-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: United Kingdom
+    company_name: Tango Networks UK Ltd
+    company_address_1: 1200 Century Way
+    company_address_2: Thorpe Park Business Park
+    company_address_3: LEEDS, LS15 8ZA
+    contact: John Murray
+    contact_address_1: 1200 Century Way
+    contact_address_2: Thorpe Park Business Park
+    contact_address_3: LEEDS, LS15 8ZA
+    tel:
+    - "+44 7979755161"
+    email:
+    - johnmurray@tango-networks.com
+    issue_id_number: 89 44 25
+    effective_date: 1.V.2024
+  notes: []

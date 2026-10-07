@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1173'
+reference: OB-1173
+identifier:
+  code: 1173-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Troiline GmbH
+    address_line_1: Poststrasse 105
+    address_line_2: D-53840 TROISDORF
+    carrier_code: TROI
+    contact: Mr. Michael Schmidt
+    tel: "+49 2241 888 528"
+  notes: []

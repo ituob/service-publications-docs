@@ -1,0 +1,192 @@
+_class: TextAmendment
+ob_issue_no: '1341'
+reference: OB-1341
+contents:
+  type: doc
+  content:
+  - type: table
+    content:
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: Country / Geographical area
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: MCC + MNC
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            marks:
+            - type: em
+            text: Operator / Network
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Australia   ADD
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 505 64
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Roam Aussie Pty Ltd
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Estonia   SUP
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 248 34
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Nettora Systems OÜ
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Spain   ADD
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 214 12
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: CHADEVA SUR 2001, S.L. UNIPERSONAL
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 2
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: International Mobile, shared code   ADD
+    - type: table_row
+      content:
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: 901 33
+      - type: table_cell
+        attrs:
+          colspan: 1
+          rowspan: 1
+          colwidth:
+        content:
+        - type: paragraph
+          content:
+          - type: text
+            text: Onomondo ApS
+  - type: paragraph
+    content:
+    - type: text
+      text: 'MCC: Mobile Country Code'
+    - type: hard_break
+    - type: text
+      text: 'MNC: Mobile Network Code'
+note: Filled from source ProseMirror content after parser produced no structured actions

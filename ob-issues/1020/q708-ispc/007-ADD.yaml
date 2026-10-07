@@ -1,0 +1,52 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1020'
+reference: OB-1020
+identifier:
+  code: P 109
+data:
+  _class: Q708ISPCAmendment
+  position: P 109
+  entries:
+  - ipsc: 5-044-0
+    country:
+      en: Thailand
+    dec: '10592'
+    signal_point_name: BPI/POI (AIN-SIP1)
+    signal_point_operator: AIN Globalcom Company Ltd
+  - ipsc: 5-044-1
+    country:
+      en: Thailand
+    dec: '10593'
+    signal_point_name: BPI/POI (AIN-SIP2)
+    signal_point_operator: AIN Globalcom Company Ltd
+  - ipsc: 5-044-2
+    country:
+      en: Thailand
+    dec: '10594'
+    signal_point_name: IGW_RSI2 (MSC-S)
+    signal_point_operator: DTAC Network Company Ltd
+  - ipsc: 5-044-3
+    country:
+      en: Thailand
+    dec: '10595'
+    signal_point_name: IGW_RSI2 (MGW)
+    signal_point_operator: DTAC Network Company Ltd
+  - ipsc: 5-044-4
+    country:
+      en: Thailand
+    dec: '10596'
+    signal_point_name: IGW_SNK2 (MSC-S)
+    signal_point_operator: DTAC Network Company Ltd
+  - ipsc: 5-044-5
+    country:
+      en: Thailand
+    dec: '10597'
+    signal_point_name: IGW_SNK2 (MGW)
+    signal_point_operator: DTAC Network Company Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

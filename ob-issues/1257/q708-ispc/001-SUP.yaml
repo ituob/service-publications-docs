@@ -1,0 +1,25 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1257'
+reference: OB-1257
+identifier:
+  code: 1257-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-027-5
+    country:
+      en: Spain
+    dec: '4317'
+    signal_point_operator: Vodafone Enabler España, S.L.
+  - ipsc: 2-027-6
+    country:
+      en: Spain
+    dec: '4318'
+    signal_point_operator: Vodafone Enabler España, S.L.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

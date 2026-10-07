@@ -1,0 +1,26 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1312'
+reference: OB-1312
+identifier:
+  code: 1312-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: United States
+    company_name: Evergy Services, Inc.
+    company_address_1: 1200 Main Street
+    company_address_2: KANSAS CITY, MO 64105
+    contact: Worthy (J.J.) Stutler
+    contact_address_1: Evergy Services, Inc.
+    contact_address_2: 4001 NW 14th St
+    contact_address_3: TOPEKA KS 66618
+    tel:
+    - "+1 785 575 1050"
+    email:
+    - worthy.stutler@evergy.com
+    issue_id_number: 89 1 069
+    effective_date: 1.III.2025
+  notes: []

@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1224'
+reference: OB-1224
+identifier:
+  code: 1224-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Gemeindewerke Wendelstein Breitband GmbH
+    address_line_1: Nuernberger Strasse 5
+    address_line_2: 90530 WENDELSTEIN
+    carrier_code: 90530W
+    contact: Mr Michael Heubeck
+    tel: "+49 9129 401 259"
+    fax: "+49 9129 401 208269"
+    email: michael.heubeck@wendelstein.de
+  notes: []

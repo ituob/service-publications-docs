@@ -1,0 +1,39 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1245'
+reference: OB-1245
+identifier:
+  code: 1245-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-095-0
+    country:
+      en: French Polynesia
+    dec: '11000'
+    signal_point_name: MSS HOT
+    signal_point_operator: ONATI
+  - ipsc: 5-095-1
+    country:
+      en: French Polynesia
+    dec: '11001'
+    signal_point_name: STP HOT
+    signal_point_operator: ONATI
+  - ipsc: 5-095-2
+    country:
+      en: French Polynesia
+    dec: '11002'
+    signal_point_name: MSS PNO
+    signal_point_operator: ONATI
+  - ipsc: 5-095-3
+    country:
+      en: French Polynesia
+    dec: '11003'
+    signal_point_name: STP PNO
+    signal_point_operator: ONATI
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

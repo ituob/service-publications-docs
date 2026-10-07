@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1080'
+reference: OB-1080
+identifier:
+  code: 1080-011
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-228-4
+    country:
+      en: Switzerland
+    dec: '16164'
+    signal_point_name: Zürich
+    signal_point_operator: Global Message Services AG
+  - ipsc: 7-228-5
+    country:
+      en: Switzerland
+    dec: '16165'
+    signal_point_name: Zürich
+    signal_point_operator: Datatrade Managed AG
+  - ipsc: 7-228-6
+    country:
+      en: Switzerland
+    dec: '16166'
+    signal_point_name: Equinix
+    signal_point_operator: Datatrade Managed AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

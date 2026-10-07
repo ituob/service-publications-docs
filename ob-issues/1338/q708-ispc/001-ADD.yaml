@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1338'
+reference: OB-1338
+identifier:
+  code: 1338-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-201-1
+    country:
+      en: Gibraltar
+    dec: '15945'
+    signal_point_name: '5161'
+    signal_point_operator: Melmasti Global (Gibraltar) Ltd “MCOM”
+  - ipsc: 7-201-2
+    country:
+      en: Gibraltar
+    dec: '15946'
+    signal_point_name: '5162'
+    signal_point_operator: Melmasti Global (Gibraltar) Ltd “MCOM”

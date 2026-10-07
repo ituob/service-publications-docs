@@ -1,0 +1,51 @@
+type: REP
+date_requested:
+date_active:
+ob_issue_no: '1113'
+reference: OB-1113
+identifier:
+  code: P 10
+data:
+  _class: ListVIIIAmendment
+  position: P 10
+  country: QAT Qatar
+  description: P 10 REP
+  entries:
+  - country: QAT Qatar
+    name: Doha (Sumaismah) (IMS)
+    postal_address: Communications Regulatory Authority (CRA) Al Nasr Tower-B Corniche
+      Road P.O.Box 23404 Doha Qatar
+    contact: 'TF : +974 44995374 FAX : +974 44830630 EMAIL : msadeq@cra.gov.qa'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 51°29'40''E 025°33'40''N
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 3 GHz
+      remarks: Automated spectrum monitoring system.
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 51°29'40''E 025°33'40''N
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 3 GHz
+      remarks: Automated spectrum monitoring system.
+    - measurement_type: Direction-finding measurements
+      coordinates: 51°29'40''E 025°33'40''N
+      hours_of_service: H24
+      frequency_ranges: 300 kHz - 3 GHz
+      remarks: 'Automated spectrum monitoring system. For HF: monopole (9 elements)
+        antenna array. For VHF/UHF: antenna mounted on top of a 35 meters tower.'
+    - measurement_type: Bandwidth measurements
+      coordinates: 51°29'40''E 025°33'40''N
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 3 MHz
+      remarks: Automated spectrum monitoring system.
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 51°29'40''E 025°33'40''N
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 3 GHz
+      remarks: Automated spectrum monitoring system.
+  notes:
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks

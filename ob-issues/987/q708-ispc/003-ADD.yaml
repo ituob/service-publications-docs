@@ -1,0 +1,30 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '987'
+reference: OB-987
+identifier:
+  code: P 124 to P 125
+data:
+  _class: Q708ISPCAmendment
+  position: P 124 to P 125
+  entries:
+  - ipsc: 3-040-0
+    country:
+      en: United States
+    dec: '6464'
+    signal_point_name: Miami, FL
+    signal_point_operator: IP Telecom Network Corp
+  - ipsc: 3-044-5
+    country:
+      en: United States
+    dec: '6501'
+    signal_point_name: New York, NY
+    signal_point_operator: Digicel Jamaica Limited
+  - ipsc: 3-045-2
+    country:
+      en: United States
+    dec: '6506'
+    signal_point_name: Miami, FL
+    signal_point_operator: Digicel Jamaica Limited
+  notes: []

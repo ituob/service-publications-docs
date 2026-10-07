@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1001'
+reference: OB-1001
+identifier:
+  code: P 133
+data:
+  _class: Q708ISPCAmendment
+  position: P 133
+  entries:
+  - ipsc: 4-046-5
+    country:
+      en: Yemen
+    dec: '8565'
+    signal_point_name: YEM-YTel-3
+    signal_point_operator: Y-Telecom
+  - ipsc: 4-046-6
+    country:
+      en: Yemen
+    dec: '8566'
+    signal_point_name: YEM-YTel-4
+    signal_point_operator: Y-Telecom
+  - ipsc: 4-046-7
+    country:
+      en: Yemen
+    dec: '8567'
+    signal_point_name: YEM-YTel-5
+    signal_point_operator: Y-Telecom
+  notes:
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

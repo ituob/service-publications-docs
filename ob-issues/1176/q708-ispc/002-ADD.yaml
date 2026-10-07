@@ -1,0 +1,29 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1176'
+reference: OB-1176
+identifier:
+  code: 1176-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-056-1
+    country:
+      en: Mongolia
+    dec: '8641'
+    signal_point_name: IGW
+    signal_point_operator: MONGOLIA TELECOM COMPANY
+  - ipsc: 4-056-2
+    country:
+      en: Mongolia
+    dec: '8642'
+    signal_point_name: STP
+    signal_point_operator: UNITEL LLC
+  - ipsc: 4-056-4
+    country:
+      en: Mongolia
+    dec: '8644'
+    signal_point_name: UNITEL MN
+    signal_point_operator: UNITEL LLC
+  notes: []

@@ -1,0 +1,93 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1272'
+reference: OB-1272
+identifier:
+  code: 1272-005
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-023-2
+    country:
+      en: France
+    dec: '4282'
+    signal_point_name: Maore Mobile - Paris 1
+    signal_point_operator: Maore Mobile
+  - ipsc: 2-023-5
+    country:
+      en: France
+    dec: '4285'
+    signal_point_name: Maore Mobile - Paris 2
+    signal_point_operator: Maore Mobile
+  - ipsc: 2-023-7
+    country:
+      en: France
+    dec: '4287'
+    signal_point_name: Transatel - Paris 3
+    signal_point_operator: Transatel
+  - ipsc: 2-149-3
+    country:
+      en: France
+    dec: '5291'
+    signal_point_name: Airnity - Paris 1
+    signal_point_operator: Airnity
+  - ipsc: 2-151-4
+    country:
+      en: France
+    dec: '5308'
+    signal_point_name: Transatel - Saint Denis 1
+    signal_point_operator: Transatel
+  - ipsc: 2-151-7
+    country:
+      en: France
+    dec: '5311'
+    signal_point_name: Syma - Aubervilliers Interxion PAR 1
+    signal_point_operator: Syma
+  - ipsc: 2-201-0
+    country:
+      en: France
+    dec: '5704'
+    signal_point_name: Airnity - Paris 2
+    signal_point_operator: Airnity
+  - ipsc: 2-203-1
+    country:
+      en: France
+    dec: '5721'
+    signal_point_name: Airnity – AWS Paris
+    signal_point_operator: Airnity
+  - ipsc: 2-203-6
+    country:
+      en: France
+    dec: '5726'
+    signal_point_name: Airnity – AWS Paris 2
+    signal_point_operator: Airnity
+  - ipsc: 7-223-0
+    country:
+      en: France
+    dec: '16120'
+    signal_point_name: Acmoss – Rosny 1
+    signal_point_operator: Acmoss
+  - ipsc: 7-223-1
+    country:
+      en: France
+    dec: '16121'
+    signal_point_name: Acmoss – Rosny 2
+    signal_point_operator: Acmoss
+  - ipsc: 7-223-2
+    country:
+      en: France
+    dec: '16122'
+    signal_point_name: Acmoss – Nogent
+    signal_point_operator: Acmoss
+  - ipsc: 7-223-3
+    country:
+      en: France
+    dec: '16123'
+    signal_point_name: Acmoss – Lognes
+    signal_point_operator: Acmoss
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

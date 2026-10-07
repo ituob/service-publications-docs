@@ -1,0 +1,64 @@
+type: ADD
+date_requested: &1 2011-01-15
+date_active: *1
+ob_issue_no: '1033'
+reference: OB-1033
+identifier:
+  code: Denmark ADD
+data:
+  _class: F400Amendment
+  position: Denmark ADD
+  entries:
+  - country_or_area:
+      fr: Danemark
+    admd_name: DK400
+    country_code: DK
+    helpdesk:
+      :x400: DATA POST 400
+    autoanswer:
+      :x400: DATA POST 400
+    contact_address:
+      :address_lines:
+      - S=helpdesk
+      - 'NO'
+      - Evenex ApS
+  - country_or_area:
+      fr: Denmark
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - A=dk400
+      - " "
+      - Blokken 9
+  - country_or_area:
+      fr: Dinamarca
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - C=dk
+      - " "
+      - DK-3460 BIRKERØD, Denmark
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - X.400:        S=helpdesk; A=dk400; C=dk;
+  notes: []

@@ -1,0 +1,24 @@
+type: ADD
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1167'
+reference: OB-1167
+identifier:
+  code: Germany (Federal
+data:
+  _class: Q708ISPCAmendment
+  position: Germany (Federal
+  entries:
+  - ipsc: amabo GmbH
+    country:
+      en: Republic
+    dec: Essener Strasse 2 - 24
+    signal_point_name: 46047 OBERHAUSEN
+    signal_point_operator: AMABO
+  - ipsc: Tele Columbus AG, Bulk-Account Kaiserin-Augusta-Allee 108 D-10553 BERLIN
+    country:
+      en: Republic
+    dec: FLTC
+    signal_point_name: 'Mrs Corinna Jaehneke Tel.:          +49 30 3388 1029 E-mail
+      :    corinna.jaehneke@pyur.com'
+  notes: []

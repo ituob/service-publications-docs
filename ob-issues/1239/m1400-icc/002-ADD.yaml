@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1239'
+reference: OB-1239
+identifier:
+  code: 1239-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Interactive Network Communications GmbH
+    address_line_1: Neue Mainzer Strasse 75
+    address_line_2: D-60311 FRANKFURT
+    carrier_code: INETDE
+    contact: Mr Michael Neska
+    tel: "+49 172 7238595"
+  notes: []

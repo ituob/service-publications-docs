@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1220'
+reference: OB-1220
+identifier:
+  code: 1220-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: France
+    company_name: IP Directions
+    company_address_1: 32 rue de Mogador
+    company_address_2: 75 009 PARIS
+    contact: IP Directions, NOC
+    contact_address_1: 32 rue de Mogador
+    contact_address_2: 75 009 PARIS
+    tel:
+    - "           +33 (0)8 11 09 74 02"
+    email:
+    - noc@ipdirections.net
+    issue_id_number: 89 33 37
+    effective_date: 1.I.2021
+  notes: []

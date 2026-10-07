@@ -1,0 +1,51 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1272'
+reference: OB-1272
+identifier:
+  code: 1272-006
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-016-0
+    country:
+      en: France
+    dec: '4224'
+    signal_point_name: Sewan - Courbevoie
+    signal_point_operator: Sewan
+  - ipsc: 2-150-7
+    country:
+      en: France
+    dec: '5303'
+    signal_point_name: Odigo
+    signal_point_operator: Odigo
+  - ipsc: 2-151-0
+    country:
+      en: France
+    dec: '5304'
+    signal_point_name: Sinch Sweden AB - Courbevoie 1
+    signal_point_operator: Sinch Sweden AB
+  - ipsc: 2-151-1
+    country:
+      en: France
+    dec: '5305'
+    signal_point_name: Sinch Sweden AB - Courbevoie 2
+    signal_point_operator: Sinch Sweden AB
+  - ipsc: 2-151-3
+    country:
+      en: France
+    dec: '5307'
+    signal_point_name: Syma - Paris 2
+    signal_point_operator: Syma
+  - ipsc: 7-238-2
+    country:
+      en: France
+    dec: '16242'
+    signal_point_name: Syma - Paris 1
+    signal_point_operator: Syma
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

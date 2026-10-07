@@ -1,0 +1,27 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1109'
+reference: OB-1109
+identifier:
+  code: 1109-006
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-090-4
+    country:
+      en: Japan
+    dec: '8916'
+    signal_point_name: Tokyo-7
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-090-5
+    country:
+      en: Japan
+    dec: '8917'
+    signal_point_name: Osaka-10
+    signal_point_operator: KDDI Corporation
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

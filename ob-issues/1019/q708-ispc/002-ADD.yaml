@@ -1,0 +1,46 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1019'
+reference: OB-1019
+identifier:
+  code: P 103 to P 104
+data:
+  _class: Q708ISPCAmendment
+  position: P 103 to P 104
+  entries:
+  - ipsc: 2-080-1
+    country:
+      en: Sweden
+    dec: '4737'
+    signal_point_name: Stockholm (VMS1)
+    signal_point_operator: Ventelo Sverige AB
+  - ipsc: 2-080-4
+    country:
+      en: Sweden
+    dec: '4740'
+    signal_point_name: Stockholm (GTS-STO-S1)
+    signal_point_operator: Ventelo Sverige AB
+  - ipsc: 2-083-6
+    country:
+      en: Sweden
+    dec: '4766'
+    signal_point_name: Stockholm (RSL-SWE2)
+    signal_point_operator: Ventelo Sverige AB
+  - ipsc: 2-192-7
+    country:
+      en: Sweden
+    dec: '5639'
+    signal_point_name: Stockholm (VMS2)
+    signal_point_operator: Ventelo Sverige AB
+  - ipsc: 2-193-3
+    country:
+      en: Sweden
+    dec: '5643'
+    signal_point_name: Stockholm (RSL-SWE)
+    signal_point_operator: Ventelo Sverige AB
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

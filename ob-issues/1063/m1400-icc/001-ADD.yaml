@@ -1,0 +1,35 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1063'
+reference: OB-1063
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Filiago GmbH & Co.KG
+    carrier_code: FILIAG
+    contact: Mr. Andre Mueller
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Hamburger Strasse 19
+    contact: 'Tel:           + 49 4551 90880 19'
+    tel: "+ 49 4551 90880 19"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 23795 BAD SEGEBERG
+    contact: 'Fax:          + 49 4551 90880 20'
+    fax: "+ 49 4551 90880 20"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:    support@filiago.net'
+    email: support@filiago.net
+  notes: []

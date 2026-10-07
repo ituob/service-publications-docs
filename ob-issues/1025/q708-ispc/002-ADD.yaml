@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1025'
+reference: OB-1025
+identifier:
+  code: P 24
+data:
+  _class: Q708ISPCAmendment
+  position: P 24
+  entries:
+  - ipsc: 5-096-0
+    country:
+      en: Cook Islands
+    dec: '11008'
+    signal_point_name: AVR-MOB
+    signal_point_operator: Telecom Cook Islands
+  - ipsc: 5-096-1
+    country:
+      en: Cook Islands
+    dec: '11009'
+    signal_point_name: AVR-HDX
+    signal_point_operator: Telecom Cook Islands
+  - ipsc: 5-096-2
+    country:
+      en: Cook Islands
+    dec: '11010'
+    signal_point_name: ARO-MOB
+    signal_point_operator: Telecom Cook Islands
+  - ipsc: 5-096-3
+    country:
+      en: Cook Islands
+    dec: '11011'
+    signal_point_name: ARO-HDX
+    signal_point_operator: Telecom Cook Islands
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

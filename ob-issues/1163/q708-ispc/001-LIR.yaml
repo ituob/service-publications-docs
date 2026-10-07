@@ -1,0 +1,112 @@
+type: LIR
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1163'
+reference: OB-1163
+identifier:
+  code: 1163-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-070-0
+    country:
+      en: Azerbaijan
+    dec: '8752'
+    signal_point_name: BAKU_INT_N7
+    signal_point_operator: Aztelekom LLC
+  - ipsc: 4-070-1
+    country:
+      en: Azerbaijan
+    dec: '8753'
+    signal_point_name: BAKU_INT_N7_
+    signal_point_operator: Aztelekom LLC
+  - ipsc: 4-070-2
+    country:
+      en: Azerbaijan
+    dec: '8754'
+    signal_point_name: BAKU_INT_N7_1
+    signal_point_operator: Aztelekom LLC
+  - ipsc: 4-070-3
+    country:
+      en: Azerbaijan
+    dec: '8755'
+    signal_point_name: Nakhchivan Toll
+    signal_point_operator: Ministry of Communications and New Technologies of the
+      Nakhchivan Autonomous Republic of Azerbaijan
+  - ipsc: 4-070-4
+    country:
+      en: Azerbaijan
+    dec: '8756'
+    signal_point_name: MSOFTX3000_2
+    signal_point_operator: AzerTelecom LLC
+  - ipsc: 4-070-5
+    country:
+      en: Azerbaijan
+    dec: '8757'
+    signal_point_name: GWMSG-1
+    signal_point_operator: Azercell Telecom LLC
+  - ipsc: 4-070-6
+    country:
+      en: Azerbaijan
+    dec: '8758'
+    signal_point_name: GWMSG-2
+    signal_point_operator: Azercell Telecom LLC
+  - ipsc: 4-070-7
+    country:
+      en: Azerbaijan
+    dec: '8759'
+    signal_point_name: MSOFTX3000_1
+    signal_point_operator: AzerTelecom LLC
+  - ipsc: 4-071-0
+    country:
+      en: Azerbaijan
+    dec: '8760'
+    signal_point_name: STP BTC_1E
+    signal_point_operator: Azerfon LLC
+  - ipsc: 4-071-1
+    country:
+      en: Azerbaijan
+    dec: '8761'
+    signal_point_name: STPCS3_2E
+    signal_point_operator: Azerfon LLC
+  - ipsc: 4-071-2
+    country:
+      en: Azerbaijan
+    dec: '8762'
+    signal_point_name: STP BHQ_1
+    signal_point_operator: Bakcell LLC
+  - ipsc: 4-071-3
+    country:
+      en: Azerbaijan
+    dec: '8763'
+    signal_point_name: STP BHQ_2
+    signal_point_operator: Bakcell LLC
+  - ipsc: 4-071-4
+    country:
+      en: Azerbaijan
+    dec: '8764'
+    signal_point_name: Class-4 IGW Network
+    signal_point_operator: AzInTelecom MMC
+  - ipsc: 4-071-5
+    country:
+      en: Azerbaijan
+    dec: '8765'
+    signal_point_name: BAKU_INT_N7_2
+    signal_point_operator: Aztelekom MMC
+  - ipsc: 4-071-6
+    country:
+      en: Azerbaijan
+    dec: '8766'
+    signal_point_name: STP-1
+    signal_point_operator: Azercell Telecom LLC
+  - ipsc: 4-071-7
+    country:
+      en: Azerbaijan
+    dec: '8767'
+    signal_point_name: STP-2
+    signal_point_operator: Azercell Telecom LLC
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

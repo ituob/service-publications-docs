@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1144'
+reference: OB-1144
+identifier:
+  code: 1144-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-042-5
+    country:
+      en: Yemen
+    dec: '8533'
+    signal_point_name: AIGW
+    signal_point_operator: MOT
+  - ipsc: 4-042-6
+    country:
+      en: Yemen
+    dec: '8534'
+    signal_point_name: HDIGW
+    signal_point_operator: MOT
+  - ipsc: 4-042-7
+    country:
+      en: Yemen
+    dec: '8535'
+    signal_point_name: AMOB
+    signal_point_operator: MOT
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
