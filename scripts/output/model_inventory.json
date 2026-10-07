@@ -1,0 +1,3494 @@
+{
+  "Amendment": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "initialize",
+      "notes",
+      "notes=",
+      "position_on",
+      "position_on=",
+      "self.action_keyword_in"
+    ],
+    "yaml_mapping": []
+  },
+  "Change": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "identifier": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "data": {
+        "type": "Entry",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "ADD",
+      "ADD!",
+      "ADD=",
+      "ADD?",
+      "REP",
+      "REP!",
+      "REP=",
+      "REP?",
+      "SUP",
+      "SUP!",
+      "SUP=",
+      "SUP?",
+      "data",
+      "data=",
+      "identifier",
+      "identifier=",
+      "type",
+      "type="
+    ],
+    "yaml_mapping": []
+  },
+  "ChangeSet": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "date_requested": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "date_active": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "ob_issue_no": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "reference": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "changes": {
+        "type": "Change",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "changes",
+      "changes=",
+      "date_active",
+      "date_active=",
+      "date_requested",
+      "date_requested=",
+      "ob_issue_no",
+      "ob_issue_no=",
+      "reference",
+      "reference="
+    ],
+    "yaml_mapping": []
+  },
+  "DPAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "country": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "description": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "DPEntry",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "country",
+      "country=",
+      "description",
+      "description=",
+      "entries",
+      "entries=",
+      "notes",
+      "notes=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "DPAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "DPAction",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "self.parse",
+      "self.consume_block",
+      "self.consume_paragraph",
+      "self.consume_row"
+    ],
+    "yaml_mapping": []
+  },
+  "DPEntry": {
+    "superclass": "Ituob::Models::NumberingPlanEntry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "country_or_area": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "country_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "international_prefix": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "national_prefix": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "national_sig_number": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "utc_dst": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "note": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [],
+    "yaml_mapping": []
+  },
+  "E118Action": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "E118Entry",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "entries",
+      "entries=",
+      "initialize",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "E118Amendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "E118Action",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "self.parse_action_from_paragraph",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "E118Entry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "country_or_area": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "company_name": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "company_address_1": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "company_address_2": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "company_address_3": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "contact": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "contact_address_1": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "contact_address_2": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "contact_address_3": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "contact_address_4": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "contact_address_5": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "contact_address_6": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "tel": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "fax": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "email": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "issue_id_number": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "effective_date": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "assign_company_address",
+      "assign_contact_address",
+      "company_address_1",
+      "company_address_1=",
+      "company_address_2",
+      "company_address_2=",
+      "company_address_3",
+      "company_address_3=",
+      "company_name",
+      "company_name=",
+      "contact",
+      "contact=",
+      "contact_address_1",
+      "contact_address_1=",
+      "contact_address_2",
+      "contact_address_2=",
+      "contact_address_3",
+      "contact_address_3=",
+      "contact_address_4",
+      "contact_address_4=",
+      "contact_address_5",
+      "contact_address_5=",
+      "contact_address_6",
+      "contact_address_6=",
+      "country_or_area",
+      "country_or_area=",
+      "effective_date",
+      "effective_date=",
+      "email",
+      "email=",
+      "fax",
+      "fax=",
+      "issue_id_number",
+      "issue_id_number=",
+      "read_contact_address",
+      "tel",
+      "tel=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "E164ACNAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "E164ACNEntry",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "entries",
+      "entries=",
+      "initialize",
+      "notes",
+      "notes=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "E164ACNAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "E164ACNAction",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "self.parse",
+      "self.extract_text_from_cell"
+    ],
+    "yaml_mapping": []
+  },
+  "E164ACNEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "country_or_area": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "country_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "mobile_telephone_numbers": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "country_code",
+      "country_code=",
+      "country_or_area",
+      "country_or_area=",
+      "mobile_telephone_numbers",
+      "mobile_telephone_numbers="
+    ],
+    "yaml_mapping": []
+  },
+  "E164BEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "country_or_area": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "country_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "mobile_telephone_numbers": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "remarks": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "country_code",
+      "country_code=",
+      "country_or_area",
+      "country_or_area=",
+      "mobile_telephone_numbers",
+      "mobile_telephone_numbers=",
+      "remarks",
+      "remarks="
+    ],
+    "yaml_mapping": []
+  },
+  "E164CCAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "E164CCEntry",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "note": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "entries",
+      "entries=",
+      "note",
+      "note=",
+      "notes",
+      "notes=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "E164CCAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "E164CCAction",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "E164CCEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "applicant": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "network": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "cc_ic": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "status": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "formerly": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "action_date": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "reclamation_date": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_date",
+      "action_date=",
+      "applicant",
+      "applicant=",
+      "cc_ic",
+      "cc_ic=",
+      "formerly",
+      "formerly=",
+      "network",
+      "network=",
+      "reclamation_date",
+      "reclamation_date=",
+      "status",
+      "status="
+    ],
+    "yaml_mapping": []
+  },
+  "E164DEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "country_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "country_area_or_service": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "note": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "country_area_or_service",
+      "country_area_or_service=",
+      "country_code",
+      "country_code=",
+      "note",
+      "note="
+    ],
+    "yaml_mapping": []
+  },
+  "E164DNoteNEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "network": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "cc_ic": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "status": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "cc_ic",
+      "cc_ic=",
+      "network",
+      "network=",
+      "status",
+      "status="
+    ],
+    "yaml_mapping": []
+  },
+  "E164DNoteOEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "applicant": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "network": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "cc_ic": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "status": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "formerly": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "applicant",
+      "applicant=",
+      "cc_ic",
+      "cc_ic=",
+      "formerly",
+      "formerly=",
+      "network",
+      "network=",
+      "status",
+      "status="
+    ],
+    "yaml_mapping": []
+  },
+  "E164DNotePQEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "applicant": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "network": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "cc_ic": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "status": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "formerly": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "Assigned",
+      "Assigned!",
+      "Assigned=",
+      "Assigned?",
+      "Reserved",
+      "Reserved!",
+      "Reserved=",
+      "Reserved?",
+      "Spare",
+      "Spare!",
+      "Spare=",
+      "Spare?",
+      "applicant",
+      "applicant=",
+      "cc_ic",
+      "cc_ic=",
+      "formerly",
+      "formerly=",
+      "network",
+      "network=",
+      "status",
+      "status="
+    ],
+    "yaml_mapping": []
+  },
+  "E212MNCAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "E212MNCEntry",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "note": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "entries",
+      "entries=",
+      "note",
+      "note=",
+      "notes",
+      "notes=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "E212MNCAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "E212MNCAction",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "notes",
+      "notes=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "E212MNCEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "mcc_mnc_codes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "country_or_area": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "networks": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "note": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "former_name": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "range": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "country_or_area",
+      "country_or_area=",
+      "former_name",
+      "former_name=",
+      "mcc_mnc_codes",
+      "mcc_mnc_codes=",
+      "networks",
+      "networks=",
+      "note",
+      "note=",
+      "range",
+      "range="
+    ],
+    "yaml_mapping": []
+  },
+  "E218TRCCAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "E218TRCCEntry",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "entries",
+      "entries=",
+      "notes",
+      "notes=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "E218TRCCAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "E218TRCCAction",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "notes",
+      "notes=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "E218TRCCEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "tmcc_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "country_or_area": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "reserved": {
+        "type": "Boolean",
+        "collection": false,
+        "default": "nil"
+      },
+      "note": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "country_or_area",
+      "country_or_area=",
+      "note",
+      "note=",
+      "reserved",
+      "reserved=",
+      "tmcc_code",
+      "tmcc_code="
+    ],
+    "yaml_mapping": []
+  },
+  "Entry": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class="
+    ],
+    "yaml_mapping": []
+  },
+  "F32TDIAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "description": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "F32TDIEntry",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "description",
+      "description=",
+      "entries",
+      "entries=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "F32TDIAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "F32TDIAction",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "self.numbering_header?",
+      "self.country_header?",
+      "self.column_header?",
+      "self.country_only_row?",
+      "self.merge_country_variant",
+      "self.build_entry",
+      "self.trilingual_country",
+      "self.language_values",
+      "self.parse",
+      "self.trilingual_line?",
+      "self.consume_table",
+      "self.consume_block",
+      "self.consume_paragraph",
+      "self.note_paragraph?"
+    ],
+    "yaml_mapping": []
+  },
+  "F32TDIEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "country_or_area": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "country_or_area_note": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "network_roa": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "network_roa_note": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "network_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "network_code_note": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "telegraph_office_name": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "office_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "office_code_note": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "subarea": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "country_or_area",
+      "country_or_area=",
+      "country_or_area_note",
+      "country_or_area_note=",
+      "network_code",
+      "network_code=",
+      "network_code_note",
+      "network_code_note=",
+      "network_roa",
+      "network_roa=",
+      "network_roa_note",
+      "network_roa_note=",
+      "notes",
+      "notes=",
+      "office_code",
+      "office_code=",
+      "office_code_note",
+      "office_code_note=",
+      "subarea",
+      "subarea=",
+      "telegraph_office_name",
+      "telegraph_office_name="
+    ],
+    "yaml_mapping": []
+  },
+  "F400Action": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "F400Entry",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "entries",
+      "entries=",
+      "notes",
+      "notes=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "F400Amendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "F400Action",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "F400Entry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "country_or_area": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "admd_name": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "not_operational_yet": {
+        "type": "Boolean",
+        "collection": false,
+        "default": "nil"
+      },
+      "country_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "for_test_purposes": {
+        "type": "Boolean",
+        "collection": false,
+        "default": "nil"
+      },
+      "mt": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "ipm": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "other": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "helpdesk": {
+        "type": "Hash",
+        "collection": false,
+        "default": "nil"
+      },
+      "autoanswer": {
+        "type": "Hash",
+        "collection": false,
+        "default": "nil"
+      },
+      "contact_address": {
+        "type": "Hash",
+        "collection": false,
+        "default": "nil"
+      },
+      "note": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "admd_name",
+      "admd_name=",
+      "autoanswer",
+      "autoanswer=",
+      "contact_address",
+      "contact_address=",
+      "country_code",
+      "country_code=",
+      "country_or_area",
+      "country_or_area=",
+      "for_test_purposes",
+      "for_test_purposes=",
+      "helpdesk",
+      "helpdesk=",
+      "ipm",
+      "ipm=",
+      "mt",
+      "mt=",
+      "not_operational_yet",
+      "not_operational_yet=",
+      "note",
+      "note=",
+      "other",
+      "other="
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralApprovedRecommendation": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "recommendation": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "approved_date": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "approved_date",
+      "approved_date=",
+      "recommendation",
+      "recommendation="
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralApprovedRecommendations": {
+    "superclass": "Ituob::Models::GeneralMessage",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "items": {
+        "type": "GeneralApprovedRecommendation",
+        "collection": true,
+        "default": "nil"
+      },
+      "by": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "procedures": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "by",
+      "by=",
+      "items",
+      "items=",
+      "procedures",
+      "procedures=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralCallbackProcedures": {
+    "superclass": "Ituob::Models::GeneralMessage",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralCustom": {
+    "superclass": "Ituob::Models::GeneralMessage",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "text": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "text",
+      "text=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralIpns": {
+    "superclass": "Ituob::Models::GeneralMessage",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "network": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "mcc_mnc": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "date_of_assignment": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "date_of_assignment",
+      "date_of_assignment=",
+      "mcc_mnc",
+      "mcc_mnc=",
+      "network",
+      "network=",
+      "notes",
+      "notes=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralIptn": {
+    "superclass": "Ituob::Models::GeneralMessage",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "IptnEntry",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "manual": {
+        "type": "Boolean",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "applicant",
+      "cc_ic",
+      "entries",
+      "entries=",
+      "extract_trial_info_from_notes",
+      "formerly",
+      "manual",
+      "manual=",
+      "network",
+      "notes",
+      "notes=",
+      "reclamation_date",
+      "status",
+      "trial",
+      "self.parse",
+      "self.extract_text_with_breaks"
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralMessage": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "type",
+      "type="
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralMiscCommunications": {
+    "superclass": "Ituob::Models::GeneralMessage",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "text": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "text",
+      "text=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralOrgChanges": {
+    "superclass": "Ituob::Models::GeneralMessage",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "text": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "text",
+      "text=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralRunningAnnexes": {
+    "superclass": "Ituob::Models::GeneralMessage",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "extra_links": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "extra_links",
+      "extra_links=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralSanc": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "country": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "sanc": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "country",
+      "country=",
+      "sanc",
+      "sanc="
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralSancs": {
+    "superclass": "Ituob::Models::GeneralMessage",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "items": {
+        "type": "GeneralSanc",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "items",
+      "items=",
+      "notes",
+      "notes=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralServiceRestrictions": {
+    "superclass": "Ituob::Models::GeneralMessage",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralTelephoneService": {
+    "superclass": "Ituob::Models::GeneralMessage",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "text": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "text",
+      "text="
+    ],
+    "yaml_mapping": []
+  },
+  "GeneralTelephoneServices": {
+    "superclass": "Ituob::Models::GeneralMessage",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "items": {
+        "type": "GeneralTelephoneService",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "items",
+      "items=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "IptnEntry": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "applicant": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "network": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "cc_ic": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "action": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "action_date": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "formerly": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "reclamation_date": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "trial": {
+        "type": "Boolean",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action",
+      "action=",
+      "action_date",
+      "action_date=",
+      "applicant",
+      "applicant=",
+      "cc_ic",
+      "cc_ic=",
+      "formerly",
+      "formerly=",
+      "network",
+      "network=",
+      "notes",
+      "notes=",
+      "reclamation_date",
+      "reclamation_date=",
+      "trial",
+      "trial="
+    ],
+    "yaml_mapping": []
+  },
+  "IssueAuthor": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "name": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "address": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "contacts": {
+        "type": "IssueContact",
+        "collection": true,
+        "default": "nil"
+      },
+      "recommended": {
+        "type": "Boolean",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "address",
+      "address=",
+      "contacts",
+      "contacts=",
+      "name",
+      "name=",
+      "recommended",
+      "recommended="
+    ],
+    "yaml_mapping": []
+  },
+  "IssueContact": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "data": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "recommended": {
+        "type": "Boolean",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "data",
+      "data=",
+      "recommended",
+      "recommended=",
+      "type",
+      "type="
+    ],
+    "yaml_mapping": []
+  },
+  "IssueGeneral": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "messages": {
+        "type": "GeneralMessage",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "messages",
+      "messages="
+    ],
+    "yaml_mapping": []
+  },
+  "IssueMetadata": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "id": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "publication_date": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "cutoff_date": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "issn": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "languages": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "authors": {
+        "type": "IssueAuthor",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "authors",
+      "authors=",
+      "cutoff_date",
+      "cutoff_date=",
+      "id",
+      "id=",
+      "issn",
+      "issn=",
+      "languages",
+      "languages=",
+      "publication_date",
+      "publication_date="
+    ],
+    "yaml_mapping": []
+  },
+  "ListVIIIAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "country": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "description": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "ListVIIIStation",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "country",
+      "country=",
+      "description",
+      "description=",
+      "entries",
+      "entries=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "ListVIIIAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "ListVIIIAction",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "self.open_station",
+      "self.consume_country_row",
+      "self.number_row?",
+      "self.footnote_row?",
+      "self.attach_centralizing_office",
+      "self.add_measurement",
+      "self.consume_wide_row",
+      "self.parse",
+      "self.header_row?",
+      "self.consume_table",
+      "self.consume_block",
+      "self.consume_paragraph",
+      "self.flush_pending_office"
+    ],
+    "yaml_mapping": []
+  },
+  "ListVIIICentralizingOffice": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "name": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "postal_address": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "contact": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "remarks": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "contact",
+      "contact=",
+      "name",
+      "name=",
+      "postal_address",
+      "postal_address=",
+      "remarks",
+      "remarks="
+    ],
+    "yaml_mapping": []
+  },
+  "ListVIIIMeasurement": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "section": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "measurement_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "coordinates": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "hours_of_service": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "frequency_ranges": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "details": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "remarks": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "coordinates",
+      "coordinates=",
+      "details",
+      "details=",
+      "frequency_ranges",
+      "frequency_ranges=",
+      "hours_of_service",
+      "hours_of_service=",
+      "measurement_type",
+      "measurement_type=",
+      "remarks",
+      "remarks=",
+      "section",
+      "section="
+    ],
+    "yaml_mapping": []
+  },
+  "ListVIIIStation": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "country": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "name": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "postal_address": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "contact": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "part_ii_reference": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "part_iii_reference": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "centralizing_office": {
+        "type": "ListVIIICentralizingOffice",
+        "collection": false,
+        "default": "nil"
+      },
+      "measurements": {
+        "type": "ListVIIIMeasurement",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "centralizing_office",
+      "centralizing_office=",
+      "contact",
+      "contact=",
+      "country",
+      "country=",
+      "initialize",
+      "measurements",
+      "measurements=",
+      "name",
+      "name=",
+      "part_ii_reference",
+      "part_ii_reference=",
+      "part_iii_reference",
+      "part_iii_reference=",
+      "postal_address",
+      "postal_address="
+    ],
+    "yaml_mapping": []
+  },
+  "M1400Action": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "M1400Entry",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "note": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "entries",
+      "entries=",
+      "note",
+      "note=",
+      "notes",
+      "notes=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "M1400Amendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "M1400Action",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "M1400Entry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "iso_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "country_or_area": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "company_name": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "address_line_1": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "address_line_2": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "address_line_3": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "carrier_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "contact": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "tel": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "fax": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "email": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "address_line_1",
+      "address_line_1=",
+      "address_line_2",
+      "address_line_2=",
+      "address_line_3",
+      "address_line_3=",
+      "carrier_code",
+      "carrier_code=",
+      "company_name",
+      "company_name=",
+      "contact",
+      "contact=",
+      "country_or_area",
+      "country_or_area=",
+      "email",
+      "email=",
+      "fax",
+      "fax=",
+      "iso_code",
+      "iso_code=",
+      "tel",
+      "tel="
+    ],
+    "yaml_mapping": []
+  },
+  "MultilingualString": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "en": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "fr": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "es": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "zh": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "ru": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "ar": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "ar",
+      "ar=",
+      "en",
+      "en=",
+      "es",
+      "es=",
+      "fr",
+      "fr=",
+      "ru",
+      "ru=",
+      "zh",
+      "zh="
+    ],
+    "yaml_mapping": []
+  },
+  "NNPAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "description": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "NumberingPlanEntry",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "description",
+      "description=",
+      "entries",
+      "entries=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "NNPAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "NNPAction",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "self.consume_block",
+      "self.parse",
+      "self.consume_row"
+    ],
+    "yaml_mapping": []
+  },
+  "NumberingPlanEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "country_or_area": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "country_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "international_prefix": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "national_prefix": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "national_sig_number": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "utc_dst": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "note": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "country_code",
+      "country_code=",
+      "country_or_area",
+      "country_or_area=",
+      "international_prefix",
+      "international_prefix=",
+      "national_prefix",
+      "national_prefix=",
+      "national_sig_number",
+      "national_sig_number=",
+      "note",
+      "note=",
+      "utc_dst",
+      "utc_dst="
+    ],
+    "yaml_mapping": []
+  },
+  "OldIssue": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "metadata": {
+        "type": "IssueMetadata",
+        "collection": false,
+        "default": "nil"
+      },
+      "general": {
+        "type": "IssueGeneral",
+        "collection": false,
+        "default": "nil"
+      },
+      "amendments": {
+        "type": "Amendment",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "amendments",
+      "amendments=",
+      "general",
+      "general=",
+      "metadata",
+      "metadata=",
+      "self.load_file_general",
+      "self.load_issue_dir",
+      "self.parse_generals",
+      "self.parse_amendments",
+      "self.load_file_metadata",
+      "self.load_file_amendment"
+    ],
+    "yaml_mapping": []
+  },
+  "Q708ISPCAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "Q708ISPCEntry",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "entries",
+      "entries=",
+      "notes",
+      "notes=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "Q708ISPCAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "Q708ISPCAction",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "notes",
+      "notes=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "Q708ISPCEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "ipsc": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "country": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "dec": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "signal_point_name": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "signal_point_operator": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "country",
+      "country=",
+      "dec",
+      "dec=",
+      "ipsc",
+      "ipsc=",
+      "signal_point_name",
+      "signal_point_name=",
+      "signal_point_operator",
+      "signal_point_operator="
+    ],
+    "yaml_mapping": []
+  },
+  "Q708SANCAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "Q708SANCEntry",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "order": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "entries",
+      "entries=",
+      "notes",
+      "notes=",
+      "order",
+      "order=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "Q708SANCAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "Q708SANCAction",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "notes",
+      "notes=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "Q708SANCEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "area_or_network": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "note": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "area_or_network",
+      "area_or_network=",
+      "code",
+      "code=",
+      "note",
+      "note="
+    ],
+    "yaml_mapping": []
+  },
+  "RR251Action": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "RR251Entry",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "entries",
+      "entries=",
+      "notes",
+      "notes=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "RR251Amendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "RR251Action",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "RR251Entry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "country_or_area": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "country_or_area_note": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "network_roa": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "network_roa_note": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "network_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "network_code_note": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "telegraph_office_name": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "office_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "office_code_note": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "subarea": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "country_or_area",
+      "country_or_area=",
+      "country_or_area_note",
+      "country_or_area_note=",
+      "network_code",
+      "network_code=",
+      "network_code_note",
+      "network_code_note=",
+      "network_roa",
+      "network_roa=",
+      "network_roa_note",
+      "network_roa_note=",
+      "notes",
+      "notes=",
+      "office_code",
+      "office_code=",
+      "office_code_note",
+      "office_code_note=",
+      "subarea",
+      "subarea=",
+      "telegraph_office_name",
+      "telegraph_office_name="
+    ],
+    "yaml_mapping": []
+  },
+  "T35AssignmentAuthority": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "terminal_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "contact_name": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "organization": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "department": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "address": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "telephone": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "fax": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "email": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "related_links": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "address",
+      "address=",
+      "contact_name",
+      "contact_name=",
+      "department",
+      "department=",
+      "email",
+      "email=",
+      "fax",
+      "fax=",
+      "organization",
+      "organization=",
+      "related_links",
+      "related_links=",
+      "telephone",
+      "telephone=",
+      "terminal_type",
+      "terminal_type="
+    ],
+    "yaml_mapping": []
+  },
+  "T35NAAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "T35NAEntry",
+        "collection": true,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "entries",
+      "entries=",
+      "notes",
+      "notes=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "T35NAAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "T35NAAction",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "T35NAEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "country": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "administration_name": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "manufactures_htv": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "last_updated": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "assignment_authority": {
+        "type": "T35AssignmentAuthority",
+        "collection": true,
+        "default": "nil"
+      },
+      "note": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "administration_name",
+      "administration_name=",
+      "assignment_authority",
+      "assignment_authority=",
+      "country",
+      "country=",
+      "last_updated",
+      "last_updated=",
+      "manufactures_htv",
+      "manufactures_htv=",
+      "note",
+      "note="
+    ],
+    "yaml_mapping": []
+  },
+  "TextAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "TextAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "TextAction",
+        "collection": true,
+        "default": "nil"
+      },
+      "dataset_code": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "text": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "dataset_code",
+      "dataset_code=",
+      "text",
+      "text=",
+      "self.parse"
+    ],
+    "yaml_mapping": []
+  },
+  "X121DNICAction": {
+    "superclass": "Lutaml::Model::Serializable",
+    "attributes": {
+      "action_type": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "position": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "country": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "caption": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "description": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "entries": {
+        "type": "X121DNICEntry",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "action_type",
+      "action_type=",
+      "caption",
+      "caption=",
+      "country",
+      "country=",
+      "description",
+      "description=",
+      "entries",
+      "entries=",
+      "position",
+      "position="
+    ],
+    "yaml_mapping": []
+  },
+  "X121DNICAmendment": {
+    "superclass": "Ituob::Models::Amendment",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "position_on": {
+        "type": "Date",
+        "collection": false,
+        "default": "nil"
+      },
+      "notes": {
+        "type": "String",
+        "collection": true,
+        "default": "nil"
+      },
+      "actions": {
+        "type": "X121DNICAction",
+        "collection": true,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "_class",
+      "_class=",
+      "actions",
+      "actions=",
+      "self.country_only_row?",
+      "self.merge_country_variant",
+      "self.build_entry",
+      "self.trilingual_country",
+      "self.language_values",
+      "self.parse",
+      "self.apply_change_text",
+      "self.header_row?",
+      "self.consume_table",
+      "self.consume_block",
+      "self.consume_paragraph",
+      "self.note_paragraph?"
+    ],
+    "yaml_mapping": []
+  },
+  "X121DNICEntry": {
+    "superclass": "Ituob::Models::Entry",
+    "attributes": {
+      "_class": {
+        "type": "String",
+        "collection": false,
+        "default": "<proc>"
+      },
+      "dnic_number": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "country_or_area": {
+        "type": "MultilingualString",
+        "collection": false,
+        "default": "nil"
+      },
+      "network_name": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      },
+      "note": {
+        "type": "String",
+        "collection": false,
+        "default": "nil"
+      }
+    },
+    "behavior": [
+      "country_or_area",
+      "country_or_area=",
+      "dnic_number",
+      "dnic_number=",
+      "network_name",
+      "network_name=",
+      "note",
+      "note="
+    ],
+    "yaml_mapping": []
+  }
+}

@@ -1,0 +1,715 @@
+// ITU Operational Bulletin — message and dataset model ontology.
+//
+// Single declarative source for the data shapes of the ituob gem
+// (Ituob::Models::*). The Ruby classes are the executable truth;
+// this ontology is the authoritative schema documentation and the
+// source for compiled classes (ListVIII family) and the generated
+// TypeScript interfaces on the Astro site.
+//
+// Enforced by ituob/spec/ituob/ontology_spec.rb: attributes,
+// cardinality and types must match the Ruby classes exactly.
+//
+// Regenerate (bulk edits only, review the diff):
+//   bundle exec ruby scripts/dump_model_inventory.rb scripts/output/model_inventory.json
+//   bundle exec ruby scripts/generate_ontology_lml.rb
+
+models Ituob {
+
+  // Shared value types
+
+  class MultilingualString {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute zh, String
+    attribute ru, String
+    attribute ar, String
+  }
+
+  // Shared bases
+
+  class Amendment {
+    attribute _class, String { default: "Amendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+  }
+
+  class Change {
+    attribute type, String
+    attribute identifier, String
+    attribute data, Entry
+  }
+
+  class ChangeSet {
+    attribute date_requested, String
+    attribute date_active, String
+    attribute ob_issue_no, String
+    attribute reference, String
+    attribute changes, Change { cardinality 0..n }
+  }
+
+  class Entry {
+    attribute _class, String { default: "Entry" }
+  }
+
+  class GeneralMessage {
+    attribute type, String
+  }
+
+  // Issue-level
+
+  class IssueAuthor {
+    attribute name, String
+    attribute address, String
+    attribute contacts, IssueContact { cardinality 0..n }
+    attribute recommended, Boolean
+  }
+
+  class IssueContact {
+    attribute type, String
+    attribute data, String
+    attribute recommended, Boolean
+  }
+
+  class IssueGeneral {
+    attribute messages, GeneralMessage { cardinality 0..n }
+  }
+
+  class IssueMetadata {
+    attribute id, String
+    attribute publication_date, Date
+    attribute cutoff_date, Date
+    attribute issn, String
+    attribute languages, MultilingualString
+    attribute authors, IssueAuthor { cardinality 0..n }
+  }
+
+  class OldIssue {
+    attribute metadata, IssueMetadata
+    attribute general, IssueGeneral
+    attribute amendments, Amendment { cardinality 0..n }
+  }
+
+  // E.118 (Issuer Identification Numbers)
+
+  class E118Action {
+    attribute action_type, String
+    attribute position, String
+    attribute entries, E118Entry { cardinality 0..n }
+  }
+
+  class E118Amendment {
+    attribute _class, String { default: "E118Amendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, E118Action { cardinality 0..n }
+  }
+
+  class E118Entry {
+    attribute _class, String { default: "E118Entry" }
+    attribute country_or_area, MultilingualString
+    attribute company_name, String
+    attribute company_address_1, String
+    attribute company_address_2, String
+    attribute company_address_3, String
+    attribute contact, String
+    attribute contact_address_1, String
+    attribute contact_address_2, String
+    attribute contact_address_3, String
+    attribute contact_address_4, String
+    attribute contact_address_5, String
+    attribute contact_address_6, String
+    attribute tel, String { cardinality 0..n }
+    attribute fax, String { cardinality 0..n }
+    attribute email, String { cardinality 0..n }
+    attribute issue_id_number, String
+    attribute effective_date, String
+  }
+
+  // E.164 family
+
+  class E164ACNAction {
+    attribute action_type, String
+    attribute position, String
+    attribute entries, E164ACNEntry { cardinality 0..n }
+    attribute notes, String
+  }
+
+  class E164ACNAmendment {
+    attribute _class, String { default: "E164ACNAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, E164ACNAction { cardinality 0..n }
+  }
+
+  class E164ACNEntry {
+    attribute _class, String { default: "E164ACNEntry" }
+    attribute country_or_area, MultilingualString
+    attribute country_code, String
+    attribute mobile_telephone_numbers, MultilingualString
+  }
+
+  class E164BEntry {
+    attribute _class, String { default: "E164BEntry" }
+    attribute country_or_area, MultilingualString
+    attribute country_code, String
+    attribute mobile_telephone_numbers, MultilingualString
+    attribute remarks, String
+  }
+
+  class E164CCAction {
+    attribute action_type, String
+    attribute position, String
+    attribute entries, E164CCEntry { cardinality 0..n }
+    attribute notes, String
+    attribute note, String
+  }
+
+  class E164CCAmendment {
+    attribute _class, String { default: "E164CCAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, E164CCAction { cardinality 0..n }
+  }
+
+  class E164CCEntry {
+    attribute _class, String { default: "E164CCEntry" }
+    attribute applicant, String
+    attribute network, String
+    attribute cc_ic, String
+    attribute status, String
+    attribute formerly, String
+    attribute action_date, String
+    attribute reclamation_date, String
+  }
+
+  class E164DEntry {
+    attribute _class, String { default: "E164DEntry" }
+    attribute country_code, String
+    attribute country_area_or_service, MultilingualString
+    attribute note, MultilingualString
+  }
+
+  class E164DNoteNEntry {
+    attribute _class, String { default: "E164DNoteNEntry" }
+    attribute network, String
+    attribute cc_ic, String
+    attribute status, String
+  }
+
+  class E164DNoteOEntry {
+    attribute _class, String { default: "E164DNoteOEntry" }
+    attribute applicant, String
+    attribute network, String
+    attribute cc_ic, String
+    attribute status, String
+    attribute formerly, String
+  }
+
+  class E164DNotePQEntry {
+    attribute _class, String { default: "E164DNotePQEntry" }
+    attribute applicant, String
+    attribute network, String
+    attribute cc_ic, String
+    attribute status, String
+    attribute formerly, String
+  }
+
+  // E.212 family
+
+  class E212MNCAction {
+    attribute action_type, String
+    attribute position, String
+    attribute entries, E212MNCEntry { cardinality 0..n }
+    attribute notes, String
+    attribute note, String
+  }
+
+  class E212MNCAmendment {
+    attribute _class, String { default: "E212MNCAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, E212MNCAction { cardinality 0..n }
+  }
+
+  class E212MNCEntry {
+    attribute _class, String { default: "E212MNCEntry" }
+    attribute mcc_mnc_codes, String
+    attribute country_or_area, MultilingualString
+    attribute networks, String
+    attribute note, MultilingualString
+    attribute former_name, String
+    attribute range, String
+  }
+
+  // E.218
+
+  class E218TRCCAction {
+    attribute action_type, String
+    attribute position, String
+    attribute entries, E218TRCCEntry { cardinality 0..n }
+    attribute notes, String
+  }
+
+  class E218TRCCAmendment {
+    attribute _class, String { default: "E218TRCCAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, E218TRCCAction { cardinality 0..n }
+  }
+
+  class E218TRCCEntry {
+    attribute _class, String { default: "E218TRCCEntry" }
+    attribute tmcc_code, String
+    attribute country_or_area, MultilingualString
+    attribute reserved, Boolean
+    attribute note, MultilingualString
+  }
+
+  // F.32
+
+  class F32TDIAction {
+    attribute action_type, String
+    attribute position, String
+    attribute description, String
+    attribute entries, F32TDIEntry { cardinality 0..n }
+  }
+
+  class F32TDIAmendment {
+    attribute _class, String { default: "F32TDIAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, F32TDIAction { cardinality 0..n }
+  }
+
+  class F32TDIEntry {
+    attribute _class, String { default: "F32TDIEntry" }
+    attribute country_or_area, MultilingualString
+    attribute country_or_area_note, MultilingualString
+    attribute notes, MultilingualString
+    attribute network_roa, String
+    attribute network_roa_note, String
+    attribute network_code, String
+    attribute network_code_note, MultilingualString
+    attribute telegraph_office_name, MultilingualString
+    attribute office_code, String
+    attribute office_code_note, MultilingualString
+    attribute subarea, MultilingualString
+  }
+
+  // F.400
+
+  class F400Action {
+    attribute action_type, String
+    attribute position, String
+    attribute entries, F400Entry { cardinality 0..n }
+    attribute notes, String
+  }
+
+  class F400Amendment {
+    attribute _class, String { default: "F400Amendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, F400Action { cardinality 0..n }
+  }
+
+  class F400Entry {
+    attribute _class, String { default: "F400Entry" }
+    attribute country_or_area, MultilingualString
+    attribute admd_name, String
+    attribute not_operational_yet, Boolean
+    attribute country_code, String
+    attribute for_test_purposes, Boolean
+    attribute mt, String
+    attribute ipm, String
+    attribute other, String
+    attribute helpdesk, String
+    attribute autoanswer, String
+    attribute contact_address, String
+    attribute note, String
+  }
+
+  // List VIII (coast/monitoring stations)
+
+  class ListVIIIAction {
+    attribute action_type, String
+    attribute position, String
+    attribute country, String
+    attribute description, String
+    attribute entries, ListVIIIStation { cardinality 0..n }
+  }
+
+  class ListVIIIAmendment {
+    attribute _class, String { default: "ListVIIIAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, ListVIIIAction { cardinality 0..n }
+  }
+
+  class ListVIIICentralizingOffice {
+    attribute name, String
+    attribute postal_address, String
+    attribute contact, String
+    attribute remarks, String
+  }
+
+  class ListVIIIMeasurement {
+    attribute section, String
+    attribute measurement_type, String
+    attribute coordinates, String
+    attribute hours_of_service, String
+    attribute frequency_ranges, String
+    attribute details, String
+    attribute remarks, String
+  }
+
+  class ListVIIIStation {
+    attribute _class, String { default: "ListVIIIStation" }
+    attribute country, String
+    attribute name, String
+    attribute postal_address, String
+    attribute contact, String
+    attribute part_ii_reference, String
+    attribute part_iii_reference, String
+    attribute centralizing_office, ListVIIICentralizingOffice
+    attribute measurements, ListVIIIMeasurement { cardinality 0..n }
+  }
+
+  // M.1400
+
+  class M1400Action {
+    attribute action_type, String
+    attribute position, String
+    attribute entries, M1400Entry { cardinality 0..n }
+    attribute notes, String
+    attribute note, String
+  }
+
+  class M1400Amendment {
+    attribute _class, String { default: "M1400Amendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, M1400Action { cardinality 0..n }
+  }
+
+  class M1400Entry {
+    attribute _class, String { default: "M1400Entry" }
+    attribute iso_code, String
+    attribute country_or_area, MultilingualString
+    attribute company_name, String
+    attribute address_line_1, String
+    attribute address_line_2, String
+    attribute address_line_3, String
+    attribute carrier_code, String
+    attribute contact, String
+    attribute tel, String
+    attribute fax, String
+    attribute email, String { cardinality 0..n }
+  }
+
+  // NNP (national numbering plans)
+
+  class NNPAction {
+    attribute action_type, String
+    attribute position, String
+    attribute description, String
+    attribute entries, NumberingPlanEntry { cardinality 0..n }
+  }
+
+  class NNPAmendment {
+    attribute _class, String { default: "NNPAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, NNPAction { cardinality 0..n }
+  }
+
+  class NumberingPlanEntry {
+    attribute _class, String { default: "NumberingPlanEntry" }
+    attribute country_or_area, MultilingualString
+    attribute country_code, String
+    attribute international_prefix, String
+    attribute national_prefix, String
+    attribute national_sig_number, String
+    attribute utc_dst, String
+    attribute note, MultilingualString
+  }
+
+  // DP (dialling procedures)
+
+  class DPAction {
+    attribute action_type, String
+    attribute position, String
+    attribute country, String
+    attribute description, String
+    attribute entries, DPEntry { cardinality 0..n }
+    attribute notes, String
+  }
+
+  class DPAmendment {
+    attribute _class, String { default: "DPAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, DPAction { cardinality 0..n }
+  }
+
+  class DPEntry {
+    attribute _class, String { default: "DPEntry" }
+    attribute country_or_area, MultilingualString
+    attribute country_code, String
+    attribute international_prefix, String
+    attribute national_prefix, String
+    attribute national_sig_number, String
+    attribute utc_dst, String
+    attribute note, MultilingualString
+  }
+
+  // Q.708 family
+
+  class Q708ISPCAction {
+    attribute action_type, String
+    attribute position, String
+    attribute entries, Q708ISPCEntry { cardinality 0..n }
+    attribute notes, String
+  }
+
+  class Q708ISPCAmendment {
+    attribute _class, String { default: "Q708ISPCAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, Q708ISPCAction { cardinality 0..n }
+  }
+
+  class Q708ISPCEntry {
+    attribute _class, String { default: "Q708ISPCEntry" }
+    attribute ipsc, String
+    attribute country, MultilingualString
+    attribute dec, String
+    attribute signal_point_name, String
+    attribute signal_point_operator, String
+  }
+
+  class Q708SANCAction {
+    attribute action_type, String
+    attribute position, String
+    attribute entries, Q708SANCEntry { cardinality 0..n }
+    attribute notes, String
+    attribute order, String
+  }
+
+  class Q708SANCAmendment {
+    attribute _class, String { default: "Q708SANCAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, Q708SANCAction { cardinality 0..n }
+  }
+
+  class Q708SANCEntry {
+    attribute _class, String { default: "Q708SANCEntry" }
+    attribute code, String
+    attribute area_or_network, MultilingualString
+    attribute note, MultilingualString
+  }
+
+  // RR 25.1
+
+  class RR251Action {
+    attribute action_type, String
+    attribute position, String
+    attribute entries, RR251Entry { cardinality 0..n }
+    attribute notes, String
+  }
+
+  class RR251Amendment {
+    attribute _class, String { default: "RR251Amendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, RR251Action { cardinality 0..n }
+  }
+
+  class RR251Entry {
+    attribute _class, String { default: "RR251Entry" }
+    attribute country_or_area, MultilingualString
+    attribute country_or_area_note, MultilingualString
+    attribute notes, MultilingualString
+    attribute network_roa, String
+    attribute network_roa_note, String
+    attribute network_code, String
+    attribute network_code_note, MultilingualString
+    attribute telegraph_office_name, MultilingualString
+    attribute office_code, String
+    attribute office_code_note, MultilingualString
+    attribute subarea, MultilingualString
+  }
+
+  // T.35 family
+
+  class T35AssignmentAuthority {
+    attribute terminal_type, String
+    attribute contact_name, String
+    attribute organization, String
+    attribute department, String
+    attribute address, String
+    attribute telephone, String
+    attribute fax, String
+    attribute email, String
+    attribute related_links, String { cardinality 0..n }
+  }
+
+  class T35NAAction {
+    attribute action_type, String
+    attribute position, String
+    attribute entries, T35NAEntry { cardinality 0..n }
+    attribute notes, String
+  }
+
+  class T35NAAmendment {
+    attribute _class, String { default: "T35NAAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, T35NAAction { cardinality 0..n }
+  }
+
+  class T35NAEntry {
+    attribute _class, String { default: "T35NAEntry" }
+    attribute country, String
+    attribute administration_name, String
+    attribute manufactures_htv, String
+    attribute last_updated, String
+    attribute assignment_authority, T35AssignmentAuthority { cardinality 0..n }
+    attribute note, String
+  }
+
+  // X.121
+
+  class X121DNICAction {
+    attribute action_type, String
+    attribute position, String
+    attribute country, String
+    attribute caption, String
+    attribute description, String
+    attribute entries, X121DNICEntry { cardinality 0..n }
+  }
+
+  class X121DNICAmendment {
+    attribute _class, String { default: "X121DNICAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, X121DNICAction { cardinality 0..n }
+  }
+
+  class X121DNICEntry {
+    attribute _class, String { default: "X121DNICEntry" }
+    attribute dnic_number, String
+    attribute country_or_area, MultilingualString
+    attribute network_name, String
+    attribute note, String
+  }
+
+  // General message types
+
+  class GeneralApprovedRecommendation {
+    attribute recommendation, String
+    attribute approved_date, Date
+  }
+
+  class GeneralApprovedRecommendations {
+    attribute type, String
+    attribute items, GeneralApprovedRecommendation { cardinality 0..n }
+    attribute by, String
+    attribute procedures, String
+  }
+
+  class GeneralCallbackProcedures {
+    attribute type, String
+  }
+
+  class GeneralCustom {
+    attribute type, String
+    attribute text, String
+  }
+
+  class GeneralIpns {
+    attribute type, String
+    attribute network, String
+    attribute mcc_mnc, String
+    attribute date_of_assignment, String
+    attribute notes, String
+  }
+
+  class GeneralIptn {
+    attribute type, String
+    attribute entries, IptnEntry { cardinality 0..n }
+    attribute notes, String
+    attribute manual, Boolean
+  }
+
+  class GeneralMiscCommunications {
+    attribute type, String
+    attribute text, String
+  }
+
+  class GeneralOrgChanges {
+    attribute type, String
+    attribute text, String
+  }
+
+  class GeneralRunningAnnexes {
+    attribute type, String
+    attribute extra_links, String { cardinality 0..n }
+  }
+
+  class GeneralSanc {
+    attribute country, String
+    attribute sanc, String
+  }
+
+  class GeneralSancs {
+    attribute type, String
+    attribute items, GeneralSanc { cardinality 0..n }
+    attribute notes, String
+  }
+
+  class GeneralServiceRestrictions {
+    attribute type, String
+  }
+
+  class GeneralTelephoneService {
+    attribute type, String
+    attribute text, String
+  }
+
+  class GeneralTelephoneServices {
+    attribute type, String
+    attribute items, GeneralTelephoneService { cardinality 0..n }
+  }
+
+  // Textual fallbacks
+
+  class TextAction {
+    attribute action_type, String
+    attribute position, String
+  }
+
+  class TextAmendment {
+    attribute _class, String { default: "TextAmendment" }
+    attribute position_on, Date
+    attribute notes, String { cardinality 0..n }
+    attribute actions, TextAction { cardinality 0..n }
+    attribute dataset_code, String
+    attribute text, String
+  }
+
+  // Other
+
+  class IptnEntry {
+    attribute applicant, String
+    attribute network, String
+    attribute cc_ic, String
+    attribute action, String
+    attribute action_date, String
+    attribute formerly, String
+    attribute notes, String
+    attribute reclamation_date, String
+    attribute trial, Boolean
+  }
+}
