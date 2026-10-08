@@ -24,6 +24,45 @@ properties:
       es:
         type: string
         description: Spanish title
+  recommendation:
+    type: object
+    description: The ITU Recommendation this dataset's publication belongs to
+    required:
+      - code
+    properties:
+      body:
+        type: string
+        description: Issuing body (ITU-T, ITU-R)
+      code:
+        type: string
+        description: Recommendation code (e.g. F.170, E.118)
+      version:
+        type: string
+        description: Version/date of the referenced edition
+  url:
+    type: string
+    description: Authoritative external resource for this publication
+  source:
+    type: string
+    description: Source file within service-publications-data
+  note:
+    type: object
+    description: Editorial note about this dataset
+    required:
+      - en
+    properties:
+      en:
+        type: string
+      fr:
+        type: string
+      es:
+        type: string
+  external:
+    type: boolean
+    description: True when the publication is maintained outside the OB pipeline
+  alias_of:
+    type: string
+    description: Canonical dataset this directory aliases
   locale:
     type: array
     description: Localized terms used in the document

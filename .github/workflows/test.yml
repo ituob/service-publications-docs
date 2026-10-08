@@ -1,0 +1,45 @@
+name: Test
+
+on:
+  pull_request:
+    paths:
+      - 'ituob/**'
+      - 'datasets/**'
+      - 'catalogs/**'
+      - 'messages/**'
+      - 'ob-issues/**'
+      - 'Gemfile'
+  push:
+    branches: [ main ]
+    paths:
+      - 'ituob/**'
+      - 'datasets/**'
+      - 'catalogs/**'
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.4'
+
+    # The gem bundle (ituob/Gemfile + lock): moxml/leptris XML stack,
+    # no metanorma chain, serialization-certified versions pinned.
+    - name: Install the gem bundle
+      env:
+        BUNDLE_GEMFILE: ituob/Gemfile
+      run: bundle install
+
+    - name: Run the ituob gem suite
+      env:
+        BUNDLE_GEMFILE: ituob/Gemfile
+      run: bundle exec rspec ituob/spec/
+
+    # 645 examples: model/normalizer/verifier behavior, the LML
+    # ontology drift guard and the compiled-class wiring.

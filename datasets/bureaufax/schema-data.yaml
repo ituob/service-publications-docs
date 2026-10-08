@@ -17,7 +17,9 @@ items:
       type: string
       description: The bureaufax access code (Part III 1a) if assigned.
     location:
-      type: string
+      type:
+        - string
+        - 'null'
       description: City or location of the bureaufax bureau (Part III 1b).
     bureaufax_number:
       type: string

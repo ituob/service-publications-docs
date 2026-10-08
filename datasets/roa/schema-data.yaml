@@ -14,7 +14,9 @@ items:
       type: string
       description: Country or geographic area where the ROA is registered.
     company_name:
-      type: string
+      type:
+        - string
+        - 'null'
       description: The ROA's official company name.
     address:
       type: string

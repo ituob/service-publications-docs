@@ -3,10 +3,7 @@
 $schema: http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1154-RR.25.1
 description: ITU OB Dataset Schema for 1154-RR.25.1
-type: object
-required:
-- groups
-additionalProperties: false
+type: array
 $defs:
   segment:
     type: object
@@ -92,42 +89,51 @@ $defs:
             type: string
             description: Name of the code
 
-properties:
-  groups:
-    description: Groups information
-    type: object
-    properties:
-      amateur:
-        description: Amateur group information
-        type: array
-        items:
-          $ref: '#/$defs/group'
-
-      experimental:
-        description: Experimental group information
-        type: array
-        items:
-          $ref: '#/$defs/group'
-    required:
-    - amateur
-
-  codelists:
-    type: array
-    items:
+items:
+  type: object
+  required:
+  - groups
+  - country_or_area
+  additionalProperties: false
+  properties:
+    country_or_area:
+      type: string
+      description: Country or geographical area the row applies to
+    groups:
+      description: Groups information
       type: object
-      required:
-      - name
-      additionalProperties: false
       properties:
-        name:
-          type: string
-          description: Name of the codelist
-        list:
+        amateur:
+          description: Amateur group information
           type: array
           items:
-            $ref: '#/$defs/code'
-  notes:
-    type: array
-    items:
-      type: string
-    description: Notes for the dataset
+            $ref: '#/$defs/group'
+
+        experimental:
+          description: Experimental group information
+          type: array
+          items:
+            $ref: '#/$defs/group'
+      required:
+      - amateur
+
+    codelists:
+      type: array
+      items:
+        type: object
+        required:
+        - name
+        additionalProperties: false
+        properties:
+          name:
+            type: string
+            description: Name of the codelist
+          list:
+            type: array
+            items:
+              $ref: '#/$defs/code'
+    notes:
+      type: array
+      items:
+        type: string
+      description: Notes for the dataset

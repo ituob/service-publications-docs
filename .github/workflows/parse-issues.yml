@@ -21,8 +21,12 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.3'
-        bundler-cache: true
+        ruby-version: '3.4'
+
+    - name: Install the gem bundle
+      env:
+        BUNDLE_GEMFILE: ituob/Gemfile
+      run: bundle install
 
     - name: Parse issues
       working-directory: ./scripts
