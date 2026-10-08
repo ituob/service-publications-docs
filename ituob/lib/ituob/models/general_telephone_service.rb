@@ -4,9 +4,6 @@ require 'lutaml/model'
 
 module Ituob
   module Models
-    class GeneralTelephoneService < GeneralMessage
-      attribute :text, :string
-    end
 
     class GeneralTelephoneServices < GeneralMessage
       attribute :items, GeneralTelephoneService, collection: true

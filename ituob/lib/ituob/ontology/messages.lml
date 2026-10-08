@@ -323,9 +323,9 @@ models Ituob {
     attribute mt, String
     attribute ipm, String
     attribute other, String
-    attribute helpdesk, String
-    attribute autoanswer, String
-    attribute contact_address, String
+    attribute helpdesk, Hash
+    attribute autoanswer, Hash
+    attribute contact_address, Hash
     attribute note, String
   }
 

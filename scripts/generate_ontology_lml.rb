@@ -39,7 +39,7 @@ LML_TYPE = {
   'Integer' => 'Integer',
   'Boolean' => 'Boolean',
   'Date' => 'Date',
-  'Hash' => 'String', # lml has no Hash type; see drift-guard allowlist
+  'Hash' => 'Hash',
 }.freeze
 
 # lml renders type names as declared; class-ref types use the class name.

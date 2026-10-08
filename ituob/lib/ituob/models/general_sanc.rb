@@ -3,10 +3,6 @@ require 'lutaml/model'
 
 module Ituob
   module Models
-    class GeneralSanc < ::Lutaml::Model::Serializable
-      attribute :country, :string
-      attribute :sanc, :string
-    end
 
     class GeneralSancs < GeneralMessage
       attribute :items, GeneralSanc, collection: true

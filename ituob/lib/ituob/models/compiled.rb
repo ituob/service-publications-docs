@@ -9,12 +9,20 @@ module Ituob
     # for their attributes, types, cardinality and defaults; anything
     # beyond data shape stays in Ruby.
     #
-    # CONSTRAINT: a compiled class's class-typed attributes resolve to
-    # the compiler's anonymous classes, so every class-referenced
-    # attribute type of a CLASS_NAMES member must itself be in
-    # CLASS_NAMES — otherwise the hand-written class of that type no
-    # longer matches at serialization time and lutaml-model 0.8 raises
-    # IncorrectModelError (verify_parser_equivalence catches it).
+    # CONSTRAINTS:
+    # - a compiled class's class-typed attributes resolve to the
+    #   compiler's anonymous classes, so every class-referenced
+    #   attribute type of a CLASS_NAMES member must itself be in
+    #   CLASS_NAMES — otherwise the hand-written class of that type no
+    #   longer matches at serialization time and lutaml-model 0.8 raises
+    #   IncorrectModelError (verify_parser_equivalence catches it).
+    # - Hash-typed attributes (LML has no Hash primitive) are re-typed
+    #   to :hash after compilation, per HASH_TYPED below.
+    # - A hand subclass of a compiled base (DPEntry < NumberingPlanEntry)
+    #   keeps its class in Ruby when the inheritance is semantic
+    #   (specs assert the hierarchy); its sibling Action is then also
+    #   hand-written, since a compiled Action's entries would type to
+    #   the anonymous Entry instead of the hand one (DPAction).
     #
     # The compiled classes are registered under Ituob::Models with the
     # same names the hand-written classes had, so every reference —
@@ -28,17 +36,49 @@ module Ituob
       ONTOLOGY_PATH = File.expand_path('../../ituob/ontology/messages.lml', __dir__)
 
       CLASS_NAMES = %w[
+        E164ACNEntry
+        E164BEntry
+        E164CCAction
+        E164CCEntry
+        E164DEntry
+        E164DNoteNEntry
+        E164DNoteOEntry
+        E212MNCAction
+        E212MNCEntry
+        E218TRCCAction
+        E218TRCCEntry
+        F32TDIAction
+        F32TDIEntry
+        F400Action
+        F400Entry
         GeneralApprovedRecommendation
+        GeneralSanc
+        GeneralTelephoneService
         IptnEntry
         IssueAuthor
         IssueContact
         IssueMetadata
+        ListVIIIAction
         ListVIIICentralizingOffice
         ListVIIIMeasurement
         ListVIIIStation
+        M1400Action
+        M1400Entry
         MultilingualString
+        NNPAction
+        NumberingPlanEntry
+        Q708ISPCAction
+        Q708ISPCEntry
+        Q708SANCAction
+        Q708SANCEntry
+        RR251Action
+        RR251Entry
         T35AssignmentAuthority
+        T35NAAction
+        T35NAEntry
         TextAction
+        X121DNICAction
+        X121DNICEntry
       ].freeze
 
       # The single compiler instance for the ontology — memoized so the
@@ -46,9 +86,20 @@ module Ituob
       # classes that were registered under Ituob::Models.
       def self.compiler
         @compiler ||= begin
-          c = Lutaml::Lml::ModelCompiler.new
+          c = Compiler.new
           c.compile(File.open(ONTOLOGY_PATH))
           c
+        end
+      end
+
+      # ModelCompiler lacks a Hash primitive (falls back to String and
+      # YAML-stringifies the value); map it at declaration time so the
+      # cast rules are built correctly from the start.
+      class Compiler < Lutaml::Lml::ModelCompiler
+        def resolve_type(type_name)
+          return :hash if type_name == "Hash"
+
+          super
         end
       end
 

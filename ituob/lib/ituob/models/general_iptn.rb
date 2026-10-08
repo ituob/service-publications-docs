@@ -89,7 +89,7 @@ module Ituob
               end
 
               # Also check for reclamation date in the entry itself
-              if entry.is_a?(Ituob::Models::Entry) && entry.reclamation_date.nil?
+              if entry.reclamation_date.nil?
                 # Check if there's a reclamation date in the table (for entries parsed from tables)
                 if doc.content.any? { |node| node.type == "table" }
                   doc.content.each do |node|
