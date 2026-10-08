@@ -16,8 +16,8 @@ module Ituob
     #   CLASS_NAMES — otherwise the hand-written class of that type no
     #   longer matches at serialization time and lutaml-model 0.8 raises
     #   IncorrectModelError (verify_parser_equivalence catches it).
-    # - Hash-typed attributes (LML has no Hash primitive) are re-typed
-    #   to :hash after compilation, per HASH_TYPED below.
+    # - Hash-typed attributes (LML has no Hash primitive) are typed
+    #   :hash at declaration time via Compiler#resolve_type.
     # - A hand subclass of a compiled base (DPEntry < NumberingPlanEntry)
     #   keeps its class in Ruby when the inheritance is semantic
     #   (specs assert the hierarchy); its sibling Action is then also
@@ -95,11 +95,35 @@ module Ituob
       # ModelCompiler lacks a Hash primitive (falls back to String and
       # YAML-stringifies the value); map it at declaration time so the
       # cast rules are built correctly from the start.
+      #
+      # Editor-era issue metadata carries IssueAuthor.name as a scalar
+      # string OR a MultilingualString mapping. lutaml-lml 0.2.0 cannot
+      # declare unions, so the union is declared here, at declaration
+      # time (lutaml-model builds cast rules at declaration; re-typing
+      # a compiled attribute afterwards does not take). GRAPH.adoc
+      # tracks this as an LML expressiveness gap.
       class Compiler < Lutaml::Lml::ModelCompiler
+        UNION_ATTRIBUTES = {
+          %w[IssueAuthor name] => ["MultilingualString", :string],
+        }.freeze
+
         def resolve_type(type_name)
           return :hash if type_name == "Hash"
 
           super
+        end
+
+        def build_attributes(klass_def)
+          super.map do |attr_name, raw_type, type, options|
+            members = UNION_ATTRIBUTES[[klass_def.name.to_s, attr_name.to_s]]
+            next [attr_name, raw_type, type, options] unless members
+
+            resolved = members.map do |m|
+              m.is_a?(String) ? compiled_classes.fetch(m) : m
+            end
+            [attr_name, raw_type, Lutaml::Model::Type::Union,
+             options.merge(union_member_types: resolved)]
+          end
         end
       end
 

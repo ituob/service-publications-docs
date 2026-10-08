@@ -51,6 +51,9 @@ titles.each do |code, title_hash|
   meta_path = File.join(dir, 'meta.yaml')
 
   existing = File.exist?(meta_path) ? (YAML.safe_load(File.read(meta_path)) || {}) : {}
+  # `id` mirrors `code`: the itu-ob-editor's recommendations manager
+  # identifies each recommendations/{dir}/meta.yaml by idField 'id'.
+  existing['id'] = code
   existing['code'] = code
   existing_title = existing['title'] || {}
   existing_title['en'] ||= title_hash['en']

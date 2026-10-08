@@ -59,9 +59,10 @@ site, with the gate that guards every edge.
 |===
 | Layer | Meaning | Status
 | Class shapes (84) | Every attribute, type, cardinality, default declared in messages.lml | DONE — drift guard fails on divergence
+| Unions | IssueAuthor.name is `MultilingualString | String` (editor emits both shapes); lutaml-lml 0.2.0 has no union rule, so the union is declared at compile time (Compiled::Compiler UNION_ATTRIBUTES) | DOCUMENTED GAP — drift-guarded by construction; moves into messages.lml when lutaml-lml gains union declarations
 | Class execution | Pure data-shape classes compiled from the LML at boot (Compiled::CLASS_NAMES = 44) | DONE for all constraint-free classes; E118Action (anonymous-type constraint), DPEntry (semantic hierarchy), Change/ChangeSet/OldIssue/GeneralMessage + per-publication Amendment parsers remain hand-written by design — shapes still LML-guarded
-| Instance data (YAML) | ob-issues + messages + datasets validate through the compiled classes | validate_data_lml.rb (this PR) — CI
-| Instance syntax (LML) | .lml instance documents as an alternate serialization | capability exists in lutaml-lml (hydrate / Format adapter); pipeline deliberately speaks YAML
+| Instance data (YAML) | ob-issues + datasets validate through the compiled classes | DONE — validate_data_lml.rb, 1,037/1,037 files (CI); datasets via `ituob dataset validate` 40/40 (CI). messages/** is source-extraction material, not instance data
+| Instance syntax (LML) | .lml instance documents as an alternate serialization | PROVEN — lml_instance_round_trip_spec.rb: all IssueMetadata instances round-trip YAML → compiled class → LML instance → compiled class identically (CI). The pipeline itself deliberately speaks YAML
 |===
 
 == Remaining path (ordered)
@@ -69,8 +70,12 @@ site, with the gate that guards every edge.
 . Structuralize the editor era — TODO.structuralize-editor-era/
   (54 fallbacks; parsers nnp/m1400-icc/e212-mnc learn the editor
   layout; then those issues' instances become structured YAML).
-. Extend validate_data_lml.rb coverage to messages/** and datasets/**
-  change trees (currently ob-issues depth-first).
+. Release the lutaml-lml fixes carried in the gem source — bare
+  dash-bearing string quoting (StandardAdapter#quote_value), singleton
+  nested-instance unwrap and attribute-typed hydration
+  (ModelCompiler#resolve_instance_value) — then drop the spec-local
+  shim in lml_instance_round_trip_spec.rb once the release lands in
+  ituob/Gemfile.lock.
 . If lutaml-lml gains inheritance/`isa` compilation, fold the 40
   hand-written classes' shapes into compiled+behavior modules and
   retire the drift guard in favor of full compilation.

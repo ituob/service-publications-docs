@@ -26,6 +26,7 @@ TS_TYPE = {
   'Date' => 'string', # serialized ISO date strings on the wire
   'Float' => 'number',
   'Time' => 'string',
+  'Hash' => 'Record<string, unknown>', # free-form mappings (no LML primitive)
 }.freeze
 
 doc = Lutaml::Lml.parse_document(File.open(ONTOLOGY_PATH))
