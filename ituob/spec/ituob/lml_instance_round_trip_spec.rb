@@ -7,10 +7,10 @@ require 'stringio'
 # Pending lutaml-lml release: 0.2.0's ModelCompiler#resolve_instance_value
 # wraps a single nested instance in an Array even for non-collection
 # attributes (its Format adapter unwraps singletons; the model compiler
-# does not), and its StandardAdapter#quote_value emits dash-bearing
-# strings bare, which the grammar cannot re-parse. Both are fixed in the
-# lutaml-lml source, unreleased. Drop this module once a release with
-# the fixes lands in ituob/Gemfile.lock.
+# does not) and hydrates untyped nested instances as raw hashes instead
+# of the attribute's type. Both are fixed in the lutaml-lml source,
+# unreleased. Drop this module once a release with the fixes lands in
+# ituob/Gemfile.lock.
 module LmlInstanceRoundTripFixes
   def resolve_instance_value(value, nested, attr_def = nil)
     if nested.any?
@@ -22,9 +22,6 @@ module LmlInstanceRoundTripFixes
     super
   end
 
-  # An untyped nested instance takes the enclosing attribute's type;
-  # hydrate_as_untyped would otherwise emit a raw hash polluted with a
-  # `_name` key, which also defeats union member key-coverage.
   def hydrate_typed(instance, attr_def)
     return hydrate_instance(instance) if instance.isa || !instance.type.to_s.empty?
 
@@ -45,8 +42,32 @@ end
 
 Lutaml::Lml::ModelCompiler.prepend(LmlInstanceRoundTripFixes)
 
+OB_ISSUES_ROOT = File.expand_path('../../../ob-issues', __dir__)
+
+# Every structured instance file in the corpus with its owning class;
+# computed once per process (the walk reads ~8,000 YAML files).
+def lml_round_trip_structured_files
+  @lml_round_trip_structured_files ||= Dir.children(OB_ISSUES_ROOT).grep(/\A\d+\z/).sort.flat_map do |issue|
+    dir = File.join(OB_ISSUES_ROOT, issue)
+    Dir.glob(File.join(dir, '**', '*.yaml')).sort.filter_map do |path|
+      rel = path.delete_prefix("#{dir}/")
+      # Freeform positions are skipped before reading: their payloads
+      # may contain YAML aliases the strict loader rejects.
+      next if Ituob::Support::CorpusTree.class_name_for(rel).nil?
+
+      data = YAML.load_file(path, permitted_classes: [Date, Time])
+      resolved = Ituob::Support::CorpusTree.resolve_for(rel, data)
+      next if resolved.nil? || !Ituob::Models.const_defined?(resolved)
+
+      [path, "#{issue}/#{rel}", Ituob::Models.const_get(resolved)]
+    end
+  end
+end
+
 RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
-  let(:compiler) { Ituob::Models::Compiled.compiler }
+  def structured_files
+    lml_round_trip_structured_files
+  end
 
   def normalize_values(obj)
     case obj
@@ -58,8 +79,7 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
   end
 
   def normalized(obj)
-    json = JSON.parse(JSON.generate(normalize_values(obj)))
-    deep_compact(json)
+    deep_compact(JSON.parse(JSON.generate(normalize_values(obj))))
   end
 
   # nil has no LML instance literal; nil keys are omitted on emit and
@@ -76,7 +96,8 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
 
   # The grammar's bare word is [A-Za-z0-9_] and its value parser commits
   # to `number` on a leading digit run, so every non-word string must be
-  # double-quoted.
+  # double-quoted (lutaml-lml 0.2.0 emits bare dash-bearing strings that
+  # its own grammar cannot re-parse; fixed in the gem source, unreleased).
   def lml_scalar(value)
     case value
     when Integer, Float, TrueClass, FalseClass then value.to_s
@@ -113,36 +134,59 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
     "instance #{type_name} {\n#{lml_body(normalize_values(instance.to_hash), 1)}\n}"
   end
 
-  def hydrate_lml(text)
-    doc = Lutaml::Lml.parse_document(StringIO.new(text))
-    compiler.hydrate(doc)
-  end
-
-  meta_files = Dir[File.expand_path('../../../ob-issues/*/meta.yaml', __dir__)]
-    .sort
-
   it 'has the corpus available' do
-    expect(meta_files.length).to be > 300
+    expect(structured_files.length).to be > 900
   end
 
-  describe 'every IssueMetadata instance across the corpus' do
-    it 'round-trips YAML -> compiled class -> LML instance -> compiled class identically' do
-      round_trips = 0
+  describe 'framework deserialization (Format adapter + from_hash)' do
+    it 'round-trips every structured instance file YAML -> class -> LML instance -> class identically' do
       failures = []
+      round_trips = 0
 
-      meta_files.each do |path|
+      structured_files.each do |path, rel, klass|
+        original = klass.from_yaml(
+          File.read(path), permitted_classes: [Date, Time]
+        )
+        lml_text = to_lml_instance(original, klass.name.split('::').last)
+        parsed = Lutaml::Lml::Format::Adapter::StandardAdapter.parse(lml_text)
+        rebuilt = klass.from_hash(parsed)
+        if normalized(rebuilt.to_hash) == normalized(original.to_hash)
+          round_trips += 1
+        else
+          failures << rel
+        end
+      rescue StandardError => e
+        failures << "#{rel}: #{e.class}: #{e.message.lines.first.strip}"
+      end
+
+      expect(failures).to be_empty,
+                          "#{failures.length} of #{structured_files.length} failed:\n  #{failures.first(10).join("\n  ")}"
+      expect(round_trips).to eq(structured_files.length)
+    end
+  end
+
+  describe 'ontology-typed hydration (ModelCompiler#hydrate)' do
+    let(:compiler) { Ituob::Models::Compiled.compiler }
+
+    it 'round-trips every IssueMetadata instance identically' do
+      meta_files = structured_files.select { |_, rel, _| rel.end_with?('/meta.yaml') }
+      failures = []
+      round_trips = 0
+
+      meta_files.each do |path, rel, _klass|
         original = Ituob::Models::IssueMetadata.from_yaml(
           File.read(path), permitted_classes: [Date, Time]
         )
         lml_text = to_lml_instance(original, 'IssueMetadata')
-        hydrated = hydrate_lml(lml_text)
+        doc = Lutaml::Lml.parse_document(StringIO.new(lml_text))
+        hydrated = compiler.hydrate(doc)
         if normalized(hydrated.to_hash) == normalized(original.to_hash)
           round_trips += 1
         else
-          failures << File.basename(File.dirname(path))
+          failures << rel
         end
       rescue StandardError => e
-        failures << "#{File.basename(File.dirname(path))}: #{e.class}: #{e.message.lines.first.strip}"
+        failures << "#{rel}: #{e.class}: #{e.message.lines.first.strip}"
       end
 
       expect(failures).to be_empty,

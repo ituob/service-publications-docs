@@ -7,6 +7,7 @@
 
 module Ituob
   module Support
+    autoload :CorpusTree, 'ituob/support/corpus_tree'
     autoload :DeepFreeze, 'ituob/support/deep_freeze'
     autoload :HashField, 'ituob/support/hash_field'
     autoload :Yaml, 'ituob/support/yaml'
