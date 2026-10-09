@@ -70,9 +70,10 @@ site, with the gate that guards every edge.
 . Structuralize the editor era — TODO.structuralize-editor-era/
   (54 fallbacks; parsers nnp/m1400-icc/e212-mnc learn the editor
   layout; then those issues' instances become structured YAML).
-. Merge lutaml/lutaml-lml#65 (emit quoting; typed nested
-  hydration), release it, pin the release in ituob/Gemfile.lock, then
-  drop the spec-local shim in lml_instance_round_trip_spec.rb. (LML string literals also lack escapes; no
+. lutaml/lutaml-lml#65 (emit quoting; typed nested hydration) is
+  MERGED, but the v0.2.1 release was tagged on a pre-fix commit — cut
+  the next release from post-merge main, pin it in ituob/Gemfile.lock,
+  then drop the spec-local shim in lml_instance_round_trip_spec.rb. (LML string literals also lack escapes; no
   modeled value carries both quote kinds today, but modeled prose
   that ever does would need grammar escape support.)
 . If lutaml-lml gains inheritance/`isa` compilation, fold the 40

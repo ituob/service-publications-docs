@@ -4,12 +4,10 @@ require 'spec_helper'
 require 'lutaml/lml'
 require 'stringio'
 
-# Pending lutaml-lml release: 0.2.0's ModelCompiler#resolve_instance_value
-# wraps a single nested instance in an Array even for non-collection
-# attributes (its Format adapter unwraps singletons; the model compiler
-# does not) and hydrates untyped nested instances as raw hashes instead
-# of the attribute's type. Both are fixed in the lutaml-lml source,
-# unreleased. Drop this module once a release with the fixes lands in
+# The lutaml-lml fixes (quote non-word strings on emit; typed nested
+# hydration) are MERGED to main (lutaml/lutaml-lml#65) but the v0.2.1
+# release was tagged on a pre-fix commit and does not carry them. Keep
+# this shim until a release cut from post-merge main lands in
 # ituob/Gemfile.lock.
 module LmlInstanceRoundTripFixes
   def resolve_instance_value(value, nested, attr_def = nil)
@@ -41,8 +39,6 @@ module LmlInstanceRoundTripFixes
 end
 
 Lutaml::Lml::ModelCompiler.prepend(LmlInstanceRoundTripFixes)
-
-OB_ISSUES_ROOT = File.expand_path('../../../ob-issues', __dir__)
 
 # Every structured instance file in the corpus with its owning class;
 # computed once per process (the walk reads ~8,000 YAML files).
