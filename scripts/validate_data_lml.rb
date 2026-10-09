@@ -53,6 +53,20 @@ selected.each do |issue|
   end
 end
 
+# Dataset change objects (register patches): every
+# datasets/{slug}/changes/*.yaml loads through Ituob::Registers::Change
+# — the register-layer patch model mirrored in the ontology as
+# RegisterChange/Identifier (per-op conditionals stay in the JSON
+# Schema gated by `ituob dataset validate`).
+Dir.glob(File.expand_path('../datasets/*/changes/*.yaml', __dir__)).sort.each do |path|
+  rel = path.sub(%r{.*/datasets/}, '')
+  hash = YAML.load_file(path, permitted_classes: [Date, Time])
+  Ituob::Registers::Change.from_hash(hash)
+  validated += 1
+rescue StandardError => e
+  failures << "#{rel}: #{e.class}: #{e.message.lines.first.strip}"
+end
+
 puts "issues checked: #{selected.length}; files validated: #{validated}; skipped (freeform): #{skipped}"
 if failures.empty?
   puts 'INSTANCE DATA VALID'

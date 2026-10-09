@@ -712,4 +712,64 @@ models Ituob {
     attribute reclamation_date, String
     attribute trial, Boolean
   }
+
+  // Register patches (datasets changes) — the register-layer patch
+  // objects, mirroring Ituob::Registers::Change and Identifier. The
+  // per-action-type conditionals (ADD requires data, SUP carries
+  // superseded_by, LIR requires reason, ...) live in the JSON Schema
+  // datasets/schema-change.yaml, which `ituob dataset validate` gates.
+  // Registers::Change keeps type as a coerced String at runtime; the
+  // ontology declares the ActionType vocabulary (waived in the drift
+  // guard).
+
+  enum ActionType {
+    member_fields {
+      description String
+    }
+    ADD {
+      description "Insert a new record (data required)"
+    }
+    SUP {
+      description "Supersede: point at the replacing record via superseded_by"
+    }
+    REP {
+      description "Replace the record in full (data required)"
+    }
+    LIR {
+      description "Lapsed / inactive record: soft delete, reason required"
+    }
+    MOD {
+      description "Modify fields (merge_strategy replace_fields or replace_full)"
+    }
+    DEL {
+      description "Irreversible hard delete, no payload"
+    }
+    SEED {
+      description "Initial publication batch (array of rows, seed issue only)"
+    }
+  }
+
+  class Identifier {
+    attribute code, String
+    attribute query, Hash
+  }
+
+  class RegisterChange {
+    attribute type, ActionType
+    attribute register_id, String
+    attribute identifier, Identifier { cardinality 1 }
+    attribute recommendation, String
+    attribute data, Hash
+    attribute ob_issue_no, Integer
+    attribute date_active, String
+    attribute date_requested, String
+    attribute reference, String
+    attribute description, Hash
+    attribute superseded_by, Hash
+    attribute reason, Hash
+    attribute merge_strategy, String
+    mapping yaml {
+      map "register", to: "register_id"
+    }
+  }
 }

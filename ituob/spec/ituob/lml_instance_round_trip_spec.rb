@@ -6,8 +6,9 @@ require 'stringio'
 
 # The lutaml-lml fixes (quote non-word strings on emit; typed nested
 # hydration) are MERGED to main (lutaml/lutaml-lml#65) but the v0.2.1
-# release was tagged on a pre-fix commit and does not carry them. Keep
-# this shim until a release cut from post-merge main lands in
+# release was tagged on a pre-fix commit and does not carry them. The
+# quoted-key unwrap below is not yet merged upstream at all. Keep these
+# shims until a release cut from post-merge main lands in
 # ituob/Gemfile.lock.
 module LmlInstanceRoundTripFixes
   def resolve_instance_value(value, nested, attr_def = nil)
@@ -39,6 +40,18 @@ module LmlInstanceRoundTripFixes
 end
 
 Lutaml::Lml::ModelCompiler.prepend(LmlInstanceRoundTripFixes)
+
+# A quoted attribute key ("  company name/address") arrives from the
+# grammar as a {string: ...} capture node; the default name extraction
+# stringifies the node instead of unwrapping it.
+module LmlQuotedKeyFix
+  def strip_argument_colon(name)
+    name = name[:string] if name.is_a?(Hash) && name.key?(:string)
+    super
+  end
+end
+
+Lutaml::Lml::DataProcessor::AttributeProcessing.prepend(LmlQuotedKeyFix)
 
 # Every structured instance file in the corpus with its owning class;
 # computed once per process (the walk reads ~8,000 YAML files).
@@ -92,13 +105,28 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
 
   # The grammar's bare word is [A-Za-z0-9_] and its value parser commits
   # to `number` on a leading digit run, so every non-word string must be
-  # double-quoted (lutaml-lml 0.2.0 emits bare dash-bearing strings that
-  # its own grammar cannot re-parse; fixed in the gem source, unreleased).
+  # quoted. String literals have no escapes: pick the quote character
+  # the value does not contain (lutaml-lml#65 fixes the released
+  # adapter's bare emission of dash-bearing strings).
   def lml_scalar(value)
     case value
     when Integer, Float, TrueClass, FalseClass then value.to_s
-    else "\"#{value}\""
+    when String
+      if value.include?('"') && !value.include?("'")
+        "'#{value}'"
+      else
+        "\"#{value}\""
+      end
+    else
+      "\"#{value}\""
     end
+  end
+
+  # Attribute keys are `variable`s: bare words parse unquoted, anything
+  # else (payload keys like "  company name/address") must be quoted.
+  def lml_key(key)
+    key = key.to_s
+    key.match?(/\A\w+\z/) ? key : "\"#{key}\""
   end
 
   def lml_body(hash, indent)
@@ -122,7 +150,7 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
         else
           lml_scalar(value)
         end
-      "#{prefix}#{key} = #{rendered}"
+      "#{prefix}#{lml_key(key)} = #{rendered}"
     end.join("\n")
   end
 
@@ -158,6 +186,63 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
       expect(failures).to be_empty,
                           "#{failures.length} of #{structured_files.length} failed:\n  #{failures.first(10).join("\n  ")}"
       expect(round_trips).to eq(structured_files.length)
+    end
+  end
+
+  describe 'register patches (Ituob::Registers::Change)' do
+    DATASETS_ROOT = File.join(File.dirname(OB_ISSUES_ROOT), 'datasets')
+
+    def change_files
+      Dir.glob(File.join(DATASETS_ROOT, '*', 'changes', '*.yaml')).sort
+    end
+
+    # LML 0.2 string literals cannot express a value (or key) containing
+    # both quote kinds (no escapes), and the released pipeline cannot
+    # carry an empty or whitespace-only attribute key. Those files are
+    # counted, not round-tripped.
+    def inexpressible?(obj)
+      case obj
+      when Hash
+        obj.any? do |k, v|
+          (k.is_a?(String) && k.strip.empty?) || inexpressible?(k) || inexpressible?(v)
+        end
+      when Array then obj.any? { |v| inexpressible?(v) }
+      when String then obj.include?('"') && obj.include?("'")
+      else false
+      end
+    end
+
+    it 'round-trips every dataset change object YAML -> Change -> LML instance -> Change identically' do
+      failures = []
+      inexpressible = []
+      round_trips = 0
+
+      change_files.each do |path|
+        rel = path.sub("#{DATASETS_ROOT}/", '')
+        original = Ituob::Registers::Change.from_hash(
+          YAML.load_file(path, permitted_classes: [Date, Time])
+        )
+        if inexpressible?(original.to_hash)
+          inexpressible << rel
+          next
+        end
+
+        lml_text = to_lml_instance(original, 'RegisterChange')
+        parsed = Lutaml::Lml::Format::Adapter::StandardAdapter.parse(lml_text)
+        rebuilt = Ituob::Registers::Change.from_hash(parsed)
+        if normalized(rebuilt.to_hash) == normalized(original.to_hash)
+          round_trips += 1
+        else
+          failures << rel
+        end
+      rescue StandardError => e
+        failures << "#{rel}: #{e.class}: #{e.message.lines.first.strip}"
+      end
+
+      expect(failures).to be_empty,
+                          "#{failures.length} of #{change_files.length} failed:\n  #{failures.first(10).join("\n  ")}"
+      expect(round_trips + inexpressible.length).to eq(change_files.length)
+      expect(inexpressible.length).to be < 10
     end
   end
 

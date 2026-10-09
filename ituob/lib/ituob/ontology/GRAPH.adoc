@@ -58,11 +58,11 @@ site, with the gate that guards every edge.
 [cols="1,3,1"]
 |===
 | Layer | Meaning | Status
-| Class shapes (84) | Every attribute, type, cardinality, default declared in messages.lml | DONE — drift guard fails on divergence
+| Class shapes (86 + enum) | Every attribute, type, cardinality, default declared in messages.lml — including the register-patch layer (RegisterChange, Identifier, ActionType enum) | DONE — drift guard fails on divergence
 | Unions | IssueAuthor.name is `MultilingualString | String` (editor emits both shapes); lutaml-lml 0.2.0 has no union rule, so the union is declared at compile time (Compiled::Compiler UNION_ATTRIBUTES) | DOCUMENTED GAP — drift-guarded by construction; moves into messages.lml when lutaml-lml gains union declarations
 | Class execution | Pure data-shape classes compiled from the LML at boot (Compiled::CLASS_NAMES = 44) | DONE for all constraint-free classes; E118Action (anonymous-type constraint), DPEntry (semantic hierarchy), Change/ChangeSet/OldIssue/GeneralMessage + per-publication Amendment parsers remain hand-written by design — shapes still LML-guarded
-| Instance data (YAML) | ob-issues + datasets validate through the compiled classes | DONE — validate_data_lml.rb, 1,037/1,037 files (CI); datasets via `ituob dataset validate` 40/40 (CI). messages/** is source-extraction material, not instance data
-| Instance syntax (LML) | .lml instance documents as an alternate serialization | PROVEN — lml_instance_round_trip_spec.rb: all 1,037 structured instance files round-trip YAML → class → LML instance → class identically via the Format adapter + from_hash (CI); IssueMetadata additionally via ontology-typed ModelCompiler#hydrate. The pipeline itself deliberately speaks YAML
+| Instance data (YAML) | ob-issues + datasets + the 9,549 register-patch objects validate through the model classes | DONE — validate_data_lml.rb, 10,586/10,586 files (CI): 1,037 ob-issues instances + 9,549 Registers::Change patches; dataset definitions via `ituob dataset validate` 40/40 (CI). messages/** is source-extraction material, not instance data
+| Instance syntax (LML) | .lml instance documents as an alternate serialization | PROVEN — lml_instance_round_trip_spec.rb: 10,584 of 10,586 instance files round-trip YAML → class → LML instance → class identically via the Format adapter + from_hash (CI); IssueMetadata additionally via ontology-typed ModelCompiler#hydrate. The pipeline itself deliberately speaks YAML
 |===
 
 == Remaining path (ordered)
@@ -76,6 +76,13 @@ site, with the gate that guards every edge.
   then drop the spec-local shim in lml_instance_round_trip_spec.rb. (LML string literals also lack escapes; no
   modeled value carries both quote kinds today, but modeled prose
   that ever does would need grammar escape support.)
+. lutaml-lml follow-ups surfaced by the patch-layer proof, for
+  lutaml/lutaml-lml: (a) attribute-key quoting — the Format adapter
+  emits hash keys bare, which fails keys like "  company name/address";
+  (b) quoted-key parsing loses leading whitespace and empty ("") keys
+  in the parsanol capture layer; (c) string escapes. Until then the
+  spec classifies the affected files (currently 3) instead of
+  round-tripping them.
 . If lutaml-lml gains inheritance/`isa` compilation, fold the 40
   hand-written classes' shapes into compiled+behavior modules and
   retire the drift guard in favor of full compilation.
