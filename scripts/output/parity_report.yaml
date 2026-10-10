@@ -43,7 +43,7 @@ issue:
   :missing_headings: []
   :missing_links_count: 1
   :missing_tables:
-  - 7
+  - 9
   :verdict: pass
   :variant_count: 1
 - :label: issue/1003
@@ -96,7 +96,7 @@ issue:
   - mcc + mnc*
   :missing_links_count: 1
   :missing_tables:
-  - 1
+  - 17
   :verdict: pass
   :variant_count: 1
 - :label: issue/1008
@@ -187,7 +187,8 @@ issue:
   :coverage: 0.9943253467843631
   :missing_headings: []
   :missing_links_count: 0
-  :missing_tables: []
+  :missing_tables:
+  - 3
   :verdict: pass
   :variant_count: 1
 - :label: issue/1017
@@ -985,7 +986,8 @@ issue:
   :coverage: 0.9878296146044625
   :missing_headings: []
   :missing_links_count: 0
-  :missing_tables: []
+  :missing_tables:
+  - 1
   :verdict: pass
   :variant_count: 1
 - :label: issue/1095
@@ -1525,7 +1527,8 @@ issue:
   :coverage: 0.9676470588235294
   :missing_headings: []
   :missing_links_count: 0
-  :missing_tables: []
+  :missing_tables:
+  - 1
   :verdict: pass
   :variant_count: 1
 - :label: issue/1148
@@ -1880,7 +1883,7 @@ issue:
   :human: Issue 1182
   :deployed: issues/1182-en/index.html
   :local: issues/1182/index.html
-  :coverage: 0.9957894736842106
+  :coverage: 0.9936842105263158
   :missing_headings: []
   :missing_links_count: 0
   :missing_tables: []
@@ -2022,7 +2025,7 @@ issue:
   :human: Issue 1196
   :deployed: issues/1196-en/index.html
   :local: issues/1196/index.html
-  :coverage: 0.9959349593495935
+  :coverage: 0.9939024390243902
   :missing_headings: []
   :missing_links_count: 0
   :missing_tables: []
@@ -2093,7 +2096,7 @@ issue:
   :human: Issue 1203
   :deployed: issues/1203-en/index.html
   :local: issues/1203/index.html
-  :coverage: 0.9927007299270073
+  :coverage: 0.9914841849148418
   :missing_headings: []
   :missing_links_count: 0
   :missing_tables: []
@@ -2175,7 +2178,7 @@ issue:
   :human: Issue 1211
   :deployed: issues/1211-en/index.html
   :local: issues/1211/index.html
-  :coverage: 0.968895800933126
+  :coverage: 0.9673405909797823
   :missing_headings: []
   :missing_links_count: 0
   :missing_tables: []
@@ -2260,7 +2263,8 @@ issue:
   :coverage: 0.9969135802469136
   :missing_headings: []
   :missing_links_count: 0
-  :missing_tables: []
+  :missing_tables:
+  - 1
   :verdict: pass
   :variant_count: 1
 - :label: issue/1220
@@ -2341,7 +2345,8 @@ issue:
   :coverage: 0.986863711001642
   :missing_headings: []
   :missing_links_count: 0
-  :missing_tables: []
+  :missing_tables:
+  - 1
   :verdict: pass
   :variant_count: 1
 - :label: issue/1228
@@ -2804,7 +2809,7 @@ issue:
   :missing_headings: []
   :missing_links_count: 0
   :missing_tables:
-  - 2
+  - 3
   :verdict: pass
   :variant_count: 1
 - :label: issue/961
@@ -2967,7 +2972,8 @@ issue:
   :missing_headings:
   - list of data country or geographical area codes
   :missing_links_count: 0
-  :missing_tables: []
+  :missing_tables:
+  - 1
   :verdict: pass
   :variant_count: 1
 - :label: issue/977
@@ -3084,7 +3090,8 @@ issue:
   :coverage: 0.9920477137176938
   :missing_headings: []
   :missing_links_count: 0
-  :missing_tables: []
+  :missing_tables:
+  - 1
   :verdict: pass
   :variant_count: 1
 - :label: issue/988
@@ -3104,7 +3111,8 @@ issue:
   :coverage: 0.9858156028368794
   :missing_headings: []
   :missing_links_count: 0
-  :missing_tables: []
+  :missing_tables:
+  - 2
   :verdict: pass
   :variant_count: 1
 - :label: issue/990
@@ -3163,7 +3171,7 @@ issue:
   :missing_headings: []
   :missing_links_count: 0
   :missing_tables:
-  - 6
+  - 7
   :verdict: pass
   :variant_count: 1
 - :label: issue/995
@@ -3195,7 +3203,7 @@ issue:
   :missing_headings: []
   :missing_links_count: 0
   :missing_tables:
-  - 1
+  - 4
   :verdict: pass
   :variant_count: 1
 - :label: issue/998
