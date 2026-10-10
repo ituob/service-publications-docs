@@ -1,0 +1,33 @@
+type: ADD
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1164'
+reference: OB-1164
+identifier:
+  code: 1164-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-239-4
+    country:
+      en: Bosnia and Herzegovina
+    dec: '8060'
+    signal_point_name: EK St1
+    signal_point_operator: ELTA-KABEL d.o.o. Doboj
+  - ipsc: 3-239-5
+    country:
+      en: Bosnia and Herzegovina
+    dec: '8061'
+    signal_point_name: ITM-Sa
+    signal_point_operator: Telemach d.o.o. Sarajevo
+  - ipsc: 3-239-6
+    country:
+      en: Bosnia and Herzegovina
+    dec: '8062'
+    signal_point_name: ABC Sarajevo
+    signal_point_operator: SOFTNET d.o.o. Sarajevo
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

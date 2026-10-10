@@ -1,0 +1,32 @@
+type: LIR
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1314'
+reference: OB-1314
+identifier:
+  code: Sweden /
+data:
+  _class: M1400Amendment
+  position: Sweden /
+  entries:
+  - country_or_area:
+      en: Sweden
+    company_name: Tele2 Sverige AB
+    address_line_1: P.O. Box 62
+    address_line_2: SE-164 94 KISTA
+    carrier_code: TELE2
+    contact: Carl-Johan Rydén
+    tel: "+46 8 562 000 60"
+    email:
+    - carljohan.ryden@tele2.com
+  - country_or_area:
+      en: Sweden
+    company_name: Telia Company AB
+    address_line_1: Stjärntorget 1
+    address_line_2: SE-169 94 SOLNA
+    carrier_code: TELIA
+    contact: Sofia Donner
+    tel: "+46 8 504 550 00"
+    email:
+    - sofia.donner@teliacompany.com
+  notes: []

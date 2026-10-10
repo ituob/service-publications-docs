@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1230'
+reference: OB-1230
+identifier:
+  code: 1230-005
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: simple Communication GmbH
+    address_line_1: Salzdahlumer Strasse 196
+    address_line_2: D-38126 BRAUNSCHWEIG
+    carrier_code: SIMCOM
+    contact: Mr Stefan Bergmann
+    tel: "+49 531 4905 9000"
+    fax: "+49 531 4905 9001"
+  notes: []

@@ -1,0 +1,36 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1061'
+reference: OB-1061
+identifier:
+  code: 1061-009
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Michael Rack
+    address_line_1: RSM Freilassing
+    carrier_code: RSMBGL
+    contact: Mr. Michael Rack
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Nocksteinstrasse 13
+    contact: 'Tel.: + 49 8654 607110'
+    tel: "+ 49 8654 607110"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 83395  FREILASSING
+    contact: 'Fax: + 49 8654 670438'
+    fax: "+ 49 8654 670438"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail: support@rsm-freilassing.de'
+    email:
+    - support@rsm-freilassing.de
+  notes: []

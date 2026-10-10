@@ -1,0 +1,31 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1092'
+reference: OB-1092
+identifier:
+  code: 1092-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Unna GmbH
+    carrier_code: SWUNNA
+    contact: Mr. Thomas Hoenig-Heinemann
+  - country_or_area:
+      en: Germany
+    company_name: Heinrich-Hertz-Strasse 2
+    contact: 'Tel.:           +49 2303 2001 418'
+    tel: "+49 2303 2001 418"
+  - country_or_area:
+      en: Germany
+    company_name: 59423 UNNA
+    contact: 'Fax:           +49 2303 2001 22'
+    fax: "+49 2303 2001 22"
+  - country_or_area:
+      en: Germany
+    contact: 'E-mail:      thomas.heinemann@sw-unna.de'
+    email:
+    - thomas.heinemann@sw-unna.de
+  notes: []

@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1324'
+reference: OB-1324
+identifier:
+  code: 1324-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-244-3
+    country:
+      en: Estonia
+    dec: '8099'
+    signal_point_name: ISPC_EST1
+    signal_point_operator: TELECOM SOFTWARE OÜ
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,62 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1108'
+reference: OB-1108
+identifier:
+  code: 1108-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Australia ADD
+    networks: " "
+  - mcc_mnc_codes: 505 38
+    networks: Truphone Pty Ltd
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Bahamas ADD
+    networks: " "
+  - mcc_mnc_codes: 364 49
+    networks: NEWCO2015
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: South Africa ADD
+    networks: " "
+  - mcc_mnc_codes: 655 73
+    networks: Wireless Business Solutions (Pty) Ltd
+  - mcc_mnc_codes: 655 74
+    networks: Wireless Business Solutions (Pty) Ltd
+  - mcc_mnc_codes: MCC+MNC*
+    country_or_area:
+      en: Country or Geographical Area
+    networks: Operators Name
+    range: MSIN** range to be used
+  - mcc_mnc_codes: 208 10
+    country_or_area:
+      en: France (Country A)
+    networks: Société Française du Radiotéléphone
+    range: 0000000000 - 2654099999; 2654200000 - 2654299999; 2654400000 - 2754099999;
+      2754200000 - 2754299999; 2754400000 - 9999999999
+  - mcc_mnc_codes: 208 10
+    country_or_area:
+      en: Monaco (Country B  – Where the MCC+MNC is to be used extra-territorially)
+    networks: Société Française du Radiotéléphone
+    range: 2654100000 - 2654199999; 2654300000 - 2654399999; 2754100000 - 2754199999;
+      2754300000 - 2754399999
+  - mcc_mnc_codes: 208 20
+    country_or_area:
+      en: France (Country A)
+    networks: Bouygues Telecom
+    range: 0000000000 - 0055499999; 0055600000 - 2007199999; 2007300000 - 9999999999
+  - mcc_mnc_codes: 208 20
+    country_or_area:
+      en: Monaco (Country B  – Where the MCC+MNC is to be used extra-territorially)
+    networks: Bouygues Telecom
+    range: 0055500000 - 0055599999; 2007200000 - 2007299999
+  notes:
+  - "*        MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

@@ -1,0 +1,25 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '960'
+reference: OB-960
+identifier:
+  code: P 27
+data:
+  _class: E212MNCAmendment
+  position: P 27
+  entries:
+  - mcc_mnc_codes: 234 07 234 18 234 26 234 27 235 00 235 92
+    country_or_area:
+      en: United Kingdom
+    networks: Cable & Wireless UK Cloud9 Lycamobile UK Limted Teleena UK Limited Mundio
+      Mobile Limited Cable & Wireless UK
+  - mcc_mnc_codes: 608 03
+    country_or_area:
+      en: Senegal
+    networks: Expresso Sénégal
+  notes:
+  - "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"
+  - 'MNC: Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

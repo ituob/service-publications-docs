@@ -1,0 +1,36 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1271'
+reference: OB-1271
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: 01051 Telecom GmbH
+    address_line_1: Fritz-Vomfelde-Strasse 34
+    address_line_2: D-40547 DUESSELDORF
+    carrier_code: 01051T
+    contact: Mr Marc Herruer
+    tel: "+31 654703459"
+  - country_or_area:
+      en: Germany
+    company_name: GREENFIBER Netz & Management GmbH
+    address_line_1: Moenckebergstrasse 19
+    address_line_2: D-22095 HAMBURG
+    carrier_code: GNM1
+    contact: Mr Vincent Komossa
+  - country_or_area:
+      en: Germany
+    company_name: ITAS AG
+    address_line_1: Suedstrasse 1
+    address_line_2: D-09221 NEUKIRCHEN/ERZGEBIRGE
+    carrier_code: ITAS
+    contact: Mr Rolf Mittag
+    tel: "+49 371 56004 456"
+    fax: "+49 371 56004 499"
+  notes: []

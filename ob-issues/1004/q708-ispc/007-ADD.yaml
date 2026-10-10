@@ -1,0 +1,58 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1004'
+reference: OB-1004
+identifier:
+  code: P 102
+data:
+  _class: Q708ISPCAmendment
+  position: P 102
+  entries:
+  - ipsc: 2-054-0
+    country:
+      en: to 104 Switzerland
+    dec: '4528'
+    signal_point_name: Bern
+    signal_point_operator: SBB Infrastruktur
+  - ipsc: 2-054-3
+    country:
+      en: to 104 Switzerland
+    dec: '4531'
+    signal_point_name: Lugano
+    signal_point_operator: Phonegroup SA
+  - ipsc: 2-062-4
+    country:
+      en: to 104 Switzerland
+    dec: '4596'
+    signal_point_name: Zurich
+    signal_point_operator: GEO Communication AG
+  - ipsc: 2-063-0
+    country:
+      en: to 104 Switzerland
+    dec: '4600'
+    signal_point_name: Zurich
+    signal_point_operator: Linara AG
+  - ipsc: 2-063-4
+    country:
+      en: to 104 Switzerland
+    dec: '4604'
+    signal_point_name: Zurich
+    signal_point_operator: IVY Telecom SA
+  - ipsc: 5-246-6
+    country:
+      en: to 104 Switzerland
+    dec: '12214'
+    signal_point_name: Zurich
+    signal_point_operator: IVY Telecom SA
+  - ipsc: 7-247-1
+    country:
+      en: to 104 Switzerland
+    dec: '16313'
+    signal_point_name: Zurich
+    signal_point_operator: Linara AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

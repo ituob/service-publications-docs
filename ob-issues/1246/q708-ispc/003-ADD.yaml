@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1246'
+reference: OB-1246
+identifier:
+  code: 1246-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-145-4
+    country:
+      en: South Africa
+    dec: '13452'
+    signal_point_name: MSIMD
+    signal_point_operator: Vodacom Pty Ltd
+  - ipsc: 6-145-5
+    country:
+      en: South Africa
+    dec: '13453'
+    signal_point_name: MSISP
+    signal_point_operator: Vodacom Pty Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

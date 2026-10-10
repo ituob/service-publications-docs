@@ -23,8 +23,18 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.3'
-        bundler-cache: true
+        ruby-version: '3.4'
+
+    # The gem bundle (ituob/Gemfile + lock) is the moxml/leptris XML
+    # stack — it does not include the metanorma document chain, so no
+    # native libxslt headers are needed. The committed lock pins the
+    # serialization-certified gem versions.
+    - name: Install the gem bundle
+      env:
+        BUNDLE_GEMFILE: ituob/Gemfile
+      run: bundle install
 
     - name: Validate datasets
+      env:
+        BUNDLE_GEMFILE: ituob/Gemfile
       run: bundle exec ituob dataset validate

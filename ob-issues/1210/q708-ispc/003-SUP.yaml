@@ -1,0 +1,33 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1210'
+reference: OB-1210
+identifier:
+  code: 1210-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-214-1
+    country:
+      en: Ukraine
+    dec: '5809'
+    signal_point_name: LVVISC2
+    signal_point_operator: Ukrtelecom JSC
+  - ipsc: 6-241-1
+    country:
+      en: Ukraine
+    dec: '14217'
+    signal_point_name: IMSISC
+    signal_point_operator: Ukrtelecom JSC
+  - ipsc: 6-241-3
+    country:
+      en: Ukraine
+    dec: '14219'
+    signal_point_name: KSTP2
+    signal_point_operator: Ukrtelecom JSC
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

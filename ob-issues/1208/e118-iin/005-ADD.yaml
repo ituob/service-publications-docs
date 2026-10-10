@@ -1,0 +1,24 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1208'
+reference: OB-1208
+identifier:
+  code: 1208-005
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Kenya
+    company_name: Infura Limited
+    company_address_1: 1 Flr Park Place Parklands
+    company_address_2: NAIROBI
+    contact: CTO Infura Limited
+    contact_address_1: 1st Floor Park Place
+    contact_address_2: Limuru Road Parklands
+    contact_address_3: NAIROBI
+    email:
+    - info@infura.co.ke
+    issue_id_number: 89 254 12
+    effective_date: 1.X.2020
+  notes: []

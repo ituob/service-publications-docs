@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1326'
+reference: OB-1326
+identifier:
+  code: 1326-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-032-1
+    country:
+      en: Hungary
+    dec: '4353'
+    signal_point_name: prom-bpsz-int-01
+    signal_point_operator: Pro-M PrCo. Ltd.
+  - ipsc: 2-032-3
+    country:
+      en: Hungary
+    dec: '4355'
+    signal_point_name: prom-kmet-int-01
+    signal_point_operator: Pro-M PrCo. Ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

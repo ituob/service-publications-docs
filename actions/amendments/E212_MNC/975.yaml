@@ -1,0 +1,20 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: ADD
+  position: P 8
+  entries:
+  - mcc_mnc_codes: 712 20
+    country_or_area:
+      en: Costa Rica
+    networks: Virtualis
+  note: '8'
+- action_type: ADD
+  position: P 30
+  entries:
+  - mcc_mnc_codes: 240 30
+    country_or_area:
+      en: Sweden
+    networks: NextGen Mobile Ltd.
+  note: '30'
+- {}

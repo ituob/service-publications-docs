@@ -1,0 +1,28 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: SUP
+  position: P 9
+  entries:
+  - mcc_mnc_codes: 230 99
+    country_or_area:
+      en: Czech Republic
+    networks: Vodafone Czech Republic a.s. R&D Centre
+  note: '9'
+- action_type: ADD
+  position: P 9
+  entries:
+  - mcc_mnc_codes: 630 90
+    country_or_area:
+      en: Dem. Rep. of the Congo
+    networks: AFFRICELL-RDC
+  note: '9'
+- action_type: ADD
+  position: P 9
+  entries:
+  - mcc_mnc_codes: 238 04
+    country_or_area:
+      en: Denmark
+    networks: NextGen Mobile Ltd T/A CardBoardFish
+  note: '9'
+- {}

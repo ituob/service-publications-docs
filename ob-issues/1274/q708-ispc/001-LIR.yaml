@@ -1,0 +1,27 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1274'
+reference: OB-1274
+identifier:
+  code: 1274-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-205-5
+    country:
+      en: Sweden
+    dec: '5741'
+    signal_point_name: EuSWE1
+    signal_point_operator: 42 Telecom AB
+  - ipsc: 2-205-6
+    country:
+      en: Sweden
+    dec: '5742'
+    signal_point_name: EuSWE2
+    signal_point_operator: 42 Telecom AB
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,36 @@
+type: P 1
+date_requested:
+date_active:
+ob_issue_no: '981'
+reference: OB-981
+identifier:
+  code: P 17
+data:
+  _class: E212MNCAmendment
+  position: P 17
+  entries:
+  - mcc_mnc_codes: 505 62
+    country_or_area:
+      en: Australia 
+    networks: NBNCo Limited
+  - mcc_mnc_codes: 505 68
+    country_or_area:
+      en: " "
+    networks: NBNCo Limited
+  - mcc_mnc_codes: 288 03
+    country_or_area:
+      en: Faroe Islands 
+    networks: Edge Mobile Sp/F
+  - mcc_mnc_codes: 425 13 425 14
+    country_or_area:
+      en: Israel
+    networks: Ituran Cellular Communications Alon Cellular Ltd.
+  - mcc_mnc_codes: 901 25
+    country_or_area:
+      en: International Mobile, shared code
+    networks: In & Phone
+  notes:
+  - "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"
+  - 'MNC: Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

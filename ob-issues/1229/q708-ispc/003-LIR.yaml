@@ -1,0 +1,117 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1229'
+reference: OB-1229
+identifier:
+  code: 1229-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-039-2
+    country:
+      en: Thailand
+    dec: '10554'
+    signal_point_name: TIC-TYN-1
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-039-3
+    country:
+      en: Thailand
+    dec: '10555'
+    signal_point_name: TIC-MTG-1
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-039-4
+    country:
+      en: Thailand
+    dec: '10556'
+    signal_point_name: TIC-TYN-3
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-039-5
+    country:
+      en: Thailand
+    dec: '10557'
+    signal_point_name: TIC-MTG-3
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-041-0
+    country:
+      en: Thailand
+    dec: '10568'
+    signal_point_name: ST-RST
+    signal_point_operator: DTAC TriNet
+  - ipsc: 5-042-0
+    country:
+      en: Thailand
+    dec: '10576'
+    signal_point_name: IG – RST
+    signal_point_operator: DTAC TriNet
+  - ipsc: 5-042-3
+    country:
+      en: Thailand
+    dec: '10579'
+    signal_point_name: N&T STP – A
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-042-4
+    country:
+      en: Thailand
+    dec: '10580'
+    signal_point_name: N&T STP – B
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-042-5
+    country:
+      en: Thailand
+    dec: '10581'
+    signal_point_name: N&T SG
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-042-6
+    country:
+      en: Thailand
+    dec: '10582'
+    signal_point_name: ST – SNK
+    signal_point_operator: DTAC TriNet
+  - ipsc: 5-042-7
+    country:
+      en: Thailand
+    dec: '10583'
+    signal_point_name: IG – SNK
+    signal_point_operator: DTAC TriNet
+  - ipsc: 5-043-2
+    country:
+      en: Thailand
+    dec: '10586'
+    signal_point_name: TUC-TYN SCCP
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-043-3
+    country:
+      en: Thailand
+    dec: '10587'
+    signal_point_name: TIC-MTG SCCP
+    signal_point_operator: True Move H Universal Communication
+  - ipsc: 5-044-2
+    country:
+      en: Thailand
+    dec: '10594'
+    signal_point_name: IGW_RST2 (MSC-S)
+    signal_point_operator: DTAC TriNet
+  - ipsc: 5-044-3
+    country:
+      en: Thailand
+    dec: '10595'
+    signal_point_name: IGW_RST2 (MGW)
+    signal_point_operator: DTAC TriNet
+  - ipsc: 5-044-4
+    country:
+      en: Thailand
+    dec: '10596'
+    signal_point_name: IGW_SNK2 (MSC-S)
+    signal_point_operator: DTAC TriNet
+  - ipsc: 5-044-5
+    country:
+      en: Thailand
+    dec: '10597'
+    signal_point_name: IGW_SNK2 (MGW)
+    signal_point_operator: DTAC TriNet
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

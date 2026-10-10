@@ -1,0 +1,39 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1052'
+reference: OB-1052
+identifier:
+  code: 1052-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-228-3
+    country:
+      en: Ireland
+    dec: '12067'
+    signal_point_name: SPX1
+    signal_point_operator: Vodafone Ireland
+  - ipsc: 5-228-4
+    country:
+      en: Ireland
+    dec: '12068'
+    signal_point_name: SPX2
+    signal_point_operator: Vodafone Ireland
+  - ipsc: 5-228-5
+    country:
+      en: Ireland
+    dec: '12069'
+    signal_point_name: Common GCP
+    signal_point_operator: Vodafone Ireland
+  - ipsc: 5-228-6
+    country:
+      en: Ireland
+    dec: '12070'
+    signal_point_name: Common HCP
+    signal_point_operator: Vodafone Ireland
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

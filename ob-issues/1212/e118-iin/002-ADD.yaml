@@ -1,0 +1,26 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1212'
+reference: OB-1212
+identifier:
+  code: 1212-002
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: United States
+    company_name: Celona Inc.
+    company_address_1: 10061 Bubb Road, Suite 300
+    company_address_2: CUPERTINO CA 95014
+    contact: Puneet Shetty
+    contact_address_1: Celona Inc.
+    contact_address_2: 10061 Bubb Road, Suite 300
+    contact_address_3: CUPERTINO CA 95014
+    tel:
+    - "+1 408 906 8198"
+    email:
+    - hello@celona.io
+    issue_id_number: 89 1 052
+    effective_date: 1.XII.2020
+  notes: []

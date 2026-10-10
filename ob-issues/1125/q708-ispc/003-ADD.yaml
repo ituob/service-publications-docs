@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1125'
+reference: OB-1125
+identifier:
+  code: 1125-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-062-0
+    country:
+      en: Switzerland
+    dec: '4592'
+    signal_point_name: Zürich 2
+    signal_point_operator: MITTO AG
+  - ipsc: 2-062-1
+    country:
+      en: Switzerland
+    dec: '4593'
+    signal_point_name: Zug 2
+    signal_point_operator: MITTO AG
+  - ipsc: 7-247-4
+    country:
+      en: Switzerland
+    dec: '16316'
+    signal_point_name: Zürich 2
+    signal_point_operator: Horisen AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

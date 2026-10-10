@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1201'
+reference: OB-1201
+identifier:
+  code: 1201-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-100-1
+    country:
+      en: Venezuela (Bolivarian Republic of)
+    dec: '15137'
+    signal_point_name: SPS - CC3
+    signal_point_operator: Telecomunicaciones Movilnet, CA
+  - ipsc: 7-100-2
+    country:
+      en: Venezuela (Bolivarian Republic of)
+    dec: '15138'
+    signal_point_name: SPS - MCY
+    signal_point_operator: Telecomunicaciones Movilnet, CA
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

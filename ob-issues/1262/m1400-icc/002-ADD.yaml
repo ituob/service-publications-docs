@@ -1,0 +1,48 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1262'
+reference: OB-1262
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: in.sec GmbH
+    address_line_1: Karl-Theodor-Strasse 3
+    address_line_2: D-82140 OLCHING
+    carrier_code: INSEC
+    contact: Mr Simon Harlacher
+    tel: "+49 8142 427340"
+    email:
+    - carrier@insec.gmbh
+  - country_or_area:
+      en: Germany
+    company_name: Mainzer Breitband GmbH
+    address_line_1: Rheinallee 41
+    address_line_2: D-55118 MAINZ
+    carrier_code: MZMSW
+    contact: Mrs Miriam Volkmann
+    tel: "+49 6131 12 8112"
+  - country_or_area:
+      en: Germany
+    company_name: Telekommunikationsgesellschaft Südwestfalen mbH
+    address_line_1: Steinstrasse 27
+    address_line_2: D-59872 MESCHEDE
+    carrier_code: TKGSWF
+    contact: Mr Stefan Glusa
+    tel: "+49 291 94 4411"
+    fax: "+49 291 94 1140"
+  - country_or_area:
+      en: Germany
+    company_name: Terrera AG
+    address_line_1: Ringstrasse 13
+    address_line_2: D-65606 VILLMAR
+    carrier_code: TERGER
+    contact: Mr Michael Lenz
+    tel: "+49 6474 274416"
+    fax: "+49 6474 274463"
+  notes: []

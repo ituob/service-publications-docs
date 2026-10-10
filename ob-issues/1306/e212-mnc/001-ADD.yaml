@@ -1,0 +1,85 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1306'
+reference: OB-1306
+identifier:
+  code: 1306-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Greece      SUP
+    networks: " "
+  - mcc_mnc_codes: 202 04
+    networks: OTE AE
+  - mcc_mnc_codes: 202 11
+    networks: INTERCONNECT
+  - mcc_mnc_codes: 202 12
+    networks: YUBOTO
+  - mcc_mnc_codes: 202 13
+    networks: COMPATEL LIMITED
+  - mcc_mnc_codes: 202 15
+    networks: BWS
+  - mcc_mnc_codes: 202 16
+    networks: INTER TELECOM
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Greece      ADD
+    networks: " "
+  - mcc_mnc_codes: 202 00
+    networks: INTER TELECOM
+  - mcc_mnc_codes: 202 04
+    networks: OSE AE
+  - mcc_mnc_codes: 202 06
+    networks: VODAFONE-PANAFON
+  - mcc_mnc_codes: 202 08
+    networks: RC
+  - mcc_mnc_codes: 202 16
+    networks: INTERCONNECT
+  - mcc_mnc_codes: 202 17
+    networks: NOVA M.A.E.
+  - mcc_mnc_codes: 202 21
+    networks: CELL MOBILE
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Greece      LIR
+    networks: " "
+  - mcc_mnc_codes: 202 01
+    networks: OTE AE
+  - mcc_mnc_codes: 202 02
+    networks: OTE AE
+  - mcc_mnc_codes: 202 07
+    networks: AMD TELECOM
+  - mcc_mnc_codes: 202 09
+    networks: NOVA M.A.E.
+  - mcc_mnc_codes: 202 10
+    networks: NOVA M.A.E.
+  - mcc_mnc_codes: 202 14
+    networks: VODAFONE-PANAFON
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Switzerland      ADD
+    networks: " "
+  - mcc_mnc_codes: 228 74
+    networks: Netplus.ch SA
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Ukraine      ADD
+    networks: " "
+  - mcc_mnc_codes: 255 11
+    networks: '"T.R. Communications" Limited Liability Company'
+  - mcc_mnc_codes: 255 701
+    networks: Public enterprise "Ukrspetszvyazok"
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Ukraine      LIR
+    networks: " "
+  - mcc_mnc_codes: 255 04
+    networks: Limited Liability Company "International Telecommunications"
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

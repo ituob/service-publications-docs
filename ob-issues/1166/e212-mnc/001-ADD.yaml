@@ -1,0 +1,41 @@
+type: ADD
+date_requested: &1 2018-12-15
+date_active: *1
+ob_issue_no: '1166'
+reference: OB-1166
+identifier:
+  code: 1166-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Estonia ADD
+    networks: " "
+  - mcc_mnc_codes: 248 16
+    networks: SmartTel Plus OÜ
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Hungary LIR
+    networks: " "
+  - mcc_mnc_codes: 216 04
+    networks: Invitech ICT Services Ltd.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: South Africa ADD
+    networks: " "
+  - mcc_mnc_codes: 655 65
+    networks: Vodacom Pty Ltd
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code ADD
+    networks: " "
+  - mcc_mnc_codes: 901 65
+    networks: Plintron Global Technology Solutions Private Limited
+  - mcc_mnc_codes: 901 66
+    networks: Limitless Mobile, LLC
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

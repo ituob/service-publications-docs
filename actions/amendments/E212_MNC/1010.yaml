@@ -1,0 +1,32 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: SUP
+  position: P 9
+  entries:
+  - mcc_mnc_codes: 238 30
+    country_or_area:
+      en: Denmark
+    networks: Telia A/S
+  note: '9'
+- action_type: SUP
+  position: P 23
+  entries:
+  - mcc_mnc_codes: 646 03
+    country_or_area:
+      en: Madagascar
+    networks: MADAMOBIL
+  note: '23'
+- action_type: ADD
+  position: P 29
+  entries:
+  - mcc_mnc_codes: 655 04
+    country_or_area:
+      en: South Africa
+    networks: SASOL ( PTY) LTD
+  - mcc_mnc_codes: 655 25
+    networks: WIRELS CONNECT
+  - mcc_mnc_codes: 655 41
+    networks: SOUTH AFRICAN POLICE SERVICE
+  note: '29'
+- {}

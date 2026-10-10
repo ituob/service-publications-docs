@@ -1,0 +1,35 @@
+---
+_class: E212MNCAmendment
+actions:
+- entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Belgium ADD
+    networks: " "
+  - mcc_mnc_codes: 206 00
+    networks: Proximus
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Belgium LIR
+    networks: " "
+  - mcc_mnc_codes: 206 01
+    networks: Proximus
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Liechtenstein ADD
+    networks: " "
+  - mcc_mnc_codes: 295 09
+    networks: Emnify GmbH
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Liechtenstein LIR
+    networks: " "
+  - mcc_mnc_codes: 295 02
+    networks: Salt (Liechtenstein) AG
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code ADD
+    networks: " "
+  - mcc_mnc_codes: 901 47
+    networks: Ooredoo
+- {}

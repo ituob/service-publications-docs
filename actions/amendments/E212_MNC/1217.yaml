@@ -1,0 +1,36 @@
+---
+_class: E212MNCAmendment
+actions:
+- entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Spain    SUP
+    networks: " "
+  - mcc_mnc_codes: 214 12
+    networks: SAC CONVERGENT AGGREGATION SERVICES, S.L.U.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden    ADD
+    networks: " "
+  - mcc_mnc_codes: 240 49
+    networks: Telia Sverige AB
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden    LIR
+    networks: " "
+  - mcc_mnc_codes: 240 14
+    networks: Tele2 Sverige AB
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code LIR *
+    networks: " "
+  - mcc_mnc_codes: 901 53
+    networks: Inmarsat Ltd.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Trial of a proposed new international telecommunication service, shared
+        code      SUP*
+    networks: " "
+  - mcc_mnc_codes: 991 01
+    networks: World's Global Telecom
+- {}

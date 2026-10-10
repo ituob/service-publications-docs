@@ -1,0 +1,32 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1167'
+reference: OB-1167
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: amabo GmbH
+    address_line_1: Essener Strasse 2 - 24
+    address_line_2: 46047 OBERHAUSEN
+    carrier_code: AMABO
+    contact: Mr Aiko Marschner
+    tel: "+49 211 90096463"
+    fax: "+49 211 90096463"
+    email:
+    - aiko.marschner@amabo.de
+  - country_or_area:
+      en: Germany
+    company_name: Tele Columbus AG, Bulk-Account Kaiserin-Augusta-Allee 108 D-10553
+      BERLIN
+    carrier_code: FLTC
+    contact: 'Mrs Corinna Jaehneke Tel.:          +49 30 3388 1029 E-mail :    corinna.jaehneke@pyur.com'
+    tel: 'Mrs Corinna Jaehneke +49 30 3388 1029 E-mail :    corinna.jaehneke@pyur.com'
+    email:
+    - 'Mrs Corinna Jaehneke Tel.:          +49 30 3388 1029 corinna.jaehneke@pyur.com'
+  notes: []

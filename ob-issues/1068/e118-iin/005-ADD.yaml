@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2013-11-15
+date_active: *1
+ob_issue_no: '1068'
+reference: OB-1068
+identifier:
+  code: 1068-005
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: United Kingdom
+    company_name: British Telecommunications PLC
+    company_address_1: 81 Newgate Street,
+    company_address_2: EC1A 7AJ London
+    contact: Mr Rastislav Chynoransky
+    contact_address_1: British Telecommunications PLC
+    contact_address_2: PP 1041 Baynard House
+    contact_address_3: 135 Queen Victoria Street,
+    contact_address_4: London EC4V 4AA
+    tel:
+    - "+44 2087261402"
+    email:
+    - rastislav.chynoransky@bt.com
+    issue_id_number: 89 44 40
+    effective_date: 1.I.2015
+  notes: []

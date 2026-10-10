@@ -1,0 +1,51 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1260'
+reference: OB-1260
+identifier:
+  code: 1260-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-082-0
+    country:
+      en: Japan
+    dec: '8848'
+    signal_point_name: Kiba-CDC3
+    signal_point_operator: Rakuten Mobile, Inc.
+  - ipsc: 4-082-1
+    country:
+      en: Japan
+    dec: '8849'
+    signal_point_name: Kiba-CDC4
+    signal_point_operator: Rakuten Mobile, Inc.
+  - ipsc: 4-085-6
+    country:
+      en: Japan
+    dec: '8878'
+    signal_point_name: Tokyo-CDC3
+    signal_point_operator: Rakuten Mobile, Inc.
+  - ipsc: 4-085-7
+    country:
+      en: Japan
+    dec: '8879'
+    signal_point_name: Tokyo-CDC4
+    signal_point_operator: Rakuten Mobile, Inc.
+  - ipsc: 4-086-0
+    country:
+      en: Japan
+    dec: '8880'
+    signal_point_name: Osaka-CDC3
+    signal_point_operator: Rakuten Mobile, Inc.
+  - ipsc: 4-086-1
+    country:
+      en: Japan
+    dec: '8881'
+    signal_point_name: Osaka-CDC4
+    signal_point_operator: Rakuten Mobile, Inc.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

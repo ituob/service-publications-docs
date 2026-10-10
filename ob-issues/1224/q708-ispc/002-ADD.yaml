@@ -1,0 +1,57 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1224'
+reference: OB-1224
+identifier:
+  code: 1224-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-152-2
+    country:
+      en: Albania
+    dec: '5314'
+    signal_point_name: GMSC-Tirana1
+    signal_point_operator: ONE TELECOMMUNICATIONS sh.a
+  - ipsc: 2-152-5
+    country:
+      en: Albania
+    dec: '5317'
+    signal_point_name: TELE.CO Albania
+    signal_point_operator: Tele.Co & Construction sh.p.k
+  - ipsc: 4-227-4
+    country:
+      en: Albania
+    dec: '10012'
+    signal_point_name: 271C
+    signal_point_operator: ONE TELECOMMUNICATIONS sh.a
+  - ipsc: 4-227-5
+    country:
+      en: Albania
+    dec: '10013'
+    signal_point_name: 271D
+    signal_point_operator: ONE TELECOMMUNICATIONS sh.a
+  - ipsc: 4-227-6
+    country:
+      en: Albania
+    dec: '10014'
+    signal_point_name: 271E
+    signal_point_operator: ONE TELECOMMUNICATIONS sh.a
+  - ipsc: 4-227-7
+    country:
+      en: Albania
+    dec: '10015'
+    signal_point_name: 271F
+    signal_point_operator: ONE TELECOMMUNICATIONS sh.a
+  - ipsc: 7-219-6
+    country:
+      en: Albania
+    dec: '16094'
+    signal_point_name: Metis Communications Albania
+    signal_point_operator: Metis Communications sh.p.k.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

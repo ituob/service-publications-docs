@@ -1,0 +1,30 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '987'
+reference: OB-987
+identifier:
+  code: P 95
+data:
+  _class: Q708ISPCAmendment
+  position: P 95
+  entries:
+  - ipsc: 6-109-0
+    country:
+      en: South Africa
+    dec: '13160'
+    signal_point_name: ECO-MSC1-JBG-01
+    signal_point_operator: Liquid Telecommunications South Africa (Pty) Ltd
+  - ipsc: 6-109-1
+    country:
+      en: South Africa
+    dec: '13161'
+    signal_point_name: ECO-STP1-JBG-01
+    signal_point_operator: Liquid Telecommunications South Africa (Pty) Ltd
+  - ipsc: 6-109-2
+    country:
+      en: South Africa
+    dec: '13162'
+    signal_point_name: ILIZWI-MSC-01
+    signal_point_operator: Ilizwi Telecommunications
+  notes: []

@@ -1,0 +1,30 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1047'
+reference: OB-1047
+identifier:
+  code: 1047-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: Tele 2 Sverige AB
+    country_or_area:
+      en: 240 07
+    networks: The range dedicated for the Netherlands will not be used in Sweden
+    range: The Netherlands
+  - mcc_mnc_codes: 248 09
+    networks: Bravo Telecom OÜ
+  - mcc_mnc_codes: 288 03
+    networks: Edge Mobile Sp/F
+  - mcc_mnc_codes: 240 07
+    networks: Tele2 Sverige AB
+  - mcc_mnc_codes: 240 07
+    networks: Tele2 Sverige AB
+  - mcc_mnc_codes: 421 04
+    networks: Y-Telecom
+  notes:
+  - "*    MCC:   Country Code / Indicatif de pays du mobile / Indicativo de país para
+    el servicio móvil"
+  - 'MNC:   Network Code / Code de réseau mobile / Indicativo de red para el servicio
+    móvil'

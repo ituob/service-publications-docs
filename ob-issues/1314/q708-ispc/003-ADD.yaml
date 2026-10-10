@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1314'
+reference: OB-1314
+identifier:
+  code: 1314-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-087-0
+    country:
+      en: Japan
+    dec: '8888'
+    signal_point_name: sumida-sgw2-g
+    signal_point_operator: NTT DOCOMO, INC.
+  - ipsc: 4-087-1
+    country:
+      en: Japan
+    dec: '8889'
+    signal_point_name: kyoto-sgw2-g
+    signal_point_operator: NTT DOCOMO, INC.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

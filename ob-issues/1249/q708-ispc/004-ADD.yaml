@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1249'
+reference: OB-1249
+identifier:
+  code: 1249-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-028-0
+    country:
+      en: Spain
+    dec: '4320'
+    signal_point_name: Madrid-Delicias
+    signal_point_operator: TELEFÓNICA DE ESPAÑA, S.A. UNIPERSONAL
+  - ipsc: 2-028-1
+    country:
+      en: Spain
+    dec: '4321'
+    signal_point_name: Barcelona-Torras i Bages
+    signal_point_operator: TELEFÓNICA DE ESPAÑA, S.A. UNIPERSONAL
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

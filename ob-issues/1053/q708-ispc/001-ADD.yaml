@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1053'
+reference: OB-1053
+identifier:
+  code: 1053-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-050-5
+    country:
+      en: Cabo Verde
+    dec: '12693'
+    signal_point_name: T+STPPRAIA1
+    signal_point_operator: UNITEL T+ Telecomunicações
+  - ipsc: 6-050-6
+    country:
+      en: Cabo Verde
+    dec: '12694'
+    signal_point_name: T+STPPRAIA2
+    signal_point_operator: UNITEL T+ Telecomunicações
+  - ipsc: 6-050-7
+    country:
+      en: Cabo Verde
+    dec: '12695'
+    signal_point_name: CVMMINTGATPRAIA
+    signal_point_operator: CVMultimédia
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

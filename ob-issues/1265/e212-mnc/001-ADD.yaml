@@ -1,0 +1,34 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1265'
+reference: OB-1265
+identifier:
+  code: 1265-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada    ADD
+    networks: " "
+  - mcc_mnc_codes: 302 140
+    networks: Fibernetics Corporation
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Greenland    ADD
+    networks: " "
+  - mcc_mnc_codes: 290 03
+    networks: GTV
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Trial of a proposed new international telecommunication service, shared
+        code       SUP*
+    networks: " "
+  - mcc_mnc_codes: 991 03
+    networks: Halys SAS (end of temporary assignment for trial on 6.IV.2022)
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

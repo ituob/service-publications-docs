@@ -1,0 +1,40 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: ADD
+  position: P 3
+  entries:
+  - mcc_mnc_codes: 505 23
+    country_or_area:
+      en: Australia
+    networks: Challenge Networks Pty Ltd
+  note: '3'
+- action_type: SUP
+  position: P 14
+  entries:
+  - mcc_mnc_codes: 216 01
+    country_or_area:
+      en:
+      - Hungary
+    networks: Panon GSM
+  - mcc_mnc_codes: 216 30
+    country_or_area:
+      en:
+      - Hungary
+    networks: Westel Mobile Co.
+  note: '14'
+- action_type: ADD
+  position: P 14
+  entries:
+  - mcc_mnc_codes: 216 01
+    country_or_area:
+      en:
+      - Hungary
+    networks: Telenor Hungary Ltd
+  - mcc_mnc_codes: 216 30
+    country_or_area:
+      en:
+      - Hungary
+    networks: Magyar Telecom Plc
+  note: '14'
+- {}

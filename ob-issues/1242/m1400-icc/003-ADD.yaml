@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1242'
+reference: OB-1242
+identifier:
+  code: 1242-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Liberty Networks Germany GmbH
+    address_line_1: Subbelrather Strasse 15 a
+    address_line_2: D-50823 COLOGNE
+    carrier_code: LNGER
+    contact: Mr Thomas Schidek
+    tel: "+49 151 1142 7457"
+  notes: []

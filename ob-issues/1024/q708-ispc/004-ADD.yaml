@@ -1,0 +1,52 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1024'
+reference: OB-1024
+identifier:
+  code: P 55
+data:
+  _class: Q708ISPCAmendment
+  position: P 55
+  entries:
+  - ipsc: 4-241-0
+    country:
+      en: Ireland
+    dec: '10120'
+    signal_point_name: DGMGW02_INTL
+    signal_point_operator: Liffey Telecom
+  - ipsc: 4-241-1
+    country:
+      en: Ireland
+    dec: '10121'
+    signal_point_name: DGMSC01_INTL
+    signal_point_operator: Liffey Telecom
+  - ipsc: 5-228-0
+    country:
+      en: Ireland
+    dec: '12064'
+    signal_point_name: DGMGW02_TEMP
+    signal_point_operator: Liffey Telecom
+  - ipsc: 5-228-1
+    country:
+      en: Ireland
+    dec: '12065'
+    signal_point_name: DGMSC01_TEMP
+    signal_point_operator: Liffey Telecom
+  - ipsc: 5-228-2
+    country:
+      en: Ireland
+    dec: '12066'
+    signal_point_name: DGMGW01_TEMP
+    signal_point_operator: Liffey Telecom
+  - ipsc: 6-246-7
+    country:
+      en: Ireland
+    dec: '14263'
+    signal_point_name: DGMGW01_INTL
+    signal_point_operator: Liffey Telecom
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

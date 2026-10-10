@@ -1,0 +1,34 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1022'
+reference: OB-1022
+identifier:
+  code: P 112 to P 113
+data:
+  _class: Q708ISPCAmendment
+  position: P 112 to P 113
+  entries:
+  - ipsc: 4-242-0
+    country:
+      en: Ukraine
+    dec: '10128'
+    signal_point_name: Ukraine
+    signal_point_operator: TRCommunication Ltd
+  - ipsc: 7-242-1
+    country:
+      en: Ukraine
+    dec: '16273'
+    signal_point_name: Dnipropetrovsk
+    signal_point_operator: JSC Kyivstar
+  - ipsc: 7-242-3
+    country:
+      en: Ukraine
+    dec: '16275'
+    signal_point_name: Kyiv
+    signal_point_operator: PrJSC "Farlep-Invest"
+  notes:
+  - ___________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,16 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: ADD
+  position: P 8
+  entries:
+  - mcc_mnc_codes: 712 02
+    country_or_area:
+      en: Costa Rica
+    networks: Instituto Costarricense de Electricidad – ICE
+  - mcc_mnc_codes: 712 03
+    networks: CLARO CR Telecomunicaciones S.A.
+  - mcc_mnc_codes: 712 04
+    networks: Azules y Platas S.A.
+  note: '8'
+- {}

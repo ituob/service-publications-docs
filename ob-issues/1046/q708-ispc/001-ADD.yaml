@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1046'
+reference: OB-1046
+identifier:
+  code: 1046-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-228-7
+    country:
+      en: Albania
+    dec: '7975'
+    signal_point_name: ALBON-AL-SS7
+    signal_point_operator: ALBON
+  - ipsc: 4-227-0
+    country:
+      en: Albania
+    dec: '10008'
+    signal_point_name: FBD SS7
+    signal_point_operator: FBD
+  - ipsc: 4-227-2
+    country:
+      en: Albania
+    dec: '10010'
+    signal_point_name: ACT-Albania
+    signal_point_operator: Albanian Carrier Telecommunication
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

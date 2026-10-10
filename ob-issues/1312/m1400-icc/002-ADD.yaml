@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1312'
+reference: OB-1312
+identifier:
+  code: 1312-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: primavolt GmbH
+    address_line_1: Grossbeerenstrasse 2-10
+    address_line_2: D-12107 BERLIN
+    carrier_code: PRIMAV
+    contact: Mr Jens Grallert
+    tel: "+49 30 206143862"
+    fax: "+49 30 206143871"
+  notes: []

@@ -1,0 +1,21 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1255'
+reference: OB-1255
+identifier:
+  code: 1255-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-205-7
+    country:
+      en: Sweden
+    dec: '5743'
+    signal_point_name: CoolTEL SMSC-KLD-1 (Kolding)
+    signal_point_operator: LINK Mobile A/S
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

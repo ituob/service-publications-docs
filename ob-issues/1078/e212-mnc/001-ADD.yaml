@@ -1,0 +1,25 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1078'
+reference: OB-1078
+identifier:
+  code: 1078-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 232 06
+    networks: Orange Austria Telecommunication GmbH
+  - mcc_mnc_codes: 232 20
+    networks: Mtel Austrija GmbH
+  - mcc_mnc_codes: 280 23
+    networks: Mundio Mobile Cyprus Ltd.
+  - mcc_mnc_codes: 248 10
+    networks: Telcotrade OÜ
+  - mcc_mnc_codes: 658 01
+    networks: Sure South Atlantic Ltd. (Ascension)
+  notes:
+  - "*      MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

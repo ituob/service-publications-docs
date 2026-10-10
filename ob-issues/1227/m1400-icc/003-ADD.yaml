@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1227'
+reference: OB-1227
+identifier:
+  code: 1227-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: IP Telecom Bulgaria LTD
+    address_line_1: Floor 2, 2 Vasil Aprilov
+    address_line_2: BG-8000 BURGAS
+    address_line_3: "(Bulgaria)"
+    carrier_code: IPTBLG
+    contact: Mr Ilya Rodionov
+    tel: "+49 30 52015200"
+  notes: []

@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2016-09-01
+date_active: *1
+ob_issue_no: '1199'
+reference: OB-1199
+identifier:
+  code: 1199-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-108-2
+    country:
+      en: Comoros
+    dec: '13154'
+    signal_point_name: MSC1
+    signal_point_operator: Comores Telecom
+  - ipsc: 6-108-3
+    country:
+      en: Comoros
+    dec: '13155'
+    signal_point_name: MSC2
+    signal_point_operator: Comores Telecom
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

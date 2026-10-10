@@ -1,0 +1,29 @@
+type: LIR
+date_requested: &1 2012-03-15
+date_active: *1
+ob_issue_no: '1005'
+reference: OB-1005
+identifier:
+  code: P 3
+data:
+  _class: T35NAAmendment
+  position: P 3
+  entries:
+  - country: Germany
+    administration_name: Federal Network Agency for Electricity, Gas, Telecommunication,
+      Post and Railway
+    manufactures_htv: 'YES'
+    last_updated: 25 April 2012
+    assignment_authority:
+    - terminal_type: " H-Series  T-Series    V-Series "
+      contact_name: " "
+      organization: Federal Network Agency for Electricity, Gas, Telecommunication,
+        Post and Railway
+      department: 118; Number Management
+      address: Postfach 80 01, 55003 MAINZ, Germany
+      telephone: " "
+      fax: "+49 6131 18 –  5660"
+      email: nummernverwaltung@bnetza.de
+      related_links:
+      - Technical Numbers (http://www.bundesnetzagentur.de/cln_1911/EN/Areas/Telecommunications/TelecomsRegulation/NumberManagement/TechnicalNumbers/EquipmentManufacturerCodes/equipmentmanufacturercodes_node.html)
+  notes: []

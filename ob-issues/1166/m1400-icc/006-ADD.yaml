@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1166'
+reference: OB-1166
+identifier:
+  code: 1166-006
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Vattenfall Bitstream Infrastructure GmbH
+    address_line_1: Chausseestrasse 23
+    address_line_2: 10115 BERLIN
+    carrier_code: VBIG
+    contact: Mrs Vera Forst
+    tel: "+49 152 2886 4355"
+    email:
+    - vera.forst@vattenfall.de
+  notes: []

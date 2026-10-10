@@ -1,0 +1,26 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1231'
+reference: OB-1231
+identifier:
+  code: 1231-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Colombia
+    company_name: LOV TELECOMUNICACIONES SAS
+    company_address_1: 'Calle 97 # 23-60 Of. 306'
+    company_address_2: BOGOTÁ
+    contact: LOV IIN,
+    contact_address_1: LOV TELECOMUNICACIONES SAS
+    contact_address_2: 'Calle 97 # 23-60 Of. 306'
+    contact_address_3: BOGOTÁ
+    tel:
+    - "+57 1 7042284"
+    email:
+    - lov-iin@lov.com.co
+    issue_id_number: 89 57 777
+    effective_date: 1.XI.2021
+  notes: []

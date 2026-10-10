@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1333'
+reference: OB-1333
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Carrier1 GmbH Fritz-Vomfelde-Straße 34 D-40547 DÜSSELDORF
+    carrier_code: CAR1
+    contact: 'Philipp Hoffmann E-mail:     philipp.hoffmann@carrier1.de'
+    email:
+    - Philipp Hoffmann philipp.hoffmann@carrier1.de
+  notes: []

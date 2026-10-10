@@ -1,0 +1,41 @@
+type: LIR
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1311'
+reference: OB-1311
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: 1&1 Telecom GmbH
+    address_line_1: Elgendorfer Strasse 57
+    address_line_2: 56410 MONTABAUR
+    carrier_code: 1UND1
+    contact: Auftragskoordination
+    tel: "+49 2602 963824"
+    email:
+    - ocm-auftragskoordination@1und1.de
+  - country_or_area:
+      en: Germany
+    company_name: energis GmbH
+    address_line_1: Heinrich-Boecking-Strasse 10 - 14
+    address_line_2: D-66121 SAARBRUECKEN
+    carrier_code: ENERGS
+    contact: Mr Christoph Morguet
+    tel: "+49 681 9069 1533"
+  - country_or_area:
+      en: Germany
+    company_name: SKYTRON Communications GmbH & Co.KG
+    address_line_1: Im Stöckmädle 13
+    address_line_2: 76307 KARLSBAD
+    carrier_code: SKYTRN
+    contact: Mr Holger Witt
+    tel: "+49 7248 4528 130"
+    fax: "+49 7248 4528 230"
+    email:
+    - h.witt@skytron.de
+  notes: []

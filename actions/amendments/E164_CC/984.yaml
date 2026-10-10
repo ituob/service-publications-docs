@@ -1,0 +1,25 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: ADD
+  position: '18'
+  entries:
+  - applicant: Multiregional TransitTelecom (MTT)
+    network: Multiregional TransitTelecom (MTT)
+    cc_ic: "+883 140"
+    status: Assigned
+  - applicant: Bandwith.com Inc
+    network: Bandwith.com Inc
+    cc_ic: "+883 5110"
+    status: Assigned
+- action_type: ADD
+  position: '18'
+  entries:
+  - applicant: Bandwith.com Inc
+    network: Bandwith.com Inc
+    cc_ic: "+883 5110"
+    status: Assigned
+  - applicant: Multiregional TransitTelecom (MTT)
+    network: Multiregional TransitTelecom (MTT)
+    cc_ic: "+883 140"
+    status: Assigned

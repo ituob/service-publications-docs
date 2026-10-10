@@ -1,0 +1,31 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1104'
+reference: OB-1104
+identifier:
+  code: 1104-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: D4 Systemhaus GmbH
+    carrier_code: DVIER
+    contact: Heiko Bickenbach
+  - country_or_area:
+      en: Germany
+    company_name: Gartenstr. 28
+    contact: 'Tel.:          +49 2961 96040'
+    tel: "+49 2961 96040"
+  - country_or_area:
+      en: Germany
+    company_name: 59929 BRILON
+    contact: 'Fax:          +49 2961 960420'
+    fax: "+49 2961 960420"
+  - country_or_area:
+      en: Germany
+    contact: 'E-mail:     voice.support@d4-service.de'
+    email:
+    - voice.support@d4-service.de
+  notes: []

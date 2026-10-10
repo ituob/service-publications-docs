@@ -17,6 +17,9 @@ items:
     # - contact_address_1
     # - tel
   properties:
+    effective_date:
+      type: string
+      description: Date when the information becomes effective
     issue_id_number:
       type: string
       description: Identifier for the record
@@ -37,6 +40,9 @@ items:
     company_address_2:
       type: string
       description: Second line of company address
+    company_address_3:
+      type: string
+      description: Third line of company address
     contact:
       type: string
       description: Contact person or department
@@ -49,6 +55,15 @@ items:
     contact_address_3:
       type: string
       description: Third line of contact address
+    contact_address_4:
+      type: string
+      description: Fourth line of contact address
+    contact_address_5:
+      type: string
+      description: Fifth line of contact address
+    contact_address_6:
+      type: string
+      description: Sixth line of contact address
     tel:
       type: array
       items:

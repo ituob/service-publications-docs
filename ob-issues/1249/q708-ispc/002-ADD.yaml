@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1249'
+reference: OB-1249
+identifier:
+  code: 1249-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-082-2
+    country:
+      en: Japan
+    dec: '8850'
+    signal_point_name: Kiba-CDC1
+    signal_point_operator: Rakuten Mobile, Inc.
+  - ipsc: 4-082-3
+    country:
+      en: Japan
+    dec: '8851'
+    signal_point_name: Kiba-CDC2
+    signal_point_operator: Rakuten Mobile, Inc.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

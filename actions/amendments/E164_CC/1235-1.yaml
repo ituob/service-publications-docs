@@ -1,0 +1,16 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: ADD*
+  position: Note p)
+  entries:
+  - applicant: TELEFONICA MOVILES ESPAÑA, S.A. UNIPERSONAL (TME)
+    network: TELEFONICA MOVILES ESPAÑA, S.A. UNIPERSONAL (TME)
+    cc_ic: "+883 400"
+    status: Assigned
+  - applicant: Telefónica Germany GmbH & Co. OHG
+    network: Telefónica Germany GmbH & Co. OHG
+    cc_ic: "+883 410"
+    status: Assigned
+  note: p)
+- {}

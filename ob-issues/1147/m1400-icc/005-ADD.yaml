@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1147'
+reference: OB-1147
+identifier:
+  code: 1147-005
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: KAEMI GmbH
+    address_line_1: Prinzessinnenstrasse 19 - 20
+    address_line_2: 10969 BERLIN
+    carrier_code: KAEMIX
+    contact: Mrs Anna Steffens
+    tel: "+49 30 3642878 21"
+    fax: "+49 30 3642878 99"
+    email:
+    - portierungen@kaemi.io
+  - country_or_area:
+      en: Germany
+    company_name: m3connect GmbH
+    address_line_1: Friedlandstrasse 18
+    address_line_2: 52064 AACHEN
+    carrier_code: M3CON
+    contact: Mr Roland Heinen
+    tel: "+49 241 980986 0"
+    fax: "+49 241 980986 90"
+    email:
+    - r.heinen@m3connect.de
+  notes: []

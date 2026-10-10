@@ -1,0 +1,107 @@
+# Canonical catalog of OB general-message types.
+#
+# Consumed by:
+#   - ituob/lib/ituob/catalogs/message_types.rb
+#   - ituob.org-v2/src/lib/catalogs.ts
+---
+structured:
+  - running_annexes
+  - approved_recommendations
+
+textual:
+  - sanc
+  - iptn
+  - ipns
+  - mid
+  - org_changes
+  - misc_communications
+  - service_restrictions
+  - custom
+  - callback_procedures
+  - telephone_service
+  - telephone_service_2
+  - no_type
+
+# Sentinel for messages with no explicit `type` field in source.
+untyped: no_type
+
+# Per-type metadata.
+metadata:
+  running_annexes:
+    label: Lists annexed to the ITU Operational Bulletin
+    category: structured
+    renderer: running-annexes
+  approved_recommendations:
+    label: Approval of ITU-T Recommendations
+    category: structured
+    renderer: approved-recommendations
+  sanc:
+    label: Assignment of Signalling Area/Network Codes (SANC)
+    category: textual
+    renderer: sanc-text
+    recommendation:
+      body: ITU-T
+      code: Q.708
+      version: 1999-03
+  iptn:
+    label: The International Public Telecommunication Numbering Plan
+    category: textual
+    renderer: iptn-text
+    recommendation:
+      body: ITU-T
+      code: E.164
+      version: 2010-11
+  ipns:
+    label: International Identification Plan for Public Networks and Subscriptions (IPNS)
+    category: textual
+    renderer: ipns-text
+    recommendation:
+      body: ITU-T
+      code: E.212
+      version: 2016-09
+  mid:
+    label: Maritime Identification Digits (MID)
+    category: textual
+    renderer: mid-text
+  org_changes:
+    label: Changes in Administrations/ROAs and other entities or Organizations
+    category: textual
+    renderer: org-changes
+  misc_communications:
+    label: Other communications
+    category: textual
+    renderer: misc-comms
+  service_restrictions:
+    label: Service Restrictions
+    category: textual
+    renderer: service-restrictions
+    url: http://www.itu.int/pub/T-SP-SR.1-2012
+  custom:
+    label: Custom Communications
+    category: textual
+    renderer: custom-comms
+  callback_procedures:
+    label: "Call-back and alternative calling procedures (Res. 21 Rev. PP-2006)"
+    category: textual
+    renderer: callback-procedures
+    url: http://www.itu.int/pub/T-SP-PP.RES.21-2011/
+  telephone_service:
+    label: Telephone Service
+    category: textual
+    renderer: telephone-service
+    recommendation:
+      body: ITU-T
+      code: E.164
+    url: http://www.itu.int/itu-t/inr-nnp
+  telephone_service_2:
+    label: Telephone Service
+    category: textual
+    renderer: telephone-service
+    recommendation:
+      body: ITU-T
+      code: E.164
+    url: http://www.itu.int/itu-t/inr-nnp
+  no_type:
+    label: Other Communications
+    category: textual
+    renderer: text

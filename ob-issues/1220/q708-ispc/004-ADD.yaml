@@ -1,0 +1,87 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1220'
+reference: OB-1220
+identifier:
+  code: 1220-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-164-0
+    country:
+      en: Uzbekistan
+    dec: '9504'
+    signal_point_name: STP1
+    signal_point_operator: Universal Mobile Systems LLC
+  - ipsc: 4-164-4
+    country:
+      en: Uzbekistan
+    dec: '9508'
+    signal_point_name: MSS
+    signal_point_operator: Coscom LLC
+  - ipsc: 4-164-5
+    country:
+      en: Uzbekistan
+    dec: '9509'
+    signal_point_name: MSC151003
+    signal_point_operator: Unitel LLC
+  - ipsc: 4-164-6
+    country:
+      en: Uzbekistan
+    dec: '9510'
+    signal_point_name: Kokand
+    signal_point_operator: Uzbektelecom JSC
+  - ipsc: 4-164-7
+    country:
+      en: Uzbekistan
+    dec: '9511'
+    signal_point_name: Bukhara
+    signal_point_operator: Uzbektelecom JSC
+  - ipsc: 4-165-0
+    country:
+      en: Uzbekistan
+    dec: '9512'
+    signal_point_name: STP2
+    signal_point_operator: Universal Mobile Systems LLC
+  - ipsc: 4-165-1
+    country:
+      en: Uzbekistan
+    dec: '9513'
+    signal_point_name: Bukhara AXE-810
+    signal_point_operator: Uzbektelecom JSC
+  - ipsc: 4-165-2
+    country:
+      en: Uzbekistan
+    dec: '9514'
+    signal_point_name: Kokand AXE-810
+    signal_point_operator: Uzbektelecom JSC
+  - ipsc: 4-165-3
+    country:
+      en: Uzbekistan
+    dec: '9515'
+    signal_point_name: IMS
+    signal_point_operator: Uzbektelecom JSC
+  - ipsc: 4-165-4
+    country:
+      en: Uzbekistan
+    dec: '9516'
+    signal_point_name: SPS-1
+    signal_point_operator: UzMobile branch of Uzbektelecom JSC
+  - ipsc: 4-165-5
+    country:
+      en: Uzbekistan
+    dec: '9517'
+    signal_point_name: IMS-1
+    signal_point_operator: Uzbektelecom JSC
+  - ipsc: 4-165-6
+    country:
+      en: Uzbekistan
+    dec: '9518'
+    signal_point_name: IMS-2
+    signal_point_operator: Uzbektelecom JSC
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

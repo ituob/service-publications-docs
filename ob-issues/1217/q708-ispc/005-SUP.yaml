@@ -1,0 +1,39 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1217'
+reference: OB-1217
+identifier:
+  code: 1217-005
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-033-4
+    country:
+      en: United States
+    dec: '6412'
+    signal_point_name: New York, NY
+    signal_point_operator: Mundetel Communications. Inc
+  - ipsc: 3-194-2
+    country:
+      en: United States
+    dec: '7698'
+    signal_point_name: Los Angeles, CA
+    signal_point_operator: China Netcom (USA) Operations Ltd
+  - ipsc: 3-195-0
+    country:
+      en: United States
+    dec: '7704'
+    signal_point_name: Los Angeles, CA
+    signal_point_operator: China Unicom USA Corporation
+  - ipsc: 3-199-2
+    country:
+      en: United States
+    dec: '7738'
+    signal_point_name: Los Angeles, CA
+    signal_point_operator: China Unicom USA Corporation
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

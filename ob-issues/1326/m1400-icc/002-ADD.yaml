@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1326'
+reference: OB-1326
+identifier:
+  code: 1326-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Rostock Kommunikationstechnik
+    address_line_1: Südstraße 80 Geb. 51.1
+    address_line_2: D-04668 GRIMMA
+    carrier_code: '080164'
+    contact: Mr. Steffen Rostock
+    tel: "+49 3437 972222"
+    email:
+    - info@telefoner.de
+  notes: []

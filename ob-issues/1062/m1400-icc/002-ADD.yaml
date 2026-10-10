@@ -1,0 +1,31 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1062'
+reference: OB-1062
+identifier:
+  code: 1062-002
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: IN-telegence GmbH
+    carrier_code: D22221
+    contact: Mr. Frank Mohr
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Oskar-Jaeger-Strasse 125
+    contact: 'Tel:            + 49 221 26015 219'
+    tel: "+ 49 221 26015 219"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 50825 COLOGNE
+    contact: 'E-mail:     fm@in-telegence.net'
+    tel: 'E-mail:     fm@in-egence.net'
+    email:
+    - fm@in-telegence.net
+  notes: []

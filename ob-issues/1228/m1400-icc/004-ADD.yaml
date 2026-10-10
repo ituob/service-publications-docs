@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1228'
+reference: OB-1228
+identifier:
+  code: 1228-004
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: The Cloud Networks Germany GmbH
+    address_line_1: Leuchtenbergring 3
+    address_line_2: D-81677 MUNICH
+    carrier_code: TCNG
+    contact: Mr Achim Moehrlein
+    tel: "+49 89 419422 147"
+    fax: "+49 89 419422 111"
+  notes: []

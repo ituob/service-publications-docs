@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1208'
+reference: OB-1208
+identifier:
+  code: 1208-003
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Martinique
+    company_name: Free Caraïbe
+    company_address_1: MBE 262 Mangot Vulcin
+    company_address_2: 97232 LE LAMENTIN
+    company_address_3: France
+    contact: Pascal Mayeux
+    contact_address_1: 16 rue de la Ville l’Evêque
+    contact_address_2: 75008 PARIS
+    contact_address_3: France
+    tel:
+    - "+33 173502495"
+    issue_id_number: 89 596 04
+    effective_date: 1.VII.2020
+  notes: []

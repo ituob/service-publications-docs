@@ -1,0 +1,55 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '970'
+reference: OB-970
+identifier:
+  code: P 29
+data:
+  _class: E212MNCAmendment
+  position: P 29
+  entries:
+  - mcc_mnc_codes: 280 20
+    country_or_area:
+      en: Cyprus
+    networks: Primetel PLC
+  - mcc_mnc_codes: 202 01
+    country_or_area:
+      en: Greece
+    networks: COSMOTE
+  - mcc_mnc_codes: 202 02
+    networks: COSMOTE
+  - mcc_mnc_codes: 202 03
+    networks: OTE
+  - mcc_mnc_codes: 202 04
+    networks: EDISY
+  - mcc_mnc_codes: 202 05
+    networks: VODAFON-PANAFON
+  - mcc_mnc_codes: 202 06
+    networks: COSMOLINE
+  - mcc_mnc_codes: 202 07
+    networks: AMD TELECOM
+  - mcc_mnc_codes: 202 09
+    networks: WIND
+  - mcc_mnc_codes: 202 10
+    networks: WIND
+  - mcc_mnc_codes: 617 03
+    country_or_area:
+      en: Mauritius
+    networks: Mahanagar Telephone (Mauritius) Ltd.
+  - mcc_mnc_codes: 292 01
+    country_or_area:
+      en: San Marino
+    networks: Prima San Marino / San Marino Telecom
+  - mcc_mnc_codes: 240 28
+    country_or_area:
+      en: Sweden
+    networks: CoolTEL Aps A.B.
+  - mcc_mnc_codes: 553 01
+    country_or_area:
+      en: Tuvalu
+    networks: Tuvalu Telecommunications Corporation
+  notes:
+  - ______________
+  - "*     MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"

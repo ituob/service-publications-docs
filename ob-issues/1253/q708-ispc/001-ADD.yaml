@@ -1,0 +1,63 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1253'
+reference: OB-1253
+identifier:
+  code: 1253-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-045-4
+    country:
+      en: Oman
+    dec: '8556'
+    signal_point_name: MUMSC1
+    signal_point_operator: Vodafone
+  - ipsc: 4-045-5
+    country:
+      en: Oman
+    dec: '8557'
+    signal_point_name: MUMGW1
+    signal_point_operator: Vodafone
+  - ipsc: 4-045-7
+    country:
+      en: Oman
+    dec: '8559'
+    signal_point_name: '204170'
+    signal_point_operator: Awasr
+  - ipsc: 4-202-0
+    country:
+      en: Oman
+    dec: '9808'
+    signal_point_name: BSMSC1
+    signal_point_operator: Vodafone
+  - ipsc: 4-202-1
+    country:
+      en: Oman
+    dec: '9809'
+    signal_point_name: BSMGW1
+    signal_point_operator: Vodafone
+  - ipsc: 4-202-2
+    country:
+      en: Oman
+    dec: '9810'
+    signal_point_name: Muscat Messaging Hub
+    signal_point_operator: Omantel
+  - ipsc: 4-202-3
+    country:
+      en: Oman
+    dec: '9811'
+    signal_point_name: SEEB vSTP
+    signal_point_operator: Omantel
+  - ipsc: 4-202-4
+    country:
+      en: Oman
+    dec: '9812'
+    signal_point_name: TCC vSTP DRA
+    signal_point_operator: Omantel
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

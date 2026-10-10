@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1096'
+reference: OB-1096
+identifier:
+  code: 1096-013
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-055-0
+    country:
+      en: Switzerland
+    dec: '4536'
+    signal_point_name: Lausanne
+    signal_point_operator: Swisscom (Schweiz) AG
+  - ipsc: 2-055-1
+    country:
+      en: Switzerland
+    dec: '4537'
+    signal_point_name: Zürich
+    signal_point_operator: Swisscom (Schweiz) AG
+  - ipsc: 2-055-2
+    country:
+      en: Switzerland
+    dec: '4538'
+    signal_point_name: Olten
+    signal_point_operator: Swisscom (Schweiz) AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

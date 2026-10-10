@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1231'
+reference: OB-1231
+identifier:
+  code: 1231-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Greven GmbH
+    address_line_1: Saerbecker Strasse 77 - 81
+    address_line_2: D-48268 GREVEN
+    carrier_code: SWGREV
+    contact: Mr Simon Werning
+    tel: "+49 2571 509455"
+  notes: []

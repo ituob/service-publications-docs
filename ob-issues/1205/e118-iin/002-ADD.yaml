@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1205'
+reference: OB-1205
+identifier:
+  code: 1205-002
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Saint Pierre and Miquelon
+    company_name: GLOBALTEL
+    company_address_1: 18 rue Albert Briand,
+    company_address_2: BP4453
+    company_address_3: 97500 SAINT-PIERRE-ET-MIQUELON
+    contact: GLOBALTEL, Support
+    contact_address_1: 18 rue Albert Briand,
+    contact_address_2: BP4453
+    contact_address_3: 97500 SAINT-PIERRE-ET-MIQUELON
+    email:
+    - support@globaltel-spm.com
+    issue_id_number: 89 508 02
+    effective_date: 2.IX.2020
+  notes: []

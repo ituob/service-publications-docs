@@ -1,0 +1,26 @@
+type: LIR
+date_requested: &1 2018-12-01
+date_active: *1
+ob_issue_no: '1169'
+reference: OB-1169
+identifier:
+  code: 1169-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Faroe Islands
+    company_name: P/F Hey
+    company_address_1: Smyrilsvegur 5, PO Box 109
+    company_address_2: FO-110 TORSHAVN
+    contact: Erland Simonsen
+    contact_address_1: Smyrilsvegur 5, PO Box 109
+    contact_address_2: FO-110 TORSHAVN
+    tel:
+    - "+298 202020"
+    fax:
+    - "+298 202021"
+    email:
+    - hey@hey.fo
+    issue_id_number: 89 298 02
+  notes: []

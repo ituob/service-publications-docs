@@ -1,0 +1,35 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1215'
+reference: OB-1215
+identifier:
+  code: 1215-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-080-2
+    country:
+      en: Sweden
+    dec: '4738'
+    signal_point_name: STP-1
+    signal_point_operator: Tele2 Sverige AB
+  - ipsc: 2-080-3
+    country:
+      en: Sweden
+    dec: '4739'
+    signal_point_name: STP-2
+    signal_point_operator: Tele2 Sverige AB
+  - ipsc: 2-083-0
+    country:
+      en: Sweden
+    dec: '4760'
+    signal_point_name: JFA_STP
+    signal_point_operator: Tele2 Sverige AB
+  - ipsc: 2-083-1
+    country:
+      en: Sweden
+    dec: '4761'
+    signal_point_name: MPLO_STP
+    signal_point_operator: Tele2 Sverige AB
+  notes: []

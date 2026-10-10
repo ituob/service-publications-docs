@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1301'
+reference: OB-1301
+identifier:
+  code: 1301-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: nexxtra GmbH
+    address_line_1: Strasse der Pariser Kommune 12-16
+    address_line_2: D-10243 BERLIN
+    carrier_code: 42ONE
+    contact: Mr Thomas Reinig
+    tel: "+49 30 2099442 42"
+    fax: "+49 30 2099442 99"
+  notes: []

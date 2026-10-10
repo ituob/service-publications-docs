@@ -1,0 +1,46 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '957'
+reference: OB-957
+identifier:
+  code: P 3 COL 2
+data:
+  _class: F32TDIAmendment
+  position: P 3 COL 2
+  description: P 3 GERMANY COL 2 Telegramm Services ADD
+  entries:
+  - country_or_area:
+      en: GERMANY
+      fr: ALLEMAGNE
+      es: ALEMANIA
+    network_roa: UNITEL ALTEVEER
+    network_code: DP – –
+    telegraph_office_name:
+      en: Toutes destinations All destinations- Todos los destinos
+    office_code: DPXX
+  - country_or_area:
+      en: GERMANY
+      fr: ALLEMAGNE
+      es: ALEMANIA
+    network_roa: TELEGRAMM SERVICES
+    network_code: DD – –
+    telegraph_office_name:
+      en: Toutes destinations All destinations- Todos los destinos
+    office_code: DDXX
+  notes:
+  - Corrigendum*
+  - "* This information cancels and replaces that published in ITU Operational Bulletin
+    No. 949 of 1.II.2010, page 28"
+  - 1) The national and international telegram service is not accepted from and to
+    Lithuania (see the communication from Regulator in this ITU Operational Bulletin
+    No. 957 of 1.VI.2010, page XX). Consequently, the telegram destination indicator
+    “LT” and the office code “LTXX” are deleted. The letters “LT” remain, however,
+    reserved for use by Lithuania (for the telex service, ITU-T Recommendations F.68/F.69,
+    and for the Maritime Mobile Service, ITU-T Recommendation D.90).
+  - 1) The national and international telegram service is not accepted from and to
+    Vanuatu (see the communication from Regulator in this ITU Operational Bulletin
+    No. 957 of 1.VI.2010, page XX). Consequently, the telegram destination indicator
+    “NH” and the office codes “NHVL, NHVX” are deleted. The letters “NH” remain, however,
+    reserved for use by Vanuatu (for the telex service, ITU-T Recommendations F.68/F.69,
+    and for the Maritime Mobile Service, ITU-T Recommendation D.90).

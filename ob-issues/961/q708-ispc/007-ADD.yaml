@@ -1,0 +1,51 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '961'
+reference: OB-961
+identifier:
+  code: P 77
+data:
+  _class: Q708ISPCAmendment
+  position: P 77
+  entries:
+  - ipsc: 6-041-0
+    country:
+      en: Nigeria
+    dec: '12616'
+    signal_point_operator: Visafone
+  - ipsc: 6-041-1
+    country:
+      en: Nigeria
+    dec: '12617'
+    signal_point_name: LGSTP1
+    signal_point_operator: EMTS
+  - ipsc: 6-041-2
+    country:
+      en: Nigeria
+    dec: '12618'
+    signal_point_name: LAGOSINT.ITSC1
+    signal_point_operator: EMTS
+  - ipsc: 6-041-3
+    country:
+      en: Nigeria
+    dec: '12619'
+    signal_point_name: CCNS1.IPXS2
+    signal_point_operator: G-Cell
+  - ipsc: 6-041-4
+    country:
+      en: Nigeria
+    dec: '12620'
+    signal_point_name: TEIGL1_C4STP
+    signal_point_operator: EMTS
+  - ipsc: 6-041-5
+    country:
+      en: Nigeria
+    dec: '12621'
+    signal_point_name: MLTL2
+    signal_point_operator: Multilinks
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux .
+  - Códigos de puntos de señalización internacional .

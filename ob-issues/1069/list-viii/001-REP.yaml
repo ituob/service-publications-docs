@@ -1,0 +1,222 @@
+type: REP
+date_requested:
+date_active:
+ob_issue_no: '1069'
+reference: OB-1069
+identifier:
+  code: P 313
+data:
+  _class: ListVIIIAmendment
+  position: P 313
+  country: POR Portugal
+  description: P 313-318 REP
+  entries:
+  - country: POR - Portugal
+    name: Açores (Ponta Delgada)
+    postal_address: CMCE-A Rua dos Valados, 18 Relva 9500-652 Ponta Delgada Portugal
+    contact: 'TF : +351 296 302040 FAX : +351 296 302041 EMAIL : Monitor.acores@anacom.pt'
+    centralizing_office:
+      name: ICP - Autoridade Nacional de Comunicações (ICP-ANACOM)
+      postal_address: Av. José Malhoa, 12 1099 - 017 Lisboa
+      contact: 'TF : +351 21 7211000 FAX : +351 21 7211001'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 37°45'18''N 025°42'28''W
+      hours_of_service: H24*
+      frequency_ranges: 10 kHz - 1000 MHz
+      remarks: Possibility of reception of radio emissions from 10 kHz up to 6000
+        MHz. Measurements also carried out by mobile stations (10 kHz up to 3000 MHz).
+        Automatic recording system, composed by a receiver, a computer and adequate
+        software. Spectrum analyser (9 kHz up to 40 GHz). * Local and remotely with
+        a local team on permanent prevention.
+  - country: POR Portugal
+    measurements:
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 37°45'18''N 025°42'28''W
+      hours_of_service: H24*
+      frequency_ranges: 10 kHz - 1000 MHz
+      remarks: "* Local and remotely with a local team on permanent prevention."
+    - measurement_type: Direction-finding measurements
+      coordinates: 37°45'18''N 025°42'28''W
+      hours_of_service: H24*
+      frequency_ranges: 20 MHz - 3000 MHz
+      remarks: Manually operated. Measurements also carried out by mobile station.
+        * Local and remotely with a local team on permanent prevention.
+    - measurement_type: Bandwidth measurements
+      coordinates: 37°45'18''N 025°42'28''W
+      hours_of_service: H24*
+      frequency_ranges: 10 kHz - 1000 MHz
+      remarks: "* Local and remotely with a local team on permanent prevention."
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 37°45'18''N 025°42'28''W
+      hours_of_service: H24*
+      frequency_ranges: 10 kHz - 1000 MHz
+      remarks: "* Local and remotely with a local team on permanent prevention."
+  - country: POR Portugal
+    name: Barcarena (Lisboa) (IMS)
+    postal_address: CMCE-S Alto do Paimão 2730-216 Barcarena Portugal
+    contact: 'TF : +351 21 4348500 TF : +351 21 4348525 FAX : +351 21 4348590 EMAIL
+      : Monitor.sul@anacom.pt'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 38°43'45''N 009°15'47''W
+      hours_of_service: H24
+      frequency_ranges: 10 kHz -3600 MHz
+      remarks: 'Possibility of reception of radio emissions from 10 kHz up to 50 GHz.
+        Possibility of reception, measurement and identification of telegraphic emissions,
+        such as: Morse code; RTTY; ARQ, FEC, SSTV, POCSAG; Packetradio/SITOR/AMTOR;
+        others. Measurements also carried out by mobile stations (10 kHz up to 3000
+        MHz). FFT Spectrum analyser (9 kHz up to 40 GHz). ../..'
+  - country: POR Portugal
+    measurements:
+    - measurement_type: Frequency measurements (cont.)
+      coordinates: 38°43'45''N 009°15'47''W
+      hours_of_service: H24
+      frequency_ranges: 10 kHz -3600 MHz
+      remarks: Remote network system. Ten stations, controlled by DSL lines. Five
+        of them cover the Southern part of the country and the other five cover the
+        Northern part. All these stations cover the frequency range from 10 kHz up
+        to 3600 MHz. Four stations provided with direction-finding system (interferometry),
+        two in the South (Lisbon) and two in the North (Porto), for the frequency
+        range from 20 MHz up to 3000 MHz.
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 38°43'45''N 009°15'47''W
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 38°43'45''N 009°15'47''W
+      hours_of_service: H24
+      frequency_ranges: 20 MHz - 3600 MHz
+    - measurement_type: Direction-finding measurements
+      coordinates: 38°43'45''N 009°15'47''W
+      hours_of_service: H24
+      frequency_ranges: 300 kHz - 30 MHz
+      remarks: Crossed loop antennas array. Correlative Interferometry direction finding.
+    - measurement_type: Direction-finding measurements
+      coordinates: 38°43'45''N 009°15'47''W
+      hours_of_service: H24
+      frequency_ranges: 20 MHz - 3000 MHz
+      remarks: Measurements also carried out by mobile stations (20 kHz up to 3000
+        MHz). Correlative Interferometry direction finding. Remote network system.
+        Four of ten stations provided with direction-finding system (interferometry),
+        two in the South (Lisbon) and two in the North (Porto), for the frequency
+        range from 20 MHz up to 3000 MHz. Portable correlative interferometer DF (20
+        MHz - 6 GHz).
+    - measurement_type: Bandwidth measurements
+      coordinates: 38°43'45''N 009°15'47''W
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 40 GHz
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 38°43'45''N 009°15'47''W
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 3600 MHz
+  - country: POR Portugal
+    name: Madeira (Funchal)
+    postal_address: CMCE–M Rua Vale das Neves, 19 9050-325 Funchal Portugal
+    contact: 'TF : +351 291 790200 FAX : +351 291 790201 EMAIL : Monitor.madeira@anacom.pt'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 32°38'57''N 016°52'04''W
+      hours_of_service: H24*
+      frequency_ranges: 10 kHz - 3000 MHz
+      remarks: Possibility of reception of radio emissions from 10 kHz up to 6000
+        MHz. Measurements also carried out by mobile stations (10 kHz up to 3000 MHz).
+        Spectrum analyser (9 kHz up to 40 GHz). Remote network system. Three stations,
+        controlled by LTE data service. Two of them cover the Madeira Island and the
+        other covers Porto Santo Island. All these stations cover the frequency range
+        from 20 kHz up to 2700 MHz. * Local and remotely with a local team on permanent
+        prevention.
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 32°38'57''N 016°52'04''W
+      hours_of_service: H24*
+      frequency_ranges: 10 kHz - 3000 MHz
+      remarks: "* Local and remotely with a local team on permanent prevention."
+    - measurement_type: Direction-finding measurements
+      coordinates: 32°38'57''N 016°52'04''W
+      hours_of_service: H24*
+      frequency_ranges: 20 MHz - 3000 MHz
+      remarks: Manually operated. Measurements also carried out by mobile station.
+        * Local and remotely with a local team on permanent prevention.
+    - measurement_type: Bandwidth measurements
+      coordinates: 32°38'57''N 016°52'04''W
+      hours_of_service: H24*
+      frequency_ranges: 10 kHz - 3000 MHz
+      remarks: "* Local and remotely with a local team on permanent prevention."
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 32°38'57''N 016°52'04''W
+      hours_of_service: H24*
+      frequency_ranges: 10 kHz - 3000 MHz
+      remarks: "* Local and remotely with a local team on permanent prevention."
+  - country: POR Portugal
+    name: Porto
+    postal_address: CMCE-N Rua Direita do Viso, 59 4250-198 Porto Portugal
+    contact: 'TF : +351 22 6198000 TF : +351 22 6198010 FAX : +351 22 6198002 EMAIL
+      : Monitor.norte@anacom.pt'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 41°10'43''N 008°38'28''W
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 3000 MHz
+      remarks: 'Possibility of reception of radio emissions from 10 kHz up to 50 GHz.
+        Possibility of reception, measurement and identification of telegraphic emissions,
+        such as: Morse code; RTTY; ARQ, FEC, SSTV, POCSAG; Packetradio/SITOR/AMTOR;
+        others. Measurements also carried out by mobile stations (20 kHz up to 3000
+        MHz). FFT Spectrum analyser (9 kHz up to 40 GHz). Remote network system. Ten
+        stations, controlled by DSL lines. Five of them cover the Southern part of
+        the country and the other five cover the Northern part. All these stations
+        cover the frequency range from 10 kHz up to 3600 MHz. Four stations provided
+        with direction-finding system (interferometry), two in the South (Lisbon)
+        and two in the North (Porto), for the frequency range from 20 MHz up to 3000
+        MHz.'
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 41°10'43''N 008°38'28''W
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 3000 MHz
+  - country: POR Portugal
+    measurements:
+    - measurement_type: Direction-finding measurements
+      coordinates: 41°10'43''N 008°38'28''W
+      hours_of_service: H24
+      frequency_ranges: 20 MHz - 3000 MHz
+      remarks: Measurements also carried out by mobile stations (20 kHz up to 3000
+        MHz). Correlative Interferometry direction finding. Remote network system.
+        Four of ten stations provided with direction-finding system (interferometry),
+        two in the South (Lisbon) and two in the North (Porto), for the frequency
+        range from 20 MHz up to 3000 MHz. Portable correlative interferometer DF (20
+        MHz - 6 GHz).
+    - measurement_type: Bandwidth measurements
+      coordinates: 41°10'43''N 008°38'28''W
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 40 GHz
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 41°10'43''N 008°38'28''W
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 3000 MHz
+  notes:
+  - "(Amendment No. 5)"
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks

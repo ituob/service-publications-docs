@@ -1,0 +1,59 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1142'
+reference: OB-1142
+identifier:
+  code: 1142-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Belgium SUP
+    networks: " "
+  - mcc_mnc_codes: 206 00
+    networks: Proximus
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Belgium ADD
+    networks: " "
+  - mcc_mnc_codes: 206 08
+    networks: Nethys
+  - mcc_mnc_codes: 206 25
+    networks: Voyacom
+  - mcc_mnc_codes: 206 28
+    networks: BICS
+  - mcc_mnc_codes: 206 30
+    networks: Unleashed
+  - mcc_mnc_codes: 206 33
+    networks: Ericsson *test use only*
+  - mcc_mnc_codes: 206 50
+    networks: IP Nexia
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Belgium LIR
+    networks: " "
+  - mcc_mnc_codes: 206 05
+    networks: Telenet
+  - mcc_mnc_codes: 206 10
+    networks: Orange Belgium
+  - mcc_mnc_codes: 206 20
+    networks: Telenet Group
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada ADD
+    networks: " "
+  - mcc_mnc_codes: 302 491
+    networks: Freedom Mobile Inc.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Israel ADD
+    networks: " "
+  - mcc_mnc_codes: 425 29
+    networks: CG Networks
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

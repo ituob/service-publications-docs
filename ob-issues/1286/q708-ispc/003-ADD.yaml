@@ -1,0 +1,45 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1286'
+reference: OB-1286
+identifier:
+  code: 1286-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-242-6
+    country:
+      en: United Kingdom
+    dec: '14230'
+    signal_point_name: telet-stp-1
+    signal_point_operator: Telet Research (N.I.) Limited
+  - ipsc: 6-254-4
+    country:
+      en: United Kingdom
+    dec: '14324'
+    signal_point_name: telet-stp-2
+    signal_point_operator: Telet Research (N.I.) Limited
+  - ipsc: 7-229-0
+    country:
+      en: United Kingdom
+    dec: '16168'
+    signal_point_name: THE1
+    signal_point_operator: ESEYE LIMITED
+  - ipsc: 7-229-1
+    country:
+      en: United Kingdom
+    dec: '16169'
+    signal_point_name: THE2
+    signal_point_operator: ESEYE LIMITED
+  - ipsc: 7-237-0
+    country:
+      en: United Kingdom
+    dec: '16232'
+    signal_point_name: TB1.E03
+    signal_point_operator: Sky UK Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

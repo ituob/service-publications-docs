@@ -1,0 +1,39 @@
+type: SUP
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1320'
+reference: OB-1320
+identifier:
+  code: 1320-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-193-6
+    country:
+      en: Sweden
+    dec: '5646'
+    signal_point_name: mg1.int.upp
+    signal_point_operator: Primlight AB
+  - ipsc: 3-229-7
+    country:
+      en: Sweden
+    dec: '7983'
+    signal_point_name: mg2.int.upp
+    signal_point_operator: Primlight AB
+  - ipsc: 7-207-6
+    country:
+      en: Sweden
+    dec: '15998'
+    signal_point_name: FTS-SW1
+    signal_point_operator: Fink Telecom Services
+  - ipsc: 7-207-7
+    country:
+      en: Sweden
+    dec: '15999'
+    signal_point_name: FTS-SW2
+    signal_point_operator: Fink Telecom Services
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,51 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1244'
+reference: OB-1244
+identifier:
+  code: 1244-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-182-6
+    country:
+      en: Slovenia
+    dec: '5558'
+    signal_point_name: Inlife – LJ1
+    signal_point_operator: Detel Global d.o.o.
+  - ipsc: 4-232-4
+    country:
+      en: Slovenia
+    dec: '10052'
+    signal_point_name: AKTON Ljubljana 2
+    signal_point_operator: AKTON Telekomunikacijski inženiring d.o.o.
+  - ipsc: 5-250-0
+    country:
+      en: Slovenia
+    dec: '12240'
+    signal_point_name: Inlife – LJ2
+    signal_point_operator: Detel Global d.o.o.
+  - ipsc: 5-250-1
+    country:
+      en: Slovenia
+    dec: '12241'
+    signal_point_name: Inlife – LJ3
+    signal_point_operator: Detel Global d.o.o.
+  - ipsc: 5-250-2
+    country:
+      en: Slovenia
+    dec: '12242'
+    signal_point_name: Inlife – LJ4
+    signal_point_operator: Detel Global d.o.o.
+  - ipsc: 5-250-3
+    country:
+      en: Slovenia
+    dec: '12243'
+    signal_point_name: T-2 d.o.o. Gateway – Trunk T-2 d.o.o. Ljubljana 1
+    signal_point_operator: T-2 d.o.o.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

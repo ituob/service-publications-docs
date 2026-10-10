@@ -1,0 +1,47 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: ADD
+  position: P 9
+  entries:
+  - mcc_mnc_codes: 230 08
+    country_or_area:
+      en: Czech Republic
+    networks: Compatel s.r.o
+  note: '9'
+- action_type: 'by:'
+  position: P 27
+  entries:
+  - mcc_mnc_codes: 226                 01
+    country_or_area:
+      en: Romania
+    networks: Vodafone
+  - mcc_mnc_codes: 226                 02
+    networks: Romtelecom
+  - mcc_mnc_codes: 226                 03
+    networks: Cosmote
+  - mcc_mnc_codes: 226                 04
+    networks: Cosmote
+  - mcc_mnc_codes: 226                 05
+    networks: Digi.Mobil
+  - mcc_mnc_codes: 226                 06
+    networks: Cosmote
+  - mcc_mnc_codes: 226                 10
+    networks: Orange
+  - mcc_mnc_codes: 226                 11
+    networks: Enigma-System
+  note: '27'
+- action_type: LIR
+  position: P 31
+  entries:
+  - mcc_mnc_codes: 228                         02
+    country_or_area:
+      en:
+      - Switzerland
+    networks: Sunrise Communications AG
+  - mcc_mnc_codes: 228                         12
+    country_or_area:
+      en:
+      - Switzerland
+  note: '31'
+- {}

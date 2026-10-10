@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1207'
+reference: OB-1207
+identifier:
+  code: 1207-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Japan
+    company_name: NEC Networks & System Integration Corporation
+    company_address_1: Iidabashi First Tower,
+    company_address_2: 2-6-1 Koraku, Bunkyo-ku
+    company_address_3: TOKYO 112-8560
+    contact: Business Design Operation Unit
+    contact_address_1: Nihonbashi Muromachi Mitsui Tower
+    contact_address_2: 3-2-1 Muromachi Nihonbashi Chuoku
+    contact_address_3: TOKYO 103-0022
+    tel:
+    - "+81 3 4582 2950"
+    email:
+    - arikawa.yohei@nesic.com
+    issue_id_number: 89 81 14
+    effective_date: 1.X.2020
+  notes: []

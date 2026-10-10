@@ -1,0 +1,36 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: ADD
+  position: P 8
+  entries:
+  - mcc_mnc_codes: 730 13
+    country_or_area:
+      en: Chile
+    networks: TRIBE Mobile Chile SPA
+  note: '8'
+- action_type: ADD
+  position: P 25
+  entries:
+  - mcc_mnc_codes: 530 06
+    country_or_area:
+      en: New Zealand
+    networks: FX Networks Ltd
+  note: '25'
+- action_type: te)
+  position: P 26
+  entries:
+  - mcc_mnc_codes: 242 09
+    country_or_area:
+      en: Norway
+    networks: Mundio Mobile Norway Ltd
+  note: '26'
+- action_type: ADD
+  position: P 26
+  entries:
+  - mcc_mnc_codes: 242 09
+    country_or_area:
+      en: Norway
+    networks: Com4 AS
+  note: '26'
+- {}

@@ -1,0 +1,39 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1309'
+reference: OB-1309
+identifier:
+  code: 1309-008
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-224-4
+    country:
+      en: United Kingdom
+    dec: '16132'
+    signal_point_name: THN-STP1
+    signal_point_operator: GIESECKE+DEVRIENT MOBILE SECURITY TCD UK LIMITED
+  - ipsc: 7-224-5
+    country:
+      en: United Kingdom
+    dec: '16133'
+    signal_point_name: THN-STP2
+    signal_point_operator: GIESECKE+DEVRIENT MOBILE SECURITY TCD UK LIMITED
+  - ipsc: 7-224-6
+    country:
+      en: United Kingdom
+    dec: '16134'
+    signal_point_name: LD5-STP3
+    signal_point_operator: GIESECKE+DEVRIENT MOBILE SECURITY TCD UK LIMITED
+  - ipsc: 7-224-7
+    country:
+      en: United Kingdom
+    dec: '16135'
+    signal_point_name: LD5-STP4
+    signal_point_operator: GIESECKE+DEVRIENT MOBILE SECURITY TCD UK LIMITED
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

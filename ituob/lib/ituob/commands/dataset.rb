@@ -6,7 +6,6 @@ require "json-schema"
 require "colorize"
 require "pathname"
 require "fileutils"
-require "ituob/dataset"
 
 module Ituob
   module Commands
@@ -196,7 +195,7 @@ module Ituob
         puts "  ✗ #{message}".red
 
         if exception && options[:verbose]
-          if exception.respond_to?(:message)
+          if exception.is_a?(Exception)
             error_lines = exception.message.split("\n")
             error_lines.each do |line|
               puts "    #{line}".yellow

@@ -1,0 +1,54 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1170'
+reference: OB-1170
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Avacon Connect GmbH
+    address_line_1: Peiner Str. 47
+    address_line_2: D-30880 LAATZEN
+    carrier_code: AVAC
+    contact: Mr Heiko Kusch
+    tel: "+49 151 5259 7663"
+    email:
+    - heiko.kusch@avacon.de
+  - country_or_area:
+      en: Germany
+    company_name: Jörg Weber Kommunikation KG
+    address_line_1: Am Hasensprung 2
+    address_line_2: D-16567 MUEHLENBECK
+    carrier_code: JOWEKG
+    contact: Mr Jörg Weber
+    tel: "+49 33056 413530"
+    fax: "+49 33056 41359"
+    email:
+    - info@jowekom.de
+  - country_or_area:
+      en: Germany
+    company_name: linefinity GmbH & Co.KG
+    address_line_1: Schwalbenweg 4
+    address_line_2: D-74229 OEDHEIM
+    carrier_code: LFTYDE
+    contact: 'Tel.:        +49 32 222011011'
+    tel: "+49 32 222011011"
+    fax: "+49 32 222011019"
+    email:
+    - info@linefinity.com
+  - country_or_area:
+      en: Germany
+    company_name: Wwcon Waerme-Wohnen-Contracting GmbH
+    address_line_1: Kaiserin-Augusta-Allee 108
+    address_line_2: D-10553 BERLIN
+    carrier_code: WWCON
+    contact: Mrs Corinna Jaehneke
+    tel: "+49 30 3388 1029"
+    email:
+    - corinna.jaehneke@pyur.com
+  notes: []

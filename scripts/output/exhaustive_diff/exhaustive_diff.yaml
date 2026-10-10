@@ -1,0 +1,26 @@
+---
+- :type: rec
+  :key: T.35
+  :deployed: messages/complement-to-itu-t-r T.35/index.html
+  :local: recommendations/T.35/index.html
+  :coverage: 0.9452054794520548
+  :missing_headings: []
+  :missing_tokens:
+  - '1001'
+  - assignment
+  - authoritative
+  - compliant
+  - equipment
+  - mail
+  - manufacturers
+  - resource
+  :missing_links:
+  - "/issues/1005-en/#amendments-5"
+  - "/issues/1001-en/"
+  - https://www.itu.int/pub/T-SP-T.35B
+  - "/issues/1000-en/#amendments-10"
+  - "/issues/996-en/#amendments-7"
+  :verdict: warn
+  :token_categories:
+    issue_number: 1
+    content_token: 7

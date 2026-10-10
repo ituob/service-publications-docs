@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1333'
+reference: OB-1333
+identifier:
+  code: 1333-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: JustBolt GmbH BahnhofstraЯe 7 D-29553 BIENENBÜTTEL
+    carrier_code: BOLT25
+    contact: 'Lukas Lange Tel.:          +49 152 01445123 E-mail:     lukas.lange@just-bolt.de'
+    tel: 'Lukas Lange +49 152 01445123 E-mail:     lukas.lange@just-bolt.de'
+    email:
+    - 'Lukas Lange Tel.:          +49 152 01445123 lukas.lange@just-bolt.de'
+  notes: []

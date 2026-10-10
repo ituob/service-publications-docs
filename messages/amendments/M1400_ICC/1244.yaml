@@ -1,0 +1,289 @@
+---
+type: doc
+content:
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Country or area/ISO code
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Company Code
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Contact
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          text: "  "
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Company Name/Address
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: "(carrier code)"
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: " "
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: em
+    - type: strong
+    text: " "
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: em
+    - type: strong
+    text: 'Germany (Federal Republic of) / DEU         '
+  - type: text
+    marks:
+    - type: strong
+    text: ADD
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: DSLmobil GmbH
+      - type: paragraph
+        content:
+        - type: text
+          text: Buergermeister-Mueller-Strasse 4
+      - type: paragraph
+        content:
+        - type: text
+          text: D-86663 ASBACH-BAEUMENHEIM
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: DSLMOB
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mr Christian Gloeggler
+      - type: paragraph
+        content:
+        - type: text
+          text: Tel.:          +49 906 204311 14
+      - type: paragraph
+        content:
+        - type: text
+          text: Fax:           +49 906 204311 99
+      - type: paragraph
+        content:
+        - type: text
+          text: E-mail:     christian.gloeggler@dslmobil.de
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: ho.Systeme GmbH & Co.KG
+      - type: paragraph
+        content:
+        - type: text
+          text: Kreisstrasse 10
+      - type: paragraph
+        content:
+        - type: text
+          text: D-33790 HALLE (WESTFALEN)
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: HOSYST
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mr Sven Reichelt
+      - type: paragraph
+        content:
+        - type: text
+          text: Tel.:          +49 5201 97177311
+      - type: paragraph
+        content:
+        - type: text
+          text: Fax:           +49 5201 97177177
+      - type: paragraph
+        content:
+        - type: text
+          text: E-mail:     sven.reichelt@hosysteme.de
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: WEMACOM Breitband GmbH
+      - type: paragraph
+        content:
+        - type: text
+          text: Zeppelinstrasse 1
+      - type: paragraph
+        content:
+        - type: text
+          text: D-19061 SCHWERIN
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: WECB22
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mr Sven Kaeding
+      - type: paragraph
+        content:
+        - type: text
+          text: Tel.:          +49 385 755 4811
+      - type: paragraph
+        content:
+        - type: text
+          text: Fax:           +49 385 755 1234
+      - type: paragraph
+        content:
+        - type: text
+          text: E-mail:     sven.kaeding@wemacom.de

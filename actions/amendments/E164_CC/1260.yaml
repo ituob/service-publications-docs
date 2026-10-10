@@ -1,0 +1,29 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: SUP
+  position: N
+  entries:
+  - applicant: IMC Island Ehf  (formerly DCN Hub ehf)
+    network: IMC Island Ehf  (formerly DCN Hub ehf)
+    cc_ic: "+883 160"
+    status: Withdrawn
+  - applicant: IMC Island Ehf
+    network: IMC Island Ehf
+    cc_ic: "+883 160"
+    status: Withdrawn
+  - applicant: KORE Wireless
+    network: KORE Wireless
+    cc_ic: "+883 460"
+    status: Assigned
+- action_type: ADD
+  position: N
+  entries:
+  - applicant: KORE Wireless
+    network: KORE Wireless
+    cc_ic: "+883 460"
+    status: Assigned
+  - applicant: IMC Island Ehf
+    network: IMC Island Ehf
+    cc_ic: "+883 160"
+    status: Withdrawn

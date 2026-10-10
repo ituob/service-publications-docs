@@ -1,0 +1,39 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1292'
+reference: OB-1292
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Destiny Global Infra Services
+    address_line_1: Belgicastraat 17
+    address_line_2: B-1930 ZAVENTEM
+    address_line_3: Belgium
+    carrier_code: DSTNYG
+    contact: Mr Samuel De Wever
+    tel: "+32 2 401 97 50"
+  - country_or_area:
+      en: Germany
+    company_name: GERTH TELECOM GmbH
+    address_line_1: Himberger Strasse 10
+    address_line_2: D-53604 BAD HONNEF
+    carrier_code: GERTEL
+    contact: Mr Fabian Gerth
+    tel: "+49 2224 898980"
+    fax: "+49 2224 8989899"
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Dorfen GmbH
+    address_line_1: Haager Straße 31
+    address_line_2: D-84405 DORFEN
+    carrier_code: SWDO
+    contact: Mr Patrick Keilhacker
+    tel: "+49 8081 93170"
+    fax: "+49 8081 931790"
+  notes: []

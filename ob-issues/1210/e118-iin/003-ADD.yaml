@@ -1,0 +1,23 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1210'
+reference: OB-1210
+identifier:
+  code: 1210-003
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: France
+    company_name: Société Française du Radiotéléphone
+    company_address_1: 19 rue du Général Alain de Boissieu
+    company_address_2: 75015 PARIS
+    contact: SFR, Direction carte SIM
+    contact_address_1: 19 rue du Général Alain de Boissieu
+    contact_address_2: 75015 PARIS
+    email:
+    - UIT-E118-IIN@sfr.com
+    issue_id_number: 89 33 10
+    effective_date: 23.VI.2020
+  notes: []

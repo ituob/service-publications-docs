@@ -1,0 +1,88 @@
+= Full LML definability — the graph
+
+This document is the authoritative map of the LML data-definition
+chain: from the ontology source to instance YAML, to the rendered
+site, with the gate that guards every edge.
+
+== The graph
+
+[source]
+----------------------------------------------------------------
+                    ┌──────────────────────────────┐
+                    │ itu-ob-data (contributor)    │
+                    │ issues/{N}/*.yaml            │
+                    │   ProseMirror doc + meta     │
+                    └──────────────┬───────────────┘
+                                   │ parse (Ruby behavior:
+                                   │ per-publication parsers)
+                                   ▼
+┌──────────────────────┐   ┌──────────────────────────────┐
+│ messages.lml         │   │ ituob gem (Ituob::Models)    │
+│ (LML ontology)       │──▶│ 44 classes COMPILED at boot  │
+│ 84 classes, all data │   │ 40 classes hand-written      │
+│ shapes; drift-guarded│   │ (parser behavior + polymorphic│
+│ by ontology_spec     │   │ anchors; shapes still guarded)│
+└──────────┬───────────┘   └──────────────┬───────────────┘
+           │ generate_ts_types.rb         │ serialize
+           ▼                              ▼
+┌──────────────────────┐   ┌──────────────────────────────┐
+│ schema.generated.ts  │   │ INSTANCE DATA (YAML)         │
+│ (ituob.org, CI-      │   │ ob-issues/{669..1343}/       │
+│  regenerated)        │   │ messages/{amendment,general}/│
+└──────────┬───────────┘   │ datasets/{slug}/ (+changes/) │
+           │               └──────────────┬───────────────┘
+           ▼                              │ validate_data_lml.rb
+┌──────────────────────┐                  │ (instance gate)
+│ ituob.org Astro build│◀─────────────────┘
+│ 7,163 pages + Vue    │
+└──────────┬───────────┘
+           ▼
+   parity gate 343/343 ──▶ www.ituob.org
+----------------------------------------------------------------
+
+== Edge gates (every arrow is enforced)
+
+[cols="2,3"]
+|===
+| Edge | Gate
+| ontology ↔ Ruby classes | `ontology_spec.rb` drift guard (CI)
+| parse (itu-ob-data → instances) | `verify_parser_equivalence.rb --verify` (CI)
+| instance YAML shapes | `validate_data_lml.rb` (CI, validate-ob-issues)
+| dataset files | `ituob dataset validate` 40/40 (CI)
+| gem behavior | Test workflow, 645+ examples (CI)
+| site output | parity gate 343/343 + `npm run check` 0/0 (CI post-merge)
+|===
+
+== Definability status
+
+[cols="1,3,1"]
+|===
+| Layer | Meaning | Status
+| Class shapes (86 + enum) | Every attribute, type, cardinality, default declared in messages.lml — including the register-patch layer (RegisterChange, Identifier, ActionType enum) | DONE — drift guard fails on divergence
+| Unions | IssueAuthor.name is `MultilingualString | String` (editor emits both shapes); lutaml-lml 0.2.0 has no union rule, so the union is declared at compile time (Compiled::Compiler UNION_ATTRIBUTES) | DOCUMENTED GAP — drift-guarded by construction; moves into messages.lml when lutaml-lml gains union declarations
+| Class execution | Pure data-shape classes compiled from the LML at boot (Compiled::CLASS_NAMES = 44) | DONE for all constraint-free classes; E118Action (anonymous-type constraint), DPEntry (semantic hierarchy), Change/ChangeSet/OldIssue/GeneralMessage + per-publication Amendment parsers remain hand-written by design — shapes still LML-guarded
+| Instance data (YAML) | ob-issues + datasets + the 9,549 register-patch objects validate through the model classes | DONE — validate_data_lml.rb, 10,532/10,532 files (CI): 983 ob-issues instances + 9,549 Registers::Change patches (editor-era structuralization converted the last fallbacks and removed empty rollover actions); dataset definitions via `ituob dataset validate` 40/40 (CI). messages/** is source-extraction material, not instance data
+| Instance syntax (LML) | .lml instance documents as an alternate serialization | PROVEN — lml_instance_round_trip_spec.rb: 10,529 of 10,532 instance files round-trip YAML → class → LML instance → class identically via the Format adapter + from_hash (CI); IssueMetadata additionally via ontology-typed ModelCompiler#hydrate. The pipeline itself deliberately speaks YAML
+|===
+
+== Remaining path (ordered)
+
+. Structuralize the editor era — TODO.structuralize-editor-era/
+  (54 fallbacks; parsers nnp/m1400-icc/e212-mnc learn the editor
+  layout; then those issues' instances become structured YAML).
+. lutaml/lutaml-lml#65 (emit quoting; typed nested hydration) is
+  MERGED, but the v0.2.1 release was tagged on a pre-fix commit — cut
+  the next release from post-merge main, pin it in ituob/Gemfile.lock,
+  then drop the spec-local shim in lml_instance_round_trip_spec.rb. (LML string literals also lack escapes; no
+  modeled value carries both quote kinds today, but modeled prose
+  that ever does would need grammar escape support.)
+. lutaml-lml follow-ups surfaced by the patch-layer proof, for
+  lutaml/lutaml-lml: (a) attribute-key quoting — the Format adapter
+  emits hash keys bare, which fails keys like "  company name/address";
+  (b) quoted-key parsing loses leading whitespace and empty ("") keys
+  in the parsanol capture layer; (c) string escapes. Until then the
+  spec classifies the affected files (currently 3) instead of
+  round-tripping them.
+. If lutaml-lml gains inheritance/`isa` compilation, fold the 40
+  hand-written classes' shapes into compiled+behavior modules and
+  retire the drift guard in favor of full compilation.

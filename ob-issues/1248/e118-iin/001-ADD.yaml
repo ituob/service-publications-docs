@@ -1,0 +1,28 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1248'
+reference: OB-1248
+identifier:
+  code: 1248-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Netherlands
+    company_name: Lebara Ltd
+    company_address_1: 2 Clove Crescent,
+    company_address_2: E India Dock
+    company_address_3: LONDON E14 2BE
+    contact: Lebara NL Operations
+    contact_address_1: PO box 267,
+    contact_address_2: 1110 AG DIEMEN/
+    contact_address_3: Entrada 111,
+    contact_address_4: 1114 AA AMSTERDAM-DUIVENDRECHT
+    tel:
+    - "+31 203144201"
+    email:
+    - clara.nl@lebara.com
+    issue_id_number: 89 31 60
+    effective_date: 27.VI.2022
+  notes: []

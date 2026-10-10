@@ -1,0 +1,39 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1309'
+reference: OB-1309
+identifier:
+  code: 1309-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-111-4
+    country:
+      en: Hong Kong, China
+    dec: '9084'
+    signal_point_name: HK1
+    signal_point_operator: TNZI Singapore Pte Limited
+  - ipsc: 4-177-7
+    country:
+      en: Hong Kong, China
+    dec: '9615'
+    signal_point_name: IDD1628
+    signal_point_operator: IDD1628 Limited
+  - ipsc: 4-178-1
+    country:
+      en: Hong Kong, China
+    dec: '9617'
+    signal_point_name: CMTEL
+    signal_point_operator: ComNet Telecom (HK) Limited
+  - ipsc: 4-180-6
+    country:
+      en: Hong Kong, China
+    dec: '9638'
+    signal_point_name: NTTCA-ISC-HKG01
+    signal_point_operator: NTT Com Asia Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,92 @@
+type: LIR
+date_requested: &1 2015-01-01
+date_active: *1
+ob_issue_no: '1089'
+reference: OB-1089
+identifier:
+  code: 1089-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-080-0
+    country:
+      en: Japan
+    dec: '8832'
+    signal_point_name: Tokyo-1
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-080-1
+    country:
+      en: Japan
+    dec: '8833'
+    signal_point_name: Osaka-1
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-080-2
+    country:
+      en: Japan
+    dec: '8834'
+    signal_point_name: Yamaguchi-1
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-080-6
+    country:
+      en: Japan
+    dec: '8838'
+    signal_point_name: Osaka-2
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-080-7
+    country:
+      en: Japan
+    dec: '8839'
+    signal_point_name: Tokyo-2
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-081-0
+    country:
+      en: Japan
+    dec: '8840'
+    signal_point_name: Tokyo-3
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-081-1
+    country:
+      en: Japan
+    dec: '8841'
+    signal_point_name: Tokyo-4
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-081-2
+    country:
+      en: Japan
+    dec: '8842'
+    signal_point_name: Osaka-3
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-081-3
+    country:
+      en: Japan
+    dec: '8843'
+    signal_point_name: Osaka-4
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-086-2
+    country:
+      en: Japan
+    dec: '8882'
+    signal_point_name: Tama-1
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-086-3
+    country:
+      en: Japan
+    dec: '8883'
+    signal_point_name: Osaka-5
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-086-4
+    country:
+      en: Japan
+    dec: '8884'
+    signal_point_name: Fuchu-1
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-086-5
+    country:
+      en: Japan
+    dec: '8885'
+    signal_point_name: Osaka-6
+    signal_point_operator: KDDI Corporation
+  notes:
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

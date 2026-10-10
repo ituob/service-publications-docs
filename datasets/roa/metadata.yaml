@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: List of Recognized Operating Agencies (ROAs)
+  fr: Liste des exploitations reconnues (ER)
+  es: Lista de empresas de explotación reconocidas (EER)
+url: https://www.itu.int/ITU-T/inr/roa/index.html
+source: service-publications-data/roa/roa.yaml
+locale:
+  - key: country_or_area
+    en: Country or geographic area
+    fr: Pays ou zone géographique
+    es: País o área geográfica
+  - key: company_name
+    en: Company's (ROA) name
+    fr: Nom de la société (ER)
+    es: Nombre de la empresa (EER)
+  - key: address
+    en: Company's (ROA) address
+    fr: Adresse de la société (ER)
+    es: Dirección de la empresa (EER)
+  - key: tel
+    en: Tel
+    fr: Tél
+    es: Tel
+  - key: fax
+    en: Fax
+    fr: Fax
+    es: Fax
+  - key: email
+    en: E-mail
+    fr: E-mail
+    es: E-mail
+  - key: url
+    en: URL
+    fr: URL
+    es: URL
+  - key: ob_issue_number
+    en: OB
+    fr: OB
+    es: OB

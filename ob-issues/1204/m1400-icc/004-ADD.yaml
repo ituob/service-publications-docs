@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1204'
+reference: OB-1204
+identifier:
+  code: 1204-004
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Lauterbach GmbH
+    address_line_1: Hinter dem Spittel 15
+    address_line_2: D-36341 LAUTERBACH
+    carrier_code: STWLAU
+    contact: Mrs Dr. Beate Rickert
+    tel: "+49 69 1534894 50"
+    fax: "+49 69 1534894 70"
+    email:
+    - beate.rickert@kpr-capital.com
+  notes: []

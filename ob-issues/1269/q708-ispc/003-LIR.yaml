@@ -1,0 +1,45 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1269'
+reference: OB-1269
+identifier:
+  code: 1269-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-080-1
+    country:
+      en: Sweden
+    dec: '4737'
+    signal_point_name: VMS1 (Stockholm)
+    signal_point_operator: Bredband2 Allmänna IT AB
+  - ipsc: 2-080-4
+    country:
+      en: Sweden
+    dec: '4740'
+    signal_point_name: GTS-STO-S1 (Stockholm)
+    signal_point_operator: Bredband2 Allmänna IT AB
+  - ipsc: 2-083-6
+    country:
+      en: Sweden
+    dec: '4766'
+    signal_point_name: RSL-SWE 2 (Stockholm)
+    signal_point_operator: Bredband2 Allmänna IT AB
+  - ipsc: 2-192-7
+    country:
+      en: Sweden
+    dec: '5639'
+    signal_point_name: VMS2 (Stockholm)
+    signal_point_operator: Bredband2 Allmänna IT AB
+  - ipsc: 2-193-3
+    country:
+      en: Sweden
+    dec: '5643'
+    signal_point_name: RSL_SWE (Stockholm)
+    signal_point_operator: Bredband2 Allmänna IT AB
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

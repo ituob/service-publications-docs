@@ -1,0 +1,23 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1274'
+reference: OB-1274
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Händle & Korte GmbH
+    address_line_1: Rathausufer 20
+    address_line_2: D-40213 DUESSELDORF
+    carrier_code: HKNET
+    contact: Mr Martin Korte
+    tel: "+49 211 6022440"
+    fax: "+49 211 60224422"
+    email:
+    - tk@hk-net.de
+  notes: []

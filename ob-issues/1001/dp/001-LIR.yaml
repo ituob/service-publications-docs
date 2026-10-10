@@ -1,0 +1,30 @@
+type: LIR
+date_requested: &1 2011-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1001'
+reference: OB-1001
+identifier:
+  code: P 3
+data:
+  _class: DPAmendment
+  position: P 3
+  country: Brazil
+  description: P 3 Brazil LIR
+  entries:
+  - country_or_area:
+      en: Azerbaijan
+    country_code: '994'
+    international_prefix: '00'
+    national_prefix: '0'
+    national_sig_number: 9 digits
+    utc_dst: "+4/+5"
+  - country_or_area:
+      en: Brazil
+    country_code: '55'
+    international_prefix: '00'
+    national_prefix: '0'
+    national_sig_number: 10, 11 digits
+    utc_dst: "-3/-2"
+    note:
+      en: '18'
+  notes: []

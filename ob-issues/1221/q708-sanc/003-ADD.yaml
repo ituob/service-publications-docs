@@ -1,0 +1,23 @@
+type: ADD
+date_requested: &1 2017-05-01
+date_active: *1
+ob_issue_no: '1221'
+reference: OB-1221
+identifier:
+  code: ''
+data:
+  _class: Q708SANCAmendment
+  position: ''
+  entries:
+  - code: 4-202
+    area_or_network:
+      en: Oman (Sultanate of)
+    note:
+      en: |-
+        SANC:    Signalling Area/Network Code.
+        Code de zone/réseau sémaphore (CZRS).
+        Código de zona/red de señalización (CZRS).
+  notes:
+  - 'SANC:    Signalling Area/Network Code.'
+  - Code de zone/réseau sémaphore (CZRS).
+  - Código de zona/red de señalización (CZRS).

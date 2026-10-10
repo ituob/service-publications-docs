@@ -1,0 +1,100 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: Note from TSB
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: em
+    text: Identification codes for International Mobile Networks
+- type: paragraph
+  content:
+  - type: text
+    text: 'Associated with shared mobile country code 901 (MCC), the following two-digit
+      mobile network code (MNC) has been '
+  - type: text
+    marks:
+    - type: strong
+    text: withdrawn
+  - type: text
+    text: "."
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Network
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Mobile Country Code (MCC) and '
+        - type: hard_break
+        - type: text
+          text: Mobile Network Code (MNC)
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Date of withdrawal
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: GloTell B.V.
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 901 63
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 15.I.2022
+- type: paragraph

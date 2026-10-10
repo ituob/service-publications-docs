@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1013'
+reference: OB-1013
+identifier:
+  code: P 105 to P 107
+data:
+  _class: Q708ISPCAmendment
+  position: P 105 to P 107
+  entries:
+  - ipsc: 2-053-4
+    country:
+      en: Switzerland
+    dec: '4524'
+    signal_point_name: Lausanne
+    signal_point_operator: Solesys S.A.
+  - ipsc: 2-055-5
+    country:
+      en: Switzerland
+    dec: '4541'
+    signal_point_name: Zürich
+    signal_point_operator: IN & Phone S.A.
+  - ipsc: 2-063-5
+    country:
+      en: Switzerland
+    dec: '4605'
+    signal_point_name: Crissier
+    signal_point_operator: Orange Communications SA
+  - ipsc: 2-063-6
+    country:
+      en: Switzerland
+    dec: '4606'
+    signal_point_name: Zürich
+    signal_point_operator: Orange Communications SA
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

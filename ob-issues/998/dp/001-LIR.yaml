@@ -1,0 +1,21 @@
+type: LIR
+date_requested: &1 2011-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '998'
+reference: OB-998
+identifier:
+  code: P 7
+data:
+  _class: DPAmendment
+  position: P 7
+  country: South Sudan
+  description: P 7 South Sudan LIR
+  entries:
+  - country_or_area:
+      en: South Sudan
+    country_code: '211'
+    international_prefix: '00'
+    national_prefix: '0'
+    national_sig_number: 7 digits
+    utc_dst: "+3"
+  notes: []

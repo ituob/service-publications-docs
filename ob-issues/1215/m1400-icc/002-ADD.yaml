@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1215'
+reference: OB-1215
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: D-Connect GmbH
+    address_line_1: Humboldtstrasse 18
+    address_line_2: D-95168 MARKTLEUTHEN
+    carrier_code: DCONN
+    contact: Mr Patrick Fritsch
+    tel: "+49 9285 47299 70"
+    fax: "+49 9285 47299 79"
+  notes: []

@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1225'
+reference: OB-1225
+identifier:
+  code: 1225-008
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Northern Access GmbH
+    address_line_1: Beckebohnen 2
+    address_line_2: D-31618 LIEBENAU
+    carrier_code: NA000
+    contact: Mr Torsten Voigts
+    tel: "+49 176 16161300"
+    fax: "+49 5023 981199"
+  notes: []

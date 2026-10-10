@@ -1,0 +1,24 @@
+type: ADD*
+date_requested:
+date_active:
+ob_issue_no: '1161'
+reference: OB-1161
+identifier:
+  code: Note p)
+data:
+  _class: E164CCAmendment
+  position: Note p)
+  entries:
+  - applicant: Twilio Inc.
+    network: Twilio Inc.
+    cc_ic: "+883 260"
+    status: Assigned
+  - applicant: GloTell B.V.
+    network: GloTell B.V.
+    cc_ic: "+883 270"
+    status: Assigned
+  notes:
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes
+  - __________
+  - See page 5 of the present Operational Bulletin No. 1161 of 1.XII.2018.

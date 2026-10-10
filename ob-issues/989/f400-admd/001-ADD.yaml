@@ -1,0 +1,40 @@
+type: ADD
+date_requested: &1 2011-01-15
+date_active: *1
+ob_issue_no: '989'
+reference: OB-989
+identifier:
+  code: P 8
+data:
+  _class: F400Amendment
+  position: P 8
+  entries:
+  - country_or_area:
+      fr: '1'
+    admd_name: '2'
+    country_code: '3'
+    helpdesk:
+      :x400: '5'
+    autoanswer:
+      :x400: '6'
+    contact_address:
+      :address_lines:
+      - '7'
+      - '8'
+      - '9'
+  - country_or_area:
+      fr: Allemagne Germany Alemania
+    admd_name: SEEBURGER
+    country_code: DE
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - S=helpdesk A=seeburger C=de
+      - S=autoanswer A=seeburger C=de
+      - 'StefanTheurer Seeburger AG Edisonstrasse 1 D – 75015 BRETTEN X.400: G=stefan;
+        S= theurer; O=seeburger ag; A=seeburger; C=de E-mail: s.theurer@seeburger.de
+        Tf:    +49 7252 960 Fax:  +49 7252 962222'
+  notes: []

@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1232'
+reference: OB-1232
+identifier:
+  code: 1232-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Buxtehude GmbH
+    address_line_1: Ziegelkamp 8
+    address_line_2: D-21614 BUXTEHUDE
+    carrier_code: SWBUX
+    contact: Mr. Jan Fitschen
+    tel: "+49 4161 727 111"
+  notes: []

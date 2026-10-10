@@ -1,0 +1,27 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1036'
+reference: OB-1036
+identifier:
+  code: 1036-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-222-6
+    country:
+      en: Germany
+    dec: '5878'
+    signal_point_name: ITP1_FRANKFURT_KDG
+    signal_point_operator: Kabel Deutschland Vertrieb und Service GmbH & Co.KG
+  - ipsc: 2-242-3
+    country:
+      en: Germany
+    dec: '6035'
+    signal_point_name: ITP2_BERLIN_KDG
+    signal_point_operator: Kabel Deutschland Vertrieb und Service GmbH & Co.KG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,35 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1086'
+reference: OB-1086
+identifier:
+  code: 1086-012
+data:
+  _class: M1400Amendment
+  entries:
+  - company_name: Luxembourg Online S.A.
+    carrier_code: LOL
+    contact: Mr. Remi Bianchi
+  - company_name: 14, avenue du X Septembre
+    contact: 'Tel:            +352 45 25 64 1'
+    tel: "+352 45 25 64 1"
+  - company_name: L-2550 LUXEMBOURG
+    contact: 'Fax:           +352 45 93 34'
+    fax: "+352 45 93 34"
+  - contact: 'E-mail:      network@online.lu'
+    email:
+    - network@online.lu
+  - company_name: MIXvoip S.A.
+    carrier_code: MXVP
+    contact: Mr. Loïc Didelot
+  - company_name: Z.I. Rolach
+    contact: 'Tel:            +352 20 33 33 20'
+    tel: "+352 20 33 33 20"
+  - company_name: L-5280 SANDWEILER
+    contact: 'Fax:           +352 20 33 33 90'
+    fax: "+352 20 33 33 90"
+  - contact: 'E-mail:      ldidelot@mixvoip.com'
+    email:
+    - ldidelot@mixvoip.com
+  notes: []

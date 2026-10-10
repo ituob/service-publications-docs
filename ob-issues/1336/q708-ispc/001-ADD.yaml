@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1336'
+reference: OB-1336
+identifier:
+  code: 1336-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-199-1
+    country:
+      en: Estonia
+    dec: '5689'
+    signal_point_name: HBMIT
+    signal_point_operator: HBM IT INFRASTRUCTURE
+  notes:
+  - ____________
+  - 'ISPC:     International Signalling Point Codes.'

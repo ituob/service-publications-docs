@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1104'
+reference: OB-1104
+identifier:
+  code: 1104-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: TeleData GmbH
+    carrier_code: TDGMBH
+    contact: TeleData Network Operation Center
+    tel: eData Network Operation Center
+  - country_or_area:
+      en: Germany
+    company_name: Kornblumenstraße 7
+    contact: 'Tel.:          +49 7541 5007 200'
+    tel: "+49 7541 5007 200"
+  - country_or_area:
+      en: Germany
+    company_name: 88046 FRIEDRICHSHAFEN
+    contact: 'Fax:          +49 7541 5007 110'
+    fax: "+49 7541 5007 110"
+  - country_or_area:
+      en: Germany
+    contact: 'E-mail:     noc@teledata.de'
+    tel: 'E-mail:     noc@edata.de'
+    email:
+    - noc@teledata.de
+  notes: []

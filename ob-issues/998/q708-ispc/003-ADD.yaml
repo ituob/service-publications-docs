@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '998'
+reference: OB-998
+identifier:
+  code: P 101 to P 101
+data:
+  _class: Q708ISPCAmendment
+  position: P 101 to P 101
+  entries:
+  - ipsc: 2-080-5
+    country:
+      en: Sweden
+    dec: '4741'
+    signal_point_name: GBR2S (Göteborg)
+    signal_point_operator: TeliaSonera Sverige AB
+  - ipsc: 2-081-3
+    country:
+      en: Sweden
+    dec: '4747'
+    signal_point_name: HY1S (Stockholm)
+    signal_point_operator: TeliaSonera Sverige AB
+  - ipsc: 2-192-3
+    country:
+      en: Sweden
+    dec: '5635'
+    signal_point_name: HY1 MSC-S (Stockholm)
+    signal_point_operator: TeliaSonera Sverige AB
+  - ipsc: 2-192-4
+    country:
+      en: Sweden
+    dec: '5636'
+    signal_point_name: FRE1 MSC-S (Stockholm)
+    signal_point_operator: TeliaSonera Sverige AB
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

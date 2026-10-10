@@ -1,0 +1,51 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '1071'
+reference: OB-1071
+identifier:
+  code: 1071-006
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-000-6
+    country:
+      en: Liechtenstein
+    dec: '4102'
+    signal_point_name: Orange Balzers GMSC
+    signal_point_operator: Orange (Liechtenstein) AG
+  - ipsc: 7-255-0
+    country:
+      en: Liechtenstein
+    dec: '16376'
+    signal_point_name: Orange Balzers MGW
+    signal_point_operator: Orange (Liechtenstein) AG
+  - ipsc: 7-255-1
+    country:
+      en: Liechtenstein
+    dec: '16377'
+    signal_point_name: First Mobile Vaduz 01
+    signal_point_operator: First Mobile AG
+  - ipsc: 7-255-2
+    country:
+      en: Liechtenstein
+    dec: '16378'
+    signal_point_name: First Mobile Vaduz 02
+    signal_point_operator: First Mobile AG
+  - ipsc: 7-255-4
+    country:
+      en: Liechtenstein
+    dec: '16380'
+    signal_point_name: Cubic Vaduz HLR 01
+    signal_point_operator: Cubic AG
+  - ipsc: 7-255-5
+    country:
+      en: Liechtenstein
+    dec: '16381'
+    signal_point_name: Cubic Vaduz HLR 02
+    signal_point_operator: Cubic AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

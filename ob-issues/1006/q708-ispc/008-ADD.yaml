@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1006'
+reference: OB-1006
+identifier:
+  code: P 62
+data:
+  _class: Q708ISPCAmendment
+  position: P 62
+  entries:
+  - ipsc: 4-086-2
+    country:
+      en: Japan
+    dec: '8882'
+    signal_point_name: Tama
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-086-3
+    country:
+      en: Japan
+    dec: '8883'
+    signal_point_name: Osaka
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-086-4
+    country:
+      en: Japan
+    dec: '8884'
+    signal_point_name: Fuchu
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-086-5
+    country:
+      en: Japan
+    dec: '8885'
+    signal_point_name: Osaka
+    signal_point_operator: KDDI Corporation
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

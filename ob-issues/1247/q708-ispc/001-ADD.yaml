@@ -1,0 +1,69 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1247'
+reference: OB-1247
+identifier:
+  code: 1247-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-056-0
+    country:
+      en: Brazil
+    dec: '14784'
+    signal_point_name: PTS/SP/FRANCA
+    signal_point_operator: Algar Telecom S/A
+  - ipsc: 7-056-6
+    country:
+      en: Brazil
+    dec: '14790'
+    signal_point_name: STP1 Surf/SP/SANTO ANDRE
+    signal_point_operator: SURF TELECOM SA
+  - ipsc: 7-056-7
+    country:
+      en: Brazil
+    dec: '14791'
+    signal_point_name: STP2 Surf/SP/SANTO ANDRE
+    signal_point_operator: SURF TELECOM SA
+  - ipsc: 7-057-0
+    country:
+      en: Brazil
+    dec: '14792'
+    signal_point_name: SMSC Alaris 01/RJ/Rio de Janeiro
+    signal_point_operator: TELEXPERTS TELECOMUNICACOES LTDA
+  - ipsc: 7-057-1
+    country:
+      en: Brazil
+    dec: '14793'
+    signal_point_name: PTS/MG/UBERLANDIA
+    signal_point_operator: Algar Telecom S/A
+  - ipsc: 7-057-2
+    country:
+      en: Brazil
+    dec: '14794'
+    signal_point_name: CPC2RJ3SM3/RJ/RIO DE JANEIRO
+    signal_point_operator: Claro S.A.
+  - ipsc: 7-057-3
+    country:
+      en: Brazil
+    dec: '14795'
+    signal_point_name: PTS/SP/BARUERI
+    signal_point_operator: SURF TELECOM SA
+  - ipsc: 7-057-4
+    country:
+      en: Brazil
+    dec: '14796'
+    signal_point_name: PTS/SP/SAO PAULO
+    signal_point_operator: SURF TELECOM SA
+  - ipsc: 7-057-5
+    country:
+      en: Brazil
+    dec: '14797'
+    signal_point_name: Faria Lima, 1912/SP/São Paulo
+    signal_point_operator: AMERICA NET LTDA
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

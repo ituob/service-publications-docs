@@ -1,0 +1,39 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1214'
+reference: OB-1214
+identifier:
+  code: 1214-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-225-4
+    country:
+      en: Myanmar
+    dec: '9996'
+    signal_point_name: MSSZYA101
+    signal_point_operator: Ooredoo Myanmar Limited
+  - ipsc: 4-225-5
+    country:
+      en: Myanmar
+    dec: '9997'
+    signal_point_name: MSSZMA101
+    signal_point_operator: Ooredoo Myanmar Limited
+  - ipsc: 4-225-6
+    country:
+      en: Myanmar
+    dec: '9998'
+    signal_point_name: STPZYA101
+    signal_point_operator: Ooredoo Myanmar Limited
+  - ipsc: 4-225-7
+    country:
+      en: Myanmar
+    dec: '9999'
+    signal_point_name: STPZMA101
+    signal_point_operator: Ooredoo Myanmar Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

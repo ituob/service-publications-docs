@@ -1,0 +1,28 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: ADD
+  position: P 8
+  entries:
+  - mcc_mnc_codes: 730 08
+    country_or_area:
+      en:
+      - Chile
+    networks: VTR Móvil S.A.
+  - mcc_mnc_codes: 730 09
+    country_or_area:
+      en:
+      - Chile
+  note: '8'
+- entries:
+  - mcc_mnc_codes: 452 06
+    country_or_area:
+      en:
+      - Vietnam
+    networks: EVNTelecom/EVNTelecom
+  - mcc_mnc_codes: 452 08
+    country_or_area:
+      en:
+      - Vietnam
+    networks: EVNTelecom 3G/EVNTelecom
+- {}

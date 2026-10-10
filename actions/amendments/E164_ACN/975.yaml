@@ -1,0 +1,45 @@
+---
+_class: E164ACNAmendment
+actions:
+- action_type: R *
+  position: '9'
+  entries:
+  - country_or_area:
+      en: Georgia
+    country_code: '995'
+    mobile_telephone_numbers:
+      en: 514, 551, 555, 557, 558, 568, 571, 574, 577-579, 591-593, 595-599, 770,
+        790
+  - country_or_area:
+      en: India (Republic of)
+    country_code: '91'
+    mobile_telephone_numbers:
+      en: '9'
+- action_type: '011'
+  position: "*"
+  entries:
+  - country_or_area:
+      en: Georgia
+    country_code: '995'
+    mobile_telephone_numbers:
+      en: 514, 551, 555, 557, 558, 568, 571, 574, 577-579, 591-593, 595-599, 770,
+        790
+  - country_or_area:
+      en: India (Republic of)
+    country_code: '91'
+    mobile_telephone_numbers:
+      en: '9'
+- action_type: LIR
+  position: '8'
+  entries:
+  - country_or_area:
+      en: Georgia
+    country_code: '995'
+    mobile_telephone_numbers:
+      en: 514, 551, 555, 557, 558, 568, 571, 574, 577-579, 591-593, 595-599, 770,
+        790
+  - country_or_area:
+      en: India (Republic of)
+    country_code: '91'
+    mobile_telephone_numbers:
+      en: '9'

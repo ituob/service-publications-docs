@@ -1,0 +1,28 @@
+type: SUP
+date_requested: &1 2011-04-15
+date_active: *1
+ob_issue_no: '1013'
+reference: OB-1013
+identifier:
+  code: P 27 COL 1
+data:
+  _class: F32TDIAmendment
+  position: P 27 COL 1
+  description: 'P 27 MALAYSIA Network code: MA COL 2 TMB – Telekom Malaysia Berhad,
+    Kuala Lumpur COL 1-5 SUP Date of application: 1 July 2012'
+  entries:
+  - country_or_area:
+      en: MALAYSIA
+      fr: MALAISIE
+      es: MALASIA
+    network_roa: TMB – Telekom Malaysia Berhad, Kuala Lumpur
+    network_code: MA-
+    telegraph_office_name:
+      en: ALOR STAR IPOH JOHORE BAHRU Kluang KOTA BHARU KELANTAN KOTA KINABALU KUALA
+        LUMPUR KUALA TRENGGANU KUANTAN KUCHING MALACCA Pelabuhan Kelang PENANG PETALING
+        JAYA SEREMBAN Taiping All others
+    office_code: MAAS MAIP MAJB MAKU MAKO MAKB MAKL MATG MAKN MAKG MAMC MAPK MAPG
+      MAPJ MASR MATP MAMX
+  notes:
+  - "* See Note published in present ITU Operational Bulletin No. 1013 of 1.X.2012,
+    page 5 ."

@@ -1,0 +1,23 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1152'
+reference: OB-1152
+identifier:
+  code: 1152-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Switzerland ADD
+    networks: " "
+  - mcc_mnc_codes: 228 10
+    networks: Stadt Polizei Zürich
+  - mcc_mnc_codes: 228 60
+    networks: Sunrise Communications AG
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

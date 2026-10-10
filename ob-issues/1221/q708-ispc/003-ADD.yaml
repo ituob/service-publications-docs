@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1221'
+reference: OB-1221
+identifier:
+  code: 1221-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-110-1
+    country:
+      en: Palau
+    dec: '11121'
+    signal_point_name: PNCC IG
+    signal_point_operator: Palau National Communications Corporation
+  - ipsc: 5-110-2
+    country:
+      en: Palau
+    dec: '11122'
+    signal_point_name: PNCC MG
+    signal_point_operator: Palau National Communications Corporation
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

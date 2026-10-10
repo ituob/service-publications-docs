@@ -1,0 +1,51 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1302'
+reference: OB-1302
+identifier:
+  code: 1302-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-083-3
+    country:
+      en: Japan
+    dec: '8859'
+    signal_point_name: TOKYO2
+    signal_point_operator: NTT Communications Corporation
+  - ipsc: 4-085-5
+    country:
+      en: Japan
+    dec: '8877'
+    signal_point_name: OSAKA2
+    signal_point_operator: NTT Communications Corporation
+  - ipsc: 4-086-6
+    country:
+      en: Japan
+    dec: '8886'
+    signal_point_name: TOKYO3
+    signal_point_operator: NTT Communications Corporation
+  - ipsc: 4-086-7
+    country:
+      en: Japan
+    dec: '8887'
+    signal_point_name: OSAKA3
+    signal_point_operator: NTT Communications Corporation
+  - ipsc: 4-090-2
+    country:
+      en: Japan
+    dec: '8914'
+    signal_point_name: TOKYO4
+    signal_point_operator: NTT Communications Corporation
+  - ipsc: 4-090-3
+    country:
+      en: Japan
+    dec: '8915'
+    signal_point_name: OSAKA4
+    signal_point_operator: NTT Communications Corporation
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,35 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1177'
+reference: OB-1177
+identifier:
+  code: 1177-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-179-5
+    country:
+      en: United Kingdom
+    dec: '5533'
+    signal_point_name: JALSTP1
+    signal_point_operator: Jersey Airtel Limited
+  - ipsc: 2-185-5
+    country:
+      en: United Kingdom
+    dec: '5581'
+    signal_point_name: JALSTP2
+    signal_point_operator: Jersey Airtel Limited
+  - ipsc: 2-187-1
+    country:
+      en: United Kingdom
+    dec: '5593'
+    signal_point_name: MSSGU
+    signal_point_operator: Jersey Airtel Limited
+  - ipsc: 2-190-1
+    country:
+      en: United Kingdom
+    dec: '5617'
+    signal_point_name: GC-UK-STP-01
+    signal_point_operator: MTN GlobalConnect Solutions Limited
+  notes: []

@@ -1,0 +1,28 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '980'
+reference: OB-980
+identifier:
+  code: P 7
+data:
+  _class: DPAmendment
+  position: P 7
+  country: Seychelles
+  description: P 7 Seychelles LIR
+  entries:
+  - country_or_area:
+      en: Japan
+    country_code: '81'
+    international_prefix: '010'
+    national_prefix: '0'
+    national_sig_number: 5 to 13 digits
+    utc_dst: "+9"
+  - country_or_area:
+      en: Seychelles
+    country_code: '248'
+    international_prefix: '00'
+    national_prefix: "–"
+    national_sig_number: 7 digits
+    utc_dst: "+4"
+  notes: []

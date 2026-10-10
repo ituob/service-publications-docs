@@ -1,0 +1,31 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1278'
+reference: OB-1278
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Saarlouis GmbH
+    address_line_1: Holzendorffer Strasse 12
+    address_line_2: D-66740 SAARLOUIS
+    carrier_code: SWSLS
+    contact: Mr Joerg Rink
+    tel: "+49 6831 9596 477"
+    email:
+    - rink@swsls.de
+  - country_or_area:
+      en: Germany
+    company_name: DSI GmbH Daten Service Informationssysteme
+    address_line_1: Carolinenstrasse 1
+    address_line_2: D-01097 DRESDEN
+    carrier_code: DSINET
+    contact: Mr Thorsten Hellfach
+    tel: "+49 351 213220"
+    fax: "+49 351 213220"
+  notes: []

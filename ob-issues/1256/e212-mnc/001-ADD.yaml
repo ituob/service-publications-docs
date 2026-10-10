@@ -1,0 +1,47 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1256'
+reference: OB-1256
+identifier:
+  code: 1256-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Bahrain ADD
+    networks: " "
+  - mcc_mnc_codes: 426 06
+    networks: STC Bahrain
+  - mcc_mnc_codes: 426 07
+    networks: TAIF
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Lao P.D.R. ADD
+    networks: " "
+  - mcc_mnc_codes: 457 03
+    networks: Star Telecom Co., Ltd
+  - mcc_mnc_codes: 457 07
+    networks: Best Telecom Co., Ltd
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Lao P.D.R. LIR
+    networks: " "
+  - mcc_mnc_codes: 457 01
+    networks: Lao Telecommunication Public Company
+  - mcc_mnc_codes: 457 02
+    networks: ETL Company Limited
+  - mcc_mnc_codes: 457 08
+    networks: TPLUS Digital Sole Company Limited
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Spain SUP
+    networks: " "
+  - mcc_mnc_codes: 214 33
+    networks: XFERA MÓVILES, S.A.U.
+  notes:
+  - "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile /
+    Indicativo de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

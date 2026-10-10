@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1327'
+reference: OB-1327
+identifier:
+  code: 1327-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-092-5
+    country:
+      en: Estonia
+    dec: '4837'
+    signal_point_name: TRN1
+    signal_point_operator: Trinavo LLC
+  - ipsc: 2-092-6
+    country:
+      en: Estonia
+    dec: '4838'
+    signal_point_name: Baway_EST1
+    signal_point_operator: Baway Mobile Services OÜ
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

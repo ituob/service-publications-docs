@@ -1,0 +1,25 @@
+type: SUP
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1333'
+reference: OB-1333
+identifier:
+  code: 1333-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-059-0
+    country:
+      en: Switzerland
+    dec: '4568'
+    signal_point_name: Pratteln
+    signal_point_operator: Fink Telecom Services
+  - ipsc: 2-062-4
+    country:
+      en: Switzerland
+    dec: '4596'
+    signal_point_name: Pratteln
+    signal_point_operator: Fink Telecom Services
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

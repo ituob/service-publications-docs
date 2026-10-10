@@ -1,0 +1,33 @@
+type: ADD
+date_requested: &1 2016-09-01
+date_active: *1
+ob_issue_no: '1196'
+reference: OB-1196
+identifier:
+  code: 1196-005
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-036-4
+    country:
+      en: United States
+    dec: '6436'
+    signal_point_name: Santa Paula, CA
+    signal_point_operator: Comsat, Inc.
+  - ipsc: 3-046-6
+    country:
+      en: United States
+    dec: '6518'
+    signal_point_name: Southbury, CT
+    signal_point_operator: Comsat, Inc.
+  - ipsc: 3-046-7
+    country:
+      en: United States
+    dec: '6519'
+    signal_point_name: Paumalu, HI
+    signal_point_operator: Comsat, Inc.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

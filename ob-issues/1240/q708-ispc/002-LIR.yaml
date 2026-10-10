@@ -1,0 +1,39 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1240'
+reference: OB-1240
+identifier:
+  code: 1240-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-131-0
+    country:
+      en: Germany
+    dec: '5144'
+    signal_point_name: DTMD11S_DORTMUND_VFDE
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 2-222-6
+    country:
+      en: Germany
+    dec: '5878'
+    signal_point_name: DTMD32S_DORTMUND_VFDE
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 2-225-4
+    country:
+      en: Germany
+    dec: '5900'
+    signal_point_name: MNCH12S_MUNICH_VFDE
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 2-242-3
+    country:
+      en: Germany
+    dec: '6035'
+    signal_point_name: MNCH21S_MUNICH_VFDE
+    signal_point_operator: Vodafone GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

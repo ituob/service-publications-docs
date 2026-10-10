@@ -1,0 +1,180 @@
+# DEPRECATED: This file is superseded by catalogs/registers.yaml and
+# catalogs/recommendations.yaml. The Ituob::Catalogs::Publications module
+# now delegates to Registers internally. This file is retained for
+# backwards compatibility only — do NOT add new entries here. Add
+# registers to registers.yaml and recommendations to recommendations.yaml.
+#
+# Original description below:
+# Canonical catalog of OB publications (datasets and external lists).
+#
+# This is the SINGLE SOURCE OF TRUTH consumed by:
+#   - ituob/lib/ituob/catalogs/publications.rb (Ruby)
+#   - ituob.org-v2/src/lib/catalogs.ts (TypeScript/Astro)
+#
+# Adding a new publication = appending one entry below. No other module
+# needs to change.
+#
+# Fields:
+#   publication_id   — the string used in source YAML target.publication
+#   slug             — filesystem-safe directory name
+#   classification   — "structured" (per-entry shape) or "textual" (freeform)
+#   parser_class     — Ruby class name that parses this publication's
+#                      amendments. Omit for textual publications.
+#   renderer         — Astro renderer component name (see
+#                      ituob.org-v2/src/components/renderers/). Omit to use
+#                      the default (structured-amendment or text-amendment).
+#   recommendation   — ITU-T Recommendation code (e.g. "E.118").
+#   issue_introduced  — OB issue number where this dataset was first annexed.
+#   external         — true for external publications not annexed to OB
+#                      (NNP, List V, List VIII, Coast Stations).
+---
+publications:
+  # --- Structured datasets with per-dataset parsers ---
+  - publication_id: E118_IIN
+    slug: e118-iin
+    classification: structured
+    parser_class: Ituob::Models::E118Amendment
+    renderer: iin-table
+    recommendation: E.118
+    issue_introduced: 1161
+
+  - publication_id: DP
+    slug: dp
+    classification: structured
+    parser_class: Ituob::Models::DPAmendment
+    renderer: dp-table
+    recommendation: E.164
+    issue_introduced: 994
+
+  - publication_id: E164_ACN
+    slug: e164-acn
+    classification: structured
+    parser_class: Ituob::Models::E164ACNAmendment
+    renderer: acn-table
+    recommendation: E.164
+    issue_introduced: 1015
+
+  - publication_id: E164_CC
+    slug: e164-cc
+    classification: structured
+    parser_class: Ituob::Models::E164CCAmendment
+    renderer: cc-table
+    recommendation: E.164
+    issue_introduced: 1114
+
+  - publication_id: E212_MNC
+    slug: e212-mnc
+    classification: structured
+    parser_class: Ituob::Models::E212MNCAmendment
+    renderer: mnc-table
+    recommendation: E.212
+    issue_introduced: 1162
+
+  - publication_id: E218_TRCC
+    slug: e218-trcc
+    classification: structured
+    parser_class: Ituob::Models::E218TRCCAmendment
+    renderer: trcc-table
+    recommendation: E.218
+    issue_introduced: 1125
+
+  - publication_id: F32_TDI
+    slug: f32-tdi
+    classification: structured
+    parser_class: Ituob::Models::F32TDIAmendment
+    renderer: tdi-table
+    recommendation: F.32
+    issue_introduced: 980
+
+  - publication_id: F400_ADMD
+    slug: f400-admd
+    classification: structured
+    parser_class: Ituob::Models::F400Amendment
+    renderer: admd-table
+    recommendation: F.400
+    issue_introduced: 974
+
+  - publication_id: M1400_ICC
+    slug: m1400-icc
+    classification: structured
+    parser_class: Ituob::Models::M1400Amendment
+    renderer: icc-table
+    recommendation: M.1400
+    issue_introduced: 1060
+
+  - publication_id: Q708_ISPC
+    slug: q708-ispc
+    classification: structured
+    parser_class: Ituob::Models::Q708ISPCAmendment
+    renderer: ispc-table
+    recommendation: Q.708
+    issue_introduced: 1109
+
+  - publication_id: Q708_SANC
+    slug: q708-sanc
+    classification: structured
+    parser_class: Ituob::Models::Q708SANCAmendment
+    renderer: sanc-table
+    recommendation: Q.708
+    issue_introduced: 1125
+
+  - publication_id: T35_NA
+    slug: t35-na
+    classification: structured
+    parser_class: Ituob::Models::T35NAAmendment
+    renderer: t35-table
+    recommendation: T.35
+    issue_introduced: 1001
+
+  - publication_id: X121_DNIC
+    slug: x121-dnic
+    classification: structured
+    parser_class: Ituob::Models::X121DNICAmendment
+    renderer: dnic-table
+    recommendation: X.121
+    issue_introduced: 977
+
+  # --- Textual publications (TextAmendment fallback) ---
+  - publication_id: RR.25.1
+    slug: rr251
+    classification: textual
+    renderer: text-amendment
+    recommendation: RR.25.1
+    issue_introduced: 1154
+
+  - publication_id: BUREAUFAX
+    slug: bureaufax
+    classification: textual
+    renderer: bureaufax-text
+    recommendation: F.170
+
+  - publication_id: List of Coast Stations and Special Service Stations
+    slug: coast-stations
+    classification: textual
+    renderer: text-amendment
+    external: true
+
+  - publication_id: R_SP_LM.V
+    slug: list-v
+    classification: textual
+    renderer: text-amendment
+    external: true
+
+  - publication_id: R_SP_LN.VIII
+    slug: list-viii
+    classification: textual
+    renderer: text-amendment
+    external: true
+
+  - publication_id: NNP
+    slug: nnp
+    classification: textual
+    renderer: nnp-text
+    recommendation: E.129
+    external: true
+
+  - publication_id: E212_ICC
+    slug: e212-icc
+    classification: textual
+    renderer: text-amendment
+    recommendation: E.212

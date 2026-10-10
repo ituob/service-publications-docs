@@ -1,0 +1,39 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1224'
+reference: OB-1224
+identifier:
+  code: 1224-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-152-1
+    country:
+      en: Albania
+    dec: '5313'
+    signal_point_name: GMSC – Tirana
+    signal_point_operator: ONE TELECOMMUNICATIONS sh.a
+  - ipsc: 3-228-4
+    country:
+      en: Albania
+    dec: '7972'
+    signal_point_name: VIVO IXFR
+    signal_point_operator: TIBO Communications sh.p.k.
+  - ipsc: 3-233-1
+    country:
+      en: Albania
+    dec: '8009'
+    signal_point_name: GMSC-AMC2
+    signal_point_operator: ONE TELECOMMUNICATIONS sh.a
+  - ipsc: 3-233-5
+    country:
+      en: Albania
+    dec: '8013'
+    signal_point_name: ABCom TS1-SOIP
+    signal_point_operator: Vodafone Albania sh.a.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

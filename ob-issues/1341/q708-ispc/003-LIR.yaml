@@ -1,0 +1,85 @@
+type: LIR
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1341'
+reference: OB-1341
+identifier:
+  code: 1341-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-200-0
+    country:
+      en: Armenia
+    dec: '5696'
+    signal_point_name: Arminco
+    signal_point_operator: Arpinet
+  - ipsc: 2-200-1
+    country:
+      en: Armenia
+    dec: '5697'
+    signal_point_name: Yerevan
+    signal_point_operator: Telecom Armenia (Team)
+  - ipsc: 2-200-2
+    country:
+      en: Armenia
+    dec: '5698'
+    signal_point_name: ARMGSM
+    signal_point_operator: Telecom Armenia (Team)
+  - ipsc: 2-200-3
+    country:
+      en: Armenia
+    dec: '5699'
+    signal_point_name: Ucom
+    signal_point_operator: Ucom
+  - ipsc: 2-200-5
+    country:
+      en: Armenia
+    dec: '5701'
+    signal_point_name: KTPSI
+    signal_point_operator: Viva Armenia (Viva)
+  - ipsc: 2-200-6
+    country:
+      en: Armenia
+    dec: '5702'
+    signal_point_name: KTPSI
+    signal_point_operator: Viva Armenia (Viva)
+  - ipsc: 4-233-0
+    country:
+      en: Armenia
+    dec: '10056'
+    signal_point_name: Ucom
+    signal_point_operator: Ucom
+  - ipsc: 4-233-1
+    country:
+      en: Armenia
+    dec: '10057'
+    signal_point_name: Griar
+    signal_point_operator: Gtel
+  - ipsc: 4-233-2
+    country:
+      en: Armenia
+    dec: '10058'
+    signal_point_name: GNC Alfa
+    signal_point_operator: GNC-Alfa (Ovio)
+  - ipsc: 5-234-1
+    country:
+      en: Armenia
+    dec: '12113'
+    signal_point_name: Ucom
+    signal_point_operator: Ucom
+  - ipsc: 5-234-3
+    country:
+      en: Armenia
+    dec: '12115'
+    signal_point_name: Crossnet
+    signal_point_operator: Crossnet
+  - ipsc: 5-234-7
+    country:
+      en: Armenia
+    dec: '12119'
+    signal_point_name: Ucom
+    signal_point_operator: Ucom
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

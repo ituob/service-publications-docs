@@ -1,0 +1,77 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1111'
+reference: OB-1111
+identifier:
+  code: 1111-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Australia ADD
+    networks: " "
+  - mcc_mnc_codes: 505 39
+    networks: Telstra Corporation Ltd.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Comoros ADD
+    networks: " "
+  - mcc_mnc_codes: 654 02
+    networks: TELMA / TELCO SA
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Comoros LIR
+    networks: " "
+  - mcc_mnc_codes: 654 01
+    networks: HURI / Comores Telecom
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Norway SUP
+    networks: " "
+  - mcc_mnc_codes: 242 04
+    networks: Tele2 Norge AS
+  - mcc_mnc_codes: 242 22
+    networks: Network Norway AS
+  - mcc_mnc_codes: 242 24
+    networks: Mobile Norway AS
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Norway ADD
+    networks: " "
+  - mcc_mnc_codes: 242 06
+    networks: ICE Norge AS
+  - mcc_mnc_codes: 242 14
+    networks: ICE Communication Norge AS
+  - mcc_mnc_codes: 242 99
+    networks: Tampnet AS
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Norway LIR
+    networks: " "
+  - mcc_mnc_codes: 242 02
+    networks: Telia Norge AS
+  - mcc_mnc_codes: 242 05
+    networks: Telia Norge AS
+  - mcc_mnc_codes: 242 07
+    networks: Phonero AS
+  - mcc_mnc_codes: 242 10
+    networks: Norwegian Communications Authority
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: South Africa ADD
+    networks: " "
+  - mcc_mnc_codes: 655 46
+    networks: SMS Cellular Services (Pty) Ltd
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code ADD
+    networks: " "
+  - mcc_mnc_codes: 901 53
+    networks: Deutsche Telekom AG
+  notes:
+  - "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

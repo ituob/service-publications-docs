@@ -1,0 +1,34 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1005'
+reference: OB-1005
+identifier:
+  code: P 3
+data:
+  _class: Q708ISPCAmendment
+  position: P 3
+  entries:
+  - ipsc: 2-152-7
+    country:
+      en: Albania
+    dec: '5319'
+    signal_point_name: STP- Tirana
+    signal_point_operator: PLUS COMMUNICATIONS
+  - ipsc: 3-233-0
+    country:
+      en: Albania
+    dec: '8008'
+    signal_point_name: STP - INT/Durres
+    signal_point_operator: Eagle Mobile
+  - ipsc: 3-233-1
+    country:
+      en: Albania
+    dec: '8009'
+    signal_point_name: GMSC-AMC2
+    signal_point_operator: AMC (Albanian Mobile Communications)
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

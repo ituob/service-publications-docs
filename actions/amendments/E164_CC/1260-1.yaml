@@ -1,0 +1,20 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: SUP*
+  position: Note p)
+  entries:
+  - applicant: IMC Island Ehf
+    network: IMC Island Ehf
+    cc_ic: "+883 160"
+    status: Withdrawn
+  note: p)
+- action_type: D**
+  position: Note p)
+  entries:
+  - applicant: KORE Wireless
+    network: KORE Wireless
+    cc_ic: "+883 460"
+    status: Assigned
+  note: p)
+- {}

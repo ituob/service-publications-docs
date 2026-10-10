@@ -1,0 +1,33 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '1105'
+reference: OB-1105
+identifier:
+  code: 1105-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-168-3
+    country:
+      en: Bulgaria
+    dec: '5443'
+    signal_point_name: ORBG
+    signal_point_operator: Mobiltel
+  - ipsc: 2-168-5
+    country:
+      en: Bulgaria
+    dec: '5445'
+    signal_point_name: GMSC1
+    signal_point_operator: Telenor Bulgaria
+  - ipsc: 6-247-2
+    country:
+      en: Bulgaria
+    dec: '14266'
+    signal_point_name: GMSC2
+    signal_point_operator: Telenor Bulgaria
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,33 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1290'
+reference: OB-1290
+identifier:
+  code: 1290-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-060-5
+    country:
+      en: Czech Rep.
+    dec: '4581'
+    signal_point_name: Ceznet Praha CZ
+    signal_point_operator: Telco Pro Services, a.s.
+  - ipsc: 2-228-6
+    country:
+      en: Czech Rep.
+    dec: '5926'
+    signal_point_name: CEZnet Praha CZ
+    signal_point_operator: Telco Pro Services, a.s.
+  - ipsc: 2-230-4
+    country:
+      en: Czech Rep.
+    dec: '5940'
+    signal_point_name: TS1BM
+    signal_point_operator: O2 Czech Republic a.s.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

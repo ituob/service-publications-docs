@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1234'
+reference: OB-1234
+identifier:
+  code: 1234-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Vitroconnect GmbH Bulk Account
+    address_line_1: Huelsbrockstrasse 23
+    address_line_2: D-33334 GUETERSLOH
+    carrier_code: FLVTRC
+    contact: Dr Steffen Mueller
+    tel: "+49 5241 30893 19"
+    fax: "+49 5241 9975 205"
+  notes: []

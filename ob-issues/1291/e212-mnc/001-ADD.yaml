@@ -1,0 +1,47 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1291'
+reference: OB-1291
+identifier:
+  code: 1291-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Japan    SUP
+    networks: " "
+  - mcc_mnc_codes: 441 01
+    networks: SoftBank Corp.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Japan    ADD
+    networks: " "
+  - mcc_mnc_codes: 440 91
+    networks: NTT DOCOMO, INC.
+  - mcc_mnc_codes: 440 92
+    networks: KDDI Corporation
+  - mcc_mnc_codes: 440 93
+    networks: SoftBank Corp.
+  - mcc_mnc_codes: 440 94
+    networks: Rakuten Mobile Network, Inc.
+  - mcc_mnc_codes: 441 214
+    networks: Vroove Inc.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Spain    SUP
+    networks: " "
+  - mcc_mnc_codes: 214 28
+    networks: Consorcio de Telecomunicaciones Avanzadas, S.A.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Spain    ADD
+    networks: " "
+  - mcc_mnc_codes: 214 704
+    networks: AMPER SISTEMAS, S.A.U.
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

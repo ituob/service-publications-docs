@@ -1,0 +1,27 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1285'
+reference: OB-1285
+identifier:
+  code: 1285-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-092-5
+    country:
+      en: Estonia
+    dec: '4837'
+    signal_point_name: Tallin
+    signal_point_operator: OU Top Connect
+  - ipsc: 2-199-3
+    country:
+      en: Estonia
+    dec: '5691'
+    signal_point_name: STP4
+    signal_point_operator: Top Connect OÜ
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

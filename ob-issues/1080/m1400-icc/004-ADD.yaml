@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1080'
+reference: OB-1080
+identifier:
+  code: 1080-004
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Germany (Federal Republic of) /     DEU
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Teleport GmbH
+    carrier_code: TSA
+    contact: Mr. Marco Langhof
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Breiteweg 147
+    contact: 'Tel.: +49 39203 82567'
+    tel: "+49 39203 82567"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 39179 BARLEBEN
+    contact: 'Fax: +49 39203 82550'
+    fax: "+49 39203 82550"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail: kontakt@teleport.de'
+    tel: 'E-mail: kontakt@eport.de'
+    email:
+    - kontakt@teleport.de
+  notes: []

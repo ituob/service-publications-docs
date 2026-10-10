@@ -1,0 +1,164 @@
+type: REP
+date_requested:
+date_active:
+ob_issue_no: '1062'
+reference: OB-1062
+identifier:
+  code: P 152
+data:
+  _class: ListVIIIAmendment
+  position: P 152
+  country: AUT Austria
+  description: P 152-154 REP
+  entries:
+  - country: AUT Austria
+    name: El Casar (IMS)
+    postal_address: Cno. Ribatejada, s/n 19170 El Casar (Guadalajara) España
+    contact: 'TF : +34 94 9335544 FAX : +34 94 9334639 EMAIL : gfernandezo@mityc.es'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 40°41'40''N 003°25'00''W
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: GPS-referenced frequency pattern.
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 40°41'40''N 003°25'00''W
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 30 MHz
+    - measurement_type: Direction-finding measurements
+      coordinates: 40°41'40''N 003°25'00''W
+      hours_of_service: HX
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: Circular network of 9 double-square elements. Interferometric system.
+    - measurement_type: Bandwidth measurements
+      coordinates: 40°41'40''N 003°25'00''W
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 30 MHz
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 40°41'40''N 003°25'00''W
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 30 MHz
+  - country: AUT Austria
+    name: La Esperanza (IMS)
+    postal_address: C/ La Marina, 20-5° 38071 Tenerife España
+    contact: 'TF : +34 94 9335544 FAX : +34 94 9334639 EMAIL : gfernandezo@mityc.es'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 28°27'23''N 016°22'45''W
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: GPS-referenced frequency pattern.
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 28°27'23''N 016°22'45''W
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 30 MHz
+    - measurement_type: Direction-finding measurements
+      coordinates: 28°27'23''N 016°22'45''W
+      hours_of_service: HX
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: Circular network of 9 double-square elements. Interferometric system.
+    - measurement_type: Bandwidth measurements
+      coordinates: 28°27'23''N 016°22'45''W
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 30 MHz
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 28°27'23''N 016°22'45''W
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 30 MHz
+  - country: AUT Austria
+    name: Rozas (IMS)
+    postal_address: Ronda de la Muralla 131, Bajo 27071 Lugo España
+    contact: 'TF : +34 94 9335544 FAX : +34 94 9334639 EMAIL : gfernandezo@mityc.es'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 43°06'51''N 007°27'35''W
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: GPS-referenced frequency pattern.
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 43°06'51''N 007°27'35''W
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 30 MHz
+    - measurement_type: Direction-finding measurements
+      coordinates: 43°06'51''N 007°27'35''W
+      hours_of_service: HX
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: Circular network of 9 double-square elements. Interferometric system.
+    - measurement_type: Bandwidth measurements
+      coordinates: 43°06'51''N 007°27'35''W
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 30 MHz
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 43°06'51''N 007°27'35''W
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 30 MHz
+  notes:
+  - PART II
+  - STATIONS IN THE SPACE RADIOCOMMUNICATION SERVICES
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - 1. Geographical coordinates
+  - 105°24'24''E — 021°20'20''N
+  - 2. Hours of service
+  - 'H24: on request'
+  - 3. Information on antennas in use
+  - 6.3 m Cassegrain antenna for frequency ranges 3.4 GHz to 4.2 GHz and 10.70 GHz
+    to 12.75 GHz; slew rate 0.02° to 2°/second (azimuth), 0.02° to 2°/second (elevation).
+  - 4. Range of azimuth and elevation angles
+  - Azimuth -120° to +120°, elevation 0° to 90°.
+  - 5. Maximum attainable accuracy in determining orbital positions of space stations
+  - "≤ 0.03° and in accordance with ITU-R Recommendations and the Handbook on Spectrum
+    Monitoring."
+  - 6. Information on system polarization
+  - Linear (H, V)
+  - 7. System noise temperature
+  - "(a) C band: 95° K — (b) Ku band: 145° K"
+  - "(cont.)"
+  - 8. Ranges of frequencies with the maximum attainable accuracy of frequency measurement
+    for each frequency range
+  - "(a) C band: 3.4 GHz - 4.2 GHz: 1 × 10 -12 — (b) Ku Band: 10.7 GHz - 12.75 GHz:
+    1 × 10 -12"
+  - 9. Ranges of frequencies in which field strength or power flux-density measurements
+    can be performed
+  - "(a) C band: 3.4 GHz - 4.2 GHz — (b) Ku Band: 10.7 GHz - 12.75 GHz"
+  - 10. Minimum value of measurable field strength or power flux-density with indication
+    of attainable accuracy of measurement
+  - "(a) ~ -168 dBW/m² ± 1.5 dB — (b) ~ -168 dBW/m² ± 1.5 dB — Bandwidth 4 kHz, S/N
+    ≥ 10 dB"
+  - 11. Information available for bandwidth measurements
+  - X dB and β/2% methods, using spectrum analyser.
+  - 12. Information available for spectrum occupancy measurements
+  - Frequency occupancy and channel occupancy measurements.
+  - 13. Information available for orbit occupancy measurements
+  - GSO orbit positions can be measured.
+  - "(Amendment No. 3)"
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - 'Federal Ministry for Transport Innovation and Technology Section III Centralizing
+    Office for Monitoring — Radetzkystrasse 2 1030 Wien — TF : +43 1 71162 654224
+    FAX : +43 1 71162 654209 EMAIL : ernst.cerny@bmvit.gv.at EMAIL : zdf@bmvit.gv.at'
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(Amendment No. 4)"
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - E Spain
+  - E - Spain
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - E Spain (cont.)
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks

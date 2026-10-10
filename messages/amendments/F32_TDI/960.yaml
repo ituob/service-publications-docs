@@ -1,0 +1,280 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: P  13    
+  - type: text
+    marks:
+    - type: em
+    - type: strong
+    text: SPAIN
+  - type: text
+    marks:
+    - type: strong
+    text: "    LIR"
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Country/
+        - type: hard_break
+        - type: text
+          text: Geographical Area
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Network
+        - type: hard_break
+        - type: text
+          text: "(Administration/ROA)"
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Destination Indicator (DI)
+        - type: hard_break
+        - type: text
+          text: "(First 2 letters ="
+        - type: hard_break
+        - type: text
+          text: Telegram Network
+        - type: hard_break
+        - type: text
+          text: Code)
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Name of
+        - type: hard_break
+        - type: text
+          text: Telegraph Office
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: DI Assigned to
+        - type: hard_break
+        - type: text
+          text: Telegraph Office
+        - type: hard_break
+        - type: text
+          text: "(Third and fourth"
+        - type: hard_break
+        - type: text
+          text: letters = Office Code)
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: '1'
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: '2'
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: '3'
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: '4'
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: '5'
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: ESPAGNE
+        - type: hard_break
+          marks:
+          - type: strong
+        - type: text
+          marks:
+          - type: strong
+          text: SPAIN
+        - type: hard_break
+          marks:
+          - type: strong
+        - type: text
+          marks:
+          - type: strong
+          text: ESPAÑA
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Sociedad Estatal Correos y Telégrafos S.A. Madrid
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: ES -
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: BARCELONA
+      - type: paragraph
+        content:
+        - type: text
+          text: MADRID
+      - type: paragraph
+        content:
+        - type: text
+          text: Telegrams with service indication TFx
+      - type: paragraph
+        content:
+        - type: text
+          text: Toutes destinations
+        - type: hard_break
+        - type: text
+          marks:
+          - type: em
+          text: All destinations
+        - type: text
+          text: "-"
+        - type: hard_break
+        - type: text
+          text: Todos los destinos
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: ESBX
+      - type: paragraph
+        content:
+        - type: text
+          text: ESMX
+      - type: paragraph
+        content:
+        - type: text
+          text: ESTT
+        - type: text
+          marks:
+          - type: superscript
+          text: '1'
+        - type: hard_break
+        - type: hard_break
+        - type: hard_break
+      - type: paragraph
+        content:
+        - type: hard_break
+        - type: text
+          text: ESXX
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 5
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: superscript
+          text: '1           '
+        - type: text
+          text: The destination indicator "ESTT" will be used in telegrams with service
+            indication =TFx= (telephone delivery, x = telephone number) to facilitate
+            communication with any destination in Spain.
+- type: paragraph

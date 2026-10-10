@@ -1,0 +1,39 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1244'
+reference: OB-1244
+identifier:
+  code: 1244-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-094-0
+    country:
+      en: French Polynesia
+    dec: '10992'
+    signal_point_name: C4 METASWITCH
+    signal_point_operator: Onati
+  - ipsc: 5-094-1
+    country:
+      en: French Polynesia
+    dec: '10993'
+    signal_point_name: C4 METASWITCH
+    signal_point_operator: Onati
+  - ipsc: 5-094-6
+    country:
+      en: French Polynesia
+    dec: '10998'
+    signal_point_name: MSC NGN HDP
+    signal_point_operator: Onati
+  - ipsc: 5-094-7
+    country:
+      en: French Polynesia
+    dec: '10999'
+    signal_point_name: MSC NGN FU
+    signal_point_operator: Onati
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

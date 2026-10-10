@@ -1,0 +1,51 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1321'
+reference: OB-1321
+identifier:
+  code: 1321-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-056-4
+    country:
+      en: Switzerland
+    dec: '4548'
+    signal_point_name: STPHorisen_ROR1
+    signal_point_operator: Horisen AG
+  - ipsc: 2-057-7
+    country:
+      en: Switzerland
+    dec: '4559'
+    signal_point_name: STPHorisen_ROR2
+    signal_point_operator: Horisen AG
+  - ipsc: 7-209-3
+    country:
+      en: Switzerland
+    dec: '16011'
+    signal_point_name: Zürich-6
+    signal_point_operator: Intellico AG
+  - ipsc: 7-209-4
+    country:
+      en: Switzerland
+    dec: '16012'
+    signal_point_name: Zürich-7
+    signal_point_operator: Intellico AG
+  - ipsc: 7-209-5
+    country:
+      en: Switzerland
+    dec: '16013'
+    signal_point_name: Zürich-8
+    signal_point_operator: Intellico AG
+  - ipsc: 7-209-6
+    country:
+      en: Switzerland
+    dec: '16014'
+    signal_point_name: Zürich-9
+    signal_point_operator: Intellico AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

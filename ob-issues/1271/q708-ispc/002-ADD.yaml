@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1271'
+reference: OB-1271
+identifier:
+  code: 1271-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-209-1
+    country:
+      en: Switzerland
+    dec: '16009'
+    signal_point_name: Schlieren1
+    signal_point_operator: GlobaHub AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

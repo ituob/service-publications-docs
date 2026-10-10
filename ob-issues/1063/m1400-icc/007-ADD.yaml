@@ -1,0 +1,35 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1063'
+reference: OB-1063
+identifier:
+  code: 1063-007
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: wilhelm.tel GmbH
+    carrier_code: WTNET
+    contact: Mr. Heiko Liebscher
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Heidbergstrasse 101 – 111
+    contact: 'Tel:           + 49 157 0303 0300'
+    tel: "+ 49 157 0303 0300"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 22844 NORDERSTEDT
+    contact: 'Fax:          + 49 40 52104 329'
+    fax: "+ 49 40 52104 329"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:    hliebscher@wt.de'
+    email:
+    - hliebscher@wt.de
+  notes: []

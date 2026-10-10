@@ -1,0 +1,39 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1303'
+reference: OB-1303
+identifier:
+  code: 1303-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-165-3
+    country:
+      en: United Kingdom
+    dec: '5419'
+    signal_point_name: London 2
+    signal_point_operator: Wifinity Limited
+  - ipsc: 4-239-0
+    country:
+      en: United Kingdom
+    dec: '10104'
+    signal_point_name: London 1
+    signal_point_operator: Vectone Mobile (Denmark) Limited
+  - ipsc: 4-239-1
+    country:
+      en: United Kingdom
+    dec: '10105'
+    signal_point_name: London 2
+    signal_point_operator: Vectone Mobile (Denmark) Limited
+  - ipsc: 6-252-7
+    country:
+      en: United Kingdom
+    dec: '14311'
+    signal_point_name: LONDON1
+    signal_point_operator: Wifinity Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

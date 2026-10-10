@@ -1,0 +1,48 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '994'
+reference: OB-994
+identifier:
+  code: P 31
+data:
+  _class: E212MNCAmendment
+  position: P 31
+  entries:
+  - mcc_mnc_codes: 455 00
+    country_or_area:
+      en: '["Macao, China"]'
+    networks: SmarTone – Comunicações Mõveis, S.A.
+  - mcc_mnc_codes: 455 01
+    country_or_area:
+      en: '["Macao, China"]'
+    networks: Companhia de Telecomunicações de Macau S.A.R.L.
+  - mcc_mnc_codes: 455 02
+    country_or_area:
+      en: '["Macao, China"]'
+    networks: China Telecom (Macau) Limitada
+  - mcc_mnc_codes: 455 03
+    country_or_area:
+      en: '["Macao, China"]'
+    networks: Hutchison - Telefone(Macau) Limitada
+  - mcc_mnc_codes: 455 04
+    country_or_area:
+      en: '["Macao, China"]'
+    networks: Companhia de Telecomunicações de Macau S.A.R.L.
+  - mcc_mnc_codes: 455 05
+    country_or_area:
+      en: '["Macao, China"]'
+    networks: Hutchison - Telefone(Macau) Limitada
+  - mcc_mnc_codes: 455 06
+    country_or_area:
+      en: '["Macao, China"]'
+    networks: SmarTone – Comunicações Mõveis, S.A.
+  - mcc_mnc_codes: 240 35
+    country_or_area:
+      en: Sweden
+    networks: 42 Telecom LTD
+  notes:
+  - "*        MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

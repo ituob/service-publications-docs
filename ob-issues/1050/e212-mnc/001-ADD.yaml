@@ -1,0 +1,28 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1050'
+reference: OB-1050
+identifier:
+  code: 1050-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 238 43
+    networks: MobiWeb Limited
+  - mcc_mnc_codes: 419 02
+    networks: ZAIN
+  - mcc_mnc_codes: 270 78
+    networks: Interactive Digital Media (IDM)
+  - mcc_mnc_codes: 635 17
+    networks: Olleh Rwanda Networks
+  - mcc_mnc_codes: 240 39
+    networks: iCentrex Sweden AB
+  - mcc_mnc_codes: 240 43
+    networks: MobiWeb Ltd.
+  - mcc_mnc_codes: 240 44
+    networks: Limitless Mobile AB
+  notes:
+  - "*         MCC:                Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil             MNC:               Network Code / Code
+    de réseau mobile / Indicativo de red para el servicio móvil"

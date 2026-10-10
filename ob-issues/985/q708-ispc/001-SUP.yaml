@@ -1,0 +1,34 @@
+type: SUP
+date_requested:
+date_active:
+ob_issue_no: '985'
+reference: OB-985
+identifier:
+  code: P 91
+data:
+  _class: Q708ISPCAmendment
+  position: P 91
+  entries:
+  - ipsc: 6-066-5
+    country:
+      en: Seychelles
+    dec: '12821'
+    signal_point_name: Media Gateway - TSL
+    signal_point_operator: Telecom Seychelles Ltd
+  - ipsc: 6-066-6
+    country:
+      en: Seychelles
+    dec: '12822'
+    signal_point_name: Trans Local Switch (TLS)
+    signal_point_operator: Telecom Seychelles Ltd
+  - ipsc: 6-066-7
+    country:
+      en: Seychelles
+    dec: '12823'
+    signal_point_name: Mobile Switching Centre (MSC)
+    signal_point_operator: Telecom Seychelles Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes'
+  - Codes de points sémaphores internationaux (CPSI)
+  - Códigos de puntos de señalización internacional (CPSI)

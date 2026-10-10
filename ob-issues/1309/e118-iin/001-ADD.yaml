@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1309'
+reference: OB-1309
+identifier:
+  code: 1309-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Switzerland
+    company_name: iWay AG
+    company_address_1: Badenerstrasse 569
+    company_address_2: CH-8048 ZURICH
+    contact: Matthias Cramer
+    contact_address_1: Badenerstrasse 569
+    contact_address_2: CH-8048 ZURICH
+    tel:
+    - "+41 43 500 1111"
+    email:
+    - iin@ispmobile.ch
+    issue_id_number: 89 41 35
+    effective_date: 1.I.2025
+  notes: []

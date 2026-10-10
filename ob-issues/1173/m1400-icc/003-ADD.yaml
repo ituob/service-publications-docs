@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1173'
+reference: OB-1173
+identifier:
+  code: 1173-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: OpenNumbers GmbH Bulk Account
+    address_line_1: Am Neuen Berg 3
+    address_line_2: D-63755 ALZENAU
+    carrier_code: FLOPEN
+    contact: Mr Bernd Buedenbender
+    tel: "+49 6023 70688 0"
+    fax: "+49 6023 70688 11"
+  notes: []

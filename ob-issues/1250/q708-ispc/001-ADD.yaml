@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1250'
+reference: OB-1250
+identifier:
+  code: 1250-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-208-0
+    country:
+      en: Sweden
+    dec: '16000'
+    signal_point_name: BSG-SMSC2
+    signal_point_operator: BSG Estonia OÜ
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

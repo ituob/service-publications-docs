@@ -1,0 +1,39 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1136'
+reference: OB-1136
+identifier:
+  code: 1136-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Australia ADD
+    networks: " "
+  - mcc_mnc_codes: 505 50
+    networks: Pivotel Group Pty Limited
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Australia LIR
+    networks: " "
+  - mcc_mnc_codes: 505 88
+    networks: Pivotel Group Pty Limited
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Bermuda ADD
+    networks: " "
+  - mcc_mnc_codes: 350 11
+    networks: Deltronics
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Germany LIR
+    networks: " "
+  - mcc_mnc_codes: 262 23
+    networks: Drillisch Online AG
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

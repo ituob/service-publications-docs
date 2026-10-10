@@ -1,0 +1,39 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1282'
+reference: OB-1282
+identifier:
+  code: 1282-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-080-6
+    country:
+      en: Sweden
+    dec: '4742'
+    signal_point_name: TMT1
+    signal_point_operator: TMT Analysis Limited
+  - ipsc: 2-081-7
+    country:
+      en: Sweden
+    dec: '4751'
+    signal_point_name: TMT2
+    signal_point_operator: TMT Analysis Limited
+  - ipsc: 2-082-5
+    country:
+      en: Sweden
+    dec: '4757'
+    signal_point_name: TMT3
+    signal_point_operator: TMT Analysis Limited
+  - ipsc: 2-082-7
+    country:
+      en: Sweden
+    dec: '4759'
+    signal_point_name: TMT4
+    signal_point_operator: TMT Analysis Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

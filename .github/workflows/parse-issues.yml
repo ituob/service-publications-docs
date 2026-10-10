@@ -1,0 +1,35 @@
+name: Parse Issues
+
+on:
+  pull_request:
+    paths:
+      - 'itu-ob-data/issues/**/*'
+  push:
+    branches: [ main ]
+    paths:
+      - 'itu-ob-data/issues/**/*'
+
+jobs:
+  parse_issues:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.4'
+
+    - name: Install the gem bundle
+      env:
+        BUNDLE_GEMFILE: ituob/Gemfile
+      run: bundle install
+
+    - name: Parse issues
+      working-directory: ./scripts
+      run: |
+        bundle install
+        bundle exec ./parse_issue.rb

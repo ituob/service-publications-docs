@@ -1,0 +1,45 @@
+type: ADD
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1331'
+reference: OB-1331
+identifier:
+  code: 1331-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada ADD
+    networks: " "
+  - mcc_mnc_codes: 302 992
+    networks: AltaLink Management Ltd
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Estonia ADD
+    networks: " "
+  - mcc_mnc_codes: 248 15
+    networks: BSG Estonia OÜ
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Ireland ADD
+    networks: " "
+  - mcc_mnc_codes: 272 26
+    networks: Vodafone Ireland Limited
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden SUP
+    networks: " "
+  - mcc_mnc_codes: 240 04
+    networks: 3G Infrastructure Services AB
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: " Sweden ADD"
+    networks: " "
+  - mcc_mnc_codes: 240 58
+    networks: Telia Sverige AB
+  notes:
+  - "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile /
+    Indicativo de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

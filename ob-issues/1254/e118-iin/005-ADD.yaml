@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1254'
+reference: OB-1254
+identifier:
+  code: 1254-005
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Gibraltar
+    company_name: GIBFIBRE Ltd
+    company_address_1: Burns House
+    company_address_2: Town Range No. 19
+    company_address_3: GIBRALTAR GX11 1AA
+    contact: GIBFIBRE Ltd
+    contact_address_1: Suite 14 Watergardens 5
+    contact_address_2: Waterford Road
+    contact_address_3: Gibraltar GX11 1AA
+    tel:
+    - "+350 225 00000"
+    email:
+    - mobile@gibfibre.com
+    issue_id_number: 89 350 03
+    effective_date: 24.VIII.2022
+  notes: []

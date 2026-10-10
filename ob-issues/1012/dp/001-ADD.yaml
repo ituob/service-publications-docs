@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2011-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1012'
+reference: OB-1012
+identifier:
+  code: P 5
+data:
+  _class: DPAmendment
+  position: P 5
+  country: ItalyLIR
+  description: P 5 ItalyLIR
+  entries:
+  - country_or_area:
+      en: Italy
+    country_code: '39'
+    international_prefix: '00'
+    national_sig_number: 3 to 12 digits
+    utc_dst: "+1/+2"
+    note:
+      en: '5'
+  notes: []

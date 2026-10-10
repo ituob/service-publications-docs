@@ -1,0 +1,23 @@
+type: SUP*
+date_requested: &1 2016-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1310'
+reference: OB-1310
+identifier:
+  code: Note o)
+data:
+  _class: E164CCAmendment
+  position: Note o)
+  entries:
+  - applicant: Athalos Global Services BV
+    network: Athalos Global Services BV
+    cc_ic: "+882 51"
+    status: Withdrawn
+  - applicant: SITA
+    network: SITA (Formerly Onair GSM services)
+    cc_ic: "+882 98"
+    status: Withdrawn
+    formerly: OnAir N.V.
+  notes:
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes

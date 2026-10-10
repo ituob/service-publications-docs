@@ -1,0 +1,45 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1135'
+reference: OB-1135
+identifier:
+  code: 1135-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-239-5
+    country:
+      en: Bulgaria
+    dec: '14205'
+    signal_point_name: SFINT
+    signal_point_operator: BTCNet
+  - ipsc: 6-239-6
+    country:
+      en: Bulgaria
+    dec: '14206'
+    signal_point_name: SFINT STP1
+    signal_point_operator: BTCNet
+  - ipsc: 6-250-3
+    country:
+      en: Bulgaria
+    dec: '14291'
+    signal_point_name: SFINT STP2
+    signal_point_operator: BTCNet
+  - ipsc: 7-221-5
+    country:
+      en: Bulgaria
+    dec: '16109'
+    signal_point_name: BTC-STP2
+    signal_point_operator: Bulgarian Telecommunication Company
+  - ipsc: 7-221-6
+    country:
+      en: Bulgaria
+    dec: '16110'
+    signal_point_name: VNIE2
+    signal_point_operator: Bulgarian Telecommunication Company
+  notes:
+  - __________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

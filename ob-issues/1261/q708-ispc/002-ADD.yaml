@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1261'
+reference: OB-1261
+identifier:
+  code: 1261-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-152-6
+    country:
+      en: Albania
+    dec: '5318'
+    signal_point_name: SAFECOMM sh.p.k.
+    signal_point_operator: Safecomm Albania
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

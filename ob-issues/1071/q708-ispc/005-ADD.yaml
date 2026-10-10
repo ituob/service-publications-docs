@@ -1,0 +1,57 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1071'
+reference: OB-1071
+identifier:
+  code: 1071-005
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-000-3
+    country:
+      en: Liechtenstein
+    dec: '4099'
+    signal_point_name: TLI Mauren 01
+    signal_point_operator: Telecom Liechtenstein AG
+  - ipsc: 2-000-4
+    country:
+      en: Liechtenstein
+    dec: '4100'
+    signal_point_name: TLI Mauren 02
+    signal_point_operator: Telecom Liechtenstein AG
+  - ipsc: 2-000-5
+    country:
+      en: Liechtenstein
+    dec: '4101'
+    signal_point_name: iMetrik STP 01
+    signal_point_operator: iMetrik Global (Europe) AG
+  - ipsc: 2-000-7
+    country:
+      en: Liechtenstein
+    dec: '4103'
+    signal_point_name: iMetrik STP 02
+    signal_point_operator: iMetrik Global (Europe) AG
+  - ipsc: 7-255-3
+    country:
+      en: Liechtenstein
+    dec: '16379'
+    signal_point_name: iMetrik HLR
+    signal_point_operator: iMetrik Global (Europe) AG
+  - ipsc: 7-255-6
+    country:
+      en: Liechtenstein
+    dec: '16382'
+    signal_point_name: Cubic Vaduz HSS 01
+    signal_point_operator: Cubic AG
+  - ipsc: 7-255-7
+    country:
+      en: Liechtenstein
+    dec: '16383'
+    signal_point_name: Cubic Vaduz HSS 02
+    signal_point_operator: Cubic AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

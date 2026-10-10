@@ -1,0 +1,24 @@
+type: UP1
+date_requested:
+date_active:
+ob_issue_no: '974'
+reference: OB-974
+identifier:
+  code: P 17
+data:
+  _class: E212MNCAmendment
+  position: P 17
+  entries:
+  - mcc_mnc_codes: 901 02
+    country_or_area:
+      en: International Mobile, shared code
+    networks: Sense Communications International AS
+  - mcc_mnc_codes: 901 09
+    country_or_area:
+      en: International Mobile, shared code
+    networks: Tele1 Europe
+  notes:
+  - "*         MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC: Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

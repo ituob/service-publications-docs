@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1309'
+reference: OB-1309
+identifier:
+  code: 1309-005
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-111-0
+    country:
+      en: Hong Kong, China
+    dec: '9080'
+    signal_point_name: CMIS07
+    signal_point_operator: China Mobile International Ltd
+  - ipsc: 4-111-4
+    country:
+      en: Hong Kong, China
+    dec: '9084'
+    signal_point_name: CMIS08
+    signal_point_operator: China Mobile International Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

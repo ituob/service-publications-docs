@@ -1,0 +1,28 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '999'
+reference: OB-999
+identifier:
+  code: P 101
+data:
+  _class: Q708ISPCAmendment
+  position: P 101
+  entries:
+  - ipsc: 6-238-0
+    country:
+      en: Sweden
+    dec: '14192'
+    signal_point_name: CT-STP1
+    signal_point_operator: Compatel Ltd
+  - ipsc: 6-238-1
+    country:
+      en: Sweden
+    dec: '14193'
+    signal_point_name: CT-STP2
+    signal_point_operator: Compatel Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

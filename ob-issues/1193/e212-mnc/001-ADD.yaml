@@ -1,0 +1,27 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1193'
+reference: OB-1193
+identifier:
+  code: 1193-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Spain SUP
+    networks: " "
+  - mcc_mnc_codes: 214 32
+    networks: Telefónica Móviles España, SAU
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Switzerland SUP
+    networks: " "
+  - mcc_mnc_codes: 228 61
+    networks: Compatel Ltd
+  notes:
+  - "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'
