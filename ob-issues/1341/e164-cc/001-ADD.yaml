@@ -4,16 +4,12 @@ date_active: *1
 ob_issue_no: '1341'
 reference: OB-1341
 identifier:
-  code: Note p)
+  code: 1341-001
 data:
   _class: E164CCAmendment
-  position: Note p)
-  entries:
-  - applicant: Bondio Limited
-    network: Bondio Limited
-    cc_ic: "+883 180"
-    status: Assigned
-  - applicant: Onomondo ApS
-    network: Onomondo ApS
-    cc_ic: "+883 270"
-    status: Assigned
+  entries: []
+  notes:
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes
+  - __________
+  - See page 5 of the present Operational Bulletin No. 1341 of 1.VI.2026.

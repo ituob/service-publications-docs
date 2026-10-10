@@ -44,6 +44,7 @@ module Ituob
         end
 
         last_country = nil
+        editor_country = nil
 
         simplified_doc.each_with_index do |c, ci|
           next if c.nil?
@@ -140,7 +141,19 @@ module Ituob
             c[1..].each do |row|
               segs = row.flatten
 
-              if row.length == 3
+              if row.length == 1
+                # Editor layout: single-cell "«country»\u00a0\u00a0 ACTION"
+                # rows carry the action for the entry rows that follow;
+                # other single-cell rows are titles — skip.
+                text = segs[0].to_s
+                if (m = text.match(/\A(.*?)[\u00a0 ]+(ADD|SUP|REP|LIR|MOD|DEL)\z/)) && !m[1].strip.empty?
+                  action = E212MNCAction.new
+                  action.action_type = m[2]
+                  action.entries = []
+                  amendment.actions << action
+                  editor_country = Ituob::Helpers.replace_legacy_space(m[1]).strip
+                end
+              elsif row.length == 3
                 if row[1].count > 1
                   row[1].zip(row[2]).each do |r|
                     entry = E212MNCEntry.new
@@ -153,13 +166,16 @@ module Ituob
                   entry = E212MNCEntry.new
                   entry.country_or_area = MultilingualString.new(en: segs[0])
                   entry.mcc_mnc_codes = segs[1]
-                  entry.networks  = segs[2]
+                  entry.networks = segs[2]
                   action.entries << entry
                 end
               elsif row.length == 2
-                # 2-column rows: code/networks — country inherited
-                # from the most recent 3-column row's country cell.
+                # Data rows are code/networks pairs; the header row
+                # ("MCC + MNC" / "Operator / Network") is not data.
+                next unless segs[0].to_s.match?(/\A\d{3}(?:[\u00a0 ]+\d+)?\z/)
+
                 entry = E212MNCEntry.new
+                entry.country_or_area = MultilingualString.new(en: editor_country) if editor_country && !editor_country.empty?
                 entry.mcc_mnc_codes = segs[0]
                 entry.networks = segs[1]
                 action.entries << entry
@@ -174,13 +190,18 @@ module Ituob
                 action.entries << entry
               end
             end
-            action = E212MNCAction.new
-            action.entries = []
-            amendment.actions << action
           else
             next if first_elem.nil?
             raise "Unexpected non-string/array elem in c[0]"
           end
+        end
+
+        # The per-table action rollover leaves a typeless, noteless
+        # action with no entries behind; it is not a published
+        # announcement.
+        amendment.actions.reject! do |a|
+          a.entries.empty? && a.action_type.nil? && a.note.nil? &&
+            (a.notes.nil? || a.notes.empty?)
         end
 
         amendment

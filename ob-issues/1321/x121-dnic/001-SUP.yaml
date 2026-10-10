@@ -7,34 +7,29 @@ identifier:
   code: 1321-001
 data:
   _class: X121DNICAmendment
+  country: Spain
+  description: Spain SUP
+  caption: Country/Area — DNIC No. — Name of network to which a DNIC is withdrawn
   entries:
   - dnic_number: 214 0
     country_or_area:
-      en: SPAIN
       fr: ESPAGNE
-      es: ESPAÑA
     network_name: Administración Pública
   - dnic_number: 214 2
     country_or_area:
-      en: SPAIN
-      fr: ESPAGNE
-      es: ESPAÑA
+      fr: SPAIN
     network_name: RETEVISIÓN
   - dnic_number: 214 5
     country_or_area:
-      en: SPAIN
-      fr: ESPAGNE
-      es: ESPAÑA
+      fr: ESPAÑA
     network_name: Red IBERPAC
   - dnic_number: 214 7
     country_or_area:
-      en: SPAIN
-      fr: ESPAGNE
-      es: ESPAÑA
+      fr: ESPAÑA
     network_name: France Telecom Redes y Servicios
   - dnic_number: 214 9
     country_or_area:
-      en: SPAIN
-      fr: ESPAGNE
-      es: ESPAÑA
+      fr: ESPAÑA
     network_name: MegaRed
+  notes:
+  - See page 6 of the present Operational Bulletin No. 1321 of 1.VIII.2025.

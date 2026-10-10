@@ -4,15 +4,27 @@ date_active:
 ob_issue_no: '999'
 reference: OB-999
 identifier:
-  code: P 8
+  code: P 26
 data:
   _class: E212MNCAmendment
-  position: P 8
+  position: P 26
   entries:
   - mcc_mnc_codes: 730 13 730 14
     country_or_area:
       en: Chile
     networks: TRIBE Mobile Chile SPA Netline Telefónica Móvil Ltda
+  - mcc_mnc_codes: 530 06
+    country_or_area:
+      en: New Zealand
+    networks: FX Networks Ltd
+  - mcc_mnc_codes: 242 09
+    country_or_area:
+      en: Norway
+    networks: Mundio Mobile Norway Ltd
+  - mcc_mnc_codes: 242 09
+    country_or_area:
+      en: Norway
+    networks: Com4 AS
   notes:
   - ______________
   - "*         MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo

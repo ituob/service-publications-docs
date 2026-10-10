@@ -1,0 +1,24 @@
+type: LIR
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1333'
+reference: OB-1333
+identifier:
+  code: 1333-002
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 302 490
+    country_or_area:
+      en: Canada
+    networks: Freedom Mobile Inc.
+  - mcc_mnc_codes: 302 490
+    country_or_area:
+      en: Canada
+    networks: Videotron Ltd.
+  - mcc_mnc_codes: 302 491
+    country_or_area:
+      en: Canada
+    networks: Videotron Ltd.
+  notes:
+  - 'MCC: Mobile Country Code  MNC: Mobile Network Code'

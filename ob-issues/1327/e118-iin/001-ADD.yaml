@@ -1,11 +1,12 @@
 type: ADD
-date_requested:
-date_active:
+date_requested: 2024-0-1
+date_active: 2024-0-1
 ob_issue_no: '1327'
 reference: OB-1327
 identifier:
   code: 1327-001
 data:
+  _class: E118Amendment
   entries:
   - country_or_area:
       en: France
@@ -22,3 +23,4 @@ data:
     - contact@kigen.com
     issue_id_number: 89 33 85
     effective_date: 1.X.2025
+  notes: []

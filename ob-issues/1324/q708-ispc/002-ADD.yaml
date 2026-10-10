@@ -1,11 +1,12 @@
 type: ADD
-date_requested:
-date_active:
+date_requested: &1 2024-06-01
+date_active: *1
 ob_issue_no: '1324'
 reference: OB-1324
 identifier:
-  code: 1324-001
+  code: 1324-002
 data:
+  _class: Q708ISPCAmendment
   entries:
   - ipsc: 3-244-3
     country:
@@ -13,33 +14,8 @@ data:
     dec: '8099'
     signal_point_name: ISPC_EST1
     signal_point_operator: TELECOM SOFTWARE OÜ
-  - ipsc: 5-233-3
-    country:
-      en: Georgia
-    dec: '12107'
-    signal_point_name: STP 2
-    signal_point_operator: Magticom Ltd
-  - ipsc: 3-031-6
-    country:
-      en: United States
-    dec: '6398'
-    signal_point_name: Jacksonville Beach (1), FL
-    signal_point_operator: Latam Telecommunications, L.L.C.
-  - ipsc: 3-035-4
-    country:
-      en: United States
-    dec: '6428'
-    signal_point_name: Los Angeles (1), CA
-    signal_point_operator: Panasonic Avionics Corporation
-  - ipsc: 3-037-2
-    country:
-      en: United States
-    dec: '6442'
-    signal_point_name: Los Angeles (2), CA
-    signal_point_operator: Panasonic Avionics Corporation
-  - ipsc: 3-184-0
-    country:
-      en: United States
-    dec: '7616'
-    signal_point_name: Jacksonville Beach (2), FL
-    signal_point_operator: Latam Telecommunications, L.L.C.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

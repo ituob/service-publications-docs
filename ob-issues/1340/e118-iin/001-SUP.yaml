@@ -1,11 +1,12 @@
 type: SUP
-date_requested:
-date_active:
+date_requested: 2024-0-1
+date_active: 2024-0-1
 ob_issue_no: '1340'
 reference: OB-1340
 identifier:
   code: 1340-001
 data:
+  _class: E118Amendment
   entries:
   - country_or_area:
       en: Estonia
@@ -19,3 +20,4 @@ data:
     - carrier@1ot.com
     issue_id_number: 89 372 06
     effective_date: 23.IV.2026
+  notes: []

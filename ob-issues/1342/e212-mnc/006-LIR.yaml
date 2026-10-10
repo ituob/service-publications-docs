@@ -1,0 +1,20 @@
+type: LIR
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1342'
+reference: OB-1342
+identifier:
+  code: 1342-006
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 455 01
+    country_or_area:
+      en: Macao, China
+    networks: Companhia de Telecomunicações de Macau, S.A.
+  - mcc_mnc_codes: 455 04
+    country_or_area:
+      en: Macao, China
+    networks: Companhia de Telecomunicações de Macau, S.A.
+  notes:
+  - 'MCC: Mobile Country Code  MNC: Mobile Network Code'

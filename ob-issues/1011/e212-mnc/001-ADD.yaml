@@ -1,17 +1,72 @@
-type: ADD
+type: 'by:'
 date_requested:
 date_active:
 ob_issue_no: '1011'
 reference: OB-1011
 identifier:
-  code: 1011-001
+  code: P 5
 data:
   _class: E212MNCAmendment
+  position: P 5
   entries:
   - mcc_mnc_codes: 350 000
     country_or_area:
       en: Bermuda
     networks: Bermuda Digital Communications Limited (CellOne)
+  - mcc_mnc_codes: 724 00
+    country_or_area:
+      en: Brazil
+    networks: NEXTEL
+  - mcc_mnc_codes: 724 01
+    networks: SISTEER DO BRASIL TELECOMUNICAÇÕES (MVNO)
+  - mcc_mnc_codes: 724 02
+    networks: TIM REGIÃO I
+  - mcc_mnc_codes: 724 03
+    networks: TIM REGIÃO III
+  - mcc_mnc_codes: 724 04
+    networks: TIM REGIÃO III
+  - mcc_mnc_codes: 724 05
+    networks: CLARO
+  - mcc_mnc_codes: 724 06
+    networks: VIVO REGIÃO II
+  - mcc_mnc_codes: 724 10
+    networks: VIVO REGIÃO III
+  - mcc_mnc_codes: 724 11
+    networks: VIVO REGIÃO I
+  - mcc_mnc_codes: 724 15
+    networks: SERCOMTEL
+  - mcc_mnc_codes: 724 16
+    networks: BRT CELULAR
+  - mcc_mnc_codes: 724 18
+    networks: DATORA (MVNO)
+  - mcc_mnc_codes: 724 23
+    networks: TELEMIG CELULAR
+  - mcc_mnc_codes: 724 24
+    networks: AMAZONIA CELULAR
+  - mcc_mnc_codes: 724 30
+    networks: TNL PCS Oi
+  - mcc_mnc_codes: 724 31
+    networks: TNL PCS Oi
+  - mcc_mnc_codes: 724 32
+    networks: CTBC Celular R III
+  - mcc_mnc_codes: 724 33
+    networks: CTBC Celular R II
+  - mcc_mnc_codes: 724 34
+    networks: CTBC Celular R I
+  - mcc_mnc_codes: 724 35
+    networks: TELCOM
+  - mcc_mnc_codes: 724 36
+    networks: OPTIONS
+  - mcc_mnc_codes: 724 37
+    networks: UNICEL
+  - mcc_mnc_codes: 724 38
+    networks: CLARO
+  - mcc_mnc_codes: 724 39
+    networks: NEXTEL (SMP)
+  - mcc_mnc_codes: 724 54
+    networks: PORTO SEGURO TELECOMUNICAÇÕES (MVNO)
+  - mcc_mnc_codes: 724 99
+    networks: LOCAL (STFC)
   notes:
   - "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de
     país para el servicio móvil."

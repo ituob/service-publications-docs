@@ -18,7 +18,8 @@ data:
     contact: 'Fax:           +352 45 93 34'
     fax: "+352 45 93 34"
   - contact: 'E-mail:      network@online.lu'
-    email: network@online.lu
+    email:
+    - network@online.lu
   - company_name: MIXvoip S.A.
     carrier_code: MXVP
     contact: Mr. Loïc Didelot
@@ -29,5 +30,6 @@ data:
     contact: 'Fax:           +352 20 33 33 90'
     fax: "+352 20 33 33 90"
   - contact: 'E-mail:      ldidelot@mixvoip.com'
-    email: ldidelot@mixvoip.com
+    email:
+    - ldidelot@mixvoip.com
   notes: []

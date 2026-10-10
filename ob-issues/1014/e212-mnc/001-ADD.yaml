@@ -4,14 +4,27 @@ date_active:
 ob_issue_no: '1014'
 reference: OB-1014
 identifier:
-  code: 1014-001
+  code: P 18
 data:
   _class: E212MNCAmendment
+  position: P 18
   entries:
   - mcc_mnc_codes: 712 04
     country_or_area:
       en: Costa Rica
     networks: Azules y Platas S.A.
+  - mcc_mnc_codes: 712 04
+    country_or_area:
+      en: Costa Rica
+    networks: Telefónica de Costa Rica, TC, S.A.
+  - mcc_mnc_codes: 641 40
+    country_or_area:
+      en: Uganda
+    networks: Civil Aviation Authority (CAA)
+  - mcc_mnc_codes: 901 37
+    country_or_area:
+      en: International Mobile, shared code
+    networks: Transatel
   notes:
   - "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de
     país para el servicio móvil."

@@ -1,11 +1,12 @@
 type: LIR
-date_requested:
-date_active:
+date_requested: &1 2024-06-01
+date_active: *1
 ob_issue_no: '1342'
 reference: OB-1342
 identifier:
-  code: 1342-001
+  code: 1342-003
 data:
+  _class: Q708ISPCAmendment
   entries:
   - ipsc: 4-110-1
     country:
@@ -31,3 +32,6 @@ data:
     dec: '9079'
     signal_point_name: ISC3
     signal_point_operator: Companhia de Telecomunicações de Macau, S.A.
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

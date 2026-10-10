@@ -1,0 +1,24 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1339'
+reference: OB-1339
+identifier:
+  code: 1339-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-187-3
+    country:
+      en: United States
+    dec: '7643'
+    signal_point_name: Jacksonville Beach, FL
+    signal_point_operator: Latam Telecommunications, L.L.C.
+  - ipsc: 3-203-0
+    country:
+      en: United States
+    dec: '7768'
+    signal_point_name: Jacksonville Beach, FL
+    signal_point_operator: Latam Telecommunications, L.L.C.
+  notes:
+  - 'ISPC: International Signalling Point Codes.'

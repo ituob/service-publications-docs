@@ -4,15 +4,19 @@ date_active:
 ob_issue_no: '990'
 reference: OB-990
 identifier:
-  code: P 3
+  code: P 8
 data:
   _class: E212MNCAmendment
-  position: P 3
+  position: P 8
   entries:
   - mcc_mnc_codes: 505 21
     country_or_area:
       en: Australia
     networks: Queensland Rail Limited
+  - mcc_mnc_codes: 280 22
+    country_or_area:
+      en: Cyprus
+    networks: Lemontel Ltd
   notes:
   - "*         MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"

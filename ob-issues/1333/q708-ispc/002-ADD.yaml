@@ -1,0 +1,28 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1333'
+reference: OB-1333
+identifier:
+  code: 1333-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-076-0
+    country:
+      en: Denmark
+    dec: '4704'
+    signal_point_operator: TDC Net A/S
+  - ipsc: 2-076-1
+    country:
+      en: Denmark
+    dec: '4705'
+    signal_point_operator: TDC Net A/S
+  - ipsc: 2-076-2
+    country:
+      en: Denmark
+    dec: '4706'
+    signal_point_operator: TDC Net A/S
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

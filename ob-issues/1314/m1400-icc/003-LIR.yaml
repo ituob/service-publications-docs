@@ -17,7 +17,8 @@ data:
     carrier_code: TELE2
     contact: Carl-Johan Rydén
     tel: "+46 8 562 000 60"
-    email: carljohan.ryden@tele2.com
+    email:
+    - carljohan.ryden@tele2.com
   - country_or_area:
       en: Sweden
     company_name: Telia Company AB
@@ -26,5 +27,6 @@ data:
     carrier_code: TELIA
     contact: Sofia Donner
     tel: "+46 8 504 550 00"
-    email: sofia.donner@teliacompany.com
+    email:
+    - sofia.donner@teliacompany.com
   notes: []

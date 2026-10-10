@@ -1,0 +1,21 @@
+type: LIR
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1333'
+reference: OB-1333
+identifier:
+  code: 1333-006
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 240 20
+    country_or_area:
+      en: Sweden
+    networks: Sierra Wireless Sweden AB
+  - mcc_mnc_codes: 240 59
+    country_or_area:
+      en: Sweden
+    networks: Myndigheten för civilt försvar (MCF) – Swedish Civil Defence and Resilience
+      Agency – Used for private network (PPDR network (Rakel G2))
+  notes:
+  - 'MCC: Mobile Country Code  MNC: Mobile Network Code'

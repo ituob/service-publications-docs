@@ -1,11 +1,12 @@
 type: ADD
-date_requested:
-date_active:
+date_requested: &1 2024-06-01
+date_active: *1
 ob_issue_no: '1335'
 reference: OB-1335
 identifier:
   code: 1335-001
 data:
+  _class: Q708ISPCAmendment
   entries:
   - ipsc: 2-027-4
     country:
@@ -13,6 +14,9 @@ data:
     dec: '4316'
     signal_point_name: Málaga
     signal_point_operator: CHADEVA SUR 2001, S.L. UNIPERSONAL
+  - ipsc: Sweden   DEL
+    country:
+      en: Spain
   - ipsc: 2-080-2
     country:
       en: Spain
@@ -31,3 +35,6 @@ data:
     dec: '4750'
     signal_point_name: SNKT1-INT
     signal_point_operator: Tele2 Sverige AB
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

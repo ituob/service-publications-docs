@@ -1,11 +1,12 @@
 type: SUP
-date_requested:
-date_active:
+date_requested: &1 2024-06-01
+date_active: *1
 ob_issue_no: '1322'
 reference: OB-1322
 identifier:
-  code: 1322-001
+  code: 1322-002
 data:
+  _class: Q708ISPCAmendment
   entries:
   - ipsc: 4-078-1
     country:
@@ -31,3 +32,8 @@ data:
     dec: '8822'
     signal_point_name: "…"
     signal_point_operator: AkTen Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

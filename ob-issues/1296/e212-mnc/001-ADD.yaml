@@ -14,6 +14,16 @@ data:
     networks: " "
   - mcc_mnc_codes: 228 73
     networks: iWay AG
+  - mcc_mnc_codes: "(Country A)"
+    country_or_area:
+      en: Luxembourg
+    networks: 270 07 00 0X XX XX XX
+    range: 270 07
+  - mcc_mnc_codes: "(Country B – Where the MCC+MNC is to be used extra-territorially)"
+    country_or_area:
+      en: France
+    networks: 270 07 60 XX XX XX XX
+    range: 270 07
   notes:
   - "*            MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"

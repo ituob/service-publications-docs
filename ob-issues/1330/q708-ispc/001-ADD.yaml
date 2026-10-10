@@ -1,11 +1,12 @@
 type: ADD
-date_requested:
-date_active:
+date_requested: &1 2024-06-01
+date_active: *1
 ob_issue_no: '1330'
 reference: OB-1330
 identifier:
   code: 1330-001
 data:
+  _class: Q708ISPCAmendment
   entries:
   - ipsc: 2-038-4
     country:
@@ -25,3 +26,8 @@ data:
     dec: '6037'
     signal_point_name: IDM-HAM-3
     signal_point_operator: interactive digital media GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

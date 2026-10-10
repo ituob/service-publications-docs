@@ -1,11 +1,12 @@
 type: SUP
-date_requested:
-date_active:
+date_requested: &1 2024-06-01
+date_active: *1
 ob_issue_no: '1342'
 reference: OB-1342
 identifier:
-  code: 1342-001
+  code: 1342-002
 data:
+  _class: Q708ISPCAmendment
   entries:
   - ipsc: 4-110-4
     country:
@@ -31,21 +32,6 @@ data:
     dec: '9149'
     signal_point_name: CTMO_SMC
     signal_point_operator: China Telecom (Macau) Limitada
-  - ipsc: 2-081-0
-    country:
-      en: Sweden
-    dec: '4744'
-    signal_point_name: Stockholm/UN STX (Stockholm)
-    signal_point_operator: Telia Sverige AB
-  - ipsc: 2-081-1
-    country:
-      en: Sweden
-    dec: '4745'
-    signal_point_name: Stockholm/UR STX (Stockholm)
-    signal_point_operator: Telia Sverige AB
-  - ipsc: 2-081-2
-    country:
-      en: Sweden
-    dec: '4746'
-    signal_point_name: Malmö/UR STX (Malmö)
-    signal_point_operator: Telia Sverige AB
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

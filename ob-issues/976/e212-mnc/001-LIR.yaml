@@ -1,0 +1,41 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '976'
+reference: OB-976
+identifier:
+  code: P 17
+data:
+  _class: E212MNCAmendment
+  position: P 17
+  entries:
+  - mcc_mnc_codes: 257 03
+    country_or_area:
+      en: Belarus
+    networks: BelCel Joint Venture (JV)
+  - mcc_mnc_codes: 257 04
+    networks: Closed joint-stock company "Belarusian telecommunication network"
+  - mcc_mnc_codes: 257 05
+    networks: Republican Unitary Telecommunication Enterprise (RUE) Beltelecom (National
+      Telecommunications Operator of the Republic of Belarus
+  - mcc_mnc_codes: 257 06
+    networks: Yota Bel Foreign Limited Liability Company (FLLC)
+  - mcc_mnc_codes: 238 13
+    country_or_area:
+      en: Denmark
+    networks: Communicate A/S
+  - mcc_mnc_codes: 244 03 244 04 244 05 244 09 244 10 244 12 244 13 244 14 244 21
+      244 29 244 91
+    country_or_area:
+      en: Finland
+    networks: DNA Oy DNA Oy Elisa Oy Nokia Siemens Networks Oy TDC Oy FINLAND DNA
+      Oy DNA Oy Alands Mobilteleofn Ab Saunalahti Group Oyj SCNL TRUPHONE TeliaSonera
+      Finland Oyj
+  - mcc_mnc_codes: 901 13
+    country_or_area:
+      en: International Mobile, shared code
+    networks: BebbiCell AG
+  notes:
+  - ______________
+  - "*     MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"

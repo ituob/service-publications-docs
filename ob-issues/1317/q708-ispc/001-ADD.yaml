@@ -1,11 +1,12 @@
 type: ADD
-date_requested:
-date_active:
+date_requested: &1 2020-06-01
+date_active: *1
 ob_issue_no: '1317'
 reference: OB-1317
 identifier:
   code: 1317-001
 data:
+  _class: Q708ISPCAmendment
   entries:
   - ipsc: 2-203-2
     country:
@@ -31,3 +32,8 @@ data:
     dec: '16126'
     signal_point_name: Onoff Telecom – Paris 2
     signal_point_operator: Onoff Telecom
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

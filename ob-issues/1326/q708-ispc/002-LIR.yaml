@@ -1,11 +1,12 @@
 type: LIR
-date_requested:
-date_active:
+date_requested: &1 2024-06-01
+date_active: *1
 ob_issue_no: '1326'
 reference: OB-1326
 identifier:
-  code: 1326-001
+  code: 1326-002
 data:
+  _class: Q708ISPCAmendment
   entries:
   - ipsc: 4-243-4
     country:
@@ -25,3 +26,8 @@ data:
     dec: '14300'
     signal_point_name: Budapest-DIGI-02
     signal_point_operator: One Hungary Ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

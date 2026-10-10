@@ -1,0 +1,32 @@
+type: ADD
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1340'
+reference: OB-1340
+identifier:
+  code: 1340-005
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 730 28
+    country_or_area:
+      en: Chile
+    networks: Airtime Chile S.p.A.
+  - mcc_mnc_codes: 730 29
+    country_or_area:
+      en: Chile
+    networks: Telefonica Moviles Chile
+  - mcc_mnc_codes: 730 30
+    country_or_area:
+      en: Chile
+    networks: Telefonica Moviles Chile
+  - mcc_mnc_codes: 730 31
+    country_or_area:
+      en: Chile
+    networks: Entel PCS Telecomunicaciones S.A.
+  - mcc_mnc_codes: 730 32
+    country_or_area:
+      en: Chile
+    networks: Entel PCS Telecomunicaciones S.A.
+  notes:
+  - 'MCC: Mobile Country Code  MNC: Mobile Network Code'

@@ -1,40 +1,40 @@
-generated_at: '2026-07-30T04:25:27Z'
+generated_at: '2026-10-10T03:44:22Z'
 amendment_parsers:
   E164_ACN:
     :structured: 45
     :text: 0
     :errors: 0
   E212_MNC:
-    :structured: 316
+    :structured: 342
     :text: 0
     :errors: 0
   Q708_ISPC:
-    :structured: 310
-    :text: 5
-    :errors: 1
+    :structured: 337
+    :text: 0
+    :errors: 0
   Q708_SANC:
-    :structured: 120
+    :structured: 122
     :text: 1
     :errors: 0
   NNP:
-    :structured: 0
-    :text: 323
+    :structured: 348
+    :text: 0
     :errors: 0
   E118_IIN:
-    :structured: 253
+    :structured: 266
     :text: 0
     :errors: 0
   DP:
-    :structured: 0
-    :text: 18
+    :structured: 18
+    :text: 0
     :errors: 0
   R_SP_LN.VIII:
-    :structured: 0
-    :text: 30
+    :structured: 30
+    :text: 0
     :errors: 0
   F32_TDI:
-    :structured: 9
-    :text: 3
+    :structured: 12
+    :text: 0
     :errors: 0
   F400_ADMD:
     :structured: 10
@@ -45,7 +45,7 @@ amendment_parsers:
     :text: 10
     :errors: 0
   M1400_ICC:
-    :structured: 226
+    :structured: 245
     :text: 0
     :errors: 0
   RR.25.1:
@@ -53,15 +53,15 @@ amendment_parsers:
     :text: 4
     :errors: 0
   E164_CC:
-    :structured: 69
+    :structured: 74
     :text: 0
     :errors: 0
   R_SP_LM.V:
     :structured: 0
-    :text: 171
+    :text: 176
     :errors: 0
   X121_DNIC:
-    :structured: 13
+    :structured: 14
     :text: 0
     :errors: 0
   T35_NA:
@@ -81,21 +81,21 @@ amendment_parsers:
     :text: 0
     :errors: 0
 general_parsers:
-  running_annexes: 361
-  approved_recommendations: 317
-  sanc: 121
-  telephone_service_2: 346
+  running_annexes: 388
+  approved_recommendations: 340
+  sanc: 123
+  telephone_service_2: 371
   mid: 6
   org_changes: 118
-  custom: 95
-  misc_communications: 142
-  iptn: 71
-  ipns: 74
-  callback_procedures: 323
-  service_restrictions: 309
+  custom: 103
+  misc_communications: 148
+  iptn: 76
+  ipns: 82
+  callback_procedures: 350
+  service_restrictions: 336
 totals:
-  actions_written: 4396
-  text_written: 584
-  general_structured: 678
-  general_textual: 1605
-  parse_errors: 1
+  actions_written: 4639
+  text_written: 210
+  general_structured: 728
+  general_textual: 1713
+  parse_errors: 0

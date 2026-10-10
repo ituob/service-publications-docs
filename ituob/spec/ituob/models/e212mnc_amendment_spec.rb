@@ -92,8 +92,39 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     )
     amendment = parse(doc)
 
-    expect(amendment.actions.length).to eq(2) # initial + post-table action
+    # The post-table rollover action is typeless and empty — dropped.
+    expect(amendment.actions.length).to eq(1)
     expect(amendment.actions.first.entries.first.mcc_mnc_codes).to eq('206 01')
     expect(amendment.actions.first.entries.first.country_or_area.en).to eq('Belgium')
+  end
+
+  it 'parses the editor layout: country rows carry the action for the rows that follow' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country / Geographical area'))),
+        row(cell(paragraph('MCC + MNC')), cell(paragraph('Operator / Network'))),
+        row(cell(paragraph("Canada   ADD"))),
+        row(cell(paragraph('302 354')), cell(paragraph('Every-Day Computers Inc.'))),
+        row(cell(paragraph("Canada   LIR"))),
+        row(cell(paragraph('302 490')), cell(paragraph('Freedom Mobile Inc.'))),
+        row(cell(paragraph('302 491')), cell(paragraph('Videotron Ltd.'))),
+      ),
+    )
+    amendment = parse(doc)
+
+    expect(amendment.actions.length).to eq(2)
+
+    add = amendment.actions.first
+    expect(add.action_type).to eq('ADD')
+    expect(add.entries.length).to eq(1)
+    expect(add.entries.first.country_or_area.en).to eq('Canada')
+    expect(add.entries.first.mcc_mnc_codes).to eq('302 354')
+    expect(add.entries.first.networks).to eq('Every-Day Computers Inc.')
+
+    lir = amendment.actions.last
+    expect(lir.action_type).to eq('LIR')
+    expect(lir.entries.length).to eq(2)
+    expect(lir.entries.map(&:country_or_area).map(&:en).uniq).to eq(['Canada'])
+    expect(lir.entries.map(&:mcc_mnc_codes)).to eq(['302 490', '302 491'])
   end
 end

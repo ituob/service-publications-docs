@@ -1,11 +1,12 @@
 type: SUP
-date_requested:
-date_active:
+date_requested: 2024-0-1
+date_active: 2024-0-1
 ob_issue_no: '1320'
 reference: OB-1320
 identifier:
   code: 1320-001
 data:
+  _class: E118Amendment
   entries:
   - country_or_area:
       en: Sweden
@@ -23,3 +24,4 @@ data:
     - afink@fink-telecom.com
     issue_id_number: 89 46 12
     effective_date: 27.VI.2025
+  notes: []

@@ -399,6 +399,19 @@ def main
     write_yaml(File.join(out_dir, 'parser-coverage-report.yaml'), coverage)
   end
   puts stats.inspect
+
+  # Regression guard: these publications are fully structuralized — the
+  # editor-era layout included. A text fallback for any of them means a
+  # new editor layout variant the parsers do not understand yet; fail
+  # the build so intake catches it the day it lands.
+  structural = %w[E212_MNC M1400_ICC NNP]
+  regressed = stats[:by_amendment_target].select do |pub, s|
+    structural.include?(pub) && s[:text].to_i.positive?
+  end
+  unless regressed.empty?
+    warn "STRUCTURAL FALLBACK REGRESSION: #{regressed.map { |pub, s| "#{pub} x#{s[:text]}" }.join(', ')}"
+    exit 1
+  end
 end
 
 require 'time'

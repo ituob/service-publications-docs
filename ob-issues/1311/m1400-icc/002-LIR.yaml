@@ -17,7 +17,8 @@ data:
     carrier_code: 1UND1
     contact: Auftragskoordination
     tel: "+49 2602 963824"
-    email: ocm-auftragskoordination@1und1.de
+    email:
+    - ocm-auftragskoordination@1und1.de
   - country_or_area:
       en: Germany
     company_name: energis GmbH
@@ -35,5 +36,6 @@ data:
     contact: Mr Holger Witt
     tel: "+49 7248 4528 130"
     fax: "+49 7248 4528 230"
-    email: h.witt@skytron.de
+    email:
+    - h.witt@skytron.de
   notes: []

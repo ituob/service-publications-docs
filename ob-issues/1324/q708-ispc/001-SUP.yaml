@@ -1,11 +1,12 @@
 type: SUP
-date_requested:
-date_active:
+date_requested: &1 2024-06-01
+date_active: *1
 ob_issue_no: '1324'
 reference: OB-1324
 identifier:
   code: 1324-001
 data:
+  _class: Q708ISPCAmendment
   entries:
   - ipsc: 2-199-5
     country:
@@ -19,3 +20,8 @@ data:
     dec: '5694'
     signal_point_name: STP EST2
     signal_point_operator: CLOUD COMMUNICATIONS OÜ
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

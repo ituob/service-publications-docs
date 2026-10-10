@@ -1,11 +1,12 @@
 type: ADD
-date_requested:
-date_active:
+date_requested: 2024-0-1
+date_active: 2024-0-1
 ob_issue_no: '1321'
 reference: OB-1321
 identifier:
-  code: 1321-001
+  code: 1321-002
 data:
+  _class: E118Amendment
   entries:
   - country_or_area:
       en: Global
@@ -22,3 +23,6 @@ data:
     - Roaming-DE@telefonica.com
     issue_id_number: 89 883 15
     effective_date: 1.II.2025
+  notes:
+  - __________
+  - See page 5 of the present Operational Bulletin No. 1321 of 1.VIII.2025.

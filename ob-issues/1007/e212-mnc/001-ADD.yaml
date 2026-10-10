@@ -4,15 +4,371 @@ date_active:
 ob_issue_no: '1007'
 reference: OB-1007
 identifier:
-  code: P 3
+  code: P 32
 data:
   _class: E212MNCAmendment
-  position: P 3
+  position: P 32
   entries:
   - mcc_mnc_codes: 365 840
     country_or_area:
       en: Anguilla
     networks: Cable and Wireless (Anguilla) Limited trading as LIME
+  - mcc_mnc_codes: 344 920
+    country_or_area:
+      en: Antigua
+    networks: Cable & Wireless Antigua and Barbuda Limited trading as LIME
+  - mcc_mnc_codes: 342 600
+    country_or_area:
+      en: Barbados
+    networks: Cable & Wireless (Barbados) Limited
+  - mcc_mnc_codes: 348 170
+    country_or_area:
+      en: British Virgin Islands
+    networks: Cable and Wireless (BVI) Limited trading as LIME
+  - mcc_mnc_codes: 302 22
+    country_or_area:
+      en: '["Canada"]'
+    networks: Telus Mobility
+  - mcc_mnc_codes: 302 221
+    country_or_area:
+      en: '["Canada"]'
+    networks: Telus Mobility (testing)
+  - mcc_mnc_codes: 302 25
+    country_or_area:
+      en: '["Canada"]'
+    networks: ALO Mobile Inc.
+  - mcc_mnc_codes: 302 27
+    country_or_area:
+      en: '["Canada"]'
+    networks: Bragg Communications
+  - mcc_mnc_codes: 302 29
+    country_or_area:
+      en: '["Canada"]'
+    networks: Airtel Wireless
+  - mcc_mnc_codes: 302 32
+    country_or_area:
+      en: '["Canada"]'
+    networks: DAVE Wireless
+  - mcc_mnc_codes: 302 34
+    country_or_area:
+      en: '["Canada"]'
+    networks: Execulink
+  - mcc_mnc_codes: 302 36
+    country_or_area:
+      en: '["Canada"]'
+    networks: Telus Mobility
+  - mcc_mnc_codes: 302 37
+    country_or_area:
+      en: '["Canada"]'
+    networks: Microcell
+  - mcc_mnc_codes: 302 38
+    country_or_area:
+      en: '["Canada"]'
+    networks: Dryden Mobility
+  - mcc_mnc_codes: 302 39
+    country_or_area:
+      en: '["Canada"]'
+    networks: Dryden Mobility
+  - mcc_mnc_codes: 302 49
+    country_or_area:
+      en: '["Canada"]'
+    networks: Globalive Wireless
+  - mcc_mnc_codes: 302 50
+    country_or_area:
+      en: '["Canada"]'
+    networks: Videotron Ltd.
+  - mcc_mnc_codes: 302 51
+    country_or_area:
+      en: '["Canada"]'
+    networks: Videotron Ltd.
+  - mcc_mnc_codes: 302 56
+    country_or_area:
+      en: '["Canada"]'
+    networks: Lynx Mobility
+  - mcc_mnc_codes: 302 57
+    country_or_area:
+      en: '["Canada"]'
+    networks: LightSquared
+  - mcc_mnc_codes: 302 59
+    country_or_area:
+      en: '["Canada"]'
+    networks: Quadro Communication
+  - mcc_mnc_codes: 302 61
+    country_or_area:
+      en: '["Canada"]'
+    networks: Bell Mobility
+  - mcc_mnc_codes: 302 62
+    country_or_area:
+      en: '["Canada"]'
+    networks: Ice Wireless
+  - mcc_mnc_codes: 302 63
+    country_or_area:
+      en: '["Canada"]'
+    networks: Aliant Mobility
+  - mcc_mnc_codes: 302 64
+    country_or_area:
+      en: '["Canada"]'
+    networks: Bell Mobility
+  - mcc_mnc_codes: 302 65
+    country_or_area:
+      en: '["Canada"]'
+    networks: Tbay Mobility
+  - mcc_mnc_codes: 302 66
+    country_or_area:
+      en: '["Canada"]'
+    networks: MTS Mobility
+  - mcc_mnc_codes: 302 67
+    country_or_area:
+      en: '["Canada"]'
+    networks: CityTel Mobility
+  - mcc_mnc_codes: 302 68
+    country_or_area:
+      en: '["Canada"]'
+    networks: SaskTel Mobility
+  - mcc_mnc_codes: 302 71
+    country_or_area:
+      en: '["Canada"]'
+    networks: Globalstar
+  - mcc_mnc_codes: 302 72
+    country_or_area:
+      en: '["Canada"]'
+    networks: Rogers Wireless
+  - mcc_mnc_codes: 302 73
+    country_or_area:
+      en: '["Canada"]'
+    networks: TerreStar Solutions
+  - mcc_mnc_codes: 302 76
+    country_or_area:
+      en: '["Canada"]'
+    networks: Public Mobile Inc.
+  - mcc_mnc_codes: 302 77
+    country_or_area:
+      en: '["Canada"]'
+    networks: Rural Com
+  - mcc_mnc_codes: 302 78
+    country_or_area:
+      en: '["Canada"]'
+    networks: SaskTel Mobility
+  - mcc_mnc_codes: 302 86
+    country_or_area:
+      en: '["Canada"]'
+    networks: Telus Mobility
+  - mcc_mnc_codes: 302 88
+    country_or_area:
+      en: '["Canada"]'
+    networks: Telus/Bell shared
+  - mcc_mnc_codes: 302 94
+    country_or_area:
+      en: '["Canada"]'
+    networks: Wightman Telecom
+  - mcc_mnc_codes: 346 140
+    country_or_area:
+      en: Cayman Islands
+    networks: Cable and Wireless (Cayman Islands) Limited trading as LIME
+  - mcc_mnc_codes: 366 110
+    country_or_area:
+      en: Dominica
+    networks: Cable & Wireless Dominica Limited trading as LIME
+  - mcc_mnc_codes: 208  01
+    country_or_area:
+      en: '["France"]'
+    networks: Orange France
+  - mcc_mnc_codes: 208  02
+    country_or_area:
+      en: '["France"]'
+    networks: Orange France
+  - mcc_mnc_codes: 208  03
+    country_or_area:
+      en: '["France"]'
+    networks: MobiquiThings
+  - mcc_mnc_codes: 208  04
+    country_or_area:
+      en: '["France"]'
+    networks: SISTEER
+  - mcc_mnc_codes: 208  05
+    country_or_area:
+      en: '["France"]'
+    networks: Globalstar Europe
+  - mcc_mnc_codes: 208  06
+    country_or_area:
+      en: '["France"]'
+    networks: Globalstar Europe
+  - mcc_mnc_codes: 208  07
+    country_or_area:
+      en: '["France"]'
+    networks: Globalstar Europe
+  - mcc_mnc_codes: 208  09
+    country_or_area:
+      en: '["France"]'
+    networks: SFR
+  - mcc_mnc_codes: 208  10
+    country_or_area:
+      en: '["France"]'
+    networks: SFR
+  - mcc_mnc_codes: 208  11
+    country_or_area:
+      en: '["France"]'
+    networks: SFR
+  - mcc_mnc_codes: 208  13
+    country_or_area:
+      en: '["France"]'
+    networks: SFR
+  - mcc_mnc_codes: 208  14
+    country_or_area:
+      en: '["France"]'
+    networks: RFF
+  - mcc_mnc_codes: 208  15
+    country_or_area:
+      en: '["France"]'
+    networks: Free Mobile
+  - mcc_mnc_codes: 208  20
+    country_or_area:
+      en: '["France"]'
+    networks: Bouygues Telecom
+  - mcc_mnc_codes: 208  21
+    country_or_area:
+      en: '["France"]'
+    networks: Bouygues Telecom
+  - mcc_mnc_codes: 208  22
+    country_or_area:
+      en: '["France"]'
+    networks: Transatel
+  - mcc_mnc_codes: 208  23
+    country_or_area:
+      en: '["France"]'
+    networks: Omer Telecom Limited
+  - mcc_mnc_codes: 208  24
+    country_or_area:
+      en: '["France"]'
+    networks: MobiquiThings
+  - mcc_mnc_codes: 208  25
+    country_or_area:
+      en: '["France"]'
+    networks: Lycamobile
+  - mcc_mnc_codes: 208  26
+    country_or_area:
+      en: '["France"]'
+    networks: NRJ Mobile
+  - mcc_mnc_codes: 208  27
+    country_or_area:
+      en: '["France"]'
+    networks: Afone
+  - mcc_mnc_codes: 208  28
+    country_or_area:
+      en: '["France"]'
+    networks: Astrium
+  - mcc_mnc_codes: 208  29
+    country_or_area:
+      en: '["France"]'
+    networks: Société International Mobile Communication
+  - mcc_mnc_codes: 208  30
+    country_or_area:
+      en: '["France"]'
+    networks: Symacom
+  - mcc_mnc_codes: 208  31
+    country_or_area:
+      en: '["France"]'
+    networks: Mundio Mobile
+  - mcc_mnc_codes: 208  88
+    country_or_area:
+      en: '["France"]'
+    networks: Bouygues Telecom
+  - mcc_mnc_codes: 208  89
+    country_or_area:
+      en: '["France"]'
+    networks: Omer Telecom Limited
+  - mcc_mnc_codes: 208  90
+    country_or_area:
+      en: '["France"]'
+    networks: Images&Réseaux
+  - mcc_mnc_codes: 208  91
+    country_or_area:
+      en: '["France"]'
+    networks: Orange France
+  - mcc_mnc_codes: 352 110
+    country_or_area:
+      en: Grenada
+    networks: Cable & Wireless Grenada Limited trading as LIME
+  - mcc_mnc_codes: 338 110
+    country_or_area:
+      en: Jamaica
+    networks: Cable & Wireless Jamaica Limited trading as LIME
+  - mcc_mnc_codes: 354 860
+    country_or_area:
+      en: Montserrat
+    networks: Cable and Wireless (West Indies) Limited trading as LIME
+  - mcc_mnc_codes: 356 110
+    country_or_area:
+      en: St. Kitts and Nevis
+    networks: Cable & Wireless St. Kitts & Nevis Limited trading as LIME
+  - mcc_mnc_codes: 358 110
+    country_or_area:
+      en: St. Lucia
+    networks: Cable & Wireless (St. Lucia) Limited trading as LIME
+  - mcc_mnc_codes: 360 110
+    country_or_area:
+      en: St. Vincent and the Grenadines
+    networks: Cable & Wireless St. Vincent and the Grenadines Limited trading as LIME
+  - mcc_mnc_codes: 214 01
+    country_or_area:
+      en: Spain
+    networks: Vodafone España, SAU
+  - mcc_mnc_codes: 214 03
+    networks: France Telecom España, SA
+  - mcc_mnc_codes: 214 04
+    networks: Xfera Móviles, SA
+  - mcc_mnc_codes: 214 05
+    networks: Telefónica Móviles España, SAU
+  - mcc_mnc_codes: 214 06
+    networks: Vodafone España, SAU
+  - mcc_mnc_codes: 214 07
+    networks: Telefónica Móviles España, SAU
+  - mcc_mnc_codes: 214 08
+    networks: Euskaltel, SA
+  - mcc_mnc_codes: 214 09
+    networks: France Telecom España, SA
+  - mcc_mnc_codes: 214 10
+    networks: Operadora de Telecomunicaciones Opera, SL
+  - mcc_mnc_codes: 214 11
+    networks: France Telecom España, SA
+  - mcc_mnc_codes: 214 12
+    networks: Contacta Servicios avanzados de Telecomunicaciones, SL
+  - mcc_mnc_codes: 214 13
+    networks: Incotel Ingeniería y consultoria, SL
+  - mcc_mnc_codes: 214 14
+    networks: Incotel Servicioz Avanzados,SL
+  - mcc_mnc_codes: 214 15
+    networks: BT España Compañia de Servicios Globales de
+  - mcc_mnc_codes: 214 16
+    networks: Telecable de Asturias, SAU
+  - mcc_mnc_codes: 214 17
+    networks: R Cable y Telecomunicaciones Galicia, SA
+  - mcc_mnc_codes: 214 18
+    networks: Cableuropa, SAU
+  - mcc_mnc_codes: 214 19
+    networks: E-Plus Móviles, SL
+  - mcc_mnc_codes: 214 20
+    networks: Fonyou Telecom, SL
+  - mcc_mnc_codes: 214 21
+    networks: Jazz Telecom, SAU
+  - mcc_mnc_codes: 214 22
+    networks: Best Spain Telecom, SL
+  - mcc_mnc_codes: 214 24
+    networks: Vizzavi España, SL
+  - mcc_mnc_codes: 214 25
+    networks: Lycamobile, SL
+  - mcc_mnc_codes: 214 26
+    networks: Lleida Networks Serveis Telemátics, SL             
+  - mcc_mnc_codes: 214 27
+    networks: SCN Truphone, SL
+  - mcc_mnc_codes: 228        02 228        12
+    country_or_area:
+      en: Switzerland
+    networks: Sunrise Communications AG
+  - mcc_mnc_codes: 376 350
+    country_or_area:
+      en: Turks & Caicos Islands
+    networks: Cable and Wireless (TCI) Limited
   notes:
   - ______________
   - "*MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo de país

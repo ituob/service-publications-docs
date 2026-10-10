@@ -26,6 +26,16 @@ data:
     country_or_area:
       en: " "
     networks: OneWeb
+  - mcc_mnc_codes: "(Country A)"
+    country_or_area:
+      en: Luxembourg
+    networks: 000 x xxx xxx
+    range: 270 77
+  - mcc_mnc_codes: "(Country B – Where the MCC+MNC is to be used extra-territorially)"
+    country_or_area:
+      en: Belgium
+    networks: 800 x xxx xxx; 801 x xxx xxx
+    range: 270 77
   notes:
   - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
     para el servicio móvil"

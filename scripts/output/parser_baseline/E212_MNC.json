@@ -14,8 +14,7 @@
             "networks": "Bluereach Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -34,8 +33,7 @@
             "networks": "Telia Danmark"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -43,8 +41,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 9",
-        "note": "9",
+        "position": "P 28",
+        "note": "28",
         "entries": [
           {
             "mcc_mnc_codes": "238 28",
@@ -52,14 +50,7 @@
               "en": "Denmark"
             },
             "networks": "CoolTEL"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 24",
-        "note": "24",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "297 01",
             "country_or_area": {
@@ -80,14 +71,7 @@
               "en": "[\"Montenegro\"]"
             },
             "networks": "Mtel Montenegro"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 28",
-        "note": "28",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "635 14",
             "country_or_area": {
@@ -96,8 +80,7 @@
             "networks": "AIRTEL RWANDA Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -107,7 +90,7 @@
   "1003": {
     "actions": [
       {
-        "action_type": "ADD",
+        "action_type": "SUP",
         "position": "P 11",
         "note": "11",
         "entries": [
@@ -117,14 +100,7 @@
               "en": "French Polynesia"
             },
             "networks": "Pacific Mobile Telecom"
-          }
-        ]
-      },
-      {
-        "action_type": "SUP",
-        "position": "P 11",
-        "note": "11",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "547 02",
             "country_or_area": {
@@ -133,8 +109,7 @@
             "networks": "Digicel Tahiti"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil                MNC: Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -144,8 +119,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 3",
-        "note": "3",
+        "position": "P 14",
+        "note": "14",
         "entries": [
           {
             "mcc_mnc_codes": "505 23",
@@ -153,14 +128,7 @@
               "en": "Australia"
             },
             "networks": "Challenge Networks Pty Ltd"
-          }
-        ]
-      },
-      {
-        "action_type": "SUP",
-        "position": "P 14",
-        "note": "14",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "216 01",
             "country_or_area": {
@@ -174,14 +142,7 @@
               "en": "[\"Hungary\"]"
             },
             "networks": "Westel Mobile Co."
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 14",
-        "note": "14",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "216 01",
             "country_or_area": {
@@ -197,8 +158,7 @@
             "networks": "Magyar Telecom Plc"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil                MNC: Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -207,9 +167,9 @@
   "1006": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 9",
-        "note": "9",
+        "action_type": "LIR",
+        "position": "P 31",
+        "note": "31",
         "entries": [
           {
             "mcc_mnc_codes": "230 08",
@@ -217,14 +177,7 @@
               "en": "Czech Republic"
             },
             "networks": "Compatel s.r.o"
-          }
-        ]
-      },
-      {
-        "action_type": "by:",
-        "position": "P 27",
-        "note": "27",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "226                 01",
             "country_or_area": {
@@ -259,14 +212,7 @@
           {
             "mcc_mnc_codes": "226                 11",
             "networks": "Enigma-System"
-          }
-        ]
-      },
-      {
-        "action_type": "LIR",
-        "position": "P 31",
-        "note": "31",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "228                         02",
             "country_or_area": {
@@ -281,8 +227,7 @@
             }
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil                MNC: Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -292,8 +237,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 3",
-        "note": "3",
+        "position": "P 32",
+        "note": "32",
         "entries": [
           {
             "mcc_mnc_codes": "365 840",
@@ -301,56 +246,28 @@
               "en": "Anguilla"
             },
             "networks": "Cable and Wireless (Anguilla) Limited trading as LIME"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 3",
-        "note": "3",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "344 920",
             "country_or_area": {
               "en": "Antigua"
             },
             "networks": "Cable & Wireless Antigua and Barbuda Limited trading as LIME"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 5",
-        "note": "5",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "342 600",
             "country_or_area": {
               "en": "Barbados"
             },
             "networks": "Cable & Wireless (Barbados) Limited"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 6",
-        "note": "6",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "348 170",
             "country_or_area": {
               "en": "British Virgin Islands"
             },
             "networks": "Cable and Wireless (BVI) Limited trading as LIME"
-          }
-        ]
-      },
-      {
-        "action_type": "by:",
-        "position": "P 7",
-        "note": "7",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "302 22",
             "country_or_area": {
@@ -588,42 +505,21 @@
               "en": "[\"Canada\"]"
             },
             "networks": "Wightman Telecom"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 7",
-        "note": "7",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "346 140",
             "country_or_area": {
               "en": "Cayman Islands"
             },
             "networks": "Cable and Wireless (Cayman Islands) Limited trading as LIME"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P Dominica",
-        "note": "Dominica",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "366 110",
             "country_or_area": {
               "en": "Dominica"
             },
             "networks": "Cable & Wireless Dominica Limited trading as LIME"
-          }
-        ]
-      },
-      {
-        "action_type": "by:",
-        "position": "P 11",
-        "note": "11",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "208  01",
             "country_or_area": {
@@ -826,98 +722,49 @@
               "en": "[\"France\"]"
             },
             "networks": "Orange France"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P Grenada",
-        "note": "Grenada",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "352 110",
             "country_or_area": {
               "en": "Grenada"
             },
             "networks": "Cable & Wireless Grenada Limited trading as LIME"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 19",
-        "note": "19",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "338 110",
             "country_or_area": {
               "en": "Jamaica"
             },
             "networks": "Cable & Wireless Jamaica Limited trading as LIME"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P Montserrat",
-        "note": "Montserrat",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "354 860",
             "country_or_area": {
               "en": "Montserrat"
             },
             "networks": "Cable and Wireless (West Indies) Limited trading as LIME"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "356 110",
             "country_or_area": {
               "en": "St. Kitts and Nevis"
             },
             "networks": "Cable & Wireless St. Kitts & Nevis Limited trading as LIME"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "358 110",
             "country_or_area": {
               "en": "St. Lucia"
             },
             "networks": "Cable & Wireless (St. Lucia) Limited trading as LIME"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "360 110",
             "country_or_area": {
               "en": "St. Vincent and the Grenadines"
             },
             "networks": "Cable & Wireless St. Vincent and the Grenadines Limited trading as LIME"
-          }
-        ]
-      },
-      {
-        "action_type": "by:",
-        "position": "P 29",
-        "note": "29",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "214 01",
             "country_or_area": {
@@ -1020,25 +867,14 @@
           {
             "mcc_mnc_codes": "214 27",
             "networks": "SCN Truphone, SL"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "228        02 228        12",
             "country_or_area": {
               "en": "Switzerland"
             },
             "networks": "Sunrise Communications AG"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 32",
-        "note": "32",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "376 350",
             "country_or_area": {
@@ -1047,8 +883,7 @@
             "networks": "Cable and Wireless (TCI) Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -1067,8 +902,7 @@
             "networks": "Azerfon LLC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -1085,11 +919,7 @@
               "en": "Sweden"
             },
             "networks": "Interactive digital media GmbH"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "Tele 2 Sverige AB",
             "country_or_area": {
@@ -1099,8 +929,7 @@
             "range": "The Netherlands"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil.  **          MNC: Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil."
@@ -1109,9 +938,9 @@
   "1010": {
     "actions": [
       {
-        "action_type": "SUP",
-        "position": "P 9",
-        "note": "9",
+        "action_type": "ADD",
+        "position": "P 29",
+        "note": "29",
         "entries": [
           {
             "mcc_mnc_codes": "238 30",
@@ -1119,28 +948,14 @@
               "en": "Denmark"
             },
             "networks": "Telia A/S"
-          }
-        ]
-      },
-      {
-        "action_type": "SUP",
-        "position": "P 23",
-        "note": "23",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "646 03",
             "country_or_area": {
               "en": "Madagascar"
             },
             "networks": "MADAMOBIL"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "655 04",
             "country_or_area": {
@@ -1157,8 +972,7 @@
             "networks": "SOUTH AFRICAN POLICE SERVICE"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil.",
@@ -1168,6 +982,9 @@
   "1011": {
     "actions": [
       {
+        "action_type": "by:",
+        "position": "P 5",
+        "note": "5",
         "entries": [
           {
             "mcc_mnc_codes": "350 000",
@@ -1175,14 +992,7 @@
               "en": "Bermuda"
             },
             "networks": "Bermuda Digital Communications Limited (CellOne)"
-          }
-        ]
-      },
-      {
-        "action_type": "by:",
-        "position": "P 5",
-        "note": "5",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "724 00",
             "country_or_area": {
@@ -1291,8 +1101,7 @@
             "networks": "LOCAL (STFC)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil.",
@@ -1302,7 +1111,7 @@
   "1012": {
     "actions": [
       {
-        "action_type": "SUP",
+        "action_type": "ADD",
         "position": "P 9",
         "note": "9",
         "entries": [
@@ -1312,28 +1121,14 @@
               "en": "Czech Republic"
             },
             "networks": "Vodafone Czech Republic a.s. R&D Centre"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 9",
-        "note": "9",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "630 90",
             "country_or_area": {
               "en": "Dem. Rep. of the Congo"
             },
             "networks": "AFFRICELL-RDC"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 9",
-        "note": "9",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "238 04",
             "country_or_area": {
@@ -1342,8 +1137,7 @@
             "networks": "NextGen Mobile Ltd T/A CardBoardFish"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil.",
@@ -1353,9 +1147,9 @@
   "1013": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 19",
-        "note": "19",
+        "action_type": "SUP",
+        "position": "P 31",
+        "note": "31",
         "entries": [
           {
             "mcc_mnc_codes": "425 18 425 20",
@@ -1363,14 +1157,7 @@
               "en": "Israel"
             },
             "networks": "Cellact Communications  Ltd (MVNO) Bezeq Ltd"
-          }
-        ]
-      },
-      {
-        "action_type": "SUP",
-        "position": "P 31",
-        "note": "31",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "228 07",
             "country_or_area": {
@@ -1379,8 +1166,7 @@
             "networks": "In & Phone S.A."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil.",
@@ -1390,6 +1176,9 @@
   "1014": {
     "actions": [
       {
+        "action_type": "ADD",
+        "position": "P 18",
+        "note": "18",
         "entries": [
           {
             "mcc_mnc_codes": "712 04",
@@ -1397,42 +1186,21 @@
               "en": "Costa Rica"
             },
             "networks": "Azules y Platas S.A."
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 8",
-        "note": "8",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "712 04",
             "country_or_area": {
               "en": "Costa Rica"
             },
             "networks": "Telefónica de Costa Rica, TC, S.A."
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 32",
-        "note": "32",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "641 40",
             "country_or_area": {
               "en": "Uganda"
             },
             "networks": "Civil Aviation Authority (CAA)"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 18",
-        "note": "18",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "901 37",
             "country_or_area": {
@@ -1441,8 +1209,7 @@
             "networks": "Transatel"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil.",
@@ -1453,8 +1220,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 4",
-        "note": "4",
+        "position": "P 19",
+        "note": "19",
         "entries": [
           {
             "mcc_mnc_codes": "505 25",
@@ -1462,14 +1229,7 @@
               "en": "Australia"
             },
             "networks": "Pilbara Iron Company (Services) Pty Ltd"
-          }
-        ]
-      },
-      {
-        "action_type": " by",
-        "position": "P 7",
-        "note": "7",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": " 220",
             "country_or_area": {
@@ -1742,28 +1502,14 @@
               "en": "[\"Canada\"]"
             },
             "networks": "Test"
-          }
-        ]
-      },
-      {
-        "action_type": "te)",
-        "position": "P 19",
-        "note": "19",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "338 050",
             "country_or_area": {
               "en": "Jamaica"
             },
             "networks": "Mossel (Jamaica) Ltd."
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 19",
-        "note": "19",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "338 050",
             "country_or_area": {
@@ -1772,8 +1518,7 @@
             "networks": "Digicel (Jamaica) Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*         MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -1783,9 +1528,9 @@
   "1016": {
     "actions": [
       {
-        "action_type": "SUP",
-        "position": "P 9",
-        "note": "9",
+        "action_type": "12)",
+        "position": "P 40",
+        "note": "40",
         "entries": [
           {
             "mcc_mnc_codes": "238 66",
@@ -1793,28 +1538,14 @@
               "en": "Denmark"
             },
             "networks": "Telia A/S"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 9",
-        "note": "9",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "238 66",
             "country_or_area": {
               "en": "Denmark"
             },
             "networks": "TT-Netvaerket P/S"
-          }
-        ]
-      },
-      {
-        "action_type": "SUP",
-        "position": "P 16",
-        "note": "16",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "405 05",
             "country_or_area": {
@@ -2045,14 +1776,7 @@
               "en": " "
             },
             "networks": "Aircell Ltd, Karnataka"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 16",
-        "note": "16",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "405 005",
             "country_or_area": {
@@ -2409,42 +2133,21 @@
               "en": " "
             },
             "networks": "Dishnet Wireless Ltd, Punjab"
-          }
-        ]
-      },
-      {
-        "action_type": "SUP",
-        "position": "P 19",
-        "note": "19",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "272 02",
             "country_or_area": {
               "en": "Irlande"
             },
             "networks": "Digifone MMO2 Ltd, o2 Communications (Ireland) Ltd"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 19",
-        "note": "19",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "272 02",
             "country_or_area": {
               "en": "Ireland"
             },
             "networks": "Telefonica Ireland"
-          }
-        ]
-      },
-      {
-        "action_type": "12)",
-        "position": "P 40",
-        "note": "40",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "Swisscom (Schweiz AG)",
             "country_or_area": {
@@ -2454,17 +2157,16 @@
             "range": "Principality of Liechtenstein"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
   "1017": {
     "actions": [
       {
-        "action_type": "te)",
-        "position": "P 6",
-        "note": "6",
+        "action_type": "ADD",
+        "position": "P 32",
+        "note": "32",
         "entries": [
           {
             "mcc_mnc_codes": "284 01",
@@ -2472,98 +2174,49 @@
               "en": "Bulgaria"
             },
             "networks": "M-Tel GSM BG"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 6",
-        "note": "6",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "284 01",
             "country_or_area": {
               "en": "Bulgaria"
             },
             "networks": "Mobiltel EAD"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 11",
-        "note": "11",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "607           01 607           02 607           03 607           04",
             "country_or_area": {
               "en": "Gambia"
             },
             "networks": "GAMCEL AFRICELL COMIUM QCELL"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 18",
-        "note": "18",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "901 38",
             "country_or_area": {
               "en": "International Mobile, shared code"
             },
             "networks": "Multiregional TransitTelecom (MTT)"
-          }
-        ]
-      },
-      {
-        "action_type": "te)",
-        "position": "P 23",
-        "note": "23",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "295           01 295           02 295           05 295           77",
             "country_or_area": {
               "en": "Liechtenstein"
             },
             "networks": "Telecom FL AG Viag Europlatform AG Mobilkom (Liechstein) AG Tele2 AG"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 23",
-        "note": "23",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "295            01 295            02 295            05 295            06",
             "country_or_area": {
               "en": "Liechtenstein"
             },
             "networks": "Swisscom (Schweiz) AG Orange (Liechtenstein) AG Mobilkom (Liechtenstein) AG Cubic AG"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "655 27",
             "country_or_area": {
               "en": "South Africa"
             },
             "networks": "A to Z Vaal Industrial Supplies Pty Ltd"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 32",
-        "note": "32",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "641 44",
             "country_or_area": {
@@ -2572,17 +2225,16 @@
             "networks": "K2 Telecom Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
   "1018": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
+        "action_type": "LIR",
+        "position": "P 30",
+        "note": "30",
         "entries": [
           {
             "mcc_mnc_codes": "655 19",
@@ -2590,14 +2242,7 @@
               "en": "South Africa"
             },
             "networks": "Wireless Business Solutions (iBurst)"
-          }
-        ]
-      },
-      {
-        "action_type": "LIR",
-        "position": "P 30",
-        "note": "30",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "240 14",
             "country_or_area": {
@@ -2606,8 +2251,7 @@
             "networks": "TDC Sverige AB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil.  **   MNC: Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil."
@@ -2629,10 +2273,6 @@
             "networks": "Nexium Telecommunications"
           },
           {
-            "mcc_mnc_codes": " ",
-            "networks": " "
-          },
-          {
             "mcc_mnc_codes": "302 611",
             "country_or_area": {
               "en": "P 6  Canada SUP"
@@ -2640,19 +2280,11 @@
             "networks": "Bell Mobility"
           },
           {
-            "mcc_mnc_codes": " ",
-            "networks": " "
-          },
-          {
             "mcc_mnc_codes": "302 690",
             "country_or_area": {
               "en": "P  7 Canada ADD"
             },
             "networks": "Bell Mobility"
-          },
-          {
-            "mcc_mnc_codes": " ",
-            "networks": " "
           },
           {
             "mcc_mnc_codes": "514 01",
@@ -2670,8 +2302,7 @@
             "networks": "Viettel Timor-Leste"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil.  **   MNC: Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil."
@@ -2689,8 +2320,7 @@
             "networks": "Shyam Telecom UK Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC:  Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -3045,11 +2675,7 @@
             },
             "networks": "The range dedicated for the Netherlands will not be used in Sweden",
             "range": "The Netherlands"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "520 02",
             "networks": "CAT CDMA"
@@ -3529,11 +3155,7 @@
             },
             "networks": "The range dedicated for the Netherlands will not be used in Sweden",
             "range": "The Netherlands"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "248 09",
             "networks": "Bravo Telecom OÜ"
@@ -3695,11 +3317,7 @@
           {
             "mcc_mnc_codes": "425 21",
             "networks": "B.I.P Communications Ltd."
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": " ",
             "country_or_area": {
@@ -3790,11 +3408,7 @@
           {
             "mcc_mnc_codes": "425 21",
             "networks": "B.I.P Communications Ltd."
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "204 03",
             "networks": "Blyk N.V."
@@ -3827,14 +3441,6 @@
             "networks": "Nextgen Mobile Ltd"
           },
           {
-            "mcc_mnc_codes": " ",
-            "networks": " "
-          }
-        ]
-      },
-      {
-        "entries": [
-          {
             "mcc_mnc_codes": "204 11",
             "networks": "VoipIT B.V."
           },
@@ -3858,8 +3464,7 @@
             "networks": "Breezz Nederland B.V."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -4633,8 +4238,7 @@
             "networks": "Ooredoo"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*      MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -4759,8 +4363,7 @@
             "networks": "inu:it a/s"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*      MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -4840,8 +4443,7 @@
             "networks": "Paratus Telecommunications (Pty)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*          MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -5010,8 +4612,7 @@
             "networks": "GALAXY ENTERTAINMENT DE VENEZUELA C.A."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*    MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -5766,11 +5367,7 @@
           {
             "mcc_mnc_codes": "235 95",
             "networks": "Network Rail Infrastructure Limited"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "MCC+MNC*",
             "country_or_area": {
@@ -5796,8 +5393,7 @@
             "range": "208 01"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*        MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil            MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil  **      MSIN:    Mobile Subscription Identification Number / numéro d'identification d'abonnement mobile / número de identificación de           suscripción al servicio móvil  ***    As defined in Annex E to Recommendation ITU-T E.212, extra-territorial use of an MCC+MNC is the term used to describe the situation where an MCC+MNC that has been assigned to an operator in one country, Country A, is used in another country,             Country B, through a base station established in Country B."
@@ -5813,14 +5409,9 @@
               "en": "International Mobile, shared code ADD"
             },
             "networks": "VisionNG"
-          },
-          {
-            "mcc_mnc_codes": " ",
-            "networks": " "
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC:         Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil                MNC:        Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -6053,8 +5644,7 @@
             "networks": "Sonatel (Orange)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -6100,8 +5690,7 @@
             "networks": "StarHub"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil   MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -6187,8 +5776,7 @@
             "networks": "ORANGE ESPAGNE, S.A. UNIPERSONAL"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil    MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -6214,8 +5802,7 @@
             "networks": "Skycompiler OÜ**"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -6302,11 +5889,7 @@
           {
             "mcc_mnc_codes": "262 43",
             "networks": "Vodafone GmbH"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": " ",
             "country_or_area": {
@@ -6348,11 +5931,7 @@
           {
             "mcc_mnc_codes": "202 16",
             "networks": "INTER TELECOM"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": " ",
             "country_or_area": {
@@ -6411,8 +5990,7 @@
             "networks": "AeroMobile AS"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -6479,8 +6057,7 @@
             "networks": "Hymax Talking Solutions (Pty) Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -6514,8 +6091,7 @@
             "networks": "Telefonaktiebolaget LM Ericsson (MNC assigned for test purpose. Temporary license until 2018-12-31)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*          MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -6614,8 +6190,7 @@
             "networks": "Airtel Tanzania Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -6638,8 +6213,7 @@
             "networks": "DIGI Telecommunication Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -6686,11 +6260,7 @@
           {
             "mcc_mnc_codes": "655 74",
             "networks": "Wireless Business Solutions (Pty) Ltd"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "MCC+MNC*",
             "country_or_area": {
@@ -6732,8 +6302,7 @@
             "range": "0055500000 - 0055599999; 2007200000 - 2007299999"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*        MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -6756,8 +6325,7 @@
             "networks": "DIGI Telecommunication Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -6817,8 +6385,7 @@
             "networks": "Manx Telecom Trading Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -6946,8 +6513,7 @@
             "networks": "Deutsche Telekom AG"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -8086,8 +7652,7 @@
             "networks": "Sprint"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -8125,8 +7690,7 @@
             "networks": "Monaco Telecom"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -8251,8 +7815,7 @@
             "networks": "K2 Telecom Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -8290,8 +7853,7 @@
             "networks": "Com4 Sweden AB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -8391,8 +7953,7 @@
             "networks": "SMS Provider Corp."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -8448,8 +8009,7 @@
             "networks": "Home Office"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -8613,8 +8173,7 @@
             "networks": "Teleena Holding B.V."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -8656,8 +8215,7 @@
             "networks": "Teletok/LTE 4G"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -8702,8 +8260,7 @@
             "networks": "Cisco Systems, Inc."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -8726,8 +8283,7 @@
             "networks": "Groote Eylandt Mining Company Pty Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -8826,8 +8382,7 @@
             "networks": "Lycamobile (Pty) Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -8856,11 +8411,7 @@
           {
             "mcc_mnc_codes": "221 06",
             "networks": "Dardafon.Net LLC"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "214 10",
             "networks": "Operadora de Telecomunicaciones Opera SL"
@@ -8890,8 +8441,7 @@
             "networks": "Fonyou Telecom, SL"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -8946,8 +8496,7 @@
             "networks": "Myanmar National Tele & Communication Co.,Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil  *MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -8980,8 +8529,7 @@
             "networks": "European Telecommunications Standards Institute (ETSI)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9015,8 +8563,7 @@
             "networks": "SAP"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9095,8 +8642,7 @@
             "networks": "Wireless Maingate Messaging Services AB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9150,8 +8696,7 @@
             "networks": "Itissalat Al-Maghrib"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9196,8 +8741,7 @@
             "networks": "BICS SA"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9285,8 +8829,7 @@
             "networks": "PRIVATE JOINT STOCK COMPANY \"TELESYSTEMS OF UKRAINE\" (PJSC \"TELESYSTEMS OF UKRAINE\")"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9320,8 +8863,7 @@
             "networks": "PODA a.s."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9344,8 +8886,7 @@
             "networks": "Vivex OÜ"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9383,8 +8924,7 @@
             "networks": "SAKURA Internet Inc."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9483,8 +9023,7 @@
             "networks": "ZINNIA TELECOMUNICACIONES, S.L.U."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9540,8 +9079,7 @@
             "networks": "Drillisch Online AG"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9597,8 +9135,7 @@
             "networks": "MessageBird B.V."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9717,8 +9254,7 @@
             "networks": "Telenabler AB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9756,8 +9292,7 @@
             "networks": "Compatel Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9871,8 +9406,7 @@
             "networks": "Mundio Mobile Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -9906,8 +9440,7 @@
             "networks": "A.B.C. Allen Business Communications Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10002,8 +9535,7 @@
             "networks": "CG Networks"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10037,8 +9569,7 @@
             "networks": "Monaco Telecom"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10065,8 +9596,7 @@
             "networks": "The Tokyo Organising Committee of the Olympic and Paralympic Games"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10100,8 +9630,7 @@
             "networks": "QCELL SIERRA LEONE"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10204,11 +9733,7 @@
           {
             "mcc_mnc_codes": "208 98",
             "networks": "Société Air France"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": " ",
             "country_or_area": {
@@ -10304,8 +9829,7 @@
             "networks": "Infraestruturas de Portugal, S.A."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10348,11 +9872,7 @@
               "en": " "
             },
             "networks": "OneWeb"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "(Country A)",
             "country_or_area": {
@@ -10370,8 +9890,7 @@
             "range": "270 77"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10394,8 +9913,7 @@
             "networks": "UAB Raystorm Eesti filiaal"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10422,8 +9940,7 @@
             "networks": "Amara Communication Co.,Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10446,8 +9963,7 @@
             "networks": "Premium Net International SRL LTD"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10470,8 +9986,7 @@
             "networks": "VODAFONE ESPAÑA, S.A.U."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10498,8 +10013,7 @@
             "networks": "Sunrise Communications AG"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10637,8 +10151,7 @@
             "networks": "SAC CONVERGENT AGGREGATION SERVICES, S.L.U."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10691,8 +10204,7 @@
             "networks": "Telemach d.o.o."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10734,8 +10246,7 @@
             "networks": "VODACOM LESOTHO"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10760,11 +10271,7 @@
           {
             "mcc_mnc_codes": "414 23",
             "networks": "Global Technology Co., Ltd"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": " ",
             "country_or_area": {
@@ -10777,8 +10284,7 @@
             "networks": "MulteFire Alliance"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10812,8 +10318,7 @@
             "networks": "ENTIDAD PÚBLICA EMPRESARIAL ADMINISTRADOR DE INFRAESTRUCTURAS FERROVIARIAS"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10873,8 +10378,7 @@
             "networks": "MTN Management Services"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10908,8 +10412,7 @@
             "networks": "Trafikverket centralfunktion IT"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -10963,11 +10466,7 @@
           {
             "mcc_mnc_codes": "288 03",
             "networks": "Sp/f Tosa"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": " ",
             "country_or_area": {
@@ -10999,8 +10498,7 @@
             "networks": "World’s Global Telecom (temporary assignment for trial until 14.I.2020)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -11076,8 +10574,7 @@
             "networks": "Mundio Mobile (Portugal) Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -11202,8 +10699,7 @@
             "networks": "Gmobile"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -11261,8 +10757,7 @@
             "networks": "\"Telesystems of Ukraine\" PrJSC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -11322,8 +10817,7 @@
             "networks": "Limitless Mobile, LLC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -11357,8 +10851,7 @@
             "networks": "Telecom26 AG"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -11418,8 +10911,7 @@
             "networks": "Fink Telecom Services"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -11453,8 +10945,7 @@
             "networks": "Fink Telecom Services"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -11488,8 +10979,7 @@
             "networks": "Sema Mobile Services Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -11512,8 +11002,7 @@
             "networks": "\"Datacomm\" LTD"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -11547,8 +11036,7 @@
             "networks": "CYTA"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil  *MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -11585,11 +11073,7 @@
             "networks": "Lycamobile Network services Uganda Limited"
           }
         ]
-      },
-      {
-        "entries": null
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -11683,8 +11167,7 @@
             "networks": "Maersk Line A/S"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -11746,8 +11229,7 @@
             "networks": "Tismi BV"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -11778,8 +11260,7 @@
             "networks": "Telefónica Móviles España, SAU"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -11801,8 +11282,7 @@
             "networks": "\"Atlantis Telecom\", LLC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -11829,8 +11309,7 @@
             "networks": "FKB Net Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -11848,8 +11327,7 @@
             "networks": "Blue Canada Wireless Inc"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -11915,8 +11393,7 @@
             "networks": "R CABLE Y TELECOMUNICACIONES GALICIA, S.A."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -11934,8 +11411,7 @@
             "networks": "Data on Tap Inc."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -12001,8 +11477,7 @@
             "networks": "AM Wireless Uruguay S.A. (Claro)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -12022,8 +11497,7 @@
             "networks": "Premium Net International S.R.L. Eesti filiaal"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -12091,8 +11565,7 @@
             "networks": "MTN Syria"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -12130,8 +11603,7 @@
             "networks": "UN Office for the Coordination of Humanitarian Affairs (OCHA) - Reserved"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -12187,8 +11659,7 @@
             "networks": "Legos"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil    MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -12232,8 +11703,7 @@
             "networks": "Dukagjini Telecommunications LLC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -12267,8 +11737,7 @@
             "networks": "VODAFONE ESPAÑA, S.A.U."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*   MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -12328,8 +11797,7 @@
             "networks": "World's Global Telecom (temporary assignment for trial until 14.I.2021)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*    MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -12363,8 +11831,7 @@
             "networks": "Net Feasa Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -12398,8 +11865,7 @@
             "networks": "Hutchison Telecommunications Lanka (Pvt) Ltd. (Valid until 12 September 2021)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -12433,8 +11899,7 @@
             "networks": "Compatel Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -12468,8 +11933,7 @@
             "networks": "Primlight AB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -12525,8 +11989,7 @@
             "networks": "One Network B.V."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -12571,8 +12034,7 @@
             "networks": "Tampnet AS"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -12621,8 +12083,7 @@
             "networks": "MO Mobile Holding Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -13233,8 +12694,7 @@
             "networks": "Vodafone Malta (Monaco Telecom)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -13268,8 +12728,7 @@
             "networks": "Digicel"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -13314,8 +12773,7 @@
             "networks": "Mobile Telecommunications Company K.S.C.P. (Formerly Zain Kuwait)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -13383,8 +12841,7 @@
             "networks": "A1 Telekom Austria AG"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -13429,8 +12886,7 @@
             "networks": "Vectone Mobile Limited, London"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -13464,8 +12920,7 @@
             "networks": "Bouygues Telecom"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -13492,8 +12947,7 @@
             "networks": "SaskTel Mobility"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -13590,8 +13044,7 @@
             "networks": "AT&T COMUNICACIONES DIGITALES, S. DE R.L. DE C.V."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -13629,8 +13082,7 @@
             "networks": "Infura Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -13686,8 +13138,7 @@
             "networks": "Tele2 Sverige Aktiebolag (Formerly Tele2 IoT)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -13900,11 +13351,7 @@
           {
             "mcc_mnc_codes": "240 26",
             "networks": "Twilio Ireland Ltd."
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "270 77",
             "networks": "LIR"
@@ -13926,8 +13373,7 @@
             "range": "270 77"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*              MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -13963,11 +13409,7 @@
           {
             "mcc_mnc_codes": "278 77",
             "networks": "Melita Ltd"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "(Country A)",
             "country_or_area": {
@@ -13985,8 +13427,7 @@
             "range": "270 99"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14035,8 +13476,7 @@
             "networks": "Cable & Wireless"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14059,9 +13499,7 @@
             "networks": "Inovia Services SA"
           }
         ]
-      },
-      {},
-      {}
+      }
     ],
     "notes": []
   },
@@ -14081,8 +13519,7 @@
             "networks": "MulteFire Alliance"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14105,8 +13542,7 @@
             "networks": "Fortescue Metals Group Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14140,8 +13576,7 @@
             "networks": "SURF TELECOM S.A."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14208,8 +13643,7 @@
             "networks": "World's Global Telecom (end of temporary assignment for trial on 15.I.2021)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14270,8 +13704,7 @@
             "networks": "China Mobile Hong Kong Company Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14292,11 +13725,7 @@
           {
             "mcc_mnc_codes": "270 05",
             "networks": "Luxembourg Online S.A."
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "901 78",
             "networks": "Telecom Italia Sparkle S.p.A."
@@ -14317,8 +13746,7 @@
             "networks": "Halys SAS (temporary assignment for trial until 5.IV.2022)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14363,8 +13791,7 @@
             "networks": "Cobira ApS"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14424,8 +13851,7 @@
             "networks": "Intellico AG"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14474,8 +13900,7 @@
             "networks": "Airnity SAS"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14539,8 +13964,7 @@
             "networks": "Hamilton Telecom Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14574,8 +13998,7 @@
             "networks": "YOM"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14609,8 +14032,7 @@
             "networks": "K2015315513 (Pty) Ltd t\\a One Telecom (Pty) Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14679,18 +14101,13 @@
           {
             "mcc_mnc_codes": "901 83",
             "networks": "iBasis Netherlands BV"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "991 02",
             "networks": "Orange (temporary assignment for trial until 6.VIII.2022)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14735,8 +14152,7 @@
             "networks": "Telkom SA SOC Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14763,8 +14179,7 @@
             "networks": "Tismi BV"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*         MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14817,8 +14232,7 @@
             "networks": "MTN Zambia Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14971,8 +14385,7 @@
             "networks": "closip, Inc."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*       MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -14995,8 +14408,7 @@
             "networks": "UN Office for the Coordination of Humanitarian Affairs (OCHA)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15023,8 +14435,7 @@
             "networks": "Hutchison Telecommunications Lanka (Pvt) Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15062,8 +14473,7 @@
             "networks": "Telefónica Germany GmbH & Co. OHG"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15086,8 +14496,7 @@
             "networks": "GloTell B.V."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15136,8 +14545,7 @@
             "networks": "Dense Air New Zealand Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15179,8 +14587,7 @@
             "networks": "Grupo de Comunicaciones Digitales, S.A. (TIGO)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15267,8 +14674,7 @@
             "networks": "Cisco Systems, Inc."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15400,8 +14806,7 @@
             "networks": "World Mobile Group Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*       MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15625,8 +15030,7 @@
             "networks": "SAS SPM Telecom"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*       MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15653,8 +15057,7 @@
             "networks": "Novatel d.o.o."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15714,8 +15117,7 @@
             "networks": "SkyFive AG"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*         MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15753,8 +15155,7 @@
             "networks": "WIA Company Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*         MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15777,8 +15178,7 @@
             "networks": "SYMA MOBILE ESPAÑA, S.L."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -15801,8 +15201,7 @@
             "networks": "Airtel Wireless"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*    MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16007,8 +15406,7 @@
             "networks": "Orange (end of temporary assignment for trial on 7.VIII.2022)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16186,8 +15584,7 @@
             "networks": "XFERA MÓVILES, S.A. UNIPERSONAL"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16210,8 +15607,7 @@
             "networks": "Yettel Hungary Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*    MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16267,8 +15663,7 @@
             "networks": "SORACOM CORPORATION, LTD."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*    MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16302,8 +15697,7 @@
             "networks": "LINK Mobile A/S"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*      MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16375,8 +15769,7 @@
             "networks": "XFERA MÓVILES, S.A.U."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16410,8 +15803,7 @@
             "networks": "BebbiCell AG (Formerly Global Networks Switzerland AG"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16521,8 +15913,7 @@
             "networks": "HMD Global Oy"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16549,8 +15940,7 @@
             "networks": "ENDESA DISTRIBUCIÓN ELÉCTRICA, S.L."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16584,8 +15974,7 @@
             "networks": "KORE Wireless"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16623,8 +16012,7 @@
             "networks": "Ligado Networks Corp."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*         MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16738,8 +16126,7 @@
             "networks": "Beezz Communication Solutions Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16795,8 +16182,7 @@
             "networks": "Satelio IoT Services S.L."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16844,8 +16230,7 @@
             "networks": "Flo Live Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16890,8 +16275,7 @@
             "networks": "Halys SAS (end of temporary assignment for trial on 6.IV.2022)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16940,8 +16324,7 @@
             "networks": "Athalos Global Services BV"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -16975,8 +16358,7 @@
             "networks": "Bredband2 Allmänna IT AB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*    MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -17590,8 +16972,7 @@
             "networks": "Hologram"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -17614,8 +16995,7 @@
             "networks": "Spusu AG"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*       MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -17638,8 +17018,7 @@
             "networks": "EuTel AB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*       MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -17673,8 +17052,7 @@
             "networks": "GlobalmatiX AG"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -17750,8 +17128,7 @@
             "networks": "Boldyn Networks Transit US LLC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*         MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -17796,8 +17173,7 @@
             "networks": "Talkio Mobile Limited."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*       MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -17820,8 +17196,7 @@
             "networks": "CiFi Pty Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*       MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -17944,8 +17319,7 @@
             "networks": "Texas A&M University – ITEC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -17990,8 +17364,7 @@
             "networks": "NTT Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18036,8 +17409,7 @@
             "networks": "Nauru Telikom Corporation"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil  MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -18134,8 +17506,7 @@
             "networks": "China Telecommunications Corporation"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18262,8 +17633,7 @@
             "networks": "Truphone Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18308,8 +17678,7 @@
             "networks": "YATECO OÜ"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18377,8 +17746,7 @@
             "networks": "Omnispace LLC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil.",
@@ -18450,8 +17818,7 @@
             "networks": "AMPER SISTEMAS, S.A.U."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18522,8 +17889,7 @@
             "networks": "HM EI Zrt."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18610,8 +17976,7 @@
             "networks": "Beeline Telecoms Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18645,8 +18010,7 @@
             "networks": "BSE Software GmbH"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18742,8 +18106,7 @@
             "networks": "GOBIERNO VASCO"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18764,11 +18127,7 @@
           {
             "mcc_mnc_codes": "228 73",
             "networks": "iWay AG"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "(Country A)",
             "country_or_area": {
@@ -18786,8 +18145,7 @@
             "range": "270 07"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18858,8 +18216,7 @@
             "networks": "Myndigheten för samhällsskydd och beredskap (MSB) / Swedish Civil Contingencies Agency - Used for private network (PPDR network (Rakel G2))"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18882,8 +18239,7 @@
             "networks": "OpenMobile Inc."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18932,8 +18288,7 @@
             "networks": "Mediafon Carrier Services UAB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -18967,8 +18322,7 @@
             "networks": "OLAMO MOBILE, S.L. UNIPERSONAL"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -19047,8 +18401,7 @@
             "networks": "Mobile Telecommunications Company K.S.C.P. /Zain Bahrain BSC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -19093,8 +18446,7 @@
             "networks": "Xplore Inc."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -19136,8 +18488,7 @@
             "networks": "Eureka Wireless K.K."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -19215,8 +18566,7 @@
             "networks": "E-Space Inc. (temporary assignment for trial until 17.X.2025)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -19239,8 +18589,7 @@
             "networks": "Telavox AB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -19386,8 +18735,7 @@
             "networks": "Limited Liability Company \"International Telecommunications\""
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -19410,8 +18758,7 @@
             "networks": "Capricorn Connect"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -19472,8 +18819,7 @@
             "networks": "TELEVISIÓN INTERNACIONAL, S.A. DE C.V."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -19788,8 +19134,7 @@
             "networks": "CETIN/CETIN Networks, s. r. o."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -19871,8 +19216,7 @@
             "networks": "Bird B.V. (formerly MessageBird B.V.)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -19980,8 +19324,7 @@
             "networks": "CENTRE DE TELECOMUNICACIONS I TECNOLOGIES DE LA INFORMACIÓ DE LA GENERALITAT DE CATALUNYA"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -20048,8 +19391,7 @@
             "networks": "Wireless Maritime Services, LLC (Formerly Cingular Wireless)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -20083,8 +19425,7 @@
             "networks": "AMPER SISTEMAS, S.A.U."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -20163,8 +19504,7 @@
             "networks": "KORE Wireless (Formerly Twilio Inc.)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -20262,8 +19602,7 @@
             "networks": "SAIMA TELECOM JSC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -20606,8 +19945,7 @@
             "networks": "Tecore Global Services, LLC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -20641,8 +19979,7 @@
             "networks": "Inovia Services SA"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -20669,8 +20006,7 @@
             "networks": "Spark NZT"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -20704,8 +20040,7 @@
             "networks": "Schweizerische Bundesbahn SBB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -20766,8 +20101,7 @@
             "networks": "Phonegroup SA"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -20917,8 +20251,7 @@
             "networks": "Giesecke+Devrient Mobile Security TCD UK Limited (Formerly Podsystem Ltd.)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -20967,8 +20300,7 @@
             "networks": "\"Kyivstar\" PrJSC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21045,8 +20377,7 @@
             "networks": "Multiregional TransitTelecom (MTT)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21107,8 +20438,7 @@
             "networks": "Ergon Energy Telecommunications Pty Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21142,8 +20472,7 @@
             "networks": "Intergo Telecom OÜ"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21221,8 +20550,7 @@
             "networks": "KaR-Tel LLP"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21282,8 +20610,7 @@
             "networks": "E-Space Inc. (temporary assignment for trial until 17.X.2026)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21306,8 +20633,7 @@
             "networks": "GlobalCell EU Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21345,8 +20671,7 @@
             "networks": "Spark NZT"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21369,8 +20694,7 @@
             "networks": "Västra Götalandsregionen - Used for private network"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21437,8 +20761,7 @@
             "networks": "Telia Sverige AB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21448,58 +20771,122 @@
   "1333": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
-            "mcc_mnc_codes": "MCC + MNC",
-            "networks": "Operator / Network"
-          },
-          {
             "mcc_mnc_codes": "302 354",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Every-Day Computers Inc."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "302 490",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Freedom Mobile Inc."
           },
           {
             "mcc_mnc_codes": "302 490",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Videotron Ltd."
           },
           {
             "mcc_mnc_codes": "302 491",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Videotron Ltd."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "238 14",
+            "country_or_area": {
+              "en": "Denmark"
+            },
             "networks": "Monty UK Global Limited"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "272 27",
+            "country_or_area": {
+              "en": "Ireland"
+            },
             "networks": "TP Ireland Operations Limited"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "240 05",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Svenska UMTS-Nät AB"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "240 20",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Sierra Wireless Sweden AB"
           },
           {
             "mcc_mnc_codes": "240 59",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Myndigheten för civilt försvar (MCF) – Swedish Civil Defence and Resilience Agency – Used for private network (PPDR network (Rakel G2))"
-          },
-          {
-            "mcc_mnc_codes": "228 63",
-            "networks": "Fink Telecom Services"
-          },
-          {
-            "mcc_mnc_codes": "901 47",
-            "networks": "Société française du radiotéléphone (SFR)"
           }
         ]
       },
-      {}
+      {
+        "action_type": "SUP",
+        "entries": [
+          {
+            "mcc_mnc_codes": "228 63",
+            "country_or_area": {
+              "en": "Switzerland"
+            },
+            "networks": "Fink Telecom Services"
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "901 47",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
+            "networks": "Société française du radiotéléphone (SFR)"
+          }
+        ]
+      }
     ],
     "notes": [
       "MCC: Mobile Country Code  MNC: Mobile Network Code"
@@ -21508,18 +20895,17 @@
   "1334": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
-            "mcc_mnc_codes": "MCC + MNC",
-            "networks": "Operator / Network"
-          },
-          {
             "mcc_mnc_codes": "901 57",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "AST & Science, LLC (AST SpaceMobile)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC: Mobile Country Code  MNC: Mobile Network Code"
@@ -21528,30 +20914,53 @@
   "1335": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
-            "mcc_mnc_codes": "MCC + MNC",
-            "networks": "Operator / Network"
-          },
-          {
             "mcc_mnc_codes": "505 54",
+            "country_or_area": {
+              "en": "Australia"
+            },
             "networks": "SimCorner Pty Ltd"
-          },
-          {
-            "mcc_mnc_codes": "712 07",
-            "networks": "RING CENTRALES DE COSTA RICA S.A."
-          },
-          {
-            "mcc_mnc_codes": "262 26",
-            "networks": "Simsalasim Germany GmbH"
-          },
-          {
-            "mcc_mnc_codes": "262 21",
-            "networks": "spusu Deutschland GmbH"
           }
         ]
       },
-      {}
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "712 07",
+            "country_or_area": {
+              "en": "Costa Rica"
+            },
+            "networks": "RING CENTRALES DE COSTA RICA S.A."
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "262 26",
+            "country_or_area": {
+              "en": "Germany"
+            },
+            "networks": "Simsalasim Germany GmbH"
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
+          {
+            "mcc_mnc_codes": "262 21",
+            "country_or_area": {
+              "en": "Germany"
+            },
+            "networks": "spusu Deutschland GmbH"
+          }
+        ]
+      }
     ],
     "notes": [
       "MCC: Mobile Country Code  MNC: Mobile Network Code"
@@ -21560,30 +20969,48 @@
   "1336": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
-            "mcc_mnc_codes": "MCC + MNC",
-            "networks": "Operator / Network"
-          },
-          {
             "mcc_mnc_codes": "228 76",
+            "country_or_area": {
+              "en": "Switzerland"
+            },
             "networks": "1GLOBAL Operations (Switzerland) GmbH"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "901 27",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "Monaco Telecom"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 29",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "Myriota PTY"
           },
           {
             "mcc_mnc_codes": "901 70",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "Bureau 1440 LLC"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC:    Mobile Country Code  MNC:    Mobile Network Code"
@@ -21592,22 +21019,29 @@
   "1337": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
-            "mcc_mnc_codes": "MCC + MNC",
-            "networks": "Operator / Network"
-          },
-          {
             "mcc_mnc_codes": "302 352",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Lytton Area Wireless Society"
-          },
-          {
-            "mcc_mnc_codes": "216 99",
-            "networks": "MÁV Infrastructure Co. Ltd."
           }
         ]
       },
-      {}
+      {
+        "action_type": "LIR",
+        "entries": [
+          {
+            "mcc_mnc_codes": "216 99",
+            "country_or_area": {
+              "en": "Hungary"
+            },
+            "networks": "MÁV Infrastructure Co. Ltd."
+          }
+        ]
+      }
     ],
     "notes": [
       "MCC: Mobile Country Code  MNC: Mobile Network Code"
@@ -21616,18 +21050,17 @@
   "1338": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
-            "mcc_mnc_codes": "MCC + MNC",
-            "networks": "Operator / Network"
-          },
-          {
             "mcc_mnc_codes": "655 20",
+            "country_or_area": {
+              "en": "South Africa"
+            },
             "networks": "Vodacom Pty Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC: Mobile Country Code  MNC: Mobile Network Code"
@@ -21636,34 +21069,55 @@
   "1339": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
-            "mcc_mnc_codes": "MCC + MNC",
-            "networks": "Operator / Network"
-          },
-          {
             "mcc_mnc_codes": "302 151",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Cogeco Connexion Inc."
           },
           {
             "mcc_mnc_codes": "302 152",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Cogeco Connexion Inc."
           },
           {
             "mcc_mnc_codes": "302 160",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Sugar Mobile Inc."
-          },
-          {
-            "mcc_mnc_codes": "302 480",
-            "networks": "SSi Connexions Inc."
-          },
-          {
-            "mcc_mnc_codes": "302 480",
-            "networks": "SSi Micro Ltd."
           }
         ]
       },
-      {}
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "302 480",
+            "country_or_area": {
+              "en": "Canada"
+            },
+            "networks": "SSi Connexions Inc."
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
+          {
+            "mcc_mnc_codes": "302 480",
+            "country_or_area": {
+              "en": "Canada"
+            },
+            "networks": "SSi Micro Ltd."
+          }
+        ]
+      }
     ],
     "notes": [
       "MCC: Mobile Country Code  MNC: Mobile Network Code"
@@ -21672,62 +21126,114 @@
   "1340": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
-            "mcc_mnc_codes": "MCC + MNC",
-            "networks": "Operator / Network"
-          },
-          {
             "mcc_mnc_codes": "302 724",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Rogers Communications Canada Inc. (Wireless)"
           },
           {
             "mcc_mnc_codes": "302 725",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Rogers Communications Canada Inc. (Wireless)"
           },
           {
             "mcc_mnc_codes": "302 821",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Rogers Communications Canada Inc. (Wireless)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "302 790",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Manitoba NetSet Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "302 790",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Xplore Inc."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "730 19",
+            "country_or_area": {
+              "en": "Chile"
+            },
             "networks": "Sociedad Falabella Móvil SPA"
           },
           {
             "mcc_mnc_codes": "730 29",
-            "networks": "Entel PCS Telecomunicaciones S.A."
-          },
-          {
-            "mcc_mnc_codes": "730 28",
-            "networks": "Airtime Chile S.p.A."
-          },
-          {
-            "mcc_mnc_codes": "730 29",
-            "networks": "Telefonica Moviles Chile"
-          },
-          {
-            "mcc_mnc_codes": "730 30",
-            "networks": "Telefonica Moviles Chile"
-          },
-          {
-            "mcc_mnc_codes": "730 31",
-            "networks": "Entel PCS Telecomunicaciones S.A."
-          },
-          {
-            "mcc_mnc_codes": "730 32",
+            "country_or_area": {
+              "en": "Chile"
+            },
             "networks": "Entel PCS Telecomunicaciones S.A."
           }
         ]
       },
-      {}
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "730 28",
+            "country_or_area": {
+              "en": "Chile"
+            },
+            "networks": "Airtime Chile S.p.A."
+          },
+          {
+            "mcc_mnc_codes": "730 29",
+            "country_or_area": {
+              "en": "Chile"
+            },
+            "networks": "Telefonica Moviles Chile"
+          },
+          {
+            "mcc_mnc_codes": "730 30",
+            "country_or_area": {
+              "en": "Chile"
+            },
+            "networks": "Telefonica Moviles Chile"
+          },
+          {
+            "mcc_mnc_codes": "730 31",
+            "country_or_area": {
+              "en": "Chile"
+            },
+            "networks": "Entel PCS Telecomunicaciones S.A."
+          },
+          {
+            "mcc_mnc_codes": "730 32",
+            "country_or_area": {
+              "en": "Chile"
+            },
+            "networks": "Entel PCS Telecomunicaciones S.A."
+          }
+        ]
+      }
     ],
     "notes": [
       "MCC: Mobile Country Code  MNC: Mobile Network Code"
@@ -21736,30 +21242,53 @@
   "1341": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
-            "mcc_mnc_codes": "MCC + MNC",
-            "networks": "Operator / Network"
-          },
-          {
             "mcc_mnc_codes": "505 64",
+            "country_or_area": {
+              "en": "Australia"
+            },
             "networks": "Roam Aussie Pty Ltd"
-          },
-          {
-            "mcc_mnc_codes": "248 34",
-            "networks": "Nettora Systems OÜ"
-          },
-          {
-            "mcc_mnc_codes": "214 12",
-            "networks": "CHADEVA SUR 2001, S.L. UNIPERSONAL"
-          },
-          {
-            "mcc_mnc_codes": "901 33",
-            "networks": "Onomondo ApS"
           }
         ]
       },
-      {}
+      {
+        "action_type": "SUP",
+        "entries": [
+          {
+            "mcc_mnc_codes": "248 34",
+            "country_or_area": {
+              "en": "Estonia"
+            },
+            "networks": "Nettora Systems OÜ"
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "214 12",
+            "country_or_area": {
+              "en": "Spain"
+            },
+            "networks": "CHADEVA SUR 2001, S.L. UNIPERSONAL"
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "901 33",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
+            "networks": "Onomondo ApS"
+          }
+        ]
+      }
     ],
     "notes": [
       "MCC: Mobile Country Code  MNC: Mobile Network Code"
@@ -21768,50 +21297,98 @@
   "1342": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
-            "mcc_mnc_codes": "MCC + MNC",
-            "networks": "Operator / Network"
-          },
-          {
             "mcc_mnc_codes": "302 540",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Rovvr Communications Inc."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "302 540",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "Rovvr Communications Inc."
           },
           {
             "mcc_mnc_codes": "302 770",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "TNW Wireless Inc."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "712 08",
+            "country_or_area": {
+              "en": "Costa Rica"
+            },
             "networks": "COOPERATIVA DE ELECTRIFICACION RURAL DE SAN CARLOS R.L."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "338 111",
+            "country_or_area": {
+              "en": "Jamaica"
+            },
             "networks": "Cable & Wireless Jamaica Ltd."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "455 00",
+            "country_or_area": {
+              "en": "Macao, China"
+            },
             "networks": "SmarTone – Comunicações Móveis, S.A."
           },
           {
             "mcc_mnc_codes": "455 06",
+            "country_or_area": {
+              "en": "Macao, China"
+            },
             "networks": "SmarTone – Comunicações Móveis, S.A."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "455 01",
+            "country_or_area": {
+              "en": "Macao, China"
+            },
             "networks": "Companhia de Telecomunicações de Macau, S.A."
           },
           {
             "mcc_mnc_codes": "455 04",
+            "country_or_area": {
+              "en": "Macao, China"
+            },
             "networks": "Companhia de Telecomunicações de Macau, S.A."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC: Mobile Country Code  MNC: Mobile Network Code"
@@ -21820,18 +21397,17 @@
   "1343": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
-            "mcc_mnc_codes": "MCC + MNC",
-            "networks": "Operator / Network"
-          },
-          {
             "mcc_mnc_codes": "901 51",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "Ligado Networks Subsidiary LLC (\"Ligado Subsidiary\")"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "MCC: Mobile Country Code  MNC: Mobile Network Code"
@@ -21852,8 +21428,7 @@
             "networks": "Touch"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21863,7 +21438,7 @@
   "957": {
     "actions": [
       {
-        "action_type": "LIR",
+        "action_type": "ADD",
         "position": "P 9",
         "note": "9",
         "entries": [
@@ -21873,14 +21448,7 @@
               "en": "Géorgie"
             },
             "networks": "Silknet JSC"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 9",
-        "note": "9",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "547 02",
             "country_or_area": {
@@ -21889,8 +21457,7 @@
             "networks": "Digicel Tahiti"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -21909,8 +21476,7 @@
             "networks": "Digitel Mobile Srl"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil         MNC:   Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -21920,8 +21486,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 32",
-        "note": "32",
+        "position": "P 27",
+        "note": "27",
         "entries": [
           {
             "mcc_mnc_codes": "234 07 234 18 234 26 234 27 235 00 235 92",
@@ -21929,14 +21495,7 @@
               "en": "United Kingdom"
             },
             "networks": "Cable & Wireless UK Cloud9 Lycamobile UK Limted Teleena UK Limited Mundio Mobile Limited Cable & Wireless UK"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 27",
-        "note": "27",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "608 03",
             "country_or_area": {
@@ -21945,8 +21504,7 @@
             "networks": "Expresso Sénégal"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21968,8 +21526,7 @@
             "networks": "Infobip LTD"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -21991,8 +21548,7 @@
             "networks": "J.S.C. “Moldtelecom”"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil         MNC:     Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -22017,11 +21573,7 @@
             "country_or_area": {
               "en": "[\"Chile\"]"
             }
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "452 06",
             "country_or_area": {
@@ -22037,8 +21589,7 @@
             "networks": "EVNTelecom 3G/EVNTelecom"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil         MNC:     Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -22054,44 +21605,28 @@
               "en": "Angola"
             },
             "networks": "Movicel"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "540 02",
             "country_or_area": {
               "en": "Solomon Islands"
             },
             "networks": "Bemobile (BMobile (SI) Ltd)"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "240 26",
             "country_or_area": {
               "en": "Sweden"
             },
             "networks": "Beepsend A.B."
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "641 18 641 30 641 33",
             "country_or_area": {
               "en": "Uganda"
             },
             "networks": "Sure Telecom Uganda Limited Anupam Global Soft Uganda Limited Smile Communications Uganda Limited"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "452 06 452 08",
             "country_or_area": {
@@ -22100,8 +21635,7 @@
             "networks": "EVN Telecom EVN Telecom"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -22123,8 +21657,7 @@
             "networks": "MyIndian AB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -22134,6 +21667,9 @@
   "967": {
     "actions": [
       {
+        "action_type": "ia ",
+        "position": "P 28",
+        "note": "28",
         "entries": [
           {
             "mcc_mnc_codes": "230 05",
@@ -22141,42 +21677,21 @@
               "en": "Czech Rep."
             },
             "networks": "Travel Telekommunikation, s.r.o."
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 23",
-        "note": "23",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "259 05",
             "country_or_area": {
               "en": "Moldova"
             },
             "networks": "J.S.C. “Moldtelecom”/3G UMTS (W-CDMA)"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 24",
-        "note": "24",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "649 02",
             "country_or_area": {
               "en": "Namibia"
             },
             "networks": "Telecom Namibia"
-          }
-        ]
-      },
-      {
-        "action_type": "ia ",
-        "position": "P 28",
-        "note": "28",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "637 70",
             "country_or_area": {
@@ -22185,8 +21700,7 @@
             "networks": "Onkod Telecom Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -22196,9 +21710,9 @@
   "968": {
     "actions": [
       {
-        "action_type": "by:",
-        "position": "P 4",
-        "note": "4",
+        "action_type": "ADD",
+        "position": "P 18",
+        "note": "18",
         "entries": [
           {
             "mcc_mnc_codes": "426 01 426-02 426-03 426 04 426 05",
@@ -22206,14 +21720,7 @@
               "en": "Bahrain"
             },
             "networks": "BATELCO Zain Bahrain Civil Aviation Authority STC Bahrain Royal Court"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 18",
-        "note": "18",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "425 11 425 12",
             "country_or_area": {
@@ -22222,8 +21729,7 @@
             "networks": "365 Telecom (MVNO) Free Telecom (MVNO)"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -22237,11 +21743,7 @@
               "en": "Niue"
             },
             "networks": "Telecom Niue"
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "242 01 242 02 242 03 242 04 242 05 242 06 242 07 242 08 242 09 242 10 242 11 242 12 242 20 242 21 242 22 242 23 242 24",
             "country_or_area": {
@@ -22250,8 +21752,7 @@
             "networks": "Telenor Norge AS NetCom AS Teletopia Gruppen AS Tele2 Norge AS Network Norway AS ICE Norge AS Ventelo Bedrift AS TDC AS Mundio Mobile Norway Limited Post- og teletilsynet Systemnet AS Telenor Norge AS Jernbaneverket Jernbaneverket Network Norway AS Lycamobile Norway Ltd Mobile Norway AS"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -22262,8 +21763,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 8",
-        "note": "8",
+        "position": "P 29",
+        "note": "29",
         "entries": [
           {
             "mcc_mnc_codes": "280 20",
@@ -22271,14 +21772,7 @@
               "en": "Cyprus"
             },
             "networks": "Primetel PLC"
-          }
-        ]
-      },
-      {
-        "action_type": "by:",
-        "position": "P 12",
-        "note": "12",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "202 01",
             "country_or_area": {
@@ -22317,53 +21811,28 @@
           {
             "mcc_mnc_codes": "202 10",
             "networks": "WIND"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 23",
-        "note": "23",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "617 03",
             "country_or_area": {
               "en": "Mauritius"
             },
             "networks": "Mahanagar Telephone (Mauritius) Ltd."
-          }
-        ]
-      },
-      {
-        "action_type": "LIR",
-        "position": "P 27",
-        "note": "27",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "292 01",
             "country_or_area": {
               "en": "San Marino"
             },
             "networks": "Prima San Marino / San Marino Telecom"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "240 28",
             "country_or_area": {
               "en": "Sweden"
             },
             "networks": "CoolTEL Aps A.B."
-          }
-        ]
-      },
-      {
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "553 01",
             "country_or_area": {
@@ -22372,8 +21841,7 @@
             "networks": "Tuvalu Telecommunications Corporation"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -22392,8 +21860,7 @@
             "networks": "Mercury International Carrier Services"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -22419,8 +21886,7 @@
             "networks": "Tele1 Europe"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*         MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -22431,8 +21897,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 8",
-        "note": "8",
+        "position": "P 30",
+        "note": "30",
         "entries": [
           {
             "mcc_mnc_codes": "712 20",
@@ -22440,14 +21906,7 @@
               "en": "Costa Rica"
             },
             "networks": "Virtualis"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 30",
-        "note": "30",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "240 30",
             "country_or_area": {
@@ -22456,17 +21915,16 @@
             "networks": "NextGen Mobile Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
   "976": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 5",
-        "note": "5",
+        "action_type": "LIR",
+        "position": "P 17",
+        "note": "17",
         "entries": [
           {
             "mcc_mnc_codes": "257 03",
@@ -22486,42 +21944,21 @@
           {
             "mcc_mnc_codes": "257 06",
             "networks": "Yota Bel Foreign Limited Liability Company (FLLC)"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 9",
-        "note": "9",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "238 13",
             "country_or_area": {
               "en": "Denmark"
             },
             "networks": "Communicate A/S"
-          }
-        ]
-      },
-      {
-        "action_type": "by:",
-        "position": "P 10",
-        "note": "10",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "244 03 244 04 244 05 244 09 244 10 244 12 244 13 244 14 244 21 244 29 244 91",
             "country_or_area": {
               "en": "Finland"
             },
             "networks": "DNA Oy DNA Oy Elisa Oy Nokia Siemens Networks Oy TDC Oy FINLAND DNA Oy DNA Oy Alands Mobilteleofn Ab Saunalahti Group Oyj SCNL TRUPHONE TeliaSonera Finland Oyj"
-          }
-        ]
-      },
-      {
-        "action_type": "LIR",
-        "position": "P 17",
-        "note": "17",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "901 13",
             "country_or_area": {
@@ -22530,17 +21967,16 @@
             "networks": "BebbiCell AG"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
   "977": {
     "actions": [
       {
-        "action_type": "SUP",
-        "position": "P 12",
-        "note": "12",
+        "action_type": "ADD",
+        "position": "P 32",
+        "note": "32",
         "entries": [
           {
             "mcc_mnc_codes": "266 09",
@@ -22548,56 +21984,28 @@
               "en": "Gibraltar"
             },
             "networks": "Cloud9 Mobile Communications"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 12",
-        "note": "12",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "266 09",
             "country_or_area": {
               "en": "Gibraltar"
             },
             "networks": "Eazi Telecom Limited"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 30",
-        "note": "30",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "240 31",
             "country_or_area": {
               "en": "Sweden"
             },
             "networks": "Mobimax AB"
-          }
-        ]
-      },
-      {
-        "action_type": "SUP",
-        "position": "P 32",
-        "note": "32",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "234 09",
             "country_or_area": {
               "en": "United Kingdom"
             },
             "networks": "Wire9 Telecom PLC"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 32",
-        "note": "32",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "234 09",
             "country_or_area": {
@@ -22618,8 +22026,7 @@
             "networks": "Mundlo Mobile Limited"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -22646,8 +22053,7 @@
             "networks": "Azules y Platas S.A."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -22669,8 +22075,7 @@
             "networks": "Compatel Ltd."
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -22689,17 +22094,16 @@
             "networks": "WTI Macedonia"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
   "981": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 4",
-        "note": "4",
+        "action_type": "P 1",
+        "position": "P 17",
+        "note": "17",
         "entries": [
           {
             "mcc_mnc_codes": "505 62",
@@ -22714,42 +22118,21 @@
               "en": " "
             },
             "networks": "NBNCo Limited"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 10",
-        "note": "10",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "288 03",
             "country_or_area": {
               "en": "Faroe Islands "
             },
             "networks": "Edge Mobile Sp/F"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 18",
-        "note": "18",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "425 13 425 14",
             "country_or_area": {
               "en": "Israel"
             },
             "networks": "Ituran Cellular Communications Alon Cellular Ltd."
-          }
-        ]
-      },
-      {
-        "action_type": "P 1",
-        "position": "P 17",
-        "note": "17",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "901 25",
             "country_or_area": {
@@ -22758,8 +22141,7 @@
             "networks": "In & Phone"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -22769,9 +22151,9 @@
   "983": {
     "actions": [
       {
-        "action_type": "SUP",
-        "position": "P 9",
-        "note": "9",
+        "action_type": " 1)",
+        "position": "P 17",
+        "note": "17",
         "entries": [
           {
             "mcc_mnc_codes": "238 13",
@@ -22779,28 +22161,14 @@
               "en": "Denmark"
             },
             "networks": "Communicate A/S"
-          }
-        ]
-      },
-      {
-        "action_type": "P 1",
-        "position": "P 17",
-        "note": "17",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "901 30",
             "country_or_area": {
               "en": "International Mobile, shared code"
             },
             "networks": "Terrestar Networks"
-          }
-        ]
-      },
-      {
-        "action_type": " 1)",
-        "position": "P 17",
-        "note": "17",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "901 31",
             "country_or_area": {
@@ -22816,8 +22184,7 @@
             "networks": "MegaFon"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -22836,8 +22203,7 @@
             "networks": "Mobile Arts AB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -22845,8 +22211,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 18",
-        "note": "18",
+        "position": "P 30",
+        "note": "30",
         "entries": [
           {
             "mcc_mnc_codes": "425 07 425 15 425 16 425 17",
@@ -22854,42 +22220,21 @@
               "en": "Israel"
             },
             "networks": "Mirs Ltd Home Cellular (MVNO) Rami Levi (MVNO) Gale Phone (MVNO)"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "234 06",
             "country_or_area": {
               "en": "Sudan"
             },
             "networks": "Zain Sudan"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 30",
-        "note": "30",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "240 34",
             "country_or_area": {
               "en": "Sweden"
             },
             "networks": "Tigo Ltd"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 30",
-        "note": "30",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "294 11",
             "country_or_area": {
@@ -22898,8 +22243,7 @@
             "networks": "MOBIK TELEKOMUNIKACII DOOEL- Skopje"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -22907,8 +22251,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 3",
-        "note": "3",
+        "position": "P 29",
+        "note": "29",
         "entries": [
           {
             "mcc_mnc_codes": "505 20",
@@ -22916,56 +22260,28 @@
               "en": "Australia"
             },
             "networks": "Ausgrid Corporation"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 7",
-        "note": "7",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "730 11 730 12",
             "country_or_area": {
               "en": "Chile"
             },
             "networks": "Celupago S.A. Telestar Móvil S.A."
-          }
-        ]
-      },
-      {
-        "action_type": "DD1",
-        "position": "P 17",
-        "note": "17",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "901 33",
             "country_or_area": {
               "en": "International Mobile, shared code"
             },
             "networks": "Smart  Communications , Inc"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "634 06",
             "country_or_area": {
               "en": "Sudan"
             },
             "networks": "Zain Sudan"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "240 40",
             "country_or_area": {
@@ -22974,8 +22290,7 @@
             "networks": "ReWiCom Scandinavia AB"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -22983,8 +22298,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 3",
-        "note": "3",
+        "position": "P 8",
+        "note": "8",
         "entries": [
           {
             "mcc_mnc_codes": "505 21",
@@ -22992,14 +22307,7 @@
               "en": "Australia"
             },
             "networks": "Queensland Rail Limited"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 8",
-        "note": "8",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "280 22",
             "country_or_area": {
@@ -23008,8 +22316,7 @@
             "networks": "Lemontel Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*         MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -23020,8 +22327,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 9",
-        "note": "9",
+        "position": "P 18",
+        "note": "18",
         "entries": [
           {
             "mcc_mnc_codes": "630 02",
@@ -23043,14 +22350,7 @@
               "en": " "
             },
             "networks": "YOZMA TIMETURNS sprl"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 18",
-        "note": "18",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "425 08",
             "country_or_area": {
@@ -23059,8 +22359,7 @@
             "networks": "Golan Telecom Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -23087,8 +22386,7 @@
             "networks": "15.XI.2011"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*         MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -23098,9 +22396,9 @@
   "994": {
     "actions": [
       {
-        "action_type": "by:",
-        "position": "P 23",
-        "note": "23",
+        "action_type": "ADD",
+        "position": "P 31",
+        "note": "31",
         "entries": [
           {
             "mcc_mnc_codes": "455 00",
@@ -23150,14 +22448,7 @@
               "en": "[\"Macao, China\"]"
             },
             "networks": "SmarTone – Comunicações Mõveis, S.A."
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 31",
-        "note": "31",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "240 35",
             "country_or_area": {
@@ -23166,8 +22457,7 @@
             "networks": "42 Telecom LTD"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*        MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -23189,8 +22479,7 @@
             "networks": "iiNet Ltd"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*         MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil",
@@ -23212,17 +22501,16 @@
             "networks": "Nordisk Mobiltelefon Danmark A/S"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
   "997": {
     "actions": [
       {
-        "action_type": "y :",
-        "position": "P 11",
-        "note": "11",
+        "action_type": "an ",
+        "position": "P 29",
+        "note": "29",
         "entries": [
           {
             "mcc_mnc_codes": "628 01",
@@ -23258,28 +22546,14 @@
               "en": "[\"Gabon\"]"
             },
             "networks": "Réseau de l’Administration Gabonaise (RAG)"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 24",
-        "note": "24",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "643 03",
             "country_or_area": {
               "en": "Mozambique"
             },
             "networks": "Movitel"
-          }
-        ]
-      },
-      {
-        "action_type": "by:",
-        "position": "P 27",
-        "note": "27",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "260  01",
             "country_or_area": {
@@ -23524,14 +22798,7 @@
               "en": " "
             },
             "networks": "Play (testowy) / P4 Sp. z o.o."
-          }
-        ]
-      },
-      {
-        "action_type": "an ",
-        "position": "P 29",
-        "note": "29",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "659 92",
             "country_or_area": {
@@ -23568,8 +22835,7 @@
             "networks": "Vivacel/NOW"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   },
@@ -23589,8 +22855,7 @@
             "range": "Beeline"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": [
       "*     MCC:   Mobile Country Code / Indicatif de pays du mobile / Indicativo de país para el servicio móvil         MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil"
@@ -23600,8 +22865,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 8",
-        "note": "8",
+        "position": "P 26",
+        "note": "26",
         "entries": [
           {
             "mcc_mnc_codes": "730 13 730 14",
@@ -23609,42 +22874,21 @@
               "en": "Chile"
             },
             "networks": "TRIBE Mobile Chile SPA Netline Telefónica Móvil Ltda"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 25",
-        "note": "25",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "530 06",
             "country_or_area": {
               "en": "New Zealand"
             },
             "networks": "FX Networks Ltd"
-          }
-        ]
-      },
-      {
-        "action_type": "te)",
-        "position": "P 26",
-        "note": "26",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "242 09",
             "country_or_area": {
               "en": "Norway"
             },
             "networks": "Mundio Mobile Norway Ltd"
-          }
-        ]
-      },
-      {
-        "action_type": "ADD",
-        "position": "P 26",
-        "note": "26",
-        "entries": [
+          },
           {
             "mcc_mnc_codes": "242 09",
             "country_or_area": {
@@ -23653,8 +22897,7 @@
             "networks": "Com4 AS"
           }
         ]
-      },
-      {}
+      }
     ],
     "notes": []
   }

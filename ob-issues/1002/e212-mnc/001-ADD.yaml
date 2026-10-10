@@ -4,15 +4,31 @@ date_active:
 ob_issue_no: '1002'
 reference: OB-1002
 identifier:
-  code: P 9
+  code: P 28
 data:
   _class: E212MNCAmendment
-  position: P 9
+  position: P 28
   entries:
   - mcc_mnc_codes: 238 28
     country_or_area:
       en: Denmark
     networks: CoolTEL
+  - mcc_mnc_codes: 297 01
+    country_or_area:
+      en: '["Montenegro"]'
+    networks: Telenor Montenegro
+  - mcc_mnc_codes: 297 02
+    country_or_area:
+      en: '["Montenegro"]'
+    networks: Crnogorski Telekom
+  - mcc_mnc_codes: 297 03
+    country_or_area:
+      en: '["Montenegro"]'
+    networks: Mtel Montenegro
+  - mcc_mnc_codes: 635 14
+    country_or_area:
+      en: Rwanda
+    networks: AIRTEL RWANDA Ltd
   notes:
   - "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"

@@ -22,6 +22,16 @@ data:
     networks: Epic Communications Ltd
   - mcc_mnc_codes: 278 77
     networks: Melita Ltd
+  - mcc_mnc_codes: "(Country A)"
+    country_or_area:
+      en: Luxembourg
+    networks: 270 99 000 x xxx xxx
+    range: 270 99
+  - mcc_mnc_codes: "(Country B – Where the MCC+MNC is to be used extra-territorially)"
+    country_or_area:
+      en: Belgium
+    networks: 270 99 860 x xxx xxx
+    range: 270 99
   notes:
   - "*            MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"

@@ -17,7 +17,8 @@ data:
     carrier_code: AVAC
     contact: Mr Heiko Kusch
     tel: "+49 151 5259 7663"
-    email: heiko.kusch@avacon.de
+    email:
+    - heiko.kusch@avacon.de
   - country_or_area:
       en: Germany
     company_name: Jörg Weber Kommunikation KG
@@ -27,7 +28,8 @@ data:
     contact: Mr Jörg Weber
     tel: "+49 33056 413530"
     fax: "+49 33056 41359"
-    email: info@jowekom.de
+    email:
+    - info@jowekom.de
   - country_or_area:
       en: Germany
     company_name: linefinity GmbH & Co.KG
@@ -37,7 +39,8 @@ data:
     contact: 'Tel.:        +49 32 222011011'
     tel: "+49 32 222011011"
     fax: "+49 32 222011019"
-    email: info@linefinity.com
+    email:
+    - info@linefinity.com
   - country_or_area:
       en: Germany
     company_name: Wwcon Waerme-Wohnen-Contracting GmbH
@@ -46,5 +49,6 @@ data:
     carrier_code: WWCON
     contact: Mrs Corinna Jaehneke
     tel: "+49 30 3388 1029"
-    email: corinna.jaehneke@pyur.com
+    email:
+    - corinna.jaehneke@pyur.com
   notes: []

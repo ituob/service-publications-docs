@@ -1,11 +1,12 @@
 type: ADD
-date_requested:
-date_active:
+date_requested: 2024-0-1
+date_active: 2024-0-1
 ob_issue_no: '1333'
 reference: OB-1333
 identifier:
-  code: 1333-001
+  code: 1333-002
 data:
+  _class: E118Amendment
   entries:
   - country_or_area:
       en: United States
@@ -23,3 +24,4 @@ data:
     - Zak.brickett@dataxoom.com
     issue_id_number: 89 1 082
     effective_date: 1.XII.2025
+  notes: []

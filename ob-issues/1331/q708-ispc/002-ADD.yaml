@@ -1,11 +1,12 @@
 type: ADD
-date_requested:
-date_active:
+date_requested: &1 2024-06-01
+date_active: *1
 ob_issue_no: '1331'
 reference: OB-1331
 identifier:
-  code: 1331-001
+  code: 1331-002
 data:
+  _class: Q708ISPCAmendment
   entries:
   - ipsc: 2-092-7
     country:
@@ -13,3 +14,8 @@ data:
     dec: '4839'
     signal_point_name: TRN2
     signal_point_operator: Trinavo LLC
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

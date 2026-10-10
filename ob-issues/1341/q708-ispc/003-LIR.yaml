@@ -1,11 +1,12 @@
 type: LIR
-date_requested:
-date_active:
+date_requested: &1 2024-06-01
+date_active: *1
 ob_issue_no: '1341'
 reference: OB-1341
 identifier:
-  code: 1341-001
+  code: 1341-003
 data:
+  _class: Q708ISPCAmendment
   entries:
   - ipsc: 2-200-0
     country:
@@ -79,15 +80,6 @@ data:
     dec: '12119'
     signal_point_name: Ucom
     signal_point_operator: Ucom
-  - ipsc: 6-066-6
-    country:
-      en: Seychelles
-    dec: '12822'
-    signal_point_name: Trans-Local Switch 1
-    signal_point_operator: Airtel (Seychelles) Ltd
-  - ipsc: 6-066-7
-    country:
-      en: Seychelles
-    dec: '12823'
-    signal_point_name: Mobile Switching Centre1
-    signal_point_operator: Airtel (Seychelles) Ltd
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

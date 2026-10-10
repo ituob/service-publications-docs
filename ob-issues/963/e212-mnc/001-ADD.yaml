@@ -11,13 +11,19 @@ data:
   entries:
   - mcc_mnc_codes: 730 08
     country_or_area:
-      en:
-      - Chile
+      en: '["Chile"]'
     networks: VTR Móvil S.A. Centennial Cayman Corp. Chile S.A
   - mcc_mnc_codes: 730 09
     country_or_area:
-      en:
-      - Chile
+      en: '["Chile"]'
+  - mcc_mnc_codes: 452 06
+    country_or_area:
+      en: '["Vietnam"]'
+    networks: EVNTelecom/EVNTelecom
+  - mcc_mnc_codes: 452 08
+    country_or_area:
+      en: '["Vietnam"]'
+    networks: EVNTelecom 3G/EVNTelecom
   notes:
   - "*     MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil         MNC:     Mobile Network Code / Code de

@@ -12,11 +12,30 @@ data:
     country_or_area:
       en: Australia    SUP
     networks: " "
+  - mcc_mnc_codes: 505 14
+    networks: AAPT Ltd
+  - mcc_mnc_codes: 505 15
+    networks: 3GIS Pty Ltd. (Telstra & Hutchison 3G)
   - mcc_mnc_codes: " "
     country_or_area:
       en: Australia    ADD
     networks: " "
+  - mcc_mnc_codes: 505 99
+    networks: Telstra Limited
   - mcc_mnc_codes: " "
     country_or_area:
       en: Australia    LIR
     networks: " "
+  - mcc_mnc_codes: 505 03
+    networks: TPG Telecom Limited
+  - mcc_mnc_codes: 505 07
+    networks: TPG Telecom Limited
+  - mcc_mnc_codes: 505 23
+    networks: Vocus Pty Ltd
+  - mcc_mnc_codes: 505 27
+    networks: Ergon Energy Telecommunications Pty Ltd
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

@@ -27,7 +27,8 @@ data:
   - country_or_area:
       en: Japan
     contact: 'E-mail: masa.yoshida@cwidc.com'
-    email: masa.yoshida@cwidc.com
+    email:
+    - masa.yoshida@cwidc.com
   - country_or_area:
       en: Japan
     company_name: Japan Telecom Co. Ltd.
@@ -47,5 +48,6 @@ data:
       en: Japan
     contact: 'E-mail: 1tsuneo.tatara@japan-telecom.co.jp'
     tel: 'E-mail: 1tsuneo.tatara@japan-ecom.co.jp'
-    email: 1tsuneo.tatara@japan-telecom.co.jp
+    email:
+    - 1tsuneo.tatara@japan-telecom.co.jp
   notes: []

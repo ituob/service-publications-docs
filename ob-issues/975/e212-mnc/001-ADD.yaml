@@ -4,15 +4,19 @@ date_active:
 ob_issue_no: '975'
 reference: OB-975
 identifier:
-  code: P 8
+  code: P 30
 data:
   _class: E212MNCAmendment
-  position: P 8
+  position: P 30
   entries:
   - mcc_mnc_codes: 712 20
     country_or_area:
       en: Costa Rica
     networks: Virtualis
+  - mcc_mnc_codes: 240 30
+    country_or_area:
+      en: Sweden
+    networks: NextGen Mobile Ltd.
   notes:
   - ______________
   - "*     MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo de

@@ -1,18 +1,22 @@
-type: 'by:'
+type: ADD
 date_requested:
 date_active:
 ob_issue_no: '968'
 reference: OB-968
 identifier:
-  code: P 4
+  code: P 18
 data:
   _class: E212MNCAmendment
-  position: P 4
+  position: P 18
   entries:
   - mcc_mnc_codes: 426 01 426-02 426-03 426 04 426 05
     country_or_area:
       en: Bahrain
     networks: BATELCO Zain Bahrain Civil Aviation Authority STC Bahrain Royal Court
+  - mcc_mnc_codes: 425 11 425 12
+    country_or_area:
+      en: Israel
+    networks: 365 Telecom (MVNO) Free Telecom (MVNO)
   notes:
   - ______________
   - "*     MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo de

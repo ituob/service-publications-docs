@@ -1,11 +1,12 @@
 type: SUP
-date_requested:
-date_active:
+date_requested: &1 2024-06-01
+date_active: *1
 ob_issue_no: '1330'
 reference: OB-1330
 identifier:
-  code: 1330-001
+  code: 1330-002
 data:
+  _class: Q708ISPCAmendment
   entries:
   - ipsc: 7-214-6
     country:
@@ -13,9 +14,8 @@ data:
     dec: '16054'
     signal_point_name: KNET-Prishtinë
     signal_point_operator: Kujtesa.Net LLC
-  - ipsc: 5-239-5
-    country:
-      en: Netherlands (Kingdom of the)
-    dec: '12157'
-    signal_point_name: NL GMSC, Telecity Kruislaan 4
-    signal_point_operator: Mundio Mobile (Netherlands) Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
