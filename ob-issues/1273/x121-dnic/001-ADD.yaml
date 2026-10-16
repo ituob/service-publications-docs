@@ -1,0 +1,21 @@
+type: ADD
+date_requested: 2011-0-1
+date_active: 2011-0-1
+ob_issue_no: '1273'
+reference: OB-1273
+identifier:
+  code: 1273-001
+data:
+  _class: X121DNICAmendment
+  country: United States
+  description: United States ADD
+  caption: Country/Area — DNIC No. — Name of network to which a DNIC is allocated
+  entries:
+  - dnic_number: 310 0
+    country_or_area:
+      en: UNITED STATES
+      fr: ÉTATS-UNIS
+      es: ESTADOS UNIDOS
+    network_name: EMARCONI
+  notes:
+  - See also pages 5 and 6 of the present ITU Operational Bulletin No. 1273 of 1.VIII.2023.

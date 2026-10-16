@@ -1,0 +1,51 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1236'
+reference: OB-1236
+identifier:
+  code: 1236-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-029-7
+    country:
+      en: United States
+    dec: '6383'
+    signal_point_name: San Antonio, TX
+    signal_point_operator: Transaction Network Services, Inc.
+  - ipsc: 3-181-4
+    country:
+      en: United States
+    dec: '7596'
+    signal_point_name: Dallas, TX
+    signal_point_operator: Airlinq, Inc.
+  - ipsc: 3-193-6
+    country:
+      en: United States
+    dec: '7694'
+    signal_point_name: San Antonio, TX
+    signal_point_operator: Transaction Network Services, Inc.
+  - ipsc: 3-193-7
+    country:
+      en: United States
+    dec: '7695'
+    signal_point_name: Dallas, TX
+    signal_point_operator: Transaction Network Services, Inc.
+  - ipsc: 3-198-4
+    country:
+      en: United States
+    dec: '7732'
+    signal_point_name: Chicago, IL
+    signal_point_operator: Transaction Network Services, Inc.
+  - ipsc: 3-202-0
+    country:
+      en: United States
+    dec: '7760'
+    signal_point_name: Ashburn, VA
+    signal_point_operator: Transaction Network Services, Inc.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

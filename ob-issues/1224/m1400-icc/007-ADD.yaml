@@ -1,0 +1,54 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1224'
+reference: OB-1224
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Kelheim GmbH & Co.KG
+    address_line_1: Hallstattstrasse 15
+    address_line_2: D-93309 KELHEIM
+    carrier_code: SWKEL
+    contact: Mr Sebastian Mauksch
+    tel: "+49 9441 5032 402"
+    fax: "+49 9441 5032 499"
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Langenfeld GmbH
+    address_line_1: Elisabeth-Selbert-Strasse 2
+    address_line_2: D-40764 LANGENFELD
+    carrier_code: STWLGF
+    contact: Mr Hans-Werner Graffweg
+    tel: "+49 2173 979 545"
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Nürtingen GmbH
+    address_line_1: Porschestrasse 5 - 9
+    address_line_2: D-72622 NUERTINGEN
+    carrier_code: SWNNUE
+    contact: Mr Dennis Richter
+    tel: "+49 7022 406 535"
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Radolfzell GmbH Untertorstrasse 7 - 9
+    address_line_1: D-78315 RADOLFZELL
+    carrier_code: SWRAD
+    contact: Mrs Rebekka Drews
+    tel: "+49 7732 8008 157"
+    fax: "+49 7732 8008 500"
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Rhede GmbH
+    address_line_1: Krommerter Weg 13
+    address_line_2: D-46414 RHEDE
+    carrier_code: SWRRHE
+    contact: Mr Christian Knipping
+    tel: "+49 2872 937 200"
+    fax: "+49 2872 937 211"
+  notes: []

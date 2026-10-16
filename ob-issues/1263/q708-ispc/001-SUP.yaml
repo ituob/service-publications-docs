@@ -1,0 +1,39 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1263'
+reference: OB-1263
+identifier:
+  code: 1263-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-060-1
+    country:
+      en: Czech Rep.
+    dec: '4577'
+    signal_point_name: MSSBRB2
+    signal_point_operator: T-Mobile Czech Republic a.s.
+  - ipsc: 2-060-2
+    country:
+      en: Czech Rep.
+    dec: '4578'
+    signal_point_name: MSSRZT1
+    signal_point_operator: T-Mobile Czech Republic a.s.
+  - ipsc: 2-230-1
+    country:
+      en: Czech Rep.
+    dec: '5937'
+    signal_point_name: MSS HRK 1
+    signal_point_operator: T-Mobile Czech Republic a.s.
+  - ipsc: 2-231-7
+    country:
+      en: Czech Rep.
+    dec: '5951'
+    signal_point_name: MSS PRC 1
+    signal_point_operator: T-Mobile Czech Republic a.s.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

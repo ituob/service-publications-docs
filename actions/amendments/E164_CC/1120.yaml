@@ -1,0 +1,48 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: LIR
+  position: '17'
+  entries:
+  - applicant: Cisco Systems, Inc.
+    network: Cisco Systems, Inc.
+    cc_ic: "+882 35"
+    status: Assigned
+  - applicant: Monaco Telecom
+    network: Monaco Telecom
+    cc_ic: "+882 49"
+    status: Assigned
+  - applicant: Beezz Communication Sol. Ltd.
+    network: Beezz Communication Sol. Ltd.
+    cc_ic: "+883 220"
+    status: Assigned
+- action_type: ADD
+  position: '18'
+  entries:
+  - applicant: Monaco Telecom
+    network: Monaco Telecom
+    cc_ic: "+882 49"
+    status: Assigned
+  - applicant: Cisco Systems, Inc.
+    network: Cisco Systems, Inc.
+    cc_ic: "+882 35"
+    status: Assigned
+  - applicant: Beezz Communication Sol. Ltd.
+    network: Beezz Communication Sol. Ltd.
+    cc_ic: "+883 220"
+    status: Assigned
+- action_type: ADD
+  position: '18'
+  entries:
+  - applicant: Beezz Communication Sol. Ltd.
+    network: Beezz Communication Sol. Ltd.
+    cc_ic: "+883 220"
+    status: Assigned
+  - applicant: Cisco Systems, Inc.
+    network: Cisco Systems, Inc.
+    cc_ic: "+882 35"
+    status: Assigned
+  - applicant: Monaco Telecom
+    network: Monaco Telecom
+    cc_ic: "+882 49"
+    status: Assigned

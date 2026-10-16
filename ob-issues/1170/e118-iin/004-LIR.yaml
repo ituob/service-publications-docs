@@ -1,0 +1,26 @@
+type: LIR
+date_requested: &1 2018-12-01
+date_active: *1
+ob_issue_no: '1170'
+reference: OB-1170
+identifier:
+  code: 1170-004
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Singapore
+    company_name: M1 Limited
+    company_address_1: 10 International Business Park
+    company_address_2: SINGAPORE 609928
+    contact: Matthias Foo
+    contact_address_1: 10 International Business Park
+    contact_address_2: SINGAPORE 609928
+    tel:
+    - "+65 6655 1837"
+    fax:
+    - "+65 6655 1977"
+    email:
+    - matthiasf@m1.com.sg
+    issue_id_number: 89 65 03
+  notes: []

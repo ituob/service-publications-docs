@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1318'
+reference: OB-1318
+identifier:
+  code: 1318-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: France
+    company_name: ONOFF TELECOM
+    company_address_1: 26 Boulevard de Bonne Nouvelle
+    company_address_2: 75010 PARIS
+    contact: Benoit de Longeaux
+    contact_address_1: 26 Boulevard de Bonne Nouvelle
+    contact_address_2: 75010 PARIS
+    tel:
+    - "+33 7 56 80 88 80"
+    email:
+    - benoit@onoffapp.com
+    issue_id_number: 89 33 03
+    effective_date: 1.V.2025
+  notes: []

@@ -1,0 +1,53 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1238'
+reference: OB-1238
+identifier:
+  code: P 1
+data:
+  _class: ListVIIIAmendment
+  position: P 1
+  country: TUN Tunisia
+  description: P 1 ADD by alphabetical order
+  entries:
+  - country: TUN Tunisia
+    name: Ariana Monitoring Station
+  - country: TUN Tunisia
+    name: ARIANA Monitoring Station
+    postal_address: Observatoire Radioélectrique - ANF 2088 Technopôle El Ghazela
+    contact: 'PHONE : +216 71 857 088 TELEFAX : +216 71 280 228 EMAIL : karim.chaouachi@anf.tn'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 36°53'48"N 010°11'19"E
+      hours_of_service: H24
+      frequency_ranges: 20 MHz - 3 000 MHz
+      remarks: Automated spectrum monitoring system
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 36°53'48"N 010°11'19"E
+      hours_of_service: H24
+      frequency_ranges: 20 MHz - 3 000 MHz
+      remarks: Automated spectrum monitoring system
+    - measurement_type: Direction-finding measurements
+      coordinates: 36°53'48"N 010°11'19"E
+      hours_of_service: H24
+      frequency_ranges: 20 MHz - 3 000 MHz
+      remarks: AOA VHF/UHF DF Monitor Antenna
+    - measurement_type: Bandwidth measurements
+      coordinates: 36°53'48"N 010°11'19"E
+      hours_of_service: H24
+      frequency_ranges: 20 MHz - 3 000 MHz
+      remarks: Automated spectrum monitoring system
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 36°53'48"N 010°11'19"E
+      hours_of_service: H24
+      frequency_ranges: 20 MHz - 3 000 MHz
+      remarks: Automated spectrum monitoring system
+  notes:
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - KOR Korea (Rep. of)
+  - 'SUP Station : Gwangju'
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service (UTC) — Remarks

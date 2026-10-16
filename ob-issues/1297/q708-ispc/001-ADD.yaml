@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1297'
+reference: OB-1297
+identifier:
+  code: 1297-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-222-0
+    country:
+      en: Georgia
+    dec: '12016'
+    signal_point_name: Tbilisi, MVNO mobile operator
+    signal_point_operator: Icecell Telecom LTD
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

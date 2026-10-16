@@ -1,0 +1,39 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1117'
+reference: OB-1117
+identifier:
+  code: 1117-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada SUP
+    networks: " "
+  - mcc_mnc_codes: 302 656
+    networks: Tbaytel (formerly Tbay Mobility)
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada ADD
+    networks: " "
+  - mcc_mnc_codes: 302 650
+    networks: Tbaytel
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Spain      SUP
+    networks: " "
+  - mcc_mnc_codes: 214 18
+    networks: Cableuropa, SAU
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: United Kingdom ADD
+    networks: " "
+  - mcc_mnc_codes: 234 71
+    networks: Home Office
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

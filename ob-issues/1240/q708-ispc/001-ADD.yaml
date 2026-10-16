@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1240'
+reference: OB-1240
+identifier:
+  code: 1240-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-251-3
+    country:
+      en: Germany
+    dec: '12251'
+    signal_point_name: FKFT22S_FRANKFURT_VFDE
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 5-251-4
+    country:
+      en: Germany
+    dec: '12252'
+    signal_point_name: FKFT31S_FRANKFURT_VFDE
+    signal_point_operator: Vodafone GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,71 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1138'
+reference: OB-1138
+identifier:
+  code: 1138-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Ireland ADD
+    networks: " "
+  - mcc_mnc_codes: 272 05
+    networks: Three Ireland (Hutchison) Ltd
+  - mcc_mnc_codes: 272 08
+    networks: Eircom Ltd
+  - mcc_mnc_codes: 272 11
+    networks: Liffey Telecom Ltd
+  - mcc_mnc_codes: 272 13
+    networks: Lycamobile Ireland Ltd
+  - mcc_mnc_codes: 272 15
+    networks: Virgin Media Ireland Ltd
+  - mcc_mnc_codes: 272 16
+    networks: Carphone Warehouse Ireland Mobile Ltd
+  - mcc_mnc_codes: 272 17
+    networks: Three Ireland (Hutchison) Ltd
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Ireland LIR
+    networks: " "
+  - mcc_mnc_codes: 272 02
+    networks: Three Ireland Services (Hutchison) Ltd
+  - mcc_mnc_codes: 272 03
+    networks: Eircom Ltd
+  - mcc_mnc_codes: 272 07
+    networks: Eircom Ltd
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Spain LIR
+    networks: " "
+  - mcc_mnc_codes: 214 32
+    networks: Telefónica Móviles España, SAU
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden ADD
+    networks: " "
+  - mcc_mnc_codes: 240 47
+    networks: Viatel Sweden AB
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden LIR
+    networks: " "
+  - mcc_mnc_codes: 240 19
+    networks: Vecton Mobile (Sweden) Ltd
+  - mcc_mnc_codes: 240 21
+    networks: Trafikverket centralfunktion IT
+  - mcc_mnc_codes: 240 26
+    networks: Twilio Sweden AB
+  - mcc_mnc_codes: 240 28
+    networks: LINK Mobile A/S
+  - mcc_mnc_codes: 240 40
+    networks: North net connect AB
+  - mcc_mnc_codes: 240 44
+    networks: Telenabler AB
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

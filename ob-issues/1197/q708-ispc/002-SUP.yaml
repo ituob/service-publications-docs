@@ -1,0 +1,27 @@
+type: SUP
+date_requested: &1 2016-09-01
+date_active: *1
+ob_issue_no: '1197'
+reference: OB-1197
+identifier:
+  code: 1197-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-080-1
+    country:
+      en: Tanzania
+    dec: '12929'
+    signal_point_name: MSCS40
+    signal_point_operator: Benson Informatics Limited
+  - ipsc: 6-080-6
+    country:
+      en: Tanzania
+    dec: '12934'
+    signal_point_name: Six_XXX
+    signal_point_operator: Six Telecoms Company Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

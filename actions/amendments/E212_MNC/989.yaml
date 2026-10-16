@@ -1,0 +1,44 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: ADD
+  position: P 3
+  entries:
+  - mcc_mnc_codes: 505 20
+    country_or_area:
+      en: Australia
+    networks: Ausgrid Corporation
+  note: '3'
+- action_type: ADD
+  position: P 7
+  entries:
+  - mcc_mnc_codes: 730 11
+    country_or_area:
+      en: Chile
+    networks: Celupago S.A.
+  note: '7'
+- action_type: DD1
+  position: P 17
+  entries:
+  - mcc_mnc_codes: 901 33
+    country_or_area:
+      en: International Mobile, shared code
+    networks: Smart  Communications , Inc
+  note: '17'
+- action_type: ADD
+  position: P 29
+  entries:
+  - mcc_mnc_codes: 634 06
+    country_or_area:
+      en: Sudan
+    networks: Zain Sudan
+  note: '29'
+- action_type: ADD
+  position: P 29
+  entries:
+  - mcc_mnc_codes: 240 40
+    country_or_area:
+      en: Sweden
+    networks: ReWiCom Scandinavia AB
+  note: '29'
+- {}

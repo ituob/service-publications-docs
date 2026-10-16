@@ -1,0 +1,51 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1227'
+reference: OB-1227
+identifier:
+  code: 1227-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-214-0
+    country:
+      en: Ireland
+    dec: '11952'
+    signal_point_name: FRA2-00-VM-STP1
+    signal_point_operator: Cubic Telecom Limited
+  - ipsc: 5-214-1
+    country:
+      en: Ireland
+    dec: '11953'
+    signal_point_name: FRA2-00-VM-STP2
+    signal_point_operator: Cubic Telecom Limited
+  - ipsc: 5-214-2
+    country:
+      en: Ireland
+    dec: '11954'
+    signal_point_name: IE2SGW1
+    signal_point_operator: Virgin Media Ireland Limited
+  - ipsc: 5-214-3
+    country:
+      en: Ireland
+    dec: '11955'
+    signal_point_name: DT0S7FM1
+    signal_point_operator: Three Ireland (Hutchison) Limited
+  - ipsc: 5-214-4
+    country:
+      en: Ireland
+    dec: '11956'
+    signal_point_name: DT0MSS85
+    signal_point_operator: Three Ireland (Hutchison) Limited
+  - ipsc: 5-214-5
+    country:
+      en: Ireland
+    dec: '11957'
+    signal_point_name: DT0MSS85
+    signal_point_operator: Three Ireland (Hutchison) Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

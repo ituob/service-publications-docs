@@ -1,0 +1,227 @@
+---
+type: doc
+content:
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Country or area/ISO code
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Company Code
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Contact
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          text: "  "
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Company Name/Address
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: "(carrier code)"
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: " "
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: em
+    - type: strong
+    text: 'Germany (Federal Republic of) / DEU                '
+  - type: text
+    marks:
+    - type: strong
+    text: ADD
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 'TKRZ Stadtwerke GmbH '
+        - type: hard_break
+        - type: text
+          text: Hollefeldstrasse 5-7
+      - type: paragraph
+        content:
+        - type: text
+          text: 48282 EMSDETTEN
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: TKRZ
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mr Sascha Wiegand
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Tel:           +49 2572 960 1643'
+      - type: paragraph
+        content:
+        - type: text
+          text: 'Fax:          +49 2572 960 1650'
+      - type: paragraph
+        content:
+        - type: text
+          text: 'E-mail:    sascha.wiegand@tkrz.de'
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: em
+    - type: strong
+    text: 'Gibraltar / GIB           '
+  - type: text
+    marks:
+    - type: strong
+    text: LIR
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Eazi Telecom Ltd (trading as “Limba”)
+      - type: paragraph
+        content:
+        - type: text
+          text: 48 Royal Ocean Plaza, 16 Glacis Road,
+      - type: paragraph
+        content:
+        - type: text
+          text: PO BOX 1108, GIBRALTAR, GX11 1AA
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: EAZ629
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mr Julian Risso
+        - type: hard_break
+        - type: text
+          text: Tel:           +350 21600000
+        - type: hard_break
+        - type: text
+          text: 'E-mail:    jrisso@limbatelecom.com'
+- type: paragraph

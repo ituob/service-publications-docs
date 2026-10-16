@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1228'
+reference: OB-1228
+identifier:
+  code: 1228-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Stassfurt GmbH
+    address_line_1: Athenslebener Weg 15
+    address_line_2: D-39418 STASSFURT
+    carrier_code: SFTNET
+    contact: Mr Eugen Keller
+    tel: "+49 3925 960 0"
+    fax: "+49 3925 960 292"
+  notes: []

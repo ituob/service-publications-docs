@@ -1,0 +1,33 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '1057'
+reference: OB-1057
+identifier:
+  code: 1057-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-123-4
+    country:
+      en: Germany
+    dec: '5084'
+    signal_point_name: Frankfurt
+    signal_point_operator: Vodafone Enterprise Germany GmbH
+  - ipsc: 3-243-0
+    country:
+      en: Germany
+    dec: '8088'
+    signal_point_name: Flensburg
+    signal_point_operator: mr. net services GmbH & Co. KG
+  - ipsc: 3-254-2
+    country:
+      en: Germany
+    dec: '8178'
+    signal_point_name: Frankfurt
+    signal_point_operator: mr. net services GmbH & Co. KG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

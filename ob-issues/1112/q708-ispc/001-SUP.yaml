@@ -1,0 +1,29 @@
+type: SUP
+date_requested:
+date_active:
+ob_issue_no: '1112'
+reference: OB-1112
+identifier:
+  code: 1112-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-120-2
+    country:
+      en: Australia
+    dec: '11202'
+    signal_point_name: CHIME-SSP-SYD
+    signal_point_operator: Chime Communications
+  - ipsc: 5-120-3
+    country:
+      en: Australia
+    dec: '11203'
+    signal_point_name: CHIME-SSP-SYD
+    signal_point_operator: Chime Communications
+  - ipsc: 5-120-6
+    country:
+      en: Australia
+    dec: '11206'
+    signal_point_name: CHIME-STP-SYD2
+    signal_point_operator: Chime Communications
+  notes: []

@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1009'
+reference: OB-1009
+identifier:
+  code: P 3
+data:
+  _class: Q708ISPCAmendment
+  position: P 3
+  entries:
+  - ipsc: 3-233-2
+    country:
+      en: Albania
+    dec: '8010'
+    signal_point_name: INFOTEL AL
+    signal_point_operator: INFO-Telecom
+  - ipsc: 3-233-3
+    country:
+      en: Albania
+    dec: '8011'
+    signal_point_name: Tirana 10
+    signal_point_operator: NEOFONE
+  - ipsc: 3-233-4
+    country:
+      en: Albania
+    dec: '8012'
+    signal_point_name: CT Nisatel Tirana
+    signal_point_operator: NISATEL
+  - ipsc: 3-233-5
+    country:
+      en: Albania
+    dec: '8013'
+    signal_point_name: ABCom TS1-SOIP
+    signal_point_operator: ABCom
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,51 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: 'by:'
+  position: P 23
+  entries:
+  - mcc_mnc_codes: 455 00
+    country_or_area:
+      en:
+      - Macao, China
+    networks: SmarTone – Comunicações Mõveis, S.A.
+  - mcc_mnc_codes: 455 01
+    country_or_area:
+      en:
+      - Macao, China
+    networks: Companhia de Telecomunicações de Macau S.A.R.L.
+  - mcc_mnc_codes: 455 02
+    country_or_area:
+      en:
+      - Macao, China
+    networks: China Telecom (Macau) Limitada
+  - mcc_mnc_codes: 455 03
+    country_or_area:
+      en:
+      - Macao, China
+    networks: Hutchison - Telefone(Macau) Limitada
+  - mcc_mnc_codes: 455 04
+    country_or_area:
+      en:
+      - Macao, China
+    networks: Companhia de Telecomunicações de Macau S.A.R.L.
+  - mcc_mnc_codes: 455 05
+    country_or_area:
+      en:
+      - Macao, China
+    networks: Hutchison - Telefone(Macau) Limitada
+  - mcc_mnc_codes: 455 06
+    country_or_area:
+      en:
+      - Macao, China
+    networks: SmarTone – Comunicações Mõveis, S.A.
+  note: '23'
+- action_type: ADD
+  position: P 31
+  entries:
+  - mcc_mnc_codes: 240 35
+    country_or_area:
+      en: Sweden
+    networks: 42 Telecom LTD
+  note: '31'
+- {}

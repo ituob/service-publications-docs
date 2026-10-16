@@ -1,0 +1,31 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1080'
+reference: OB-1080
+identifier:
+  code: 1080-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 400 06
+    networks: '"Nakhtel" LLC'
+  - mcc_mnc_codes: 230 05
+    networks: Travel Telekommunikation, s.r.o.
+  - mcc_mnc_codes: 230 09
+    networks: Mundio Distribution Czech Republic s.r.o.
+  - mcc_mnc_codes: 238 17
+    networks: Naka AG
+  - mcc_mnc_codes: 214 33
+    networks: EURONA WIRELESS TELECOM, S.A.
+  - mcc_mnc_codes: 228 03
+    networks: Salt Mobile SA
+  - mcc_mnc_codes: 228 08
+    networks: TelCommunication Services AG
+  - mcc_mnc_codes: 543 01
+    networks: Manuia
+  notes:
+  - "*     MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1197'
+reference: OB-1197
+identifier:
+  code: 1197-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: x-ion GmbH
+    address_line_1: Marschnerstrasse 52
+    address_line_2: D-22081 HAMBURG
+    carrier_code: XION
+    contact: Mr Martin Bosner
+    tel: "+49 40 6094510912"
+    fax: "+49 40 6094510912"
+  notes: []

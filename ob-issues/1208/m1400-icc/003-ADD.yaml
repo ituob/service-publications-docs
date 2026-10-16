@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1208'
+reference: OB-1208
+identifier:
+  code: 1208-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Städtische Werke Angermünde GmbH
+    address_line_1: Berliner Strasse 1
+    address_line_2: D-16278 ANGERMÜNDE
+    carrier_code: SWANG
+    contact: Mr Benjamin Noack
+    tel: "+49 3331 3655 222"
+    fax: "+49 3331 3655 25"
+  notes: []

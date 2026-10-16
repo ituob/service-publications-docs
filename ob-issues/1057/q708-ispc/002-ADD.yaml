@@ -1,0 +1,39 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1057'
+reference: OB-1057
+identifier:
+  code: 1057-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-222-1
+    country:
+      en: Germany
+    dec: '5873'
+    signal_point_name: Ratingen
+    signal_point_operator: Vodafone Enterprise Germany GmbH
+  - ipsc: 2-245-6
+    country:
+      en: Germany
+    dec: '6062'
+    signal_point_name: Wuerzburg
+    signal_point_operator: EMnify GmbH
+  - ipsc: 2-246-6
+    country:
+      en: Germany
+    dec: '6070'
+    signal_point_name: Frankfurt
+    signal_point_operator: EMnify GmbH
+  - ipsc: 2-247-1
+    country:
+      en: Germany
+    dec: '6073'
+    signal_point_name: Frankfurt
+    signal_point_operator: Sinergia Telecom
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

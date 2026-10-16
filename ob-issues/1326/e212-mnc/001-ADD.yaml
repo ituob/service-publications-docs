@@ -1,0 +1,51 @@
+type: ADD
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1326'
+reference: OB-1326
+identifier:
+  code: 1326-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Gibraltar    ADD
+    networks: " "
+  - mcc_mnc_codes: 266 04
+    networks: Melmasti Global (Gibraltar) Ltd (trading as “MCOM”)
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Hungary     LIR
+    networks: " "
+  - mcc_mnc_codes: 216 03
+    networks: One Hungary Ltd.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Japan     SUP
+    networks: " "
+  - mcc_mnc_codes: 440 09
+    networks: Marubeni Network Solutions Inc.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Japan     ADD
+    networks: " "
+  - mcc_mnc_codes: 440 09
+    networks: Misora Connect Inc.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Japan     LIR
+    networks: " "
+  - mcc_mnc_codes: 441 210
+    networks: NTT EAST, Inc.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Kazakhstan    ADD
+    networks: " "
+  - mcc_mnc_codes: 401 04
+    networks: KaR-Tel LLP
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

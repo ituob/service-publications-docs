@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1341'
+reference: OB-1341
+identifier:
+  code: 1341-004
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Osnabrück AG
+    address_line_1: Alte Poststraße 9
+    address_line_2: 49074 OSNABRÜCK
+    carrier_code: SWO12
+    contact: Mr Oliver Fischer
+    tel: "+49 54120020"
+    fax: "+49 54120023100"
+    email:
+    - telekommunikation@swo.de
+  notes: []

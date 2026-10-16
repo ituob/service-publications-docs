@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1104'
+reference: OB-1104
+identifier:
+  code: 1104-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-122-3
+    country:
+      en: Australia
+    dec: '11219'
+    signal_point_name: SYDM
+    signal_point_operator: Telstra Corporation Ltd
+  - ipsc: 5-122-4
+    country:
+      en: Australia
+    dec: '11220'
+    signal_point_name: SYDOM
+    signal_point_operator: Telstra Corporation Ltd
+  - ipsc: 5-122-5
+    country:
+      en: Australia
+    dec: '11221'
+    signal_point_name: SYDPM
+    signal_point_operator: Telstra Corporation Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

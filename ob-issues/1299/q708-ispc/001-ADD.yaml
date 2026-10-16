@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1299'
+reference: OB-1299
+identifier:
+  code: 1299-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-123-1
+    country:
+      en: Australia
+    dec: '11225'
+    signal_point_name: ONS-AUS-EAST01
+    signal_point_operator: Omnitouch Network Services Pty Ltd
+  - ipsc: 5-123-2
+    country:
+      en: Australia
+    dec: '11226'
+    signal_point_name: ONS-AUS-WEST01
+    signal_point_operator: Omnitouch Network Services Pty Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

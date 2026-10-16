@@ -1,0 +1,26 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1232'
+reference: OB-1232
+identifier:
+  code: 1232-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Colombia
+    company_name: Empresa de Telecomunicaciones de Bogotá S.A. E.S.P.
+    company_address_1: Carrera 8 N° 20 – 56 piso 9
+    company_address_2: BOGOTÁ
+    contact: Luis Eduardo Cordero Montaño,
+    contact_address_1: ETB
+    contact_address_2: Carrera 8 N° 20 – 56 piso 9
+    contact_address_3: BOGOTÁ
+    tel:
+    - "+57 3507873005"
+    email:
+    - luis.corderom@etb.com.co
+    issue_id_number: 89 57 187
+    effective_date: 31.VIII.2021
+  notes: []

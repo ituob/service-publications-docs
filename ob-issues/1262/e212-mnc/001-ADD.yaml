@@ -1,0 +1,69 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1262'
+reference: OB-1262
+identifier:
+  code: 1262-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Estonia    SUP
+    networks: " "
+  - mcc_mnc_codes: 248 25
+    networks: Eurofed OÜ
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Estonia    ADD
+    networks: " "
+  - mcc_mnc_codes: 248 29
+    networks: SkyTel OÜ
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Japan    SUP
+    networks: " "
+  - mcc_mnc_codes: 440 70
+    networks: KDDI Corporation
+  - mcc_mnc_codes: 440 71
+    networks: KDDI Corporation
+  - mcc_mnc_codes: 440 72
+    networks: KDDI Corporation
+  - mcc_mnc_codes: 440 73
+    networks: KDDI Corporation
+  - mcc_mnc_codes: 440 74
+    networks: KDDI Corporation
+  - mcc_mnc_codes: 440 75
+    networks: KDDI Corporation
+  - mcc_mnc_codes: 440 76
+    networks: KDDI Corporation
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Japan    ADD
+    networks: " "
+  - mcc_mnc_codes: 441 211
+    networks: STARCAT CABLE NETWORK Co., LTD.
+  - mcc_mnc_codes: 441 212
+    networks: I-TEC Solutions Co., Ltd.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Japan    LIR
+    networks: " "
+  - mcc_mnc_codes: 440 08
+    networks: Panasonic Connect Co., Ltd
+  - mcc_mnc_codes: 440 09
+    networks: Marubeni Network Solutions Inc.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code    SUP*
+    networks: " "
+  - mcc_mnc_codes: 901 32
+    networks: MegaFon
+  - mcc_mnc_codes: 901 55
+    networks: Beezz Communication Solutions Ltd.
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

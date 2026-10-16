@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1287'
+reference: OB-1287
+identifier:
+  code: 1287-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-201-0
+    country:
+      en: Gibraltar
+    dec: '15944'
+    signal_point_name: Gibraltar
+    signal_point_operator: GibFibre Ltd (GibFibreSpeed)
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

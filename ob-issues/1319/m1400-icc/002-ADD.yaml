@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1319'
+reference: OB-1319
+identifier:
+  code: 1319-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: tinana GmbH
+    address_line_1: Im Teelbruch 118
+    address_line_2: D-45219 ESSEN
+    carrier_code: TINANA
+    contact: Mr Clemens Block
+    tel: "+49 15255379725"
+    fax: "+49 20548002059"
+  notes: []

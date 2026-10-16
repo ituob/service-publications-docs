@@ -1,0 +1,29 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1186'
+reference: OB-1186
+identifier:
+  code: 1186-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada ADD
+    networks: " "
+  - mcc_mnc_codes: 302 550
+    networks: Star Solutions International Inc.
+  - mcc_mnc_codes: 302 721
+    networks: Rogers Communications Canada Inc. (Wireless)
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code    LIR
+    networks: " "
+  - mcc_mnc_codes: 901 88
+    networks: UN Office for the Coordination of Humanitarian Affairs (OCHA) - Reserved
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

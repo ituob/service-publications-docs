@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1225'
+reference: OB-1225
+identifier:
+  code: 1225-005
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: INBW Infrastruktur und Netzwerk Baden-Württemberg GmbH
+    address_line_1: Am Sandfeld 15
+    address_line_2: D-76149 KARLSRUHE
+    carrier_code: INBW
+    contact: Mr Moritz Stephan
+    tel: "+49 721 9100900"
+    fax: "+49 721 9100999"
+  notes: []

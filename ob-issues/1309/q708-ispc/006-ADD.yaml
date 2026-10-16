@@ -1,0 +1,45 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1309'
+reference: OB-1309
+identifier:
+  code: 1309-006
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-212-0
+    country:
+      en: Ireland
+    dec: '11936'
+    signal_point_name: STPVM101
+    signal_point_operator: Virgin Media Ireland Limited
+  - ipsc: 5-212-1
+    country:
+      en: Ireland
+    dec: '11937'
+    signal_point_name: STPVM102
+    signal_point_operator: Virgin Media Ireland Limited
+  - ipsc: 5-212-2
+    country:
+      en: Ireland
+    dec: '11938'
+    signal_point_name: STPVM201
+    signal_point_operator: Virgin Media Ireland Limited
+  - ipsc: 5-212-3
+    country:
+      en: Ireland
+    dec: '11939'
+    signal_point_name: STPVM202
+    signal_point_operator: Virgin Media Ireland Limited
+  - ipsc: 5-214-6
+    country:
+      en: Ireland
+    dec: '11958'
+    signal_point_name: IE1SGW1
+    signal_point_operator: Virgin Media Ireland Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

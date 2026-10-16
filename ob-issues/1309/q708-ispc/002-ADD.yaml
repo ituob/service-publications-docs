@@ -1,0 +1,39 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1309'
+reference: OB-1309
+identifier:
+  code: 1309-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-219-2
+    country:
+      en: Cyprus
+    dec: '11994'
+    signal_point_name: ScarpelteleMGW1lim
+    signal_point_operator: Scarpel Limited
+  - ipsc: 5-219-3
+    country:
+      en: Cyprus
+    dec: '11995'
+    signal_point_name: ScarpelteleMGW2lim
+    signal_point_operator: Scarpel Limited
+  - ipsc: 5-219-4
+    country:
+      en: Cyprus
+    dec: '11996'
+    signal_point_name: intergoMGWnet
+    signal_point_operator: Intergo Telecom Ltd
+  - ipsc: 5-219-5
+    country:
+      en: Cyprus
+    dec: '11997'
+    signal_point_name: intergoMGWger
+    signal_point_operator: Intergo Telecom Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

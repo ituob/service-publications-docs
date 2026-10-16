@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1267'
+reference: OB-1267
+identifier:
+  code: 1267-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-119-4
+    country:
+      en: Macao, China
+    dec: '9148'
+    signal_point_name: CTMO_SG01
+    signal_point_operator: China Telecom (Macau) Limitada
+  - ipsc: 4-119-5
+    country:
+      en: Macao, China
+    dec: '9149'
+    signal_point_name: CTMO_SMC
+    signal_point_operator: China Telecom (Macau) Limitada
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

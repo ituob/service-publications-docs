@@ -1,0 +1,63 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1237'
+reference: OB-1237
+identifier:
+  code: 1237-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-064-0
+    country:
+      en: Colombia
+    dec: '14848'
+    signal_point_name: E-10 MT - BOGOTÁ
+    signal_point_operator: COLOMBIA TELECOMUNICACIONES S.A. ESP
+  - ipsc: 7-064-2
+    country:
+      en: Colombia
+    dec: '14850'
+    signal_point_name: AXE - BARRANQUILLA
+    signal_point_operator: COLOMBIA TELECOMUNICACIONES S.A. ESP
+  - ipsc: 7-064-3
+    country:
+      en: Colombia
+    dec: '14851'
+    signal_point_name: E-10 MT
+    signal_point_operator: COLOMBIA TELECOMUNICACIONES S.A. ESP
+  - ipsc: 7-065-1
+    country:
+      en: Colombia
+    dec: '14857'
+    signal_point_name: AXE 10 BARRANQUILLA - EL PELU
+    signal_point_operator: COLOMBIA TELECOMUNICACIONES S.A. ESP
+  - ipsc: 7-066-3
+    country:
+      en: Colombia
+    dec: '14867'
+    signal_point_name: NETUNO GW STP/ITP SS7- BOGOTA
+    signal_point_operator: COMVOZ COMUNICACIONES DE COLOMBIA S.A. E.S.P.
+  - ipsc: 7-066-5
+    country:
+      en: Colombia
+    dec: '14869'
+    signal_point_name: CASTELLANA- BOGOTA
+    signal_point_operator: COLOMBIA MOVIL S.A. E.S.P.
+  - ipsc: 7-066-6
+    country:
+      en: Colombia
+    dec: '14870'
+    signal_point_name: AUTOPISTA- BOGOTA
+    signal_point_operator: COLOMBIA MOVIL S.A. E.S.P.
+  - ipsc: 7-066-7
+    country:
+      en: Colombia
+    dec: '14871'
+    signal_point_name: TABOR- BARRANQUILLA
+    signal_point_operator: COLOMBIA MOVIL S.A. E.S.P.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

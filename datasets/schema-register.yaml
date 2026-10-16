@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://github.com/ituob/service-publications-docs/datasets/schema-register
+title: ITU OB Register Schema
+description: >-
+  Schema for the static identity of a register. A register is a named
+  dataset mandated by an ITU-T Recommendation. One Recommendation can
+  create multiple registers (e.g., E.212 → E212_MCC, E212_MNC,
+  E212_ICC). The register catalog file (catalogs/registers.yaml) is a
+  list of objects conforming to this schema.
+
+type: object
+additionalProperties: false
+
+required:
+  - register_id
+  - slug
+  - recommendation
+  - title
+  - key_field
+  - seed_issue
+  - seed_path
+
+properties:
+  register_id:
+    type: string
+    description: Machine identifier used in source YAML target.publication (e.g. "E212_MNC").
+    pattern: '^[A-Z][A-Z0-9_.-]*$'
+
+  slug:
+    type: string
+    description: Filesystem-safe directory name.
+    pattern: '^[a-z0-9][a-z0-9-]*$'
+
+  recommendation:
+    type: string
+    description: Code of the parent ITU-T Recommendation (e.g. "E.212").
+
+  title:
+    type: object
+    description: Human-readable register title in multiple languages.
+    required: [en]
+    properties:
+      en: { type: string }
+      fr: { type: string }
+      es: { type: string }
+
+  key_field:
+    type: string
+    description: Name of the primary identifier field in register rows.
+
+  classification:
+    type: string
+    description: >-
+      "structured" if rows conform to a JSON Schema in schema-data.yaml;
+      "textual" for freeform registers rendered from ProseMirror docs.
+    enum: [structured, textual]
+
+  parser_class:
+    type: string
+    description: Fully-qualified Ruby class name that parses amendments for this register. Optional.
+
+  renderer:
+    type: string
+    description: Astro renderer component name. Optional.
+
+  seed_issue:
+    type: integer
+    description: OB issue number where the register was first annexed.
+
+  seed_path:
+    type: string
+    description: >-
+      Repository-relative path to the seed directory
+      (e.g. "datasets/669-F.1").
+
+  external:
+    type: boolean
+    description: True for external publications not formally annexed to the OB.
+    default: false
+
+  supplementary:
+    type: array
+    description: >-
+      Slugs of related sub-registers that share this register's
+      recommendation but track a distinct slice (e.g., E.212
+      extra-territorial table). Empty by default.
+    items: { type: string }
+    default: []

@@ -1,0 +1,35 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1054'
+reference: OB-1054
+identifier:
+  code: 1054-008
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Orange Business Germany GmbH
+    carrier_code: OBSG
+    contact: Mr. Juergen Klein
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Rahmannstrasse 11
+    contact: 'Tel:         + 49 6196 962-709'
+    tel: "+ 49 6196 962-709"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 65760 Eschborn
+    contact: 'Fax:        + 49 6131 4646-222'
+    fax: "+ 49 6131 4646-222"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:  juergen.klein@orange.com'
+    email:
+    - juergen.klein@orange.com
+  notes: []

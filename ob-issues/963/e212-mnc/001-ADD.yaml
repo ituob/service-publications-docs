@@ -1,0 +1,30 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '963'
+reference: OB-963
+identifier:
+  code: P 8
+data:
+  _class: E212MNCAmendment
+  position: P 8
+  entries:
+  - mcc_mnc_codes: 730 08
+    country_or_area:
+      en: '["Chile"]'
+    networks: VTR Móvil S.A. Centennial Cayman Corp. Chile S.A
+  - mcc_mnc_codes: 730 09
+    country_or_area:
+      en: '["Chile"]'
+  - mcc_mnc_codes: 452 06
+    country_or_area:
+      en: '["Vietnam"]'
+    networks: EVNTelecom/EVNTelecom
+  - mcc_mnc_codes: 452 08
+    country_or_area:
+      en: '["Vietnam"]'
+    networks: EVNTelecom 3G/EVNTelecom
+  notes:
+  - "*     MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil         MNC:     Mobile Network Code / Code de
+    réseau mobile / Indicativo de red para el servicio móvil"

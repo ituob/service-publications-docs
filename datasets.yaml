@@ -150,3 +150,35 @@ datasets:
   title: ISO 3166 country codes (with ITU localized names)
   has_data_file: true
   has_data_directory: false
+- directory: bureaufax
+  title: Bureaufax Table
+  has_data_file: true
+  has_data_directory: false
+- directory: roa
+  title: List of Recognized Operating Agencies (ROAs)
+  has_data_file: true
+  has_data_directory: false
+- directory: icc
+  title: List of ITU Carrier Codes (ICC) — alias of 1060-M.1400
+  has_data_file: true
+  has_data_directory: false
+- directory: nnp
+  title: National Numbering Plan (external publication)
+  has_data_file: true
+  has_data_directory: false
+  external: true
+- directory: list-v
+  title: 'List V - List of Ship Stations and Maritime Mobile Service Identity Assignments (external publication)'
+  has_data_file: true
+  has_data_directory: false
+  external: true
+- directory: list-viii
+  title: List VIII - List of International Monitoring Stations (external publication)
+  has_data_file: true
+  has_data_directory: false
+  external: true
+- directory: coast-stations
+  title: List of Coast Stations and Special Service Stations (external publication)
+  has_data_file: true
+  has_data_directory: false
+  external: true

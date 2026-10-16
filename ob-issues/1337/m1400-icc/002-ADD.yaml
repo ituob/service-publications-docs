@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1337'
+reference: OB-1337
+identifier:
+  code: 1337-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: PCS Pleger Consulting & Services GmbH
+    address_line_1: Am Sandtorkai 27
+    address_line_2: 20457 HAMBURG
+    carrier_code: FLEXTE
+    contact: Ms Sabine Pleger
+    tel: "+49 176 10063302"
+    fax: "+49 40 18198048"
+    email:
+    - sabine.pleger@pcs-company.de
+  notes: []

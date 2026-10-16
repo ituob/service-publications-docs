@@ -1,0 +1,98 @@
+# Canonical catalog of ITU-T Recommendations that create OB registers.
+#
+# Single source of truth consumed by:
+#   - ituob/lib/ituob/catalogs/recommendations.rb (Ruby)
+#   - ituob.org-v2/src/lib/catalogs.ts (TypeScript/Astro)
+#
+# Each entry is a Recommendation. One Recommendation may create multiple
+# Registers — see registers.yaml for the per-register definitions.
+
+recommendations:
+  - code: E.118
+    bureau: ITU-T
+    title:
+      en: The international telecommunication charge card
+    version: 2006-05
+    url: https://www.itu.int/rec/T-REC-E.118
+
+  - code: E.164
+    bureau: ITU-T
+    title:
+      en: The international public telecommunication numbering plan
+    version: 2010-11
+    url: https://www.itu.int/rec/T-REC-E.164
+
+  - code: E.212
+    bureau: ITU-T
+    title:
+      en: The international identification plan for public networks and subscriptions
+    version: 2016-09
+    url: https://www.itu.int/rec/T-REC-E.212
+
+  - code: E.218
+    bureau: ITU-T
+    title:
+      en: List of terrestrial trunk radio mobile country codes
+    version: 2004-5
+
+  - code: E.129
+    bureau: ITU-T
+    title:
+      en: National numbering plans
+    url: http://www.itu.int/itu-t/inr-nnp
+
+  - code: F.1
+    bureau: ITU-T
+    title:
+      en: Five-letter code groups for the use of the international public telegram service
+    version: 1998-3
+
+  - code: F.32
+    bureau: ITU-T
+    title:
+      en: List of telegram destination indicators
+    version: 1995-10
+
+  - code: F.170
+    bureau: ITU-T
+    title:
+      en: Bureaufax service
+    version: 2005
+
+  - code: F.400
+    bureau: ITU-T
+    title:
+      en: List of names of administration management domains (ADMD)
+
+  - code: M.1400
+    bureau: ITU-T
+    title:
+      en: Designations for inter-operator circuits used in the international service
+    version: 2013-03
+    url: http://www.itu.int/ITU-T/inr/icc/index.html
+
+  - code: Q.708
+    bureau: ITU-T
+    title:
+      en: Assignment of international signalling point codes
+    version: 1999-03
+
+  - code: T.35
+    bureau: ITU-T
+    title:
+      en: Procedure for the allocation of ITU-T defined codes
+    version: 2000-02
+
+  - code: X.121
+    bureau: ITU-T
+    title:
+      en: International numbering plan for public data networks
+    version: 2000/10
+
+  - code: RR.25.1
+    bureau: ITU-R
+    title:
+      en: >-
+        Status of radiocommunications between amateur stations of
+        different countries and form of call signs assigned by each
+        administration to its amateur and experimental stations

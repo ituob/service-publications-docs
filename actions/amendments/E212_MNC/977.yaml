@@ -1,0 +1,50 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: SUP
+  position: P 12
+  entries:
+  - mcc_mnc_codes: 266 09
+    country_or_area:
+      en: Gibraltar
+    networks: Cloud9 Mobile Communications
+  note: '12'
+- action_type: ADD
+  position: P 12
+  entries:
+  - mcc_mnc_codes: 266 09
+    country_or_area:
+      en: Gibraltar
+    networks: Eazi Telecom Limited
+  note: '12'
+- action_type: ADD
+  position: P 30
+  entries:
+  - mcc_mnc_codes: 240 31
+    country_or_area:
+      en: Sweden
+    networks: Mobimax AB
+  note: '30'
+- action_type: SUP
+  position: P 32
+  entries:
+  - mcc_mnc_codes: 234 09
+    country_or_area:
+      en: United Kingdom
+    networks: Wire9 Telecom PLC
+  note: '32'
+- action_type: ADD
+  position: P 32
+  entries:
+  - mcc_mnc_codes: 234 09
+    country_or_area:
+      en: United Kingdom
+    networks: Tismi BV
+  - mcc_mnc_codes: 234 28
+    networks: Marathon Telecom Limited
+  - mcc_mnc_codes: 234 29
+    networks: "(aq) Limited T/A aql"
+  - mcc_mnc_codes: 235 00
+    networks: Mundlo Mobile Limited
+  note: '32'
+- {}

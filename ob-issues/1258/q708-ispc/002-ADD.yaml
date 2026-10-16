@@ -1,0 +1,51 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1258'
+reference: OB-1258
+identifier:
+  code: 1258-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-175-0
+    country:
+      en: State of Palestine
+    dec: '9592'
+    signal_point_name: MSC_Rosh (MSC02)
+    signal_point_operator: Ooredoo Palestine MSC Rosh Hayen
+  - ipsc: 4-175-1
+    country:
+      en: State of Palestine
+    dec: '9593'
+    signal_point_name: C7INT1
+    signal_point_operator: Paltel
+  - ipsc: 4-175-2
+    country:
+      en: State of Palestine
+    dec: '9594'
+    signal_point_name: INTNODE
+    signal_point_operator: Paltel
+  - ipsc: 4-175-5
+    country:
+      en: State of Palestine
+    dec: '9597'
+    signal_point_name: MSC_Med1 (MSC01)
+    signal_point_operator: Ooredoo Palestine MSC Petah Tiqva Med 1
+  - ipsc: 4-175-6
+    country:
+      en: State of Palestine
+    dec: '9598'
+    signal_point_name: MGW_Rosh (MGW01)
+    signal_point_operator: Ooredoo Palestine MGW Rosh Hayen
+  - ipsc: 4-175-7
+    country:
+      en: State of Palestine
+    dec: '9599'
+    signal_point_name: MRS_Med1 (MRS02)
+    signal_point_operator: Ooredoo Palestine MRS Petah Tiqva Med1
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

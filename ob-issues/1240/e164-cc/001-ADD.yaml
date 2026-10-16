@@ -1,0 +1,32 @@
+type: P**
+date_requested: &1 2016-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1240'
+reference: OB-1240
+identifier:
+  code: Note o)
+data:
+  _class: E164CCAmendment
+  position: Note o)
+  entries:
+  - applicant: MCI (Verizon)
+    network: HyperStream International (HSI) Data Network
+    cc_ic: "+882 12"
+    status: Withdrawn
+  - applicant: Cable & Wireless plc
+    network: Cable & Wireless Global Network
+    cc_ic: "+882 22"
+    status: Withdrawn
+  - applicant: Oration Technologies Inc.
+    network: Oration Technologies Network
+    cc_ic: "+882 33"
+    status: Withdrawn
+  - applicant: Smart Communications, Inc
+    network: Smart Communications Inc
+    cc_ic: "+882 97"
+    status: Withdrawn
+  notes:
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes
+  - __________
+  - See page 4 of the present Operational Bulletin No. 1240 of 15.III.2022.

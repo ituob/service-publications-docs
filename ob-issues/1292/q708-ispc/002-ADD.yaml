@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1292'
+reference: OB-1292
+identifier:
+  code: 1292-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-226-0
+    country:
+      en: Germany
+    dec: '5904'
+    signal_point_name: CMI_STP_FRA2
+    signal_point_operator: China Mobile International (UK) Limited
+  - ipsc: 5-240-3
+    country:
+      en: Germany
+    dec: '12163'
+    signal_point_name: ENGY_Frankfurt
+    signal_point_operator: eNgY Solutions GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

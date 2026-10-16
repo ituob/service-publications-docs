@@ -1,0 +1,81 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1249'
+reference: OB-1249
+identifier:
+  code: 1249-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-080-2
+    country:
+      en: Japan
+    dec: '8834'
+    signal_point_name: Yamaguchi-1
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-080-4
+    country:
+      en: Japan
+    dec: '8836'
+    signal_point_name: Tokyo
+    signal_point_operator: CITIC Telecom International Japan Limited
+  - ipsc: 4-081-6
+    country:
+      en: Japan
+    dec: '8846'
+    signal_point_name: TOKYO1
+    signal_point_operator: NTT Communications Corporation
+  - ipsc: 4-081-7
+    country:
+      en: Japan
+    dec: '8847'
+    signal_point_name: OSAKA1
+    signal_point_operator: NTT Communications Corporation
+  - ipsc: 4-082-0
+    country:
+      en: Japan
+    dec: '8848'
+    signal_point_name: Tokyo1
+    signal_point_operator: Saiki-Tech Communication Japan Co. Ltd.
+  - ipsc: 4-082-1
+    country:
+      en: Japan
+    dec: '8849'
+    signal_point_name: Tokyo2
+    signal_point_operator: Saiki-Tech Communication Japan Co. Ltd.
+  - ipsc: 4-082-4
+    country:
+      en: Japan
+    dec: '8852'
+    signal_point_name: Fukagawa-01
+    signal_point_operator: IPS Inc.
+  - ipsc: 4-083-4
+    country:
+      en: Japan
+    dec: '8860'
+    signal_point_name: Tokyo
+    signal_point_operator: RSLCom Japan K.K.
+  - ipsc: 4-083-5
+    country:
+      en: Japan
+    dec: '8861'
+    signal_point_name: Osaka
+    signal_point_operator: RSLCom Japan K.K.
+  - ipsc: 4-085-3
+    country:
+      en: Japan
+    dec: '8875'
+    signal_point_name: Fukagawa-02
+    signal_point_operator: IPS Inc.
+  - ipsc: 4-085-7
+    country:
+      en: Japan
+    dec: '8879'
+    signal_point_name: Tokyo
+    signal_point_operator: Cignal Telecommunications Japan K.K.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

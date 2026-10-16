@@ -1,0 +1,87 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1291'
+reference: OB-1291
+identifier:
+  code: 1291-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-213-0
+    country:
+      en: Georgia
+    dec: '5800'
+    signal_point_name: Tbilisi, Mobile Switching Centre
+    signal_point_operator: Cellfie mobile
+  - ipsc: 2-213-3
+    country:
+      en: Georgia
+    dec: '5803'
+    signal_point_name: Tbilisi, Tsinamszgvrishvili, International Exchange
+    signal_point_operator: Silknet JSC
+  - ipsc: 2-213-4
+    country:
+      en: Georgia
+    dec: '5804'
+    signal_point_name: Tbilisi, Bulk SMS server
+    signal_point_operator: Servicebox
+  - ipsc: 3-246-4
+    country:
+      en: Georgia
+    dec: '8116'
+    signal_point_name: Kutaisi, Mobile Switching Centre
+    signal_point_operator: Cellfie mobile
+  - ipsc: 3-246-6
+    country:
+      en: Georgia
+    dec: '8118'
+    signal_point_name: Tbilisi, Nutsubidze, International Exchange
+    signal_point_operator: Silknet JSC
+  - ipsc: 3-246-7
+    country:
+      en: Georgia
+    dec: '8119'
+    signal_point_name: Tbilisi, MVNO mobile operator STP 1
+    signal_point_operator: Unicell Mobile LTD
+  - ipsc: 5-233-0
+    country:
+      en: Georgia
+    dec: '12104'
+    signal_point_name: Tbilisi, MVNO mobile operator STP 2
+    signal_point_operator: Unicell Mobile LTD
+  - ipsc: 5-233-2
+    country:
+      en: Georgia
+    dec: '12106'
+    signal_point_name: Tbilisi, International Exchange
+    signal_point_operator: Geocell Ltd
+  - ipsc: 5-233-4
+    country:
+      en: Georgia
+    dec: '12108'
+    signal_point_name: Tbilisi, Politkovskaya, PSTN Switch
+    signal_point_operator: Akhali Kselebi Ltd
+  - ipsc: 5-233-5
+    country:
+      en: Georgia
+    dec: '12109'
+    signal_point_name: Tbilisi, Dimitriadi, PSTN Switch
+    signal_point_operator: Akhali Kselebi Ltd
+  - ipsc: 5-233-6
+    country:
+      en: Georgia
+    dec: '12110'
+    signal_point_name: Kutaisi, International Exchange
+    signal_point_operator: System Net Ltd
+  - ipsc: 5-233-7
+    country:
+      en: Georgia
+    dec: '12111'
+    signal_point_name: Tbilisi, Media gateway
+    signal_point_operator: Magticom Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

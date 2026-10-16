@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1169'
+reference: OB-1169
+identifier:
+  code: 1169-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-029-4
+    country:
+      en: Panama
+    dec: '14572'
+    signal_point_name: STP01DAV01
+    signal_point_operator: Claro Panamá, S.A.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

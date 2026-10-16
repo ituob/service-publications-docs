@@ -1,0 +1,67 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1280'
+reference: OB-1280
+identifier:
+  code: 1280-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - country_or_area:
+      en: Estonia     ADD
+  - mcc_mnc_codes: 248 31
+    networks: YATECO OÜ
+  - mcc_mnc_codes: 248 32
+    networks: Narayana OÜ
+  - country_or_area:
+      en: Kosovo*     SUP
+  - mcc_mnc_codes: 221 06
+    networks: Dardafon.Net LLC
+  - country_or_area:
+      en: New Zealand     ADD
+  - mcc_mnc_codes: 530 11
+    networks: Interim Māori Spectrum Commission
+  - country_or_area:
+      en: New Zealand     LIR
+  - mcc_mnc_codes: 530 01
+    networks: One New Zealand Group Limited
+  - mcc_mnc_codes: 530 04
+    networks: One New Zealand Group Limited
+  - country_or_area:
+      en: United States     SUP
+  - mcc_mnc_codes: 310 030
+    networks: AT&T Mobility
+  - mcc_mnc_codes: 310 860
+    networks: West Central Wireless
+  - mcc_mnc_codes: 311 000
+    networks: West Central Wireless
+  - mcc_mnc_codes: 311 980
+    networks: LigTel Communications
+  - mcc_mnc_codes: 312 550
+    networks: Great Plains Communications, Inc
+  - mcc_mnc_codes: 312 990
+    networks: PREMIER HOLDINGS, LLC
+  - country_or_area:
+      en: United States     ADD
+  - mcc_mnc_codes: 314 500
+    networks: Aetheros Inc
+  - mcc_mnc_codes: 314 510
+    networks: SI Wireless LLC
+  - mcc_mnc_codes: 314 520
+    networks: Oklahoma Gas & Electric Company (OG&E)
+  - mcc_mnc_codes: 314 530
+    networks: Agile Networks
+  - mcc_mnc_codes: 314 540
+    networks: RGTN USA, Inc.
+  - country_or_area:
+      en: United States     LIR
+  - mcc_mnc_codes: 313 010
+    networks: Cross Wireless LLC dba Bravado Wireless
+  - mcc_mnc_codes: 314 370
+    networks: Texas A&M University – ITEC
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

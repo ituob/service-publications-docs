@@ -1,0 +1,23 @@
+type: LIR
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1219'
+reference: OB-1219
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: PLANinterNET VolP-GmbH
+    address_line_1: Gruenwiesenstrasse 1
+    address_line_2: D-74391 ERLIGHEIM
+    carrier_code: PLANIN
+    contact: 'Tel:         +49 7143 872 056'
+    tel: "+49 7143 872 056"
+    fax: "+49 7143 872 057"
+    email:
+    - voip@planinternet.de
+  notes: []

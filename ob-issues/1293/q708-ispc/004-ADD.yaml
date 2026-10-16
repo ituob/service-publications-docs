@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1293'
+reference: OB-1293
+identifier:
+  code: 1293-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-249-6
+    country:
+      en: Portugal
+    dec: '8142'
+    signal_point_name: DGLSB1, Lisboa
+    signal_point_operator: Digi Portugal, Lda.
+  - ipsc: 3-249-7
+    country:
+      en: Portugal
+    dec: '8143'
+    signal_point_name: DGPRT2, Porto
+    signal_point_operator: Digi Portugal, Lda.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

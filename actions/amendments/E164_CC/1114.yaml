@@ -1,0 +1,47 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: ADD
+  position: N
+  entries:
+  - applicant: Ellipsat Inc
+    network: Ellipsat Inc
+    cc_ic: "+883 5140"
+    status: assigned
+  - applicant: Com4 Sweden AB
+    network: Com4 Sweden AB
+    cc_ic: "+883 190"
+    status: assigned
+- action_type: LIR
+  position: N
+  entries:
+  - applicant: Com4 Sweden AB
+    network: Com4 Sweden AB
+    cc_ic: "+883 190"
+    status: assigned
+  - applicant: Ellipsat Inc
+    network: Ellipsat Inc
+    cc_ic: "+883 5140"
+    status: assigned
+- action_type: ADD
+  position: N
+  entries:
+  - applicant: Ellipsat Inc
+    network: Ellipsat Inc
+    cc_ic: "+883 5140"
+    status: assigned
+  - applicant: Com4 Sweden AB
+    network: Com4 Sweden AB
+    cc_ic: "+883 190"
+    status: assigned
+- action_type: LIR
+  position: N
+  entries:
+  - applicant: Com4 Sweden AB
+    network: Com4 Sweden AB
+    cc_ic: "+883 190"
+    status: assigned
+  - applicant: Ellipsat Inc
+    network: Ellipsat Inc
+    cc_ic: "+883 5140"
+    status: assigned

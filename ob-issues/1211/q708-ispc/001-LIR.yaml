@@ -1,0 +1,69 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1211'
+reference: OB-1211
+identifier:
+  code: 1211-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-156-3
+    country:
+      en: Malta
+    dec: '5347'
+    signal_point_name: VOD1-MT
+    signal_point_operator: Epic Communications Ltd
+  - ipsc: 2-156-4
+    country:
+      en: Malta
+    dec: '5348'
+    signal_point_name: VOD2-MT
+    signal_point_operator: Epic Communications Ltd
+  - ipsc: 2-156-7
+    country:
+      en: Malta
+    dec: '5351'
+    signal_point_name: 3GT
+    signal_point_operator: Melita Ltd – Mobile
+  - ipsc: 5-235-0
+    country:
+      en: Malta
+    dec: '12120'
+    signal_point_name: 3GT
+    signal_point_operator: Melita Ltd – Mobile
+  - ipsc: 5-235-4
+    country:
+      en: Malta
+    dec: '12124'
+    signal_point_name: HMMGW01
+    signal_point_operator: Epic Communications Ltd
+  - ipsc: 5-235-5
+    country:
+      en: Malta
+    dec: '12125'
+    signal_point_name: HMMSS01
+    signal_point_operator: Epic Communications Ltd
+  - ipsc: 5-235-6
+    country:
+      en: Malta
+    dec: '12126'
+    signal_point_name: HMMGW02
+    signal_point_operator: Epic Communications Ltd
+  - ipsc: 5-235-7
+    country:
+      en: Malta
+    dec: '12127'
+    signal_point_name: HMMSS02
+    signal_point_operator: Epic Communications Ltd
+  - ipsc: 7-222-0
+    country:
+      en: Malta
+    dec: '16112'
+    signal_point_name: Melita-Int.
+    signal_point_operator: Melita Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

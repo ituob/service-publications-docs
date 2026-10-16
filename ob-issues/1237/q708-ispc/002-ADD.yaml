@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1237'
+reference: OB-1237
+identifier:
+  code: 1237-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-031-6
+    country:
+      en: Benin
+    dec: '12542'
+    signal_point_name: Ganhi SPS
+    signal_point_operator: SBIN S.A.
+  - ipsc: 6-031-7
+    country:
+      en: Benin
+    dec: '12543'
+    signal_point_name: Fidjrossè SPS
+    signal_point_operator: SBIN S.A.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

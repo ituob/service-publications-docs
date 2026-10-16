@@ -1,0 +1,26 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '960'
+reference: OB-960
+identifier:
+  code: P 13
+data:
+  _class: F32TDIAmendment
+  position: P 13
+  description: P 13 SPAIN LIR
+  entries:
+  - country_or_area:
+      en: SPAIN
+      fr: ESPAGNE
+      es: ESPAÑA
+    network_roa: Sociedad Estatal Correos y Telégrafos S.A. Madrid
+    network_code: ES -
+    telegraph_office_name:
+      en: BARCELONA MADRID Telegrams with service indication TFx Toutes destinations
+        All destinations - Todos los destinos
+    office_code: ESBX ESMX ESTT 1 ESXX
+  notes:
+  - 1 The destination indicator "ESTT" will be used in telegrams with service indication
+    =TFx= (telephone delivery, x = telephone number) to facilitate communication with
+    any destination in Spain.

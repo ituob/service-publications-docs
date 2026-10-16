@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1298'
+reference: OB-1298
+identifier:
+  code: 1298-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-170-6
+    country:
+      en: Sudan
+    dec: '13654'
+    signal_point_name: PSD_vGMSC01
+    signal_point_operator: MTN Sudan
+  - ipsc: 6-170-7
+    country:
+      en: Sudan
+    dec: '13655'
+    signal_point_name: MAN_vGMSC01
+    signal_point_operator: MTN Sudan
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2015-01-01
+date_active: *1
+ob_issue_no: '1089'
+reference: OB-1089
+identifier:
+  code: 1089-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-238-3
+    country:
+      en: Sweden
+    dec: '14195'
+    signal_point_name: RWC-ISPC-1
+    signal_point_operator: ReWiCom Scandinavia AB
+  notes:
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

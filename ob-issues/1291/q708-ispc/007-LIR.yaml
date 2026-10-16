@@ -1,0 +1,69 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1291'
+reference: OB-1291
+identifier:
+  code: 1291-007
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-000-0
+    country:
+      en: Liechtenstein
+    dec: '4096'
+    signal_point_name: GMSC 1+2
+    signal_point_operator: Telecom Liechtenstein AG
+  - ipsc: 2-000-3
+    country:
+      en: Liechtenstein
+    dec: '4099'
+    signal_point_name: GMSC 1
+    signal_point_operator: Telecom Liechtenstein AG
+  - ipsc: 2-000-4
+    country:
+      en: Liechtenstein
+    dec: '4100'
+    signal_point_name: GMSC 2
+    signal_point_operator: Telecom Liechtenstein AG
+  - ipsc: 2-000-6
+    country:
+      en: Liechtenstein
+    dec: '4102'
+    signal_point_name: vMSSFLCR
+    signal_point_operator: Salt (Liechtenstein) AG
+  - ipsc: 7-255-0
+    country:
+      en: Liechtenstein
+    dec: '16376'
+    signal_point_name: vMSSFLIX
+    signal_point_operator: Salt (Liechtenstein) AG
+  - ipsc: 7-255-4
+    country:
+      en: Liechtenstein
+    dec: '16380'
+    signal_point_name: For future use
+    signal_point_operator: Cubic AG
+  - ipsc: 7-255-5
+    country:
+      en: Liechtenstein
+    dec: '16381'
+    signal_point_name: For future use
+    signal_point_operator: Cubic AG
+  - ipsc: 7-255-6
+    country:
+      en: Liechtenstein
+    dec: '16382'
+    signal_point_name: For future use
+    signal_point_operator: Cubic AG
+  - ipsc: 7-255-7
+    country:
+      en: Liechtenstein
+    dec: '16383'
+    signal_point_name: For future use
+    signal_point_operator: Cubic AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

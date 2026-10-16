@@ -1,0 +1,28 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1303'
+reference: OB-1303
+identifier:
+  code: 1303-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Austria
+    company_name: AICALL Telekommunikations-Dienstleistungs GmbH
+    company_address_1: Burggasse 15
+    company_address_2: 8750 JUDENBURG
+    contact: Guenther Frattner
+    contact_address_1: AICALL Telekommunikations-Dienstleistungs GmbH
+    contact_address_2: Burggasse 15
+    contact_address_3: 8750 JUDENBURG
+    tel:
+    - "+43 (0) 50/30 50 300"
+    fax:
+    - "+43 (0) 50 30 5 330"
+    email:
+    - info@aicall.at
+    issue_id_number: 89 43 29
+    effective_date: 8.X.2024
+  notes: []

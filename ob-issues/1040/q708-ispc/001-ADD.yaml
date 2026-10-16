@@ -1,0 +1,39 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1040'
+reference: OB-1040
+identifier:
+  code: 1040-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-070-4
+    country:
+      en: Rwanda
+    dec: '12852'
+    signal_point_name: RMGW1
+    signal_point_operator: MTN
+  - ipsc: 6-071-2
+    country:
+      en: Rwanda
+    dec: '12858'
+    signal_point_name: NMGW1
+    signal_point_operator: MTN
+  - ipsc: 6-071-3
+    country:
+      en: Rwanda
+    dec: '12859'
+    signal_point_name: NMSSBC1
+    signal_point_operator: MTN
+  - ipsc: 6-071-4
+    country:
+      en: Rwanda
+    dec: '12860'
+    signal_point_name: NMSS1
+    signal_point_operator: MTN
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

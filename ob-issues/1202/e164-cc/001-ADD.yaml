@@ -1,0 +1,20 @@
+type: ADD*
+date_requested: &1 2016-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1202'
+reference: OB-1202
+identifier:
+  code: Note p)
+data:
+  _class: E164CCAmendment
+  position: Note p)
+  entries:
+  - applicant: Podsystem Ltd.
+    network: Podsystem Ltd.
+    cc_ic: "+883 340"
+    status: Assigned
+  notes:
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes
+  - __________
+  - See page 4 of the present Operational Bulletin No. 1202 of 15.VIII.2020.

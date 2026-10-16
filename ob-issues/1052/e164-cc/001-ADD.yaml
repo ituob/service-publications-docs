@@ -1,0 +1,18 @@
+type: ADD*
+date_requested: &1 2011-10-01
+date_active: *1
+ob_issue_no: '1052'
+reference: OB-1052
+identifier:
+  code: Note q)
+data:
+  _class: E164CCAmendment
+  position: Note q)
+  entries:
+  - applicant: Ellipsat Inc
+    network: Ellipsat Inc
+    cc_ic: "+883 5140"
+    status: Assigned*
+  notes:
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes

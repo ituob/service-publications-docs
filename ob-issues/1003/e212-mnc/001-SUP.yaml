@@ -1,0 +1,23 @@
+type: SUP
+date_requested:
+date_active:
+ob_issue_no: '1003'
+reference: OB-1003
+identifier:
+  code: P 11
+data:
+  _class: E212MNCAmendment
+  position: P 11
+  entries:
+  - mcc_mnc_codes: 547 15
+    country_or_area:
+      en: French Polynesia
+    networks: Pacific Mobile Telecom
+  - mcc_mnc_codes: 547 02
+    country_or_area:
+      en: French Polynesia
+    networks: Digicel Tahiti
+  notes:
+  - "*            MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil                MNC: Mobile Network Code / Code
+    de réseau mobile / Indicativo de red para el servicio móvil"

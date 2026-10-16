@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1225'
+reference: OB-1225
+identifier:
+  code: 1225-006
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Leonet AG
+    address_line_1: Technologiecampus 4
+    address_line_2: D-94244 TEISNACH
+    carrier_code: LEONET
+    contact: Mr Guido Gaudlitz
+    tel: "+49 151 226 373 47"
+  notes: []

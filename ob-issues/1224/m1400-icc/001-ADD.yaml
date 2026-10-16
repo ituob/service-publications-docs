@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1224'
+reference: OB-1224
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: BEW Bergische Energie- und Wasser GmbH Sonnenweg 30
+    address_line_1: D-51688 WIPPERFUERTH
+    carrier_code: BEWNET
+    contact: Mr Dirk Deitermann
+    tel: "+49 2267 686 600"
+  - country_or_area:
+      en: Germany
+    company_name: Energieversorgung Selb Marktredwitz GmbH
+    address_line_1: Gebrueder-Netzsch-Strasse 14
+    address_line_2: D-95100 SELB
+    carrier_code: ESMSEL
+    contact: Mr Christoph Brossmann
+    tel: "+49 9287 802 440"
+  notes: []

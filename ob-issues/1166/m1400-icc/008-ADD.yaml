@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1166'
+reference: OB-1166
+identifier:
+  code: 1166-008
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: WSW Wuppertaler Stadtwerke GmbH
+    address_line_1: Bromberger Str. 39 - 41
+    address_line_2: 42281 WUPPERTAL
+    carrier_code: WSWNET
+    contact: Mr Pasquale Martic
+    tel: "+49 202 569 3909"
+    fax: "+49 202 569 803909"
+    email:
+    - pasquale.martic@wsw-online.de
+  notes: []

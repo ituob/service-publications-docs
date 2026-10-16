@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1202'
+reference: OB-1202
+identifier:
+  code: 1202-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-230-2
+    country:
+      en: Czech Rep.
+    dec: '5938'
+    signal_point_name: TS2P5
+    signal_point_operator: O2 Czech Republic a.s.
+  - ipsc: 6-234-4
+    country:
+      en: Czech Rep.
+    dec: '14164'
+    signal_point_name: MSC9
+    signal_point_operator: Vodafone Czech Republic a.s.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

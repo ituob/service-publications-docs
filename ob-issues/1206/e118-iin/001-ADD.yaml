@@ -1,0 +1,23 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1206'
+reference: OB-1206
+identifier:
+  code: 1206-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: France
+    company_name: Lycamobile SARL
+    company_address_1: 107 Boulevard Pereire
+    company_address_2: 75017 PARIS
+    contact: Lycamobile SARL Legal
+    contact_address_1: 107 Boulevard Pereire
+    contact_address_2: 75017 PARIS
+    email:
+    - legal@lycamobile.com
+    issue_id_number: 89 33 13
+    effective_date: 12.VIII.2020
+  notes: []

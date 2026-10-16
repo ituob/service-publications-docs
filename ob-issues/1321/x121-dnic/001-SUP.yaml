@@ -1,0 +1,35 @@
+type: SUP
+date_requested: &1 2025-05-01
+date_active: *1
+ob_issue_no: '1321'
+reference: OB-1321
+identifier:
+  code: 1321-001
+data:
+  _class: X121DNICAmendment
+  country: Spain
+  description: Spain SUP
+  caption: Country/Area — DNIC No. — Name of network to which a DNIC is withdrawn
+  entries:
+  - dnic_number: 214 0
+    country_or_area:
+      fr: ESPAGNE
+    network_name: Administración Pública
+  - dnic_number: 214 2
+    country_or_area:
+      fr: SPAIN
+    network_name: RETEVISIÓN
+  - dnic_number: 214 5
+    country_or_area:
+      fr: ESPAÑA
+    network_name: Red IBERPAC
+  - dnic_number: 214 7
+    country_or_area:
+      fr: ESPAÑA
+    network_name: France Telecom Redes y Servicios
+  - dnic_number: 214 9
+    country_or_area:
+      fr: ESPAÑA
+    network_name: MegaRed
+  notes:
+  - See page 6 of the present Operational Bulletin No. 1321 of 1.VIII.2025.

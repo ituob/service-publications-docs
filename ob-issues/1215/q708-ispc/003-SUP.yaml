@@ -1,0 +1,35 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1215'
+reference: OB-1215
+identifier:
+  code: 1215-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-082-1
+    country:
+      en: Sweden
+    dec: '4753'
+    signal_point_name: IQVM4 (Stockholm)
+    signal_point_operator: Tele2 Sverige AB
+  - ipsc: 2-193-4
+    country:
+      en: Sweden
+    dec: '5644'
+    signal_point_name: VTP (Stockholm)
+    signal_point_operator: Tele2 Sverige AB
+  - ipsc: 2-193-5
+    country:
+      en: Sweden
+    dec: '5645'
+    signal_point_name: SAV (Göteborg)
+    signal_point_operator: Tele2 Sverige AB
+  - ipsc: 2-195-7
+    country:
+      en: Sweden
+    dec: '5663'
+    signal_point_name: MSC1 (Stockholm)
+    signal_point_operator: Tele2 Sverige AB
+  notes: []

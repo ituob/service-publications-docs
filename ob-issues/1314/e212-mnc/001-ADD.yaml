@@ -1,0 +1,51 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1314'
+reference: OB-1314
+identifier:
+  code: 1314-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Estonia     SUP
+    networks: " "
+  - mcc_mnc_codes: 248 21
+    networks: Tismi B.V.
+  - mcc_mnc_codes: 248 33
+    networks: J-Mobile OÜ (formerly Crowdfaster OÜ)
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Estonia     ADD
+    networks: " "
+  - mcc_mnc_codes: 248 36
+    networks: GLOBALCELL EU
+  - mcc_mnc_codes: 248 37
+    networks: Revaltex Grooup OÜ
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Hungary     LIR
+    networks: " "
+  - mcc_mnc_codes: 216 70
+    networks: One Hungary Ltd.
+  - mcc_mnc_codes: 216 71
+    networks: One Hungary Ltd.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Mexico     ADD
+    networks: " "
+  - mcc_mnc_codes: 334 230
+    networks: VINOC, S.A.P.I. DE C.V.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code     LIR*
+    networks: " "
+  - mcc_mnc_codes: 901 62
+    networks: KORE Wireless (Formerly Twilio Inc.)
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

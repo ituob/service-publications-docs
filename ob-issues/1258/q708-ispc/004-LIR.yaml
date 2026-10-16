@@ -1,0 +1,93 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1258'
+reference: OB-1258
+identifier:
+  code: 1258-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-080-1
+    country:
+      en: Sweden
+    dec: '4737'
+    signal_point_name: VMS1 (Stockholm)
+    signal_point_operator: Bredband2 Företag AB
+  - ipsc: 2-080-4
+    country:
+      en: Sweden
+    dec: '4740'
+    signal_point_name: GTS-STO-S1 (Stockholm)
+    signal_point_operator: Bredband2 Företag AB
+  - ipsc: 2-083-6
+    country:
+      en: Sweden
+    dec: '4766'
+    signal_point_name: RSL-SWE 2 (Stockholm)
+    signal_point_operator: Bredband2 Företag AB
+  - ipsc: 2-192-7
+    country:
+      en: Sweden
+    dec: '5639'
+    signal_point_name: VMS2 (Stockholm)
+    signal_point_operator: Bredband2 Företag AB
+  - ipsc: 2-193-3
+    country:
+      en: Sweden
+    dec: '5643'
+    signal_point_name: RSL_SWE (Stockholm)
+    signal_point_operator: Bredband2 Företag AB
+  - ipsc: 3-229-0
+    country:
+      en: Sweden
+    dec: '7976'
+    signal_point_name: CLXSTH-1 (Stockholm)
+    signal_point_operator: Sinch Sweden AB
+  - ipsc: 3-229-1
+    country:
+      en: Sweden
+    dec: '7977'
+    signal_point_name: CLXSTH-2 (Stockholm)
+    signal_point_operator: Sinch Sweden AB
+  - ipsc: 3-229-2
+    country:
+      en: Sweden
+    dec: '7978'
+    signal_point_name: CLXSTH-3 (Stockholm)
+    signal_point_operator: Sinch Sweden AB
+  - ipsc: 3-229-3
+    country:
+      en: Sweden
+    dec: '7979'
+    signal_point_name: CLXSTH-4 (Stockholm)
+    signal_point_operator: Sinch Sweden AB
+  - ipsc: 6-229-0
+    country:
+      en: Sweden
+    dec: '14120'
+    signal_point_name: MISTH-3 (Stockholm)
+    signal_point_operator: MI Carrier Services AB
+  - ipsc: 6-229-1
+    country:
+      en: Sweden
+    dec: '14121'
+    signal_point_name: MISTH-4 (Stockholm)
+    signal_point_operator: MI Carrier Services AB
+  - ipsc: 6-232-2
+    country:
+      en: Sweden
+    dec: '14146'
+    signal_point_name: MISTH-1 (Stockholm)
+    signal_point_operator: MI Carrier Services AB
+  - ipsc: 6-232-3
+    country:
+      en: Sweden
+    dec: '14147'
+    signal_point_name: MISTH-2 (Stockholm)
+    signal_point_operator: MI Carrier Services AB
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

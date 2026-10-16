@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1209'
+reference: OB-1209
+identifier:
+  code: 1209-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Deutsche GigaNetz GmbH
+    address_line_1: Bleichenbrücke 9
+    address_line_2: D-20354 HAMBURG
+    carrier_code: DGNDE
+    contact: Dr Ulrich Hammerschmidt
+    tel: "+49 162 472 8269"
+  notes: []

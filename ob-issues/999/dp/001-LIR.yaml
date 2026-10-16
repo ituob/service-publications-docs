@@ -1,0 +1,21 @@
+type: LIR
+date_requested: &1 2011-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '999'
+reference: OB-999
+identifier:
+  code: P 4
+data:
+  _class: DPAmendment
+  position: P 4
+  country: Germany
+  description: P 4 Germany LIR
+  entries:
+  - country_or_area:
+      en: Germany
+    country_code: '49'
+    international_prefix: '00'
+    national_prefix: '0'
+    national_sig_number: 4 to 13 digits
+    utc_dst: "+1/+2"
+  notes: []

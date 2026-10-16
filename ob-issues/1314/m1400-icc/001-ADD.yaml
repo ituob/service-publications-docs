@@ -1,0 +1,38 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1314'
+reference: OB-1314
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Aetherus Inh. Maurice Daniel Klein
+    address_line_1: Fuerker Strasse 47A
+    address_line_2: D-42697 SOLINGEN
+    carrier_code: AETH
+    contact: Mr Maurice Klein
+    tel: "+49 2127 846460"
+    fax: "+49 2127 8464699"
+  - country_or_area:
+      en: Germany
+    company_name: telenovis UG (haftungsbeschränkt)
+    address_line_1: Rudower Chausee 29
+    address_line_2: D-12489 BERLIN
+    carrier_code: '100905'
+    contact: Mr Thomas Knick
+    tel: "+49 30 52001402"
+    fax: "+49 30 30015870"
+  - country_or_area:
+      en: Germany
+    company_name: Coolwave Communications Limited
+    address_line_1: 6th Floor, 2 Grand Canal Square
+    address_line_2: IRL-DUBLIN 2, D02 A342
+    carrier_code: COOLWV
+    contact: Mr David Williams
+    tel: "+44 333 240 3070"
+  notes: []

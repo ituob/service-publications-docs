@@ -1,0 +1,57 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1314'
+reference: OB-1314
+identifier:
+  code: 1314-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-212-1
+    country:
+      en: Hungary
+    dec: '5793'
+    signal_point_name: Monor_INT1
+    signal_point_operator: One Hungary Ltd.
+  - ipsc: 4-243-0
+    country:
+      en: Hungary
+    dec: '10136'
+    signal_point_name: VFN-INT-ITP1
+    signal_point_operator: One Hungary Ltd.
+  - ipsc: 4-243-1
+    country:
+      en: Hungary
+    dec: '10137'
+    signal_point_name: VFN-INT-ITP4
+    signal_point_operator: One Hungary Ltd.
+  - ipsc: 4-243-7
+    country:
+      en: Hungary
+    dec: '10143'
+    signal_point_name: VFHU-INT-HWSTP1
+    signal_point_operator: One Hungary Ltd.
+  - ipsc: 5-218-0
+    country:
+      en: Hungary
+    dec: '11984'
+    signal_point_name: VFHU-INT-HWSTP4
+    signal_point_operator: One Hungary Ltd.
+  - ipsc: 6-251-2
+    country:
+      en: Hungary
+    dec: '14298'
+    signal_point_name: VHF-INT-GW1
+    signal_point_operator: One Hungary Ltd.
+  - ipsc: 6-251-3
+    country:
+      en: Hungary
+    dec: '14299'
+    signal_point_name: VHF-INT-GW4
+    signal_point_operator: One Hungary Ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

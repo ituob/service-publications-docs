@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1226'
+reference: OB-1226
+identifier:
+  code: 1226-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerk Tauberfranken GmbH
+    address_line_1: Max-Planck-Str. 5
+    address_line_2: D-97980 BAD MERGENTHEIM
+    carrier_code: TAUBER
+    contact: Mr Matthias Siegel
+    tel: "+49 7931 491488"
+    fax: "+49 7931 491383"
+  notes: []

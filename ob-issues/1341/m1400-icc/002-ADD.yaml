@@ -1,0 +1,23 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1341'
+reference: OB-1341
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: blueants Süd GmbH
+    address_line_1: Von-Linde-Straße 4
+    address_line_2: 82205 GILCHING
+    carrier_code: DEBLUE
+    contact: Mr Matthias Vilsmayer
+    tel: "+49 8105 7727510"
+    fax: "+49 8105 772719"
+    email:
+    - reseller@blueants.de
+  notes: []

@@ -1,0 +1,51 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1219'
+reference: OB-1219
+identifier:
+  code: 1219-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-215-1
+    country:
+      en: Cyprus
+    dec: '11961'
+    signal_point_name: LIM/AMA1, Limassol
+    signal_point_operator: Cyprus Telecommunications Authority (CYTA)
+  - ipsc: 5-215-2
+    country:
+      en: Cyprus
+    dec: '11962'
+    signal_point_name: LIM/AMA2, Limassol
+    signal_point_operator: Cyprus Telecommunications Authority (CYTA)
+  - ipsc: 5-215-3
+    country:
+      en: Cyprus
+    dec: '11963'
+    signal_point_name: LIM/AMA3, Limassol
+    signal_point_operator: Cyprus Telecommunications Authority (CYTA)
+  - ipsc: 5-215-4
+    country:
+      en: Cyprus
+    dec: '11964'
+    signal_point_name: NIC/PLA1, Nicosia
+    signal_point_operator: Cyprus Telecommunications Authority (CYTA)
+  - ipsc: 5-215-5
+    country:
+      en: Cyprus
+    dec: '11965'
+    signal_point_name: NIC/PLA2, Nicosia
+    signal_point_operator: Cyprus Telecommunications Authority (CYTA)
+  - ipsc: 5-215-6
+    country:
+      en: Cyprus
+    dec: '11966'
+    signal_point_name: NIC/PLA3, Nicosia
+    signal_point_operator: Cyprus Telecommunications Authority (CYTA)
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI)..

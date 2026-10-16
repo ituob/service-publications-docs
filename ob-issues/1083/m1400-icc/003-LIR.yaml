@@ -1,0 +1,38 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '1083'
+reference: OB-1083
+identifier:
+  code: Luxembourg /
+data:
+  _class: M1400Amendment
+  position: Luxembourg /
+  entries:
+  - iso_code: LUX
+    country_or_area:
+      en: Luxembourg
+    company_name: Cegecom S.A.
+    carrier_code: CGCOM
+    contact: Mr. Georges Muller
+  - iso_code: LUX
+    country_or_area:
+      en: Luxembourg
+    company_name: 3, rue Jean Piret
+    contact: 'Tel.: +352 26 499 403'
+    tel: "+352 26 499 403"
+  - iso_code: LUX
+    country_or_area:
+      en: Luxembourg
+    company_name: B.P. 2708
+    contact: 'Fax: +352 26 499 699'
+    fax: "+352 26 499 699"
+  - iso_code: LUX
+    country_or_area:
+      en: Luxembourg
+    company_name: L-1027 Luxembourg
+    contact: 'E-mail: georges.muller@artelis.net'
+    tel: 'E-mail: georges.muller@aris.net'
+    email:
+    - georges.muller@artelis.net
+  notes: []

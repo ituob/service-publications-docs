@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1225'
+reference: OB-1225
+identifier:
+  code: 1225-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: EZV Energie- und Service GmbH & Co.KG Untermain
+    address_line_1: Landstrasse 47
+    address_line_2: D-63939 WOERTH AM MAIN
+    carrier_code: EZVNET
+    contact: Mr Marco Nebel
+    tel: "+49 9372 9455 39"
+    fax: "+49 9372 9455 15"
+  notes: []

@@ -1,0 +1,47 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1112'
+reference: OB-1112
+identifier:
+  code: 1112-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-057-0
+    country:
+      en: Nepal
+    dec: '8648'
+    signal_point_name: NSTPL1
+    signal_point_operator: Nepal Satellite Telecom Pvt. Ltd.
+  - ipsc: 4-057-1
+    country:
+      en: Nepal
+    dec: '8649'
+    signal_point_name: MSC4
+    signal_point_operator: Ncell Pvt. Ltd
+  - ipsc: 4-057-2
+    country:
+      en: Nepal
+    dec: '8650'
+    signal_point_name: MSC5
+    signal_point_operator: Ncell Pvt. Ltd
+  - ipsc: 4-059-5
+    country:
+      en: Nepal
+    dec: '8669'
+    signal_point_name: SMART_INT_SP1
+    signal_point_operator: Smart Telecom Pvt. Ltd.
+  - ipsc: 4-059-6
+    country:
+      en: Nepal
+    dec: '8670'
+    signal_point_name: Sundhara IGE
+    signal_point_operator: Nepal Doorsanchar Company Ltd.
+  - ipsc: 4-059-7
+    country:
+      en: Nepal
+    dec: '8671'
+    signal_point_name: Butwal IGE
+    signal_point_operator: Nepal Doorsanchar Company Ltd.
+  notes: []

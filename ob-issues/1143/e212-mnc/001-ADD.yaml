@@ -1,0 +1,27 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1143'
+reference: OB-1143
+identifier:
+  code: 1143-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Denmark SUP
+    networks: " "
+  - mcc_mnc_codes: 238 17
+    networks: Naka AG
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Monaco ADD
+    networks: " "
+  - mcc_mnc_codes: 212 10
+    networks: Monaco Telecom
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

@@ -1,0 +1,35 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1063'
+reference: OB-1063
+identifier:
+  code: 1063-005
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: NetCom BW GmbH
+    carrier_code: NCBW14
+    contact: Mr. Evangelis Papadopoulos
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Unterer Brühl 2
+    contact: 'Tel.:          +49 7961 82 3474'
+    tel: "+49 7961 82 3474"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 73479 ELLWANGEN
+    contact: 'Fax:          +49 7961 82 653474'
+    fax: "+49 7961 82 653474"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:    e.papadopoulos@odr.de'
+    email:
+    - e.papadopoulos@odr.de
+  notes: []

@@ -1,0 +1,26 @@
+type: ADD
+date_requested: &1 2013-11-15
+date_active: *1
+ob_issue_no: '1068'
+reference: OB-1068
+identifier:
+  code: 1068-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: EMnify GmbH
+    company_address_1: Friedrich-Bergius-Ring 15
+    company_address_2: 97076 WUERZBURG
+    contact: Mr Alexander Schebler
+    contact_address_1: EMnify GmbH
+    contact_address_2: Friedrich-Bergius-Ring 15
+    contact_address_3: 97076 WUERZBURG
+    tel:
+    - "+49 931 4973 9270"
+    email:
+    - alexander.schebler@emnify.com
+    issue_id_number: 89 883 03
+    effective_date: 1.I.2015
+  notes: []

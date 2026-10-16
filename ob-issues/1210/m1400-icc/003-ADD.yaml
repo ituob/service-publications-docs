@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1210'
+reference: OB-1210
+identifier:
+  code: 1210-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: IT sure GmbH
+    address_line_1: Edisonallee 11
+    address_line_2: D-89321 NEU-ULM
+    carrier_code: ITSURE
+    contact: Mr Manuel Staiger
+    tel: "+49 731 93550 0"
+    fax: "+49 731 93550 31"
+  notes: []

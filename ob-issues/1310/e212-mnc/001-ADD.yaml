@@ -1,0 +1,53 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1310'
+reference: OB-1310
+identifier:
+  code: 1310-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada     ADD
+    networks: " "
+  - mcc_mnc_codes: 302 301
+    networks: ECOTEL inc.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Mexico     ADD
+    networks: " "
+  - mcc_mnc_codes: 334 220
+    networks: MEGA CABLE, S.A. DE C.V
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden     LIR
+    networks: " "
+  - mcc_mnc_codes: 240 50
+    networks: eRate Sverige AB
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code    SUP
+    networks: " "
+  - mcc_mnc_codes: 901 15
+    networks: SITA (Formerly OnAir N.V.)
+  - mcc_mnc_codes: 901 99
+    networks: Athalos Global Services BV
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code    ADD
+    networks: " "
+  - mcc_mnc_codes: 901 23
+    networks: Bloxtel Inc.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code    LIR
+    networks: " "
+  - mcc_mnc_codes: 901 59
+    networks: Bird B.V. (formerly MessageBird B.V.)
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

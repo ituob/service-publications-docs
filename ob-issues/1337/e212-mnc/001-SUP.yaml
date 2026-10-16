@@ -1,0 +1,16 @@
+type: SUP
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1337'
+reference: OB-1337
+identifier:
+  code: 1337-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 302 352
+    country_or_area:
+      en: Canada
+    networks: Lytton Area Wireless Society
+  notes:
+  - 'MCC: Mobile Country Code  MNC: Mobile Network Code'

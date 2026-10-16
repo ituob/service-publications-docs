@@ -1,0 +1,51 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1220'
+reference: OB-1220
+identifier:
+  code: 1220-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-053-3
+    country:
+      en: Switzerland
+    dec: '4523'
+    signal_point_name: Zürich-1
+    signal_point_operator: Datatrade AG
+  - ipsc: 2-061-4
+    country:
+      en: Switzerland
+    dec: '4588'
+    signal_point_name: Zürich-2
+    signal_point_operator: Datatrade AG
+  - ipsc: 2-061-5
+    country:
+      en: Switzerland
+    dec: '4589'
+    signal_point_name: Zürich-3
+    signal_point_operator: Datatrade AG
+  - ipsc: 2-063-2
+    country:
+      en: Switzerland
+    dec: '4602'
+    signal_point_name: Zürich-1
+    signal_point_operator: Intellico AG
+  - ipsc: 2-063-4
+    country:
+      en: Switzerland
+    dec: '4604'
+    signal_point_name: Zürich-2
+    signal_point_operator: Intellico AG
+  - ipsc: 7-228-7
+    country:
+      en: Switzerland
+    dec: '16167'
+    signal_point_name: Zürich-3
+    signal_point_operator: Intellico AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

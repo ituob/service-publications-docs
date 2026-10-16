@@ -1,0 +1,32 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1273'
+reference: OB-1273
+identifier:
+  code: 1273-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-031-3
+    country:
+      en: Spain
+    dec: '4347'
+    signal_point_name: Madrid
+    signal_point_operator: COLT TECHNOLOGY SERVICES,S.A. UNIPERSONAL
+  - ipsc: 2-241-2
+    country:
+      en: Spain
+    dec: '6026'
+    signal_point_name: Barcelona
+    signal_point_operator: COLT TECHNOLOGY SERVICES,S.A. UNIPERSONAL
+  - ipsc: 4-235-4
+    country:
+      en: Spain
+    dec: '10076'
+    signal_point_operator: COLT TECHNOLOGY SERVICES,S.A. UNIPERSONAL
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,95 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: 'P  30    Sweden  '
+  - type: text
+    text: ADD
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Country/geographical area
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: MCC + MNC*
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Name of Operator/Network
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Sweden
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 240 33
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Mobile Arts AB
+- type: paragraph
+  content:
+  - type: text
+    text: ______________
+- type: paragraph
+  content:
+  - type: text
+    text: "*     MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo
+      de país para el servicio móvil"
+- type: paragraph
+  content:
+  - type: text
+    text: "       MNC : Mobile Network Code / Code de réseau mobile / Indicativo de
+      red para el servicio móvil"

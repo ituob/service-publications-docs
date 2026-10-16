@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1166'
+reference: OB-1166
+identifier:
+  code: 1166-007
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Viakom GmbH
+    address_line_1: Heideland 1
+    address_line_2: 24976 HANDEWITT
+    carrier_code: VIAKOM
+    contact: Mr Matthias Damerow
+    tel: "+49 461 430920 10"
+    fax: "+49 461 430920 50"
+    email:
+    - matthias.damerow@viakom.de
+  notes: []

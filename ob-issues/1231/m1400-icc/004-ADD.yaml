@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1231'
+reference: OB-1231
+identifier:
+  code: 1231-004
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Niesky GmbH
+    address_line_1: Hausmannstrasse 10
+    address_line_2: D-02906 NIESKY
+    carrier_code: SWN22
+    contact: Mr Rene Noack
+    tel: "+49 3588 253230"
+    fax: "+49 3588 253222"
+  notes: []

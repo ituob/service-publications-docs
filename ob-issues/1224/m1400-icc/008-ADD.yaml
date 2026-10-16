@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1224'
+reference: OB-1224
+identifier:
+  code: 1224-008
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Soest GmbH
+    address_line_1: Aldegreverwall 12
+    address_line_2: D-59494 SOEST
+    carrier_code: SWSO
+    contact: Mr Dominik Schlueter
+    tel: "+49 2921 392 285"
+    fax: "+49 2921 392 222"
+  notes: []

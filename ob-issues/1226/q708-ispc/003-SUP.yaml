@@ -1,0 +1,39 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1226'
+reference: OB-1226
+identifier:
+  code: 1226-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-026-5
+    country:
+      en: Panama
+    dec: '14549'
+    signal_point_name: PAPPHSSFE01
+    signal_point_operator: Cable and Wireless Panama S.A.
+  - ipsc: 7-027-0
+    country:
+      en: Panama
+    dec: '14552'
+    signal_point_name: PAPPHLRFE01
+    signal_point_operator: Cable and Wireless Panama S.A.
+  - ipsc: 7-027-4
+    country:
+      en: Panama
+    dec: '14556'
+    signal_point_name: Nodo Intl para Central de Rio Abajo
+    signal_point_operator: Cable and Wireless Panama S.A.
+  - ipsc: 7-028-5
+    country:
+      en: Panama
+    dec: '14565'
+    signal_point_name: Nodo Intl para Central de Juan Franco
+    signal_point_operator: Cable and Wireless Panama S.A.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1204'
+reference: OB-1204
+identifier:
+  code: 1204-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: E.ON Energie Deutschland GmbH
+    address_line_1: Arnulfstrasse 203
+    address_line_2: D-80634 MUNICH
+    carrier_code: EONTEL
+    contact: Mr Maximilian Schardt
+    tel: "+49 89 1254 1962"
+  notes: []

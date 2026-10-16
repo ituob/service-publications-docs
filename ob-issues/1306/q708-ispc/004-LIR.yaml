@@ -1,0 +1,27 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1306'
+reference: OB-1306
+identifier:
+  code: 1306-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-242-2
+    country:
+      en: Ukraine
+    dec: '10130'
+    signal_point_name: IM441
+    signal_point_operator: Limited Liability Company "TriMob"
+  - ipsc: 7-242-4
+    country:
+      en: Ukraine
+    dec: '16276'
+    signal_point_name: INTER1
+    signal_point_operator: Limited Liability Company "International Telecommunications"
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

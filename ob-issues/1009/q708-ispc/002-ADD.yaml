@@ -1,0 +1,34 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1009'
+reference: OB-1009
+identifier:
+  code: P 31
+data:
+  _class: Q708ISPCAmendment
+  position: P 31
+  entries:
+  - ipsc: 5-230-3
+    country:
+      en: Estonia
+    dec: '12083'
+    signal_point_name: Tallinn
+    signal_point_operator: Tele2 Eesti AS
+  - ipsc: 5-230-4
+    country:
+      en: Estonia
+    dec: '12084'
+    signal_point_name: Tallinn
+    signal_point_operator: Tele2 Eesti AS
+  - ipsc: 5-230-5
+    country:
+      en: Estonia
+    dec: '12085'
+    signal_point_name: Tallinn
+    signal_point_operator: Novametro OU
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

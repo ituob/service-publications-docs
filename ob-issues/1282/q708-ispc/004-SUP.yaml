@@ -1,0 +1,27 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1282'
+reference: OB-1282
+identifier:
+  code: 1282-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-096-3
+    country:
+      en: Uruguay
+    dec: '15107'
+    signal_point_name: MSC-GSM/Montevideo 1
+    signal_point_operator: Administración Nacional de Telecomunicaciones (ANTEL)
+  - ipsc: 7-096-4
+    country:
+      en: Uruguay
+    dec: '15108'
+    signal_point_name: MSC-GSM/Montevideo 2
+    signal_point_operator: Administración Nacional de Telecomunicaciones (ANTEL)
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,26 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1208'
+reference: OB-1208
+identifier:
+  code: 1208-006
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: United States
+    company_name: Puloli, Inc.
+    company_address_1: 649 Mission Street
+    company_address_2: San Francisco, CA 94105
+    contact: CEO,
+    contact_address_1: Puloli, Inc.
+    contact_address_2: 649 Mission Street
+    contact_address_3: San Francisco, CA 94105
+    tel:
+    - "+1 415 926 2000"
+    email:
+    - info@puloli.com
+    issue_id_number: 89 1 055
+    effective_date: 1.X.2020
+  notes: []

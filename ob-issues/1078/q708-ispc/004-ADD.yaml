@@ -1,0 +1,49 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1078'
+reference: OB-1078
+identifier:
+  code: 1078-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-135-4
+    country:
+      en: Luxembourg
+    dec: '5180'
+    signal_point_name: Luxembourg-Gare
+    signal_point_operator: EPT
+  - ipsc: 2-135-6
+    country:
+      en: Luxembourg
+    dec: '5182'
+    signal_point_operator: BLOCKED
+  - ipsc: 2-135-7
+    country:
+      en: Luxembourg
+    dec: '5183'
+    signal_point_operator: BLOCKED
+  - ipsc: 7-220-0
+    country:
+      en: Luxembourg
+    dec: '16096'
+    signal_point_name: NOT YET AVAILABLE
+    signal_point_operator: e-LUX Mobile Telecommunication Services S.A.
+  - ipsc: 7-220-1
+    country:
+      en: Luxembourg
+    dec: '16097'
+    signal_point_name: POST Luxembourg
+    signal_point_operator: Orange Communications Luxembourg S.A.
+  - ipsc: 7-220-2
+    country:
+      en: Luxembourg
+    dec: '16098'
+    signal_point_name: POST Luxembourg
+    signal_point_operator: Orange Communications Luxembourg S.A.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1264'
+reference: OB-1264
+identifier:
+  code: 1264-001
+data:
+  _class: M1400Amendment
+  entries:
+  - company_name: HanseTel Inh. Sven Kruse
+    address_line_1: Konstanzer Strasse 15
+    address_line_2: D-10707 BERLIN
+    carrier_code: HANSE
+    contact: Mr Tim Jung
+    tel: "+49 30 439699600"
+    fax: "+49 30 439699601"
+    email:
+    - numbering@hanse.tel
+  notes: []

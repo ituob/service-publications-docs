@@ -1,0 +1,39 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1226'
+reference: OB-1226
+identifier:
+  code: 1226-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-060-3
+    country:
+      en: Czech Rep.
+    dec: '4579'
+    signal_point_name: Tiscali CZ
+    signal_point_operator: CD-Telematika a.s.
+  - ipsc: 2-229-4
+    country:
+      en: Czech Rep.
+    dec: '5932'
+    signal_point_name: Praha CS
+    signal_point_operator: T-Mobile Czech Republic a.s.
+  - ipsc: 2-229-5
+    country:
+      en: Czech Rep.
+    dec: '5933'
+    signal_point_name: Brno CS
+    signal_point_operator: T-Mobile Czech Republic a.s.
+  - ipsc: 2-230-7
+    country:
+      en: Czech Rep.
+    dec: '5943'
+    signal_point_name: MSS BRN
+    signal_point_operator: T-Mobile Czech Republic a.s.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

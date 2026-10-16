@@ -1,0 +1,23 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1259'
+reference: OB-1259
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Euratel GmbH
+    address_line_1: Luetzowstrasse 11a
+    address_line_2: D-04155 LEIPZIG
+    carrier_code: EURA
+    contact: Mr Carsten Dieckmann
+    tel: "+49 341 128 5023"
+    fax: "+49 341 128 5555"
+    email:
+    - technik@euratel.de
+  notes: []

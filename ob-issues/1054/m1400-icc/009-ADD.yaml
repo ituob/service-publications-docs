@@ -1,0 +1,35 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1054'
+reference: OB-1054
+identifier:
+  code: 1054-009
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: OpenNumbers eG
+    carrier_code: 'true'
+    contact: Mr. Joern Dost
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Frankenwerft 1
+    contact: 'Tel:         + 49 1803 2520000'
+    tel: "+ 49 1803 2520000"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 50667 Cologne
+    contact: 'Fax:        + 49 1803 2520001'
+    fax: "+ 49 1803 2520001"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:  pda@opennumbers.de'
+    email:
+    - pda@opennumbers.de
+  notes: []

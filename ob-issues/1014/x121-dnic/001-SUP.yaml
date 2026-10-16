@@ -1,0 +1,20 @@
+type: SUP
+date_requested: 2011-0-1
+date_active: 2011-0-1
+ob_issue_no: '1014'
+reference: OB-1014
+identifier:
+  code: P 206 6
+data:
+  _class: X121DNICAmendment
+  position: P 206 6
+  description: P 206 6 SUP
+  caption: Country/Area — DNIC No. — Name of network to which a DNIC is allocated
+  entries:
+  - dnic_number: 206 6
+    country_or_area:
+      en: BELGIUM
+      fr: BELGIQUE
+      es: BÉLGICA
+    network_name: Unisource Belgium X.25 Service
+  notes: []

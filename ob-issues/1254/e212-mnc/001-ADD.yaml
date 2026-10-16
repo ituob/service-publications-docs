@@ -1,0 +1,39 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1254'
+reference: OB-1254
+identifier:
+  code: 1254-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada     ADD
+    networks: " "
+  - mcc_mnc_codes: 302 848
+    networks: Vocom International Telecommunications, Inc
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Liechtenstein     SUP
+    networks: " "
+  - mcc_mnc_codes: 295 07
+    networks: First Mobile AG
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Liechtenstein     ADD
+    networks: " "
+  - mcc_mnc_codes: 295 11
+    networks: DIMOCO Messaging AG
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Liechtenstein     LIR
+    networks: " "
+  - mcc_mnc_codes: 295 10
+    networks: SORACOM CORPORATION, LTD.
+  notes:
+  - "*    MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

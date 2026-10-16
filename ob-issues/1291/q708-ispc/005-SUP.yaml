@@ -1,0 +1,45 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1291'
+reference: OB-1291
+identifier:
+  code: 1291-005
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-000-1
+    country:
+      en: Liechtenstein
+    dec: '4097'
+    signal_point_name: TLI Eschen
+    signal_point_operator: Telecom Liechtenstein AG
+  - ipsc: 2-000-5
+    country:
+      en: Liechtenstein
+    dec: '4101'
+    signal_point_name: iMetrik STP 01
+    signal_point_operator: iMetrik Global (Europe) AG
+  - ipsc: 7-255-1
+    country:
+      en: Liechtenstein
+    dec: '16377'
+    signal_point_name: First Mobile Vaduz 01
+    signal_point_operator: First Mobile AG
+  - ipsc: 7-255-2
+    country:
+      en: Liechtenstein
+    dec: '16378'
+    signal_point_name: First Mobile Vaduz 02
+    signal_point_operator: First Mobile AG
+  - ipsc: 7-255-3
+    country:
+      en: Liechtenstein
+    dec: '16379'
+    signal_point_name: iMetrik HLR
+    signal_point_operator: iMetrik Global (Europe) AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1210'
+reference: OB-1210
+identifier:
+  code: 1210-002
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: France
+    company_name: Lebara France Limited
+    company_address_1: 78 rue Championnet
+    company_address_2: 75018 PARIS
+    contact: Enquiries, Lebara France Limited
+    contact_address_1: 78 rue Championnet
+    contact_address_2: 75018 PARIS
+    fax:
+    - "+33 1 73 04 73 44"
+    email:
+    - ITU-Enquiries@lebara.com
+    issue_id_number: 89 33 38
+    effective_date: 1.X.2020
+  notes: []

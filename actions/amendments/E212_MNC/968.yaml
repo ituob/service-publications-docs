@@ -1,0 +1,20 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: 'by:'
+  position: P 4
+  entries:
+  - mcc_mnc_codes: 426 01
+    country_or_area:
+      en: Bahrain
+    networks: BATELCO
+  note: '4'
+- action_type: ADD
+  position: P 18
+  entries:
+  - mcc_mnc_codes: 425 11
+    country_or_area:
+      en: Israel
+    networks: 365 Telecom (MVNO)
+  note: '18'
+- {}

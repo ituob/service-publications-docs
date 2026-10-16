@@ -1,0 +1,51 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1272'
+reference: OB-1272
+identifier:
+  code: 1272-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-227-2
+    country:
+      en: Albania
+    dec: '10010'
+    signal_point_name: vMSC2_SPX2
+    signal_point_operator: Vodafone Albania sh.a.
+  - ipsc: 4-227-3
+    country:
+      en: Albania
+    dec: '10011'
+    signal_point_name: vMSC2_SPX1
+    signal_point_operator: Vodafone Albania sh.a.
+  - ipsc: 7-219-1
+    country:
+      en: Albania
+    dec: '16089'
+    signal_point_name: vMSC1_SPX2
+    signal_point_operator: Vodafone Albania sh.a.
+  - ipsc: 7-219-2
+    country:
+      en: Albania
+    dec: '16090'
+    signal_point_name: vMSC1_SPX1
+    signal_point_operator: Vodafone Albania sh.a.
+  - ipsc: 7-219-3
+    country:
+      en: Albania
+    dec: '16091'
+    signal_point_name: vMSC2_BC
+    signal_point_operator: Vodafone Albania sh.a.
+  - ipsc: 7-219-4
+    country:
+      en: Albania
+    dec: '16092'
+    signal_point_name: vMSC1_BC
+    signal_point_operator: Vodafone Albania sh.a.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

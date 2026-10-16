@@ -1,0 +1,21 @@
+type: SUP
+date_requested: 2011-0-1
+date_active: 2011-0-1
+ob_issue_no: '1314'
+reference: OB-1314
+identifier:
+  code: 1314-001
+data:
+  _class: X121DNICAmendment
+  country: Spain
+  description: Spain SUP
+  caption: Country/Area — DNIC No. — Name of network to which a DNIC is allocated
+  entries:
+  - dnic_number: 214 1
+    country_or_area:
+      en: SPAIN
+      fr: ESPAGNE
+      es: ESPAÑA
+    network_name: Telefónica de España, S.A.U. (formerly Nodo internacional de datos)
+  notes:
+  - See page 8 of the present Operational Bulletin No. 1314 of 15.IV.2025.

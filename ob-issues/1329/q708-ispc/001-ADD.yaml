@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1329'
+reference: OB-1329
+identifier:
+  code: 1329-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-252-2
+    country:
+      en: Germany
+    dec: '6114'
+    signal_point_name: SALA-FRA-STP1
+    signal_point_operator: Simsalasim Germany GmbH
+  - ipsc: 2-252-3
+    country:
+      en: Germany
+    dec: '6115'
+    signal_point_name: SALA-FRA-STP2
+    signal_point_operator: Simsalasim Germany GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

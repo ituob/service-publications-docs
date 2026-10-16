@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://github.com/ituob/service-publications-docs/datasets/coast-stations/schema-data
+title: ITU OB Dataset Schema for coast-stations
+description: >-
+  Stub schema for the external List of Coast Stations and Special Service
+  Stations publication. No local data is maintained.
+type: array
+items: {}

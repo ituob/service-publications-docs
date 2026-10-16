@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1049'
+reference: OB-1049
+identifier:
+  code: 1049-007
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-055-5
+    country:
+      en: Switzerland
+    dec: '4541'
+    signal_point_name: Altendorf
+    signal_point_operator: Calltrade Carrier Services AG
+  - ipsc: 7-228-2
+    country:
+      en: Switzerland
+    dec: '16162'
+    signal_point_name: Zürich
+    signal_point_operator: Sunrise Communications AG
+  - ipsc: 7-228-3
+    country:
+      en: Switzerland
+    dec: '16163'
+    signal_point_name: Zürich
+    signal_point_operator: Sunrise Communications AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.              Codes de points
+    sémaphores internationaux (CPSI).              Códigos de puntos de señalización
+    internacional (CPSI).'

@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1310'
+reference: OB-1310
+identifier:
+  code: 1310-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-098-7
+    country:
+      en: Namibia
+    dec: '13079'
+    signal_point_name: Loc8 Mobile
+    signal_point_operator: Loc Eight Mobile (Pty) Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

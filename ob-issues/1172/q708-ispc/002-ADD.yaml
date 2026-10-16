@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1172'
+reference: OB-1172
+identifier:
+  code: 1172-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-031-6
+    country:
+      en: Panama
+    dec: '14590'
+    signal_point_name: MGW PANSL3G
+    signal_point_operator: Telefónica Móviles Panamá, S.A.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

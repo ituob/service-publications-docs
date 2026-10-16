@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1314'
+reference: OB-1314
+identifier:
+  code: Sweden /
+data:
+  _class: M1400Amendment
+  position: Sweden /
+  entries:
+  - country_or_area:
+      en: Sweden
+    company_name: Bahnhof AB
+    address_line_1: Sveavägen 41
+    address_line_2: SE-111 34 STOCKHOLM
+    carrier_code: BHOF01
+    contact: Philip Göransson
+    tel: "+46 71110137"
+    email:
+    - philip.goransson@bahnhof.net
+  notes: []

@@ -1,0 +1,27 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1050'
+reference: OB-1050
+identifier:
+  code: 1050-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-150-3
+    country:
+      en: France
+    dec: '5299'
+    signal_point_name: SAP France - Courbevoie 1
+    signal_point_operator: SAP France
+  - ipsc: 2-150-4
+    country:
+      en: France
+    dec: '5300'
+    signal_point_name: SAP France - Courbevoie 2
+    signal_point_operator: SAP France
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

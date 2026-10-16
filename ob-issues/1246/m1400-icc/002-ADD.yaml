@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1246'
+reference: OB-1246
+identifier:
+  code: 1246-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Husum Glasfaser GmbH & Co.KG
+    address_line_1: Am Binnenhafen 1
+    address_line_2: D-25813 HUSUM
+    carrier_code: HUSUMG
+    contact: Mr Norbert Jungjohann
+    tel: "+49 4841 8997 777"
+    fax: "+49 4841 8997 188"
+  notes: []

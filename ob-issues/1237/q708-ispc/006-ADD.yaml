@@ -1,0 +1,39 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1237'
+reference: OB-1237
+identifier:
+  code: 1237-006
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-213-0
+    country:
+      en: Ireland
+    dec: '11944'
+    signal_point_name: DN1MSS05
+    signal_point_operator: Three Ireland (Hutchison) Limited
+  - ipsc: 5-213-1
+    country:
+      en: Ireland
+    dec: '11945'
+    signal_point_name: TC0S7FM1
+    signal_point_operator: Three Ireland (Hutchison) Limited
+  - ipsc: 5-213-2
+    country:
+      en: Ireland
+    dec: '11946'
+    signal_point_name: DN1S7FM1
+    signal_point_operator: Three Ireland (Hutchison) Limited
+  - ipsc: 5-213-3
+    country:
+      en: Ireland
+    dec: '11947'
+    signal_point_name: TC0MSS06
+    signal_point_operator: Three Ireland (Hutchison) Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

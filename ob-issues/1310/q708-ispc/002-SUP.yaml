@@ -1,0 +1,33 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1310'
+reference: OB-1310
+identifier:
+  code: 1310-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-027-5
+    country:
+      en: Panama
+    dec: '14557'
+    signal_point_name: Claro Panama 1
+    signal_point_operator: Claro Panamá S.A.
+  - ipsc: 7-027-6
+    country:
+      en: Panama
+    dec: '14558'
+    signal_point_name: Claro Panama 2
+    signal_point_operator: Claro Panamá S.A.
+  - ipsc: 7-029-4
+    country:
+      en: Panama
+    dec: '14572'
+    signal_point_name: STP01DAV01
+    signal_point_operator: Claro Panamá, S.A.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

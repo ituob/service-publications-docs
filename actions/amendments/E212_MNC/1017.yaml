@@ -1,0 +1,68 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: te)
+  position: P 6
+  entries:
+  - mcc_mnc_codes: 284 01
+    country_or_area:
+      en: Bulgaria
+    networks: M-Tel GSM BG
+  note: '6'
+- action_type: ADD
+  position: P 6
+  entries:
+  - mcc_mnc_codes: 284 01
+    country_or_area:
+      en: Bulgaria
+    networks: Mobiltel EAD
+  note: '6'
+- action_type: ADD
+  position: P 11
+  entries:
+  - mcc_mnc_codes: 607           01
+    country_or_area:
+      en: Gambia
+    networks: GAMCEL
+  note: '11'
+- action_type: ADD
+  position: P 18
+  entries:
+  - mcc_mnc_codes: 901 38
+    country_or_area:
+      en: International Mobile, shared code
+    networks: Multiregional TransitTelecom (MTT)
+  note: '18'
+- action_type: te)
+  position: P 23
+  entries:
+  - mcc_mnc_codes: 295           01
+    country_or_area:
+      en: Liechtenstein
+    networks: Telecom FL AG
+  note: '23'
+- action_type: ADD
+  position: P 23
+  entries:
+  - mcc_mnc_codes: 295            01
+    country_or_area:
+      en: Liechtenstein
+    networks: Swisscom (Schweiz) AG
+  note: '23'
+- action_type: ADD
+  position: P 29
+  entries:
+  - mcc_mnc_codes: 655 27
+    country_or_area:
+      en: South Africa
+    networks: A to Z Vaal Industrial Supplies Pty Ltd
+  note: '29'
+- action_type: ADD
+  position: P 32
+  entries:
+  - mcc_mnc_codes: 641 44
+    country_or_area:
+      en: Uganda
+    networks: K2 Telecom Limited
+  note: '32'
+- {}

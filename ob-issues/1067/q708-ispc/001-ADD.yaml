@@ -1,0 +1,39 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1067'
+reference: OB-1067
+identifier:
+  code: 1067-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-032-2
+    country:
+      en: Hungary
+    dec: '4354'
+    signal_point_name: M1-MSC-PC2
+    signal_point_operator: MÁV Co.
+  - ipsc: 2-212-2
+    country:
+      en: Hungary
+    dec: '5794'
+    signal_point_name: M2-MSC-PC2
+    signal_point_operator: MÁV Co.
+  - ipsc: 2-212-5
+    country:
+      en: Hungary
+    dec: '5797'
+    signal_point_name: M1-SG/STP-PC2
+    signal_point_operator: MÁV Co.
+  - ipsc: 2-212-7
+    country:
+      en: Hungary
+    dec: '5799'
+    signal_point_name: M2-SG/STP-PC2
+    signal_point_operator: MÁV Co.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

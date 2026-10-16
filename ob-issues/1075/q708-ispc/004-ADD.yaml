@@ -1,0 +1,45 @@
+type: ADD
+date_requested: 2015-0-1
+date_active: 2015-0-1
+ob_issue_no: '1075'
+reference: OB-1075
+identifier:
+  code: 1075-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-027-1
+    country:
+      en: Spain
+    dec: '4313'
+    signal_point_name: Zamudio (Vizcaya)
+    signal_point_operator: Euskaltel, S.A.
+  - ipsc: 2-027-2
+    country:
+      en: Spain
+    dec: '4314'
+    signal_point_name: Vitoria (Álava)
+    signal_point_operator: Euskaltel, S.A.
+  - ipsc: 2-031-2
+    country:
+      en: Spain
+    dec: '4346'
+    signal_point_name: Madrid
+    signal_point_operator: ADENET SYSTEMS, S.L.
+  - ipsc: 2-031-4
+    country:
+      en: Spain
+    dec: '4348'
+    signal_point_name: Madrid Norte
+    signal_point_operator: TELEFÓNICA INTERNATIONAL WHOLESALE SERVICES, S.L. UNIPERSONAL
+  - ipsc: 2-031-5
+    country:
+      en: Spain
+    dec: '4349'
+    signal_point_name: Madrid Alias
+    signal_point_operator: TELEFÓNICA INTERNATIONAL WHOLESALE SERVICES, S.L. UNIPERSONAL
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

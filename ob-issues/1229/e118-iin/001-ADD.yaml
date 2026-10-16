@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1229'
+reference: OB-1229
+identifier:
+  code: 1229-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: United States
+    company_name: Comcast Corporation
+    company_address_1: One Comcast Center
+    company_address_2: 1701 John F. Kennedy Blvd.
+    company_address_3: PHILADELPHIA PA 19103
+    contact: Tim Farrell
+    contact_address_1: One Comcast Center
+    contact_address_2: 1701 John F. Kennedy Blvd.
+    contact_address_3: PHILADELPHIA PA 19103
+    tel:
+    - "+1 267 735 3275"
+    email:
+    - tim_farrell@comcast.com
+    issue_id_number: 89 1 059
+    effective_date: 1.XI.2021
+  notes: []

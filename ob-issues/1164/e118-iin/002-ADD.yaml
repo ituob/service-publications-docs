@@ -1,0 +1,24 @@
+type: ADD
+date_requested: &1 2018-12-01
+date_active: *1
+ob_issue_no: '1164'
+reference: OB-1164
+identifier:
+  code: 1164-002
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Austria
+    company_name: Hutchison Drei Austria GmbH
+    company_address_1: Brünner Straße 52
+    company_address_2: A-1210 WIEN
+    contact: Dr Natalie Ségur-Cabanac
+    contact_address_1: Brünner Straße 52
+    contact_address_2: A-1210 WIEN
+    tel:
+    - "+43 5066063202"
+    email:
+    - natalie.segur-cabanac@drei.com
+    issue_id_number: 89 43 10
+  notes: []

@@ -1,0 +1,45 @@
+type: LIR
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1231'
+reference: OB-1231
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Lauterbach GmbH
+    address_line_1: Hinter dem Spittel 15
+    address_line_2: D-36341 LAUTERBACH
+    carrier_code: STWLAU
+    contact: Mrs Lisa Martens
+    tel: "+49 151 401 773 74"
+    fax: "+49 30 235 919 299"
+    email:
+    - l.martens@vivax-consulting.de
+  - country_or_area:
+      en: Germany
+    company_name: TELE AG
+    address_line_1: Wilhelm-Sammet-Strasse 37
+    address_line_2: D-04157 LEIPZIG
+    carrier_code: TELEAG
+    contact: Mrs Anne Hafermalz
+    tel: "+49 341 523801 302"
+    fax: "+49 341 523801 99"
+    email:
+    - anne.hafermalz@tele-ag.de
+  - country_or_area:
+      en: Germany
+    company_name: TELE AG Bulk-Account
+    address_line_1: Wilhelm-Sammet-Strasse 37
+    address_line_2: D-04157 LEIPZIG
+    carrier_code: FLTELE
+    contact: Mrs Anne Hafermalz
+    tel: "+49 341 523801 302"
+    fax: "+49 341 523801 99"
+    email:
+    - anne.hafermalz@tele-ag.de
+  notes: []

@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1278'
+reference: OB-1278
+identifier:
+  code: 1278-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-132-6
+    country:
+      en: Uganda
+    dec: '13350'
+    signal_point_name: INTL_GW_PC
+    signal_point_operator: Talkio Mobile Ltd
+  - ipsc: 6-132-7
+    country:
+      en: Uganda
+    dec: '13351'
+    signal_point_name: INTL_GW_PC_RED
+    signal_point_operator: Talkio Mobile Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

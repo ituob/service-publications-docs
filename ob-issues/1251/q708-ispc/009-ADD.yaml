@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1251'
+reference: OB-1251
+identifier:
+  code: 1251-009
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-033-3
+    country:
+      en: United States
+    dec: '6411'
+    signal_point_name: Ashburn, VA
+    signal_point_operator: GENESIS INTERNATIONAL TELECOM LLC dba Gensitel
+  - ipsc: 3-033-4
+    country:
+      en: United States
+    dec: '6412'
+    signal_point_name: Ashburn, VA (2)
+    signal_point_operator: GENESIS INTERNATIONAL TELECOM LLC dba Gensitel
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

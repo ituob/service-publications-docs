@@ -1,0 +1,33 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: LIR
+  position: N
+  entries:
+  - applicant: Wireless Maritime Services, LLC  (Formerly AT&T)
+    network: Wireless Maritime Services, LLC  (Formerly Cingular Wireless network)
+    cc_ic: "+882 37"
+    status: Assigned
+  - applicant: Wireless Maritime Services, LLC
+    network: Wireless Maritime Services, LLC
+    cc_ic: "+882 37"
+    status: Assigned
+  - applicant: Tele2 Sverige Aktiebolag
+    network: Tele2 Sverige Aktiebolag
+    cc_ic: "+883 320"
+    status: Withdrawn
+- action_type: SUP
+  position: N
+  entries:
+  - applicant: Tele2 Sverige Aktiebolag  (Formerly Tele2 IoT)
+    network: Tele2 Sverige Aktiebolag
+    cc_ic: "+883 320"
+    status: Withdrawn
+  - applicant: Wireless Maritime Services, LLC
+    network: Wireless Maritime Services, LLC
+    cc_ic: "+882 37"
+    status: Assigned
+  - applicant: Tele2 Sverige Aktiebolag
+    network: Tele2 Sverige Aktiebolag
+    cc_ic: "+883 320"
+    status: Withdrawn

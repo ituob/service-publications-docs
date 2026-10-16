@@ -1,0 +1,27 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1248'
+reference: OB-1248
+identifier:
+  code: 1248-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-080-3
+    country:
+      en: Tanzania
+    dec: '12931'
+    signal_point_name: ITSC ZNZ
+    signal_point_operator: Zanzibar Telecom Limited
+  - ipsc: 6-123-1
+    country:
+      en: Tanzania
+    dec: '13273'
+    signal_point_name: WTLSC01
+    signal_point_operator: Wiafrica Tanzania Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

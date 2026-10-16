@@ -1,0 +1,439 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '1092'
+reference: OB-1092
+identifier:
+  code: P 4,
+data:
+  _class: F400Amendment
+  position: P 4,
+  entries:
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: IPM
+    autoanswer:
+      :x400: other
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - " "
+  - country_or_area:
+      fr: '1'
+    admd_name: '2'
+    country_code: '3'
+    helpdesk:
+      :x400: '5'
+    autoanswer:
+      :x400: '6'
+    contact_address:
+      :address_lines:
+      - '7'
+      - '8'
+      - '9'
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - " "
+  - country_or_area:
+      fr: Allemagne
+    admd_name: DBP
+    country_code: DE
+    helpdesk:
+      :x400: BusinessMail
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - S= helpdesk
+      - S=autoanswer
+      - 'Ralf Knecht / Torsten Moeller Telekom Deutschland GmbH Service Lifecycle
+        Management Produktmanagement BusinessMail X.400 O2, 1-10 Am Paradeplatz 68161
+        MANNHEIM Germany   Email: ralf.knecht@telekom.de Tel: +49 6212947422   Email:
+        torsten.moeller@telekom.de Tel: +49 6212941509 Helpdesk: helpdesk.businessmailx400@telekom.de'
+  - country_or_area:
+      fr: Germany
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: Mailbox
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - A=viat
+      - A=viat
+  - country_or_area:
+      fr: Alemania
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: X.400 - IPM
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - C=de
+      - C=de
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - " "
+  - country_or_area:
+      fr: Allemagne
+    admd_name: VIAT
+    country_code: DE
+    helpdesk:
+      :x400: BusinessMail
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - S=helpdesk
+      - S=autoanswer
+      - 'Ralf Knecht / Torsten Moeller Telekom Deutschland GmbH Service Lifecycle
+        Management Produktmanagement BusinessMail X.400 O2, 1-10 Am Paradeplatz 68161
+        MANNHEIM Germany   Email: ralf.knecht@telekom.de Tel: +49 6212947422   Email:
+        torsten.moeller@telekom.de Tel: +49 6212941509 Helpdesk: helpdesk.businessmailx400@telekom.de'
+  - country_or_area:
+      fr: Germany
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: Mailbox
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - A=viat
+      - A=viat
+  - country_or_area:
+      fr: Alemania
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: X.400 - IPM
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - C=de
+      - C=de
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - " "
+  - country_or_area:
+      fr: Allemagne
+    admd_name: VIAT-AS2
+    country_code: DE
+    helpdesk:
+      :x400: BusinessMail
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - S=helpdesk
+      - S=autoanswer
+      - 'Ralf Knecht / Torsten Moeller Telekom Deutschland GmbH Service Lifecycle
+        Management Produktmanagement BusinessMail X.400 O2, 1-10 Am Paradeplatz 68161
+        MANNHEIM Germany   Email: ralf.knecht@telekom.de Tel: +49 6212947422   Email:
+        torsten.moeller@telekom.de Tel: +49 6212941509 Helpdesk: helpdesk.businessmailx400@telekom.de'
+  - country_or_area:
+      fr: Germany
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: Mailbox
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - A=viat
+      - A=viat
+  - country_or_area:
+      fr: Alemania
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: X.400 - IPM
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - C=de
+      - C=de
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  notes: []

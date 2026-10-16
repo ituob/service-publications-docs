@@ -1,0 +1,29 @@
+---
+_class: E212MNCAmendment
+actions:
+- entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Ukraine ADD
+    networks: " "
+  - mcc_mnc_codes: 255 08
+    networks: '"Ukrtelecom" JSC'
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Ukraine LIR
+    networks: " "
+  - mcc_mnc_codes: 255 01
+    networks: '"VF UKRAINE" PrJSC'
+  - mcc_mnc_codes: 255 02
+    networks: '"Kyivstar" PrJSC'
+  - mcc_mnc_codes: 255 03
+    networks: '"Kyivstar" PrJSC'
+  - mcc_mnc_codes: 255 04
+    networks: '"Intertelecom" LLC'
+  - mcc_mnc_codes: 255 06
+    networks: '"lifecell" LLC'
+  - mcc_mnc_codes: 255 07
+    networks: '"TriMob" LLC'
+  - mcc_mnc_codes: 255 21
+    networks: '"Telesystems of Ukraine" PrJSC'
+- {}

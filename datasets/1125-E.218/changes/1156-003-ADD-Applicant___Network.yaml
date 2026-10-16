@@ -1,0 +1,11 @@
+---
+type: ADD
+register: E218_TRCC
+ob_issue_no: '1156'
+identifier:
+  code: Applicant / Network
+data:
+  code ((t)mcc): Applicant / Network
+  country or geographical area: Terrestrial trunk radio Mobile Country Code ((T)MCC)*
+    and Terrestrial trunk radio Mobile Network Code ((T)MNC)**
+  note: Date of assignment

@@ -1,0 +1,45 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1118'
+reference: OB-1118
+identifier:
+  code: 1118-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-107-0
+    country:
+      en: Hong Kong, China
+    dec: '9048'
+    signal_point_name: HKT ISC1
+    signal_point_operator: Hong Kong Telecommunications (HKT) Ltd
+  - ipsc: 4-107-1
+    country:
+      en: Hong Kong, China
+    dec: '9049'
+    signal_point_name: HKT ISC2
+    signal_point_operator: Hong Kong Telecommunications (HKT) Ltd
+  - ipsc: 4-111-3
+    country:
+      en: Hong Kong, China
+    dec: '9083'
+    signal_point_name: HKGCH1
+    signal_point_operator: China-Hongkong Telecom Ltd
+  - ipsc: 4-177-0
+    country:
+      en: Hong Kong, China
+    dec: '9608'
+    signal_point_name: HKLS
+    signal_point_operator: HK Langsen International Communication Ltd
+  - ipsc: 4-180-6
+    country:
+      en: Hong Kong, China
+    dec: '9638'
+    signal_point_name: NTTCA-ISC-HKG01
+    signal_point_operator: NTT Com Asia Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

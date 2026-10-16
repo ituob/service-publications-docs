@@ -1,0 +1,33 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1216'
+reference: OB-1216
+identifier:
+  code: 1216-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-026-5
+    country:
+      en: Panama
+    dec: '14549'
+    signal_point_name: PAPPHSSFE01
+    signal_point_operator: Cable and Wireless Panama S.A.
+  - ipsc: 7-027-0
+    country:
+      en: Panama
+    dec: '14552'
+    signal_point_name: PAPPHLRFE01
+    signal_point_operator: Cable and Wireless Panama S.A.
+  - ipsc: 7-028-2
+    country:
+      en: Panama
+    dec: '14562'
+    signal_point_name: RASTP
+    signal_point_operator: Cable and Wireless Panama S.A.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

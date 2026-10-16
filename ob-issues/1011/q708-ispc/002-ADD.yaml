@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1011'
+reference: OB-1011
+identifier:
+  code: P 32
+data:
+  _class: Q708ISPCAmendment
+  position: P 32
+  entries:
+  - ipsc: 2-088-3
+    country:
+      en: Finland
+    dec: '4803'
+    signal_point_name: Espoo (ESPOO3)
+    signal_point_operator: Elisa Oyj
+  - ipsc: 2-090-3
+    country:
+      en: Finland
+    dec: '4819'
+    signal_point_name: Hämeenlinna (AMSC1)
+    signal_point_operator: AinaCom Oy
+  - ipsc: 2-090-6
+    country:
+      en: Finland
+    dec: '4822'
+    signal_point_name: Espoo (FTFIES1)
+    signal_point_operator: NextGen Mobile Ltd
+  - ipsc: 2-255-2
+    country:
+      en: Finland
+    dec: '6138'
+    signal_point_name: Espoo (ESPOO2)
+    signal_point_operator: Elisa Oyj
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

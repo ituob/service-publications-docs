@@ -1,0 +1,63 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1246'
+reference: OB-1246
+identifier:
+  code: 1246-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-076-0
+    country:
+      en: Guyana
+    dec: '14944'
+    signal_point_name: Allocation for Fixed Wireless Core
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-076-1
+    country:
+      en: Guyana
+    dec: '14945'
+    signal_point_name: Genband G9 Trunk Gateway - Georgetown
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-076-2
+    country:
+      en: Guyana
+    dec: '14946'
+    signal_point_name: Genband G6 Line Gateway - Georgetown
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-076-3
+    country:
+      en: Guyana
+    dec: '14947'
+    signal_point_name: Genband C20 (Georgetown)
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-076-4
+    country:
+      en: Guyana
+    dec: '14948'
+    signal_point_name: Allocation for Agnity ACQ (Local Number Portability)
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-076-5
+    country:
+      en: Guyana
+    dec: '14949'
+    signal_point_name: Genband G6 Line Gateway - New Amsterdam
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-076-6
+    country:
+      en: Guyana
+    dec: '14950'
+    signal_point_name: Genband G6 Line Gateway - Beterverwagting
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-076-7
+    country:
+      en: Guyana
+    dec: '14951'
+    signal_point_name: Mobile MSC - Georgetown
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

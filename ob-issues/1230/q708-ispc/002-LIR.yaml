@@ -1,0 +1,27 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1230'
+reference: OB-1230
+identifier:
+  code: 1230-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-004-2
+    country:
+      en: Egypt
+    dec: '12322'
+    signal_point_name: Heliopolis
+    signal_point_operator: Orange
+  - ipsc: 6-004-3
+    country:
+      en: Egypt
+    dec: '12323'
+    signal_point_name: Obour
+    signal_point_operator: Orange
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

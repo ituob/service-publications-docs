@@ -1,0 +1,27 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1239'
+reference: OB-1239
+identifier:
+  code: 1239-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-237-1
+    country:
+      en: Spain
+    dec: '5993'
+    signal_point_name: Madrid-Bellas Vistas
+    signal_point_operator: Telefónica Móviles España, S.A.U.
+  - ipsc: 2-237-2
+    country:
+      en: Spain
+    dec: '5994'
+    signal_point_name: Barcelona-Guipúzcoa
+    signal_point_operator: Telefónica Móviles España, S.A.U.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

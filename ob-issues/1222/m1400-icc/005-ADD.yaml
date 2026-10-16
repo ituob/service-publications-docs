@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1222'
+reference: OB-1222
+identifier:
+  code: 1222-005
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Bad Nauheim GmbH
+    address_line_1: Hohe Straße 14 - 18
+    address_line_2: D-61231 BAD NAUHEIM
+    carrier_code: SWBN
+    contact: Mr Sascha Kammer
+    tel: "+49 6032 807152"
+  notes: []

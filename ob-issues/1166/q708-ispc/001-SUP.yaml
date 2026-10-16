@@ -1,0 +1,27 @@
+type: SUP
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1166'
+reference: OB-1166
+identifier:
+  code: 1166-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-092-4
+    country:
+      en: Estonia
+    dec: '4836'
+    signal_point_name: Tallinn
+    signal_point_operator: Elisa Andmesidesttnused AS
+  - ipsc: 6-227-2
+    country:
+      en: Estonia
+    dec: '14106'
+    signal_point_name: Tallinn
+    signal_point_operator: Travel Communication OÜ
+  notes:
+  - ____________
+  - 'ISPC:     International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

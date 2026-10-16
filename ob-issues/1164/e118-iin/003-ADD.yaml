@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2018-12-01
+date_active: *1
+ob_issue_no: '1164'
+reference: OB-1164
+identifier:
+  code: 1164-003
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Hong Kong, China
+    company_name: CITIC TELECOM INTERNATIONAL LIMITED
+    company_address_1: 25/F, CITIC Telecom Tower,
+    company_address_2: 93 Kwai Fuk Road
+    company_address_3: Kwai Chung, Hong Kong
+    contact: Sutton Cheung
+    contact_address_1: 25/F, CITIC Telecom Tower,
+    contact_address_2: 93 Kwai Fuk Road
+    contact_address_3: Kwai Chung, Hong Kong
+    tel:
+    - "+852 237788334"
+    email:
+    - suttoncheung@citictel.com
+    issue_id_number: 89 852 01
+    effective_date: 1.XII.2018
+  notes: []

@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2016-09-01
+date_active: *1
+ob_issue_no: '1199'
+reference: OB-1199
+identifier:
+  code: 1199-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-217-4
+    country:
+      en: Norway
+    dec: '16076'
+    signal_point_name: Iristel1
+    signal_point_operator: Iristel Norway AS
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

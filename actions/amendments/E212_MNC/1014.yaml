@@ -1,0 +1,33 @@
+---
+_class: E212MNCAmendment
+actions:
+- entries:
+  - mcc_mnc_codes: 712 04
+    country_or_area:
+      en: Costa Rica
+    networks: Azules y Platas S.A.
+- action_type: ADD
+  position: P 8
+  entries:
+  - mcc_mnc_codes: 712 04
+    country_or_area:
+      en: Costa Rica
+    networks: Telefónica de Costa Rica, TC, S.A.
+  note: '8'
+- action_type: ADD
+  position: P 32
+  entries:
+  - mcc_mnc_codes: 641 40
+    country_or_area:
+      en: Uganda
+    networks: Civil Aviation Authority (CAA)
+  note: '32'
+- action_type: ADD
+  position: P 18
+  entries:
+  - mcc_mnc_codes: 901 37
+    country_or_area:
+      en: International Mobile, shared code
+    networks: Transatel
+  note: '18'
+- {}

@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1013'
+reference: OB-1013
+identifier:
+  code: P 38 to P 39
+data:
+  _class: Q708ISPCAmendment
+  position: P 38 to P 39
+  entries:
+  - ipsc: 2-039-5
+    country:
+      en: Germany
+    dec: '4413'
+    signal_point_name: Frankfurt
+    signal_point_operator: TrueConnect Communications GmbH
+  - ipsc: 2-121-2
+    country:
+      en: Germany
+    dec: '5066'
+    signal_point_name: München
+    signal_point_operator: Verizon Deutschland GmbH
+  - ipsc: 2-121-6
+    country:
+      en: Germany
+    dec: '5070'
+    signal_point_name: Düsseldorf
+    signal_point_operator: Vintage Wireless Networks
+  - ipsc: 2-124-0
+    country:
+      en: Germany
+    dec: '5088'
+    signal_point_name: Frankfurt
+    signal_point_operator: Viocast Solutions Inc.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

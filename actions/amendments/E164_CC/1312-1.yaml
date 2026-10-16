@@ -1,0 +1,20 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: LIR*
+  position: Note o)
+  entries:
+  - applicant: Wireless Maritime Services, LLC
+    network: Wireless Maritime Services, LLC
+    cc_ic: "+882 37"
+    status: Assigned
+  note: o)
+- action_type: P**
+  position: Note p)
+  entries:
+  - applicant: Tele2 Sverige Aktiebolag
+    network: Tele2 Sverige Aktiebolag
+    cc_ic: "+883 320"
+    status: Withdrawn
+  note: p)
+- {}

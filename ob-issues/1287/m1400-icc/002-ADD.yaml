@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1287'
+reference: OB-1287
+identifier:
+  code: 1287-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Teletechnik Freiburg e.K.
+    address_line_1: Ziegelhofstrasse 228 A
+    address_line_2: D-79110 FREIBURG
+    carrier_code: TELFRE
+    contact: Mr Stefan Flemming
+    tel: "+49 761 1202532"
+    fax: "+49 761 1202525"
+  notes: []

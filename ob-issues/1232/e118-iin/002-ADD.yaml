@@ -1,0 +1,26 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1232'
+reference: OB-1232
+identifier:
+  code: 1232-002
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Finland
+    company_name: Nokia Corporation
+    company_address_1: Karakaari 7
+    company_address_2: 02610 ESPOO
+    contact: Nokia Enterprise Solutions
+    contact_address_1: Nokia Corporation,
+    contact_address_2: P.O. Box 226
+    contact_address_3: FIN-00045 Nokia Group
+    tel:
+    - "+358 10 44 88 000"
+    email:
+    - office.stephan_litjens@nokia.com
+    issue_id_number: 89 883 09
+    effective_date: 6.VIII.2021
+  notes: []

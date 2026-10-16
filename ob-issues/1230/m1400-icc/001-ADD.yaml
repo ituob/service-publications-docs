@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1230'
+reference: OB-1230
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Deutsche Giga Access GmbH
+    address_line_1: Zeche Katharina 2
+    address_line_2: D-45307 ESSEN
+    carrier_code: DEGIGA
+    contact: Mr Ulf Moehring
+    tel: "+49 201 21767 105"
+  notes: []

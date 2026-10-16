@@ -1,0 +1,23 @@
+type: SUP
+date_requested:
+date_active:
+ob_issue_no: '1179'
+reference: OB-1179
+identifier:
+  code: P 13 216 1
+data:
+  _class: X121DNICAmendment
+  position: P 13 216 1
+  description: P 13 216 1 SUP
+  caption: Country/Area — DNIC No — Name of network to which a DNIC is allocated
+  entries:
+  - dnic_number: 216 1
+    country_or_area:
+      en: HUNGARY
+      fr: HONGRIE
+      es: HUNGRÍA
+    network_name: Packet Switched Data Service 1)
+    note: 1)use internally, see OB 965
+  notes:
+  - See also Data Transmission Service message in this ITU Operational Bulletin No.
+    1179

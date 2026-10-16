@@ -1,0 +1,57 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1218'
+reference: OB-1218
+identifier:
+  code: 1218-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-111-4
+    country:
+      en: Hong Kong, China
+    dec: '9084'
+    signal_point_name: HK1
+    signal_point_operator: TNZI Singapore Pte Limited
+  - ipsc: 4-181-3
+    country:
+      en: Hong Kong, China
+    dec: '9643'
+    signal_point_name: CUHK-ISTP1
+    signal_point_operator: China Unicom (Hong Kong) Operations Limited
+  - ipsc: 4-181-6
+    country:
+      en: Hong Kong, China
+    dec: '9646'
+    signal_point_name: HKLS01
+    signal_point_operator: HK Langsen International Communication Limited
+  - ipsc: 4-181-7
+    country:
+      en: Hong Kong, China
+    dec: '9647'
+    signal_point_name: CUHK-ISTP2
+    signal_point_operator: China Unicom (Hong Kong) Operations Limited
+  - ipsc: 4-184-5
+    country:
+      en: Hong Kong, China
+    dec: '9669'
+    signal_point_name: HKTH
+    signal_point_operator: Telstra International Limited
+  - ipsc: 4-184-6
+    country:
+      en: Hong Kong, China
+    dec: '9670'
+    signal_point_name: HKEA
+    signal_point_operator: Telstra International Limited
+  - ipsc: 4-184-7
+    country:
+      en: Hong Kong, China
+    dec: '9671'
+    signal_point_name: HKVSTP
+    signal_point_operator: Telstra International Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

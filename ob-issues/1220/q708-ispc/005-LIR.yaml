@@ -1,0 +1,33 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1220'
+reference: OB-1220
+identifier:
+  code: 1220-005
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-164-1
+    country:
+      en: Uzbekistan
+    dec: '9505'
+    signal_point_name: SPS-2
+    signal_point_operator: UzMobile branch of Uzbektelecom JSC
+  - ipsc: 4-164-2
+    country:
+      en: Uzbekistan
+    dec: '9506'
+    signal_point_name: Tashkent AXE-810
+    signal_point_operator: Uzbektelecom JSC
+  - ipsc: 4-164-3
+    country:
+      en: Uzbekistan
+    dec: '9507'
+    signal_point_name: Pakhta AXE-810
+    signal_point_operator: Uzbektelecom JSC
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

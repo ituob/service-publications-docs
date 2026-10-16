@@ -1,0 +1,119 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: em
+    text: country code
+  - type: text
+    marks:
+    - type: strong
+    text: "      "
+  - type: text
+    marks:
+    - type: em
+    - type: strong
+    text: '888'
+  - type: text
+    marks:
+    - type: strong
+    text: "      LIR"
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Country code
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Country, Geographical area or Global service
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Note
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: '888'
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Humanitarian purposes
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: k, t
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: " "
+- type: paragraph
+  content:
+  - type: text
+    marks:
+    - type: strong
+    text: Notes common to Numerical and Alphabetical lists of ITU-T Recommendation
+      E.164 assigned country codes
+- type: paragraph
+  content:
+  - type: text
+    text: k            United Nations Office of the Coordinator for Humanitarian Affairs
+      (OCHA)
+- type: paragraph
+  content:
+  - type: text
+    text: t            Reserved pending further studies.

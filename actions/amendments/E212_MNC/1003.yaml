@@ -1,0 +1,20 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: ADD
+  position: P 11
+  entries:
+  - mcc_mnc_codes: 547 15
+    country_or_area:
+      en: French Polynesia
+    networks: Pacific Mobile Telecom
+  note: '11'
+- action_type: SUP
+  position: P 11
+  entries:
+  - mcc_mnc_codes: 547 02
+    country_or_area:
+      en: French Polynesia
+    networks: Digicel Tahiti
+  note: '11'
+- {}

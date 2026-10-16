@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2018-12-01
+date_active: *1
+ob_issue_no: '1173'
+reference: OB-1173
+identifier:
+  code: 1173-008
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Faroe Islands
+    company_name: Faroese Telecom
+    company_address_1: Klingran 1-5
+    company_address_2: 188 HOYVIK
+    contact: Kári Planck
+    contact_address_1: Klingran 1-5
+    contact_address_2: 188 HOYVIK
+    tel:
+    - "+298 303030"
+    fax:
+    - "+298 303031"
+    email:
+    - kp@ft.fo
+    issue_id_number: 89 298 01
+    effective_date: X.1998
+  notes: []

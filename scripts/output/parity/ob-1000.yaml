@@ -1,0 +1,502 @@
+---
+:id: 1000
+:deployed_tokens: 3856
+:actual_tokens: 4426
+:coverage: 0.9936
+:missing_headings:
+- mcc + mnc*
+- service restrictions (recapitulatory list of service restrictions in force relating
+  to telecommunications operation)
+:missing_links:
+- :href: www.itu.int/ITU-T/inr/roa/index.html
+  :text: List of recognized operating agencies (ROAs)
+:missing_tables: []
+:sections:
+- :heading: ITU Operational Bulletin
+  :deployed_tokens: 3
+  :actual_tokens: 6
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: No. 1000
+  :deployed_tokens: 110
+  :actual_tokens: 16
+  :missing_tokens:
+  - '1211'
+  - '2006'
+  - '5111'
+  - '5211'
+  - '5560'
+  - '5785'
+  - '5853'
+  - '730'
+  - access
+  - administrations
+  - alternative
+  - amendments
+  - annexed
+  - annexes
+  - approval
+  - area
+  - assign
+  - assignment
+  - assignments
+  - authoritative
+  - authorities
+  - back
+  - brmail
+  - bulletin
+  - bureau
+  - call
+  - calling
+  - card
+  - carrier
+  - changes
+  - charge
+  - codes
+  - des
+  - designated
+  - destination
+  - dialling
+  - edition
+  - email
+  - entities
+  - fax
+  - genève
+  - identification
+  - identifier
+  - identity
+  - indicators
+  - information
+  - int
+  - international
+  - ispc
+  - issuer
+  - itu
+  - itumail
+  - list
+  - lists
+  - maritime
+  - mnc
+  - mobile
+  - national
+  - nations
+  - network
+  - networks
+  - number
+  - numbering
+  - numbers
+  - online
+  - operational
+  - organizations
+  - place
+  - plan
+  - point
+  - prefix
+  - procedures
+  - provider
+  - public
+  - publications
+  - radiocommunication
+  - received
+  - recommendation
+  - recommendations
+  - res
+  - resource
+  - rev
+  - roas
+  - sanc
+  - see
+  - service
+  - ship
+  - signalling
+  - significant
+  - standardization
+  - stations
+  - subscriptions
+  - switzerland
+  - tel
+  - telecommunication
+  - telegram
+  - telephone
+  - terminal
+  - trunk
+  - tsb
+  - tsbmail
+  - tsbtson
+  - website
+  :coverage: 0.0636
+- :heading: Dates of publication of the next Operational Bulletins
+  :deployed_tokens: 40
+  :actual_tokens: 41
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: General information
+  :deployed_tokens: 2
+  :actual_tokens: 2
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Lists annexed to the ITU Operational Bulletin
+  :deployed_tokens: 146
+  :actual_tokens: 147
+  :missing_tokens:
+  - '979'
+  - '983'
+  - '992'
+  - '993'
+  :coverage: 0.9726
+- :heading: Approval of ITU-T Recommendations
+  :deployed_tokens: 75
+  :actual_tokens: 75
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Assignment of Signalling Area/Network Codes (SANC)
+  :deployed_tokens: 34
+  :actual_tokens: 33
+  :missing_tokens:
+  - czrs
+  :coverage: 0.9706
+- :heading: Telephone Service
+  :deployed_tokens: 668
+  :actual_tokens: 734
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Telegram Service
+  :deployed_tokens: 94
+  :actual_tokens: 94
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Changes in Administrations/ROAs and other entities or Organizations
+  :deployed_tokens: 40
+  :actual_tokens: 40
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Call-back and alternative calling procedures (Res. 21 Rev. PP-2006)
+  :deployed_tokens: 10
+  :actual_tokens: 12
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Amendments
+  :deployed_tokens: 17
+  :actual_tokens: 18
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Amd. to List V - List of Ship Stations and Maritime Mobile Service Identity
+    Assignments
+  :deployed_tokens: 108
+  :actual_tokens: 108
+  :missing_tokens:
+  - resource
+  :coverage: 0.9907
+- :heading: Amd. no. 20 to List of Issuer Identifier Numbers for the International
+    Telecommunication Charge Card
+  :deployed_tokens: 57
+  :actual_tokens: 55
+  :missing_tokens:
+  - '2011'
+  - accordance
+  - bulletin
+  - mail
+  - operational
+  - recommendation
+  - usage
+  :coverage: 0.8772
+- :heading: Amd. no. 6 to List of Access codes/numbers for mobile networks
+  :deployed_tokens: 34
+  :actual_tokens: 28
+  :missing_tokens:
+  - accordance
+  - after
+  - bulletin
+  - digits
+  - first
+  - operational
+  - recommendation
+  - resource
+  - xii
+  :coverage: 0.7353
+- :heading: Amd. to Dialling Procedures (International prefix, national (trunk) prefix
+    and national (significant) number)
+  :deployed_tokens: 34
+  :actual_tokens: 30
+  :missing_tokens:
+  - accordance
+  - bulletin
+  - operational
+  - recommendation
+  :coverage: 0.8824
+- :heading: Amd. no. 8 to Mobile Network Codes (MNC) for the international identification
+    plan for public networks and subscriptions
+  :deployed_tokens: 48
+  :actual_tokens: 49
+  :missing_tokens:
+  - accordance
+  - bulletin
+  - name
+  - operational
+  - operator
+  - recommendation
+  - red
+  - resource
+  - réseau
+  :coverage: 0.8125
+- :heading: Amd. to List of Telegram Destination Indicators
+  :deployed_tokens: 226
+  :actual_tokens: 49
+  :missing_tokens:
+  - '0373'
+  - '0700'
+  - '0800'
+  - '1300'
+  - '170'
+  - '1900'
+  - '2210'
+  - '2221'
+  - '228'
+  - '248'
+  - '2555'
+  - '2777'
+  - '2903'
+  - '333'
+  - '432'
+  - '4401'
+  - '5706'
+  - accordance
+  - administration
+  - adresse
+  - assigned
+  - assuré
+  - autres
+  - between
+  - booths
+  - box
+  - bureau
+  - bureaufax
+  - bureaux
+  - burfax
+  - burofax
+  - cabeza
+  - cabinas
+  - cabines
+  - cable
+  - cablewire
+  - calls
+  - center
+  - centre
+  - centro
+  - ceux
+  - communications
+  - concerning
+  - conectadas
+  - connected
+  - contact
+  - contacto
+  - control
+  - cwexec
+  - dans
+  - data
+  - del
+  - demás
+  - derniere
+  - des
+  - dimanche
+  - domingo
+  - efectúa
+  - electronic
+  - emplazamiento
+  - entre
+  - especiales
+  - est
+  - este
+  - except
+  - exploitation
+  - explotación
+  - express
+  - facilita
+  - facsimile
+  - fait
+  - fax
+  - first
+  - fourth
+  - francis
+  - gateway
+  - heading
+  - http
+  - including
+  - incluidos
+  - indicator
+  - information
+  - installé
+  - int
+  - intermédiaire
+  - internacionales
+  - international
+  - internationales
+  - internationaux
+  - las
+  - last
+  - les
+  - letters
+  - ligne
+  - linea
+  - llamadas
+  - location
+  - locaux
+  - lome
+  - los
+  - ltd
+  - mahe
+  - maheseychelles
+  - main
+  - mismo
+  - modificación
+  - modification
+  - mêmes
+  - nyeko
+  - oficina
+  - operated
+  - pakistan
+  - par
+  - part
+  - parte
+  - partie
+  - postal
+  - poste
+  - principal
+  - provided
+  - pstn
+  - public
+  - publics
+  - públicas
+  - que
+  - qui
+  - rachel
+  - rec
+  - recommendation
+  - red
+  - reseau
+  - rtpc
+  - salvo
+  - same
+  - sauf
+  - service
+  - services
+  - servicio
+  - servicios
+  - seychelles
+  - son
+  - special
+  - spéciales
+  - street
+  - suivante
+  - sunday
+  - super
+  - switzerland
+  - table
+  - tanzania
+  - telecommunication
+  - telecomunicaciones
+  - telefónicas
+  - telegramas
+  - telegráfico
+  - telephone
+  - telex
+  - tete
+  - third
+  - through
+  - tlx
+  - togo
+  - través
+  - télex
+  - télécommunication
+  - télégrammes
+  - télégraphique
+  - téléphoniques
+  - ultima
+  - under
+  - union
+  - universal
+  - updated
+  - version
+  - victoria
+  - wireless
+  - www
+  - zimbabwe
+  - établies
+  :coverage: 0.208
+- :heading: Amd. no. 7 to List of ITU Carrier Codes
+  :deployed_tokens: 45
+  :actual_tokens: 38
+  :missing_tokens:
+  - accordance
+  - address
+  - bulletin
+  - operational
+  - recommendation
+  - republic
+  - resource
+  :coverage: 0.8444
+- :heading: Amd. no. 21 to List of International Signalling Point Codes (ISPC)
+  :deployed_tokens: 91
+  :actual_tokens: 90
+  :missing_tokens:
+  - accordance
+  - area
+  - bulletin
+  - operational
+  - recommendation
+  - resource
+  - unique
+  :coverage: 0.9231
+- :heading: Amd. no. 12 to List of Signalling Area/Network Codes (SANC)
+  :deployed_tokens: 38
+  :actual_tokens: 32
+  :missing_tokens:
+  - accordance
+  - alphabetical
+  - bulletin
+  - numerical
+  - operational
+  - recommendation
+  - resource
+  - vii
+  :coverage: 0.7895
+- :heading: Amd. to List of the national authorities designated to assign ITU-T Recommendation
+    T.35 terminal provider codes
+  :deployed_tokens: 72
+  :actual_tokens: 70
+  :missing_tokens:
+  - accordance
+  - assignment
+  - compliant
+  - equipment
+  - information
+  - mail
+  - manufacturers
+  - resource
+  :coverage: 0.8889
+- :heading: Amd. to National Numbering Plan
+  :deployed_tokens: 62
+  :actual_tokens: 60
+  :missing_tokens:
+  - accordance
+  - resource
+  :coverage: 0.9677
+- :heading: Annexes to this issue
+  :deployed_tokens: 2
+  :actual_tokens: 4
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Service Restrictions (Recapitulatory list of service restrictions in force
+    relating to telecommunications operation)
+  :deployed_tokens: 8
+  :actual_tokens: 0
+  :missing_tokens:
+  - force
+  - list
+  - operation
+  - recapitulatory
+  - relating
+  - restrictions
+  - service
+  - telecommunications
+  :coverage: 0.0

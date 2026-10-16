@@ -1,0 +1,35 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1063'
+reference: OB-1063
+identifier:
+  code: 1063-006
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: simple-ASP GmbH
+    carrier_code: SIMPLE
+    contact: Mr. Tobias Kritten
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Zilzkreuz 10
+    contact: Tel.           + 49 2224 928 4800
+    tel: "+ 49 2224 928 4800"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 53604 BAD HONNEF
+    contact: 'Fax:          + 49 800 000 0867'
+    fax: "+ 49 800 000 0867"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:    info@simple-asp.de'
+    email:
+    - info@simple-asp.de
+  notes: []

@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1083'
+reference: OB-1083
+identifier:
+  code: 1083-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Belize SUP
+    networks: " "
+  - mcc_mnc_codes: 702 68
+    networks: International Telecommunications Ltd. (INTELCO)
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Belize ADD
+    networks: " "
+  - mcc_mnc_codes: 702 69
+    networks: SMART/Speednet Communications Ltd.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Greenland ADD
+    networks: " "
+  - mcc_mnc_codes: 290 02
+    networks: inu:it a/s
+  notes:
+  - "*      MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

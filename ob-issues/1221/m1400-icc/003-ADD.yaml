@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1221'
+reference: OB-1221
+identifier:
+  code: 1221-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Palau
+    company_name: Palau Mobile Communications Incorporated
+    address_line_1: PDC Building
+    address_line_2: P.O. Box 401461
+    address_line_3: Medalaii, Koror
+    carrier_code: PMCI
+    contact: Mr Billy Takamine
+    tel: "+680 488 1189"
+    email:
+    - info@pmci.pw
+  notes: []

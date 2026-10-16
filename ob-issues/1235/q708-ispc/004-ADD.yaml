@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1235'
+reference: OB-1235
+identifier:
+  code: 1235-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-099-4
+    country:
+      en: Namibia
+    dec: '13084'
+    signal_point_name: Telepassport
+    signal_point_operator: Telepassport Communications (Pty) Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

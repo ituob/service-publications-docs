@@ -1,0 +1,20 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: ADD
+  position: P 29
+  entries:
+  - mcc_mnc_codes: 655 19
+    country_or_area:
+      en: South Africa
+    networks: Wireless Business Solutions (iBurst)
+  note: '29'
+- action_type: LIR
+  position: P 30
+  entries:
+  - mcc_mnc_codes: 240 14
+    country_or_area:
+      en: Sweden
+    networks: TDC Sverige AB
+  note: '30'
+- {}

@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1258'
+reference: OB-1258
+identifier:
+  code: 1258-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-179-3
+    country:
+      en: Faroe Islands
+    dec: '7579'
+    signal_point_name: KMSC01
+    signal_point_operator: FT Samskifti P/F
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

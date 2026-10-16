@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1274'
+reference: OB-1274
+identifier:
+  code: 1274-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Leipzig GmbH
+    address_line_1: Augustusplatz 7
+    address_line_2: D-04109 LEIPZIG
+    carrier_code: LLSW
+    contact: Mr Gerd Kroll
+    tel: "+49 341 121 6050"
+    fax: "+49 341 121 6025"
+    email:
+    - gerd.kroll@netz-leipzig.de
+  notes: []

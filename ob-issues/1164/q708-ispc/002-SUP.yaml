@@ -1,0 +1,45 @@
+type: SUP
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1164'
+reference: OB-1164
+identifier:
+  code: 1164-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-218-0
+    country:
+      en: Bosnia and Herzegovina
+    dec: '5840'
+    signal_point_name: IATC SA1/Sarajevo
+    signal_point_operator: BH Telecom d.d. Sarajevo
+  - ipsc: 2-218-4
+    country:
+      en: Bosnia and Herzegovina
+    dec: '5844'
+    signal_point_name: Banjaluka MN1
+    signal_point_operator: Telekomunikacije RS, a.d. Banja Luka
+  - ipsc: 2-218-5
+    country:
+      en: Bosnia and Herzegovina
+    dec: '5845'
+    signal_point_name: Banjaluka MN2
+    signal_point_operator: Telekomunikacije RS, a.d. Banja Luka
+  - ipsc: 2-219-1
+    country:
+      en: Bosnia and Herzegovina
+    dec: '5849'
+    signal_point_name: AirABA/SA1 Sarajevo
+    signal_point_operator: AirABA d.o.o. Sarajevo
+  - ipsc: 2-219-3
+    country:
+      en: Bosnia and Herzegovina
+    dec: '5851'
+    signal_point_name: CGBN1 Bijeljina
+    signal_point_operator: Crumb Group d.o.o. Bijeljina
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

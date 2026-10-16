@@ -1,0 +1,39 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1271'
+reference: OB-1271
+identifier:
+  code: 1271-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-095-4
+    country:
+      en: Zimbabwe
+    dec: '13052'
+    signal_point_name: Econet Willowvale vSTP (WVVSTP01)
+    signal_point_operator: Econet Wireless
+  - ipsc: 6-095-5
+    country:
+      en: Zimbabwe
+    dec: '13053'
+    signal_point_name: Econet PocketsHill vSTP (PHVSTP01)
+    signal_point_operator: Econet Wireless
+  - ipsc: 6-095-6
+    country:
+      en: Zimbabwe
+    dec: '13054'
+    signal_point_name: Econet Willowvale vMSS (WVVMSS01)
+    signal_point_operator: Econet Wireless
+  - ipsc: 6-095-7
+    country:
+      en: Zimbabwe
+    dec: '13055'
+    signal_point_name: Econet PocketsHill vMSS (PHVMSS01)
+    signal_point_operator: Econet Wireless
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

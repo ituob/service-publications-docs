@@ -1,0 +1,78 @@
+type: ADD
+date_requested: &1 2018-12-15
+date_active: *1
+ob_issue_no: '1164'
+reference: OB-1164
+identifier:
+  code: 1164-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Belgium SUP
+    networks: " "
+  - mcc_mnc_codes: 206 40
+    networks: Join Experience (Belgium)
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Japan ADD
+    networks: " "
+  - mcc_mnc_codes: 440 08
+    networks: Panasonic Systems Solutions Japan Co., Ltd
+  - mcc_mnc_codes: 440 09
+    networks: Marubeni Wireless Communications Inc.
+  - mcc_mnc_codes: 440 11
+    networks: Rakuten Mobile Network, Inc.
+  - mcc_mnc_codes: 440 12
+    networks: CABLE MEDIA WAIWAI CORPORATION
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Kenya SUP
+    networks: " "
+  - mcc_mnc_codes: 639 11
+    networks: WiAfrica Kenya Limited
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Kenya LIR
+    networks: " "
+  - mcc_mnc_codes: 639 01
+    networks: Safaricom PLC
+  - mcc_mnc_codes: 639 02
+    networks: Safaricom PLC
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden LIR
+    networks: " "
+  - mcc_mnc_codes: 240 60
+    networks: Telefonaktiebolaget LM Ericsson (MNC assigned for test purpose. Temporary
+      license until 2019-12-31)
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Viet Nam SUP
+    networks: " "
+  - mcc_mnc_codes: 452 03
+    networks: S Telecom (CDMA)
+  - mcc_mnc_codes: 452 06
+    networks: EVN Telecom
+  - mcc_mnc_codes: 452 08
+    networks: EVN Telecom
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Viet Nam ADD
+    networks: " "
+  - mcc_mnc_codes: 452 05
+    networks: Vietnamobile
+  - mcc_mnc_codes: 452 08
+    networks: I-Telecom
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Viet Nam LIR
+    networks: " "
+  - mcc_mnc_codes: 452 07
+    networks: Gmobile
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

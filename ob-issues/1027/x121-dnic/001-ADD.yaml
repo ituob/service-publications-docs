@@ -1,0 +1,21 @@
+type: ADD
+date_requested: 2011-0-1
+date_active: 2011-0-1
+ob_issue_no: '1027'
+reference: OB-1027
+identifier:
+  code: P 26
+data:
+  _class: X121DNICAmendment
+  position: P 26
+  country: Ukraine
+  description: P 26 Ukraine ADD
+  caption: Country/Area — DNIC No. — Name of network to which a DNIC is allocated
+  entries:
+  - dnic_number: 255 1
+    country_or_area:
+      en: UKRAINE
+      fr: UKRAINE
+      es: UCRANIA
+    network_name: bkcNET (RADIOCONNECT Ltd)
+  notes: []

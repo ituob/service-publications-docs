@@ -1,0 +1,33 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: SUP
+  position: N
+  entries:
+  - applicant: Truphone Limited
+    network: Truphone Limited
+    cc_ic: "+883 440"
+    status: Withdrawn
+  - applicant: Voxbone SA
+    network: Voxbone SA
+    cc_ic: "+883 5100"
+    status: Withdrawn
+  - applicant: Bandwidth.com Inc
+    network: Bandwidth.com Inc
+    cc_ic: "+883 5110"
+    status: Withdrawn
+- action_type: SUP
+  position: N
+  entries:
+  - applicant: Voxbone SA
+    network: Voxbone SA
+    cc_ic: "+883 5100"
+    status: Withdrawn
+  - applicant: Bandwidth.com Inc
+    network: Bandwidth.com Inc
+    cc_ic: "+883 5110"
+    status: Withdrawn
+  - applicant: Truphone Limited
+    network: Truphone Limited
+    cc_ic: "+883 440"
+    status: Withdrawn

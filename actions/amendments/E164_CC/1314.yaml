@@ -1,0 +1,29 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: LIR
+  position: c
+  entries:
+  - applicant: '883'
+    network: IoT/M2M, shared code
+    cc_ic: p, q
+    status: Assigned
+  - applicant: KORE Wireless
+    network: KORE Wireless
+    cc_ic: "+883 260"
+    status: Assigned
+- action_type: LIR
+  position: N
+  entries:
+  - applicant: KORE Wireless  (Formerly Twilio Inc.)
+    network: KORE Wireless  (Formerly Twilio Inc.)
+    cc_ic: "+883 260"
+    status: Assigned
+  - applicant: '883'
+    network: IoT/M2M, shared code
+    cc_ic: p, q
+    status: Assigned
+  - applicant: KORE Wireless
+    network: KORE Wireless
+    cc_ic: "+883 260"
+    status: Assigned

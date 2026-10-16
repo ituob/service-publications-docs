@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1224'
+reference: OB-1224
+identifier:
+  code: 1224-006
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Karlsruhe GmbH
+    address_line_1: Daxlander Strasse 72
+    address_line_2: D-76185 KARLSRUHE
+    carrier_code: SWKA
+    contact: Mr Robin Birk
+    tel: "+49 721 5991034"
+  notes: []

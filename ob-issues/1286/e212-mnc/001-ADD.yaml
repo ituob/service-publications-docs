@@ -1,0 +1,61 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1286'
+reference: OB-1286
+identifier:
+  code: 1286-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada     ADD
+    networks: " "
+  - mcc_mnc_codes: 302 351
+    networks: MPVWIFI Inc.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Denmark     ADD
+    networks: " "
+  - mcc_mnc_codes: 238 19
+    networks: YATECO OÜ
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: New Zealand     ADD
+    networks: " "
+  - mcc_mnc_codes: 530 12
+    networks: Broadband & Internet New Zealand Limited
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: United Kingdom     ADD
+    networks: " "
+  - mcc_mnc_codes: 234 05
+    networks: Spitfire Network Services Limited
+  - mcc_mnc_codes: 234 79
+    networks: UK Telecoms Lab (UKTL)
+  - mcc_mnc_codes: 234 87
+    networks: LEBARA MOBILE LIMITED
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: United Kingdom     LIR
+    networks: " "
+  - mcc_mnc_codes: 234 04
+    networks: WAVE MOBILE LTD
+  - mcc_mnc_codes: 234 18
+    networks: WIRELESS LOGIC LIMITED
+  - mcc_mnc_codes: 234 74
+    networks: CIRCLES MVNE International B.V.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code    ADD*
+    networks: " "
+  - mcc_mnc_codes: 901 08
+    networks: SpaceX
+  - mcc_mnc_codes: 901 09
+    networks: China Telecommunications Corporation
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

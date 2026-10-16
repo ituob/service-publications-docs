@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1265'
+reference: OB-1265
+identifier:
+  code: 1265-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Metzingen connect GmbH
+    address_line_1: Stuttgarter Str. 59
+    address_line_2: D-72555 METZINGEN
+    carrier_code: MCONN
+    contact: Mr Alexander Schoch
+    tel: "+49 7123 925312"
+    fax: "+49 7123 9254312"
+  notes: []

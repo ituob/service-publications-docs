@@ -1,0 +1,27 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1111'
+reference: OB-1111
+identifier:
+  code: 1111-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-108-0
+    country:
+      en: Comoros
+    dec: '13152'
+    signal_point_name: CT-HURI
+    signal_point_operator: Comores Telecom
+  - ipsc: 6-108-1
+    country:
+      en: Comoros
+    dec: '13153'
+    signal_point_name: CTA-HURI
+    signal_point_operator: Comores Telecom
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

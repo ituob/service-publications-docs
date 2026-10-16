@@ -1,0 +1,36 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1019'
+reference: OB-1019
+identifier:
+  code: 1019-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 505 26
+    country_or_area:
+      en: P  4 Australia ADD
+    networks: Dialogue Communications Pty Ltd
+  - mcc_mnc_codes: 505 27
+    networks: Nexium Telecommunications
+  - mcc_mnc_codes: 302 611
+    country_or_area:
+      en: P 6  Canada SUP
+    networks: Bell Mobility
+  - mcc_mnc_codes: 302 690
+    country_or_area:
+      en: P  7 Canada ADD
+    networks: Bell Mobility
+  - mcc_mnc_codes: 514 01
+    country_or_area:
+      en: P  32 ADD   Timor-Leste
+    networks: Telin Timor-Leste
+  - mcc_mnc_codes: 514 02
+    networks: Timor Telecom
+  - mcc_mnc_codes: 514 03
+    networks: Viettel Timor-Leste
+  notes:
+  - "*     MCC: Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil.  **   MNC: Mobile Network Code / Code de réseau mobile
+    / Indicativo de red para el servicio móvil."

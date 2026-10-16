@@ -1,0 +1,63 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1246'
+reference: OB-1246
+identifier:
+  code: 1246-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-077-0
+    country:
+      en: Guyana
+    dec: '14952'
+    signal_point_name: Broadband STP Node A (NI=INTL)
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-077-1
+    country:
+      en: Guyana
+    dec: '14953'
+    signal_point_name: Allocation for SCC-AS IMS Core Node A
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-077-2
+    country:
+      en: Guyana
+    dec: '14954'
+    signal_point_name: Broadband STP Node A (NI=NATL)
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-077-3
+    country:
+      en: Guyana
+    dec: '14955'
+    signal_point_name: Broadband STP Node B (NI=INTL)
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-077-4
+    country:
+      en: Guyana
+    dec: '14956'
+    signal_point_name: Broadband STP Node B (NI=NATL)
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-077-5
+    country:
+      en: Guyana
+    dec: '14957'
+    signal_point_name: Mobile MSC - Lethem
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-077-6
+    country:
+      en: Guyana
+    dec: '14958'
+    signal_point_name: Allocation for SCC-AS IMS Core Node B
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  - ipsc: 7-077-7
+    country:
+      en: Guyana
+    dec: '14959'
+    signal_point_name: BBSTP ALIAS Point Code
+    signal_point_operator: Guyana Telephone and Telegraph Co. Ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

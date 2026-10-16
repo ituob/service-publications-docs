@@ -1,0 +1,47 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1292'
+reference: OB-1292
+identifier:
+  code: 1292-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada    ADD
+    networks: " "
+  - mcc_mnc_codes: 302 911
+    networks: Halton Regional Police Service
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Chile    ADD
+    networks: " "
+  - mcc_mnc_codes: 730 24
+    networks: CLARO CHILE SpA
+  - mcc_mnc_codes: 730 29
+    networks: Entel PCS Telecomunicaciones S.A.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Georgia    ADD
+    networks: " "
+  - mcc_mnc_codes: 282 17
+    networks: '"TMTECH" LTD'
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Hungary    SUP
+    networks: " "
+  - mcc_mnc_codes: 216 02
+    networks: MVM NET Ltd.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Hungary    ADD
+    networks: " "
+  - mcc_mnc_codes: 216 02
+    networks: HM EI Zrt.
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

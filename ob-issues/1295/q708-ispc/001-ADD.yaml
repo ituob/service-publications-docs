@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1295'
+reference: OB-1295
+identifier:
+  code: 1295-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-110-6
+    country:
+      en: South Africa
+    dec: '13174'
+    signal_point_name: JHIGMS2
+    signal_point_operator: MTN (Pty) Ltd
+  - ipsc: 6-111-3
+    country:
+      en: South Africa
+    dec: '13179'
+    signal_point_name: GEIGMS2
+    signal_point_operator: MTN (Pty) Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,33 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1229'
+reference: OB-1229
+identifier:
+  code: 1229-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-215-7
+    country:
+      en: Cyprus
+    dec: '11967'
+    signal_point_name: Alias for NN STP-1&STP-2
+    signal_point_operator: Cablenet Communication Systems Ltd
+  - ipsc: 5-219-0
+    country:
+      en: Cyprus
+    dec: '11992'
+    signal_point_name: NN-STP-1, Nicosia
+    signal_point_operator: Cablenet Communication Systems Ltd
+  - ipsc: 5-219-1
+    country:
+      en: Cyprus
+    dec: '11993'
+    signal_point_name: NN-STP-2, Limassol
+    signal_point_operator: Cablenet Communication Systems Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

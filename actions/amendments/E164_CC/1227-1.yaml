@@ -1,0 +1,16 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: ADD*
+  position: Note p)
+  entries:
+  - applicant: Eseye Limited
+    network: Eseye Limited
+    cc_ic: "+883 380"
+    status: Assigned
+  - applicant: Airnity SAS
+    network: Airnity SAS
+    cc_ic: "+883 390"
+    status: Assigned
+  note: p)
+- {}

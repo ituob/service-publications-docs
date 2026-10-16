@@ -1,0 +1,45 @@
+type: ADD
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1166'
+reference: OB-1166
+identifier:
+  code: 1166-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-150-2
+    country:
+      en: France
+    dec: '5298'
+    signal_point_name: Mobiquithings – Vitry 4
+    signal_point_operator: Mobiquithings
+  - ipsc: 2-150-3
+    country:
+      en: France
+    dec: '5299'
+    signal_point_name: Mobiquithings – Vitry 5
+    signal_point_operator: Mobiquithings
+  - ipsc: 2-150-4
+    country:
+      en: France
+    dec: '5300'
+    signal_point_name: Mobiquithings – Vitry 6
+    signal_point_operator: Mobiquithings
+  - ipsc: 3-232-0
+    country:
+      en: France
+    dec: '8000'
+    signal_point_name: P1 Security – Vitry 1
+    signal_point_operator: P1 security
+  - ipsc: 3-232-1
+    country:
+      en: France
+    dec: '8001'
+    signal_point_name: P1 Security – Vitry 2
+    signal_point_operator: P1 security
+  notes:
+  - ____________
+  - 'ISPC:     International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1213'
+reference: OB-1213
+identifier:
+  code: 1213-004
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: VoIPSun GmbH
+    address_line_1: Yorckstrasse 22
+    address_line_2: D-93049 REGENSBURG
+    carrier_code: VPSN
+    contact: Mr Daniel Hoeppler
+    tel: "+49 941 9000 994 0"
+    fax: "+49 941 9000 994 9"
+  notes: []

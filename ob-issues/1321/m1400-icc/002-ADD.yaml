@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1321'
+reference: OB-1321
+identifier:
+  code: 1321-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Indusys GmbH
+    address_line_1: Kerkhagen 9
+    address_line_2: D-58513 LUEDENSCHEID
+    carrier_code: INDUS1
+    contact: Zoran Trajkovic
+    tel: "+49 2351 997410"
+  notes: []

@@ -1,0 +1,41 @@
+type: REP
+date_requested:
+date_active:
+ob_issue_no: '1112'
+reference: OB-1112
+identifier:
+  code: P 14
+data:
+  _class: ListVIIIAmendment
+  position: P 14
+  country: HNG Hungary
+  description: P 14 REP
+  entries:
+  - country: HNG Hungary
+    name: Tárnok (IMS)
+    postal_address: Monitoring Station Sóskuti út 2469 Tárnok Hungary
+    contact: 'TF : +36 23 365405 EMAIL : tarnok@ahrt.hu'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 47°22'00''N 018°52'00''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 1000 MHz
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 47°22'00''N 018°52'00''E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 30 MHz
+      remarks: Rod antenna. Loop antenna.
+    - measurement_type: Bandwidth measurements
+      coordinates: 47°22'00''N 018°52'00''E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 30 MHz
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 47°22'00''N 018°52'00''E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 30 MHz
+  notes:
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks

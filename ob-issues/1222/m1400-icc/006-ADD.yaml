@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1222'
+reference: OB-1222
+identifier:
+  code: 1222-006
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Freudenstadt GmbH & Co.KG
+    address_line_1: Reichsstrasse 9
+    address_line_2: D-72250 FREUDENSTADT
+    carrier_code: SWFDS
+    contact: Mr Ruben Frey
+    tel: "+49 7441 921 271"
+    fax: "+49 7441 921 498"
+  notes: []

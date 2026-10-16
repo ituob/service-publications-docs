@@ -1,0 +1,25 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: SUP
+  position: N
+  entries:
+  - applicant: Wins Limited
+    network: Wins Limited
+    cc_ic: "+882 42"
+    status: Withdrawn
+  - applicant: Wins Limited
+    network: Wins Limited
+    cc_ic: "+883 5150"
+    status: Assigned
+- action_type: ADD
+  position: N
+  entries:
+  - applicant: Wins Limited
+    network: Wins Limited
+    cc_ic: "+883 5150"
+    status: Assigned
+  - applicant: Wins Limited
+    network: Wins Limited
+    cc_ic: "+882 42"
+    status: Withdrawn

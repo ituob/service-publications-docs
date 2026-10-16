@@ -1,0 +1,24 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1086'
+reference: OB-1086
+identifier:
+  code: 1086-002
+data:
+  _class: M1400Amendment
+  entries:
+  - company_name: envia TEL GmbH
+    carrier_code: ETEL
+    contact: Mr. Peter Zech
+  - company_name: Friedrich-Ebert-Strasse 26
+    contact: 'Tel:            +49 355 68 1214'
+    tel: "+49 355 68 1214"
+  - company_name: 04416 MARKKLEEBERG
+    contact: 'Fax:           +49 355 68 2500'
+    fax: "+49 355 68 2500"
+  - contact: 'E-mail:      peter.zech@enviatel.de'
+    tel: 'E-mail:      peter.zech@enviade'
+    email:
+    - peter.zech@enviatel.de
+  notes: []

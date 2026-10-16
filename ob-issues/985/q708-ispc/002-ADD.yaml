@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '985'
+reference: OB-985
+identifier:
+  code: P 91
+data:
+  _class: Q708ISPCAmendment
+  position: P 91
+  entries:
+  - ipsc: 6-066-5
+    country:
+      en: Seychelles
+    dec: '12821'
+    signal_point_name: Media Gateway - Airtel
+    signal_point_operator: Airtel Seychelles
+  - ipsc: 6-066-6
+    country:
+      en: Seychelles
+    dec: '12822'
+    signal_point_name: Trans Local switch 1
+    signal_point_operator: Airtel Seychelles
+  - ipsc: 6-066-7
+    country:
+      en: Seychelles
+    dec: '12823'
+    signal_point_name: Mobile Switching Centre 1
+    signal_point_operator: Airtel Seychelles
+  - ipsc: 6-067-0
+    country:
+      en: Seychelles
+    dec: '12824'
+    signal_point_name: Kokonet - 0
+    signal_point_operator: Kokonet
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes'
+  - Codes de points sémaphores internationaux (CPSI)
+  - Códigos de puntos de señalización internacional (CPSI)

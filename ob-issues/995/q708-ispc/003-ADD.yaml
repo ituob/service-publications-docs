@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '995'
+reference: OB-995
+identifier:
+  code: P 66
+data:
+  _class: Q708ISPCAmendment
+  position: P 66
+  entries:
+  - ipsc: 6-102-1
+    country:
+      en: Lesotho
+    dec: '13105'
+    signal_point_name: ETLSS
+    signal_point_operator: Econet Telecom Lesotho (Pty) LTD
+  - ipsc: 6-102-2
+    country:
+      en: Lesotho
+    dec: '13106'
+    signal_point_name: ETLMGW
+    signal_point_operator: Econet Telecom Lesotho (Pty) LTD
+  - ipsc: 6-102-3
+    country:
+      en: Lesotho
+    dec: '13107'
+    signal_point_name: VCLMGW
+    signal_point_operator: Vodacom Lesotho (pty) ltd.
+  - ipsc: 6-102-7
+    country:
+      en: Lesotho
+    dec: '13111'
+    signal_point_name: VCLMSS
+    signal_point_operator: Vodacom Lesotho (pty) ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

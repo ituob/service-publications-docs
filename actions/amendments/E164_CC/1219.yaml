@@ -1,0 +1,25 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: ADD
+  position: N
+  entries:
+  - applicant: Telecom Italia Sparkle S.p.A.
+    network: Telecom Italia Sparkle S.p.A.
+    cc_ic: "+883 360"
+    status: Assigned
+  - applicant: Nokia Corporation
+    network: Nokia Corporation
+    cc_ic: "+883 5190"
+    status: Assigned
+- action_type: ADD
+  position: N
+  entries:
+  - applicant: Nokia Corporation
+    network: Nokia Corporation
+    cc_ic: "+883 5190"
+    status: Assigned
+  - applicant: Telecom Italia Sparkle S.p.A.
+    network: Telecom Italia Sparkle S.p.A.
+    cc_ic: "+883 360"
+    status: Assigned

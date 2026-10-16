@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1222'
+reference: OB-1222
+identifier:
+  code: 1222-004
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: nfon AG Bulk-Account
+    address_line_1: Machtlfinger Strasse 7
+    address_line_2: D-81379 MUNICH
+    carrier_code: FLNFON
+    contact: Mr Paul Gardzielewski
+    tel: "+49 89 45300 199"
+    fax: "+49 89 45300 33199"
+  notes: []

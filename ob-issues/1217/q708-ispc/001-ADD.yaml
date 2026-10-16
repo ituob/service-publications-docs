@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1217'
+reference: OB-1217
+identifier:
+  code: 1217-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-230-5
+    country:
+      en: Lithuania
+    dec: '16181'
+    signal_point_name: Vilnius
+    signal_point_operator: UAB Bité Lietuva
+  - ipsc: 7-230-6
+    country:
+      en: Lithuania
+    dec: '16182'
+    signal_point_name: Vilnius
+    signal_point_operator: UAB Bité Lietuva
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,23 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1166'
+reference: OB-1166
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Dr. Michaelis Consult GmbH
+    address_line_1: Braunstrasse 22
+    address_line_2: 04347 LEIPZIG
+    carrier_code: MCGMBH
+    contact: Mr Steffen Pein
+    tel: "+49 341 2426200"
+    fax: "+49 341 242609"
+    email:
+    - spein@mcgmbh.net
+  notes: []

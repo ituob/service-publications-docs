@@ -1,0 +1,39 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1063'
+reference: OB-1063
+identifier:
+  code: 1063-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-177-0
+    country:
+      en: Cameroon
+    dec: '13704'
+    signal_point_name: Yaoundé, MSC Server
+    signal_point_operator: Nexttel (ex VIETTEL Cameroun)
+  - ipsc: 6-177-1
+    country:
+      en: Cameroon
+    dec: '13705'
+    signal_point_name: Douala, MSC Server
+    signal_point_operator: Nexttel (ex VIETTEL Cameroun)
+  - ipsc: 6-177-5
+    country:
+      en: Cameroon
+    dec: '13709'
+    signal_point_name: Douala, SEP, GMSC
+    signal_point_operator: ORANGE Cameroun
+  - ipsc: 6-177-6
+    country:
+      en: Cameroon
+    dec: '13710'
+    signal_point_name: Douala, SEP, GMSC
+    signal_point_operator: ORANGE Cameroun
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

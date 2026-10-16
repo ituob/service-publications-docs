@@ -1,0 +1,29 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1310'
+reference: OB-1310
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: BKN GmbH & Co.KG
+    address_line_1: Kerkpatt 25
+    address_line_2: D-48317 DRENSTEINFURT
+    carrier_code: BKNETZ
+    contact: Mr Maximilian Knicker
+    tel: "+49 2387 55302 0"
+    fax: "+49 2387 55302 99"
+  - country_or_area:
+      en: Germany
+    company_name: Breitbandnetz GmbH & Co.KG
+    address_line_1: Husumer Strasse 63
+    address_line_2: D-25821 BREKLUM
+    carrier_code: BNGNF
+    contact: Mr Daniel Pastewka
+    tel: "+49 4671 79796 23"
+  notes: []

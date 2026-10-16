@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1271'
+reference: OB-1271
+identifier:
+  code: 1271-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-217-5
+    country:
+      en: Norway
+    dec: '16077'
+    signal_point_name: GJOSTP2
+    signal_point_operator: Com4 AS
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,35 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1061'
+reference: OB-1061
+identifier:
+  code: 1061-002
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Hofmeir Media GmbH
+    carrier_code: BELSIP
+    contact: Mr. Stefan Hofmeir
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Kranzhornstrasse 3
+    contact: 'Tel.: +49 89 48951048'
+    tel: "+49 89 48951048"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 81825 MUNCHEN
+    contact: 'Fax: +49 89 4487505'
+    fax: "+49 89 4487505"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail: portierung@bellsip.com'
+    email:
+    - portierung@bellsip.com
+  notes: []

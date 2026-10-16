@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1254'
+reference: OB-1254
+identifier:
+  code: 1254-007
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: United Kingdom
+    company_name: Telet Research (N.I.) Limited
+    company_address_1: 14 Great College St
+    company_address_2: LONDON SW1P 3RX
+    contact: James Body
+    contact_address_1: 14 Great College St
+    contact_address_2: LONDON SW1P 3RX
+    tel:
+    - "+44 20 8002 0000"
+    email:
+    - enquiries@teletresearch.com
+    issue_id_number: 89 44 09
+    effective_date: 9.VIII.2022
+  notes: []

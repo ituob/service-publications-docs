@@ -1,0 +1,24 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1228'
+reference: OB-1228
+identifier:
+  code: 1228-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: France
+    company_name: Airnity SAS
+    company_address_1: 751 chemin de Pigranel
+    company_address_2: 06250 MOUGINS
+    contact: Roaming department,
+    contact_address_1: Airnity SAS
+    contact_address_2: 751 chemin de Pigranel
+    contact_address_3: 06250 MOUGINS
+    email:
+    - roaming@airnity.com
+    issue_id_number: 89 883 10
+    effective_date: 6.VIII.2021
+  notes: []

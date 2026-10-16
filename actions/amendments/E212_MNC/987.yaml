@@ -1,0 +1,36 @@
+---
+_class: E212MNCAmendment
+actions:
+- action_type: ADD
+  position: P 18
+  entries:
+  - mcc_mnc_codes: 425 07
+    country_or_area:
+      en: Israel
+    networks: Mirs Ltd
+  note: '18'
+- action_type: ADD
+  position: P 29
+  entries:
+  - mcc_mnc_codes: 234 06
+    country_or_area:
+      en: Sudan
+    networks: Zain Sudan
+  note: '29'
+- action_type: ADD
+  position: P 30
+  entries:
+  - mcc_mnc_codes: 240 34
+    country_or_area:
+      en: Sweden
+    networks: Tigo Ltd
+  note: '30'
+- action_type: ADD
+  position: P 30
+  entries:
+  - mcc_mnc_codes: 294 11
+    country_or_area:
+      en: The Former Yugoslav Rep. of Macedonia
+    networks: MOBIK TELEKOMUNIKACII DOOEL- Skopje
+  note: '30'
+- {}

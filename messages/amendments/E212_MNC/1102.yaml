@@ -1,0 +1,147 @@
+---
+type: doc
+content:
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: Country or geographical area
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: MCC+MNC *
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: Name of Operator/Network
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 3
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: Estonia      SUP
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: " "
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: " "
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 248 05
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: AS Bravocom Mobiil**
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 248 05
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: Skycompiler OÜ**
+- type: paragraph
+  content:
+  - type: text
+    text: "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
+      de país para el servicio móvil"
+- type: paragraph
+  content:
+  - type: text
+    text: "   MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red
+      para el servicio móvil"
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: paragraph
+  content:
+  - type: text
+    text: '** MCC+MNC "248 05" was assigned to AS Bravocom Mobiil until 19 April 2007.'
+- type: paragraph
+  content:
+  - type: text
+    text: "     Then it was assigned to Skycompiler OÜ on 15 March 2011."
+- type: paragraph
+  content:
+  - type: text
+    text:      "248 05" was withdrawn on 15 March 2013.

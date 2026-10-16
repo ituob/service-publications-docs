@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1279'
+reference: OB-1279
+identifier:
+  code: 1279-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: NetUSE AG
+    address_line_1: Dr.-Hell-Strasse 6
+    address_line_2: D-24107 KIEL
+    carrier_code: NETUSE
+    contact: Dr Roland Kaltefleiter
+    tel: "+49 431 2390400"
+    fax: "+49 431 2390499"
+  notes: []

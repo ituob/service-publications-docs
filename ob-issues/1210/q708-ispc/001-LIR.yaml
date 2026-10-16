@@ -1,0 +1,39 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1210'
+reference: OB-1210
+identifier:
+  code: 1210-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-225-0
+    country:
+      en: Myanmar
+    dec: '9992'
+    signal_point_name: YGMS01
+    signal_point_operator: MyTel
+  - ipsc: 4-225-1
+    country:
+      en: Myanmar
+    dec: '9993'
+    signal_point_name: YGSS01
+    signal_point_operator: MyTel
+  - ipsc: 4-225-2
+    country:
+      en: Myanmar
+    dec: '9994'
+    signal_point_name: MDMS01
+    signal_point_operator: MyTel
+  - ipsc: 4-225-3
+    country:
+      en: Myanmar
+    dec: '9995'
+    signal_point_name: MDSS01
+    signal_point_operator: MyTel
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

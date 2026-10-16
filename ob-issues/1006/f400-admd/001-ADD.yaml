@@ -1,0 +1,89 @@
+type: ADD
+date_requested: &1 2011-01-15
+date_active: *1
+ob_issue_no: '1006'
+reference: OB-1006
+identifier:
+  code: P 28
+data:
+  _class: F400Amendment
+  position: P 28
+  entries:
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: MT
+    helpdesk:
+      :x400: other
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: '1'
+    country_code: '2'
+    helpdesk:
+      :x400: '4'
+    autoanswer:
+      :x400: '5'
+    contact_address:
+      :address_lines:
+      - '6'
+      - '7'
+      - '8'
+  - country_or_area:
+      fr: Italie
+    admd_name: TESI 400
+    country_code: IT
+    helpdesk:
+      :x400: TESI 400
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - 'NO'
+      - 'NO'
+      - Tesi S.p.A
+  - country_or_area:
+      fr: Italy
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - Via Savigliano, 48
+  - country_or_area:
+      fr: Italia
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - 12060 – Loc. Roreto di Cherasco (CN), Italy
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - 'e-mail: euritmo@gruppotesi.com '
+  notes: []

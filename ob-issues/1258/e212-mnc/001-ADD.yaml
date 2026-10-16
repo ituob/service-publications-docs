@@ -1,0 +1,68 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1258'
+reference: OB-1258
+identifier:
+  code: 1258-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Panama     ADD
+    networks: " "
+  - mcc_mnc_codes: 714 05
+    networks: Cable & Wireless Panamá, S.A.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden     SUP
+    networks: " "
+  - mcc_mnc_codes: 240 60
+    networks: Telefonaktiebolaget LM Ericsson (MNC assigned for test purpose. Temporary
+      license until 2019-12-31)
+  - mcc_mnc_codes: 240 61
+    networks: MessageBird B.V.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden     ADD
+    networks: " "
+  - mcc_mnc_codes: 240 60
+    networks: Västra Götalandsregionen (temporary assigned until 2026-12-31)
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden     LIR
+    networks: " "
+  - mcc_mnc_codes: 240 03
+    networks: Teracom AB
+  - mcc_mnc_codes: 240 13
+    networks: Bredband2 Företag AB
+  - mcc_mnc_codes: 240 20
+    networks: Sierra Wireless Messaging AB
+  - mcc_mnc_codes: 240 29
+    networks: MI Carrier Services AB
+  - mcc_mnc_codes: 240 37
+    networks: Sinch Sweden AB
+  - mcc_mnc_codes: 240 40
+    networks: Netmore Group AB
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code     SUP*
+    networks: " "
+  - mcc_mnc_codes: 901 65
+    networks: Plintron Global Technology Solutions Private Limited
+  - mcc_mnc_codes: 901 80
+    networks: Flo Live Limited
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code    ADD*
+    networks: " "
+  - mcc_mnc_codes: 901 94
+    networks: Intelsat US LLC
+  - mcc_mnc_codes: 901 95
+    networks: HMD Global Oy
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

@@ -1,0 +1,27 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1286'
+reference: OB-1286
+identifier:
+  code: 1286-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-190-2
+    country:
+      en: United Kingdom
+    dec: '5618'
+    signal_point_name: Titan
+    signal_point_operator: CIRCLES MVNE International B.V.
+  - ipsc: 2-210-4
+    country:
+      en: United Kingdom
+    dec: '5780'
+    signal_point_name: Titan
+    signal_point_operator: CIRCLES MVNE International B.V.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1226'
+reference: OB-1226
+identifier:
+  code: 1226-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Czech Rep.    ADD
+    networks: " "
+  - mcc_mnc_codes: 230 09
+    networks: Uniphone, s.r.o.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: South Africa    ADD
+    networks: " "
+  - mcc_mnc_codes: 655 77
+    networks: K2015315513 (Pty) Ltd t\a One Telecom (Pty) Ltd
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

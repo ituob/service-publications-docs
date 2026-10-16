@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1252'
+reference: OB-1252
+identifier:
+  code: 1252-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-234-5
+    country:
+      en: Czech Rep.
+    dec: '14165'
+    signal_point_name: MSC3
+    signal_point_operator: Vodafone Czech Republic a.s.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

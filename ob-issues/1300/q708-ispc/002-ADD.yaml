@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1300'
+reference: OB-1300
+identifier:
+  code: 1300-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-167-1
+    country:
+      en: Kyrgyzstan
+    dec: '9529'
+    signal_point_name: ST STP DE
+    signal_point_operator: City Soft
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

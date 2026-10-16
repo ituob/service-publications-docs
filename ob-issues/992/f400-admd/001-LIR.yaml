@@ -1,0 +1,142 @@
+type: LIR
+date_requested: &1 2011-01-15
+date_active: *1
+ob_issue_no: '992'
+reference: OB-992
+identifier:
+  code: P 36
+data:
+  _class: F400Amendment
+  position: P 36
+  entries:
+  - country_or_area:
+      fr: Rép. tchèque
+    admd_name: EDIVAN 400
+    country_code: CZ
+    helpdesk:
+      :x400: EDIVAN 400
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - S=Autoanswer/ Autoreply
+      - EDITEL CZ s.r.o.
+  - country_or_area:
+      fr: Czech Rep.
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - P=EDI
+      - V Parku 2309/6
+  - country_or_area:
+      fr: Rep. Checa
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - A=EDIVAN400
+      - 148 00  Praha 4 – Chodov, Czech Republic
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - C=CZ
+      - 'e-mail: Ales.svoboda@editel.cz / cc@editel.cz'
+  - country_or_area:
+      fr: Rép. tchèque
+    admd_name: SPT400
+    country_code: CZ
+    helpdesk:
+      :x400: CZMAIL ‑ IPM
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - S=helpdesk
+      - P=autoanswer
+      - "  Ingrid Ledererova"
+  - country_or_area:
+      fr: Czech Rep.
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - A=spt 400
+      - A=spt 400
+      - Technical director
+  - country_or_area:
+      fr: Rep. Checa
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - C=cz
+      - C=cz
+      - Dial Telecom, a.s.
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - Krizikova 36a/237, Corso Karlin
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - 186 00  Praha 8, Czech Republic
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      :x400: " "
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - " "
+      - " "
+      - 'e-mail: ingrid.ledererova@dialtelecom.cz'
+  notes: []

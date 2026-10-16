@@ -1,0 +1,39 @@
+---
+_class: E212MNCAmendment
+actions:
+- entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Faroe Islands    ADD
+    networks: " "
+  - mcc_mnc_codes: 288 10
+    networks: Faroese Telecom
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden     SUP
+    networks: " "
+  - mcc_mnc_codes: 240 11
+    networks: ComHem AB
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: United States     ADD
+    networks: " "
+  - mcc_mnc_codes: 310 420
+    networks: World Mobile Networks, Inc
+  - mcc_mnc_codes: 314 450
+    networks: NUWAVE Communications, Inc.
+  - mcc_mnc_codes: 314 460
+    networks: Texas A&M University
+  - mcc_mnc_codes: 314 470
+    networks: Manhattan Telecommunications Corporation LLC
+  - mcc_mnc_codes: 314 480
+    networks: Xcel Energy Services Inc.
+  - mcc_mnc_codes: 314 490
+    networks: Utah Education and Telehealth Network (UETN)
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: United States     LIR
+    networks: " "
+  - mcc_mnc_codes: 313 560
+    networks: Boldyn Networks Transit US LLC
+- {}

@@ -1,0 +1,16 @@
+type: ADD
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1342'
+reference: OB-1342
+identifier:
+  code: 1342-003
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 712 08
+    country_or_area:
+      en: Costa Rica
+    networks: COOPERATIVA DE ELECTRIFICACION RURAL DE SAN CARLOS R.L.
+  notes:
+  - 'MCC: Mobile Country Code  MNC: Mobile Network Code'

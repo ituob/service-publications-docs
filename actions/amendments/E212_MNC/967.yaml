@@ -1,0 +1,33 @@
+---
+_class: E212MNCAmendment
+actions:
+- entries:
+  - mcc_mnc_codes: 230 05
+    country_or_area:
+      en: Czech Rep.
+    networks: Travel Telekommunikation, s.r.o.
+- action_type: ADD
+  position: P 23
+  entries:
+  - mcc_mnc_codes: 259 05
+    country_or_area:
+      en: Moldova
+    networks: J.S.C. “Moldtelecom”/3G UMTS (W-CDMA)
+  note: '23'
+- action_type: ADD
+  position: P 24
+  entries:
+  - mcc_mnc_codes: 649 02
+    country_or_area:
+      en: Namibia
+    networks: Telecom Namibia
+  note: '24'
+- action_type: ia 
+  position: P 28
+  entries:
+  - mcc_mnc_codes: 637 70
+    country_or_area:
+      en: Somalia
+    networks: Onkod Telecom Ltd.
+  note: '28'
+- {}

@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+
+module Ituob
+  module Models
+    class E118Action < Lutaml::Model::Serializable
+      attribute :action_type, :string
+      attribute :position, :string
+      attribute :entries, E118Entry, collection: true
+
+      def initialize(attributes = {})
+        super
+        self.entries = []
+      end
+    end
+  end
+end

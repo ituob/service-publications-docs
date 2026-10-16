@@ -1,0 +1,27 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1035'
+reference: OB-1035
+identifier:
+  code: 1035-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-086-6
+    country:
+      en: Japan
+    dec: '8886'
+    signal_point_name: Tokyo
+    signal_point_operator: NTT Communications Corporation
+  - ipsc: 4-086-7
+    country:
+      en: Japan
+    dec: '8887'
+    signal_point_name: Osaka
+    signal_point_operator: NTT Communications Corporation
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

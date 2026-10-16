@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1230'
+reference: OB-1230
+identifier:
+  code: 1230-006
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Telefon-Systeme Ernst Schmid GmbH
+    address_line_1: Schwaerzbuehl 8
+    address_line_2: D-88361 ALTSHAUSEN
+    carrier_code: MCSTSS
+    contact: Mr Matthias Schmid
+    tel: "+49 7584 920313"
+    fax: "+49 7584 3303"
+  notes: []

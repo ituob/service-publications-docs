@@ -1,0 +1,57 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1291'
+reference: OB-1291
+identifier:
+  code: 1291-006
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-000-2
+    country:
+      en: Liechtenstein
+    dec: '4098'
+    signal_point_name: SMSC 01 Frankfurt
+    signal_point_operator: iBASlS Communications AG
+  - ipsc: 7-210-0
+    country:
+      en: Liechtenstein
+    dec: '16016'
+    signal_point_name: STP1 INAT0 Frankfurt
+    signal_point_operator: SORACOM CORPORATION LTD.
+  - ipsc: 7-210-1
+    country:
+      en: Liechtenstein
+    dec: '16017'
+    signal_point_name: STP2 INAT0 Frankfurt
+    signal_point_operator: SORACOM CORPORATION LTD.
+  - ipsc: 7-210-2
+    country:
+      en: Liechtenstein
+    dec: '16018'
+    signal_point_name: Dublin-STP-1
+    signal_point_operator: Cubic AG
+  - ipsc: 7-210-3
+    country:
+      en: Liechtenstein
+    dec: '16019'
+    signal_point_name: Dublin-STP-2
+    signal_point_operator: Cubic AG
+  - ipsc: 7-210-4
+    country:
+      en: Liechtenstein
+    dec: '16020'
+    signal_point_name: Frankfurt-STP-1
+    signal_point_operator: Cubic AG
+  - ipsc: 7-210-5
+    country:
+      en: Liechtenstein
+    dec: '16021'
+    signal_point_name: Frankfurt-STP-2
+    signal_point_operator: Cubic AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

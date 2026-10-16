@@ -1,0 +1,28 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1006'
+reference: OB-1006
+identifier:
+  code: P 40 to P 44
+data:
+  _class: Q708ISPCAmendment
+  position: P 40 to P 44
+  entries:
+  - ipsc: 2-222-6
+    country:
+      en: Germany
+    dec: '5878'
+    signal_point_name: Frankfurt
+    signal_point_operator: Infotel BV
+  - ipsc: 5-251-3
+    country:
+      en: Germany
+    dec: '12251'
+    signal_point_name: Frankfurt
+    signal_point_operator: Infotel BV
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

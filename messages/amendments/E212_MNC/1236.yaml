@@ -1,0 +1,123 @@
+---
+type: doc
+content:
+- type: table
+  content:
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 2
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Country/Geographical area
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: MCC+MNC
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: em
+          - type: strong
+          text: Operator/Network
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 2
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          marks:
+          - type: strong
+          text: 'International Mobile, '
+        - type: hard_break
+          marks:
+          - type: strong
+        - type: text
+          marks:
+          - type: strong
+          text: shared code    SUP*
+    - type: table_cell
+      attrs:
+        colspan: 2
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: " "
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: " "
+  - type: table_row
+    content:
+    - type: table_cell
+      attrs:
+        colspan: 2
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: 901 63
+    - type: table_cell
+      attrs:
+        colspan: 1
+        rowspan: 1
+        colwidth:
+      content:
+      - type: paragraph
+        content:
+        - type: text
+          text: GloTell B.V.
+- type: paragraph
+  content:
+  - type: text
+    text: MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+      país para el servicio móvil
+- type: paragraph
+  content:
+  - type: text
+    text: MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para
+      el servicio móvil
+- type: paragraph
+  content:
+  - type: text
+    text: "* See the present ITU Operational Bulletin No 1236 of 15.I.2022, page 4."

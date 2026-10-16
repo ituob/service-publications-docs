@@ -1,0 +1,162 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1248'
+reference: OB-1248
+identifier:
+  code: P 1
+data:
+  _class: ListVIIIAmendment
+  position: P 1
+  description: P 1 ADD by alphabetical order
+  entries:
+  - name: Klerefontein
+  - name: Klerefontein
+    postal_address: Astronomy Management Authority Private Bag X894 Pretoria 0001
+    contact: 'PHONE: +27 12 8436300 TELEFAX: +27 12 3491030 EMAIL: bsethole@sarao.ac.za
+      EMAIL: mere.kgampe@dst.gov.za EMAIL: smatlhane@sarao.ac.za'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 30°58'17"S 021°58'49"E
+      hours_of_service: H24
+      frequency_ranges: 9kHz - 9 GHz
+      remarks: ITU-R REC SM.1139-0
+    - measurement_type: Bandwidth measurements
+      coordinates: 30°58'17"S 021°58'49"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 9 GHz
+      remarks: ITU-R REC SM.1139-0
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 30°58'17"S 021°58'49"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 9 GHz
+      remarks: ITU-R REC SM.1139-0
+  - name: Wien (IMS)
+    postal_address: Telecommuncation Authority Austria Radiomonitoring 17 Krapfenwaldgasse
+      1190 Wien Austria
+    contact: 'Phone: +43 1 71100 654488 Email: funkmonitoring@fb.gv.at'
+    centralizing_office:
+      name: Finnish Transport and Communications Agency (TRAFICOM)
+      postal_address: P.O. Box 320 00059 Traficom
+      contact: 'PHONE: +358 295 345000 EMAIL: radiotaajuudet@traficom.fi'
+    measurements:
+    - measurement_type: Direction-finding measurements
+      coordinates: 48°19'40"N 016°28'43"E
+      hours_of_service: HX
+      frequency_ranges: "(100) 500 kHz - 30 MHz"
+      remarks: Correlative interferometer.
+    - measurement_type: Direction-finding measurements
+      coordinates: 48°15'45"N 016°20'08"E
+      hours_of_service: H24
+      frequency_ranges: 30 MHz - 3 GHz
+      remarks: If necessary, direction-finding measurements are carried out by mobile
+        monitoring stations (van). Correlation.
+    - measurement_type: Frequency measurements
+      coordinates: 48°15'45"N 016°20'08"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 90 GHz
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 48°15'45"N 016°20'08"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 90 GHz
+      remarks: If necessary, measurements are carried out by mobile monitoring stations
+        (van).
+    - measurement_type: Bandwidth measurements
+      coordinates: 48°15'45"N 016°20'08"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 90 GHz
+      remarks: If necessary, measurements are carried out by mobile monitoring stations
+        (van).
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 48°15'45"N 016°20'08"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 90 GHz
+    - measurement_type: Frequency measurements
+      coordinates: 46°38'07"N 014°29'43"E
+      hours_of_service: HX
+      frequency_ranges: 9 kHz - 30 MHz
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 46°38'07"N 014°29'43"E
+      hours_of_service: HK
+      frequency_ranges: 9 kHz - 30 MHz
+    - measurement_type: Direction-finding measurements
+      coordinates: 46°38'07"N 014°29'43"E
+      hours_of_service: HX
+      frequency_ranges: "(100) 300 kHz - 30 MHz"
+      remarks: Correlative interferometer.
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 43°38'07"N 014°29'43"E
+      hours_of_service: HX
+      frequency_ranges: 9 kHz - 30 MHz
+  - name: Helsinki
+    postal_address: P.O. Box 320 00059 Traficom Finland
+    contact: 'Phone: +358 295 345000 Email: radiotaajuudet@traficom.fi'
+    centralizing_office:
+      name: Ofcom
+      postal_address: Ofcom Riverside House 2a Southwark Bridge Road London SE1 9HA
+      contact: 'Phone: +44 20 79813109 Telefax: +44 20 79813208 Email: ifc.enquiries@ofcom.org.uk'
+      remarks: Ofcom Spectrum Management Center (SMC) is staffed 24 hours - 365 days.
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 60°11'11"N 024°55'34"E
+      hours_of_service: 0600-1400
+      frequency_ranges: 20 MHz - 6 GHz
+    - measurement_type: Direction-finding measurements
+      coordinates: 60°11'11"N 024°55'34"E
+      hours_of_service: 0600-1400
+      frequency_ranges: 20 MHz - 6 GHz
+  notes:
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - AFS - South Africa
+  - REP (Centralizing office)
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service (UTC) — Remarks
+  - AUT – Austria
+  - REP (Centralizing office)
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - 'Federal Ministry of Agriculture, Regions and Tourism Directorate-General IV/3
+    Centralizing Office for Monitoring — Radetzkystrasse 2 1030 Wien — PHONE: +43
+    1 71100 654224 Email: ernst.cerny@bmlrt.gv.at Email: TKP-T-Zdf@bmlrt.gv.at'
+  - 'SUP Station : Klagenfurt'
+  - 'MOD Station : Wien (IMS)'
+  - Name of the Station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service (utc) — Remarks
+  - FIN - Finland
+  - REP (Centralizing office)
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - 'MOD Station : Helsinki'
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service (utc) — Remarks
+  - G - United Kingdom
+  - MOD (Centralizing office)
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service (utc) — Remarks
+  - 'MOD Station : Baldock (IMS)'
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service (utc) — Remarks
+  - J - Japan
+  - MOD (Centralizing office)
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - NOR - Norway
+  - REP (Centralizing office)
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service (utc) — Remarks
+  - 'MOD Station : Ski'
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service (utc) — Remarks
+  - PART II
+  - STATIONS IN THE SPACE RADIOCOMMUNICATION SERVICES
+  - J - Japan
+  - MOD (Centralizing office)
+  - Centralizing office — Postal address — Telephone, telefax, electronic-mail — Remarks

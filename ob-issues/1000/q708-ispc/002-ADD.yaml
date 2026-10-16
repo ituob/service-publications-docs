@@ -1,0 +1,27 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1000'
+reference: OB-1000
+identifier:
+  code: P 102
+data:
+  _class: Q708ISPCAmendment
+  position: P 102
+  entries:
+  - ipsc: 6-229-0
+    country:
+      en: Sweden
+    dec: '14120'
+    signal_point_name: MISTH-3
+    signal_point_operator: Mercury International Carrier Services
+  - ipsc: 6-229-1
+    country:
+      en: Sweden
+    dec: '14121'
+    signal_point_name: MISTH-4
+    signal_point_operator: Mercury International Carrier Services
+  notes:
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

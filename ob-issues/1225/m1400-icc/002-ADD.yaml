@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1225'
+reference: OB-1225
+identifier:
+  code: 1225-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Altonetz GmbH
+    address_line_1: St. Altohof 1
+    address_line_2: D-85250 ALTOMUENSTER
+    carrier_code: ALTO
+    contact: Mr Joachim Borowko
+    tel: "+49 8254 6824201"
+    fax: "+49 8254 6824207"
+  notes: []

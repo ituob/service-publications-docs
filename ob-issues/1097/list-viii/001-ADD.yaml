@@ -1,0 +1,69 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1097'
+reference: OB-1097
+identifier:
+  code: P 330
+data:
+  _class: ListVIIIAmendment
+  position: P 330
+  country: RUS Russian Federation
+  description: P 330 ADD by alphabetical order
+  entries:
+  - country: RUS Russian Federation
+    name: Irkutsk
+    postal_address: 24, Gornaya Str. 664007 Irkutsk Russian Federation
+    contact: 'TF : +7 395 2268960 FAX : +7 395 2268972 EMAIL : office@irk.srfc.ru'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 52°39'37''N 104°47'10''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: 'Accuracy of measurements: ± 1 Hz (absolute value).'
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 52°39'37''N 104°47'10''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: 'Measurement range: 10 - 120 dBμV/m. Accuracy of measurements: ± 3
+        dB.'
+    - measurement_type: Direction-finding measurements
+      coordinates: 52°39'37''N 104°47'10''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: Antenna system with frequency range from 10 kHz to 100 kHz - two magnetic
+        dipoles - multiturn frames with ferrite cores, active length of antenna not
+        less than 0.5 m. Vertical polarization. Antenna system with frequency range
+        from 100 kHz to 1 MHz - two magnetic dipoles - three-turn frames with diameter
+        3 m, active length of antenna not less than 1.5 m. Vertical polarization.
+        …/…
+  - country: RUS Russian Federation
+    measurements:
+    - measurement_type: Direction-finding measurements
+      coordinates: 52°39'37''N 104°47'10''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: Antenna system with frequency range from 1 MHz to 30 MHz - 17 active
+        antenna elements based on vertical asymmetrical volume vibrators with a height
+        of 11.93 m. Vertical polarization.
+    - measurement_type: Bandwidth measurements
+      coordinates: 52°39'37''N 104°47'10''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: x dB method and β% method according to ITU-R Recommendation SM.443-4.
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 52°39'37''N 104°47'10''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: Automatic measurement of spectrum occupancy in accordance with ITU-R
+        Recommendation SM.1880 and ITU Handbook on Spectrum Monitoring.
+  notes:
+  - "(Amendment No. 14)"
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks

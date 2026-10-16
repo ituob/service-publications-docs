@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2018-12-01
+date_active: *1
+ob_issue_no: '1169'
+reference: OB-1169
+identifier:
+  code: 1169-002
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Japan
+    company_name: NTT Communications Corporation
+    company_address_1: 2-3-1 Otemachi, Chiyoda-ku
+    company_address_2: TOKYO 100-8019
+    contact: Hiroshi Ootsubo
+    contact_address_1: 2-3-1 Otemachi, Chiyoda-ku
+    contact_address_2: TOKYO 100-8019
+    tel:
+    - "+81 3 6700 8320"
+    fax:
+    - "+81 3 5202 5043"
+    email:
+    - mt-ns@ntt.com
+    issue_id_number: 89 81 12
+    effective_date: 26.IV.2019
+  notes: []

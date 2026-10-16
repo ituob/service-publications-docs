@@ -1,0 +1,24 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: SUP
+  position: c
+  entries:
+  - applicant: '888'
+    network: Humanitarian purposes
+    cc_ic: k, t
+    status: Assigned
+- action_type: ADD
+  position: t
+  entries:
+  - applicant: '888'
+    network: Humanitarian purposes
+    cc_ic: k, t
+    status: Assigned
+- action_type: LIR
+  position: c
+  entries:
+  - applicant: '888'
+    network: Humanitarian purposes
+    cc_ic: k, t
+    status: Assigned

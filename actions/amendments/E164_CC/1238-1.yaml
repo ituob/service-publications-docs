@@ -1,0 +1,28 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: ADD*
+  position: Note o)
+  entries:
+  - applicant: Athalos Global Services BV
+    network: Athalos Global Services BV
+    cc_ic: "+882 51"
+    status: Assigned
+  note: o)
+- action_type: P**
+  position: Note o)
+  entries:
+  - applicant: Telstra
+    network: Global international ATM Network
+    cc_ic: "+882 15"
+    status: Withdrawn
+  note: o)
+- action_type: "***"
+  position: Note p)
+  entries:
+  - applicant: Mobile Telecommunications Company K.S.C.P. (Zain Group)
+    network: Mobile Telecommunications Company K.S.C.P. (Zain Group)
+    cc_ic: "+883 420"
+    status: Assigned
+  note: p)
+- {}

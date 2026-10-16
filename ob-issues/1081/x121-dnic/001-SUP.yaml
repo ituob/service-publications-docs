@@ -1,0 +1,42 @@
+type: SUP
+date_requested: &1 2011-04-01
+date_active: *1
+ob_issue_no: '1081'
+reference: OB-1081
+identifier:
+  code: 1081-001
+data:
+  _class: X121DNICAmendment
+  description: 206 1, 206 2, 206 4, 206 5, 206 8 and 206 9 SUP
+  caption: Country/Geographical area — DNIC No. — Name of network to which a DNIC
+    is withdrawn
+  entries:
+  - dnic_number: 206 1
+    country_or_area:
+      fr: BELGIQUE
+    network_name: Proximus
+  - dnic_number: 206 2
+    country_or_area:
+      fr: BELGIUM
+    network_name: Proximus - Réseau de transmission de données à commutation par paquets
+      (DCS)
+  - dnic_number: 206 4
+    country_or_area:
+      fr: BÉLGICA
+    network_name: Proximus - CODENET
+  - dnic_number: 206 5
+    country_or_area:
+      fr: BÉLGICA
+    network_name: Proximus - (Le code est utilisé au niveau national pour le réseau
+      DCS)
+  - dnic_number: 206 8
+    country_or_area:
+      fr: BÉLGICA
+    network_name: Proximus - Accès au réseau DCS via le réseau télex commuté national
+  - dnic_number: 206 9
+    country_or_area:
+      fr: BÉLGICA
+    network_name: Proximus - Accès au réseau DCS via le réseau téléphonique commuté
+      national
+  notes:
+  - "(Annex to ITU Operational Bulletin No. 977 – 1.IV.2011) (Amendment No. 8)"

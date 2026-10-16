@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1203'
+reference: OB-1203
+identifier:
+  code: 1203-002
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: France
+    company_name: SYMA
+    company_address_1: 153 Avenue d'Italie
+    company_address_2: 75013 PARIS
+    contact: SYMA
+    contact_address_1: 153 Avenue d'Italie
+    contact_address_2: 75013 PARIS
+    fax:
+    - "+33 1 44240138"
+    email:
+    - syma-em@symamobile.com
+    issue_id_number: 89 33 30
+    effective_date: 1.IX.2020
+  notes: []

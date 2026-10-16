@@ -1,0 +1,57 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1203'
+reference: OB-1203
+identifier:
+  code: 1203-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-072-1
+    country:
+      en: Bhutan
+    dec: '8769'
+    signal_point_name: International Gateway
+    signal_point_operator: Bhutan Telecom Ltd
+  - ipsc: 4-072-2
+    country:
+      en: Bhutan
+    dec: '8770'
+    signal_point_name: International Gateway
+    signal_point_operator: Tashi InfoComm Ltd
+  - ipsc: 4-072-3
+    country:
+      en: Bhutan
+    dec: '8771'
+    signal_point_name: MSC
+    signal_point_operator: Bhutan Telecom Ltd
+  - ipsc: 4-072-4
+    country:
+      en: Bhutan
+    dec: '8772'
+    signal_point_name: MSC
+    signal_point_operator: Bhutan Telecom Ltd
+  - ipsc: 4-072-5
+    country:
+      en: Bhutan
+    dec: '8773'
+    signal_point_name: MSC
+    signal_point_operator: Bhutan Telecom Ltd
+  - ipsc: 4-072-6
+    country:
+      en: Bhutan
+    dec: '8774'
+    signal_point_name: International Gateway
+    signal_point_operator: Tashi InfoComm Ltd
+  - ipsc: 4-072-7
+    country:
+      en: Bhutan
+    dec: '8775'
+    signal_point_name: International Gateway
+    signal_point_operator: Tashi InfoComm Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,55 @@
+---
+_class: E118Amendment
+actions:
+- action_type: LIR
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: E-Plus Service GmbH
+    company_address_1: E-Plus-Strasse 1
+    company_address_2: D-40472 DUSSELDORF
+    contact: Special Services
+    contact_address_1: Georg-Brauchle-Ring 50
+    contact_address_2: D-80992 MUNICH
+    contact_address_3: Germany
+    tel:
+    - "+49 89 2442 1788"
+    issue_id_number: 89 49 21
+- action_type: LIR
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Telefónica Germany GmbH & Co. OHG
+    company_address_1: Georg-Brauchle-Ring 50
+    company_address_2: D-80992 MUNICH
+    contact: Special Services
+    contact_address_1: Georg-Brauchle-Ring 50
+    contact_address_2: D-80992 MUNICH
+    contact_address_3: Germany
+    tel:
+    - "+49 89 2442 1788"
+    issue_id_number: 89 49 22
+- action_type: SUP
+  entries:
+  - country_or_area:
+      en: Sweden
+    company_name: Götalandsnätet AB
+    company_address_1: Box 33
+    company_address_2: SE-461 21 TROLLHATTAN
+    contact: Per Frykner
+    contact_address_1: Box 33
+    contact_address_2: SE-461 21 TROLLHATTAN
+    issue_id_number: 89 46 05
+    effective_date: 10.III.2020
+- action_type: ADD
+  entries:
+  - country_or_area:
+      en: Sweden
+    company_name: Götalandsnätet AB
+    company_address_1: Box 912
+    company_address_2: 461 29 TROLLHÄTTAN
+    contact: Per Frykner
+    contact_address_1: Box 912
+    contact_address_2: 461 29 TROLLHÄTTAN
+    issue_id_number: 89 46 17
+    effective_date: 1.IV.2020

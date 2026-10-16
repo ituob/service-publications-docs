@@ -1,0 +1,45 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1056'
+reference: OB-1056
+identifier:
+  code: 1056-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-136-0
+    country:
+      en: Afghanistan
+    dec: '9280'
+    signal_point_name: Kabul SMSC
+    signal_point_operator: AWCC
+  - ipsc: 4-136-1
+    country:
+      en: Afghanistan
+    dec: '9281'
+    signal_point_name: KBLMSS
+    signal_point_operator: AWCC
+  - ipsc: 4-136-2
+    country:
+      en: Afghanistan
+    dec: '9282'
+    signal_point_name: KBLMGW
+    signal_point_operator: AWCC
+  - ipsc: 4-138-3
+    country:
+      en: Afghanistan
+    dec: '9299'
+    signal_point_name: KDRMSS
+    signal_point_operator: AWCC
+  - ipsc: 4-138-4
+    country:
+      en: Afghanistan
+    dec: '9300'
+    signal_point_name: KDRMGW
+    signal_point_operator: AWCC
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

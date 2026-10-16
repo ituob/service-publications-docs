@@ -1,0 +1,35 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1062'
+reference: OB-1062
+identifier:
+  code: 1062-004
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Sipgate GmbH
+    carrier_code: SG
+    contact: Mr. Percy Christensen
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Gladbacher Strasse 74
+    contact: 'Tel.:           + 49 211 635555 36'
+    tel: "+ 49 211 635555 36"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 40219 DUSSELDORF
+    contact: 'Fax:           + 49 211 635555 22'
+    fax: "+ 49 211 635555 22"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:      christensen@sipgate.de'
+    email:
+    - christensen@sipgate.de
+  notes: []

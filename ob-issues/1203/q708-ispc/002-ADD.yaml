@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1203'
+reference: OB-1203
+identifier:
+  code: 1203-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-241-2
+    country:
+      en: Ukraine
+    dec: '14218'
+    signal_point_name: AT894UA
+    signal_point_operator: Atlantis Telecom, LLC
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

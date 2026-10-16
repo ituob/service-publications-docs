@@ -1,0 +1,21 @@
+type: LIR
+date_requested: &1 2011-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1014'
+reference: OB-1014
+identifier:
+  code: P 4
+data:
+  _class: DPAmendment
+  position: P 4
+  country: Ecuador
+  description: P 4 Ecuador LIR
+  entries:
+  - country_or_area:
+      en: Ecuador
+    country_code: '593'
+    international_prefix: '00'
+    national_prefix: '0'
+    national_sig_number: 8 to 9 digits
+    utc_dst: "–5"
+  notes: []

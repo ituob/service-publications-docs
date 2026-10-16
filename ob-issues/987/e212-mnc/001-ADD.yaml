@@ -1,0 +1,31 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '987'
+reference: OB-987
+identifier:
+  code: P 30
+data:
+  _class: E212MNCAmendment
+  position: P 30
+  entries:
+  - mcc_mnc_codes: 425 07 425 15 425 16 425 17
+    country_or_area:
+      en: Israel
+    networks: Mirs Ltd Home Cellular (MVNO) Rami Levi (MVNO) Gale Phone (MVNO)
+  - mcc_mnc_codes: 234 06
+    country_or_area:
+      en: Sudan
+    networks: Zain Sudan
+  - mcc_mnc_codes: 240 34
+    country_or_area:
+      en: Sweden
+    networks: Tigo Ltd
+  - mcc_mnc_codes: 294 11
+    country_or_area:
+      en: The Former Yugoslav Rep. of Macedonia
+    networks: MOBIK TELEKOMUNIKACII DOOEL- Skopje
+  notes:
+  - ______________
+  - "*     MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"

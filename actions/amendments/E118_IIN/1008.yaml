@@ -1,0 +1,63 @@
+---
+_class: E118Amendment
+actions:
+- action_type: ADD
+  position: '42'
+  entries:
+  - country_or_area:
+      en: Portugal
+    company_name: REFER TELECOM-Serviços de Telecomunicações, S.A.
+    company_address_1: Rua Passeio do Báltico,4
+    company_address_2: 1990-036 LISBOA
+    company_address_3: Portugal
+    contact: Mr José Manuel Carreira Miguel
+    contact_address_1: REFER TELECOM-Serviços de Telecomunicações, S.A.
+    contact_address_2: Rua Passeio do Báltico,4
+    contact_address_3: 1990-036 LISBOA
+    contact_address_4: Portugal
+    tel:
+    - "+351 21 102 4089"
+    fax:
+    - "+351 21 102 9010"
+    email:
+    - jcmiguel@refertelecom.pt
+    issue_id_number: 89 351 12
+    effective_date: 1.VI.2012
+- action_type: LIR
+  position: '44'
+  entries:
+  - country_or_area:
+      en: Singapore
+    company_name: M1 Limited
+    company_address_1: 10 International Business Park,
+    company_address_2: SINGAPORE 609928
+    contact: Seah Chin Ping
+    contact_address_1: 10 International Business Park
+    contact_address_2: SINGAPORE 609928
+    tel:
+    - "+65 6655 1113"
+    fax:
+    - "+65 6655 1977"
+    email:
+    - elises@m1.com.sg
+    issue_id_number: 89 65 03
+- action_type: ADD
+  position: '55'
+  entries:
+  - country_or_area:
+      en: United Kingdom
+    company_name: OnePhone (UK) Ltd
+    company_address_1: 11 Murray street
+    company_address_2: LONDON NW1 9RE
+    company_address_3: United Kingdom
+    contact: Mr Magnus Kelly
+    contact_address_1: OnePhone (UK) Ltd
+    contact_address_2: Langbaurgh Hall, Great Ayton
+    contact_address_3: NORTH YORKSHIRE TS9 6QQ
+    contact_address_4: United Kingdom
+    tel:
+    - "+44 77 1159 0311"
+    email:
+    - peter.scrope@onephone.org.uk
+    issue_id_number: 89 44 09
+    effective_date: 6.VI.2012

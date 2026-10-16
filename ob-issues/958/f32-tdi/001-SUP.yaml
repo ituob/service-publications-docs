@@ -1,0 +1,28 @@
+type: SUP
+date_requested:
+date_active:
+ob_issue_no: '958'
+reference: OB-958
+identifier:
+  code: P 27
+data:
+  _class: F32TDIAmendment
+  position: P 27
+  description: P 27 Madagascar SUP The letters “MG” remain, however, reserved for
+    use by Madagascar (for the telex service, ITU-T Recommendations F.68/F.69, and
+    for the Maritime Mobile Service, ITU-T Recommendation D.90).
+  entries:
+  - country_or_area:
+      en: Madagascar
+      fr: Madagascar
+      es: Madagascar
+    network_roa: GOVT – Société des télécommunications internationales, Antananarivo
+    network_code: MG - - 1)
+    telegraph_office_name:
+      en: Antananarivo Tamatave Tulear - Tous les autres
+    office_code: MGTE MGTA MGTR MGTX
+  notes:
+  - 1) The national and international telegram service is not accepted from and to
+    Madagascar (see the communication from Regulator in this ITU Operational Bulletin
+    No. 958 of 15.VI.2010, page XX). Consequently, the telegram destination indicator
+    “MG” and the office codes “MGTE/MGTA/MGTR/MGTX” are deleted.

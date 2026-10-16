@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1166'
+reference: OB-1166
+identifier:
+  code: 1166-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Heike Keim Keim - Elektronik
+    address_line_1: Landsburger Strasse 4
+    address_line_2: 34599 NEUENTAL
+    carrier_code: KENS34
+    contact: Mr Stefan Keim
+    tel: "+49 6693 919081"
+    fax: "+49 6693 919082"
+    email:
+    - info@keim-elektronik.de
+  notes: []

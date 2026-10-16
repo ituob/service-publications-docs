@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1039'
+reference: OB-1039
+identifier:
+  code: 1039-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-237-6
+    country:
+      en: Cyprus
+    dec: '12142'
+    signal_point_name: PrimeTel-FRA1
+    signal_point_operator: Primetel PLC
+  - ipsc: 5-237-7
+    country:
+      en: Cyprus
+    dec: '12143'
+    signal_point_name: PrimeTel-ATH1
+    signal_point_operator: Primetel PLC
+  - ipsc: 6-231-0
+    country:
+      en: Cyprus
+    dec: '14136'
+    signal_point_name: PrimeTel-LON1
+    signal_point_operator: Primetel PLC
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

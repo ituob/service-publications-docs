@@ -1,0 +1,40 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1006'
+reference: OB-1006
+identifier:
+  code: P 55
+data:
+  _class: Q708ISPCAmendment
+  position: P 55
+  entries:
+  - ipsc: 4-241-4
+    country:
+      en: Ireland
+    dec: '10124'
+    signal_point_name: SEP680MSS2
+    signal_point_operator: Vodafone Ireland
+  - ipsc: 4-241-5
+    country:
+      en: Ireland
+    dec: '10125'
+    signal_point_name: SEP706MSS2
+    signal_point_operator: Vodafone Ireland
+  - ipsc: 4-241-6
+    country:
+      en: Ireland
+    dec: '10126'
+    signal_point_name: STP680MGW3
+    signal_point_operator: Vodafone Ireland
+  - ipsc: 4-241-7
+    country:
+      en: Ireland
+    dec: '10127'
+    signal_point_name: STP422MGW3
+    signal_point_operator: Vodafone Ireland
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

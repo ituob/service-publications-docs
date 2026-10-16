@@ -1,0 +1,280 @@
+---
+:id: 1006
+:deployed_tokens: 3501
+:actual_tokens: 4318
+:coverage: 0.9944
+:missing_headings: []
+:missing_links:
+- :href: www.itu.int/ITU-T/inr/roa/index.html
+  :text: List of recognized operating agencies (ROAs)
+:missing_tables: []
+:sections:
+- :heading: ITU Operational Bulletin
+  :deployed_tokens: 3
+  :actual_tokens: 6
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: No. 1006
+  :deployed_tokens: 100
+  :actual_tokens: 15
+  :missing_tokens:
+  - '1211'
+  - '2006'
+  - '5111'
+  - '5211'
+  - '5560'
+  - '5785'
+  - '5853'
+  - '730'
+  - access
+  - admd
+  - administration
+  - administrations
+  - alternative
+  - amendments
+  - annexed
+  - approval
+  - area
+  - assignment
+  - assignments
+  - authoritative
+  - back
+  - brmail
+  - bulletin
+  - bureau
+  - call
+  - calling
+  - card
+  - carrier
+  - changes
+  - charge
+  - codes
+  - communications
+  - des
+  - domains
+  - edition
+  - email
+  - entities
+  - fax
+  - genève
+  - identification
+  - identifier
+  - identity
+  - information
+  - int
+  - international
+  - ispc
+  - issuer
+  - itu
+  - itumail
+  - list
+  - lists
+  - management
+  - maritime
+  - mnc
+  - mobile
+  - names
+  - national
+  - nations
+  - network
+  - networks
+  - numbering
+  - numbers
+  - online
+  - operational
+  - organizations
+  - place
+  - plan
+  - point
+  - procedures
+  - public
+  - publications
+  - radiocommunication
+  - received
+  - recommendations
+  - res
+  - resource
+  - rev
+  - roas
+  - sanc
+  - see
+  - service
+  - ship
+  - signalling
+  - standardization
+  - stations
+  - subscriptions
+  - switzerland
+  - tel
+  - telecommunication
+  - telephone
+  - tsb
+  - tsbmail
+  - tsbtson
+  - website
+  :coverage: 0.06
+- :heading: Dates of publication of the next Operational Bulletins
+  :deployed_tokens: 40
+  :actual_tokens: 41
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: General information
+  :deployed_tokens: 2
+  :actual_tokens: 2
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Lists annexed to the ITU Operational Bulletin
+  :deployed_tokens: 158
+  :actual_tokens: 159
+  :missing_tokens:
+  - '1004'
+  - '983'
+  - '992'
+  - '993'
+  :coverage: 0.9747
+- :heading: Approval of ITU-T Recommendations
+  :deployed_tokens: 114
+  :actual_tokens: 114
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Assignment of Signalling Area/Network Codes (SANC)
+  :deployed_tokens: 41
+  :actual_tokens: 41
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Telephone Service
+  :deployed_tokens: 379
+  :actual_tokens: 421
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Service Restrictions
+  :deployed_tokens: 40
+  :actual_tokens: 40
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Changes in Administrations/ROAs and other entities or Organizations
+  :deployed_tokens: 133
+  :actual_tokens: 133
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Other communications
+  :deployed_tokens: 24
+  :actual_tokens: 24
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Call-back and alternative calling procedures (Res. 21 Rev. PP-2006)
+  :deployed_tokens: 10
+  :actual_tokens: 12
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Amendments
+  :deployed_tokens: 17
+  :actual_tokens: 18
+  :missing_tokens: []
+  :coverage: 1.0
+- :heading: Amd. to List V - List of Ship Stations and Maritime Mobile Service Identity
+    Assignments
+  :deployed_tokens: 73
+  :actual_tokens: 73
+  :missing_tokens:
+  - resource
+  :coverage: 0.9863
+- :heading: Amd. no. 24 to List of Issuer Identifier Numbers for the International
+    Telecommunication Charge Card
+  :deployed_tokens: 55
+  :actual_tokens: 52
+  :missing_tokens:
+  - '2011'
+  - accordance
+  - bulletin
+  - fax
+  - mail
+  - operational
+  - recommendation
+  - usage
+  :coverage: 0.8545
+- :heading: Amd. no. 12 to List of Access codes/numbers for mobile networks
+  :deployed_tokens: 53
+  :actual_tokens: 47
+  :missing_tokens:
+  - accordance
+  - after
+  - bulletin
+  - digits
+  - first
+  - operational
+  - recommendation
+  - resource
+  - xii
+  :coverage: 0.8302
+- :heading: Amd. no. 13 to Mobile Network Codes (MNC) for the international identification
+    plan for public networks and subscriptions
+  :deployed_tokens: 65
+  :actual_tokens: 68
+  :missing_tokens:
+  - accordance
+  - all
+  - bulletin
+  - information
+  - name
+  - operational
+  - operator
+  - recommendation
+  - rep
+  - resource
+  :coverage: 0.8462
+- :heading: Amd. to List of Names of Administration Management Domains (ADMD)
+  :deployed_tokens: 44
+  :actual_tokens: 40
+  :missing_tokens:
+  - accordance
+  - answer
+  - auto
+  - bulletin
+  - ipm
+  - operational
+  - recommendation
+  - service
+  :coverage: 0.8182
+- :heading: Amd. no. 10 to List of ITU Carrier Codes
+  :deployed_tokens: 48
+  :actual_tokens: 47
+  :missing_tokens:
+  - accordance
+  - address
+  - bulletin
+  - operational
+  - recommendation
+  - resource
+  :coverage: 0.875
+- :heading: Amd. no. 15 to List of Signalling Area/Network Codes (SANC)
+  :deployed_tokens: 43
+  :actual_tokens: 38
+  :missing_tokens:
+  - accordance
+  - bulletin
+  - numerical
+  - operational
+  - recommendation
+  - resource
+  - vii
+  :coverage: 0.8372
+- :heading: Amd. no. 2 to List of International Signalling Point Codes (ISPC)
+  :deployed_tokens: 148
+  :actual_tokens: 148
+  :missing_tokens:
+  - accordance
+  - area
+  - bulletin
+  - operational
+  - recommendation
+  - resource
+  - unique
+  :coverage: 0.9527
+- :heading: Amd. to National Numbering Plan
+  :deployed_tokens: 69
+  :actual_tokens: 67
+  :missing_tokens:
+  - accordance
+  - resource
+  :coverage: 0.971

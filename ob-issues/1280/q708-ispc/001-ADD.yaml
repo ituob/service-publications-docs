@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1280'
+reference: OB-1280
+identifier:
+  code: 1280-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-132-3
+    country:
+      en: Uganda
+    dec: '13347'
+    signal_point_name: ISPC-1
+    signal_point_operator: Hamilton Telecom
+  - ipsc: 6-132-4
+    country:
+      en: Uganda
+    dec: '13348'
+    signal_point_name: ISPC-2
+    signal_point_operator: Hamilton Telecom
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

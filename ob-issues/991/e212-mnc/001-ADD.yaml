@@ -1,0 +1,31 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '991'
+reference: OB-991
+identifier:
+  code: P 18
+data:
+  _class: E212MNCAmendment
+  position: P 18
+  entries:
+  - mcc_mnc_codes: 630 02
+    country_or_area:
+      en: Dem. Rep. of the Congo
+    networks: AIRTEL sprl
+  - mcc_mnc_codes: 630 89
+    country_or_area:
+      en: " "
+    networks: OASIS sprl
+  - mcc_mnc_codes: 630 88
+    country_or_area:
+      en: " "
+    networks: YOZMA TIMETURNS sprl
+  - mcc_mnc_codes: 425 08
+    country_or_area:
+      en: Israel
+    networks: Golan Telecom Ltd
+  notes:
+  - ______________
+  - "*         MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"

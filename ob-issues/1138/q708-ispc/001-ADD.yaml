@@ -1,0 +1,45 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1138'
+reference: OB-1138
+identifier:
+  code: 1138-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-225-3
+    country:
+      en: Germany
+    dec: '5899'
+    signal_point_name: Frankfurt
+    signal_point_operator: Saltfix Group Ltd.
+  - ipsc: 2-248-2
+    country:
+      en: Germany
+    dec: '6082'
+    signal_point_name: MSS_FFT1
+    signal_point_operator: DB Netz AG
+  - ipsc: 2-248-4
+    country:
+      en: Germany
+    dec: '6084'
+    signal_point_name: Drillisch-Mobil-Duesseldorf
+    signal_point_operator: Drillisch Online AG
+  - ipsc: 2-250-4
+    country:
+      en: Germany
+    dec: '6100'
+    signal_point_name: STP_FFT1
+    signal_point_operator: DB Netz AG
+  - ipsc: 2-251-6
+    country:
+      en: Germany
+    dec: '6110'
+    signal_point_name: Drillisch-Mobil-Frankfurt
+    signal_point_operator: Drillisch Online AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,39 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '961'
+reference: OB-961
+identifier:
+  code: P 32
+data:
+  _class: F400Amendment
+  position: P 32
+  entries:
+  - country_or_area:
+      fr: '1'
+    admd_name: '2'
+    country_code: '3'
+    helpdesk:
+      :x400: '5'
+    autoanswer:
+      :x400: '6'
+    contact_address:
+      :address_lines:
+      - '7'
+      - '8'
+      - '9'
+  - country_or_area:
+      fr: Royaume-Uni United Kingdom Reino Unido
+    admd_name: ISODE
+    country_code: GB
+    helpdesk:
+      :x400: ISODE 400-IPM
+    autoanswer:
+      :x400: " "
+    contact_address:
+      :address_lines:
+      - S=support O=isode A=isode C=gb
+      - CN=autoanswer O=isode A=isode C=gb
+      - '5 Castle Business Village 36 Station Road HAMPTON Middlesex TW12 2BX X.400:
+        S=enquiries; O= isode; A=isode; C=gb; E-mail: enquiries@isode.com'
+  notes: []

@@ -1,0 +1,63 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1150'
+reference: OB-1150
+identifier:
+  code: 1150-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-121-0
+    country:
+      en: Germany
+    dec: '5064'
+    signal_point_name: DERATSG01_RATINGEN_VRS
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 2-121-1
+    country:
+      en: Germany
+    dec: '5065'
+    signal_point_name: DERATSG02_RATINGEN_VRS
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 3-254-7
+    country:
+      en: Germany
+    dec: '8183'
+    signal_point_name: CGN-EPC-1
+    signal_point_operator: 1NCE GmbH
+  - ipsc: 3-255-3
+    country:
+      en: Germany
+    dec: '8187'
+    signal_point_name: HAM-EPC-1
+    signal_point_operator: 1NCE GmbH
+  - ipsc: 3-255-7
+    country:
+      en: Germany
+    dec: '8191'
+    signal_point_name: EMNIFYWUERZBURGDE2
+    signal_point_operator: EMnify GmbH
+  - ipsc: 4-244-1
+    country:
+      en: Germany
+    dec: '10145'
+    signal_point_name: STP_BBN1
+    signal_point_operator: DB Netz AG
+  - ipsc: 4-246-2
+    country:
+      en: Germany
+    dec: '10162'
+    signal_point_name: Hamm W9511
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 5-245-2
+    country:
+      en: Germany
+    dec: '12202'
+    signal_point_name: Muenchen M8354
+    signal_point_operator: Vodafone GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

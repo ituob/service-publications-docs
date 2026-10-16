@@ -1,0 +1,87 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1292'
+reference: OB-1292
+identifier:
+  code: 1292-005
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-020-3
+    country:
+      en: United States
+    dec: '6307'
+    signal_point_name: Atlanta, GA
+    signal_point_operator: AT&T Corp
+  - ipsc: 3-020-7
+    country:
+      en: United States
+    dec: '6311'
+    signal_point_name: Sacramento, CA
+    signal_point_operator: AT&T Corp
+  - ipsc: 3-023-3
+    country:
+      en: United States
+    dec: '6331'
+    signal_point_name: White Plains, NY
+    signal_point_operator: AT&T Corp
+  - ipsc: 3-037-0
+    country:
+      en: United States
+    dec: '6440'
+    signal_point_name: Pittsburgh, PA
+    signal_point_operator: AT&T Corp
+  - ipsc: 3-037-1
+    country:
+      en: United States
+    dec: '6441'
+    signal_point_name: Atlanta, GA
+    signal_point_operator: AT&T Corp
+  - ipsc: 3-037-3
+    country:
+      en: United States
+    dec: '6443'
+    signal_point_name: White Plains, NY
+    signal_point_operator: AT&T Corp
+  - ipsc: 3-037-5
+    country:
+      en: United States
+    dec: '6445'
+    signal_point_name: Atlanta, GA
+    signal_point_operator: AT&T Corp
+  - ipsc: 3-057-3
+    country:
+      en: United States
+    dec: '6603'
+    signal_point_name: New York, NY
+    signal_point_operator: AT&T Corp
+  - ipsc: 3-057-5
+    country:
+      en: United States
+    dec: '6605'
+    signal_point_name: New York, NY
+    signal_point_operator: AT&T Corp
+  - ipsc: 3-058-5
+    country:
+      en: United States
+    dec: '6613'
+    signal_point_name: Houston, TX
+    signal_point_operator: AT&T Corp
+  - ipsc: 3-058-6
+    country:
+      en: United States
+    dec: '6614'
+    signal_point_name: San Diego, CA
+    signal_point_operator: AT&T Corp
+  - ipsc: 3-182-3
+    country:
+      en: United States
+    dec: '7603'
+    signal_point_name: San Diego, CA
+    signal_point_operator: AT&T Corp
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

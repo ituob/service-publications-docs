@@ -1,0 +1,12 @@
+---
+type: ADD
+register: F32_TDI
+ob_issue_no: '1000'
+identifier:
+  code: '1'
+data:
+  country/ geographical area: '1'
+  network (administration/ roa): '2'
+  destination indicator (di) (first 2 letters = telegram network code): '3'
+  name of telegraph office: '4'
+  di assigned to telegraph office (third and fourth letters = office code): '5'

@@ -1,0 +1,27 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1001'
+reference: OB-1001
+identifier:
+  code: P 79 to P 80
+data:
+  _class: Q708ISPCAmendment
+  position: P 79 to P 80
+  entries:
+  - ipsc: 2-087-3
+    country:
+      en: Norway
+    dec: '4795'
+    signal_point_name: C4MSS1
+    signal_point_operator: Com 4
+  - ipsc: 7-240-2
+    country:
+      en: Norway
+    dec: '16258'
+    signal_point_name: C4MGW1
+    signal_point_operator: Com 4
+  notes:
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

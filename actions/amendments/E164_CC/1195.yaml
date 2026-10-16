@@ -1,0 +1,25 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: ADD
+  position: N
+  entries:
+  - applicant: Clementvale Baltic OÜ
+    network: Clementvale Baltic OÜ
+    cc_ic: "+883 310"
+    status: Assigned
+  - applicant: One Network B.V.
+    network: One Network B.V.
+    cc_ic: "+883 150"
+    status: Assigned
+- action_type: LIR
+  position: N
+  entries:
+  - applicant: One Network B.V.
+    network: One Network B.V.
+    cc_ic: "+883 150"
+    status: Assigned
+  - applicant: Clementvale Baltic OÜ
+    network: Clementvale Baltic OÜ
+    cc_ic: "+883 310"
+    status: Assigned

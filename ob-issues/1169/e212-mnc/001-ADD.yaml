@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2018-12-15
+date_active: *1
+ob_issue_no: '1169'
+reference: OB-1169
+identifier:
+  code: 1169-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden SUP
+    networks: " "
+  - mcc_mnc_codes: 240 30
+    networks: NextGen Mobile Ltd.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden ADD
+    networks: " "
+  - mcc_mnc_codes: 240 63
+    networks: Fink Telecom Services
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

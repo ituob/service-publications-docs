@@ -1,0 +1,30 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1061'
+reference: OB-1061
+identifier:
+  code: 1061-003
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Breitbandnetz Südermarsch UG & Co.KG
+    carrier_code: BNS
+    contact: Mr. Carsten Paustian
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Mutter-Teresa-Strasse 13
+    contact: 'Tel.: + 49 170 3413522'
+    tel: "+ 49 170 3413522"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 25709 MARNE
+    contact: 'E-mail: carstenpaustian@aol.com'
+    email:
+    - carstenpaustian@aol.com
+  notes: []

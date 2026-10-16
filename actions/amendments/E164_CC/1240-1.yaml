@@ -1,0 +1,52 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: P**
+  position: Note o)
+  entries:
+  - applicant: MCI (Verizon)
+    network: HyperStream International (HSI) Data Network
+    cc_ic: "+882 12"
+    status: Withdrawn
+  - applicant: Cable & Wireless plc
+    network: Cable & Wireless Global Network
+    cc_ic: "+882 22"
+    status: Withdrawn
+  - applicant: Oration Technologies Inc.
+    network: Oration Technologies Network
+    cc_ic: "+882 33"
+    status: Withdrawn
+  - applicant: Smart Communications, Inc
+    network: Smart Communications Inc
+    cc_ic: "+882 97"
+    status: Withdrawn
+  note: o)
+- action_type: P**
+  position: Note p)
+  entries:
+  - applicant: Telenor Connexion AB
+    network: Telenor Connexion AB
+    cc_ic: "+883 120"
+    status: Withdrawn
+  - applicant: Ooredoo
+    network: Ooredoo
+    cc_ic: "+883 180"
+    status: Withdrawn
+  - applicant: SAP
+    network: SAP
+    cc_ic: "+883 230"
+    status: Withdrawn
+  - applicant: Clementvale Baltic OÜ
+    network: Clementvale Baltic OÜ
+    cc_ic: "+883 310"
+    status: Withdrawn
+  note: p)
+- action_type: "***"
+  position: Note p)
+  entries:
+  - applicant: BJT PARTNERS SAS
+    network: BJT PARTNERS SAS
+    cc_ic: "+883 430"
+    status: Assigned
+  note: p)
+- {}

@@ -1,0 +1,25 @@
+---
+_class: E164CCAmendment
+actions:
+- action_type: SUP
+  position: '17'
+  entries:
+  - applicant: Singapore Telecom
+    network: Global Reach Network
+    cc_ic: "+882 30"
+    status: Withdrawn
+  - applicant: France Telecom Orange
+    network: France Telecom Orange
+    cc_ic: "+883 130"
+    status: Assigned
+- action_type: ADD
+  position: '18'
+  entries:
+  - applicant: France Telecom Orange
+    network: France Telecom Orange
+    cc_ic: "+883 130"
+    status: Assigned
+  - applicant: Singapore Telecom
+    network: Global Reach Network
+    cc_ic: "+882 30"
+    status: Withdrawn

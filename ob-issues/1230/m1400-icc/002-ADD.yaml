@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1230'
+reference: OB-1230
+identifier:
+  code: 1230-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: energis GmbH
+    address_line_1: Heinrich-Boecking-Strasse 10 - 14
+    address_line_2: D-66121 SAARBRUECKEN
+    carrier_code: ENERGS
+    contact: Mr Jochen Strobel
+    tel: "+49 681 9069 1570"
+    fax: "+49 681 4030 2632"
+  notes: []

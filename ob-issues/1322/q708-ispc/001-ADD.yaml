@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1322'
+reference: OB-1322
+identifier:
+  code: 1322-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-080-1
+    country:
+      en: Japan
+    dec: '8833'
+    signal_point_name: Tokyo
+    signal_point_operator: Japan Communications Inc.
+  - ipsc: 4-080-2
+    country:
+      en: Japan
+    dec: '8834'
+    signal_point_name: Osaka
+    signal_point_operator: Japan Communications Inc.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

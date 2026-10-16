@@ -1,0 +1,28 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1027'
+reference: OB-1027
+identifier:
+  code: P 39
+data:
+  _class: E212MNCAmendment
+  position: P 39
+  entries:
+  - mcc_mnc_codes: 505 28
+    country_or_area:
+      en: Australia
+    networks: RCOM International Pty Ltd
+  - mcc_mnc_codes: 266 06
+    country_or_area:
+      en: Gibraltar
+    networks: CTS
+  - mcc_mnc_codes: 240 37
+    country_or_area:
+      en: Sweden
+    networks: CLX Networks AB
+  notes:
+  - "*         MCC:  Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - 'MNC:  Network Code / Code de réseau mobile / Indicativo de red para el servicio
+    móvil'

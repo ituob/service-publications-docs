@@ -1,0 +1,125 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1243'
+reference: OB-1243
+identifier:
+  code: 1243-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: France     SUP
+    networks: " "
+  - mcc_mnc_codes: 208 93
+    networks: Thales communications & Security
+  - mcc_mnc_codes: 208 95
+    networks: Orange
+  - mcc_mnc_codes: 208 98
+    networks: Société Air France
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: France    ADD
+    networks: " "
+  - mcc_mnc_codes: 208 12
+    networks: Truphone France
+  - mcc_mnc_codes: 208 34
+    networks: Cellhire (France)
+  - mcc_mnc_codes: 208 35
+    networks: Free mobile
+  - mcc_mnc_codes: 208 36
+    networks: Free mobile
+  - mcc_mnc_codes: 208 37
+    networks: IP Directions
+  - mcc_mnc_codes: 208 38
+    networks: Lebara France Limited
+  - mcc_mnc_codes: 208 39
+    networks: Netwo
+  - mcc_mnc_codes: 208 501
+    networks: Butachimie
+  - mcc_mnc_codes: 208 502
+    networks: EDF
+  - mcc_mnc_codes: 208 701
+    networks: GIP Vendée numérique
+  - mcc_mnc_codes: 208 702
+    networks: 17-Numerique
+  - mcc_mnc_codes: 208 703
+    networks: Nivertel
+  - mcc_mnc_codes: 208 704
+    networks: Axione Limousin
+  - mcc_mnc_codes: 208 705
+    networks: Hautes-Pyrénées Numérique
+  - mcc_mnc_codes: 208 706
+    networks: Tours Métropole Numérique
+  - mcc_mnc_codes: 208 707
+    networks: Sartel THD
+  - mcc_mnc_codes: 208 708
+    networks: Melis@ territoires ruraux
+  - mcc_mnc_codes: 208 709
+    networks: Quimper communauté télécom
+  - mcc_mnc_codes: 208 710
+    networks: Losange
+  - mcc_mnc_codes: 208 711
+    networks: Nomotech
+  - mcc_mnc_codes: 208 712
+    networks: Syndicat Audois d'énergies et du Numérique
+  - mcc_mnc_codes: 208 713
+    networks: SD NUM SAS
+  - mcc_mnc_codes: 208 714
+    networks: Département de l'Isère
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: France    LIR
+    networks: " "
+  - mcc_mnc_codes: 208 19
+    networks: Haute-Garonne numérique
+  - mcc_mnc_codes: 208 26
+    networks: Bouygues Telecom Business - Distribution
+  - mcc_mnc_codes: 208 28
+    networks: Airmob Infra Full
+  - mcc_mnc_codes: 208 30
+    networks: Syma
+  - mcc_mnc_codes: 208 33
+    networks: Syndicat mixte La Fibre64
+  - mcc_mnc_codes: 208 87
+    networks: Airbus defence and space SAS
+  - mcc_mnc_codes: 208 89
+    networks: Hub One
+  - mcc_mnc_codes: 208 96
+    networks: Région Bourgogne-Franche-Comté
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: French Guiana    SUP
+    networks: " "
+  - mcc_mnc_codes: 340 11
+    networks: Guyane Téléphone Mobile
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: French Guiana    ADD
+    networks: " "
+  - mcc_mnc_codes: 742 04
+    networks: Free Caraïbe
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Guadeloupe    SUP
+    networks: " "
+  - mcc_mnc_codes: 340 04
+    networks: Free Caraïbe
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Martinique    SUP
+    networks: " "
+  - mcc_mnc_codes: 340 12
+    networks: Martinique Téléphone Mobile
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Saint Pierre and Miquelon    ADD
+    networks: " "
+  - mcc_mnc_codes: 308 03
+    networks: SAS SPM Telecom
+  notes:
+  - "*       MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

@@ -1,0 +1,51 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1273'
+reference: OB-1273
+identifier:
+  code: 1273-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-201-4
+    country:
+      en: France
+    dec: '5708'
+    signal_point_name: BJT Partners - Paris
+    signal_point_operator: BJT Partners
+  - ipsc: 2-221-5
+    country:
+      en: France
+    dec: '5869'
+    signal_point_name: OVH - SAS
+    signal_point_operator: OVH
+  - ipsc: 3-232-6
+    country:
+      en: France
+    dec: '8006'
+    signal_point_name: MOBIQUITHINGS - Vitry 3
+    signal_point_operator: MOBIQUITHINGS
+  - ipsc: 4-228-7
+    country:
+      en: France
+    dec: '10023'
+    signal_point_name: TDF - Les Lilas 2
+    signal_point_operator: TDF
+  - ipsc: 6-233-0
+    country:
+      en: France
+    dec: '14152'
+    signal_point_name: BOUYGUES TELECOM - PTS 05 - Plessis
+    signal_point_operator: BOUYGUES TELECOM
+  - ipsc: 6-233-1
+    country:
+      en: France
+    dec: '14153'
+    signal_point_name: BOUYGUES TELECOM - PTS 06 - Bobigny
+    signal_point_operator: BOUYGUES TELECOM
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

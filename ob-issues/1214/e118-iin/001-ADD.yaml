@@ -1,0 +1,23 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1214'
+reference: OB-1214
+identifier:
+  code: 1214-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Belgium
+    company_name: Lycamobile BVBA
+    company_address_1: Hermesstraat 8 C
+    company_address_2: 1930 ZAVENTEM
+    contact: Lycamobile BVBA, Legal
+    contact_address_1: Hermesstraat 8 C
+    contact_address_2: 1930 ZAVENTEM
+    email:
+    - legal@lycamobile.com
+    issue_id_number: 89 32 06
+    effective_date: 9.XII.2012
+  notes: []

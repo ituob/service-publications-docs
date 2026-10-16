@@ -1,0 +1,39 @@
+type: ADD
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1163'
+reference: OB-1163
+identifier:
+  code: 1163-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-216-4
+    country:
+      en: Ireland
+    dec: '11972'
+    signal_point_name: TB0M5581
+    signal_point_operator: Three Ireland (Hutchison) Limited
+  - ipsc: 5-216-5
+    country:
+      en: Ireland
+    dec: '11973'
+    signal_point_name: TB01M5582
+    signal_point_operator: Three Ireland (Hutchison) Limited
+  - ipsc: 5-216-6
+    country:
+      en: Ireland
+    dec: '11974'
+    signal_point_name: TB0MGW01
+    signal_point_operator: Three Ireland (Hutchison) Limited
+  - ipsc: 5-216-7
+    country:
+      en: Ireland
+    dec: '11975'
+    signal_point_name: TB0MGW02
+    signal_point_operator: Three Ireland (Hutchison) Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

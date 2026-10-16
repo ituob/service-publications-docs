@@ -1,0 +1,23 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1339'
+reference: OB-1339
+identifier:
+  code: Germany (Federal
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Aircall SAS
+    address_line_1: 11-15 rue Saint Georges
+    address_line_2: F-75009 PARIS
+    address_line_3: Frankreich
+    carrier_code: AIRCAL
+    contact: Alain Bensimon
+    tel: "+1 941 726 3385"
+    email:
+    - telcoupdates@aircall.io
+  notes: []

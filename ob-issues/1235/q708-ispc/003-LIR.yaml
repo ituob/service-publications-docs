@@ -1,0 +1,27 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1235'
+reference: OB-1235
+identifier:
+  code: 1235-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-248-4
+    country:
+      en: Germany
+    dec: '6084'
+    signal_point_name: Drillisch-Mobil-Duesseldorf
+    signal_point_operator: 1&1 Mobilfunk GmbH
+  - ipsc: 2-251-6
+    country:
+      en: Germany
+    dec: '6110'
+    signal_point_name: Drillisch-Mobil-Frankfurt
+    signal_point_operator: 1&1 Mobilfunk GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

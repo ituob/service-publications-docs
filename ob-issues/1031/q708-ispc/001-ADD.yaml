@@ -1,0 +1,27 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1031'
+reference: OB-1031
+identifier:
+  code: 1031-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-129-7
+    country:
+      en: Germany
+    dec: '5135'
+    signal_point_name: Frankfurt
+    signal_point_operator: IPXP Europe s.r.o.
+  - ipsc: 2-130-2
+    country:
+      en: Germany
+    dec: '5138'
+    signal_point_name: Frankfurt
+    signal_point_operator: Awitel Inc.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1223'
+reference: OB-1223
+identifier:
+  code: 1223-002
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Ireland
+    company_name: Lycamobile Ireland Limited
+    company_address_1: 22 Clan William Square,
+    company_address_2: Grand Canal Quay
+    company_address_3: DUBLIN 2
+    contact: Lycamobile Ireland Legal
+    contact_address_1: 195 Marsh Wall
+    contact_address_2: LONDON E14 9SG
+    contact_address_3: United Kingdom
+    email:
+    - legal@lycamobile.com
+    issue_id_number: 89 353 06
+    effective_date: 17.III.2021
+  notes: []

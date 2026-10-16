@@ -1,0 +1,51 @@
+type: SUP
+date_requested: &1 2016-10-01
+date_active: *1
+ob_issue_no: '1171'
+reference: OB-1171
+identifier:
+  code: 1171-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-080-0
+    country:
+      en: Japan
+    dec: '8832'
+    signal_point_name: Tokyo-1
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-080-1
+    country:
+      en: Japan
+    dec: '8833'
+    signal_point_name: Osaka-1
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-080-6
+    country:
+      en: Japan
+    dec: '8838'
+    signal_point_name: Osaka-2
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-081-0
+    country:
+      en: Japan
+    dec: '8840'
+    signal_point_name: Tokyo-3
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-082-2
+    country:
+      en: Japan
+    dec: '8850'
+    signal_point_name: Tokyo
+    signal_point_operator: Pacific Telecom Co. Ltd.
+  - ipsc: 4-082-3
+    country:
+      en: Japan
+    dec: '8851'
+    signal_point_name: Tokyo
+    signal_point_operator: Telstra Singapore PTE Ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

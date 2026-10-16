@@ -1,0 +1,49 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1227'
+reference: OB-1227
+identifier:
+  code: 1227-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada    ADD
+    networks: " "
+  - mcc_mnc_codes: 302 998
+    networks: Institut de Recherche d’Hydro-Québec (experimental)
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Ireland    ADD
+    networks: " "
+  - mcc_mnc_codes: 272 68
+    networks: Office of the Government Chief Information Officer
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Papua New Guinea    ADD
+    networks: " "
+  - mcc_mnc_codes: 537 04
+    networks: Digitec Communication Limited
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Spain    ADD
+    networks: " "
+  - mcc_mnc_codes: 214 12
+    networks: VENUS MOVIL, S.L. UNIPERSONAL
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code    ADD
+    networks: " "
+  - mcc_mnc_codes: 901 82
+    networks: Eseye Limited
+  - mcc_mnc_codes: 901 83
+    networks: iBasis Netherlands BV
+  - mcc_mnc_codes: 991 02
+    networks: Orange (temporary assignment for trial until 6.VIII.2022)
+  notes:
+  - 'MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:     Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

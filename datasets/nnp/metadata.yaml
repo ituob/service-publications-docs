@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../schema-metadata.yaml
+---
+title:
+  en: National Numbering Plan (NNP)
+  fr: Plan national de numérotation
+  es: Plan nacional de numeración
+  ru: Национальный план нумерации
+  zh: 国内编号方案
+url: http://www.itu.int/itu-t/inr/nnp/index.html
+recommendation:
+  body: ITU-T
+  code: E.129
+  version: 2013-01
+external: true
+note:
+  en: >
+    The NNP is an external ITU publication. Per-country numbering plans are
+    published on the ITU website and amended in OB issues. This dataset holds
+    no local data; only amendments referencing this publication are tracked
+    under ob-issues/{issue}/nnp/.

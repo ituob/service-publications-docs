@@ -1,0 +1,56 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1016'
+reference: OB-1016
+identifier:
+  code: P 66 to P 67
+data:
+  _class: Q708ISPCAmendment
+  position: P 66 to P 67
+  entries:
+  - ipsc: 3-234-1
+    country:
+      en: Latvia
+    dec: '8017'
+    signal_point_name: MSC4
+    signal_point_operator: Tele2
+  - ipsc: 3-234-2
+    country:
+      en: Latvia
+    dec: '8018'
+    signal_point_name: MSC5
+    signal_point_operator: Tele2
+  - ipsc: 3-234-3
+    country:
+      en: Latvia
+    dec: '8019'
+    signal_point_name: MGW1
+    signal_point_operator: Tele3
+  - ipsc: 3-234-4
+    country:
+      en: Latvia
+    dec: '8020'
+    signal_point_name: MGW2
+    signal_point_operator: Tele4
+  - ipsc: 3-234-5
+    country:
+      en: Latvia
+    dec: '8021'
+    signal_point_name: INTLLC1
+    signal_point_operator: INTELLICA
+  - ipsc: 5-249-4
+    country:
+      en: Latvia
+    dec: '12236'
+    signal_point_operator: ROAM
+  - ipsc: 7-245-1
+    country:
+      en: Latvia
+    dec: '16297'
+    signal_point_operator: Simfree
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1231'
+reference: OB-1231
+identifier:
+  code: 1231-003
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Stadtwerke Hof Energie+Wasser GmbH
+    address_line_1: Unterkotzauer Weg 25
+    address_line_2: D-95028 HOF
+    carrier_code: STWHEW
+    contact: Mr Juergen Bolz
+    tel: "+49 9281 812 210"
+    fax: "+49 9281 812 480"
+  notes: []

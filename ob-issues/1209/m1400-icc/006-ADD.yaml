@@ -1,0 +1,20 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1209'
+reference: OB-1209
+identifier:
+  code: 1209-006
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: TwinCap First AG
+    address_line_1: Favreweg 1
+    address_line_2: CH-8304 WALLISELLEN
+    address_line_3: Switzerland
+    carrier_code: TCFDEU
+    contact: Mr Christoph Schoch
+    tel: "+41 44666 5050"
+  notes: []

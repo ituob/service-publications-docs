@@ -1,0 +1,47 @@
+---
+_class: E212MNCAmendment
+actions:
+- entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Czech Rep.             SUP
+    networks: " "
+  - mcc_mnc_codes: 230 09
+    networks: Mundio Distribution Czech Republic s.r.o.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Czech Rep.             ADD
+    networks: " "
+  - mcc_mnc_codes: 230 06
+    networks: Nordic Telecom 5G a.s.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Denmark                 SUP
+    networks: " "
+  - mcc_mnc_codes: 238 04
+    networks: NextGen Mobile Ltd T/A CardBoardFish
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Faroe Islands        ADD
+    networks: " "
+  - mcc_mnc_codes: 288 03
+    networks: Sp/f Tosa
+- entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code ADD
+    networks: " "
+  - mcc_mnc_codes: 901 62
+    networks: Twilio Inc.
+  - mcc_mnc_codes: 901 63
+    networks: GloTell B.V.
+  - mcc_mnc_codes: 901 64
+    networks: Syniverse Technologies, LLC
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Trial of a proposed new international telecommunication service, shared
+        code ADD
+    networks: " "
+  - mcc_mnc_codes: 991 01
+    networks: World’s Global Telecom
+- {}

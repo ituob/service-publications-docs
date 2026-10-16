@@ -1,0 +1,34 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '992'
+reference: OB-992
+identifier:
+  code: P 100 to P 101
+data:
+  _class: Q708ISPCAmendment
+  position: P 100 to P 101
+  entries:
+  - ipsc: 2-080-6
+    country:
+      en: Sweden
+    dec: '4742'
+    signal_point_name: NMT STHLM MSC1 (Stockholm)
+    signal_point_operator: Netett Sverige AB
+  - ipsc: 2-194-7
+    country:
+      en: Sweden
+    dec: '5655'
+    signal_point_name: MGW 161 (Stockholm)
+    signal_point_operator: Netett Sverige AB
+  - ipsc: 2-195-3
+    country:
+      en: Sweden
+    dec: '5659'
+    signal_point_name: MSC1 (Hallsberg)
+    signal_point_operator: Trafikverket ICT
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

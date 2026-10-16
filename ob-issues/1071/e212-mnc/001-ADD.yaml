@@ -1,0 +1,23 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1071'
+reference: OB-1071
+identifier:
+  code: 1071-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 363 02
+    networks: DIGICEL ARUBA
+  - mcc_mnc_codes: 363 01
+    networks: SETAR N.V.
+  - mcc_mnc_codes: 633 10
+    networks: Airtel (Seychelles) Ltd
+  - mcc_mnc_codes: 240 31
+    networks: RebTel Networks AB
+  notes:
+  - "*     MCC:  Country Code / Indicatif de pays du mobile / Indicativo de país para
+    el servicio móvil"
+  - 'MNC:  Network Code / Code de réseau mobile / Indicativo de red para el servicio
+    móvil'

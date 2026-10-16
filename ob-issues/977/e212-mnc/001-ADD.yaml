@@ -1,0 +1,41 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '977'
+reference: OB-977
+identifier:
+  code: P 32
+data:
+  _class: E212MNCAmendment
+  position: P 32
+  entries:
+  - mcc_mnc_codes: 266 09
+    country_or_area:
+      en: Gibraltar
+    networks: Cloud9 Mobile Communications
+  - mcc_mnc_codes: 266 09
+    country_or_area:
+      en: Gibraltar
+    networks: Eazi Telecom Limited
+  - mcc_mnc_codes: 240 31
+    country_or_area:
+      en: Sweden
+    networks: Mobimax AB
+  - mcc_mnc_codes: 234 09
+    country_or_area:
+      en: United Kingdom
+    networks: Wire9 Telecom PLC
+  - mcc_mnc_codes: 234 09
+    country_or_area:
+      en: United Kingdom
+    networks: Tismi BV
+  - mcc_mnc_codes: 234 28
+    networks: Marathon Telecom Limited
+  - mcc_mnc_codes: 234 29
+    networks: "(aq) Limited T/A aql"
+  - mcc_mnc_codes: 235 00
+    networks: Mundlo Mobile Limited
+  notes:
+  - ______________
+  - "*     MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"

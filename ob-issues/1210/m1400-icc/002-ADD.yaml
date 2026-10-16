@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1210'
+reference: OB-1210
+identifier:
+  code: 1210-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: HostProfis ISP Telekom GmbH
+    address_line_1: Tiroler Strasse 17
+    address_line_2: A-9500 VILLACH
+    address_line_3: Austria
+    carrier_code: HOST
+    contact: Mr Mario Oberdorfer
+    tel: "+43 599 00 444"
+    fax: "+43 599 00 900"
+  notes: []

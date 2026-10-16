@@ -1,0 +1,33 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1029'
+reference: OB-1029
+identifier:
+  code: 1029-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-104-7
+    country:
+      en: Botswana
+    dec: '13127'
+    signal_point_name: GAMBCO1
+    signal_point_operator: Mascom Wireless
+  - ipsc: 6-105-0
+    country:
+      en: Botswana
+    dec: '13128'
+    signal_point_name: PHMBC01
+    signal_point_operator: Mascom Wireless
+  - ipsc: 6-105-1
+    country:
+      en: Botswana
+    dec: '13129'
+    signal_point_name: PHSPX01
+    signal_point_operator: Mascom Wireless
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,174 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1083'
+reference: OB-1083
+identifier:
+  code: P 333
+data:
+  _class: ListVIIIAmendment
+  position: P 333
+  country: RUS Russian Federation
+  description: P 333 and 335 ADD by alphabetical order
+  entries:
+  - country: RUS - Russian Federation
+    name: Nyagan
+    postal_address: Highway, Building 1 14 Unyugan village Khanty-Mansiisk autonomous
+      district-Yugra 628181 Nyagan Tyumen Region Russian Federation
+    contact: 'TF : +7 346 7261332 FAX : +7 346 7266939 EMAIL : a.anisimov@urfc.ru'
+    centralizing_office:
+      name: Federal State Unitary Enterprise General Radio Frequency Centre
+      postal_address: Building 15 7, Derbenevskaya Embankment 117997 Moscow
+      contact: 'TF : +7 495 7481448 FAX : +7 495 7480680 EMAIL : int@grfc.ru'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 56°46'10''N 061°02'20''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: 'Accuracy of measurements: ± 1 Hz (absolute value).'
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 56°46'10''N 061°02'20''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: 'Measurement range: 10-120 dBμV/m. Accuracy of measurements: ± 3 dB.'
+    - measurement_type: Direction-finding measurements
+      coordinates: 56°46'10''N 061°02'20''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: Antenna system with frequency range from 10 kHz to 100 kHz - two magnetic
+        dipoles - multiturn frames with ferrite cores, active length of antenna not
+        less than 1.5 m. Vertical polarization.
+    - coordinates: Cont.
+    - measurement_type: Direction-finding measurements
+      coordinates: 56°46'10''N 061°02'20''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: Antenna system with frequency range from 100 kHz to 1 MHz - two magnetic
+        dipoles - three-turn frames with diameter 3 m, active length of antenna not
+        less than 1.5 m. Vertical polarization. Antenna system with frequency range
+        from 1 MHz to 30 MHz - 17 antennas based on vertical asymmetrical volumetric
+        dipoles with a height of 11.2 m. Vertical polarization.
+    - measurement_type: Bandwidth measurements
+      coordinates: 56°46'10''N 061°02'20''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: x dB method according to ITU‑R Recommendation SM.443-4.
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 56°46'10''N 061°02'20''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: Automatic measurement of spectrum occupancy in accordance with ITU-R
+        Recommendation SM.1880 and ITU Handbook on Spectrum Monitoring.
+  - country: RUS - Russian Federation
+    name: Samara
+    postal_address: Pridorozhnyi village 443047 Volgian district Samara Region Russian
+      Federation
+    contact: 'TF : +7 846 2696513 FAX : +7 846 2696514 EMAIL : strk@rfc63.su'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 53°05'00''N 050°10'26''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: 'Accuracy of measurements: ± 1 Hz (absolute value).'
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 53°05'00''N 050°10'26''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: 'Measurement range: 10-120 dBμV/m. Accuracy of measurements: ± 3 dB.'
+    - measurement_type: Direction-finding measurements
+      coordinates: 53°05'00''N 050°10'26''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: Antenna system with frequency range from 10 kHz to 100 kHz - two magnetic
+        dipoles - multiturn frames with ferrite cores, active length of antenna not
+        less than 1.5 m. Vertical polarization.
+    - coordinates: Cont.
+    - measurement_type: Direction-finding measurements
+      coordinates: 53°05'00''N 050°10'26''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: Antenna system with frequency range from 100 kHz to 1 MHz - two magnetic
+        dipoles - three-turn frames with diameter 3 m, active length of antenna not
+        less than 1.5 m. Vertical polarization. Antenna system with frequency range
+        from 1 MHz to 30 MHz - 17 antennas based on vertical asymmetrical volumetric
+        dipoles with a height of 11.2 m. Vertical polarization.
+    - measurement_type: Bandwidth measurements
+      coordinates: 53°05'00''N 050°10'26''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: x dB method according to ITU‑R Recommendation SM.443‑4.
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 53°05'00''N 050°10'26''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: Automatic measurement of spectrum occupancy in accordance with ITU-R
+        Recommendation SM.1880 and ITU Handbook on Spectrum Monitoring.
+  - country: RUS - Russian Federation
+    name: Verhneye Dubrovo
+    postal_address: 15, Tekhnicheskaya street Verkhneye Dubrovo urban-type settlement
+      624053 Beloyarskyi district Sverdlovsk Region Russian Federation
+    contact: 'TF : +7 343 2160228 FAX : +7 343 2160093 EMAIL : a.chaschin@urfc.ru'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 56°46'10''N 061°02'20''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: 'Accuracy of measurements: ± 1 Hz (absolute value).'
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 56°46'10''N 061°02'20''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: 'Measurement range: 10-120 dBμV/m. Accuracy of measurements: ± 3 dB.'
+    - measurement_type: Direction-finding measurements
+      coordinates: 56°46'10''N 061°02'20''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: Antenna system with frequency range from 10 kHz to 100 kHz - two magnetic
+        dipoles - multiturn frames with ferrite cores, active length of antenna not
+        less than 0.5 m. Vertical polarization.
+    - coordinates: Cont.
+    - measurement_type: Direction-finding measurements
+      coordinates: 56°46'10''N 061°02'20''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: Antenna system with frequency range from 100 kHz to 1 MHz - two magnetic
+        dipoles - three-turn frames with diameter 3 m, active length of antenna not
+        less than 1.5 m. Vertical polarization. Antenna system with frequency range
+        from 1 MHz to 30 MHz - 17 antennas based on vertical asymmetrical volumetric
+        dipoles with a height of 11.2 m. Vertical polarization.
+    - measurement_type: Bandwidth measurements
+      coordinates: 56°46'10''N 061°02'20''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: x dB method according to ITU‑R Recommendation SM.443-4.
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 56°46'10''N 061°02'20''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 30 MHz
+      remarks: Automatic measurement of spectrum occupancy in accordance with ITU-R
+        Recommendation SM.1880 and ITU Handbook on Spectrum Monitoring.
+  notes:
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - RUS - Russian Federation (cont.)
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - RUS - Russian Federation (cont.)
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks
+  - "(cont.)"
+  - RUS - Russian Federation (cont.)
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks

@@ -1,0 +1,27 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1217'
+reference: OB-1217
+identifier:
+  code: 1217-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-237-0
+    country:
+      en: Spain
+    dec: '5992'
+    signal_point_name: Madrid-Atocha
+    signal_point_operator: Telefónica Móviles España, S.A.U.
+  - ipsc: 2-237-3
+    country:
+      en: Spain
+    dec: '5995'
+    signal_point_name: Barcelona-Cerdá
+    signal_point_operator: Telefónica Móviles España, S.A.U.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

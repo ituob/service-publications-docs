@@ -1,0 +1,35 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1083'
+reference: OB-1083
+identifier:
+  code: 1083-002
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Stadtwerke Marburg GmbH
+    carrier_code: SWMR
+    contact: Mr. Markus Scholz
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Am Krekel 55
+    contact: 'Tel.: +49 6421 205 714'
+    tel: "+49 6421 205 714"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 35039 MARBURG
+    contact: 'Fax: +49 6421 205 300'
+    fax: "+49 6421 205 300"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail: markus.scholz@swmr.de'
+    email:
+    - markus.scholz@swmr.de
+  notes: []

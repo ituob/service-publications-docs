@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+---
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://github.com/ituob/service-publications-docs/datasets/icc/schema-data
+title: ITU OB Dataset Schema for icc
+description: >-
+  Stub schema. The ICC dataset is an alias of 1060-M.1400; no local data is
+  maintained here. See datasets/1060-M.1400/data.yaml for the canonical data.
+type: array
+items: {}

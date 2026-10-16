@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1202'
+reference: OB-1202
+identifier:
+  code: 1202-002
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Westnetz w.V.
+    address_line_1: Karl-Heine-Strasse 93
+    address_line_2: D-04229 LEIPZIG
+    carrier_code: WNET
+    contact: Mr. David Lamparter
+    tel: "+49 341 3929 1490"
+  notes: []

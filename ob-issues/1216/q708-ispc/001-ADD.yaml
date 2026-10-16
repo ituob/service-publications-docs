@@ -1,0 +1,21 @@
+type: ADD
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1216'
+reference: OB-1216
+identifier:
+  code: 1216-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-099-3
+    country:
+      en: Namibia
+    dec: '13083'
+    signal_point_name: MTCNAM3
+    signal_point_operator: Mobile Telecommunications Ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

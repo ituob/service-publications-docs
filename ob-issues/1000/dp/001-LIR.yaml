@@ -1,0 +1,21 @@
+type: LIR
+date_requested: &1 2011-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1000'
+reference: OB-1000
+identifier:
+  code: P 4
+data:
+  _class: DPAmendment
+  position: P 4
+  country: Djibouti
+  description: P 4 Djibouti LIR
+  entries:
+  - country_or_area:
+      en: Djibouti
+    country_code: '253'
+    international_prefix: '00'
+    national_prefix: '0'
+    national_sig_number: 8 digits
+    utc_dst: "+3"
+  notes: []

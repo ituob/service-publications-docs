@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1227'
+reference: OB-1227
+identifier:
+  code: 1227-004
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: SOGEDES Services GmbH
+    address_line_1: Havellandstr. 14
+    address_line_2: D-68309 MANNHEIM
+    carrier_code: SOGSVC
+    contact: Mr Jochen Winter
+    tel: "+49 172 9802289"
+  notes: []

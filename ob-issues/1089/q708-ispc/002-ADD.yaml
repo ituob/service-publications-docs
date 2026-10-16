@@ -1,0 +1,50 @@
+type: ADD
+date_requested: &1 2015-01-01
+date_active: *1
+ob_issue_no: '1089'
+reference: OB-1089
+identifier:
+  code: 1089-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-087-2
+    country:
+      en: Japan
+    dec: '8890'
+    signal_point_name: Tokyo-5
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-087-3
+    country:
+      en: Japan
+    dec: '8891'
+    signal_point_name: Osaka-7
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-087-4
+    country:
+      en: Japan
+    dec: '8892'
+    signal_point_name: Oyama-1
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-087-5
+    country:
+      en: Japan
+    dec: '8893'
+    signal_point_name: Tama-2
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-087-6
+    country:
+      en: Japan
+    dec: '8894'
+    signal_point_name: Osaka-8
+    signal_point_operator: KDDI Corporation
+  - ipsc: 4-087-7
+    country:
+      en: Japan
+    dec: '8895'
+    signal_point_name: Hakata-1
+    signal_point_operator: KDDI Corporation
+  notes:
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

@@ -1,0 +1,28 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1298'
+reference: OB-1298
+identifier:
+  code: 1298-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Hong Kong, China
+    company_name: South China Telecommunications (H.K.) Limited
+    company_address_1: Unit 01-06, 24/F.,
+    company_address_2: Sino Favour Centre,
+    company_address_3: 1 On Yip Street,
+    contact: Leslie Chung
+    contact_address_1: Unit 01-06, 24/F.,
+    contact_address_2: Sino Favour Centre,
+    contact_address_3: 1 On Yip Street,
+    contact_address_4: Chaiwan, Hong Kong
+    tel:
+    - "+852 94385048"
+    email:
+    - leslie@south.com.hk
+    issue_id_number: 89 852 40
+    effective_date: 22.IX.2023
+  notes: []

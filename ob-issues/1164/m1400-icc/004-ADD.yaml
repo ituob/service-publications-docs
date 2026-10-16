@@ -1,0 +1,22 @@
+type: ADD
+date_requested: &1 2014-09-15
+date_active: *1
+ob_issue_no: '1164'
+reference: OB-1164
+identifier:
+  code: 1164-004
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: wirsNET Kabeldienstleistungen UG (haftungsbeschraenkt)
+    address_line_1: Obere Bergstrasse 50
+    address_line_2: 01445 RADEBEUL
+    carrier_code: WIRS
+    contact: Mr Michael Wirsig
+    tel: "+49 351 3409404"
+    fax: "+49 351 46563641"
+    email:
+    - info@wirsnet.de
+  notes: []

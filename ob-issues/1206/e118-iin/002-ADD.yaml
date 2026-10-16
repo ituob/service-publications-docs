@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1206'
+reference: OB-1206
+identifier:
+  code: 1206-002
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: France
+    company_name: Vectone Mobile SAS
+    company_address_1: 58 Avenue de Wagram
+    company_address_2: 75017 PARIS
+    contact: Channa Kurera
+    contact_address_1: Vectone Mobile,
+    contact_address_2: 54 Marsh Wall
+    contact_address_3: LONDON, E14 9TP
+    contact_address_4: "(United Kingdom)"
+    tel:
+    - "        +44 7939 560057"
+    email:
+    - legal@vectone.com
+    issue_id_number: 89 33 31
+    effective_date: 24.VI.2020
+  notes: []

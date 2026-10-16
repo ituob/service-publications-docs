@@ -1,0 +1,59 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1070'
+reference: OB-1070
+identifier:
+  code: P 330
+data:
+  _class: ListVIIIAmendment
+  position: P 330
+  country: RUS Russian Federation
+  description: P 330 ADD by alphabetical order
+  entries:
+  - country: RUS - Russian Federation
+    name: Morozovsk
+    postal_address: 81, Demyana Bednogo Str. 347210 Morozovsk Rostov Region Russian
+      Federation
+    contact: 'TF : +7 863 8450455 FAX : +7 863 8450402 EMAIL : morozovsk@rfc-south.ru'
+    centralizing_office:
+      name: Federal State Unitary Enterprise General Radio Frequency Centre
+      postal_address: 7, Tverskaya Str. 125375 Moscow
+      contact: 'TF : +7 495 748 1448 FAX : +7 495 748 0680 EMAIL : int@grfc.ru'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 48°20'10''N 041°52'00''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: 'Accuracy of measurements: ± 1 Hz (absolute value).'
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 48°20'10''N 041°52'00''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: 'Values of measurable field strengths or power flux-densities: 10 -
+        120 dBμV/m; Accuracy of measurements: ± 3 dB.'
+    - measurement_type: Direction-finding measurements
+      coordinates: 48°20'10''N 041°52'00''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: 17 active antenna elements of volumetric vibrator type with 11.9 m
+        in height. Vertical polarization (1 MHz - 30 MHz).
+    - measurement_type: Bandwidth measurements
+      coordinates: 48°20'10''N 041°52'00''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: x dB method according to ITU‑R Recommendation SM.443-4.
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 48°20'10''N 041°52'00''E
+      hours_of_service: H24
+      frequency_ranges: 1 MHz - 30 MHz
+      remarks: Automatic measurement of spectrum occupancy in accordance with ITU-R
+        Recommendation SM.1880 and ITU Handbook on Spectrum Monitoring.
+  notes:
+  - "(Amendment No. 6)"
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks

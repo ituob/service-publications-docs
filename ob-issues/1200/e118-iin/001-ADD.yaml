@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1200'
+reference: OB-1200
+identifier:
+  code: 1200-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: Spain
+    company_name: SYMA MOBILE ESPAÑA SL
+    company_address_1: Av. Diagonal, 453 Bis Planta 4
+    company_address_2: '08036 BARCELONA'
+    contact: Xavier Cascante Serratosa
+    contact_address_1: Av. Diagonal, 453 Bis Planta 4
+    contact_address_2: '08036 BARCELONA'
+    tel:
+    - "+33 1 44 24 06 37"
+    fax:
+    - "+33 1 44 24 01 38"
+    email:
+    - xc@symamobile.com
+    issue_id_number: 89 34 13
+    effective_date: 1.VIII.2020
+  notes: []

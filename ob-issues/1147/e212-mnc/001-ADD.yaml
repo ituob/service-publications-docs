@@ -1,0 +1,43 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1147'
+reference: OB-1147
+identifier:
+  code: 1147-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: South Africa ADD
+    networks: " "
+  - mcc_mnc_codes: 655 05
+    networks: Telkom SA Ltd
+  - mcc_mnc_codes: 655 75
+    networks: Airport Company South Africa (ACSA)
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code ADD
+    networks: " "
+  - mcc_mnc_codes: 901 59
+    networks: MessageBird B.V.
+  - mcc_mnc_codes: 901 60
+    country_or_area:
+      en: " "
+    networks: OneWeb
+  - mcc_mnc_codes: "(Country A)"
+    country_or_area:
+      en: Luxembourg
+    networks: 000 x xxx xxx
+    range: 270 77
+  - mcc_mnc_codes: "(Country B – Where the MCC+MNC is to be used extra-territorially)"
+    country_or_area:
+      en: Belgium
+    networks: 800 x xxx xxx; 801 x xxx xxx
+    range: 270 77
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

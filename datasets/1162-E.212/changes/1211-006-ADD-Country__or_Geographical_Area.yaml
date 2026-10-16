@@ -1,0 +1,10 @@
+---
+type: ADD
+register: E212_MNC
+ob_issue_no: '1211'
+identifier:
+  code: Country  or Geographical Area
+data:
+  country/geographical area: Country  or Geographical Area
+  mcc+mnc *: MCC+MNC*
+  operator/network: MSIN** range to be used

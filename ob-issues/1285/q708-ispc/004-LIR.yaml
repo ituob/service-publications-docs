@@ -1,0 +1,33 @@
+type: LIR
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1285'
+reference: OB-1285
+identifier:
+  code: 1285-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-216-2
+    country:
+      en: Ireland
+    dec: '11970'
+    signal_point_name: MSCCL1
+    signal_point_operator: Eircom Limited
+  - ipsc: 5-216-3
+    country:
+      en: Ireland
+    dec: '11971'
+    signal_point_name: MSCKW1
+    signal_point_operator: Eircom Limited
+  - ipsc: 6-246-1
+    country:
+      en: Ireland
+    dec: '14257'
+    signal_point_name: MSC3
+    signal_point_operator: Eircom Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

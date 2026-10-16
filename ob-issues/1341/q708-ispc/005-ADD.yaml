@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1341'
+reference: OB-1341
+identifier:
+  code: 1341-005
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-155-0
+    country:
+      en: Seychelles
+    dec: '13528'
+    signal_point_name: SS7 Gateway
+    signal_point_operator: Intelvision Ltd
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

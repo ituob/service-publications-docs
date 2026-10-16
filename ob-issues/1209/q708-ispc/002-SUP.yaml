@@ -1,0 +1,27 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1209'
+reference: OB-1209
+identifier:
+  code: 1209-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-061-4
+    country:
+      en: Switzerland
+    dec: '4588'
+    signal_point_name: "…"
+    signal_point_operator: IVY Telecom SA
+  - ipsc: 2-063-4
+    country:
+      en: Switzerland
+    dec: '4604'
+    signal_point_name: Zurich
+    signal_point_operator: IVY Telecom SA
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

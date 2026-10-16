@@ -1,0 +1,111 @@
+---
+index.html:
+  :pages: 1
+  :avg_coverage: 0.5704
+  :missing_local_count: 0
+  :worst:
+  - :label: index.html
+    :coverage: 0.5704
+    :missing_headings: 1
+    :missing_links: 332
+    :missing_tables: 0
+404.html:
+  :pages: 1
+  :avg_coverage: 1.0
+  :missing_local_count: 0
+  :worst:
+  - :label: 404.html
+    :coverage: 1.0
+    :missing_headings: 0
+    :missing_links: 0
+    :missing_tables: 0
+issue:
+  :pages: 310
+  :avg_coverage: 0.9937
+  :missing_local_count: 0
+  :worst:
+  - :label: issue/669
+    :coverage: 0.7182
+    :missing_headings: 5
+    :missing_links: 1
+    :missing_tables: 0
+  - :label: issue/1112
+    :coverage: 0.9268
+    :missing_headings: 2
+    :missing_links: 52
+    :missing_tables: 0
+  - :label: issue/1075
+    :coverage: 0.9444
+    :missing_headings: 1
+    :missing_links: 1
+    :missing_tables: 0
+  - :label: issue/992
+    :coverage: 0.9599
+    :missing_headings: 4
+    :missing_links: 36
+    :missing_tables: 0
+  - :label: issue/1175
+    :coverage: 0.969
+    :missing_headings: 3
+    :missing_links: 54
+    :missing_tables: 0
+recommendation:
+  :pages: 12
+  :avg_coverage: 0.1966
+  :missing_local_count: 0
+  :worst:
+  - :label: recommendation/M.1400
+    :coverage: 0.0464
+    :missing_headings: 6
+    :missing_links: 19
+    :missing_tables: 1
+  - :label: recommendation/E.164
+    :coverage: 0.0559
+    :missing_headings: 59
+    :missing_links: 27
+    :missing_tables: 1
+  - :label: recommendation/F.170
+    :coverage: 0.1047
+    :missing_headings: 2
+    :missing_links: 2
+    :missing_tables: 1
+  - :label: recommendation/T.35
+    :coverage: 0.1149
+    :missing_headings: 4
+    :missing_links: 5
+    :missing_tables: 1
+  - :label: recommendation/F.32
+    :coverage: 0.1167
+    :missing_headings: 2
+    :missing_links: 6
+    :missing_tables: 1
+register:
+  :pages: 68
+  :avg_coverage: 0.5234
+  :missing_local_count: 0
+  :worst:
+  - :label: register/nnp
+    :coverage: 0.0385
+    :missing_headings: 7
+    :missing_links: 20
+    :missing_tables: 1
+  - :label: register/bureaufax
+    :coverage: 0.0568
+    :missing_headings: 1
+    :missing_links: 2
+    :missing_tables: 1
+  - :label: register/f32-tdi
+    :coverage: 0.0692
+    :missing_headings: 4
+    :missing_links: 6
+    :missing_tables: 1
+  - :label: register/rr251
+    :coverage: 0.0976
+    :missing_headings: 2
+    :missing_links: 3
+    :missing_tables: 1
+  - :label: register/e212-icc
+    :coverage: 0.1368
+    :missing_headings: 2
+    :missing_links: 3
+    :missing_tables: 1

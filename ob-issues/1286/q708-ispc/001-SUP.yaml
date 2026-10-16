@@ -1,0 +1,39 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1286'
+reference: OB-1286
+identifier:
+  code: 1286-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-076-0
+    country:
+      en: Denmark
+    dec: '4704'
+    signal_point_name: Copenhagen - Copenhagen dnc
+    signal_point_operator: TDC A/S
+  - ipsc: 2-076-2
+    country:
+      en: Denmark
+    dec: '4706'
+    signal_point_name: Copenhagen - Albertslund dnc
+    signal_point_operator: TDC A/S
+  - ipsc: 2-078-1
+    country:
+      en: Denmark
+    dec: '4721'
+    signal_point_name: Copenhagen - Ejby LS
+    signal_point_operator: TeliaSonera AB
+  - ipsc: 2-079-4
+    country:
+      en: Denmark
+    dec: '4732'
+    signal_point_name: Copenhagen - Orestaden LS
+    signal_point_operator: TeliaSonera AB
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

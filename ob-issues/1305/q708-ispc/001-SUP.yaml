@@ -1,0 +1,93 @@
+type: SUP
+date_requested: &1 2020-06-01
+date_active: *1
+ob_issue_no: '1305'
+reference: OB-1305
+identifier:
+  code: 1305-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-034-3
+    country:
+      en: Germany
+    dec: '4371'
+    signal_point_name: Eschborn
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 2-034-6
+    country:
+      en: Germany
+    dec: '4374'
+    signal_point_name: Stuttgart
+    signal_point_operator: Vodafone BW GmbH
+  - ipsc: 2-036-0
+    country:
+      en: Germany
+    dec: '4384'
+    signal_point_name: Ratingen
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 2-036-1
+    country:
+      en: Germany
+    dec: '4385'
+    signal_point_name: Sulzbach
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 2-226-6
+    country:
+      en: Germany
+    dec: '5910'
+    signal_point_name: Ratingen
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 2-251-1
+    country:
+      en: Germany
+    dec: '6105'
+    signal_point_name: Düsseldorf
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 2-251-2
+    country:
+      en: Germany
+    dec: '6106'
+    signal_point_name: Offenbach
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 2-251-3
+    country:
+      en: Germany
+    dec: '6107'
+    signal_point_name: Frankfurt
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 2-251-4
+    country:
+      en: Germany
+    dec: '6108'
+    signal_point_name: Hannover
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 2-252-7
+    country:
+      en: Germany
+    dec: '6119'
+    signal_point_name: Stuttgart
+    signal_point_operator: Vodafone BW GmbH
+  - ipsc: 3-252-7
+    country:
+      en: Germany
+    dec: '8167'
+    signal_point_name: Stuttgart
+    signal_point_operator: Vodafone BW GmbH
+  - ipsc: 4-246-2
+    country:
+      en: Germany
+    dec: '10162'
+    signal_point_name: Hamm W9511
+    signal_point_operator: Vodafone GmbH
+  - ipsc: 5-245-2
+    country:
+      en: Germany
+    dec: '12202'
+    signal_point_name: Muenchen M8354
+    signal_point_operator: Vodafone GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

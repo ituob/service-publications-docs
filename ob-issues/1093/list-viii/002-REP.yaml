@@ -1,0 +1,60 @@
+type: REP
+date_requested:
+date_active:
+ob_issue_no: '1093'
+reference: OB-1093
+identifier:
+  code: P 72
+data:
+  _class: ListVIIIAmendment
+  position: P 72
+  country: AUS Australia
+  description: P 72-73 REP
+  entries:
+  - country: AUS Australia
+    name: Quoin Ridge (Tasmania)
+    postal_address: ACMA Quoin Ridge P.O. Box 13112 Law Courts Melbourne Victoria
+      8010 Australia
+    contact: 'TF : +61 3 99636702 FAX : +61 3 62680246 EMAIL: quoin.ridge@acma.gov.au'
+    centralizing_office:
+      name: Australian Communications and Media Authority
+      postal_address: International Radiocommunications Section P.O. Box 78 Belconnen
+        A.C.T. 2616
+      contact: 'TF : +61 2 62195555 FAX : +61 2 62195353 EMAIL: info@acma.gov.au EMAIL:
+        irs@acma.gov.au'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 42°45'00''S 147°20'00''E
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 2 GHz
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 42°45'00''S 147°20'00''E
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 2 GHz
+    - measurement_type: Direction-finding measurements
+      coordinates: 42°45'00''S 147°20'00''E
+      hours_of_service: H24
+      frequency_ranges: 100 kHz - 40 MHz
+      remarks: Superresolution DF with better than ± 0.5 degrees dependent on the
+        signal to noise ratio of the wanted signal.
+    - measurement_type: Bandwidth measurements
+      coordinates: 42°45'00''S 147°20'00''E
+      hours_of_service: HX
+      frequency_ranges: 10 kHz - 2 GHz
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 42°45'00''S 147°20'00''E
+      hours_of_service: H24
+      frequency_ranges: 10 kHz - 2 GHz
+  notes:
+  - "(Amendment No. 12)"
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - "(Amendment No. 13)"
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - "(cont.)"
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service — Remarks

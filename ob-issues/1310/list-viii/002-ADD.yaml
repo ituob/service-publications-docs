@@ -1,0 +1,156 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1310'
+reference: OB-1310
+identifier:
+  code: P 1
+data:
+  _class: ListVIIIAmendment
+  position: P 1
+  description: P 1 ADD by alphabetical order
+  entries:
+  - name: Regional Fixed Monitoring Station - Dammam
+  - name: Regional Fixed Monitoring Station - Dammam
+    postal_address: 8184 Prince Mohammed Bin Fahd Rd Tihama 34255 Dhahran Saudi Arabia
+    contact: 'EMAIL: spectrum_FOC@cst.gov.sa'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 26°18'25"N 050°02'51"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 30 MHz
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 26°18'25"N 050°02'51"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 30 MHz
+      remarks: Vertical Pol starting from 600 kHz - Horizontal Pol starting from 8
+        kHz.
+    - measurement_type: Direction-finding measurements
+      coordinates: 26°18'25"N 050°02'51"E
+      hours_of_service: H24
+      frequency_ranges: 20 MHz - 30 MHz
+      remarks: Vertical polarization via array Horizontal polarization with LPDA measurements.
+    - measurement_type: Bandwidth measurements
+      coordinates: 26°18'25"N 050°02'51"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 30 MHz
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 26°18'25"N 050°02'51"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 30 MHz
+  - name: Regional Fixed Monitoring Station - Jeddah
+  - name: Regional Fixed Monitoring Station - Jeddah
+    postal_address: King Abdulaziz road Al-Hamra'a 23525 Jeddah Saudi Arabia
+    contact: 'EMAIL: spectrum_FOC@cst.gov.sa'
+    measurements:
+    - measurement_type: Frequency measurements
+      coordinates: 21°36'09"N 039°08'38"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 30 MHz
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 21°36'09"N 039°08'38"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 30 MHz
+      remarks: Vertical Pol starting from 600 kHz - Horizontal Pol starting from 8
+        kHz.
+    - measurement_type: Direction-finding measurements
+      coordinates: 21°36'09"N 039°08'38"E
+      hours_of_service: H24
+      frequency_ranges: 20 MHz - 30 MHz
+      remarks: Vertical polarization via array Horizontal polarization with LPDA measurements.
+    - measurement_type: Bandwidth measurements
+      coordinates: 21°36'09"N 039°08'38"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 30 MHz
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 21°36'09"N 039°08'38"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 30 MHz
+  - name: Wien (IMS)
+  - name: Wien (IMS)
+    postal_address: Fernmeldebüro Telecommunications Authority Republic Austria 17
+      Krapfenwaldgasse 1190 Wien Austria
+    contact: 'PHONE: +43 1 71100 654488 EMAIL: funkmonitoring@fb.gv.at'
+    centralizing_office:
+      name: Bundesnetzagentur Referat 511
+      postal_address: Postfach 80 01 55003 Mainz
+      contact: 'TF : +49 6131 185151 FAX : +49 6131 185621 EMAIL : 511.postfach@bnetza.de'
+    measurements:
+    - measurement_type: Direction-finding measurements
+      coordinates: 48°19'41"N 016°28'42"E
+      hours_of_service: HX
+      frequency_ranges: "(100) 500 kHz - 30 MHz"
+      remarks: Correlative interferometer.
+    - measurement_type: Direction-finding measurements
+      coordinates: 48°15'45"N 016°20'08"E
+      hours_of_service: H24
+      frequency_ranges: 30 MHz - 3 GHz
+      remarks: If necessary, direction-finding measurements are carried out by mobile
+        monitoring stations (van). Correlation.
+    - measurement_type: Frequency measurements
+      coordinates: 48°15'45"N 016°20'08"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 90 GHz
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 48°15'45"N 016°20'08"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 90 GHz
+      remarks: If necessary, measurements are carried out by mobile monitoring stations
+        (van).
+    - measurement_type: Bandwidth measurements
+      coordinates: 48°15'45"N 016°20'08"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 90 GHz
+      remarks: If necessary, measurements are carried out by mobile monitoring stations
+        (van).
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 48°15'45"N 016°20'08"E
+      hours_of_service: H24
+      frequency_ranges: 9 kHz - 90 GHz
+    - measurement_type: Frequency measurements
+      coordinates: 46°38'07"N 014°29'43"E
+      hours_of_service: HX
+      frequency_ranges: 9 kHz - 30 MHz
+    - measurement_type: Field strength or power flux-density measurements
+      coordinates: 46°38'07"N 014°29'43"E
+      hours_of_service: HK
+      frequency_ranges: 9 kHz - 30 MHz
+    - measurement_type: Direction-finding measurements
+      coordinates: 46°38'07"N 014°29'43"E
+      hours_of_service: HX
+      frequency_ranges: "(100) 300 kHz - 30 MHz"
+      remarks: Correlative interferometer.
+    - measurement_type: Automatic spectrum occupancy surveys
+      coordinates: 43°38'08"N 014°29'43"E
+      hours_of_service: HX
+      frequency_ranges: 9 kHz - 30 MHz
+  notes:
+  - PART I
+  - STATIONS IN THE TERRESTRIAL RADIOCOMMUNICATION SERVICES
+  - ARS – Saudi Arabia
+  - ADD (Centralizing office)
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service (UTC) — Remarks
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service (UTC) — Remarks
+  - AUT – Austria
+  - REP (Centralizing office)
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - 'Federal Ministry of Finance Directorate-General VI/3 Centralizing Office for
+    Monitoring — Radetzkystrasse 2 1030 Wien — PHONE: +43 1 51433 506424 EMAIL: ernst.cerny@bmf.gv.at
+    EMAIL: post.vi-3@bmf.gv.at'
+  - MOD by alphabetical order
+  - Name of the station — Postal address — Telephone, Telefax, Electronic-mail
+  - Geographical coordinates — Types of measurements — Ranges of frequencies for each
+    measurement — Hours of service (UTC) — Remarks
+  - D – Germany
+  - MOD (Centralizing office)
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks
+  - PART II
+  - STATIONS IN THE SPACE RADIOCOMMUNICATION SERVICES
+  - D – Germany
+  - MOD (Centralizing office)
+  - Centralizing office — Postal address — Telephone, Telefax, Electronic-mail — Remarks

@@ -1,0 +1,37 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1333'
+reference: OB-1333
+identifier:
+  code: 1333-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-123-3
+    country:
+      en: Australia
+    dec: '11227'
+    signal_point_name: Sydney-STP1
+    signal_point_operator: Starlink Internet Services Pte. Ltd
+  - ipsc: 5-123-4
+    country:
+      en: Australia
+    dec: '11228'
+    signal_point_name: Sydney-STP2
+    signal_point_operator: Starlink Internet Services Pte. Ltd
+  - ipsc: 5-123-5
+    country:
+      en: Australia
+    dec: '11229'
+    signal_point_name: Sydney-STP3
+    signal_point_operator: Starlink Internet Services Pte. Ltd
+  - ipsc: 5-123-6
+    country:
+      en: Australia
+    dec: '11230'
+    signal_point_name: Sydney-STP4
+    signal_point_operator: Starlink Internet Services Pte. Ltd
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

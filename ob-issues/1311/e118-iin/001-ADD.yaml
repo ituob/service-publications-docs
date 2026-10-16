@@ -1,0 +1,26 @@
+type: ADD
+date_requested: &1 2018-11-01
+date_active: *1
+ob_issue_no: '1311'
+reference: OB-1311
+identifier:
+  code: 1311-001
+data:
+  _class: E118Amendment
+  entries:
+  - country_or_area:
+      en: United Kingdom
+    company_name: Bondio Limited
+    company_address_1: 180 Strand
+    company_address_2: 2 Arundel Street
+    company_address_3: WC2R 3DA, LONDON
+    contact: Robinson Nouveau
+    contact_address_1: 180 Strand, 2 Arundel Street
+    contact_address_2: WC2R 3DA, LONDON
+    tel:
+    - "+44 7570 851768"
+    email:
+    - robinson@bondio.co
+    issue_id_number: 89 44 26
+    effective_date: 1.III.2025
+  notes: []

@@ -1,0 +1,135 @@
+---
+type: doc
+content:
+- type: paragraph
+  content:
+  - type: text
+    text: "(TSB Circular 35 of 22 June 2017)"
+- type: paragraph
+  content:
+  - type: text
+    text: '1  ITU-T Study Group 2 has developed Recommendation '
+  - type: text
+    marks:
+    - type: link
+      attrs:
+        href: http://www.itu.int/rec/T-REC-E.118-200605-I
+        title:
+    text: ITU-T E.118 “The international telecommunication charge card”
+  - type: text
+    text: ". This recommendation specifies the structure of the visible card number
+      (primary account number) and the Issuer Identifier Number (IIN) assignment and
+      registration procedure. The Issuer Identifier Number is a part of the visible
+      card number with a maximum length of 19 characters. The IIN follows the Major
+      Industry Identifier (MII) “89” for telecommunication purpose and then the E.164
+      Country Code. The structure is as follows:"
+- type: paragraph
+- type: paragraph
+  content:
+  - type: text
+    text: 2   The IIN is used to distinguish among multiple Operating Agencies (OAs)
+      who issue cards within a given country; or to distinguish individual countries
+      sharing the same country code, or to distinguish both countries and issuers.
+      One of the typical uses is to identify an issuer of SIM (Subscriber Identity
+      Module) cards.
+- type: paragraph
+  content:
+  - type: text
+    text: 3   The IIN register is maintained by the ITU-TSB. Under point 4.2 d) of
+      Recommendation ITU-T E.118, the TSB shall collect a one-time fee for the assignment
+      and registration of each new IIN. This fee has been 80 Swiss Francs since 1993
+      (ITU Operational Bulletin No. 542 (18.III.1993)).
+- type: paragraph
+  content:
+  - type: text
+    text: 4  At its 2017 session, ITU Council decided to continue collecting fees
+      for IIN Registration and to establish the registration fee at 150 Swiss francs
+      per number issued, and for non ITU-T and ITU-R Sector Members implement an annual
+      maintenance fee at 100 Swiss francs per number starting from 1 January 2018
+      (Decision 601, ITU Council, 2017 session). 
+- type: paragraph
+  content:
+  - type: text
+    text: 5  The annual fee will be collected based on the status of IINs and the
+      membership of the assignees at 00h00 (Geneva time) of 1 January of each year
+      from 2018. The newly assigned and registered IINs during the year 2018 and afterwards
+      will also be charged an annual maintenance fee for that year. In case of cancellation,
+      there will be no refund.
+- type: paragraph
+  content:
+  - type: text
+    text: '6  For further information on IIN, please see: '
+  - type: text
+    marks:
+    - type: link
+      attrs:
+        href: http://www.itu.int/en/ITU-T/inr/forms/Pages/iin.aspx
+        title:
+    text: http://www.itu.int/en/ITU-T/inr/forms/Pages/iin.aspx
+  - type: text
+    text: ". For issues relevant to membership status, please see: "
+  - type: text
+    marks:
+    - type: link
+      attrs:
+        href: http://www.itu.int/online/mm/scripts/gensel8
+        title:
+    text: http://www.itu.int/online/mm/scripts/gensel8
+  - type: text
+    text: ". A Sector Member is marked with an “X” under columns “ITU-T” and/or “ITU-R”."
+- type: paragraph
+  content:
+  - type: text
+    text: '7  Please address your comments to:'
+- type: paragraph
+  content:
+  - type: text
+    text: Operational Bulletin and Numbering Administration
+- type: paragraph
+  content:
+  - type: text
+    text: International Telecommunication Union
+- type: paragraph
+  content:
+  - type: text
+    text: Telecommunication Standardization Bureau
+- type: paragraph
+  content:
+  - type: text
+    text: Place des Nations CH - 1211 GENEVA 20, Switzerland
+- type: paragraph
+  content:
+  - type: text
+    text: 'Tel:           +41 22 730 5211'
+- type: paragraph
+  content:
+  - type: text
+    text: 'Fax:          +41 22 730 5853'
+- type: paragraph
+  content:
+  - type: text
+    text: 'E-mail:    '
+  - type: text
+    marks:
+    - type: link
+      attrs:
+        href: mailto:tsbtson@itu.int
+        title:
+    text: tsbtson@itu.int
+- type: paragraph
+  content:
+  - type: text
+    text: " "
+- type: paragraph
+  content:
+  - type: text
+    text: 'For membership issues, please contact '
+  - type: text
+    marks:
+    - type: link
+      attrs:
+        href: mailto:itu-tmembership@itu.int
+        title:
+    text: itu-tmembership@itu.int
+  - type: text
+    text: "."

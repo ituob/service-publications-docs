@@ -1,0 +1,34 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1010'
+reference: OB-1010
+identifier:
+  code: P 130
+data:
+  _class: Q708ISPCAmendment
+  position: P 130
+  entries:
+  - ipsc: 3-059-7
+    country:
+      en: United States
+    dec: '6623'
+    signal_point_name: Miami, FL
+    signal_point_operator: DCB International LLC
+  - ipsc: 3-180-0
+    country:
+      en: United States
+    dec: '7584'
+    signal_point_name: Newark, NJ
+    signal_point_operator: Lycamobile USA Inc.
+  - ipsc: 3-180-1
+    country:
+      en: United States
+    dec: '7585'
+    signal_point_name: Bridgewater, NJ
+    signal_point_operator: Quickdial, INC.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).

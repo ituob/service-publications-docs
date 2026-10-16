@@ -1,0 +1,67 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1341'
+reference: OB-1341
+identifier:
+  code: 1341-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-200-7
+    country:
+      en: Armenia
+    dec: '5703'
+    signal_point_name: KTPSI
+    signal_point_operator: Viva Armenia (Viva)
+  - ipsc: 4-233-4
+    country:
+      en: Armenia
+    dec: '10060'
+    signal_point_name: Yerevan
+    signal_point_operator: Telecom Armenia (Team)
+  - ipsc: 4-233-5
+    country:
+      en: Armenia
+    dec: '10061'
+    signal_point_name: KTPSI
+    signal_point_operator: Viva Armenia (Viva)
+  - ipsc: 4-233-6
+    country:
+      en: Armenia
+    dec: '10062'
+    signal_point_name: Yerevan
+    signal_point_operator: Telecom Armenia (Team)
+  - ipsc: 4-233-7
+    country:
+      en: Armenia
+    dec: '10063'
+    signal_point_name: Yerevan
+    signal_point_operator: Telecom Armenia (Team)
+  - ipsc: 6-224-0
+    country:
+      en: Armenia
+    dec: '14080'
+    signal_point_name: Yerevan
+    signal_point_operator: Telecom Armenia (Team)
+  - ipsc: 6-224-1
+    country:
+      en: Armenia
+    dec: '14081'
+    signal_point_name: Arpinet
+    signal_point_operator: Arpinet
+  - ipsc: 6-224-2
+    country:
+      en: Armenia
+    dec: '14082'
+    signal_point_name: KTPSI
+    signal_point_operator: Viva Armenia (Viva)
+  - ipsc: 6-224-3
+    country:
+      en: Armenia
+    dec: '14083'
+    signal_point_name: KTPSI
+    signal_point_operator: Viva Armenia (Viva)
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

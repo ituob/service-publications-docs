@@ -1,0 +1,45 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1202'
+reference: OB-1202
+identifier:
+  code: 1202-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Czech Rep. ADD
+    networks: " "
+  - mcc_mnc_codes: 230 07
+    networks: T-Mobile Czech Republic a.s.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Czech Rep. LIR
+    networks: " "
+  - mcc_mnc_codes: 230 02
+    networks: O2 Czech Republic a.s.
+  - mcc_mnc_codes: 230 04
+    networks: Nordic Telecom s.r.o.
+  - mcc_mnc_codes: 230 98
+    networks: Sprava zeleznic, statni organizace
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Hong Kong, China ADD
+    networks: " "
+  - mcc_mnc_codes: 454 35
+    networks: Webbing Hong Kong Limited
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: International Mobile, shared code ADD
+    networks: " "
+  - mcc_mnc_codes: 901 75
+    networks: Podsystem Ltd.
+  - mcc_mnc_codes: 901 76
+    networks: A1 Telekom Austria AG
+  notes:
+  - "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile /
+    Indicativo de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

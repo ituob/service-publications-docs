@@ -1,0 +1,28 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1105'
+reference: OB-1105
+identifier:
+  code: 1105-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Denmark             ADD
+    networks: " "
+  - mcc_mnc_codes: 238 42
+    networks: Brandtel ApS
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden               ADD
+    networks: " "
+  - mcc_mnc_codes: 240 60
+    networks: Telefonaktiebolaget LM Ericsson (MNC assigned for test purpose. Temporary
+      license until 2018-12-31)
+  notes:
+  - "*          MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'
