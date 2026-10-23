@@ -1,0 +1,27 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1158'
+identifier:
+  code: 5-246-3
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-246-3
+    country:
+      en: Switzerland
+    dec: '12211'
+    signal_point_name: Lausanne3
+    signal_point_operator: Comfone AG
+  - ipsc: 5-246-7
+    country:
+      en: Switzerland
+    dec: '12215'
+    signal_point_name: Zürich7
+    signal_point_operator: Comfone AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1158

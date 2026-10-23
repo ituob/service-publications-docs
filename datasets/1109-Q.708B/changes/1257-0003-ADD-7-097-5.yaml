@@ -1,0 +1,28 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1257'
+identifier:
+  code: 7-097-5
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-097-5
+    country:
+      en: Uruguay
+    dec: '15117'
+    signal_point_name: STP Aguada, Montevideo Aguada (Huawei)
+    signal_point_operator: Administración Nacional de Telecomunicaciones (ANTEL)
+  - ipsc: 7-097-6
+    country:
+      en: Uruguay
+    dec: '15118'
+    signal_point_name: STP Unión, Montevideo Unión (Huawei)
+    signal_point_operator: Administración Nacional de Telecomunicaciones (ANTEL)
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1257
+date_active: 2020-06-01

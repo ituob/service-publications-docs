@@ -1,0 +1,33 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1285'
+identifier:
+  code: " "
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Estonia    SUP
+    networks: " "
+  - mcc_mnc_codes: 248 29
+    networks: SkyTel OÜ
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Estonia    ADD
+    networks: " "
+  - mcc_mnc_codes: 248 33
+    networks: Crowdfaster OÜ
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Nauru    ADD
+    networks: " "
+  - mcc_mnc_codes: 536 03
+    networks: Nauru Telikom Corporation
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil  MNC:  Mobile Network Code / Code de réseau mobile / Indicativo
+    de red para el servicio móvil'
+reference: OB-1285
+date_active: 2018-11-14 23:00:00.000000000 Z

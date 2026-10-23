@@ -1,0 +1,31 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1093'
+identifier:
+  code: ENGELC
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Engel & Co. GmbH Gera
+    carrier_code: ENGELC
+    contact: Mr. Gotthard Hoffmann
+  - country_or_area:
+      en: Germany
+    company_name: Leibnizstrasse 73
+    contact: 'Tel.:        +49 365 8337420'
+    tel: "+49 365 8337420"
+  - country_or_area:
+      en: Germany
+    company_name: '07548 GERA'
+    contact: 'Fax:        +49 365 8337310'
+    fax: "+49 365 8337310"
+  - country_or_area:
+      en: Germany
+    contact: 'E-mail:   info@enco-gera.de'
+    email:
+    - info@enco-gera.de
+  notes: []
+reference: OB-1093

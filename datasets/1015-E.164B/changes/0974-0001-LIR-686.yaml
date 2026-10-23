@@ -1,0 +1,22 @@
+type: LIR
+register: E164_ACN
+recommendation: E.164
+ob_issue_no: '974'
+identifier:
+  code: '686'
+data:
+  _class: E164ACNAmendment
+  position: '7'
+  entries:
+  - country_or_area:
+      en: Kiribati (Republic of)
+    country_code: '686'
+    mobile_telephone_numbers:
+      en: 6, 9
+  - country_or_area:
+      en: New Zealand
+    country_code: '64'
+    mobile_telephone_numbers:
+      en: 21-22, 27-29
+  notes: []
+reference: OB-974

@@ -1,0 +1,23 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1176'
+identifier:
+  code: 7-217-2
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-217-2
+    country:
+      en: Norway
+    dec: '16074'
+    signal_point_name: Oslo_6
+    signal_point_operator: ICE Communication Norge AS
+  - ipsc: 7-217-3
+    country:
+      en: Norway
+    dec: '16075'
+    signal_point_name: Oslo_7
+    signal_point_operator: ICE Communication Norge AS
+  notes: []
+reference: OB-1176

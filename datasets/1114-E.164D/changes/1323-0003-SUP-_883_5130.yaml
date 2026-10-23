@@ -1,0 +1,33 @@
+type: SUP
+register: E164_CC
+recommendation: E.164
+ob_issue_no: '1323'
+identifier:
+  code: "+883 5130"
+data:
+  _class: E164CCAmendment
+  position: Note q)
+  entries:
+  - applicant: SIPME Ltd
+    network: SIPME Ltd
+    cc_ic: "+883 5130"
+    status: Withdrawn
+  - applicant: Ellipsat Inc
+    network: Ellipsat Inc
+    cc_ic: "+883 5140"
+    status: Withdrawn
+  - applicant: Wins Limited
+    network: Wins Limited
+    cc_ic: "+883 5150"
+    status: Withdrawn
+  - applicant: Tel2tel kft.
+    network: Tel2tel kft.
+    cc_ic: "+883 5160"
+    status: Withdrawn
+  notes:
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes
+  - __________
+  - See page 5 of the present Operational Bulletin No. 1323 of 1.IX.2025.
+reference: OB-1323
+date_active: 2016-11-14 23:00:00.000000000 Z

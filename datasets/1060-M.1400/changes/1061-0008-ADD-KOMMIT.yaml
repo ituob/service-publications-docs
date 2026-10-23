@@ -1,0 +1,36 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1061'
+identifier:
+  code: KOMMIT
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: KomMITT - Ratingen GmbH
+    carrier_code: KOMMIT
+    contact: Mr. Peter Thulke
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Kaiserswerther Strasse 85
+    contact: 'Tel.: +49 2102 48 280- 60'
+    tel: "+49 2102 48 280- 60"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 40878 RATINGEN
+    contact: 'Fax: +49 2102 48 280 -99'
+    fax: "+49 2102 48 280 -99"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail: peter.thulke@kommitt.de'
+    email:
+    - peter.thulke@kommitt.de
+  notes: []
+reference: OB-1061
+date_active: 2014-08-15

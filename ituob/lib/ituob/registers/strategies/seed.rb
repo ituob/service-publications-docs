@@ -12,21 +12,21 @@ module Ituob
       class Seed < Base
         extend Ituob::Support::HashField
 
-        def self.apply(builder, change, key_field, _key)
+        def self.apply(builder, change, key_field, _key, fallbacks = [])
           rows = Array(change.data)
           rows.each do |row|
-            row_key = lookup(row, key_field)
+            row_key = Base.entry_key(row, key_field, fallbacks)
             next if row_key.nil? || row_key.to_s.empty?
 
-            builder.set_entry(row_key.to_s, row.dup)
-            builder.clear_lapsed(row_key.to_s)
-            builder.clear_deleted(row_key.to_s)
+            builder.set_entry(row_key, row.dup)
+            builder.clear_lapsed(row_key)
+            builder.clear_deleted(row_key)
           end
         end
 
         # SEED doesn't use identifier resolution — its target is the
         # entire batch, not a single key.
-        def self.resolve_key(_builder, _change, _key_field)
+        def self.resolve_key(_builder, _change, _key_field, _fallbacks = [])
           nil
         end
       end

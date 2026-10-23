@@ -1,0 +1,28 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1014'
+identifier:
+  code: 5-142-3
+data:
+  _class: Q708ISPCAmendment
+  position: P 96
+  entries:
+  - ipsc: 5-142-3
+    country:
+      en: Singapore
+    dec: '11379'
+    signal_point_name: Equinix Singapore
+    signal_point_operator: B-Trac International Pte Ltd
+  - ipsc: 5-142-4
+    country:
+      en: Singapore
+    dec: '11380'
+    signal_point_name: Equinix Singapore
+    signal_point_operator: B-Trac International Pte Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1014

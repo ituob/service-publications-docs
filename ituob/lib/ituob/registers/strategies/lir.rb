@@ -17,7 +17,7 @@ module Ituob
                 "LIR conflict: key #{key.inspect} not present in register #{change.register_id}"
         end
 
-        def self.apply_row(builder, change, key_field, key, row)
+        def self.apply_row(builder, change, key_field, key, row, _fallbacks = [])
           refreshed = row.dup
           refreshed[key_field] = key
           builder.set_entry(key, refreshed)
@@ -25,7 +25,7 @@ module Ituob
 
         # Identifier-only LIR (no keyable rows): presence was already
         # validated; the entry is unchanged by definition.
-        def self.apply(builder, change, key_field, key)
+        def self.apply(builder, change, key_field, key, _fallbacks = [])
           builder.entries[key]
         end
       end

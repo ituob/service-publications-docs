@@ -3,19 +3,20 @@
 module Ituob
   module Registers
     module Strategies
-      # ADD — insert a new entry. The key MUST NOT already exist,
-      # unless the printed row is identical to the stored one (the
-      # bulletin re-publishing an entry verbatim), which is a no-op.
+      # ADD — insert a new entry. The printed bulletin is the
+      # authority: re-publications of an existing key update the stored
+      # row (verbatim reprints are no-ops). A conflict is raised only
+      # when the ADD carries no row content to apply.
       class Add < Base
         def self.validate!(builder, change, key, row = nil)
           return unless builder.entries.key?(key)
-          return if row && rows_equal?(builder.entries[key], row, key)
+          return unless row.nil?
 
           raise StrategyError,
                 "ADD conflict: key #{key.inspect} already exists in register #{change.register_id}"
         end
 
-        def self.apply_row(builder, change, key_field, key, row)
+        def self.apply_row(builder, change, key_field, key, row, _fallbacks = [])
           entry = row.dup
           entry[key_field] = key
           builder.set_entry(key, entry)
@@ -23,7 +24,7 @@ module Ituob
           builder.clear_deleted(key)
         end
 
-        def self.apply(builder, change, key_field, key)
+        def self.apply(builder, change, key_field, key, _fallbacks = [])
           row = change.data && change.data.is_a?(Hash) ? change.data.dup : {}
           row[key_field] = key
           builder.set_entry(key, row)
@@ -31,12 +32,6 @@ module Ituob
           builder.clear_deleted(key)
         end
 
-        def self.rows_equal?(stored, printed, key_field)
-          a = stored.reject { |k, _| k.to_s == key_field.to_s }
-          b = printed.reject { |k, _| k.to_s == key_field.to_s }
-          a.map { |k, v| [k.to_s, v.is_a?(Hash) ? v : v.to_s] }.sort ==
-            b.map { |k, v| [k.to_s, v.is_a?(Hash) ? v : v.to_s] }.sort
-        end
       end
     end
   end

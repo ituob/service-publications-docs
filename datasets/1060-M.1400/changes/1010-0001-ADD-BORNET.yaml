@@ -1,0 +1,35 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1010'
+identifier:
+  code: BORNET
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Allemagne (République fédérale d')
+    company_name: BORnet GmbH
+    carrier_code: BORNET
+    contact: Sven Herrmann
+  - iso_code: DEU
+    country_or_area:
+      en: Allemagne (République fédérale d')
+    company_name: Ostlandstrasse 5
+    contact: 'Tel:         +49 2861 89060 625'
+    tel: "+49 2861 89060 625"
+  - iso_code: DEU
+    country_or_area:
+      en: Allemagne (République fédérale d')
+    company_name: 46325 BORKEN
+    contact: 'Fax:         +49 2861 89060 990'
+    fax: "+49 2861 89060 990"
+  - iso_code: DEU
+    country_or_area:
+      en: Allemagne (République fédérale d')
+    contact: E-mail    herrmann@bornet.de
+    email:
+    - herrmann@bornet.de
+  notes: []
+reference: OB-1010

@@ -1,0 +1,28 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1313'
+identifier:
+  code: " "
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Singapore     ADD
+    networks: " "
+  - mcc_mnc_codes: 525 205
+    networks: 5G EP Testbed
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Spain     SUP
+    networks: " "
+  - mcc_mnc_codes: 214 704
+    networks: AMPER SISTEMAS, S.A.U.
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'
+reference: OB-1313
+date_active: 2018-11-14 23:00:00.000000000 Z

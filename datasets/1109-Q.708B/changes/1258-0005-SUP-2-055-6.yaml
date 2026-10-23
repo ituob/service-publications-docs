@@ -1,0 +1,34 @@
+type: SUP
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1258'
+identifier:
+  code: 2-055-6
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-055-6
+    country:
+      en: Switzerland
+    dec: '4542'
+    signal_point_name: Zürich
+    signal_point_operator: Colt Technology Services AG
+  - ipsc: 2-056-4
+    country:
+      en: Switzerland
+    dec: '4548'
+    signal_point_name: Zürich
+    signal_point_operator: Colt Technology Services AG
+  - ipsc: 2-058-6
+    country:
+      en: Switzerland
+    dec: '4566'
+    signal_point_name: Zürich
+    signal_point_operator: Colt Technology Services AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1258
+date_active: 2020-06-01

@@ -1,0 +1,34 @@
+type: SUP
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1314'
+identifier:
+  code: 2-092-0
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-092-0
+    country:
+      en: Estonia
+    dec: '4832'
+    signal_point_name: Tallinn
+    signal_point_operator: Telia Eesti AS (formerly AS Eesti Telekom)
+  - ipsc: 2-092-1
+    country:
+      en: Estonia
+    dec: '4833'
+    signal_point_name: Tallinn
+    signal_point_operator: Telia Eesti AS (formerly AS Eesti Telekom)
+  - ipsc: 3-244-4
+    country:
+      en: Estonia
+    dec: '8100'
+    signal_point_name: Tallinn
+    signal_point_operator: Telia Eesti AS (formerly GoNetwork OÜ)
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1314
+date_active: 2020-06-01

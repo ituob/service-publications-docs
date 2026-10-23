@@ -1,0 +1,46 @@
+type: LIR
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1220'
+identifier:
+  code: 2-248-4
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-248-4
+    country:
+      en: Germany
+    dec: '6084'
+    signal_point_name: Drillisch-Mobil-Duesseldorf
+    signal_point_operator: Drillisch Netz AG
+  - ipsc: 2-251-6
+    country:
+      en: Germany
+    dec: '6110'
+    signal_point_name: Drillisch-Mobil-Frankfurt
+    signal_point_operator: Drillisch Netz AG
+  - ipsc: 5-251-6
+    country:
+      en: Germany
+    dec: '12254'
+    signal_point_name: Frankfurt
+    signal_point_operator: STROTH Telecom GmbH
+  - ipsc: 5-251-7
+    country:
+      en: Germany
+    dec: '12255'
+    signal_point_name: Frankfurt
+    signal_point_operator: STROTH Telecom GmbH
+  - ipsc: 7-249-7
+    country:
+      en: Germany
+    dec: '16335'
+    signal_point_name: Frankfurt
+    signal_point_operator: STROTH Telecom GmbH
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1220
+date_active: 2020-06-01

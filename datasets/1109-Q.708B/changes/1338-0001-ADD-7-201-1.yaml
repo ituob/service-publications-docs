@@ -1,0 +1,26 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1338'
+identifier:
+  code: 7-201-1
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 7-201-1
+    country:
+      en: Gibraltar
+    dec: '15945'
+    signal_point_name: '5161'
+    signal_point_operator: Melmasti Global (Gibraltar) Ltd “MCOM”
+  - ipsc: 7-201-2
+    country:
+      en: Gibraltar
+    dec: '15946'
+    signal_point_name: '5162'
+    signal_point_operator: Melmasti Global (Gibraltar) Ltd “MCOM”
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'
+reference: OB-1338
+date_active: 2024-06-01

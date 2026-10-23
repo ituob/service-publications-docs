@@ -1,0 +1,26 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1342'
+identifier:
+  code: 2-204-4
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-204-4
+    country:
+      en: Belarus
+    dec: '5732'
+    signal_point_name: FW1
+    signal_point_operator: Beltelecom
+  - ipsc: 2-204-7
+    country:
+      en: Belarus
+    dec: '5735'
+    signal_point_name: FW2
+    signal_point_operator: Beltelecom
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'
+reference: OB-1342
+date_active: 2024-06-01

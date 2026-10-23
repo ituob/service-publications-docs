@@ -1,0 +1,17 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1178'
+identifier:
+  code: 255 09
+data:
+  _class: E212MNCAmendment
+  entries:
+  - country_or_area:
+      en: Ukraine ADD
+  - mcc_mnc_codes: 255 09
+    networks: '"Farlep-Invest", PrJSC'
+  - mcc_mnc_codes: 255 10
+    networks: '"Atlantis Telecom", LLC'
+  notes: []
+reference: OB-1178

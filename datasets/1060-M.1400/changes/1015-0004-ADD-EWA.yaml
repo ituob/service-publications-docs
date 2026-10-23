@@ -1,0 +1,30 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1015'
+identifier:
+  code: EWA
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: to
+    company_name: e.wa riss Netze GmbH
+    carrier_code: EWA
+    contact: Mrs. Dorothea Polaczek
+  - country_or_area:
+      en: to
+    company_name: Freiburger Strasse 6
+    contact: 'Tél:          + 49 7351 52906 210'
+  - country_or_area:
+      en: to
+    company_name: 88400 Biberach
+    contact: 'Fax: +      49 7351 52906 270'
+    fax: "+      49 7351 52906 270"
+  - country_or_area:
+      en: to
+    contact: E-mail     d.polaczek @ ewa-netze.de
+    email:
+    - d.polaczek @ ewa-netze.de
+  notes: []
+reference: OB-1015

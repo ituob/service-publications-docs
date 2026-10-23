@@ -1,0 +1,28 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1301'
+identifier:
+  code: 2-058-5
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-058-5
+    country:
+      en: Switzerland
+    dec: '4565'
+    signal_point_name: iWay_ZH1
+    signal_point_operator: iWay AG
+  - ipsc: 2-058-6
+    country:
+      en: Switzerland
+    dec: '4566'
+    signal_point_name: iWay_ZH2
+    signal_point_operator: iWay AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1301
+date_active: 2020-06-01

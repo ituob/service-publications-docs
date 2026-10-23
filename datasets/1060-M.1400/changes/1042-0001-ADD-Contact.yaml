@@ -1,0 +1,16 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1042'
+identifier:
+  code: Contact
+data:
+  _class: M1400Amendment
+  entries:
+  - company_name: País o zona/código ISO                                                                      Company
+      Code
+    carrier_code: Contact
+  - company_name: Nombre de la Empresa/Dirección
+    carrier_code: "(carrier code)"
+  notes: []
+reference: OB-1042

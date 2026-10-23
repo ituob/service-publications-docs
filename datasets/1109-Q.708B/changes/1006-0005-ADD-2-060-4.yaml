@@ -1,0 +1,28 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1006'
+identifier:
+  code: 2-060-4
+data:
+  _class: Q708ISPCAmendment
+  position: P 26 to P 27
+  entries:
+  - ipsc: 2-060-4
+    country:
+      en: Czech Rep.
+    dec: '4580'
+    signal_point_name: SZDC
+    signal_point_operator: Sprava zeleznicni cesty, st org.
+  - ipsc: 2-228-5
+    country:
+      en: Czech Rep.
+    dec: '5925'
+    signal_point_name: SZDC
+    signal_point_operator: Sprava zeleznicni cesty, st org.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1006

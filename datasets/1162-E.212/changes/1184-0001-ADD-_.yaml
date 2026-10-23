@@ -1,0 +1,17 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1184'
+identifier:
+  code: " "
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Estonia SUP
+    networks: " "
+  - mcc_mnc_codes: 248 15
+    networks: Premium Net International S.R.L. Eesti filiaal
+  notes: []
+reference: OB-1184

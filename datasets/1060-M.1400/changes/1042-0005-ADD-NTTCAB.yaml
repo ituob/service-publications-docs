@@ -1,0 +1,35 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1042'
+identifier:
+  code: NTTCAB
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (República Federal de)
+    company_name: NTTCable Service KG
+    carrier_code: NTTCAB
+    contact: Mr. Richard Limanowski
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (República Federal de)
+    company_name: Escher Strasse 19
+    contact: 'Tel:            + 49 6126 99876 52'
+    tel: "+ 49 6126 99876 52"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (República Federal de)
+    company_name: 65510 IDSTEIN
+    contact: 'Fax:           + 49 6126 99876 54'
+    fax: "+ 49 6126 99876 54"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (República Federal de)
+    contact: 'E-mail:     r.limanowski@nttcable.de'
+    email:
+    - r.limanowski@nttcable.de
+  notes: []
+reference: OB-1042

@@ -1,0 +1,16 @@
+type: LIR
+register: F32_TDI
+recommendation: F.32
+ob_issue_no: '1004'
+identifier:
+  code: 1004-0001
+data:
+  _class: F32TDIAmendment
+  position: P 6
+  description: P 6 Myanmar LIR
+  notes:
+  - Country/ geographical area — Country code — International prefix — National prefix
+    — National (significant) number — UTC/DST — Note
+  - Myanmar — 95 — 00 — 0 — 7 to 10 digits — +6.30
+reference: OB-1004
+date_active: 2011-04-15

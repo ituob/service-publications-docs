@@ -1,0 +1,28 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1272'
+identifier:
+  code: 5-088-1
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-088-1
+    country:
+      en: American Samoa
+    dec: '10945'
+    signal_point_name: Iliili , AS
+    signal_point_operator: AST Telecom, LLC dba Bluesky
+  - ipsc: 5-088-2
+    country:
+      en: American Samoa
+    dec: '10946'
+    signal_point_name: Iliili , AS (2)
+    signal_point_operator: AST Telecom, LLC dba Bluesky
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1272
+date_active: 2020-06-01

@@ -1,0 +1,33 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1064'
+identifier:
+  code: 6-225-3
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-225-3
+    country:
+      en: Ireland
+    dec: '14091'
+    signal_point_name: CPWPC01
+    signal_point_operator: Carphone Warehouse Ireland Mobile Limited
+  - ipsc: 6-225-4
+    country:
+      en: Ireland
+    dec: '14092'
+    signal_point_name: CPWPC02
+    signal_point_operator: Carphone Warehouse Ireland Mobile Limited
+  - ipsc: 6-225-5
+    country:
+      en: Ireland
+    dec: '14093'
+    signal_point_name: CPWPC03
+    signal_point_operator: Carphone Warehouse Ireland Mobile Limited
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1064

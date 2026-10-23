@@ -1,0 +1,40 @@
+type: SUP
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '972'
+identifier:
+  code: 4-082-7
+data:
+  _class: Q708ISPCAmendment
+  position: P 58
+  entries:
+  - ipsc: 4-082-7
+    country:
+      en: Japan
+    dec: '8855'
+    signal_point_name: Tokyo
+    signal_point_operator: SingTel Japan Co. Ltd.
+  - ipsc: 4-084-0
+    country:
+      en: Japan
+    dec: '8864'
+    signal_point_name: Tokyo
+    signal_point_operator: VeriSign Japan K.K.
+  - ipsc: 4-084-1
+    country:
+      en: Japan
+    dec: '8865'
+    signal_point_name: Tokyo
+    signal_point_operator: VeriSign Japan K.K.
+  - ipsc: 4-084-2
+    country:
+      en: Japan
+    dec: '8866'
+    signal_point_name: Osaka
+    signal_point_operator: VeriSign Japan K.K.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux .
+  - Códigos de puntos de señalización internacional .
+reference: OB-972

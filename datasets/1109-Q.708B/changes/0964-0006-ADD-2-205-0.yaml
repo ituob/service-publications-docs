@@ -1,0 +1,27 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '964'
+identifier:
+  code: 2-205-0
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-205-0
+    country:
+      en: " P 97 Sweden"
+    dec: '5736'
+    signal_point_name: GN1S (Stockholm)
+    signal_point_operator: Götalandsnätet AB
+  - ipsc: 2-205-6
+    country:
+      en: " P 97 Sweden"
+    dec: '5742'
+    signal_point_name: EuSWE2 (Linköping)
+    signal_point_operator: EuTel AB
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux.
+  - Códigos de puntos de señalización internacional.
+reference: OB-964

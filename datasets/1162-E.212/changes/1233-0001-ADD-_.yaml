@@ -1,0 +1,24 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1233'
+identifier:
+  code: " "
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sri Lanka    SUP
+    networks: " "
+  - mcc_mnc_codes: 413 03
+    networks: Hutchison Telecommunications Lanka (Pvt) Ltd.
+  - mcc_mnc_codes: 413 09
+    networks: Hutchison Telecommunications Lanka (Pvt) Ltd.
+  notes:
+  - "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'
+reference: OB-1233
+date_active: 2018-11-14 23:00:00.000000000 Z

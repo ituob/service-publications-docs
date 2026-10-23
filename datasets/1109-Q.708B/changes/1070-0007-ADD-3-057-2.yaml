@@ -1,0 +1,27 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1070'
+identifier:
+  code: 3-057-2
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-057-2
+    country:
+      en: United States
+    dec: '6602'
+    signal_point_name: Madison, WI
+    signal_point_operator: Digital Communications Consulting LLC
+  - ipsc: 3-191-5
+    country:
+      en: United States
+    dec: '7677'
+    signal_point_name: Portland, OR
+    signal_point_operator: Digital Communications Consulting LLC
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1070

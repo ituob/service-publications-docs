@@ -1,0 +1,24 @@
+type: ADD
+register: E164_CC
+recommendation: E.164
+ob_issue_no: '1310'
+identifier:
+  code: "+882 51"
+data:
+  _class: E164CCAmendment
+  position: Note o)
+  entries:
+  - applicant: Athalos Global Services BV
+    network: Athalos Global Services BV
+    cc_ic: "+882 51"
+    status: Withdrawn
+  - applicant: SITA
+    network: SITA (Formerly Onair GSM services)
+    cc_ic: "+882 98"
+    status: Withdrawn
+    formerly: OnAir N.V.
+  notes:
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes
+reference: OB-1310
+date_active: 2016-11-14 23:00:00.000000000 Z

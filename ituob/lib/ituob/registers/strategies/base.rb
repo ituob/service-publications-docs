@@ -27,22 +27,46 @@ module Ituob
         end
 
         # Row hashes this change operates on. Empty when the data
-        # shape carries no rows keyed by +key_field+.
-        def self.rows_for(change, key_field)
+        # shape carries no rows keyed by +key_field+ (or a declared
+        # fallback field).
+        def self.rows_for(change, key_field, fallbacks = [])
           data = change.data
           return [] unless data.is_a?(Hash)
 
           entries = data['entries']
           if entries.is_a?(Array)
-            return entries.select { |e| e.is_a?(Hash) && entry_key(e, key_field) }
+            return entries.select { |e| e.is_a?(Hash) && entry_key(e, key_field, fallbacks) }
           end
 
-          entry_key(data, key_field) ? [data] : []
+          entry_key(data, key_field, fallbacks) ? [data] : []
         end
 
-        def self.entry_key(row, key_field)
-          value = row[key_field] || row[key_field.to_sym]
-          value.nil? ? nil : value.to_s
+        # Key of one row: the primary key field, then any declared
+        # fallback fields. Hash values (multilingual strings) resolve
+        # to their first non-empty entry in the OB canonical language
+        # order, matching how the printed list reads.
+        def self.entry_key(row, key_field, fallbacks = [])
+          [key_field, *fallbacks].each do |field|
+            value = row[field] || row[field.to_sym]
+            next if value.nil?
+
+            case value
+            when Hash
+              spoken = canonical_language(value)
+              return spoken unless spoken.nil?
+            else
+              return value.to_s
+            end
+          end
+          nil
+        end
+
+        # Canonical OB language order (matches the site renderer).
+        LANGUAGE_KEYS = %w[fr en es zh ru ar].freeze
+
+        def self.canonical_language(hash)
+          key = LANGUAGE_KEYS.find { |l| v = hash[l] || hash[l.to_sym]; v.is_a?(String) && !v.empty? }
+          key && (hash[key] || hash[key.to_sym])
         end
 
         # Resolve the key (string) that a change targets, given the
@@ -50,7 +74,7 @@ module Ituob
         # the data shape carries no keyable rows. For direct
         # identifiers this is the declared code; for query identifiers
         # the builder performs the lookup.
-        def self.resolve_key(builder, change, key_field)
+        def self.resolve_key(builder, change, key_field, fallbacks = [])
           if change.identifier.direct?
             change.identifier.code
           else
@@ -64,31 +88,31 @@ module Ituob
         def self.validate!(builder, change, key, _row = nil); end
 
         # Hook: perform the mutation. Subclasses override.
-        def self.apply(builder, change, key_field, key)
+        def self.apply(builder, change, key_field, key, fallbacks = [])
           raise NotImplementedError, "#{name}.apply not implemented"
         end
 
         # Hook: mutate one data-derived row. Default: ignore the row
         # payload and apply by key alone.
-        def self.apply_row(builder, change, key_field, key, row)
-          apply(builder, change, key_field, key)
+        def self.apply_row(builder, change, key_field, key, row, fallbacks = [])
+          apply(builder, change, key_field, key, fallbacks)
         end
 
         # Common entry: validate then apply. Data-derived keys are
         # validated as a set first so a partial change never half-
         # applies.
-        def self.call(builder, change, key_field)
-          rows = rows_for(change, key_field)
+        def self.call(builder, change, key_field, fallbacks = [])
+          rows = rows_for(change, key_field, fallbacks)
           if rows.empty?
-            key = resolve_key(builder, change, key_field)
+            key = resolve_key(builder, change, key_field, fallbacks)
             validate!(builder, change, key)
-            apply(builder, change, key_field, key)
+            apply(builder, change, key_field, key, fallbacks)
             return
           end
 
-          keys = rows.map { |r| entry_key(r, key_field) }
+          keys = rows.map { |r| entry_key(r, key_field, fallbacks) }
           keys.each_with_index { |k, i| validate!(builder, change, k, rows[i]) }
-          keys.each_with_index { |k, i| apply_row(builder, change, key_field, k, rows[i]) }
+          keys.each_with_index { |k, i| apply_row(builder, change, key_field, k, rows[i], fallbacks) }
         end
       end
     end

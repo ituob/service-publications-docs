@@ -1,0 +1,23 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1181'
+identifier:
+  code: 6-026-5
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-026-5
+    country:
+      en: Burkina Fas
+    dec: '12501'
+    signal_point_name: OUSPS1
+    signal_point_operator: ORANGE BURKINA FASO SA
+  - ipsc: 6-026-6
+    country:
+      en: Burkina Fas
+    dec: '12502'
+    signal_point_name: BOSPS1
+    signal_point_operator: ORANGE BURKINA FASO SA
+  notes: []
+reference: OB-1181

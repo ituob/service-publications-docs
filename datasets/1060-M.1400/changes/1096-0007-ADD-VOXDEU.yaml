@@ -1,0 +1,32 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1096'
+identifier:
+  code: VOXDEU
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: Voxbone SA
+    carrier_code: VOXDEU
+    contact: Mrs Patricia Denise Labal
+  - country_or_area:
+      en: Germany
+    company_name: Avenue Louise 489
+    contact: 'Tel:             +32 2 808 0000'
+    tel: "+32 2 808 0000"
+  - country_or_area:
+      en: Germany
+    company_name: 1050 BRUSSELS
+    contact: 'Fax:            +32 2 808 0001'
+    fax: "+32 2 808 0001"
+  - country_or_area:
+      en: Germany
+    company_name: Belgium
+    contact: 'E-mail:       regulatory@voxbone.com'
+    email:
+    - regulatory@voxbone.com
+  notes: []
+reference: OB-1096

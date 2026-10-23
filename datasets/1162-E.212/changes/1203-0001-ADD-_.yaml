@@ -1,0 +1,34 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1203'
+identifier:
+  code: " "
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada                SUP
+    networks: " "
+  - mcc_mnc_codes: 302 330
+    networks: Blue Canada Wireless Inc
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Israel                    ADD
+    networks: " "
+  - mcc_mnc_codes: 425 22
+    networks: Maskyoo Telephonia Ltd.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Switzerland       ADD
+    networks: " "
+  - mcc_mnc_codes: 228 59
+    networks: Vectone Mobile Limited, London
+  notes:
+  - 'MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:     Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'
+reference: OB-1203
+date_active: 2018-11-14 23:00:00.000000000 Z

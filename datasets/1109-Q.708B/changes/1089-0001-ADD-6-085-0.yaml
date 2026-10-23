@@ -1,0 +1,27 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1089'
+identifier:
+  code: 6-085-0
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-085-0
+    country:
+      en: Burundi
+    dec: '12968'
+    signal_point_name: Burundi_Gateway 1
+    signal_point_operator: ITS (International Telecom Services)
+  - ipsc: 6-085-1
+    country:
+      en: Burundi
+    dec: '12969'
+    signal_point_name: Burundi_Gateway 2
+    signal_point_operator: ITS (International Telecom Services)
+  notes:
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1089
+date_active: 2015-01-01

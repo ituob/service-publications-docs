@@ -1,0 +1,28 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1293'
+identifier:
+  code: 6-227-0
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-227-0
+    country:
+      en: Estonia
+    dec: '14104'
+    signal_point_name: NETSYS1
+    signal_point_operator: Nettora Systems OÜ
+  - ipsc: 6-227-1
+    country:
+      en: Estonia
+    dec: '14105'
+    signal_point_name: NETSYS2
+    signal_point_operator: Nettora Systems OÜ
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1293
+date_active: 2020-06-01

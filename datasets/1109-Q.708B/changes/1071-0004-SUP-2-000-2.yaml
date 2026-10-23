@@ -1,0 +1,33 @@
+type: SUP
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1071'
+identifier:
+  code: 2-000-2
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-000-2
+    country:
+      en: Liechtenstein
+    dec: '4098'
+    signal_point_name: IP Communications Vaduz
+    signal_point_operator: IP Communications GmbH
+  - ipsc: 2-000-3
+    country:
+      en: Liechtenstein
+    dec: '4099'
+    signal_point_name: Mobilkom GMSC Mauren
+    signal_point_operator: mobilkom liechtenstein AG
+  - ipsc: 2-000-4
+    country:
+      en: Liechtenstein
+    dec: '4100'
+    signal_point_name: Mobilkom GMSC Mauren
+    signal_point_operator: mobilkom liechtenstein AG
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1071

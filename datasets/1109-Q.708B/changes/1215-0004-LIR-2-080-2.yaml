@@ -1,0 +1,36 @@
+type: LIR
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1215'
+identifier:
+  code: 2-080-2
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-080-2
+    country:
+      en: Sweden
+    dec: '4738'
+    signal_point_name: STP-1
+    signal_point_operator: Tele2 Sverige AB
+  - ipsc: 2-080-3
+    country:
+      en: Sweden
+    dec: '4739'
+    signal_point_name: STP-2
+    signal_point_operator: Tele2 Sverige AB
+  - ipsc: 2-083-0
+    country:
+      en: Sweden
+    dec: '4760'
+    signal_point_name: JFA_STP
+    signal_point_operator: Tele2 Sverige AB
+  - ipsc: 2-083-1
+    country:
+      en: Sweden
+    dec: '4761'
+    signal_point_name: MPLO_STP
+    signal_point_operator: Tele2 Sverige AB
+  notes: []
+reference: OB-1215
+date_active: 2020-06-01

@@ -1,0 +1,28 @@
+type: SUP
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1003'
+identifier:
+  code: 5-094-4
+data:
+  _class: Q708ISPCAmendment
+  position: P 34
+  entries:
+  - ipsc: 5-094-4
+    country:
+      en: French Polynesia
+    dec: '10996'
+    signal_point_name: Commutateur Papeete
+    signal_point_operator: Digicel Tahiti
+  - ipsc: 5-094-5
+    country:
+      en: French Polynesia
+    dec: '10997'
+    signal_point_name: STP Papeete
+    signal_point_operator: Digicel Tahiti
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1003

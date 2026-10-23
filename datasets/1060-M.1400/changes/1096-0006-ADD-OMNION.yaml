@@ -1,0 +1,30 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1096'
+identifier:
+  code: OMNION
+data:
+  _class: M1400Amendment
+  entries:
+  - country_or_area:
+      en: Germany
+    company_name: omnion GmbH
+    carrier_code: OMNION
+  - country_or_area:
+      en: Germany
+    company_name: Duelmener Strasse 80
+    contact: 'Tel:             +49 2541 74673 00'
+    tel: "+49 2541 74673 00"
+  - country_or_area:
+      en: Germany
+    company_name: 48653 COESFELD
+    contact: 'Fax:            +49 2541 74673 99'
+    fax: "+49 2541 74673 99"
+  - country_or_area:
+      en: Germany
+    contact: 'E-mail:       hello@omnion.de'
+    email:
+    - hello@omnion.de
+  notes: []
+reference: OB-1096

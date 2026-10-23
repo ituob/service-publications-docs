@@ -1,0 +1,23 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1086'
+identifier:
+  code: JOINLU
+data:
+  _class: M1400Amendment
+  entries:
+  - company_name: Join Experience S.A.
+    carrier_code: JOINLU
+    contact: Mr. Luc Van den Bogaert
+  - company_name: 11, rue de Bitbourg
+    contact: 'Tel:           +352 671 880 100'
+    tel: "+352 671 880 100"
+  - company_name: L-1273 LUXEMBOURG
+    contact: 'Fax:          +352 28 89 90 21'
+    fax: "+352 28 89 90 21"
+  - contact: 'E-mail:     luc.vdbogaert@joinexperience.com'
+    email:
+    - luc.vdbogaert@joinexperience.com
+  notes: []
+reference: OB-1086

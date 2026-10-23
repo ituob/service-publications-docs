@@ -1,0 +1,23 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1086'
+identifier:
+  code: CROSS
+data:
+  _class: M1400Amendment
+  entries:
+  - company_name: Crossing Telecom S.à r.l.
+    carrier_code: CROSS
+    contact: Ms. Annie Weyns
+  - company_name: Parc d'activité Syrdall 1 3, rue Henri Tudor
+    contact: 'Tel:              +352 43 31 11 Fax:             +352 43 31 42'
+    tel: "+352 43 31 11 Fax:             +352 43 31 42"
+    fax: 'Tel:              +352 43 31 11 +352 43 31 42'
+  - company_name: L-5366 MUNSBACH
+    contact: 'E-mail:        info@crossingtel.lu'
+    tel: 'E-mail:        info@crossinglu'
+    email:
+    - info@crossingtel.lu
+  notes: []
+reference: OB-1086

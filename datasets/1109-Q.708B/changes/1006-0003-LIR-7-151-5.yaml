@@ -1,0 +1,34 @@
+type: LIR
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1006'
+identifier:
+  code: 7-151-5
+data:
+  _class: Q708ISPCAmendment
+  position: P 15
+  entries:
+  - ipsc: 7-151-5
+    country:
+      en: Bolivia (Plurinational State of)
+    dec: '15549'
+    signal_point_name: MSC4 GSM
+    signal_point_operator: TELECEL SA
+  - ipsc: 7-151-6
+    country:
+      en: Bolivia (Plurinational State of)
+    dec: '15550'
+    signal_point_name: MGW1
+    signal_point_operator: TELECEL SA
+  - ipsc: 7-151-7
+    country:
+      en: Bolivia (Plurinational State of)
+    dec: '15551'
+    signal_point_name: MGW4
+    signal_point_operator: TELECEL SA
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1006

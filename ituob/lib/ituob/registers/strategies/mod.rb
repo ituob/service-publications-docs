@@ -17,7 +17,7 @@ module Ituob
                 "MOD conflict: key #{key.inspect} not present in register #{change.register_id}"
         end
 
-        def self.apply_row(builder, change, key_field, key, row)
+        def self.apply_row(builder, change, key_field, key, row, _fallbacks = [])
           existing = builder.entries[key] || {}
           merged =
             if change.merge_strategy == 'replace_full'
@@ -30,7 +30,7 @@ module Ituob
           builder.clear_lapsed(key)
         end
 
-        def self.apply(builder, change, key_field, key)
+        def self.apply(builder, change, key_field, key, _fallbacks = [])
           existing = builder.entries[key] || {}
           merged =
             if change.merge_strategy == 'replace_full'

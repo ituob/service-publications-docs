@@ -1,0 +1,34 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1278'
+identifier:
+  code: " "
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Canada    LIR
+    networks: " "
+  - mcc_mnc_codes: 302 250
+    networks: Bell Mobility.
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Japan    ADD
+    networks: " "
+  - mcc_mnc_codes: 441 213
+    networks: Hokkaido Telecommunication Network Co., Inc..
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Uganda   ADD
+    networks: " "
+  - mcc_mnc_codes: 641 08
+    networks: Talkio Mobile Limited.
+  notes:
+  - "*       MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'
+reference: OB-1278
+date_active: 2018-11-14 23:00:00.000000000 Z

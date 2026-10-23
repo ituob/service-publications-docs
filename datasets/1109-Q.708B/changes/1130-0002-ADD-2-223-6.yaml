@@ -1,0 +1,27 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1130'
+identifier:
+  code: 2-223-6
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-223-6
+    country:
+      en: Portugal
+    dec: '5886'
+    signal_point_name: ALF1FS
+    signal_point_operator: Vodafone Portugal - Comunicações Pessoais, S.A.
+  - ipsc: 2-223-7
+    country:
+      en: Portugal
+    dec: '5887'
+    signal_point_name: BOA1FS
+    signal_point_operator: Vodafone Portugal - Comunicações Pessoais, S.A.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1130

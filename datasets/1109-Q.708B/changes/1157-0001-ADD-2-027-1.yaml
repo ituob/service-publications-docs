@@ -1,0 +1,29 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1157'
+identifier:
+  code: 2-027-1
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-027-1
+    country:
+      en: Spain
+    dec: '4313'
+    signal_point_name: Madrid
+    signal_point_operator: ENTIDAD PÚBLICA EMPRESARIAL ADMINISTRADOR DE INFRAESTRUCTURAS
+      FERROVIARIAS
+  - ipsc: 2-027-2
+    country:
+      en: Spain
+    dec: '4314'
+    signal_point_name: Zaragoza
+    signal_point_operator: ENTIDAD PÚBLICA EMPRESARIAL ADMINISTRADOR DE INFRAESTRUCTURAS
+      FERROVIARIAS
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1157

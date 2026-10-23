@@ -1,0 +1,18 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1213'
+identifier:
+  code: " "
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Switzerland    ADD
+    networks: " "
+  - mcc_mnc_codes: 228 66
+    networks: Inovia Services SA
+  notes: []
+reference: OB-1213
+date_active: 2018-11-14 23:00:00.000000000 Z
