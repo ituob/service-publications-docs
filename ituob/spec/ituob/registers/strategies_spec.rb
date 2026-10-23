@@ -96,17 +96,33 @@ RSpec.describe Ituob::Registers::Strategies::Lir do
     Ituob::Registers::Change.new(
       type: 'LIR', register_id: 'F1',
       identifier: { 'code' => 'ABC' },
-      reason: { 'en' => 'Deprecated' },
     )
   end
 
-  it 'marks the key as lapsed' do
-    builder.set_entry('ABC', { 'code' => 'ABC' })
+  it 'leaves the entry active (a repetition is not a state change)' do
+    builder.set_entry('ABC', { 'code' => 'ABC', 'field' => 'accounts' })
     described_class.call(builder, change, 'code')
-    expect(builder.lapsed_keys).to include('ABC')
-    expect(builder.lapse_reasons['ABC']).to eq({ 'en' => 'Deprecated' })
-    # The entry itself remains in entries for audit.
+    expect(builder.lapsed_keys).not_to include('ABC')
     expect(builder.entries).to have_key('ABC')
+    expect(builder.entries['ABC']['field']).to eq('accounts')
+  end
+
+  it 'refreshes the stored row from the printed repetition' do
+    builder.set_entry('ABC', { 'code' => 'ABC', 'field' => 'stale' })
+    printed = Ituob::Registers::Change.new(
+      type: 'LIR', register_id: 'F1',
+      identifier: { 'code' => 'P 7' },
+      data: { 'entries' => [{ 'code' => 'ABC', 'field' => 'accounts' }] },
+    )
+    described_class.call(builder, printed, 'code')
+    expect(builder.entries['ABC']['field']).to eq('accounts')
+    expect(builder.lapsed_keys).to be_empty
+  end
+
+  it 'raises when the repeated key is absent (data gap)' do
+    expect {
+      described_class.call(builder, change, 'code')
+    }.to raise_error(Ituob::Registers::Strategies::StrategyError)
   end
 
   it 'raises when key is absent' do
@@ -239,8 +255,8 @@ RSpec.describe Ituob::Registers::Strategies, 'destructive? declarations' do
     expect(Ituob::Registers::Strategies::Rep.destructive?).to be(false)
   end
 
-  it 'Lir is destructive' do
-    expect(Ituob::Registers::Strategies::Lir.destructive?).to be(true)
+  it 'Lir is non-destructive (a repetition changes no membership)' do
+    expect(Ituob::Registers::Strategies::Lir.destructive?).to be(false)
   end
 
   it 'Mod is non-destructive' do
@@ -257,7 +273,6 @@ RSpec.describe Ituob::Registers::Strategies, 'destructive? declarations' do
 
   it 'ActionType#destructive? delegates to the strategy' do
     expect(Ituob::Registers::ActionType.new('SUP')).to be_destructive
-    expect(Ituob::Registers::ActionType.new('LIR')).to be_destructive
     expect(Ituob::Registers::ActionType.new('DEL')).to be_destructive
     expect(Ituob::Registers::ActionType.new('ADD')).not_to be_destructive
     expect(Ituob::Registers::ActionType.new('REP')).not_to be_destructive

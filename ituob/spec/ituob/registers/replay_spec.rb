@@ -71,15 +71,15 @@ RSpec.describe Ituob::Registers::Replay do
       expect(s.active_keys).to contain_exactly('ABC', 'DEF', 'GHI')
     end
 
-    it 'applies LIR (entry remains but excluded from active)' do
+    it 'applies LIR as a repetition (entry stays active, row refreshed)' do
       write_change('700-001-LIR-ABC.yaml', {
         'type' => 'LIR', 'ob_issue_no' => '700',
         'identifier' => { 'code' => 'ABC' },
-        'reason' => { 'en' => 'Deprecated' },
+        'data' => { 'entries' => [{ 'code' => 'ABC', 'field' => 'accounts' }] },
       })
       s = replay.at_issue(700)
-      expect(s.active_keys).to eq(['DEF'])
-      expect(s.lapsed_keys).to include('ABC')
+      expect(s.active_keys).to contain_exactly('ABC', 'DEF')
+      expect(s.lapsed_keys).to be_empty
       expect(s.entry_for('ABC')['field']).to eq('accounts')
     end
 
@@ -145,21 +145,27 @@ RSpec.describe Ituob::Registers::Replay do
     end
   end
 
-  describe 'LIR is reversible by REP' do
-    it 'reactivates the entry' do
-      write_change('700-001-LIR-ABC.yaml', {
-        'type' => 'LIR', 'ob_issue_no' => '700',
-        'identifier' => { 'code' => 'ABC' },
-        'reason' => { 'en' => 'Deprecated' },
+  describe 'multi-row changes key from data entries' do
+    it 'applies a SUP whose data rows carry the real keys (identifier is a page ref)' do
+      write_change('700-001-SUP-P19.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '700',
+        'identifier' => { 'code' => 'P 19' },
+        'data' => { 'entries' => [{ 'code' => 'ABC' }, { 'code' => 'DEF' }] },
       })
-      write_change('800-001-REP-ABC.yaml', {
-        'type' => 'REP', 'ob_issue_no' => '800',
-        'identifier' => { 'code' => 'ABC' },
-        'data' => { 'field' => 'delivery', 'message' => { 'en' => 'reactivated' } },
+      s = replay.at_issue(700)
+      expect(s.active_keys).to eq([])
+      expect(s.deleted_keys).to contain_exactly('ABC', 'DEF')
+    end
+
+    it 'applies atomically: one bad key skips the whole change' do
+      write_change('700-001-SUP-P19.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '700',
+        'identifier' => { 'code' => 'P 19' },
+        'data' => { 'entries' => [{ 'code' => 'ABC' }, { 'code' => 'NOPE' }] },
       })
-      s = replay.at_issue(800)
-      expect(s.active_keys).to include('ABC')
-      expect(s.lapsed_keys).not_to include('ABC')
+      s = replay.at_issue(700)
+      expect(s.active_keys).to contain_exactly('ABC', 'DEF')
+      expect(s.errors.join).to include('SUP conflict')
     end
   end
 

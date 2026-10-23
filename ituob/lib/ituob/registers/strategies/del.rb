@@ -12,7 +12,7 @@ module Ituob
           true
         end
 
-        def self.validate!(builder, change, key)
+        def self.validate!(builder, change, key, _row = nil)
           return if builder.entries.key?(key)
 
           raise StrategyError,

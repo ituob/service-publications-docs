@@ -736,7 +736,7 @@ models Ituob {
       description "Replace the record in full (data required)"
     }
     LIR {
-      description "Lapsed / inactive record: soft delete, reason required"
+      description "Last-issue repetition: entries repeated unchanged from the previous edition; no membership change"
     }
     MOD {
       description "Modify fields (merge_strategy replace_fields or replace_full)"

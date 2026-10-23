@@ -10,11 +10,24 @@ module Ituob
       class Mod < Base
         extend Ituob::Support::HashField
 
-        def self.validate!(builder, change, key)
+        def self.validate!(builder, change, key, _row = nil)
           return if builder.entries.key?(key)
 
           raise StrategyError,
                 "MOD conflict: key #{key.inspect} not present in register #{change.register_id}"
+        end
+
+        def self.apply_row(builder, change, key_field, key, row)
+          existing = builder.entries[key] || {}
+          merged =
+            if change.merge_strategy == 'replace_full'
+              row.dup
+            else
+              merge_fields(existing, row)
+            end
+          merged[key_field.to_s] = key if merged.is_a?(Hash)
+          builder.set_entry(key, merged)
+          builder.clear_lapsed(key)
         end
 
         def self.apply(builder, change, key_field, key)
