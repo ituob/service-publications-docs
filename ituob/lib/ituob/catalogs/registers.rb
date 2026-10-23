@@ -23,8 +23,8 @@ module Ituob
 
       Entry = Struct.new(
         :register_id, :slug, :recommendation, :title, :key_field,
-        :classification, :parser_class_name, :renderer,
-        :seed_issue, :seed_path, :external,
+        :fallback_key_fields, :classification, :parser_class_name,
+        :renderer, :seed_issue, :seed_path, :external,
         keyword_init: true,
       ) do
         def structured? = classification&.structured?
@@ -65,6 +65,7 @@ module Ituob
             recommendation: hash['recommendation'],
             title: hash['title'],
             key_field: hash['key_field'],
+            fallback_key_fields: hash['fallback_key_fields'],
             classification: classification,
             parser_class_name: hash['parser_class'],
             renderer: hash['renderer'],

@@ -1,0 +1,34 @@
+type: LIR
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1288'
+identifier:
+  code: 3-246-1
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 3-246-1
+    country:
+      en: Georgia
+    dec: '8113'
+    signal_point_name: Tbilisi, Bulk SMS server
+    signal_point_operator: TMTECH LTD
+  - ipsc: 3-246-7
+    country:
+      en: Georgia
+    dec: '8119'
+    signal_point_name: MVNO mobile operator
+    signal_point_operator: Unicell Mobile LTD
+  - ipsc: 5-233-0
+    country:
+      en: Georgia
+    dec: '12104'
+    signal_point_name: MVNO mobile operator
+    signal_point_operator: Unicell Mobile LTD
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1288
+date_active: 2020-06-01

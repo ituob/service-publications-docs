@@ -1,0 +1,28 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1169'
+identifier:
+  code: 5-145-2
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-145-2
+    country:
+      en: Singapore
+    dec: '11402'
+    signal_point_name: ARS
+    signal_point_operator: StarHub Ltd
+  - ipsc: 5-145-3
+    country:
+      en: Singapore
+    dec: '11403'
+    signal_point_name: TSS
+    signal_point_operator: StarHub Ltd
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1169
+date_active: 2016-10-01

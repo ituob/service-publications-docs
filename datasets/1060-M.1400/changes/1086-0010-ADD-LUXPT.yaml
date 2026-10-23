@@ -1,0 +1,23 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1086'
+identifier:
+  code: LUXPT
+data:
+  _class: M1400Amendment
+  entries:
+  - company_name: Entreprise des postes et télécommunications
+    carrier_code: LUXPT
+    contact: Mr. Joël Weiler
+  - company_name: 8A, avenue Monterey
+    contact: 'Tel:           +352 47 65 42 13'
+    tel: "+352 47 65 42 13"
+  - company_name: L-2020 LUXEMBOURG
+    contact: 'Fax:          +352 46 39 84'
+    fax: "+352 46 39 84"
+  - contact: 'E-mail:    joel.weiler@post.lu'
+    email:
+    - joel.weiler@post.lu
+  notes: []
+reference: OB-1086

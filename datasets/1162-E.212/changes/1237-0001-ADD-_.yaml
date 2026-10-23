@@ -1,0 +1,36 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1237'
+identifier:
+  code: " "
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Belgium     ADD
+    networks: " "
+  - mcc_mnc_codes: 206 04
+    networks: MWINGZ (Proximus/Orange Belgium)
+  - mcc_mnc_codes: 206 34
+    networks: ONOFFAPP
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: New Zealand     SUP
+    networks: " "
+  - mcc_mnc_codes: 530 07
+    networks: Bluereach Limited
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: New Zealand     ADD
+    networks: " "
+  - mcc_mnc_codes: 530 07
+    networks: Dense Air New Zealand Ltd
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'
+reference: OB-1237
+date_active: 2018-11-14 23:00:00.000000000 Z

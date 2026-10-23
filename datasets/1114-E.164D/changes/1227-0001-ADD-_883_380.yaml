@@ -1,0 +1,25 @@
+type: ADD
+register: E164_CC
+recommendation: E.164
+ob_issue_no: '1227'
+identifier:
+  code: "+883 380"
+data:
+  _class: E164CCAmendment
+  position: Note p)
+  entries:
+  - applicant: Eseye Limited
+    network: Eseye Limited
+    cc_ic: "+883 380"
+    status: Assigned
+  - applicant: Airnity SAS
+    network: Airnity SAS
+    cc_ic: "+883 390"
+    status: Assigned
+  notes:
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes
+  - __________
+  - See page 5 of the present Operational Bulletin No. 1227 of 1.IX.2021.
+reference: OB-1227
+date_active: 2016-11-14 23:00:00.000000000 Z

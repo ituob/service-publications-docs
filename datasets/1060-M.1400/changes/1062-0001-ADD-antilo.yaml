@@ -1,0 +1,36 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1062'
+identifier:
+  code: antilo
+data:
+  _class: M1400Amendment
+  position: Germany (Federal
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: net-and-phone GmbH
+    carrier_code: antilo
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: An der Palmweide 55
+    contact: 'Tel.:           + 49 231 177 20 5555'
+    tel: "+ 49 231 177 20 5555"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 44227 DORTMUND
+    contact: 'Fax:           +49 231 177 20 5556'
+    fax: "+49 231 177 20 5556"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:     portierung@antilo.de'
+    email:
+    - portierung@antilo.de
+  notes: []
+reference: OB-1062
+date_active: 2014-08-15

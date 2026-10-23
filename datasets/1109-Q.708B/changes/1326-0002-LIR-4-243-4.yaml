@@ -1,0 +1,34 @@
+type: LIR
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1326'
+identifier:
+  code: 4-243-4
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-243-4
+    country:
+      en: Hungary
+    dec: '10140'
+    signal_point_name: Debrecen-DIGI-01
+    signal_point_operator: One Hungary Ltd.
+  - ipsc: 6-251-0
+    country:
+      en: Hungary
+    dec: '14296'
+    signal_point_name: Budapest-DIGIMOBIL-01
+    signal_point_operator: One Hungary Ltd.
+  - ipsc: 6-251-4
+    country:
+      en: Hungary
+    dec: '14300'
+    signal_point_name: Budapest-DIGI-02
+    signal_point_operator: One Hungary Ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1326
+date_active: 2024-06-01

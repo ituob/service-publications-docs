@@ -1,0 +1,28 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1267'
+identifier:
+  code: 4-119-4
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-119-4
+    country:
+      en: Macao, China
+    dec: '9148'
+    signal_point_name: CTMO_SG01
+    signal_point_operator: China Telecom (Macau) Limitada
+  - ipsc: 4-119-5
+    country:
+      en: Macao, China
+    dec: '9149'
+    signal_point_name: CTMO_SMC
+    signal_point_operator: China Telecom (Macau) Limitada
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1267
+date_active: 2020-06-01

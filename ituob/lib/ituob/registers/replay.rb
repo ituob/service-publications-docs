@@ -22,11 +22,12 @@ module Ituob
     # Replay is idempotent and side-effect-free. Strategies mutate a
     # private StateBuilder; Replay freezes the result.
     class Replay
-      attr_reader :register_id, :key_field, :source
+      attr_reader :register_id, :key_field, :fallback_key_fields, :source
 
-      def initialize(register_id:, key_field:, source:)
+      def initialize(register_id:, key_field:, source:, fallback_key_fields: [])
         @register_id = register_id.to_s
         @key_field = key_field.to_s
+        @fallback_key_fields = Array(fallback_key_fields)
         @source = source
       end
 
@@ -106,7 +107,7 @@ module Ituob
 
       def apply_change(builder, change)
         builder.record_history(change)
-        Strategies::Resolver.apply(builder, change, @key_field)
+        Strategies::Resolver.apply(builder, change, @key_field, @fallback_key_fields)
       rescue Strategies::StrategyError => e
         msg = "skip #{change.type} #{change.identifier.to_hash.inspect} at OB #{change.ob_issue_no}: #{e.message}"
         builder.record_error(msg)

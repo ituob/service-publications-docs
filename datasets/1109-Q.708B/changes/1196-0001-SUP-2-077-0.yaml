@@ -1,0 +1,27 @@
+type: SUP
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1196'
+identifier:
+  code: 2-077-0
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-077-0
+    country:
+      en: Denmark
+    dec: '4712'
+    signal_point_name: Copenhagen - Albertslund ISG
+    signal_point_operator: Telenor A/S
+  - ipsc: 2-077-1
+    country:
+      en: Denmark
+    dec: '4713'
+    signal_point_operator: Telenor A/S
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1196
+date_active: 2016-09-01

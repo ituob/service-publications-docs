@@ -1,0 +1,34 @@
+type: SUP
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1325'
+identifier:
+  code: 2-083-2
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-083-2
+    country:
+      en: Sweden
+    dec: '4762'
+    signal_point_name: WCOMSTHLM2 (Stockholm)
+    signal_point_operator: Verizon Sweden AB
+  - ipsc: 2-083-3
+    country:
+      en: Sweden
+    dec: '4763'
+    signal_point_name: WCOMSTHLM3 (Stockholm)
+    signal_point_operator: Verizon Sweden AB
+  - ipsc: 2-193-0
+    country:
+      en: Sweden
+    dec: '5640'
+    signal_point_name: WCOMSTHLM1 (Stockholm)
+    signal_point_operator: Verizon Sweden AB
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1325
+date_active: 2024-06-01

@@ -1,0 +1,35 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1056'
+identifier:
+  code: NFONAG
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: nfon AG
+    carrier_code: NFONAG
+    contact: Mrs. Silke Giesl
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Leonrodstrasse 68
+    contact: 'Tel:          + 49 89 45300 513'
+    tel: "+ 49 89 45300 513"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 80636 Munich
+    contact: 'Fax:         + 49 89 45300 597'
+    fax: "+ 49 89 45300 597"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:   logistic@nfon.com'
+    email:
+    - logistic@nfon.com
+  notes: []
+reference: OB-1056

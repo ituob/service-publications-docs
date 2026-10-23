@@ -53,6 +53,7 @@ registers:
     recommendation: E.164
     title: { en: List of Recommendation ITU-T E.164 Assigned Country Codes }
     key_field: country_code
+    fallback_key_fields: [cc_ic]
     classification: structured
     parser_class: Ituob::Models::E164CCAmendment
     renderer: cc-table

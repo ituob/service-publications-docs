@@ -1,0 +1,28 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1287'
+identifier:
+  code: 6-099-5
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-099-5
+    country:
+      en: Namibia
+    dec: '13085'
+    signal_point_name: TNNAM05
+    signal_point_operator: Telecom Namibia Ltd.
+  - ipsc: 6-099-6
+    country:
+      en: Namibia
+    dec: '13086'
+    signal_point_name: TNNAM06
+    signal_point_operator: Telecom Namibia Ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1287
+date_active: 2020-06-01

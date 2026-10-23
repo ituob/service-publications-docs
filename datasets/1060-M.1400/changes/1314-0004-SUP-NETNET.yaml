@@ -1,0 +1,25 @@
+type: SUP
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1314'
+identifier:
+  code: NETNET
+data:
+  _class: M1400Amendment
+  position: Sweden /
+  entries:
+  - country_or_area:
+      en: Sweden
+    company_name: NETnet AB
+    address_line_1: PO Box 6611
+    address_line_2: S-113 84 STOCKHOLM
+    carrier_code: NETNET
+  - country_or_area:
+      en: Sweden
+    company_name: RSL COM Sweden AB
+    address_line_1: PO Box 1434
+    address_line_2: S-17128 SOLNA
+    carrier_code: RSLSWE
+  notes: []
+reference: OB-1314
+date_active: 2014-08-15

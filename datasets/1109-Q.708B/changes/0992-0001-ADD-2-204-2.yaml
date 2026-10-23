@@ -1,0 +1,28 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '992'
+identifier:
+  code: 2-204-2
+data:
+  _class: Q708ISPCAmendment
+  position: P 12
+  entries:
+  - ipsc: 2-204-2
+    country:
+      en: Belarus
+    dec: '5730'
+    signal_point_name: STP1
+    signal_point_operator: Beltelecom
+  - ipsc: 2-204-3
+    country:
+      en: Belarus
+    dec: '5731'
+    signal_point_name: STP2
+    signal_point_operator: Beltelecom
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-992

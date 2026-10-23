@@ -1,0 +1,28 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '981'
+identifier:
+  code: 7-059-6
+data:
+  _class: Q708ISPCAmendment
+  position: P 21
+  entries:
+  - ipsc: 7-059-6
+    country:
+      en: Chile
+    dec: '14814'
+    signal_point_name: Santiago
+    signal_point_operator: Conect S.A.
+  - ipsc: 7-059-7
+    country:
+      en: Chile
+    dec: '14815'
+    signal_point_name: Santiago
+    signal_point_operator: Conect S.A.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes'
+  - Codes de points sémaphores internationaux
+  - Códigos de puntos de señalización internacional
+reference: OB-981

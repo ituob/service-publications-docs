@@ -1,0 +1,42 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1320'
+identifier:
+  code: " "
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Japan     ADD
+    networks: " "
+  - mcc_mnc_codes: 440 25
+    networks: SoftBank Corp.
+  - mcc_mnc_codes: 440 26
+    networks: NTT DOCOMO, INC.
+  - mcc_mnc_codes: 440 55
+    networks: KDDI CORPORATION
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Sweden     SUP
+    networks: " "
+  - mcc_mnc_codes: 240 19
+    networks: Vecton Mobile (Sweden) Ltd
+  - mcc_mnc_codes: 240 39
+    networks: Primlight AB
+  - mcc_mnc_codes: 240 63
+    networks: Fink Telecom Services
+  - mcc_mnc_codes: " "
+    country_or_area:
+      en: Switzerland     ADD
+    networks: " "
+  - mcc_mnc_codes: 228 80
+    networks: Phonegroup SA
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'
+reference: OB-1320
+date_active: 2023-10-14 22:00:00.000000000 Z

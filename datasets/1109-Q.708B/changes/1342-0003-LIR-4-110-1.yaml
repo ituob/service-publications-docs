@@ -1,0 +1,38 @@
+type: LIR
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1342'
+identifier:
+  code: 4-110-1
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-110-1
+    country:
+      en: Macao, China
+    dec: '9073'
+    signal_point_name: ISC1
+    signal_point_operator: Companhia de Telecomunicações de Macau, S.A.
+  - ipsc: 4-110-2
+    country:
+      en: Macao, China
+    dec: '9074'
+    signal_point_name: ISC2
+    signal_point_operator: Companhia de Telecomunicações de Macau, S.A.
+  - ipsc: 4-110-3
+    country:
+      en: Macao, China
+    dec: '9075'
+    signal_point_name: MSC
+    signal_point_operator: Companhia de Telecomunicações de Macau, S.A.
+  - ipsc: 4-110-7
+    country:
+      en: Macao, China
+    dec: '9079'
+    signal_point_name: ISC3
+    signal_point_operator: Companhia de Telecomunicações de Macau, S.A.
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'
+reference: OB-1342
+date_active: 2024-06-01

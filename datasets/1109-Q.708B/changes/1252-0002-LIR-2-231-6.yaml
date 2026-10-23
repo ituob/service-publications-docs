@@ -1,0 +1,28 @@
+type: LIR
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1252'
+identifier:
+  code: 2-231-6
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-231-6
+    country:
+      en: Czech Rep.
+    dec: '5950'
+    signal_point_name: DIAL-PRAHA CZ
+    signal_point_operator: Quantcom, a.s.
+  - ipsc: 6-234-0
+    country:
+      en: Czech Rep.
+    dec: '14160'
+    signal_point_name: MSC2
+    signal_point_operator: Vodafone Czech Republic a.s.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1252
+date_active: 2020-06-01

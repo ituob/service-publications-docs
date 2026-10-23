@@ -1,0 +1,27 @@
+type: LIR
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1056'
+identifier:
+  code: 5-234-0
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-234-0
+    country:
+      en: Armenia
+    dec: '12112'
+    signal_point_name: iCON
+    signal_point_operator: ICON
+  - ipsc: 5-234-6
+    country:
+      en: Armenia
+    dec: '12118'
+    signal_point_name: Calline
+    signal_point_operator: GLOBAL CALLINE
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1056

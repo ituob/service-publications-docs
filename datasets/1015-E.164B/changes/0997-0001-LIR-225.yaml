@@ -1,0 +1,22 @@
+type: LIR
+register: E164_ACN
+recommendation: E.164
+ob_issue_no: '997'
+identifier:
+  code: '225'
+data:
+  _class: E164ACNAmendment
+  position: '4'
+  entries:
+  - country_or_area:
+      en: Côte d’Ivoire (Republic of)
+    country_code: '225'
+    mobile_telephone_numbers:
+      en: 0, 44-50, 60, 66, 67, 69
+  - country_or_area:
+      en: El Salvador (Republic of)
+    country_code: '503'
+    mobile_telephone_numbers:
+      en: 6, 7
+  notes: []
+reference: OB-997

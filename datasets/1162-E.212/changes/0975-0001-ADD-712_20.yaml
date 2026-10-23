@@ -1,0 +1,23 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '975'
+identifier:
+  code: 712 20
+data:
+  _class: E212MNCAmendment
+  position: P 30
+  entries:
+  - mcc_mnc_codes: 712 20
+    country_or_area:
+      en: Costa Rica
+    networks: Virtualis
+  - mcc_mnc_codes: 240 30
+    country_or_area:
+      en: Sweden
+    networks: NextGen Mobile Ltd.
+  notes:
+  - ______________
+  - "*     MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo de
+    país para el servicio móvil"
+reference: OB-975

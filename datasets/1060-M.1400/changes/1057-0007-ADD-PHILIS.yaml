@@ -1,0 +1,35 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1057'
+identifier:
+  code: PHILIS
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Philipp Lissel - Philis IT Technik
+    carrier_code: PHILIS
+    contact: Mr. Philipp Lissel
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Hauptstrasse 58
+    contact: 'Tel:       +49 37320 80928 0'
+    tel: "+49 37320 80928 0"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: '09619 Dorfchemnitz'
+    contact: 'Fax:      +49 37320 80928 20'
+    fax: "+49 37320 80928 20"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail: office@informationssystemtechnik.de'
+    email:
+    - office@informationssystemtechnik.de
+  notes: []
+reference: OB-1057

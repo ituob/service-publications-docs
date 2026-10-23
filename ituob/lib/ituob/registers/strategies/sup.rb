@@ -19,7 +19,7 @@ module Ituob
                 "SUP conflict: key #{key.inspect} not present in register #{change.register_id}"
         end
 
-        def self.apply(builder, change, key_field, key)
+        def self.apply(builder, change, key_field, key, _fallbacks = [])
           builder.remove_entry(key)
           builder.mark_deleted(key)
           if change.superseded_by &&

@@ -1,0 +1,35 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1091'
+identifier:
+  code: NETKOM
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Thüringer Netkom GmbH
+    carrier_code: NETKOM
+    contact: Mr. Mike Sickert
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Schwanseestrasse 13
+    contact: 'Tel:            +49 3643 213001'
+    tel: "+49 3643 213001"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 99423 WEIMAR
+    contact: 'Fax:           +49 3643 213009'
+    fax: "+49 3643 213009"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:     info@netkom.de'
+    email:
+    - info@netkom.de
+  notes: []
+reference: OB-1091

@@ -1,0 +1,18 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1073'
+identifier:
+  code: 220 07
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 220 07
+    networks: Orion telekom d.o.o.
+  - mcc_mnc_codes: 901 45
+    networks: Advanced Wireless Network Company Limited
+  notes:
+  - "*       MCC:  Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil           MNC:  Network Code / Code de réseau mobile /
+    Indicativo de red para el servicio móvil"
+reference: OB-1073

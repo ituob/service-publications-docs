@@ -1,0 +1,27 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1150'
+identifier:
+  code: 5-216-0
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-216-0
+    country:
+      en: Ireland
+    dec: '11968'
+    signal_point_name: SAPIRL1
+    signal_point_operator: SAP (UK) Ltd.
+  - ipsc: 5-216-1
+    country:
+      en: Ireland
+    dec: '11969'
+    signal_point_name: SAPIRL2
+    signal_point_operator: SAP (UK) Ltd.
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1150

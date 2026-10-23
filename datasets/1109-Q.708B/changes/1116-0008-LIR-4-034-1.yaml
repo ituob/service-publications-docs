@@ -1,0 +1,27 @@
+type: LIR
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1116'
+identifier:
+  code: 4-034-1
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-034-1
+    country:
+      en: Syrian Arab Republic
+    dec: '8465'
+    signal_point_name: Damascus
+    signal_point_operator: Syrian Telecommunication Company
+  - ipsc: 4-034-2
+    country:
+      en: Syrian Arab Republic
+    dec: '8466'
+    signal_point_name: Aleppo
+    signal_point_operator: Syrian Telecommunication Company
+  notes:
+  - ____________
+  - 'ISPC:      International Signalling Point Codes.'
+  - Codes de points sémaphores internationaux (CPSI).
+  - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1116

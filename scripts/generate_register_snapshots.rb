@@ -44,6 +44,7 @@ def build_replay(entry)
     register_id: entry.register_id,
     key_field: entry.key_field,
     source: source,
+    fallback_key_fields: entry.fallback_key_fields,
   )
 end
 

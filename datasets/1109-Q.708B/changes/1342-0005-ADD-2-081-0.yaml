@@ -1,0 +1,32 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1342'
+identifier:
+  code: 2-081-0
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 2-081-0
+    country:
+      en: Sweden
+    dec: '4744'
+    signal_point_name: Stockholm/UN STX
+    signal_point_operator: Arelion Sweden AB
+  - ipsc: 2-081-1
+    country:
+      en: Sweden
+    dec: '4745'
+    signal_point_name: Stockholm/UN STX
+    signal_point_operator: Arelion Sweden AB
+  - ipsc: 2-081-2
+    country:
+      en: Sweden
+    dec: '4746'
+    signal_point_name: Malmö/UR STX
+    signal_point_operator: Arelion Sweden AB
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'
+reference: OB-1342
+date_active: 2024-06-01

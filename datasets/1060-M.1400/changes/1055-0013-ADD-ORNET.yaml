@@ -1,0 +1,35 @@
+type: ADD
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1055'
+identifier:
+  code: ORNET
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: OR Network GmbH
+    carrier_code: ORNET
+    contact: Mrs. Anna-Lisa Edelmann
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Parkstrasse 22
+    contact: 'Tel:           + 49 6408 61083 0'
+    tel: "+ 49 6408 61083 0"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 35447 Reiskirchen
+    contact: 'Fax:          + 49 6408 61083 999'
+    fax: "+ 49 6408 61083 999"
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:    wbci@or-network.net'
+    email:
+    - wbci@or-network.net
+  notes: []
+reference: OB-1055
