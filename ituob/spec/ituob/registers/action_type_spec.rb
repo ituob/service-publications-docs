@@ -53,7 +53,6 @@ RSpec.describe Ituob::Registers::ActionType do
   describe 'predicates' do
     it 'distinguishes destructive from non-destructive' do
       expect(described_class.new('SUP')).to be_destructive
-      expect(described_class.new('LIR')).to be_destructive
       expect(described_class.new('DEL')).to be_destructive
       expect(described_class.new('ADD')).not_to be_destructive
       expect(described_class.new('SEED')).not_to be_destructive

@@ -100,8 +100,9 @@ data payload. Serialized as `ob-issues/{issue}/{slug}/NNN-{ACTION}.yaml`.
 
 === ActionType
 
-One of `ADD`, `SUP`, `REP`, `LIR`, `MOD`, `DEL`. `LIR` (Lapsed/Inactive
-Record) is treated as semantically equivalent to `REP` for carrier codes.
+One of `ADD`, `SUP`, `REP`, `LIR`, `MOD`, `DEL`. `LIR` means a last-issue
+repetition: the printed table repeats entries unchanged from the previous
+edition, so replay treats it as a no-op that refreshes the stored rows.
 
 == Source data layers
 
