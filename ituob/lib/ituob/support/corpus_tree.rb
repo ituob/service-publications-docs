@@ -37,11 +37,21 @@ module Ituob
         when /\Aannexes\.yaml\z/ then nil # freeform annex snapshot (legacy)
         when %r{\Ageneral/} then nil # general messages: mixed structured/freeform
         when %r{\A([^/]+)/text\.yaml\z} then 'TextAmendment'
-        when %r{\A([^/]+)/(\d+[A-Za-z0-9.\-]*)\.yaml\z}
-          # Register amendments validate as two-level envelopes; the
-          # structured general messages keep their own classes.
-          klass = CLASS_BY_DIR[$1]
-          klass && klass.end_with?('Amendment') ? 'RegisterChange' : klass
+        when %r{\A([^/]+)/([^/]+)\.yaml\z}
+          slug = Regexp.last_match(1)
+          stem = Regexp.last_match(2).delete_suffix('.yaml')
+          klass = CLASS_BY_DIR[slug]
+          return nil unless klass
+
+          # Register amendments validate as two-level envelopes (the
+          # envelope via Registers::Change, the data payload via the
+          # _class-named amendment class); the structured general
+          # messages keep their own classes.
+          if klass.end_with?('Amendment')
+            stem.match?(/\A\d[\w.\-]*\z/) ? 'RegisterChange' : klass
+          else
+            klass
+          end
         end
       end
 
