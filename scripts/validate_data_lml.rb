@@ -54,7 +54,7 @@ selected.each do |issue|
     # ProseMirror document are unmodeled freeform (e.g. three
     # misc_communications files reference a source AsciiDoc asset).
     if resolved.start_with?('General') &&
-       data.is_a?(Hash) && data.key?('contents') && !data['contents'].is_a?(Hash)
+       data.is_a?(Hash) && data.key?('contents') && data['contents'].is_a?(String)
       skipped += 1
       next
     end
