@@ -26,7 +26,7 @@ module Ituob
 
       def initialize(register_id:, key_field:, source:, fallback_key_fields: [])
         @register_id = register_id.to_s
-        @key_field = key_field.to_s
+        @key_field = key_field
         @fallback_key_fields = Array(fallback_key_fields)
         @source = source
       end

@@ -31,7 +31,14 @@ module Ituob
         return enum_for(:each_sorted) unless block_given?
 
         yield seed_change if seed_change
-        each_amendment { |c| yield c }
+        each_amendment do |c|
+          # The seed list already embodies every amendment published
+          # before the seed issue; replaying them would target entries
+          # of a list state that no longer exists.
+          next if @seed_issue && c.ob_issue_no && c.ob_issue_no < @seed_issue
+
+          yield c
+        end
       end
 
       private

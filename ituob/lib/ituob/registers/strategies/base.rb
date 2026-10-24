@@ -45,20 +45,23 @@ module Ituob
         # fallback fields. Hash values (multilingual strings) resolve
         # to their first non-empty entry in the OB canonical language
         # order, matching how the printed list reads.
+        # +key_field+ may be a single field name or an array naming a
+        # composite key (registers whose rows have no unique single
+        # field, e.g. F32_TDI). Hash values (multilingual strings)
+        # resolve to their first non-empty entry in the OB canonical
+        # language order, matching how the printed list reads.
         def self.entry_key(row, key_field, fallbacks = [])
-          [key_field, *fallbacks].each do |field|
+          parts = Array(key_field).map do |field|
             value = row[field] || row[field.to_sym]
-            next if value.nil?
-
             case value
-            when Hash
-              spoken = canonical_language(value)
-              return spoken unless spoken.nil?
-            else
-              return value.to_s
+            when Hash then canonical_language(value)
+            when nil then nil
+            else value.to_s
             end
           end
-          nil
+          return nil if parts.all? { |p| p.nil? || p.empty? }
+
+          parts.map { |p| p.nil? || p.empty? ? '' : p }.join(' | ')
         end
 
         # Canonical OB language order (matches the site renderer).
