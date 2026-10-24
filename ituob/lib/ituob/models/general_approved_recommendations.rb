@@ -7,12 +7,16 @@ module Ituob
       attribute :items, GeneralApprovedRecommendation, collection: true
       attribute :by, :string
       attribute :procedures, :string
+attribute :ob_issue_no, :string
+attribute :payload, :hash
 
       key_value do
         map 'items', to: :items
         map 'type', to: :type
         map 'by', to: :by
         map 'procedures', to: :procedures
+map 'ob_issue_no', to: :ob_issue_no
+map 'payload', to: :payload
       end
 
       def self.parse(data)

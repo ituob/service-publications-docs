@@ -18,6 +18,11 @@ def lml_round_trip_structured_files
       data = YAML.load_file(path, permitted_classes: [Date, Time], aliases: true)
       resolved = Ituob::Support::CorpusTree.resolve_for(rel, data)
       next if resolved.nil?
+      # General message envelopes carry freeform ProseMirror payloads
+      # (hundreds of KB); the instance-format round-trip is scoped to
+      # structured data. Their shapes are enforced by
+      # validate_data_lml.rb instead.
+      next if resolved.start_with?('General')
 
       if resolved == 'RegisterChange'
         # Amendment file: round-trip the data payload through the

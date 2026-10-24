@@ -10,6 +10,8 @@ module Ituob
       attribute :mcc_mnc, :string
       attribute :date_of_assignment, :string
       attribute :notes, :string
+attribute :ob_issue_no, :string
+attribute :contents, :hash
 
       key_value do
         map 'type', to: :type
@@ -17,6 +19,8 @@ module Ituob
         map 'mcc_mnc', to: :mcc_mnc
         map 'date_of_assignment', to: :date_of_assignment
         map 'notes', to: :notes
+map 'ob_issue_no', to: :ob_issue_no
+map 'contents', to: :contents
       end
 
       def self.parse(data)

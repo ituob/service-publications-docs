@@ -52,7 +52,11 @@ module Ituob
         F400Action
         F400Entry
         GeneralApprovedRecommendation
+        GeneralMid
         GeneralSanc
+        GeneralServiceRestriction
+        GeneralTelephoneCommunication
+        GeneralTelephoneSection
         GeneralTelephoneService
         IptnEntry
         IssueAuthor
@@ -105,6 +109,9 @@ module Ituob
       class Compiler < Lutaml::Lml::ModelCompiler
         UNION_ATTRIBUTES = {
           %w[IssueAuthor name] => ["MultilingualString", :string],
+          # Older service-restriction rows key the country by plain name;
+          # newer rows carry the multilingual string.
+          %w[GeneralServiceRestriction country] => ["MultilingualString", :string],
         }.freeze
 
         def resolve_type(type_name)

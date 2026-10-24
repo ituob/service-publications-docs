@@ -7,10 +7,14 @@ module Ituob
 
     class GeneralTelephoneServices < GeneralMessage
       attribute :items, GeneralTelephoneService, collection: true
+attribute :ob_issue_no, :string
+attribute :contents, :hash
 
       key_value do
         map 'items', to: :items
         map 'type', to: :type
+map 'ob_issue_no', to: :ob_issue_no
+map 'contents', to: :contents
       end
 
       def self.parse(data)

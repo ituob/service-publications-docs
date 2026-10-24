@@ -18,11 +18,13 @@ module Ituob
         'f32-tdi' => 'F32TDIAmendment', 'f400-admd' => 'F400Amendment', 'list-viii' => 'ListVIIIAmendment',
         'm1400-icc' => 'M1400Amendment', 'nnp' => 'NNPAmendment', 'q708-ispc' => 'Q708ISPCAmendment',
         'q708-sanc' => 'Q708SANCAmendment', 't35-na' => 'T35NAAmendment', 'x121-dnic' => 'X121DNICAmendment',
-        # structured general messages
-        'callback-procedures' => 'GeneralCallbackProcedures', 'custom' => 'GeneralCustom',
-        'ipns' => 'GeneralIpns', 'iptn' => 'GeneralIptn', 'misc-communications' => 'GeneralMiscCommunications',
-        'sanc' => 'GeneralSanc', 'service-restrictions' => 'GeneralServiceRestrictions',
-        'telephone-service-2' => 'GeneralTelephoneService', 'telephone-service' => 'GeneralTelephoneService',
+        # textual general messages (directory names use underscores)
+        'callback_procedures' => 'GeneralCallbackProcedures', 'custom' => 'GeneralCustom',
+        'ipns' => 'GeneralIpns', 'iptn' => 'GeneralIptn',
+        'misc_communications' => 'GeneralMiscCommunications', 'org_changes' => 'GeneralOrgChanges',
+        'sanc' => 'GeneralMessage', 'service_restrictions' => 'GeneralServiceRestrictions',
+        'telephone_service' => 'GeneralTelephoneService', 'telephone_service_2' => 'GeneralTelephoneService',
+        'mid' => 'GeneralMid',
       }.freeze
 
       # Class by position within the issue tree; nil = freeform, skip.
@@ -35,7 +37,9 @@ module Ituob
         case rel_path
         when /\Ameta\.yaml\z/ then 'IssueMetadata'
         when /\Aannexes\.yaml\z/ then nil # freeform annex snapshot (legacy)
-        when %r{\Ageneral/} then nil # general messages: mixed structured/freeform
+        when 'general/running_annexes.yaml' then 'GeneralRunningAnnexes'
+        when 'general/approved_recommendations.yaml' then 'GeneralApprovedRecommendations'
+        when %r{\Ageneral/} then nil # freeform general prose
         when %r{\A([^/]+)/text\.yaml\z} then 'TextAmendment'
         when %r{\A([^/]+)/([^/]+)\.yaml\z}
           slug = Regexp.last_match(1)

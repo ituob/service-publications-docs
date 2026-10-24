@@ -10,12 +10,16 @@ module Ituob
       attribute :entries, IptnEntry, collection: true
       attribute :notes, :string
       attribute :manual, :boolean
+attribute :ob_issue_no, :string
+attribute :contents, :hash
 
       key_value do
         map 'type', to: :type
         map 'entries', to: :entries
         map 'notes', to: :notes
         map 'manual', to: :manual
+map 'ob_issue_no', to: :ob_issue_no
+map 'contents', to: :contents
       end
 
       # Extract trial information from notes
