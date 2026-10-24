@@ -103,6 +103,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, E118Action { cardinality 0..n }
+    attribute position, String
+    attribute entries, E118Entry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class E118Entry {
@@ -140,6 +145,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, E164ACNAction { cardinality 0..n }
+    attribute position, String
+    attribute entries, E164ACNEntry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class E164ACNEntry {
@@ -170,6 +180,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, E164CCAction { cardinality 0..n }
+    attribute position, String
+    attribute entries, E164CCEntry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class E164CCEntry {
@@ -230,6 +245,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, E212MNCAction { cardinality 0..n }
+    attribute position, String
+    attribute entries, E212MNCEntry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class E212MNCEntry {
@@ -256,6 +276,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, E218TRCCAction { cardinality 0..n }
+    attribute position, String
+    attribute entries, E218TRCCEntry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class E218TRCCEntry {
@@ -280,6 +305,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, F32TDIAction { cardinality 0..n }
+    attribute position, String
+    attribute entries, F32TDIEntry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class F32TDIEntry {
@@ -311,6 +341,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, F400Action { cardinality 0..n }
+    attribute position, String
+    attribute entries, F400Entry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class F400Entry {
@@ -344,6 +379,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, ListVIIIAction { cardinality 0..n }
+    attribute position, String
+    attribute entries, ListVIIIStation { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class ListVIIICentralizingOffice {
@@ -390,6 +430,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, M1400Action { cardinality 0..n }
+    attribute position, String
+    attribute entries, M1400Entry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class M1400Entry {
@@ -421,6 +466,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, NNPAction { cardinality 0..n }
+    attribute position, String
+    attribute entries, NumberingPlanEntry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class NumberingPlanEntry {
@@ -450,6 +500,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, DPAction { cardinality 0..n }
+    attribute position, String
+    attribute entries, DPEntry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class DPEntry {
@@ -477,6 +532,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, Q708ISPCAction { cardinality 0..n }
+    attribute position, String
+    attribute entries, Q708ISPCEntry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class Q708ISPCEntry {
@@ -501,6 +561,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, Q708SANCAction { cardinality 0..n }
+    attribute position, String
+    attribute entries, Q708SANCEntry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class Q708SANCEntry {
@@ -524,6 +589,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, RR251Action { cardinality 0..n }
+    attribute position, String
+    attribute entries, RR251Entry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class RR251Entry {
@@ -567,6 +637,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, T35NAAction { cardinality 0..n }
+    attribute position, String
+    attribute entries, T35NAEntry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class T35NAEntry {
@@ -595,6 +670,11 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, X121DNICAction { cardinality 0..n }
+    attribute position, String
+    attribute entries, X121DNICEntry { cardinality 0..n }
+    attribute description, String
+    attribute caption, String
+    attribute country, String
   }
 
   class X121DNICEntry {

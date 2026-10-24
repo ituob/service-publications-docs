@@ -7,11 +7,23 @@ module Ituob
     class F400Amendment < Amendment
       attribute :actions, F400Action, collection: true
       attribute :_class, :string, default: -> { self.name.split('::').last }
+attribute :position, :string
+attribute :entries, F400Entry, collection: true
+attribute :description, :string
+attribute :caption, :string
+attribute :country, :string
+attribute :notes, :string, collection: true
 
       key_value do
         map '_class', to: :_class, render_default: true
         map 'position_on', to: :position_on
         map 'actions', to: :actions
+        map 'position', to: :position
+        map 'entries', to: :entries
+        map 'description', to: :description
+        map 'caption', to: :caption
+        map 'country', to: :country
+        map 'notes', to: :notes
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)

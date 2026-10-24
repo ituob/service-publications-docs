@@ -14,44 +14,44 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
   - country_or_area:
       fr: " "
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
   - country_or_area:
       fr: " "
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
   - country_or_area:
       fr: " "
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: IPM
+      x400: IPM
     autoanswer:
-      :x400: other
+      x400: other
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
       - " "
@@ -60,11 +60,11 @@ data:
     admd_name: '2'
     country_code: '3'
     helpdesk:
-      :x400: '5'
+      x400: '5'
     autoanswer:
-      :x400: '6'
+      x400: '6'
     contact_address:
-      :address_lines:
+      address_lines:
       - '7'
       - '8'
       - '9'
@@ -73,11 +73,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
       - " "
@@ -86,11 +86,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
       - " "
@@ -99,11 +99,11 @@ data:
     admd_name: DBP
     country_code: DE
     helpdesk:
-      :x400: BusinessMail
+      x400: BusinessMail
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - S= helpdesk
       - S=autoanswer
       - 'Ralf Knecht / Torsten Moeller Telekom Deutschland GmbH Service Lifecycle
@@ -115,11 +115,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: Mailbox
+      x400: Mailbox
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - A=viat
       - A=viat
   - country_or_area:
@@ -127,11 +127,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: X.400 - IPM
+      x400: X.400 - IPM
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - C=de
       - C=de
   - country_or_area:
@@ -139,11 +139,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
   - country_or_area:
@@ -151,11 +151,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
   - country_or_area:
@@ -163,11 +163,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
   - country_or_area:
@@ -175,11 +175,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
   - country_or_area:
@@ -187,24 +187,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
-      - " "
-      - " "
-      - " "
-  - country_or_area:
-      fr: " "
-    admd_name: " "
-    country_code: " "
-    helpdesk:
-      :x400: " "
-    autoanswer:
-      :x400: " "
-    contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
       - " "
@@ -213,11 +200,24 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
+      - " "
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      x400: " "
+    autoanswer:
+      x400: " "
+    contact_address:
+      address_lines:
       - " "
       - " "
       - " "
@@ -226,11 +226,11 @@ data:
     admd_name: VIAT
     country_code: DE
     helpdesk:
-      :x400: BusinessMail
+      x400: BusinessMail
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - S=helpdesk
       - S=autoanswer
       - 'Ralf Knecht / Torsten Moeller Telekom Deutschland GmbH Service Lifecycle
@@ -242,11 +242,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: Mailbox
+      x400: Mailbox
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - A=viat
       - A=viat
   - country_or_area:
@@ -254,11 +254,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: X.400 - IPM
+      x400: X.400 - IPM
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - C=de
       - C=de
   - country_or_area:
@@ -266,11 +266,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
   - country_or_area:
@@ -278,11 +278,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
   - country_or_area:
@@ -290,11 +290,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
   - country_or_area:
@@ -302,11 +302,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
   - country_or_area:
@@ -314,24 +314,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
-      - " "
-      - " "
-      - " "
-  - country_or_area:
-      fr: " "
-    admd_name: " "
-    country_code: " "
-    helpdesk:
-      :x400: " "
-    autoanswer:
-      :x400: " "
-    contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
       - " "
@@ -340,11 +327,24 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
+      - " "
+      - " "
+      - " "
+  - country_or_area:
+      fr: " "
+    admd_name: " "
+    country_code: " "
+    helpdesk:
+      x400: " "
+    autoanswer:
+      x400: " "
+    contact_address:
+      address_lines:
       - " "
       - " "
       - " "
@@ -353,11 +353,11 @@ data:
     admd_name: VIAT-AS2
     country_code: DE
     helpdesk:
-      :x400: BusinessMail
+      x400: BusinessMail
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - S=helpdesk
       - S=autoanswer
       - 'Ralf Knecht / Torsten Moeller Telekom Deutschland GmbH Service Lifecycle
@@ -369,11 +369,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: Mailbox
+      x400: Mailbox
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - A=viat
       - A=viat
   - country_or_area:
@@ -381,11 +381,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: X.400 - IPM
+      x400: X.400 - IPM
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - C=de
       - C=de
   - country_or_area:
@@ -393,11 +393,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
   - country_or_area:
@@ -405,11 +405,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
   - country_or_area:
@@ -417,11 +417,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
   - country_or_area:
@@ -429,11 +429,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
   notes: []

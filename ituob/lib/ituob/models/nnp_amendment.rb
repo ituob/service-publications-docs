@@ -21,12 +21,23 @@ module Ituob
     class NNPAmendment < Amendment
       attribute :actions, NNPAction, collection: true
       attribute :_class, :string, default: -> { self.name.split('::').last }
+attribute :position, :string
+attribute :entries, NumberingPlanEntry, collection: true
+attribute :description, :string
+attribute :caption, :string
+attribute :country, :string
+attribute :notes, :string, collection: true
 
       key_value do
         map '_class', to: :_class, render_default: true
         map 'position_on', to: :position_on
         map 'actions', to: :actions
         map 'notes', to: :notes
+        map 'position', to: :position
+        map 'entries', to: :entries
+        map 'description', to: :description
+        map 'caption', to: :caption
+        map 'country', to: :country
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)

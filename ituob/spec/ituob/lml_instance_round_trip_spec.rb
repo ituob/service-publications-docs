@@ -15,11 +15,22 @@ def lml_round_trip_structured_files
       # may contain YAML aliases the strict loader rejects.
       next if Ituob::Support::CorpusTree.class_name_for(rel).nil?
 
-      data = YAML.load_file(path, permitted_classes: [Date, Time])
+      data = YAML.load_file(path, permitted_classes: [Date, Time], aliases: true)
       resolved = Ituob::Support::CorpusTree.resolve_for(rel, data)
-      next if resolved.nil? || !Ituob::Models.const_defined?(resolved)
+      next if resolved.nil?
 
-      [path, "#{issue}/#{rel}", Ituob::Models.const_get(resolved)]
+      if resolved == 'RegisterChange'
+        # Amendment file: round-trip the data payload through the
+        # amendment class its _class names (the envelope shape is
+        # covered by the register-patch examples below).
+        payload_name = data.dig('data', '_class')
+        next if payload_name.nil? || !Ituob::Models.const_defined?(payload_name)
+
+        [path, "#{issue}/#{rel}", Ituob::Models.const_get(payload_name), data['data']]
+      else
+        next unless Ituob::Models.const_defined?(resolved)
+        [path, "#{issue}/#{rel}", Ituob::Models.const_get(resolved), nil]
+      end
     end
   end
 end
@@ -38,8 +49,21 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
     end
   end
 
+  # The LML instance grammar renders a one-element array of instances
+  # identically to the instance itself, so the two are one value on
+  # round-trip.
+  def collapse_single_instance_arrays(obj)
+    case obj
+    when Hash then obj.transform_values { |v| collapse_single_instance_arrays(v) }
+    when Array
+      collapsed = obj.map { |v| collapse_single_instance_arrays(v) }
+      collapsed.length == 1 && collapsed[0].is_a?(Hash) ? collapsed[0] : collapsed
+    else obj
+    end
+  end
+
   def normalized(obj)
-    deep_compact(JSON.parse(JSON.generate(normalize_values(obj))))
+    deep_compact(collapse_single_instance_arrays(JSON.parse(JSON.generate(normalize_values(obj)))))
   end
 
   # nil has no LML instance literal; nil keys are omitted on emit and
@@ -116,10 +140,13 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
       failures = []
       round_trips = 0
 
-      structured_files.each do |path, rel, klass|
-        original = klass.from_yaml(
-          File.read(path), permitted_classes: [Date, Time]
-        )
+      structured_files.each do |path, rel, klass, payload|
+        original =
+          if payload
+            klass.from_hash(normalize_values(payload))
+          else
+            klass.from_yaml(File.read(path), permitted_classes: [Date, Time])
+          end
         lml_text = to_lml_instance(original, klass.name.split('::').last)
         parsed = Lutaml::Lml::Format::Adapter::StandardAdapter.parse(lml_text)
         rebuilt = klass.from_hash(parsed)
@@ -152,7 +179,7 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
       change_files.each do |path|
         rel = path.sub("#{DATASETS_ROOT}/", '')
         original = Ituob::Registers::Change.from_hash(
-          YAML.load_file(path, permitted_classes: [Date, Time])
+          YAML.load_file(path, permitted_classes: [Date, Time], aliases: true)
         )
         lml_text = to_lml_instance(original, 'RegisterChange')
         parsed = Lutaml::Lml::Format::Adapter::StandardAdapter.parse(lml_text)

@@ -17,6 +17,14 @@ require 'yaml'
 ALL = ARGV.include?('--all')
 ROOT = File.expand_path('../ob-issues', __dir__)
 
+def deep_stringify_keys(value)
+  case value
+  when Hash then value.each_with_object({}) { |(k, v), h| h[k.to_s] = deep_stringify_keys(v) }
+  when Array then value.map { |v| deep_stringify_keys(v) }
+  else value
+  end
+end
+
 issues = Dir.children(ROOT).grep(/\A\d+\z/).map(&:to_i).sort
 selected = ALL ? issues : issues.select { |i| (i % 10).zero? || i == issues.min || i == issues.max }
 selected -= [669, 1075] if selected.include?(669) && !ALL # incomplete editions validated separately
@@ -36,10 +44,32 @@ selected.each do |issue|
       next
     end
 
-    data = YAML.load_file(path, permitted_classes: [Date, Time])
+    data = YAML.load_file(path, permitted_classes: [Date, Time], aliases: true)
     resolved = Ituob::Support::CorpusTree.resolve_for(rel, data)
     if resolved.nil?
       skipped += 1
+      next
+    end
+    if resolved == 'RegisterChange'
+      # Amendment file: the envelope validates through Registers::Change
+      # and the data payload through the amendment class its _class
+      # names. Unknown payload keys fail — the classes declare the
+      # corpus shapes completely.
+      Ituob::Registers::Change.from_hash(data)
+      payload_name = data.dig('data', '_class')
+      unless payload_name && Ituob::Models.const_defined?(payload_name)
+        failures << "#{issue}/#{rel}: cannot resolve payload class #{payload_name.inspect}"
+        next
+      end
+      payload_class = Ituob::Models.const_get(payload_name)
+      payload = data['data']
+      unknown = payload.keys - payload_class.attributes.keys.map(&:to_s)
+      unless unknown.empty?
+        failures << "#{issue}/#{rel}: unknown payload keys #{unknown.sort.inspect}"
+        next
+      end
+      payload_class.from_hash(deep_stringify_keys(payload))
+      validated += 2
       next
     end
     unless Ituob::Models.const_defined?(resolved)
@@ -60,7 +90,7 @@ end
 # Schema gated by `ituob dataset validate`).
 Dir.glob(File.expand_path('../datasets/*/changes/*.yaml', __dir__)).sort.each do |path|
   rel = path.sub(%r{.*/datasets/}, '')
-  hash = YAML.load_file(path, permitted_classes: [Date, Time])
+  hash = YAML.load_file(path, permitted_classes: [Date, Time], aliases: true)
   Ituob::Registers::Change.from_hash(hash)
   validated += 1
 rescue StandardError => e

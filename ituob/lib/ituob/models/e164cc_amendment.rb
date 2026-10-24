@@ -7,11 +7,23 @@ module Ituob
     class E164CCAmendment < Amendment
       attribute :actions, E164CCAction, collection: true
       attribute :_class, :string, default: -> { self.name.split('::').last }
+attribute :position, :string
+attribute :entries, E164CCEntry, collection: true
+attribute :description, :string
+attribute :caption, :string
+attribute :country, :string
+attribute :notes, :string, collection: true
 
       key_value do
         map '_class', to: :_class, render_default: true
         map 'position_on', to: :position_on
         map 'actions', to: :actions
+        map 'position', to: :position
+        map 'entries', to: :entries
+        map 'description', to: :description
+        map 'caption', to: :caption
+        map 'country', to: :country
+        map 'notes', to: :notes
       end
 
       # Walk state for one document parse — the active action. Held in
