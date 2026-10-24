@@ -26,13 +26,32 @@ module Ituob
       }.freeze
 
       # Class by position within the issue tree; nil = freeform, skip.
+      # Amendment payloads validate in two levels (see
+      # validate_data_lml.rb): the file envelope through
+      # Registers::Change, and the data payload through the amendment
+      # class named by data._class — so this returns the envelope
+      # marker 'RegisterChange' for amendment files.
       def self.class_name_for(rel_path)
         case rel_path
         when /\Ameta\.yaml\z/ then 'IssueMetadata'
         when /\Aannexes\.yaml\z/ then nil # freeform annex snapshot (legacy)
         when %r{\Ageneral/} then nil # general messages: mixed structured/freeform
         when %r{\A([^/]+)/text\.yaml\z} then 'TextAmendment'
-        when %r{\A([^/]+)/(\d+[a-z0-9.\-]*)\.yaml\z} then CLASS_BY_DIR[$1]
+        when %r{\A([^/]+)/([^/]+)\.yaml\z}
+          slug = Regexp.last_match(1)
+          stem = Regexp.last_match(2).delete_suffix('.yaml')
+          klass = CLASS_BY_DIR[slug]
+          return nil unless klass
+
+          # Register amendments validate as two-level envelopes (the
+          # envelope via Registers::Change, the data payload via the
+          # _class-named amendment class); the structured general
+          # messages keep their own classes.
+          if klass.end_with?('Amendment')
+            stem.match?(/\A\d[\w.\-]*\z/) ? 'RegisterChange' : klass
+          else
+            klass
+          end
         end
       end
 

@@ -14,11 +14,11 @@ data:
     admd_name: DK400
     country_code: DK
     helpdesk:
-      :x400: DATA POST 400
+      x400: DATA POST 400
     autoanswer:
-      :x400: DATA POST 400
+      x400: DATA POST 400
     contact_address:
-      :address_lines:
+      address_lines:
       - S=helpdesk
       - 'NO'
       - Evenex ApS
@@ -27,11 +27,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - A=dk400
       - " "
       - Blokken 9
@@ -40,11 +40,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - C=dk
       - " "
       - DK-3460 BIRKERØD, Denmark
@@ -53,11 +53,11 @@ data:
     admd_name: " "
     country_code: " "
     helpdesk:
-      :x400: " "
+      x400: " "
     autoanswer:
-      :x400: " "
+      x400: " "
     contact_address:
-      :address_lines:
+      address_lines:
       - " "
       - " "
       - X.400:        S=helpdesk; A=dk400; C=dk;
