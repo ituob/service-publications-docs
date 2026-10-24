@@ -6,11 +6,12 @@ require 'lutaml/model'
 module Ituob
   module Models
     class GeneralServiceRestrictions < GeneralMessage
-      def self.parse(data)
-        return unless data.is_a?(Hash) && data['type'] == 'running_annexes'
+      attribute :ob_issue_no, :string
+      attribute :items, GeneralServiceRestriction, collection: true
 
-        # they're all empty 
-        from_hash(data)
+      key_value do
+        map 'ob_issue_no', to: :ob_issue_no
+        map 'items', to: :items
       end
     end
   end

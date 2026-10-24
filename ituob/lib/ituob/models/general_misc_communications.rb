@@ -5,15 +5,14 @@ require 'lutaml/model'
 module Ituob
   module Models
     class GeneralMiscCommunications < GeneralMessage
+      attribute :ob_issue_no, :string
+      attribute :contents, :hash
       attribute :text, :string
 
-      def self.parse(data)
-        msg = new 
-        return unless data.is_a?(Hash) && data['type'] == 'misc_communications'
-        msg.type = data['type']
-
-        msg.text = Ituob::Helpers.dump_doc_full(data)
-        msg 
+      key_value do
+        map 'ob_issue_no', to: :ob_issue_no
+        map 'contents', to: :contents
+        map 'text', to: :text
       end
     end
   end

@@ -50,6 +50,14 @@ selected.each do |issue|
       skipped += 1
       next
     end
+    # Textual general messages whose payload is not an inlined
+    # ProseMirror document are unmodeled freeform (e.g. three
+    # misc_communications files reference a source AsciiDoc asset).
+    if resolved.start_with?('General') &&
+       data.is_a?(Hash) && data.key?('contents') && !data['contents'].is_a?(Hash)
+      skipped += 1
+      next
+    end
     if resolved == 'RegisterChange'
       # Amendment file: the envelope validates through Registers::Change
       # and the data payload through the amendment class its _class
