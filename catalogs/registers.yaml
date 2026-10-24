@@ -117,7 +117,7 @@ registers:
     slug: f32-tdi
     recommendation: F.32
     title: { en: List of Telegram Destination Indicators }
-    key_field: country_or_area
+    key_field: [country_or_area, network_code, office_code]
     classification: structured
     parser_class: Ituob::Models::F32TDIAmendment
     renderer: tdi-table
