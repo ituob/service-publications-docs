@@ -9,8 +9,8 @@ module Ituob
       class Rep < Base
         extend Ituob::Support::HashField
 
-        def self.validate!(builder, change, key, _row = nil)
-          return if builder.entries.key?(key)
+        def self.validate!(builder, change, key, row = nil)
+          return if builder.entries.key?(key) || row
 
           raise StrategyError,
                 "REP conflict: key #{key.inspect} not present in register #{change.register_id}"
