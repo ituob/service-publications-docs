@@ -5,13 +5,14 @@ module Ituob
     module Strategies
       # LIR — "read from the last issue": the printed table repeats
       # entries unchanged from the previous edition, for the reader's
-      # convenience. This is NOT a state change: the entry must exist
-      # (a missing key is a data gap worth reporting), and the stored
-      # row is refreshed from the printed table so the replayed state
-      # tracks the bulletin verbatim. Reversible by a subsequent REP.
+      # convenience. This is NOT a membership change: the printed row
+      # is applied as-is, so a repetition of an entry the state does
+      # not yet have inserts it (the bulletin asserts it exists);
+      # an identifier-only repetition of an unknown key is a data gap
+      # worth reporting. Reversible by a subsequent REP.
       class Lir < Base
-        def self.validate!(builder, change, key, _row = nil)
-          return if builder.entries.key?(key)
+        def self.validate!(builder, change, key, row = nil)
+          return if builder.entries.key?(key) || row
 
           raise StrategyError,
                 "LIR conflict: key #{key.inspect} not present in register #{change.register_id}"

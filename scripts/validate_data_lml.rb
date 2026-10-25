@@ -40,7 +40,22 @@ selected.each do |issue|
     # Freeform positions are skipped before reading: their payloads may
     # contain YAML aliases the strict loader rejects.
     if Ituob::Support::CorpusTree.class_name_for(rel).nil?
-      skipped += 1
+      # Legacy annex snapshots have one modeled shape: a map of
+      # publication id -> { position_on: date, datasets? }. Anything
+      # else in them is a defect.
+      if rel.end_with?('annexes.yaml')
+        data = YAML.load_file(path, permitted_classes: [Date, Time], aliases: true)
+        unless data.is_a?(Hash) && data.all? do |pub, v|
+          v.nil? || (v.is_a?(Hash) &&
+                     (v.keys - ['position_on', 'datasets']).empty? &&
+                     (v['position_on'].nil? || v['position_on'].is_a?(Date) || v['position_on'].is_a?(Time)))
+        end
+          failures << "#{issue}/#{rel}: malformed annex snapshot"
+        end
+        validated += 1
+      else
+        skipped += 1
+      end
       next
     end
 
