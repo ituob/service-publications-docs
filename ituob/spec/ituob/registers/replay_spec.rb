@@ -200,6 +200,18 @@ RSpec.describe Ituob::Registers::Replay do
       state = replay.at_issue(669)
       expect(state.error_count).to eq(0)
     end
+
+    it 'treats a SUP at the seed issue whose key the printed list omits as already applied' do
+      write_change('669-001-SUP-XYZ.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '669',
+        'identifier' => { 'code' => 'XYZ' },
+        'data' => { 'entries' => [{ 'code' => 'XYZ' }] },
+      })
+      state = replay.current
+      expect(state.error_count).to eq(0)
+      expect(state.active_keys.sort).to eq(%w[ABC DEF])
+      expect(state.history.map(&:type)).to include('SUP')
+    end
   end
 
   describe 'build_all_states captures only at issue boundaries' do

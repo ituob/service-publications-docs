@@ -109,6 +109,8 @@ module Ituob
         builder.record_history(change)
         Strategies::Resolver.apply(builder, change, @key_field, @fallback_key_fields)
       rescue Strategies::StrategyError => e
+        return if embodied_by_seed?(change)
+
         msg = "skip #{change.type} #{change.identifier.to_hash.inspect} at OB #{change.ob_issue_no}: #{e.message}"
         builder.record_error(msg)
         warn "replay: #{msg}"
@@ -116,6 +118,16 @@ module Ituob
         msg = "error #{change.type} #{change.identifier.to_hash.inspect} at OB #{change.ob_issue_no}: #{e.class}: #{e.message}"
         builder.record_error(msg)
         warn "replay: #{msg}"
+      end
+
+      # A destructive change printed at the seed issue names a key the
+      # printed list already omits. The cancellation has taken effect in
+      # the starting state by definition, so it is not a conflict.
+      def embodied_by_seed?(change)
+        seed = source.seed_issue
+        return false unless seed && change.ob_issue_no == seed.to_i
+
+        change.sup? || change.del?
       end
     end
   end
