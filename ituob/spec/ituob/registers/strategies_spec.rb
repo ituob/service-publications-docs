@@ -280,3 +280,27 @@ RSpec.describe Ituob::Registers::Strategies, 'destructive? declarations' do
     expect(Ituob::Registers::ActionType.new('SEED')).not_to be_destructive
   end
 end
+
+RSpec.describe Ituob::Registers::Strategies::Base do
+  describe '.entry_key' do
+    it 'keys by the primary field' do
+      expect(described_class.entry_key({ 'country_code' => '41' }, 'country_code')).to eq('41')
+    end
+
+    it 'falls back to the declared fallback fields when the primary is absent' do
+      row = { 'cc_ic' => '+882 34', 'status' => 'Assigned' }
+      expect(described_class.entry_key(row, 'country_code', ['cc_ic'])).to eq('+882 34')
+    end
+
+    it 'joins a composite key field' do
+      row = { 'country_or_area' => { 'fr' => 'ALLEMAGNE', 'en' => 'GERMANY' },
+              'network_code' => 'DP', 'office_code' => 'DPXX' }
+      key = described_class.entry_key(row, %w[country_or_area network_code office_code])
+      expect(key).to eq('ALLEMAGNE | DP | DPXX')
+    end
+
+    it 'returns nil when no shape yields a value' do
+      expect(described_class.entry_key({ 'status' => 'Assigned' }, 'country_code', ['cc_ic'])).to be_nil
+    end
+  end
+end

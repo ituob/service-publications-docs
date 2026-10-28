@@ -122,6 +122,18 @@ def copy_meta_and_annexes(issue_id, src_dir, dst_dir)
   end
 end
 
+# Model payloads may carry Symbol keys (e.g. F.400's :x400); corpus
+# files are read back with strict loaders, so the written YAML stays
+# plain (same policy as the change-file migration).
+def deep_stringify(value)
+  case value
+  when Hash then value.each_with_object({}) { |(k, v), h| h[k.to_s] = deep_stringify(v) }
+  when Array then value.map { |v| deep_stringify(v) }
+  when Symbol then value.to_s
+  else value
+  end
+end
+
 def write_change_object(issue_id:, dataset_slug:, seq:, type: 'ADD',
                         date_active:, identifier:, data:, description: nil)
   obj = {
@@ -131,7 +143,7 @@ def write_change_object(issue_id:, dataset_slug:, seq:, type: 'ADD',
     'ob_issue_no' => issue_id.to_s,
     'reference' => "OB-#{issue_id}",
     'identifier' => identifier,
-    'data' => data,
+    'data' => deep_stringify(data),
   }
   obj['description'] = description if description
   obj
@@ -221,6 +233,12 @@ def process_amendments(issue_id, src_dir, dst_dir, stats)
         # default to "ADD".
         normalized_type = (action_type || 'ADD').to_s
         normalized_type = 'ADD' unless normalized_type.match?(/\A[A-Z][A-Z0-9]*\z/)
+        # The envelope keeps a valid action together with any print
+        # footnote marker ("SUP*"); parser artifacts that are not
+        # actions ("DJI", "UP1", "by:") publish as ADD, like the
+        # filename.
+        envelope_type = (action_type || 'ADD').to_s.strip
+        envelope_type = 'ADD' unless envelope_type.match?(/\A(?:ADD|SUP|REP|LIR|MOD|DEL)\*?\z/)
         slug = "#{seq_str}-#{normalized_type}"
         entries_data = if attrs.key?(:entries) && action.entries.any?
                          action.entries.map { |e| e.is_a?(Lutaml::Model::Serializable) ? e.to_hash : e }
@@ -238,7 +256,7 @@ def process_amendments(issue_id, src_dir, dst_dir, stats)
           issue_id: issue_id,
           dataset_slug: dataset_slug,
           seq: seq_str,
-          type: action_type || 'ADD',
+          type: envelope_type,
           date_active: position_on,
           identifier: identifier,
           data: {

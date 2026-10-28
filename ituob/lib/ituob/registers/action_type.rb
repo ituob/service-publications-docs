@@ -12,11 +12,19 @@ module Ituob
       attr_reader :value
 
       def initialize(value)
-        raise ArgumentError, "invalid action type: #{value.inspect}" unless VALID_TYPES.include?(value.to_s.upcase)
+        raw = value.to_s.strip
+        canonical = raw.sub(/\*+\z/, '').upcase
+        raise ArgumentError, "invalid action type: #{value.inspect}" unless VALID_TYPES.include?(canonical)
 
-        @value = value.to_s.upcase
+        @value = canonical
+        # The print footnotes actions whose effect is delayed from the
+        # edition date ("SUP*"); the marker is provenance, the action
+        # is the canonical type.
+        @footnote = raw.end_with?('*')
         freeze
       end
+
+      def footnote? = @footnote
 
       def self.coerce(value)
         return value if value.is_a?(ActionType)

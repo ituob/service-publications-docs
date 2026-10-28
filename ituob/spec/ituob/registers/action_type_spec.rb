@@ -18,6 +18,13 @@ RSpec.describe Ituob::Registers::ActionType do
     it 'rejects unknown types' do
       expect { described_class.new('XYZ') }.to raise_error(ArgumentError)
     end
+
+    it 'accepts a canonical type with a print footnote marker' do
+      marked = described_class.new('SUP*')
+      expect(marked.value).to eq('SUP')
+      expect(marked).to be_footnote
+      expect(described_class.new('SUP')).not_to be_footnote
+    end
   end
 
   describe '.coerce' do

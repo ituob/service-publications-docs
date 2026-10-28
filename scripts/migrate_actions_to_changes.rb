@@ -32,7 +32,9 @@ REGISTERS_ARG = ARGV[0] # optional: comma-separated list of register_ids
 # codes verbatim (e.g. a country code mistaken for an action), which
 # Registers::Change rejects — those publish as ADD.
 def normalize_action(raw)
-  cleaned = raw.to_s.upcase.strip
+  # The print footnotes some actions (e.g. "SUP*"); the marker is print
+  # provenance and the canonical action is the leading code.
+  cleaned = raw.to_s.upcase.strip.sub(/\*+\z/, '')
   %w[ADD SUP REP LIR MOD DEL SEED].include?(cleaned) ? cleaned : 'ADD'
 end
 

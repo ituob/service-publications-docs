@@ -51,17 +51,24 @@ module Ituob
         # resolve to their first non-empty entry in the OB canonical
         # language order, matching how the printed list reads.
         def self.entry_key(row, key_field, fallbacks = [])
-          parts = Array(key_field).map do |field|
-            value = row[field] || row[field.to_sym]
-            case value
-            when Hash then canonical_language(value)
-            when nil then nil
-            else value.to_s
+          # Composite registers (F32_TDI) key by several fields joined
+          # together; the declared fallback fields (E164_CC rows keyed
+          # by cc_ic when country_code is absent) are tried whole, in
+          # order, when the primary shape yields nothing.
+          [Array(key_field), *Array(fallbacks).map { |f| [f] }].each do |fields|
+            parts = fields.map do |field|
+              value = row[field] || row[field.to_sym]
+              case value
+              when Hash then canonical_language(value)
+              when nil then nil
+              else value.to_s
+              end
             end
-          end
-          return nil if parts.all? { |p| p.nil? || p.empty? }
+            next if parts.all? { |p| p.nil? || p.empty? }
 
-          parts.map { |p| p.nil? || p.empty? ? '' : p }.join(' | ')
+            return parts.map { |p| p.nil? || p.empty? ? '' : p }.join(' | ')
+          end
+          nil
         end
 
         # Canonical OB language order (matches the site renderer).
