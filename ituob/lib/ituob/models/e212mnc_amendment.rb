@@ -31,7 +31,9 @@ attribute :country, :string
       COUNTRY_ACTION_LINE = /\A(?<country>\p{Lu}[^\d:()]{1,50}?)\s+(?<action>ADD|SUP|LIR|REP)\*?\z/
       # "Sweden  (extra-territorial use of MCC/MNC, ...)": the heading of a
       # table that repeats codes with the MSIN ranges they may use abroad.
-      EXTRA_TERRITORIAL_HEADING = /\A(?<country>[^(]+?)\s*\(extra-territorial/i
+      # Found by string search, not a regex: a lazy run before `\s*\(`
+      # backtracks polynomially on long runs of spaces (CodeQL).
+      EXTRA_TERRITORIAL_MARK = '(extra-territorial'
       # "1-OPERATOR", "2 -OPERATOR": numbered operators sharing one code.
       NUMBERED_OPERATOR = /\A\d+\s?[-\u2013]\s?\S/
 
@@ -44,6 +46,17 @@ attribute :country, :string
           fresh.entries = []
           amendment.actions << fresh
         end
+      end
+
+      # The country of an extra-territorial heading ("Sweden  (extra-
+      # territorial use ..."), or nil when the line is not one. The
+      # mark must be the line's first "(" and follow some text.
+      def self.extra_territorial_country(line)
+        open = line.index('(')
+        return unless open&.positive?
+        return unless line[open, EXTRA_TERRITORIAL_MARK.length]&.casecmp?(EXTRA_TERRITORIAL_MARK)
+
+        line[0...open].strip
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
@@ -109,10 +122,10 @@ attribute :country, :string
               next
             end
 
-            if (heading = stripped.match(EXTRA_TERRITORIAL_HEADING))
+            if (heading_country = extra_territorial_country(stripped))
               action = next_action(amendment, action)
               action.action_type = 'LIR'
-              last_country = heading[:country].strip
+              last_country = heading_country
               next
             end
 
