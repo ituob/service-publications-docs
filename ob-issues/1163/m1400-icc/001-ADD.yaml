@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1163'
 reference: OB-1163
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: EWR Aktiengesellschaft
     address_line_1: Lutherring 5
     address_line_2: 67547 WORMS
@@ -20,8 +21,9 @@ data:
     fax: "+49 6241 848 500"
     email:
     - volz@ewr.de
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: FairNetz GmbH
     address_line_1: Hauffstrasse 89
     address_line_2: 72762 REUTLINGEN
@@ -31,8 +33,9 @@ data:
     fax: "+49 7121 5823114"
     email:
     - erwin.romeser@fairnetzgmbh.de
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: LWLcom GmbH
     address_line_1: Ladestrasse 35a
     address_line_2: 28197 BREMEN
@@ -42,8 +45,9 @@ data:
     fax: "+49 421 9888899"
     email:
     - support@lwlcom.com
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: nvb Nordhorner Versorgungsbetriebe GmbH
     address_line_1: Gildkamp 10
     address_line_2: 48529 NORDHORN
@@ -52,8 +56,9 @@ data:
     tel: "+49 5921 301 254"
     email:
     - frank.beernink@nvb.de
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Stadtwerke Rostock AG
     address_line_1: Schmarler Damm 5
     address_line_2: 18069 ROSTOCK

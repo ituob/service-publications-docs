@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Troiline GmbH
     address_line_1: Poststrasse 105
     address_line_2: D-53840 TROISDORF
     carrier_code: TROI
     contact: Mr. Michael Schmidt
     tel: "+49 2241 888 528"
+    email:
+    - schmidtm@troiline.de
   notes: []

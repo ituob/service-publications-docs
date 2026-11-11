@@ -4,17 +4,20 @@ date_active: *1
 ob_issue_no: '1289'
 reference: OB-1289
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: KuepeliEDV e.K. Hellergasse 24 D-53359 RHEINBACH
     carrier_code: KPEDV
     contact: 'Mr Umut Kuepeli Tel.: +49 221 71599940 Fax: +49 221 71599949 Email:
       cloudphone@kuepeliedv.de'
     tel: 'Mr Umut Kuepeli +49 221 71599940 Fax: +49 221 71599949 Email: cloudphone@kuepeliedv.de'
     fax: 'Mr Umut Kuepeli Tel.: +49 221 71599940 +49 221 71599949 Email: cloudphone@kuepeliedv.de'
+    email:
+    - 'Mr Umut Kuepeli Tel.: +49 221 71599940 Fax: +49 221 71599949 cloudphone@kuepeliedv.de'
   notes: []

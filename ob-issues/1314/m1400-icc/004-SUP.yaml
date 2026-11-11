@@ -4,18 +4,20 @@ date_active: *1
 ob_issue_no: '1314'
 reference: OB-1314
 identifier:
-  code: Sweden /
+  code: Sweden / SWE
 data:
   _class: M1400Amendment
-  position: Sweden /
+  position: Sweden / SWE
   entries:
-  - country_or_area:
+  - iso_code: SWE
+    country_or_area:
       en: Sweden
     company_name: NETnet AB
     address_line_1: PO Box 6611
     address_line_2: S-113 84 STOCKHOLM
     carrier_code: NETNET
-  - country_or_area:
+  - iso_code: SWE
+    country_or_area:
       en: Sweden
     company_name: RSL COM Sweden AB
     address_line_1: PO Box 1434

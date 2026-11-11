@@ -4,12 +4,15 @@ date_active: *1
 ob_issue_no: '1295'
 reference: OB-1295
 identifier:
-  code: " Germany"
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: " Germany"
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - company_name: foncloud GmbH & Co.KG
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: foncloud GmbH & Co.KG
     address_line_1: Hahlweg 2a
     address_line_2: 36093 KUENZELL
     carrier_code: FCLOUD

@@ -58,16 +58,18 @@ attribute :notes, :string, collection: true
               segs = Ituob::Helpers.split_str(fixed_str)
 
               action.note = segs[1]
-              action.position = segs[0..1].join(" ")
               if m = fixed_str.match(/[A-Z]{3}\*$/)
                 action.action_type = m[0].to_s
               elsif m = fixed_str.match(/[A-Z]{3}$/)
                 action.action_type = m[0].to_s
               end
+              heading = fixed_str.sub(%r{(/[[:space:]]*[A-Z]{3})[[:space:]]+[A-Z]{3}\*?\z}, '\\1').squeeze(' ').strip
               if fixed_str.match(/^P /)
-                country, country_code = segs[2].split(' / ')
+                action.position = segs[0..1].join(" ")
+                country, country_code = heading.sub(/\AP \S+ (?:to P \S+ )?/, '').split(' / ', 2)
               else
-                country, country_code = segs[0].split(' / ')
+                action.position = heading
+                country, country_code = heading.split(' / ', 2)
               end
             end
 
@@ -118,7 +120,8 @@ attribute :notes, :string, collection: true
               entry.contact = Ituob::Helpers.strip_legacy(row[2][0]) rescue nil
               entry.fax = Ituob::Helpers.isolate_key(row[2], 'Fax')
               entry.tel = Ituob::Helpers.isolate_key(row[2], 'Tel')
-              entry.email = Ituob::Helpers.isolate_key(row[2], 'E-mail')
+              entry.email = Ituob::Helpers.isolate_key(row[2], 'E-mail') ||
+                            Ituob::Helpers.isolate_key(row[2], 'Email')
 
               action.entries << entry
             end

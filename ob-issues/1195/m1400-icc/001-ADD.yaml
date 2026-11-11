@@ -4,13 +4,14 @@ date_active:
 ob_issue_no: '1195'
 reference: OB-1195
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Stadtwerke Baden-Baden
     address_line_1: Waldseestrasse 24
     address_line_2: D-76530 BADEN-BADEN
@@ -18,4 +19,6 @@ data:
     contact: Mr Harald Brill
     tel: "+49 7221 277 508"
     fax: "+49 7221 277 505"
+    email:
+    - harald.brill@swbad.de
   notes: []

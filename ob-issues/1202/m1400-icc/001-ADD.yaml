@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1202'
 reference: OB-1202
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: FLOW7 GmbH
     address_line_1: Lorenzstrasse 29
     address_line_2: D-76135 KARLSRUHE
@@ -18,4 +19,6 @@ data:
     contact: Mr Christian Treudler
     tel: "+49 721 75407144"
     fax: "+49 721 75407149"
+    email:
+    - voip-ekp@flow7.de
   notes: []

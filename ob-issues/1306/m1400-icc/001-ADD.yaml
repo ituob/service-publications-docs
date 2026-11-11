@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1306'
 reference: OB-1306
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Cloudmanufaktur GmbH
     address_line_1: Seestrasse 46
     address_line_2: CH-8598 BOTTIGHOFEN
@@ -18,4 +19,6 @@ data:
     carrier_code: CLOUD1
     contact: Mr Sebastian Kursawe
     tel: "+41 715712325"
+    email:
+    - service@cloudmanufaktur.digital
   notes: []
