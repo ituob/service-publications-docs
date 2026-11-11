@@ -1,0 +1,25 @@
+type: LIR
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1346'
+reference: OB-1346
+identifier:
+  code: 1346-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-083-1
+    country:
+      en: Japan
+    dec: '8857'
+    signal_point_name: Chiba
+    signal_point_operator: SoftBank Corp.
+  - ipsc: 4-085-1
+    country:
+      en: Japan
+    dec: '8873'
+    signal_point_name: Kyoto
+    signal_point_operator: SoftBank Corp.
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

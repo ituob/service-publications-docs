@@ -1,0 +1,24 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1344'
+reference: OB-1344
+identifier:
+  code: 1344-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-083-5
+    country:
+      en: Uganda
+    dec: '12957'
+    signal_point_name: MUSTP
+    signal_point_operator: MTN Uganda Limited
+  - ipsc: 6-083-6
+    country:
+      en: Uganda
+    dec: '12958'
+    signal_point_name: KASTP
+    signal_point_operator: MTN Uganda Limited
+  notes:
+  - 'ISPC: International Signalling Point Codes.'

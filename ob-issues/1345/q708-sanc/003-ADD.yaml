@@ -1,0 +1,18 @@
+type: ADD
+date_requested: &1 2024-05-01
+date_active: *1
+ob_issue_no: '1345'
+reference: OB-1345
+identifier:
+  code: ''
+data:
+  _class: Q708SANCAmendment
+  position: ''
+  entries:
+  - code: 5-211
+    area_or_network:
+      en: Ireland
+    note:
+      en: 'SANC:   Signalling Area/Network Code.'
+  notes:
+  - 'SANC:   Signalling Area/Network Code.'
