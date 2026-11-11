@@ -26,6 +26,26 @@ attribute :country, :string
         map 'country', to: :country
       end
 
+      # "Belarus    SUP": a country line carrying its action, with no
+      # position column.
+      COUNTRY_ACTION_LINE = /\A(?<country>\p{Lu}[^\d:()]{1,50}?)\s+(?<action>ADD|SUP|LIR|REP)\*?\z/
+      # "Sweden  (extra-territorial use of MCC/MNC, ...)": the heading of a
+      # table that repeats codes with the MSIN ranges they may use abroad.
+      EXTRA_TERRITORIAL_HEADING = /\A(?<country>[^(]+?)\s*\(extra-territorial/i
+      # "1-OPERATOR", "2 -OPERATOR": numbered operators sharing one code.
+      NUMBERED_OPERATOR = /\A\d+\s?[-\u2013]\s?\S/
+
+      # The action the next printed announcement fills: the one still
+      # blank, else a new one — every announcement keeps its own type.
+      def self.next_action(amendment, action)
+        return action if action.entries.empty? && action.action_type.nil? && action.note.nil?
+
+        E212MNCAction.new.tap do |fresh|
+          fresh.entries = []
+          amendment.actions << fresh
+        end
+      end
+
       def self.parse(hash, position_on: nil, dataset_code: nil)
         amendment = new
 
@@ -82,19 +102,45 @@ attribute :country, :string
               end
             end
 
+            if !stripped.match?(/\AP\s*\d/) && (header = stripped.match(COUNTRY_ACTION_LINE))
+              action = next_action(amendment, action)
+              action.action_type = header[:action]
+              last_country = header[:country].strip
+              next
+            end
+
+            if (heading = stripped.match(EXTRA_TERRITORIAL_HEADING))
+              action = next_action(amendment, action)
+              action.action_type = 'LIR'
+              last_country = heading[:country].strip
+              next
+            end
+
+            if action.entries.any? && stripped.match?(NUMBERED_OPERATOR)
+              last_entry = action.entries.last
+              last_entry.networks = [last_entry.networks, Ituob::Helpers.normalize_whitespace(stripped)].compact.join("\n")
+              next
+            end
+
             if first_elem.length < 3
               next
             elsif fixed_str.match(/^[onpq] /)
               action.note = (action.note || "") + fixed_str
             else
-              next if !(first_elem.match(/^P/) || first_elem.match(/Note /))
+              positioned = first_elem.match?(/\AP\p{Space}*\d/)
+              next unless positioned || first_elem.match?(/Note /)
 
               basestr = c.join('')
               segs = Ituob::Helpers.split_str(basestr)
+              action = next_action(amendment, action) if positioned
 
               action.note = segs[1]
               action.position = segs[0..1].join(" ")
-              if m = basestr.match(/[A-Z]{3}\*?$/)
+              fixed_segs = Ituob::Helpers.split_str_normal(fixed_str)
+              action_idx = fixed_segs.index { |s| s.match?(/^(ADD|SUP|LIR|REP)$/) }
+              if action_idx
+                action.action_type = fixed_segs[action_idx]
+              elsif m = basestr.match(/[A-Z]{3}\*?$/)
                 action.action_type = m[0].to_s
               elsif m = basestr.match(/[A-Z]{3}$/)
                 action.action_type = m[0].to_s
@@ -107,8 +153,6 @@ attribute :country, :string
               # Paragraph-based entries: some E212_MNC amendments have
               # space-aligned text (no tables). Extract entries from
               # the paragraph text. Format: "P xx Country ACTION MCC MCC Network..."
-              fixed_segs = Ituob::Helpers.split_str_normal(fixed_str)
-              action_idx = fixed_segs.index { |s| s.match?(/^(ADD|SUP|LIR|REP)$/) }
               if action_idx
                 # The printed country (between position and action
                 # keyword) applies to this line's entry AND to any
@@ -188,6 +232,17 @@ attribute :country, :string
                 entry.country_or_area = MultilingualString.new(en: editor_country) if editor_country && !editor_country.empty?
                 entry.mcc_mnc_codes = segs[0]
                 entry.networks = segs[1]
+                action.entries << entry
+              elsif row.length >= 5 && segs[0].to_s.match?(/\A\d{3}[\u00a0 ]+\d+\z/)
+                # Extra-territorial use: code | operator | countries |
+                # note | MSIN ranges. The cells after the operator stay
+                # together as the printed range text.
+                cells = row.map { |cell| Ituob::Helpers.normalize_whitespace(Array(cell).join(' ')) }
+                entry = E212MNCEntry.new
+                entry.country_or_area = MultilingualString.new(en: last_country) if last_country
+                entry.mcc_mnc_codes = cells[0]
+                entry.networks = cells[1]
+                entry.range = cells[3..].reject(&:empty?).join(' ')
                 action.entries << entry
               elsif row.length >= 4
                 # 4+ column rows: country/code/range/networks or

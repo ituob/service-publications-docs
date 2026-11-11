@@ -1,0 +1,55 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1092'
+identifier:
+  code: 440 00
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 440 00
+    country_or_area:
+      en: Japan
+    networks: SoftBank Corp.
+  - mcc_mnc_codes: 440 01
+    country_or_area:
+      en: Japan
+    networks: UQ Communications Inc.
+  - mcc_mnc_codes: 440 02
+    country_or_area:
+      en: Japan
+    networks: Hanshin Cable Engineering Co.,Ltd.
+  - mcc_mnc_codes: 440 05
+    country_or_area:
+      en: Japan
+    networks: Wireless City Planning Inc.
+  - mcc_mnc_codes: 440 10
+    country_or_area:
+      en: Japan
+    networks: NTT DOCOMO, INC.
+  - mcc_mnc_codes: 440 20
+    country_or_area:
+      en: Japan
+    networks: SoftBank Corp.
+  - mcc_mnc_codes: 440 21
+    country_or_area:
+      en: Japan
+    networks: SoftBank Corp.
+  - mcc_mnc_codes: 441 00
+    country_or_area:
+      en: Japan
+    networks: Wireless City Planning Inc.
+  - mcc_mnc_codes: 441 01
+    country_or_area:
+      en: Japan
+    networks: SoftBank Corp.
+  - mcc_mnc_codes: 441 10
+    country_or_area:
+      en: Japan
+    networks: UQ Communications Inc.
+  notes:
+  - "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'
+reference: OB-1092

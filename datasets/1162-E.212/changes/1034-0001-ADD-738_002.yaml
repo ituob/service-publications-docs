@@ -5,14 +5,8 @@ ob_issue_no: '1034'
 identifier:
   code: 738 002
 data:
-  _class: E212MNCAmendment
-  entries:
-  - mcc_mnc_codes: 738 002
-    networks: Guyana Telephone & Telegraph Company Limited (Cellink)
-  - mcc_mnc_codes: 637 01
-    networks: Horizon Telecom LMD 637 02 Horizon Telecom LMD
-  notes:
-  - "*            MCC:  Country Code / Indicatif de pays du mobile / Indicativo de
-    país para el servicio móvil                MNC:  Network Code / Code de réseau
-    mobile / Indicativo de red para el servicio móvil"
+  mcc_mnc_codes: 738 002
+  country_or_area:
+    en: Guyana
+  networks: Guyana Telephone & Telegraph Company Limited (Cellink)
 reference: OB-1034

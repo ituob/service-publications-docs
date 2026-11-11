@@ -1,0 +1,22 @@
+type: ADD
+register: E212_SHARED_MCC
+recommendation: E.212
+ob_issue_no: '1246'
+identifier:
+  code: 901 51
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 901 51
+    networks: VisionNG
+  - mcc_mnc_codes: 901 92
+    networks: Phonegroup SA
+  - mcc_mnc_codes: 901 93
+    networks: SkyFive AG
+  notes:
+  - "*         MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'
+reference: OB-1246
+date_active: 2018-11-14 23:00:00.000000000 Z

@@ -6,7 +6,7 @@ module Ituob
   module Models
     class GeneralMiscCommunications < GeneralMessage
       attribute :ob_issue_no, :string
-      attribute :contents, :hash
+      attribute :contents, HashOrText
       attribute :text, :string
 
       key_value do

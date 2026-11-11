@@ -27,6 +27,8 @@ TS_TYPE = {
   'Float' => 'number',
   'Time' => 'string',
   'Hash' => 'Record<string, unknown>', # free-form mappings (no LML primitive)
+  'HashOrText' => 'Record<string, unknown> | string', # mapping, or a string kept as stored
+  'DateOrText' => 'string', # date or timestamp as ISO text, or free text; kept as stored
 }.freeze
 
 doc = Lutaml::Lml.parse_document(File.open(ONTOLOGY_PATH))

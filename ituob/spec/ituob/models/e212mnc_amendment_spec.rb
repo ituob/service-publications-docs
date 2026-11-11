@@ -127,4 +127,74 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     expect(lir.entries.map(&:country_or_area).map(&:en).uniq).to eq(['Canada'])
     expect(lir.entries.map(&:mcc_mnc_codes)).to eq(['302 490', '302 491'])
   end
+
+  describe 'country-first paragraph layout (no position column)' do
+    it 'opens one action per country line, keeping the printed action and country' do
+      doc = document(
+        paragraph("Belarus \u00a0\u00a0\u00a0SUP"),
+        paragraph("\u00a0\u00a0\u00a0\u00a0\u00a0257 06\u00a0\u00a0\u00a0\u00a0\u00a0Yota Bel Foreign LLC"),
+        paragraph("Qatar \u00a0\u00a0\u00a0ADD"),
+        paragraph("\u00a0\u00a0\u00a0\u00a0\u00a0427 06\u00a0\u00a0\u00a0\u00a0\u00a0Ooredoo Q.S.C./MOI LTE"),
+      )
+      actions = parse(doc).actions
+
+      expect(actions.map(&:action_type)).to eq(%w[SUP ADD])
+      expect(actions.map { |a| a.entries.map(&:mcc_mnc_codes) }).to eq([['257 06'], ['427 06']])
+      expect(actions.map { |a| a.entries.map { |e| e.country_or_area.en } }).to eq([['Belarus'], ['Qatar']])
+    end
+
+    it 'keeps each P line its own action instead of letting the last type win' do
+      doc = document(
+        paragraph('P  6  Canada SUP'),
+        paragraph('      302 611    Bell Mobility'),
+        paragraph('P  7  Canada ADD'),
+        paragraph('      302 690    Bell Mobility'),
+      )
+
+      expect(parse(doc).actions.map(&:action_type)).to eq(%w[SUP ADD])
+    end
+
+    it 'keeps numbered operator lines under the code they follow' do
+      doc = document(
+        paragraph("P  30   Mexico ADD"),
+        paragraph("      334 040    IUSACELL PCS DE MEXICO, S.A. DE C.V."),
+        paragraph("      334 050    5 operators:"),
+        paragraph("      1-COMUNICACIONES CELULARES DE OCCIDENTE, S.A. DE C.V."),
+        paragraph("      3 -TELECOMUNICACIONES DEL GOLFO, S.A. DE C.V. SOS"),
+        paragraph("      334 060    SERVICIOS DE ACCESO INALAMBRICO, S.A DE C.V."),
+      )
+      entries = parse(doc).actions.first.entries
+
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['334 040', '334 050', '334 060'])
+      expect(entries[1].networks).to eq(
+        "5 operators:\n1-COMUNICACIONES CELULARES DE OCCIDENTE, S.A. DE C.V.\n" \
+        '3 -TELECOMUNICACIONES DEL GOLFO, S.A. DE C.V. SOS',
+      )
+      expect(entries[2].networks).to eq('SERVICIOS DE ACCESO INALAMBRICO, S.A DE C.V.')
+    end
+
+    it 'keeps the MSIN range of an extra-territorial table row' do
+      doc = document(
+        paragraph('Norway SUP'),
+        paragraph('      242 06    ICE Norge AS'),
+        paragraph("Sweden \u00a0(extra-territorial use of MCC/MNC, Annex E to ITU-T Recommendation E.212)"),
+        table(
+          row(cell(paragraph('MCC*/MNC**')), cell(paragraph('Name of operator(s)')), cell(paragraph('Countries A and B')),
+              cell(paragraph('Country B')), cell(paragraph('MSIN range'))),
+          row(cell(paragraph('240 07')), cell(paragraph('Tele 2 Sverige AB')), cell(paragraph('The Netherlands')),
+              cell(paragraph('The range dedicated for the Netherlands will not be used in Sweden')),
+              cell(paragraph('6680000000 -', '6689999999', '(The Netherlands)'))),
+        ),
+      )
+      actions = parse(doc).actions
+      entry = actions.last.entries.first
+
+      expect(actions.map(&:action_type)).to eq(%w[SUP LIR])
+      expect(actions.first.entries.map(&:mcc_mnc_codes)).to eq(['242 06'])
+      expect(entry.mcc_mnc_codes).to eq('240 07')
+      expect(entry.networks).to eq('Tele 2 Sverige AB')
+      expect(entry.country_or_area.en).to eq('Sweden')
+      expect(entry.range).to include('6680000000').and include('6689999999')
+    end
+  end
 end
