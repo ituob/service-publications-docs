@@ -1,0 +1,20 @@
+= E.212 register as of OB 1170
+:docfile: e212-1170.adoc
+:nodoc:
+:novalid:
+:no-isobib:
+
+[lutaml_data,provider:ituob.edition,edition,options={"arguments":{"register":"e212-mnc","as_of":1170}}]
+----
+PROVENANCE register_id={{ edition.provenance.register_id }} as_of_issue={{ edition.provenance.as_of_issue }} seed_issue={{ edition.provenance.seed_issue }} last_change_issue={{ edition.provenance.last_change_issue }}
+
+ROWS {{ edition.items.size }}
+
+[cols="1,3"]
+|===
+| MCC+MNC | Network
+{% for row in edition.items %}
+| {{ row.mcc_mnc_codes }} | {{ row.networks | replace: "|", "\|" }}
+{% endfor %}
+|===
+----
