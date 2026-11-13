@@ -86,8 +86,13 @@ attribute :notes, :string, collection: true
               # Column-number row ("1", "2", ... "9") and the service-name
               # sub-header row ("MT", "IPM", "other") are layout, not entries.
               populated = flat.reject(&:empty?)
-              next if populated.each_with_index.all? { |x, i| x == (i + 1).to_s } && populated.length > 1 && populated.length == flat.length
-              next if flat[3] == 'MT' && flat[0].empty? && flat[1].empty? && flat[2].empty?
+              next if numbered_layout_row?(flat)
+
+              # The sub-header carries MT plus at least one more service
+              # name (IPM/other); a lone "MT" is a continuation row's data.
+              service_subheader = flat[3] == 'MT' && flat[0, 3].all?(&:empty?) &&
+                                  flat[4..].any? { |x| !x.empty? }
+              next if service_subheader
 
               # Detect continuation rows: cells 1-5 are mostly empty.
               middle_empty = flat[1, 5].all? { |x| x.nil? || x.strip.empty? }
@@ -141,6 +146,15 @@ attribute :notes, :string, collection: true
         amendment
       end
 
+      # The "1".."9" column-number row: at least two cells, all digits,
+      # each equal to its position (or position + 1 after one leading blank).
+      # Blank cells (holes, trailing or leading) do not disqualify it.
+      def self.numbered_layout_row?(flat)
+        offsets = flat.each_with_index.reject { |x, _| x.empty? }
+                      .map { |x, i| x.match?(/\A\d+\z/) ? x.to_i - i : nil }
+        offsets.length >= 2 && offsets.uniq.length == 1 && [0, 1].include?(offsets.first)
+      end
+      private_class_method :numbered_layout_row?
     end
   end
 end
