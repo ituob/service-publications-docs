@@ -47,7 +47,27 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
   end
 
   describe 'replaying published annex seeds' do
-    %w[E118_IIN Q708_ISPC].each do |register_id|
+    it 'preserves the effective date printed only in the E118 seed-issue patch' do
+      entry = Ituob::Catalogs::Registers.find('E118_IIN')
+      root = File.expand_path('../../../..', __dir__)
+      annex_source = described_class.new(
+        register_id: entry.register_id,
+        seed_path: File.join(root, entry.seed_path),
+        seed_issue: entry.seed_issue,
+        key_field: entry.key_field,
+      )
+      replay = Ituob::Registers::Replay.new(
+        register_id: entry.register_id, key_field: entry.key_field, source: annex_source,
+      )
+
+      state = replay.at_seed
+
+      expect(state.entry_for('89 264 33').fetch('effective_date', nil)).to eq('1.VII.2018')
+      expect(state.history.map(&:type)).to eq(['SEED'])
+      expect(replay.current.entry_for('89 264 33').fetch('effective_date', nil)).to eq('1.VII.2018')
+    end
+
+    %w[E118_IIN Q708_ISPC E212_MNC].each do |register_id|
       it "does not replay amendments already included in the #{register_id} seed" do
         entry = Ituob::Catalogs::Registers.find(register_id)
         root = File.expand_path('../../../..', __dir__)
@@ -108,6 +128,39 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
 
       context 'with a flagged register' do
         let(:register_id) { 'E118_IIN' }
+
+        context 'when same-issue patches contain fields absent from the seed' do
+          before do
+            File.write(File.join(changes_dir, '1161-001-ADD-1161.yaml'), {
+              'type' => 'ADD', 'register' => register_id, 'ob_issue_no' => 1161,
+              'identifier' => { 'code' => 'ABC' },
+              'data' => { 'entries' => [
+                { 'code' => 'ABC', 'field' => 'patch wording', 'effective_date' => '1.VII.2018' },
+                { 'code' => 'GONE', 'effective_date' => '1.VII.2018' },
+              ] },
+            }.to_yaml)
+            File.write(File.join(changes_dir, '1161-002-SUP-ABC.yaml'), {
+              'type' => 'SUP', 'register' => register_id, 'ob_issue_no' => 1161,
+              'identifier' => { 'code' => 'ABC' },
+              'data' => { 'code' => 'ABC', 'removal_note' => 'withdrawn' },
+            }.to_yaml)
+          end
+
+          it 'fills missing fields without replacing seed content or restoring absent entries' do
+            replay = Ituob::Registers::Replay.new(
+              register_id: register_id, key_field: 'code', source: source,
+            )
+            state = replay.at_seed
+
+            expect(state.active_keys).to eq(%w[ABC DEF])
+            expect(state.entry_for('ABC')).to eq(
+              'code' => 'ABC', 'field' => 'accounts', 'effective_date' => '1.VII.2018',
+            )
+            expect(state.history.map(&:type)).to eq(['SEED'])
+            expect(replay.build_all_states.fetch(1161).entries).to eq(state.entries)
+            expect(replay.current.entry_for('ABC')).to eq(state.entry_for('ABC'))
+          end
+        end
 
         it 'keeps the seed and later patches only' do
           expect(source.each_sorted.map { |c| [c.type, c.ob_issue_no] }).to eq([

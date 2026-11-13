@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'date'
 require 'ituob/catalogs'
 
 RSpec.describe Ituob::Catalogs::Registers do
@@ -22,16 +23,34 @@ RSpec.describe Ituob::Catalogs::Registers do
     end
 
     it 'flags only annex seeds positioned on their issue date' do
-      flagged = described_class.all.select(&:seed_includes_seed_issue)
-
-      expect(flagged.map(&:register_id)).to eq(%w[E118_IIN E164_CC Q708_ISPC])
-      flagged.each do |entry|
+      mismatches = []
+      described_class.all.select { |entry| entry.seed_issue && !entry.external }.each do |entry|
         root = File.expand_path('../../../../ob-issues', __dir__)
-        annex = Ituob::Support::Yaml.safe_load_file(File.join(root, entry.seed_issue.to_s, 'annexes.yaml'))
-        issue = Ituob::Support::Yaml.safe_load_file(File.join(root, entry.seed_issue.to_s, 'meta.yaml'))
+        annexes_path = File.join(root, entry.seed_issue.to_s, 'annexes.yaml')
+        unless File.file?(annexes_path)
+          expect(entry.seed_includes_seed_issue).to be(false),
+            "#{entry.register_id} has no seed-issue annex and cannot include it"
+          next
+        end
 
-        expect(annex.fetch(entry.register_id).fetch('position_on')).to eq(issue.fetch('publication_date'))
+        annexes = Ituob::Support::Yaml.safe_load_file(annexes_path)
+        unless annexes.key?(entry.register_id)
+          expect(entry.seed_includes_seed_issue).to be(false),
+            "#{entry.register_id} has no direct seed-issue annex and cannot include it"
+          next
+        end
+
+        issue = Ituob::Support::Yaml.safe_load_file(File.join(root, entry.seed_issue.to_s, 'meta.yaml'))
+        annex_date = Date.parse(annexes.fetch(entry.register_id).fetch('position_on').to_s)
+        issue_date = Date.parse(issue.fetch('publication_date').to_s)
+
+        matches_issue_date = annex_date == issue_date
+        next if entry.seed_includes_seed_issue == matches_issue_date
+
+        mismatches << "#{entry.register_id}: flagged=#{entry.seed_includes_seed_issue}, date_match=#{matches_issue_date}"
       end
+
+      expect(mismatches).to be_empty, mismatches.join('; ')
     end
 
     it 'defaults to replaying seed-issue patches' do
