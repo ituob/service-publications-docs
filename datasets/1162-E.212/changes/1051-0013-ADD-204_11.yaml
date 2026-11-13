@@ -1,10 +1,9 @@
-type: SUP
-date_requested:
-date_active:
+type: ADD
+register: E212_MNC
+recommendation: E.212
 ob_issue_no: '1051'
-reference: OB-1051
 identifier:
-  code: 1051-012
+  code: 204 11
 data:
   _class: E212MNCAmendment
   entries:
@@ -21,3 +20,4 @@ data:
   - 'ISPC:      International Signalling Point Codes.'
   - Codes de points sémaphores internationaux (CPSI).
   - Códigos de puntos de señalización internacional (CPSI).
+reference: OB-1051

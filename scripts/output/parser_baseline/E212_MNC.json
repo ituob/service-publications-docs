@@ -4313,25 +4313,30 @@
               "en": "Israel"
             },
             "networks": "B.I.P Communications Ltd."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "204 03",
             "country_or_area": {
-              "en": "Israel"
+              "en": "Netherlands"
             },
             "networks": "Blyk N.V."
           },
           {
             "mcc_mnc_codes": "204 18",
             "country_or_area": {
-              "en": "Israel"
+              "en": "Netherlands"
             },
             "networks": "Telfort B.V."
           },
           {
             "mcc_mnc_codes": "204 60",
             "country_or_area": {
-              "en": "Israel"
+              "en": "Netherlands"
             },
             "networks": "KPN B.V."
           }
@@ -4360,7 +4365,12 @@
               "en": "Netherlands"
             },
             "networks": "Nextgen Mobile Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "204 11",
             "country_or_area": {
@@ -11234,53 +11244,58 @@
               "en": "Kosovo*"
             },
             "networks": "Dardafon.Net LLC"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "214 10",
             "country_or_area": {
-              "en": "Kosovo*"
+              "en": "Spain"
             },
             "networks": "Operadora de Telecomunicaciones Opera SL"
           },
           {
             "mcc_mnc_codes": "214 11",
             "country_or_area": {
-              "en": "Kosovo*"
+              "en": "Spain"
             },
             "networks": "France Telecom España, SA"
           },
           {
             "mcc_mnc_codes": "214 12",
             "country_or_area": {
-              "en": "Kosovo*"
+              "en": "Spain"
             },
             "networks": "Contacta Servicios Avanzados de Telecomunicaciones SL"
           },
           {
             "mcc_mnc_codes": "214 13",
             "country_or_area": {
-              "en": "Kosovo*"
+              "en": "Spain"
             },
             "networks": "Incotel Ingeniera y Consultaria SL"
           },
           {
             "mcc_mnc_codes": "214 14",
             "country_or_area": {
-              "en": "Kosovo*"
+              "en": "Spain"
             },
             "networks": "Incotel Servicioz Avanzados SL"
           },
           {
             "mcc_mnc_codes": "214 15",
             "country_or_area": {
-              "en": "Kosovo*"
+              "en": "Spain"
             },
             "networks": "BT España Compañia de Servicios Globales de Telecomunicaciones, SAU"
           },
           {
             "mcc_mnc_codes": "214 20",
             "country_or_area": {
-              "en": "Kosovo*"
+              "en": "Spain"
             },
             "networks": "Fonyou Telecom, SL"
           }
@@ -17503,18 +17518,23 @@
               "en": "Luxembourg"
             },
             "networks": "Luxembourg Online S.A."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 78",
             "country_or_area": {
-              "en": "Luxembourg"
+              "en": "International Mobile, shared code"
             },
             "networks": "Telecom Italia Sparkle S.p.A."
           },
           {
             "mcc_mnc_codes": "901 79",
             "country_or_area": {
-              "en": "Luxembourg"
+              "en": "International Mobile, shared code"
             },
             "networks": "Nokia Corporation"
           }
@@ -17896,11 +17916,16 @@
               "en": "International Mobile, shared code"
             },
             "networks": "iBasis Netherlands BV"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "991 02",
             "country_or_area": {
-              "en": "International Mobile, shared code"
+              "en": "Trial of a proposed new international telecommunication service, shared code"
             },
             "networks": "Orange (temporary assignment for trial until 6.VIII.2022)"
           }

@@ -59,10 +59,21 @@ attribute :country, :string
         line[0...open].strip
       end
 
+      BLANK_CELL = /\A[\p{Space}\u200B-\u200D\uFEFF]*\z/
+
+      # A heading opens its own action; one that follows a heading with
+      # no rows yet replaces it rather than leaving an empty action.
+      def self.open_heading_action(amendment, action)
+        return action if action.entries.empty? && action.note.nil? && action.position.nil?
+
+        next_action(amendment, action)
+      end
+
       # A three-cell table row holding only "«country» ACTION", with blank
       # code and network cells, or nil when the row carries data.
       def self.rowspan_heading(segs)
-        return unless segs[1..].all? { |cell| cell.to_s.gsub(/[ \s]/, '').empty? }
+        return if segs.empty?
+        return unless segs.drop(1).all? { |cell| cell.to_s.match?(BLANK_CELL) }
 
         # The blank cells already mark a heading, so the country text is
         # looser than country_action_line: headings such as "shared code"
@@ -238,8 +249,11 @@ attribute :country, :string
             end
 
           elsif first_elem.is_a?(Array) # table
-            c[1..].each do |row|
+            c.each_with_index do |row, row_index|
               segs = row.flatten
+              heading = row.length == 3 ? rowspan_heading(segs) : nil
+              # Row 0 is the column header unless it is itself a heading.
+              next if row_index.zero? && !heading
 
               if row.length == 1
                 # Editor layout: single-cell "«country»\u00a0\u00a0 ACTION"
@@ -253,14 +267,16 @@ attribute :country, :string
                   amendment.actions << action
                   editor_country = Ituob::Helpers.replace_legacy_space(m[1]).strip
                 end
-              elsif row.length == 3 && (header = rowspan_heading(segs))
+              elsif heading
                 # Prosemirror layout: "«country» ACTION" spans the code
                 # and network rows below it; its own code and network
                 # cells are blank. It opens an action, it is not an entry.
-                action = next_action(amendment, action)
-                action.action_type = header[:action]
-                editor_country = header[:country]
+                action = open_heading_action(amendment, action)
+                action.action_type = heading[:action]
+                editor_country = heading[:country]
               elsif row.length == 3
+                next if segs[1].to_s.match?(BLANK_CELL) && row[1].count <= 1
+
                 if row[1].count > 1
                   row[1].zip(row[2]).each do |r|
                     entry = E212MNCEntry.new
