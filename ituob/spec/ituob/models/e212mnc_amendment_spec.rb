@@ -252,6 +252,31 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     expect(actions.first.entries.first.country_or_area.en).to eq('Hungary')
   end
 
+  [' ', "\u00a0"].each do |separator|
+    it "opens a separate country block when #{separator.inspect} separates the action from its star" do
+      doc = document(
+        table(
+          row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+          row(cell(paragraph('Sweden LIR')), cell(paragraph(' ')), cell(paragraph(' '))),
+          row(cell(paragraph('')), cell(paragraph('240 14')), cell(paragraph('Tele2'))),
+          row(cell(paragraph("International Mobile, shared code LIR#{separator}*")),
+              cell(paragraph(' ')), cell(paragraph(' '))),
+          row(cell(paragraph('')), cell(paragraph('901 53')), cell(paragraph('Inmarsat'))),
+        ),
+      )
+      actions = parse(doc).actions
+
+      expect(actions.map do |action|
+        [action.action_type, action.entries.map do |entry|
+          [entry.country_or_area.en, entry.mcc_mnc_codes, entry.networks]
+        end]
+      end).to eq([
+        ['LIR', [['Sweden', '240 14', 'Tele2']]],
+        ['LIR', [['International Mobile, shared code', '901 53', 'Inmarsat']]],
+      ])
+    end
+  end
+
   context 'OB 1170 table announcements' do
     let(:amendment) do
       parse(YAML.safe_load_file(File.expand_path('../../fixtures/e212mnc/ob1170.yaml', __dir__)))

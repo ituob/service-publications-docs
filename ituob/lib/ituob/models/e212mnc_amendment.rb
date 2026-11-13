@@ -31,7 +31,7 @@ attribute :country, :string
       COUNTRY_ACTION_LINE = /\A(?<country>\p{Lu}[^\d:()]{1,50}?)\s+(?<action>ADD|SUP|LIR|REP)\*?\z/
       # Table cells delimit country headings, including parenthesized
       # names, without the paragraph layout's ambiguity.
-      TABLE_COUNTRY_ACTION_LINE = /\A(?<country>.+?)\s+(?<action>ADD|SUP|REP|LIR|MOD|DEL)\*?\z/
+      TABLE_COUNTRY_ACTION_LINE = /\A(?<country>.+?)\s+(?<action>ADD|SUP|REP|LIR|MOD|DEL)(?:\s*\*)?\z/
       # "Sweden  (extra-territorial use of MCC/MNC, ...)": the heading of a
       # table that repeats codes with the MSIN ranges they may use abroad.
       # Found by string search, not a regex: a lazy run before `\s*\(`
