@@ -74,7 +74,11 @@ attribute :notes, :string, collection: true
 
             c.each do |row|
               next unless row.is_a?(Array)
-              flat = row.map { |cell| cell.is_a?(Array) ? cell.join(' ').strip : cell.to_s.strip }
+              flat = row.map do |cell|
+                text = cell.is_a?(Array) ? cell.join(' ') : cell.to_s
+                text.tr("\u00a0", ' ').strip
+              end
+              next if flat.all?(&:empty?)
 
               # Header rows — skip.
               next if flat[0].to_s.match?(/^Country/) || flat[0].to_s.match?(/^MT$/)
