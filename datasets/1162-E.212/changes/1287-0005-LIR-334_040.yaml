@@ -1,0 +1,24 @@
+type: LIR
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1287'
+identifier:
+  code: 334 040
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 334 040
+    country_or_area:
+      en: Mexico
+    networks: AT&T COMERCIALIZACIÓN MÓVIL, S. DE R.L. DE C.V.
+  - mcc_mnc_codes: 334 130
+    country_or_area:
+      en: Mexico
+    networks: ALESTRA SERVICIOS MÓVILES, S.A. DE C.V.
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'
+reference: OB-1287
+date_active: 2018-11-14 23:00:00.000000000 Z

@@ -1,0 +1,32 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1242'
+identifier:
+  code: 441 207
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 441 207
+    country_or_area:
+      en: Japan
+    networks: Mitsui Knowledge Industry Co., Ltd.
+  - mcc_mnc_codes: 441 208
+    country_or_area:
+      en: Japan
+    networks: CHUDENKO CORPORATION
+  - mcc_mnc_codes: 441 209
+    country_or_area:
+      en: Japan
+    networks: Cable Television TOYAMA Inc.
+  - mcc_mnc_codes: 441 210
+    country_or_area:
+      en: Japan
+    networks: NIPPON TELEGRAPH AND TELEPHONE EAST CORPORATION
+  notes:
+  - "*       MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'
+reference: OB-1242
+date_active: 2018-11-14 23:00:00.000000000 Z

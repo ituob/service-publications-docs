@@ -1,0 +1,40 @@
+type: LIR
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1306'
+identifier:
+  code: 202 01
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 202 01
+    country_or_area:
+      en: Greece
+    networks: OTE AE
+  - mcc_mnc_codes: 202 02
+    country_or_area:
+      en: Greece
+    networks: OTE AE
+  - mcc_mnc_codes: 202 07
+    country_or_area:
+      en: Greece
+    networks: AMD TELECOM
+  - mcc_mnc_codes: 202 09
+    country_or_area:
+      en: Greece
+    networks: NOVA M.A.E.
+  - mcc_mnc_codes: 202 10
+    country_or_area:
+      en: Greece
+    networks: NOVA M.A.E.
+  - mcc_mnc_codes: 202 14
+    country_or_area:
+      en: Greece
+    networks: VODAFONE-PANAFON
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'
+reference: OB-1306
+date_active: 2018-11-14 23:00:00.000000000 Z

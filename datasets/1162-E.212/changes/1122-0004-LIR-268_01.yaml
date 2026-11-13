@@ -1,0 +1,27 @@
+type: LIR
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1122'
+identifier:
+  code: 268 01
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 268 01
+    country_or_area:
+      en: Portugal
+    networks: Vodafone Portugal - Comunicações Pessoais, S.A.
+  - mcc_mnc_codes: 268 03
+    country_or_area:
+      en: Portugal
+    networks: NOS Comunicações, S.A.
+  - mcc_mnc_codes: 268 06
+    country_or_area:
+      en: Portugal
+    networks: MEO - Serviços de Comunicações e Multimédia, S.A.
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"
+reference: OB-1122

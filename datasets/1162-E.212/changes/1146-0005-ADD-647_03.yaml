@@ -1,0 +1,23 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1146'
+identifier:
+  code: 647 03
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 647 03
+    country_or_area:
+      en: French Departments and Territories in the Indian Ocean
+    networks: Telco OI
+  - mcc_mnc_codes: 647 04
+    country_or_area:
+      en: French Departments and Territories in the Indian Ocean
+    networks: Zeop Mobile
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"
+reference: OB-1146

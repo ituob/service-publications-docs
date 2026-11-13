@@ -1,0 +1,44 @@
+type: SUP
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1210'
+identifier:
+  code: 204 06
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 204 06
+    country_or_area:
+      en: Netherlands
+    networks: Mundio Mobile (Netherlands) Ltd
+  - mcc_mnc_codes: 204 17
+    country_or_area:
+      en: Netherlands
+    networks: Intercity Mobile Communications B.V.
+  - mcc_mnc_codes: 204 29
+    country_or_area:
+      en: Netherlands
+    networks: Private Mobile Ltd
+  - mcc_mnc_codes: 204 60
+    country_or_area:
+      en: Netherlands
+    networks: Nextgen Mobile Ltd
+  - mcc_mnc_codes: 204 61
+    country_or_area:
+      en: Netherlands
+    networks: BodyTrace Netherlands B.V.
+  - mcc_mnc_codes: 204 65
+    country_or_area:
+      en: Netherlands
+    networks: AGMS Nederland B.V.
+  - mcc_mnc_codes: 204 68
+    country_or_area:
+      en: Netherlands
+    networks: Roamware (Netherlands) B.V.
+  notes:
+  - "*              MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'
+reference: OB-1210
+date_active: 2018-11-14 23:00:00.000000000 Z

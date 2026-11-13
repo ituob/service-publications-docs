@@ -1,0 +1,23 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '1118'
+reference: OB-1118
+identifier:
+  code: 1118-002
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 603 01
+    country_or_area:
+      en: Algeria
+    networks: Algérie Télécom Mobile « ATM » / GSM/public
+  - mcc_mnc_codes: 603 02
+    country_or_area:
+      en: Algeria
+    networks: Optimum Télécom Algérie « OTA » / GSM/public
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

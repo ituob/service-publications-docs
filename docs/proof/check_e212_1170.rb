@@ -17,7 +17,7 @@ require "ituob"
 
 REGISTER = "e212-mnc"
 AS_OF = 1170
-PINNED_COUNT = 1987        # active entries at issue 1170 from the real replay
+PINNED_COUNT = 1975        # active entries at issue 1170 from the real replay (was 1987 before the OB 1176 heading-row fix: -11 keys SUPed by OB 1164-1170, -1 blank-key row)
 PINNED_FIRST = ["412 01", "412 20", "412 40", "412 50", "412 80"].freeze
 FIRST_N = PINNED_FIRST.size
 

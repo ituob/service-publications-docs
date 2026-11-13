@@ -1,0 +1,32 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1164'
+identifier:
+  code: 440 08
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 440 08
+    country_or_area:
+      en: Japan
+    networks: Panasonic Systems Solutions Japan Co., Ltd
+  - mcc_mnc_codes: 440 09
+    country_or_area:
+      en: Japan
+    networks: Marubeni Wireless Communications Inc.
+  - mcc_mnc_codes: 440 11
+    country_or_area:
+      en: Japan
+    networks: Rakuten Mobile Network, Inc.
+  - mcc_mnc_codes: 440 12
+    country_or_area:
+      en: Japan
+    networks: CABLE MEDIA WAIWAI CORPORATION
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"
+reference: OB-1164
+date_active: 2018-12-15

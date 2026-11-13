@@ -1,0 +1,51 @@
+type: SUP
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1321'
+reference: OB-1321
+identifier:
+  code: 1321-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 505 05
+    country_or_area:
+      en: Australia
+    networks: The Ozitel Network Pty. Ltd.
+  - mcc_mnc_codes: 505 08
+    country_or_area:
+      en: Australia
+    networks: One.Tel GSM 1800 Pty. Ltd.
+  - mcc_mnc_codes: 505 09
+    country_or_area:
+      en: Australia
+    networks: Airnet Commercial Australia Ltd.
+  - mcc_mnc_codes: 505 20
+    country_or_area:
+      en: Australia
+    networks: Ausgrid Corporation
+  - mcc_mnc_codes: 505 22
+    country_or_area:
+      en: Australia
+    networks: iiNet Ltd
+  - mcc_mnc_codes: 505 28
+    country_or_area:
+      en: Australia
+    networks: RCOM International Pty Ltd
+  - mcc_mnc_codes: 505 30
+    country_or_area:
+      en: Australia
+    networks: Compatel Limited
+  - mcc_mnc_codes: 505 47
+    country_or_area:
+      en: Australia
+    networks: Woodside Energy Limited
+  - mcc_mnc_codes: 505 99
+    country_or_area:
+      en: Australia
+    networks: One.Tel GSM 1800 Pty. Ltd.
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

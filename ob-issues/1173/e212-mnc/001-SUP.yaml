@@ -1,0 +1,18 @@
+type: SUP
+date_requested: &1 2018-12-15
+date_active: *1
+ob_issue_no: '1173'
+reference: OB-1173
+identifier:
+  code: 1173-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 280 23
+    country_or_area:
+      en: Cyprus
+    networks: Mundio Mobile Cyprus Ltd
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil  *MNC:  Mobile Network Code / Code de réseau mobile / Indicativo
+    de red para el servicio móvil"

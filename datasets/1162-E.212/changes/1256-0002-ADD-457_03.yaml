@@ -1,0 +1,24 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1256'
+identifier:
+  code: 457 03
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 457 03
+    country_or_area:
+      en: Lao P.D.R.
+    networks: Star Telecom Co., Ltd
+  - mcc_mnc_codes: 457 07
+    country_or_area:
+      en: Lao P.D.R.
+    networks: Best Telecom Co., Ltd
+  notes:
+  - "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile /
+    Indicativo de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'
+reference: OB-1256
+date_active: 2018-11-14 23:00:00.000000000 Z

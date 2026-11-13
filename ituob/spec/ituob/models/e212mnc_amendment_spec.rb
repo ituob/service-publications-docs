@@ -129,6 +129,46 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     expect(lir.entries.map(&:mcc_mnc_codes)).to eq(['302 490', '302 491'])
   end
 
+  describe 'rowspan heading layout (OB 1176)' do
+    # "«country» ACTION" sits in a rowspan cell beside blank code and
+    # network cells; the code/network rows below it have two cells.
+    def heading(text)
+      row(cell(paragraph(text)), cell(paragraph(" ")), cell(paragraph(" ")))
+    end
+
+    def pair(code, network)
+      row(cell(paragraph(code)), cell(paragraph(network)))
+    end
+
+    let(:amendment) do
+      parse(document(table(
+        row(cell(paragraph('Country/Geographical area')), cell(paragraph('MCC+MNC *')),
+            cell(paragraph('Operator/Network'))),
+        heading('Denmark ADD'), pair('238 96', 'Telia Danmark'),
+        heading('South Africa SUP'), pair('655 04', 'Sasol (Pty) Ltd'), pair('655 11', 'SAPS Gauteng'),
+        heading('International Mobile, shared code LIR *'), pair('901 53', 'Tele2 Sverige AB')
+      )))
+    end
+
+    it 'opens one typed action per heading instead of a blank-key entry' do
+      expect(amendment.actions.map(&:action_type)).to eq(%w[ADD SUP LIR])
+      codes = amendment.actions.flat_map(&:entries).map(&:mcc_mnc_codes)
+      expect(codes).to eq(['238 96', '655 04', '655 11', '901 53'])
+    end
+
+    it 'carries the heading country to every printed row under it' do
+      countries = amendment.actions.map { |action| action.entries.map { |e| e.country_or_area.en }.uniq }
+      expect(countries).to eq([['Denmark'], ['South Africa'], ['International Mobile, shared code']])
+    end
+
+    it 'still reads a three-cell row with a code as an entry' do
+      doc = document(table(heading('Denmark ADD'),
+                           row(cell(paragraph('Denmark')), cell(paragraph('238 97')), cell(paragraph('Net')))))
+      entries = parse(doc).actions.flat_map(&:entries)
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['238 97'])
+    end
+  end
+
   describe 'country-first paragraph layout (no position column)' do
     it 'opens an action with the full parenthesised country heading' do
       doc = document(
