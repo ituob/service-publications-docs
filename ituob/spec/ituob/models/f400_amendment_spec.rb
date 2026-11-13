@@ -174,8 +174,9 @@ RSpec.describe Ituob::Models::F400Amendment do
     context 'when a continuation row has MT next to non-service text' do
       let(:rows) { [real, ['', '', '', 'MT', '4', '', '', '', '']] }
 
-      it 'keeps it as continuation data' do
-        expect(entries.first.contact_address[:address_lines]).to include('MT')
+      it 'treats it as a continuation row without leaking MT or a new entry' do
+        expect(entries.length).to eq(1)
+        expect(entries.first.contact_address[:address_lines]).to eq(['Addr'])
       end
     end
   end
