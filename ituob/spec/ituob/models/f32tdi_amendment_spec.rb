@@ -202,6 +202,34 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
       expect(country.es).to eq('EGIPTO')
     end
 
+    it 'starts a new country when a coded row prints its own country and network' do
+      doc = doc_with_rows(
+        row(cell(paragraph('ESPAGNE 1)')), cell(paragraph('Correos')), cell(paragraph('ES-')),
+            cell(paragraph('MADRID')), cell(paragraph('ESMA'))),
+        row(cell(paragraph('ESPAGNE')), cell(paragraph('Correos')), cell(paragraph('ES-')),
+            cell(paragraph('BARCELONA')), cell(paragraph('ESBX'))),
+        row(cell(paragraph('FRANCE')), cell(paragraph('France Telecom')), cell(paragraph('FR-')),
+            cell(paragraph('PARIS')), cell(paragraph('FRPA'))),
+        row(cell(paragraph('')), cell(paragraph('')), cell(paragraph('')),
+            cell(paragraph('LYON')), cell(paragraph('FRLY'))),
+      )
+      entries = parse(doc).actions.first.entries
+      keys = entries.map { |entry| [entry.country_or_area.fr, entry.network_code, entry.office_code] }
+
+      expect(keys).to eq([
+        ['ESPAGNE', 'ES-', 'ESMA'],
+        ['ESPAGNE', 'ES-', 'ESBX'],
+        ['FRANCE', 'FR-', 'FRPA'],
+        ['FRANCE', 'FR-', 'FRLY'],
+      ])
+      expect(entries.map { |entry| entry.country_or_area.en }).to all(be_nil)
+      expect(entries.map { |entry| entry.country_or_area.es }).to all(be_nil)
+      expect(entries.first(2).map { |entry| entry.country_or_area_note.en }).to all(eq('1)'))
+      expect(entries.drop(2).map(&:country_or_area_note)).to all(be_nil)
+      expect(entries.first(2).map(&:network_roa)).to all(eq('Correos'))
+      expect(entries.drop(2).map(&:network_roa)).to all(eq('France Telecom'))
+    end
+
     it 'fills language variants across coded rows before starting a complete new country' do
       doc = doc_with_rows(
         row(cell(paragraph('BAHREÏN 1)')), cell(paragraph('Unitel')), cell(paragraph('BN- -')),

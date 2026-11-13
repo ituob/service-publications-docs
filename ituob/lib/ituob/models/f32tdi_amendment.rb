@@ -200,7 +200,7 @@ attribute :notes, :string, collection: true
 
       # A country-only row prints one language of the current country.
       # Fill the first empty fr/en/es slot (or open a new country).
-      def self.merge_country_variant(state, paragraphs)
+      def self.merge_country_variant(state, paragraphs, new_country: false)
         parts, notes = paragraphs.partition { |text| !note_paragraph?(text) }
         parts = parts.map do |text|
           text.sub(/\s+(\d+\)|\*)\z/) do
@@ -217,7 +217,8 @@ attribute :notes, :string, collection: true
         end
 
         if state.country.nil? || parts.length == 3 ||
-            (language_values(state.country).length == 3 && !language_values(state.country).include?(value))
+            ((new_country || language_values(state.country).length == 3) &&
+              !language_values(state.country).include?(value))
           state.country = trilingual_country(parts)
           state.country_note = nil
         elsif !language_values(state.country).include?(value)
@@ -234,9 +235,9 @@ attribute :notes, :string, collection: true
 
       def self.build_entry(texts, state)
         state.in_country_heading = false
-        # Language variants can span headings and coded office rows.
-        # Share the country so later languages also reach earlier entries.
-        merge_country_variant(state, texts[0])
+        # A printed country with its own network starts a country block.
+        # Rows inheriting the network can continue the heading's languages.
+        merge_country_variant(state, texts[0], new_country: texts[1..2].any?(&:any?))
         update_network(texts, state)
 
         F32TDIEntry.new(
