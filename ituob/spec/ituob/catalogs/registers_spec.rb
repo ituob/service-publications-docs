@@ -20,6 +20,24 @@ RSpec.describe Ituob::Catalogs::Registers do
       expect(entry.recommendation).to eq('E.212')
       expect(entry.key_field).to eq('mcc_mnc_codes')
     end
+
+    it 'flags only annex seeds positioned on their issue date' do
+      flagged = described_class.all.select(&:seed_includes_seed_issue)
+
+      expect(flagged.map(&:register_id)).to eq(%w[E118_IIN E164_CC Q708_ISPC])
+      flagged.each do |entry|
+        root = File.expand_path('../../../../ob-issues', __dir__)
+        annex = Ituob::Support::Yaml.safe_load_file(File.join(root, entry.seed_issue.to_s, 'annexes.yaml'))
+        issue = Ituob::Support::Yaml.safe_load_file(File.join(root, entry.seed_issue.to_s, 'meta.yaml'))
+
+        expect(annex.fetch(entry.register_id).fetch('position_on')).to eq(issue.fetch('publication_date'))
+      end
+    end
+
+    it 'defaults to replaying seed-issue patches' do
+      expect(described_class.find('F1').seed_includes_seed_issue).to be(false)
+      expect(described_class.find('E164_NOTE_N').seed_includes_seed_issue).to be(false)
+    end
   end
 
   describe '.find_by_slug' do

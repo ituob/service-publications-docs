@@ -22,6 +22,8 @@ registers:
     parser_class: Ituob::Models::E118Amendment
     renderer: iin-table
     seed_issue: 1161
+    # ob-issues/1161/annexes.yaml:2 position_on matches meta.yaml:2 (2018-12-01).
+    seed_includes_seed_issue: true
     seed_path: datasets/1161-E.118
 
   # === E.164 ===
@@ -59,6 +61,8 @@ registers:
     renderer: cc-table
     seed_issue: 1114
     seed_path: datasets/1114-E.164D
+    # ob-issues/1114/annexes.yaml:2 position_on matches meta.yaml:2 (2016-12-15).
+    seed_includes_seed_issue: true
 
   # The E.164 notes lists are printed inside the E164_CC amendments;
   # rows route to a note register by code prefix.
@@ -220,6 +224,8 @@ registers:
     parser_class: Ituob::Models::Q708ISPCAmendment
     renderer: ispc-table
     seed_issue: 1109
+    # ob-issues/1109/annexes.yaml:2 position_on matches meta.yaml:2 (2016-10-01).
+    seed_includes_seed_issue: true
     seed_path: datasets/1109-Q.708B
 
   - register_id: Q708_SANC

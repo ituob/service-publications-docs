@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'yaml'
+require 'ituob/catalogs'
 
 module Ituob
   module Registers
@@ -25,6 +26,8 @@ module Ituob
         @seed_path = seed_path.to_s
         @seed_issue = seed_issue&.to_i
         @key_field = key_field.to_s
+        entry = Ituob::Catalogs::Registers.find(register_id)
+        @seed_includes_seed_issue = entry&.seed_includes_seed_issue == true && entry.seed_issue == @seed_issue
       end
 
       def each_sorted
@@ -36,6 +39,9 @@ module Ituob
           # before the seed issue; replaying them would target entries
           # of a list state that no longer exists.
           next if @seed_issue && c.ob_issue_no && c.ob_issue_no < @seed_issue
+          # Only catalogued annexes positioned on the issue date also
+          # embody that issue's patches. Other seeds remain inclusive.
+          next if @seed_includes_seed_issue && c.ob_issue_no == @seed_issue
 
           yield c
         end
