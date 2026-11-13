@@ -1,0 +1,24 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1348'
+reference: OB-1348
+identifier:
+  code: 1348-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-103-2
+    country:
+      en: Lesotho
+    dec: '13114'
+    signal_point_name: MSLKK03
+    signal_point_operator: Vodacom Lesotho (pty) ltd.
+  - ipsc: 6-103-3
+    country:
+      en: Lesotho
+    dec: '13115'
+    signal_point_name: MSMSW03
+    signal_point_operator: Vodacom Lesotho (pty) ltd.
+  notes:
+  - 'ISPC: International Signalling Point Codes.'

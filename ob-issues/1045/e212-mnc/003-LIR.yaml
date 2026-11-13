@@ -1,0 +1,43 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '1045'
+reference: OB-1045
+identifier:
+  code: 1045-003
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 240 03
+    country_or_area:
+      en: Sweden
+    networks: Netett Sverige AB
+  - mcc_mnc_codes: 240 12
+    country_or_area:
+      en: Sweden
+    networks: Lycamobile Sweden Limited
+  - mcc_mnc_codes: 240 13
+    country_or_area:
+      en: Sweden
+    networks: Alltele Företag Sverige AB
+  - mcc_mnc_codes: 240 16
+    country_or_area:
+      en: Sweden
+    networks: 42 Telecom AB
+  - mcc_mnc_codes: 240 21
+    country_or_area:
+      en: Sweden
+    networks: Trafikverket ICT
+  - mcc_mnc_codes: 240 27
+    country_or_area:
+      en: Sweden
+    networks: Fogg Mobile AB
+  - mcc_mnc_codes: 240 28
+    country_or_area:
+      en: Sweden
+    networks: CoolTEL Aps
+  notes:
+  - "*     MCC: Country Code / Indicatif de pays du mobile / Indicativo de país para
+    el servicio móvil"
+  - 'MNC: Network Code / Code de réseau mobile / Indicativo de red para el servicio
+    móvil'

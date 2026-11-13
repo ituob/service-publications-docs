@@ -4,12 +4,13 @@ date_active:
 ob_issue_no: '1122'
 reference: OB-1122
 identifier:
-  code: Portugal /
+  code: Portugal / PRT
 data:
   _class: M1400Amendment
-  position: Portugal /
+  position: Portugal / PRT
   entries:
-  - country_or_area:
+  - iso_code: PRT
+    country_or_area:
       en: Portugal
     company_name: Companhia Portugesa Rádio Marconi (CPRM)
     address_line_1: Av. Alvaro País, 2, Edificio Marconi

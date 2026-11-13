@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1170'
 reference: OB-1170
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Avacon Connect GmbH
     address_line_1: Peiner Str. 47
     address_line_2: D-30880 LAATZEN
@@ -19,8 +20,9 @@ data:
     tel: "+49 151 5259 7663"
     email:
     - heiko.kusch@avacon.de
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Jörg Weber Kommunikation KG
     address_line_1: Am Hasensprung 2
     address_line_2: D-16567 MUEHLENBECK
@@ -30,8 +32,9 @@ data:
     fax: "+49 33056 41359"
     email:
     - info@jowekom.de
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: linefinity GmbH & Co.KG
     address_line_1: Schwalbenweg 4
     address_line_2: D-74229 OEDHEIM
@@ -41,8 +44,9 @@ data:
     fax: "+49 32 222011019"
     email:
     - info@linefinity.com
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Wwcon Waerme-Wohnen-Contracting GmbH
     address_line_1: Kaiserin-Augusta-Allee 108
     address_line_2: D-10553 BERLIN

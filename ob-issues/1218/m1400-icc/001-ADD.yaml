@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1218'
 reference: OB-1218
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Stadtwerke Pforzheim GmbH & Co.KG
     address_line_1: Sandweg 22
     address_line_2: D-75179 PFORZHEIM
@@ -18,4 +19,6 @@ data:
     contact: Mr Kristian Kronenwetter
     tel: "+49 7231 3971 7610"
     fax: "+49 7231 3971 7009"
+    email:
+    - kristian.kronenwetter@stadtwerke-pforzheim.de
   notes: []

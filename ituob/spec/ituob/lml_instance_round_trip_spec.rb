@@ -19,9 +19,9 @@ def lml_round_trip_structured_files
       resolved = Ituob::Support::CorpusTree.resolve_for(rel, data)
       next if resolved.nil?
       # General message envelopes carry freeform ProseMirror payloads
-      # (hundreds of KB); the instance-format round-trip is scoped to
-      # structured data. Their shapes are enforced by
-      # validate_data_lml.rb instead.
+      # (hundreds of KB) and push this spec past an hour. They are checked
+      # against the stored files in general_messages_lossless_spec.rb,
+      # which is the stronger test (this one compares class with class).
       next if resolved.start_with?('General')
 
       if resolved == 'RegisterChange'
@@ -107,7 +107,14 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
     key.match?(/\A\w+\z/) ? key : "\"#{lml_escape(key)}\""
   end
 
-  def lml_body(hash, indent)
+  # A Hash-typed attribute is data, not an instance: it is written as an
+  # inline map (`{ en = true }`), which hydrates to a plain Hash. Written
+  # as `instance { }` it would hydrate with the instance's `_name` key.
+  def lml_map(hash)
+    "{ #{hash.map { |k, v| "#{lml_key(k)} = #{lml_scalar(v)}" }.join(' ')} }"
+  end
+
+  def lml_body(hash, indent, map_keys = [])
     prefix = '  ' * indent
     hash.filter_map do |key, value|
       next if value.nil?
@@ -115,7 +122,11 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
       rendered =
         case value
         when Hash
-          "instance {\n#{lml_body(value, indent + 1)}\n#{prefix}}"
+          if map_keys.include?(key.to_s) && value.values.none? { |v| v.is_a?(Hash) || v.is_a?(Array) }
+            lml_map(value)
+          else
+            "instance {\n#{lml_body(value, indent + 1)}\n#{prefix}}"
+          end
         when Array
           items = value.map do |item|
             if item.is_a?(Hash)
@@ -132,8 +143,22 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
     end.join("\n")
   end
 
-  def to_lml_instance(instance, type_name)
-    "instance #{type_name} {\n#{lml_body(normalize_values(instance.to_hash), 1)}\n}"
+  # +maps+: write Hash-typed attributes as inline maps. Only the
+  # ontology hydrator reads those; the Format adapter reads hashes
+  # written as `instance { }`.
+  def to_lml_instance(instance, type_name, maps: false)
+    map_keys = maps ? instance.class.attributes.select { |_, a| a.type == Lutaml::Model::Type::Hash }.keys.map(&:to_s) : []
+    "instance #{type_name} {\n#{lml_body(normalize_values(instance.to_hash), 1, map_keys)}\n}"
+  end
+
+  # LML has no literal for an absent collection: leaving it out is the
+  # only spelling, and the hydrated instance then holds the default [].
+  def without_empty_lists(obj)
+    case obj
+    when Hash then obj.each_with_object({}) { |(k, v), h| h[k] = without_empty_lists(v) unless v == [] }
+    when Array then obj.map { |v| without_empty_lists(v) }
+    else obj
+    end
   end
 
   it 'has the corpus available' do
@@ -216,10 +241,10 @@ RSpec.describe 'LML instance round-trip (YAML instance == LML instance)' do
         original = Ituob::Models::IssueMetadata.from_yaml(
           File.read(path), permitted_classes: [Date, Time]
         )
-        lml_text = to_lml_instance(original, 'IssueMetadata')
+        lml_text = to_lml_instance(original, 'IssueMetadata', maps: true)
         doc = Lutaml::Lml.parse_document(StringIO.new(lml_text))
         hydrated = compiler.hydrate(doc)
-        if normalized(hydrated.to_hash) == normalized(original.to_hash)
+        if without_empty_lists(normalized(hydrated.to_hash)) == without_empty_lists(normalized(original.to_hash))
           round_trips += 1
         else
           failures << rel

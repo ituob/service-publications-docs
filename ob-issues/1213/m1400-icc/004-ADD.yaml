@@ -8,8 +8,9 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: VoIPSun GmbH
     address_line_1: Yorckstrasse 22
     address_line_2: D-93049 REGENSBURG
@@ -17,4 +18,6 @@ data:
     contact: Mr Daniel Hoeppler
     tel: "+49 941 9000 994 0"
     fax: "+49 941 9000 994 9"
+    email:
+    - info@voipsun.com
   notes: []

@@ -4,17 +4,20 @@ date_active: *1
 ob_issue_no: '1299'
 reference: OB-1299
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: AS33891 Netzbetrieb GmbH
     address_line_1: Deutschherrnstrasse 15 - 19
     address_line_2: D-90429 NUREMBERG
     carrier_code: '33891'
     contact: Mr Andreas Goetz
     tel: "+49 911 31043401"
+    email:
+    - info@as33891.net
   notes: []

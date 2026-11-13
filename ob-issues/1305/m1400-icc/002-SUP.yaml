@@ -4,16 +4,19 @@ date_active: *1
 ob_issue_no: '1305'
 reference: OB-1305
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: GREENFIBER Netz & Management GmbH
     address_line_1: Moenckebergstrasse 19
     address_line_2: D-22095 HAMBURG
     carrier_code: GNM1
     contact: Mr Vincent Komossa
+    email:
+    - v.komossa@greenfiber.de
   notes: []

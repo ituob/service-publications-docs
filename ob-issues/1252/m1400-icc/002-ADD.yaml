@@ -8,8 +8,9 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Loogisch GmbH
     address_line_1: Kaiser-Wilhelm-Strasse 29
     address_line_2: D-46395 BOCHOLT
@@ -17,4 +18,6 @@ data:
     contact: Mr Khalid Lamouadni
     tel: "+49 231 997 756 730"
     fax: "+49 2871 36130 43"
+    email:
+    - k.lamouadni@loogisch.de
   notes: []

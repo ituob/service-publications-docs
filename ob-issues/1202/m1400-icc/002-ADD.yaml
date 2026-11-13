@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Westnetz w.V.
     address_line_1: Karl-Heine-Strasse 93
     address_line_2: D-04229 LEIPZIG
     carrier_code: WNET
     contact: Mr. David Lamparter
     tel: "+49 341 3929 1490"
+    email:
+    - tech@westnetz.org
   notes: []

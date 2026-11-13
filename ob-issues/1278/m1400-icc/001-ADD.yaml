@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1278'
 reference: OB-1278
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Stadtwerke Saarlouis GmbH
     address_line_1: Holzendorffer Strasse 12
     address_line_2: D-66740 SAARLOUIS
@@ -19,8 +20,9 @@ data:
     tel: "+49 6831 9596 477"
     email:
     - rink@swsls.de
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: DSI GmbH Daten Service Informationssysteme
     address_line_1: Carolinenstrasse 1
     address_line_2: D-01097 DRESDEN
@@ -28,4 +30,6 @@ data:
     contact: Mr Thorsten Hellfach
     tel: "+49 351 213220"
     fax: "+49 351 213220"
+    email:
+    - info@dsi.net
   notes: []

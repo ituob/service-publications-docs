@@ -1,0 +1,30 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1345'
+reference: OB-1345
+identifier:
+  code: 1345-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 5-212-4
+    country:
+      en: Ireland
+    dec: '11940'
+    signal_point_name: appfw01.dubae2
+    signal_point_operator: Sky Ireland
+  - ipsc: 5-212-5
+    country:
+      en: Ireland
+    dec: '11941'
+    signal_point_name: appfw01.dubaz1
+    signal_point_operator: Sky Ireland
+  - ipsc: 5-212-6
+    country:
+      en: Ireland
+    dec: '11942'
+    signal_point_name: appfw01.dubaz2
+    signal_point_operator: Sky Ireland
+  notes:
+  - 'ISPC: International Signalling Point Codes.'

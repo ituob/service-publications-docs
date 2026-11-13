@@ -40,9 +40,6 @@
   "1002": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 28",
-        "note": "28",
         "entries": [
           {
             "mcc_mnc_codes": "238 28",
@@ -90,7 +87,7 @@
   "1003": {
     "actions": [
       {
-        "action_type": "SUP",
+        "action_type": "ADD",
         "position": "P 11",
         "note": "11",
         "entries": [
@@ -100,7 +97,14 @@
               "en": "French Polynesia"
             },
             "networks": "Pacific Mobile Telecom"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 11",
+        "note": "11",
+        "entries": [
           {
             "mcc_mnc_codes": "547 02",
             "country_or_area": {
@@ -118,9 +122,6 @@
   "1004": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 14",
-        "note": "14",
         "entries": [
           {
             "mcc_mnc_codes": "505 23",
@@ -167,9 +168,9 @@
   "1006": {
     "actions": [
       {
-        "action_type": "LIR",
-        "position": "P 31",
-        "note": "31",
+        "action_type": "ADD",
+        "position": "P 9",
+        "note": "9",
         "entries": [
           {
             "mcc_mnc_codes": "230 08",
@@ -177,7 +178,14 @@
               "en": "Czech Republic"
             },
             "networks": "Compatel s.r.o"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "REP",
+        "position": "P 27",
+        "note": "27",
+        "entries": [
           {
             "mcc_mnc_codes": "226                 01",
             "country_or_area": {
@@ -212,7 +220,14 @@
           {
             "mcc_mnc_codes": "226                 11",
             "networks": "Enigma-System"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "position": "P 31",
+        "note": "31",
+        "entries": [
           {
             "mcc_mnc_codes": "228                         02",
             "country_or_area": {
@@ -237,8 +252,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 32",
-        "note": "32",
+        "position": "P 3",
+        "note": "3",
         "entries": [
           {
             "mcc_mnc_codes": "365 840",
@@ -246,28 +261,56 @@
               "en": "Anguilla"
             },
             "networks": "Cable and Wireless (Anguilla) Limited trading as LIME"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 3",
+        "note": "3",
+        "entries": [
           {
             "mcc_mnc_codes": "344 920",
             "country_or_area": {
               "en": "Antigua"
             },
             "networks": "Cable & Wireless Antigua and Barbuda Limited trading as LIME"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 5",
+        "note": "5",
+        "entries": [
           {
             "mcc_mnc_codes": "342 600",
             "country_or_area": {
               "en": "Barbados"
             },
             "networks": "Cable & Wireless (Barbados) Limited"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 6",
+        "note": "6",
+        "entries": [
           {
             "mcc_mnc_codes": "348 170",
             "country_or_area": {
               "en": "British Virgin Islands"
             },
             "networks": "Cable and Wireless (BVI) Limited trading as LIME"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "REP",
+        "position": "P 7",
+        "note": "7",
+        "entries": [
           {
             "mcc_mnc_codes": "302 22",
             "country_or_area": {
@@ -505,21 +548,40 @@
               "en": "[\"Canada\"]"
             },
             "networks": "Wightman Telecom"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 7",
+        "note": "7",
+        "entries": [
           {
             "mcc_mnc_codes": "346 140",
             "country_or_area": {
               "en": "Cayman Islands"
             },
             "networks": "Cable and Wireless (Cayman Islands) Limited trading as LIME"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "366 110",
             "country_or_area": {
               "en": "Dominica"
             },
             "networks": "Cable & Wireless Dominica Limited trading as LIME"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "REP",
+        "position": "P 11",
+        "note": "11",
+        "entries": [
           {
             "mcc_mnc_codes": "208  01",
             "country_or_area": {
@@ -722,49 +784,94 @@
               "en": "[\"France\"]"
             },
             "networks": "Orange France"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "352 110",
             "country_or_area": {
               "en": "Grenada"
             },
             "networks": "Cable & Wireless Grenada Limited trading as LIME"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 19",
+        "note": "19",
+        "entries": [
           {
             "mcc_mnc_codes": "338 110",
             "country_or_area": {
               "en": "Jamaica"
             },
             "networks": "Cable & Wireless Jamaica Limited trading as LIME"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "354 860",
             "country_or_area": {
               "en": "Montserrat"
             },
             "networks": "Cable and Wireless (West Indies) Limited trading as LIME"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 29",
+        "note": "29",
+        "entries": [
           {
             "mcc_mnc_codes": "356 110",
             "country_or_area": {
               "en": "St. Kitts and Nevis"
             },
             "networks": "Cable & Wireless St. Kitts & Nevis Limited trading as LIME"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 29",
+        "note": "29",
+        "entries": [
           {
             "mcc_mnc_codes": "358 110",
             "country_or_area": {
               "en": "St. Lucia"
             },
             "networks": "Cable & Wireless (St. Lucia) Limited trading as LIME"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 29",
+        "note": "29",
+        "entries": [
           {
             "mcc_mnc_codes": "360 110",
             "country_or_area": {
               "en": "St. Vincent and the Grenadines"
             },
             "networks": "Cable & Wireless St. Vincent and the Grenadines Limited trading as LIME"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "REP",
+        "position": "P 29",
+        "note": "29",
+        "entries": [
           {
             "mcc_mnc_codes": "214 01",
             "country_or_area": {
@@ -867,14 +974,26 @@
           {
             "mcc_mnc_codes": "214 27",
             "networks": "SCN Truphone, SL"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "228        02 228        12",
             "country_or_area": {
               "en": "Switzerland"
             },
             "networks": "Sunrise Communications AG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 32",
+        "note": "32",
+        "entries": [
           {
             "mcc_mnc_codes": "376 350",
             "country_or_area": {
@@ -919,14 +1038,19 @@
               "en": "Sweden"
             },
             "networks": "Interactive digital media GmbH"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
-            "mcc_mnc_codes": "Tele 2 Sverige AB",
+            "mcc_mnc_codes": "240 07",
             "country_or_area": {
-              "en": "240 07"
+              "en": "P    40     Sweden"
             },
-            "networks": "The range dedicated for the Netherlands will not be used in Sweden",
-            "range": "The Netherlands"
+            "networks": "Tele 2 Sverige AB",
+            "range": "The range dedicated for the Netherlands will not be used in Sweden 6680000000 – 6689999999 (The Netherlands)"
           }
         ]
       }
@@ -938,9 +1062,9 @@
   "1010": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
+        "action_type": "SUP",
+        "position": "P 9",
+        "note": "9",
         "entries": [
           {
             "mcc_mnc_codes": "238 30",
@@ -948,14 +1072,28 @@
               "en": "Denmark"
             },
             "networks": "Telia A/S"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 23",
+        "note": "23",
+        "entries": [
           {
             "mcc_mnc_codes": "646 03",
             "country_or_area": {
               "en": "Madagascar"
             },
             "networks": "MADAMOBIL"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 29",
+        "note": "29",
+        "entries": [
           {
             "mcc_mnc_codes": "655 04",
             "country_or_area": {
@@ -982,9 +1120,6 @@
   "1011": {
     "actions": [
       {
-        "action_type": "by:",
-        "position": "P 5",
-        "note": "5",
         "entries": [
           {
             "mcc_mnc_codes": "350 000",
@@ -992,7 +1127,14 @@
               "en": "Bermuda"
             },
             "networks": "Bermuda Digital Communications Limited (CellOne)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "REP",
+        "position": "P 5",
+        "note": "5",
+        "entries": [
           {
             "mcc_mnc_codes": "724 00",
             "country_or_area": {
@@ -1111,7 +1253,7 @@
   "1012": {
     "actions": [
       {
-        "action_type": "ADD",
+        "action_type": "SUP",
         "position": "P 9",
         "note": "9",
         "entries": [
@@ -1121,14 +1263,28 @@
               "en": "Czech Republic"
             },
             "networks": "Vodafone Czech Republic a.s. R&D Centre"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 9",
+        "note": "9",
+        "entries": [
           {
             "mcc_mnc_codes": "630 90",
             "country_or_area": {
               "en": "Dem. Rep. of the Congo"
             },
             "networks": "AFFRICELL-RDC"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 9",
+        "note": "9",
+        "entries": [
           {
             "mcc_mnc_codes": "238 04",
             "country_or_area": {
@@ -1147,9 +1303,9 @@
   "1013": {
     "actions": [
       {
-        "action_type": "SUP",
-        "position": "P 31",
-        "note": "31",
+        "action_type": "ADD",
+        "position": "P 19",
+        "note": "19",
         "entries": [
           {
             "mcc_mnc_codes": "425 18 425 20",
@@ -1157,7 +1313,14 @@
               "en": "Israel"
             },
             "networks": "Cellact Communications  Ltd (MVNO) Bezeq Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 31",
+        "note": "31",
+        "entries": [
           {
             "mcc_mnc_codes": "228 07",
             "country_or_area": {
@@ -1176,9 +1339,6 @@
   "1014": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 18",
-        "note": "18",
         "entries": [
           {
             "mcc_mnc_codes": "712 04",
@@ -1186,21 +1346,42 @@
               "en": "Costa Rica"
             },
             "networks": "Azules y Platas S.A."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 8",
+        "note": "8",
+        "entries": [
           {
             "mcc_mnc_codes": "712 04",
             "country_or_area": {
               "en": "Costa Rica"
             },
             "networks": "Telefónica de Costa Rica, TC, S.A."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 32",
+        "note": "32",
+        "entries": [
           {
             "mcc_mnc_codes": "641 40",
             "country_or_area": {
               "en": "Uganda"
             },
             "networks": "Civil Aviation Authority (CAA)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 18",
+        "note": "18",
+        "entries": [
           {
             "mcc_mnc_codes": "901 37",
             "country_or_area": {
@@ -1220,8 +1401,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 19",
-        "note": "19",
+        "position": "P 4",
+        "note": "4",
         "entries": [
           {
             "mcc_mnc_codes": "505 25",
@@ -1229,7 +1410,14 @@
               "en": "Australia"
             },
             "networks": "Pilbara Iron Company (Services) Pty Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "REP",
+        "position": "P 7",
+        "note": "7",
+        "entries": [
           {
             "mcc_mnc_codes": " 220",
             "country_or_area": {
@@ -1502,14 +1690,28 @@
               "en": "[\"Canada\"]"
             },
             "networks": "Test"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 19",
+        "note": "19",
+        "entries": [
           {
             "mcc_mnc_codes": "338 050",
             "country_or_area": {
               "en": "Jamaica"
             },
             "networks": "Mossel (Jamaica) Ltd."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 19",
+        "note": "19",
+        "entries": [
           {
             "mcc_mnc_codes": "338 050",
             "country_or_area": {
@@ -1528,9 +1730,9 @@
   "1016": {
     "actions": [
       {
-        "action_type": "12)",
-        "position": "P 40",
-        "note": "40",
+        "action_type": "SUP",
+        "position": "P 9",
+        "note": "9",
         "entries": [
           {
             "mcc_mnc_codes": "238 66",
@@ -1538,14 +1740,28 @@
               "en": "Denmark"
             },
             "networks": "Telia A/S"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 9",
+        "note": "9",
+        "entries": [
           {
             "mcc_mnc_codes": "238 66",
             "country_or_area": {
               "en": "Denmark"
             },
             "networks": "TT-Netvaerket P/S"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 16",
+        "note": "16",
+        "entries": [
           {
             "mcc_mnc_codes": "405 05",
             "country_or_area": {
@@ -1776,7 +1992,14 @@
               "en": " "
             },
             "networks": "Aircell Ltd, Karnataka"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 16",
+        "note": "16",
+        "entries": [
           {
             "mcc_mnc_codes": "405 005",
             "country_or_area": {
@@ -2133,28 +2356,47 @@
               "en": " "
             },
             "networks": "Dishnet Wireless Ltd, Punjab"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 19",
+        "note": "19",
+        "entries": [
           {
             "mcc_mnc_codes": "272 02",
             "country_or_area": {
               "en": "Irlande"
             },
             "networks": "Digifone MMO2 Ltd, o2 Communications (Ireland) Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 19",
+        "note": "19",
+        "entries": [
           {
             "mcc_mnc_codes": "272 02",
             "country_or_area": {
               "en": "Ireland"
             },
             "networks": "Telefonica Ireland"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
-            "mcc_mnc_codes": "Swisscom (Schweiz AG)",
+            "mcc_mnc_codes": "228 01",
             "country_or_area": {
-              "en": "228 01"
+              "en": "P  40  Switzerland   ADD"
             },
-            "networks": "20XXXXXXXX-35XXXXXXXX 38XXXXXXXX 40XXXXXXXX-44XXXXXXXX 47XXXXXXXX 52XXXXXXXX 59XXXXXXXX 60XXXXXXXX-62XXXXXXXX 72XXXXXXXX 77XXXXXXXX 80XXXXXXXX (Switzerland)",
-            "range": "Principality of Liechtenstein"
+            "networks": "Swisscom (Schweiz AG)",
+            "range": "20XXXXXXXX-35XXXXXXXX 38XXXXXXXX 40XXXXXXXX-44XXXXXXXX 47XXXXXXXX 52XXXXXXXX 59XXXXXXXX 60XXXXXXXX-62XXXXXXXX 72XXXXXXXX 77XXXXXXXX 80XXXXXXXX (Switzerland) 37XXXXXXXX (Liechtenstein)"
           }
         ]
       }
@@ -2164,9 +2406,9 @@
   "1017": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 32",
-        "note": "32",
+        "action_type": "SUP",
+        "position": "P 6",
+        "note": "6",
         "entries": [
           {
             "mcc_mnc_codes": "284 01",
@@ -2174,49 +2416,98 @@
               "en": "Bulgaria"
             },
             "networks": "M-Tel GSM BG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 6",
+        "note": "6",
+        "entries": [
           {
             "mcc_mnc_codes": "284 01",
             "country_or_area": {
               "en": "Bulgaria"
             },
             "networks": "Mobiltel EAD"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 11",
+        "note": "11",
+        "entries": [
           {
             "mcc_mnc_codes": "607           01 607           02 607           03 607           04",
             "country_or_area": {
               "en": "Gambia"
             },
             "networks": "GAMCEL AFRICELL COMIUM QCELL"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 18",
+        "note": "18",
+        "entries": [
           {
             "mcc_mnc_codes": "901 38",
             "country_or_area": {
               "en": "International Mobile, shared code"
             },
             "networks": "Multiregional TransitTelecom (MTT)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 23",
+        "note": "23",
+        "entries": [
           {
             "mcc_mnc_codes": "295           01 295           02 295           05 295           77",
             "country_or_area": {
               "en": "Liechtenstein"
             },
             "networks": "Telecom FL AG Viag Europlatform AG Mobilkom (Liechstein) AG Tele2 AG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 23",
+        "note": "23",
+        "entries": [
           {
             "mcc_mnc_codes": "295            01 295            02 295            05 295            06",
             "country_or_area": {
               "en": "Liechtenstein"
             },
             "networks": "Swisscom (Schweiz) AG Orange (Liechtenstein) AG Mobilkom (Liechtenstein) AG Cubic AG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 29",
+        "note": "29",
+        "entries": [
           {
             "mcc_mnc_codes": "655 27",
             "country_or_area": {
               "en": "South Africa"
             },
             "networks": "A to Z Vaal Industrial Supplies Pty Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 32",
+        "note": "32",
+        "entries": [
           {
             "mcc_mnc_codes": "641 44",
             "country_or_area": {
@@ -2232,9 +2523,9 @@
   "1018": {
     "actions": [
       {
-        "action_type": "LIR",
-        "position": "P 30",
-        "note": "30",
+        "action_type": "ADD",
+        "position": "P 29",
+        "note": "29",
         "entries": [
           {
             "mcc_mnc_codes": "655 19",
@@ -2242,7 +2533,14 @@
               "en": "South Africa"
             },
             "networks": "Wireless Business Solutions (iBurst)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "position": "P 30",
+        "note": "30",
+        "entries": [
           {
             "mcc_mnc_codes": "240 14",
             "country_or_area": {
@@ -2330,9 +2628,9 @@
   "1021": {
     "actions": [
       {
-        "action_type": ".V.",
-        "position": "P 30",
-        "note": "30",
+        "action_type": "ADD",
+        "position": "P 15",
+        "note": "15",
         "entries": [
           {
             "mcc_mnc_codes": "282 06",
@@ -2340,7 +2638,14 @@
               "en": "Georgia"
             },
             "networks": "JSC Compatel"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 30",
+        "note": "30",
+        "entries": [
           {
             "mcc_mnc_codes": "334 001",
             "country_or_area": {
@@ -2374,7 +2679,7 @@
             "country_or_area": {
               "en": "Mexico"
             },
-            "networks": "5 operators:"
+            "networks": "5 operators:\n1-COMUNICACIONES CELULARES DE OCCIDENTE, S.A. DE C.V.\n2 -SISTEMAS TELEFÓNICOS PORTÁTILES CELULARES, S.A. DE C.V.\n3 -TELECOMUNICACIONES DEL GOLFO, S.A. DE C.V. SOS\n4 -TELECOMUNICACIONES, S.A. DE C.V.\n5 -PORTATEL DEL SURESTE, S.A. DE C.V."
           },
           {
             "mcc_mnc_codes": "334 060",
@@ -2410,7 +2715,14 @@
               "en": "Mexico"
             },
             "networks": "NII DIGITAL, S. DE R.L. DE C.V."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "position": "P 30",
+        "note": "30",
+        "entries": [
           {
             "mcc_mnc_codes": "334 020",
             "country_or_area": {
@@ -2450,9 +2762,9 @@
   "1024": {
     "actions": [
       {
-        "action_type": "SUP",
-        "position": "P 50",
-        "note": "50",
+        "action_type": "ADD",
+        "position": "P 35",
+        "note": "35",
         "entries": [
           {
             "mcc_mnc_codes": "635 13",
@@ -2460,7 +2772,14 @@
               "en": "Rwanda"
             },
             "networks": "TIGO RWANDA LTD"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 50",
+        "note": "50",
+        "entries": [
           {
             "mcc_mnc_codes": "734 01",
             "country_or_area": {
@@ -2486,9 +2805,9 @@
   "1025": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 23",
-        "note": "23",
+        "action_type": "SUP",
+        "position": "P 3",
+        "note": "3",
         "entries": [
           {
             "mcc_mnc_codes": "412 30",
@@ -2496,7 +2815,14 @@
               "en": "Afghanistan"
             },
             "networks": "New1"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 3",
+        "note": "3",
+        "entries": [
           {
             "mcc_mnc_codes": "412 50",
             "country_or_area": {
@@ -2510,14 +2836,28 @@
               "en": "Afghanistan"
             },
             "networks": "Afghan Telecom"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 9",
+        "note": "9",
+        "entries": [
           {
             "mcc_mnc_codes": "730 15",
             "country_or_area": {
               "en": "Chile"
             },
             "networks": "CIBELES TELECOM S.A."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 23",
+        "note": "23",
+        "entries": [
           {
             "mcc_mnc_codes": "425 19",
             "country_or_area": {
@@ -2536,9 +2876,9 @@
   "1026": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 28",
-        "note": "28",
+        "action_type": "LIR",
+        "position": "P 3",
+        "note": "3",
         "entries": [
           {
             "mcc_mnc_codes": "412 50",
@@ -2546,14 +2886,28 @@
               "en": "Afghanistan"
             },
             "networks": "Etisalat"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 11",
+        "note": "11",
+        "entries": [
           {
             "mcc_mnc_codes": "238 13",
             "country_or_area": {
               "en": "Denmark"
             },
             "networks": "Compatel Limited"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 28",
+        "note": "28",
+        "entries": [
           {
             "mcc_mnc_codes": "247 09",
             "country_or_area": {
@@ -2572,8 +2926,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 39",
-        "note": "39",
+        "position": "P 4",
+        "note": "4",
         "entries": [
           {
             "mcc_mnc_codes": "505 28",
@@ -2581,14 +2935,28 @@
               "en": "Australia"
             },
             "networks": "RCOM International Pty Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 15",
+        "note": "15",
+        "entries": [
           {
             "mcc_mnc_codes": "266 06",
             "country_or_area": {
               "en": "Gibraltar"
             },
             "networks": "CTS"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 39",
+        "note": "39",
+        "entries": [
           {
             "mcc_mnc_codes": "240 37",
             "country_or_area": {
@@ -2608,8 +2976,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 39",
-        "note": "39",
+        "position": "P 28",
+        "note": "28",
         "entries": [
           {
             "mcc_mnc_codes": "270 02",
@@ -2617,7 +2985,14 @@
               "en": "Luxembourg"
             },
             "networks": "MTX Connect S.a r.l."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 37",
+        "note": "37",
+        "entries": [
           {
             "mcc_mnc_codes": "637 01",
             "country_or_area": {
@@ -2631,7 +3006,14 @@
               "en": "Somalia"
             },
             "networks": "Horizon Telecom LMD"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 37",
+        "note": "37",
+        "entries": [
           {
             "mcc_mnc_codes": "655 14",
             "country_or_area": {
@@ -2645,7 +3027,14 @@
               "en": "South Africa"
             },
             "networks": "Ericsson South Africa (Pty) Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 39",
+        "note": "39",
+        "entries": [
           {
             "mcc_mnc_codes": "240 38",
             "country_or_area": {
@@ -2663,57 +3052,106 @@
   "1029": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "242 06",
-            "networks": "ICE Norge AS"
-          },
-          {
-            "mcc_mnc_codes": "Tele 2 Sverige AB",
             "country_or_area": {
-              "en": "240 07"
+              "en": "Norway"
             },
-            "networks": "The range dedicated for the Netherlands will not be used in Sweden",
-            "range": "The Netherlands"
-          },
+            "networks": "ICE Norge AS"
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
+          {
+            "mcc_mnc_codes": "240 07",
+            "country_or_area": {
+              "en": "Sweden"
+            },
+            "networks": "Tele 2 Sverige AB",
+            "range": "The range dedicated for the Netherlands will not be used in Sweden 6680000000 – 6689999999 (The Netherlands)"
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "520 02",
+            "country_or_area": {
+              "en": "Thailand"
+            },
             "networks": "CAT CDMA"
           },
           {
             "mcc_mnc_codes": "520 03",
+            "country_or_area": {
+              "en": "Thailand"
+            },
             "networks": "Advanced Wireless Network Company Limited"
           },
           {
             "mcc_mnc_codes": "520 04",
+            "country_or_area": {
+              "en": "Thailand"
+            },
             "networks": "Real Future Company Limited"
           },
           {
             "mcc_mnc_codes": "520 05",
+            "country_or_area": {
+              "en": "Thailand"
+            },
             "networks": "DTAC Network Company Limite"
           },
           {
             "mcc_mnc_codes": "520 18",
+            "country_or_area": {
+              "en": "Thailand"
+            },
             "networks": "Total Access Communications Public Company Limited"
           },
           {
             "mcc_mnc_codes": "520 20",
+            "country_or_area": {
+              "en": "Thailand"
+            },
             "networks": "ACes Regional Services Company Limited"
           },
           {
             "mcc_mnc_codes": "520 23",
+            "country_or_area": {
+              "en": "Thailand"
+            },
             "networks": "Digital Phone Company Limited"
           },
           {
             "mcc_mnc_codes": "520 47",
+            "country_or_area": {
+              "en": "Thailand"
+            },
             "networks": "TOT Public Company Limited"
           },
           {
             "mcc_mnc_codes": "520 99",
+            "country_or_area": {
+              "en": "Thailand"
+            },
             "networks": "True Move Company Limited"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "520 15",
+            "country_or_area": {
+              "en": "Thailand"
+            },
             "networks": "TOT Public Company Limited"
           }
         ]
@@ -2726,13 +3164,25 @@
   "1030": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "642 08",
+            "country_or_area": {
+              "en": "Burundi"
+            },
             "networks": "HITS TELECOM"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 39",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "MTX Connect"
           }
         ]
@@ -2745,9 +3195,13 @@
   "1031": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "655 51",
+            "country_or_area": {
+              "en": "South Africa"
+            },
             "networks": "Integrat (Pty) Ltd"
           }
         ]
@@ -2760,9 +3214,13 @@
   "1032": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "214 28",
+            "country_or_area": {
+              "en": "Spain"
+            },
             "networks": "Consorcio de Telecomunicaciones Avanzadas, S.A. 214 29 NEO-SKY 2002, S.A."
           }
         ]
@@ -2775,9 +3233,13 @@
   "1033": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "240 42",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Telenor Connexion AB 240 65 shared use for closed networks 240 66 shared use for closed networks 240 67 shared use for test purpose 240 68 shared use for test purpose 240 69 crisis management after determination by the SwedishPost- and Telecom Authority"
           }
         ]
@@ -2790,13 +3252,25 @@
   "1034": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "738 002",
+            "country_or_area": {
+              "en": "Guyana"
+            },
             "networks": "Guyana Telephone & Telegraph Company Limited (Cellink)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "637 01",
+            "country_or_area": {
+              "en": "Somalia"
+            },
             "networks": "Horizon Telecom LMD 637 02 Horizon Telecom LMD"
           }
         ]
@@ -2809,84 +3283,154 @@
   "1035": {
     "actions": [
       {
-        "action_type": "ork",
-        "position": "Pays ou",
-        "note": "ou",
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "262 76",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Siemens AG, ICMNPGUSTA"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "262 16",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "E-Plus Mobilfunk GmbH & Co. KG"
           },
           {
             "mcc_mnc_codes": "262 17",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "E-Plus Mobilfunk GmbH & Co. KG"
           },
           {
             "mcc_mnc_codes": "262 18",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "NetCologne Gesellschaft für Telekommunikation mbH"
           },
           {
             "mcc_mnc_codes": "262 19",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Inquam Deutschland GmbH"
           },
           {
             "mcc_mnc_codes": "262 20",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "E-Plus Mobilfunk GmbH & Co. KG"
           },
           {
             "mcc_mnc_codes": "262 41",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "First Telecom GmbH"
           },
           {
             "mcc_mnc_codes": "262 42",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Vodafone D2 GmbH"
           },
           {
             "mcc_mnc_codes": "262 43",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Vodafone D2 GmbH"
           },
           {
             "mcc_mnc_codes": "262 78",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Telekom Deutschland GmbH"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "262 01",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Telekom Deutschland GmbH"
           },
           {
             "mcc_mnc_codes": "262 06",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Telekom Deutschland GmbH"
           },
           {
             "mcc_mnc_codes": "262 07",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Telefonica Germany GmbH & Co. oHG"
           },
           {
             "mcc_mnc_codes": "262 08",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Telefonica Germany GmbH & Co. oHG"
           },
           {
             "mcc_mnc_codes": "262 10",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Vodafone D2 GmbH"
           },
           {
             "mcc_mnc_codes": "262 11",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Telefonica Germany GmbH & Co. oHG"
           },
           {
             "mcc_mnc_codes": "262 12",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "E-Plus Mobilfunk GmbH & Co. KG"
           },
           {
             "mcc_mnc_codes": "262 14",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Quam GmbH"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "238 30",
+            "country_or_area": {
+              "en": "Denmark"
+            },
             "networks": "Interactive Digital Media GmbH"
           }
         ]
@@ -2900,17 +3444,37 @@
   "1038": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "262 10",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "Vodafone D2 GmbH"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "262 10",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "DB Netz AG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 39",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "MTX Connect Ltd"
           }
         ]
@@ -2923,29 +3487,73 @@
   "1039": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "257 06",
+            "country_or_area": {
+              "en": "Belarus"
+            },
             "networks": "Yota Bel Foreign Limited Liability Company (FLLC)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "257 06",
+            "country_or_area": {
+              "en": "Belarus"
+            },
             "networks": "Belorussian Cloud Technologies"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "248 08",
+            "country_or_area": {
+              "en": "Estonia"
+            },
             "networks": "Vivex OÜ"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "282 07",
+            "country_or_area": {
+              "en": "Georgia"
+            },
             "networks": "GLOBALCELL LTD"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "270 10",
+            "country_or_area": {
+              "en": "Luxembourg"
+            },
             "networks": "BLUE COMMUNICATIONS"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "427 06",
+            "country_or_area": {
+              "en": "Qatar"
+            },
             "networks": "Ooredoo Q.S.C./MOI LTE"
           }
         ]
@@ -2959,25 +3567,56 @@
   "1041": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "230 07",
+            "country_or_area": {
+              "en": "Czech Rep."
+            },
             "networks": "ASTELNET s.r.o"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "230 04",
+            "country_or_area": {
+              "en": "Czech Rep."
+            },
             "networks": "Air Telecom a.s."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "608 04",
+            "country_or_area": {
+              "en": "Senegal"
+            },
             "networks": "CSU-SA"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "608 01",
+            "country_or_area": {
+              "en": "Senegal"
+            },
             "networks": "Sonatel (Orange)"
           },
           {
             "mcc_mnc_codes": "608 02",
+            "country_or_area": {
+              "en": "Senegal"
+            },
             "networks": "Sentel GSM (Tigo)"
           }
         ]
@@ -2990,9 +3629,13 @@
   "1043": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "541 07",
+            "country_or_area": {
+              "en": "Vanuatu"
+            },
             "networks": "WANTOK"
           }
         ]
@@ -3005,13 +3648,25 @@
   "1044": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "240 31",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Mobimax AB"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "240 34",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Pro Net Telecommunications Services Ltd."
           }
         ]
@@ -3024,93 +3679,175 @@
   "1045": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "214 30",
+            "country_or_area": {
+              "en": "Spain"
+            },
             "networks": "Compatel Limited"
           },
           {
             "mcc_mnc_codes": "214 31",
+            "country_or_area": {
+              "en": "Spain"
+            },
             "networks": "Red Digital De Telecomunicaciones de las Islas Baleares, S.L."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "240 09",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Djuice Mobile Sweden, filial till Telenor Mobile Sweden AS"
           },
           {
             "mcc_mnc_codes": "240 25",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Digitel Mobile Srl"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "240 03",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Netett Sverige AB"
           },
           {
             "mcc_mnc_codes": "240 12",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Lycamobile Sweden Limited"
           },
           {
             "mcc_mnc_codes": "240 13",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Alltele Företag Sverige AB"
           },
           {
             "mcc_mnc_codes": "240 16",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "42 Telecom AB"
           },
           {
             "mcc_mnc_codes": "240 21",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Trafikverket ICT"
           },
           {
             "mcc_mnc_codes": "240 27",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Fogg Mobile AB"
           },
           {
             "mcc_mnc_codes": "240 28",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "CoolTEL Aps"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "234 35",
+            "country_or_area": {
+              "en": "United Kingdom"
+            },
             "networks": "JSC Ingenium (UK) Limited"
           },
           {
             "mcc_mnc_codes": "234 36",
+            "country_or_area": {
+              "en": "United Kingdom"
+            },
             "networks": "Sure (Isle of Man) Limited"
           },
           {
             "mcc_mnc_codes": "234 37",
+            "country_or_area": {
+              "en": "United Kingdom"
+            },
             "networks": "Synectiv Ltd"
           },
           {
             "mcc_mnc_codes": "234 38",
+            "country_or_area": {
+              "en": "United Kingdom"
+            },
             "networks": "Virgin Mobile Telecoms Limited"
           },
           {
             "mcc_mnc_codes": "234 39",
+            "country_or_area": {
+              "en": "United Kingdom"
+            },
             "networks": "SSE Energy Supply Limited"
           },
           {
             "mcc_mnc_codes": "234 51",
+            "country_or_area": {
+              "en": "United Kingdom"
+            },
             "networks": "UK Broadband Limited"
           },
           {
             "mcc_mnc_codes": "234 52",
+            "country_or_area": {
+              "en": "United Kingdom"
+            },
             "networks": "Shyam Telecom UK Ltd"
           },
           {
             "mcc_mnc_codes": "234 53",
+            "country_or_area": {
+              "en": "United Kingdom"
+            },
             "networks": "Limitless Mobile Ltd"
           },
           {
             "mcc_mnc_codes": "234 86",
+            "country_or_area": {
+              "en": "United Kingdom"
+            },
             "networks": "EE Limited ( TM)"
           },
           {
             "mcc_mnc_codes": "235 01",
+            "country_or_area": {
+              "en": "United Kingdom"
+            },
             "networks": "EE Limited ( TM)"
           },
           {
             "mcc_mnc_codes": "235 02",
+            "country_or_area": {
+              "en": "United Kingdom"
+            },
             "networks": "EE Limited ( TM)"
           }
         ]
@@ -3124,17 +3861,37 @@
   "1046": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "262 79",
+            "country_or_area": {
+              "en": "Germany"
+            },
             "networks": "ng4T GmbH"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "240 11",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Linholmen Science Park AB"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "240 39",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "iCentrex Sweden AB"
           }
         ]
@@ -3147,33 +3904,74 @@
   "1047": {
     "actions": [
       {
+        "action_type": "LIR",
         "entries": [
           {
-            "mcc_mnc_codes": "Tele 2 Sverige AB",
+            "mcc_mnc_codes": "240 07",
             "country_or_area": {
-              "en": "240 07"
+              "en": "Sweden    SUP"
             },
-            "networks": "The range dedicated for the Netherlands will not be used in Sweden",
-            "range": "The Netherlands"
-          },
+            "networks": "Tele 2 Sverige AB",
+            "range": "The range dedicated for the Netherlands will not be used in Sweden 6680000000 – 6689999999 (The Netherlands)"
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "248 09",
+            "country_or_area": {
+              "en": "Estonia"
+            },
             "networks": "Bravo Telecom OÜ"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "288 03",
+            "country_or_area": {
+              "en": "Faroe Islands"
+            },
             "networks": "Edge Mobile Sp/F"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "240 07",
+            "country_or_area": {
+              "en": "Netherlands"
+            },
             "networks": "Tele2 Sverige AB"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "240 07",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Tele2 Sverige AB"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "421 04",
+            "country_or_area": {
+              "en": "Yemen"
+            },
             "networks": "Y-Telecom"
           }
         ]
@@ -3187,33 +3985,80 @@
   "1050": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "238 43",
+            "country_or_area": {
+              "en": "Denmark"
+            },
             "networks": "MobiWeb Limited"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "419 02",
+            "country_or_area": {
+              "en": "Kuwait"
+            },
             "networks": "ZAIN"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "270 78",
+            "country_or_area": {
+              "en": "Luxembourg"
+            },
             "networks": "Interactive Digital Media (IDM)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "635 17",
+            "country_or_area": {
+              "en": "Rwanda"
+            },
             "networks": "Olleh Rwanda Networks"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "240 39",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "iCentrex Sweden AB"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "240 43",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "MobiWeb Ltd."
           },
           {
             "mcc_mnc_codes": "240 44",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Limitless Mobile AB"
           }
         ]
@@ -3471,46 +4316,67 @@
   "1053": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "Papua New",
-        "note": "New",
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "238 07",
+            "country_or_area": {
+              "en": "Denmark"
+            },
             "networks": "Barablu Mobile Ltd."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "537 02",
             "country_or_area": {
-              "en": "Guinea"
+              "en": "Papua New Guinea"
             },
             "networks": "Greencom"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "537 02",
             "country_or_area": {
-              "en": "Guinea"
+              "en": "Papua New Guinea"
             },
             "networks": "Telikom PNG Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "637 30",
             "country_or_area": {
-              "en": "Guinea"
+              "en": "Somalia"
             },
             "networks": "Golis Telecommunications Company"
           },
           {
             "mcc_mnc_codes": "637 70",
             "country_or_area": {
-              "en": "Guinea"
+              "en": "Somalia"
             },
             "networks": "Onkod Telecom Ltd."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "214 32",
             "country_or_area": {
-              "en": "Guinea"
+              "en": "Spain"
             },
             "networks": "TUENTI TECHNOLOGIES, S.L."
           }
@@ -3525,9 +4391,13 @@
   "1054": {
     "actions": [
       {
+        "action_type": "LIR",
         "entries": [
           {
             "mcc_mnc_codes": "608 01",
+            "country_or_area": {
+              "en": "Senegal"
+            },
             "networks": "Sonatel Mobiles (Orange) 608 04 CSU"
           }
         ]
@@ -3540,13 +4410,25 @@
   "1055": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "505 30",
+            "country_or_area": {
+              "en": "Australia"
+            },
             "networks": "Compatel Limited"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 40",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "Deutsche Telekom AG"
           }
         ]
@@ -3560,17 +4442,37 @@
   "1056": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "505 31",
+            "country_or_area": {
+              "en": "Australia"
+            },
             "networks": "BHP Billiton"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "206 15",
+            "country_or_area": {
+              "en": "Belgium"
+            },
             "networks": "Elephant Talk Communications Schweiz GmbH"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "240 45",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Spirius AB"
           }
         ]
@@ -3583,17 +4485,37 @@
   "1057": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "547 05",
+            "country_or_area": {
+              "en": "French Polynesia"
+            },
             "networks": "VITI"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "655 16",
+            "country_or_area": {
+              "en": "South Africa"
+            },
             "networks": "Phoenix Systems Integration (Pty) Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 41",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "BodyTrace Netherlands B.V."
           }
         ]
@@ -3606,9 +4528,13 @@
   "1058": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "425 23",
+            "country_or_area": {
+              "en": "Israel"
+            },
             "networks": "Beezz Communication Solutions Ltd."
           }
         ]
@@ -3622,9 +4548,13 @@
   "1059": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "655 16",
+            "country_or_area": {
+              "en": "South Africa"
+            },
             "networks": "Phoenix Systems Integration (Pty) Ltd"
           }
         ]
@@ -3637,13 +4567,25 @@
   "1061": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "282 08",
+            "country_or_area": {
+              "en": "Georgia"
+            },
             "networks": "Silknet GSC"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 42",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "DCN Hub ehf"
           }
         ]
@@ -3656,17 +4598,37 @@
   "1062": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "295 07",
+            "country_or_area": {
+              "en": "Liechtenstein"
+            },
             "networks": "First Mobile AG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "295 05",
+            "country_or_area": {
+              "en": "Liechtenstein"
+            },
             "networks": "Telecom Liechtenstein AG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 43",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "EMnify GmbH"
           }
         ]
@@ -3680,25 +4642,61 @@
   "1063": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "624 04",
+            "country_or_area": {
+              "en": "Cameroon"
+            },
             "networks": "NEXTTEL (ex VIETTEL CAMEROON)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "248 01",
+            "country_or_area": {
+              "en": "Estonia"
+            },
             "networks": "AS Eesti Telekom"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "259 04",
+            "country_or_area": {
+              "en": "Moldova (Republic of)"
+            },
             "networks": "Eventis Mobile GSM"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "240 39",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Borderlight AB"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "228 09",
+            "country_or_area": {
+              "en": "Switzerland"
+            },
             "networks": "Comfone AG 228 53 upc Cablecom GmbH 228 54 Lycamobile AG 228 56 SMSRelay AG"
           }
         ]
@@ -3711,9 +4709,13 @@
   "1064": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "216 02",
+            "country_or_area": {
+              "en": "Hungary"
+            },
             "networks": "MVM NET Ltd."
           }
         ]
@@ -3726,17 +4728,37 @@
   "1065": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "505 32",
+            "country_or_area": {
+              "en": "Australia"
+            },
             "networks": "Thales Australia"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "206 40",
+            "country_or_area": {
+              "en": "Belgium"
+            },
             "networks": "Join Experience (Belgium)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "619 09",
+            "country_or_area": {
+              "en": "Sierra Leone"
+            },
             "networks": "INTERGROUP TELECOM"
           }
         ]
@@ -3749,13 +4771,25 @@
   "1067": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "216 99",
+            "country_or_area": {
+              "en": "Hungary"
+            },
             "networks": "MÁV Co."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "240 23",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Infobip LTD (UK)"
           }
         ]
@@ -3768,9 +4802,13 @@
   "1068": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "425 24",
+            "country_or_area": {
+              "en": "Israel"
+            },
             "networks": "012 Telecom Ltd."
           }
         ]
@@ -3783,21 +4821,49 @@
   "1069": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "400 05",
+            "country_or_area": {
+              "en": "Azerbaijan"
+            },
             "networks": "Special State Protection Service of the Republic of Azerbaijan"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "238 15",
+            "country_or_area": {
+              "en": "Denmark"
+            },
             "networks": "Ice Danmark ApS"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "278 30",
+            "country_or_area": {
+              "en": "Malta"
+            },
             "networks": "GO Mobile"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 44",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "AT&T, Inc."
           }
         ]
@@ -3810,13 +4876,25 @@
   "1070": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "282 09",
+            "country_or_area": {
+              "en": "Georgia"
+            },
             "networks": "Gmobile LTD"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "425 25",
+            "country_or_area": {
+              "en": "Israel"
+            },
             "networks": "IMOD"
           }
         ]
@@ -3829,21 +4907,49 @@
   "1071": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "363 02",
+            "country_or_area": {
+              "en": "Aruba"
+            },
             "networks": "DIGICEL ARUBA"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "363 01",
+            "country_or_area": {
+              "en": "Aruba"
+            },
             "networks": "SETAR N.V."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "633 10",
+            "country_or_area": {
+              "en": "Seychelles"
+            },
             "networks": "Airtel (Seychelles) Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "240 31",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "RebTel Networks AB"
           }
         ]
@@ -3857,9 +4963,13 @@
   "1072": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "238 07",
+            "country_or_area": {
+              "en": "Denmark"
+            },
             "networks": "Mundio Mobile (Denmark) Limited"
           }
         ]
@@ -3872,13 +4982,25 @@
   "1073": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "220 07",
+            "country_or_area": {
+              "en": "Serbia"
+            },
             "networks": "Orion telekom d.o.o."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 45",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "Advanced Wireless Network Company Limited"
           }
         ]
@@ -3891,81 +5013,159 @@
   "1075": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "232 12",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "Orange Austria Telecommunication GmbH"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "232 08",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "Lycamobile Austria Ltd"
           },
           {
             "mcc_mnc_codes": "232 12",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "A1 Telekom Austria AG"
           },
           {
             "mcc_mnc_codes": "232 13",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "UPC Austria Services GmbH"
           },
           {
             "mcc_mnc_codes": "232 16",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "Hutchison Drei Austria GmbH"
           },
           {
             "mcc_mnc_codes": "232 17",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "MASS Response Service GmbH"
           },
           {
             "mcc_mnc_codes": "232 18",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "smartspace GmbH"
           },
           {
             "mcc_mnc_codes": "232 19",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "Tele2 Telecommunication GmbH"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "232 01",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "A1 Telekom Austria AG"
           },
           {
             "mcc_mnc_codes": "232 02",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "A1 Telekom Austria AG"
           },
           {
             "mcc_mnc_codes": "232 05",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "Hutchison Drei Austria GmbH"
           },
           {
             "mcc_mnc_codes": "232 09",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "A1 Telekom Austria AG"
           },
           {
             "mcc_mnc_codes": "232 10",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "Hutchison Drei Austria GmbH"
           },
           {
             "mcc_mnc_codes": "232 11",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "A1 Telekom Austria AG"
           },
           {
             "mcc_mnc_codes": "232 14",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "Hutchison Drei Austria GmbH"
           },
           {
             "mcc_mnc_codes": "232 15",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "Mundio Mobile (Austria) Ltd"
           },
           {
             "mcc_mnc_codes": "232 91",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "ÖBB - Infrastruktur AG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "238 16",
+            "country_or_area": {
+              "en": "Denmark"
+            },
             "networks": "Tismi B.V."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "634 03",
+            "country_or_area": {
+              "en": "Sudan"
+            },
             "networks": "MTN Sudan"
           }
         ]
@@ -3978,9 +5178,13 @@
   "1076": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "633 02",
+            "country_or_area": {
+              "en": "Seychelles"
+            },
             "networks": "Mediatech International Ltd."
           }
         ]
@@ -3993,149 +5197,283 @@
   "1077": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "454 08",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "MVNO/Trident"
           },
           {
             "mcc_mnc_codes": "454 2X",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Public Mobile Networks/Reserved"
           },
           {
             "mcc_mnc_codes": "454 3X",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Public Mobile Networks/Reserved"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "454 08",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Truphone (Hong Kong) Ltd"
           },
           {
             "mcc_mnc_codes": "454 13",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "China Mobile Hong Kong Co Ltd"
           },
           {
             "mcc_mnc_codes": "454 14",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Hutchison Telephone Company Ltd"
           },
           {
             "mcc_mnc_codes": "454 17",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "SmarTone Mobile Communications Ltd"
           },
           {
             "mcc_mnc_codes": "454 20",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Hong Kong Telecommunications (HKT) Ltd"
           },
           {
             "mcc_mnc_codes": "454 21",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "21Vianet Mobile Ltd"
           },
           {
             "mcc_mnc_codes": "454 22",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Delcom (HK) Ltd"
           },
           {
             "mcc_mnc_codes": "454 23",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Lycamobile Hong Kong Ltd"
           },
           {
             "mcc_mnc_codes": "454 24",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Public Mobile Networks/Reserved"
           },
           {
             "mcc_mnc_codes": "454 25",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Public Mobile Networks/Reserved"
           },
           {
             "mcc_mnc_codes": "454 26",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Public Mobile Networks/Reserved"
           },
           {
             "mcc_mnc_codes": "454 27",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Government use"
           },
           {
             "mcc_mnc_codes": "454 28",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Government use"
           },
           {
             "mcc_mnc_codes": "454 29",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Hong Kong Telecommunications (HKT) Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "454 00",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Hong Kong Telecommunications (HKT) Ltd"
           },
           {
             "mcc_mnc_codes": "454 01",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "CITIC Telecom International Ltd"
           },
           {
             "mcc_mnc_codes": "454 02",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Hong Kong Telecommunications (HKT) Ltd"
           },
           {
             "mcc_mnc_codes": "454 03",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Hutchison Telephone Company Ltd"
           },
           {
             "mcc_mnc_codes": "454 04",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Hutchison Telephone Company Ltd"
           },
           {
             "mcc_mnc_codes": "454 05",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Hutchison Telephone Company Ltd"
           },
           {
             "mcc_mnc_codes": "454 06",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "SmarTone Mobile Communications Ltd"
           },
           {
             "mcc_mnc_codes": "454 07",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "China Unicom (Hong Kong) Operations Ltd"
           },
           {
             "mcc_mnc_codes": "454 09",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "China Motion Telecom (HK) Ltd"
           },
           {
             "mcc_mnc_codes": "454 10",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Hong Kong Telecommunications (HKT) Ltd"
           },
           {
             "mcc_mnc_codes": "454 11",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "China-Hongkong Telecom Ltd"
           },
           {
             "mcc_mnc_codes": "454 12",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "China Mobile Hong Kong Co Ltd"
           },
           {
             "mcc_mnc_codes": "454 15",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "SmarTone Mobile Communications Ltd"
           },
           {
             "mcc_mnc_codes": "454 16",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Hong Kong Telecommunications (HKT) Ltd"
           },
           {
             "mcc_mnc_codes": "454 18",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Hong Kong Telecommunications (HKT) Ltd"
           },
           {
             "mcc_mnc_codes": "454 19",
+            "country_or_area": {
+              "en": "Hong Kong, China"
+            },
             "networks": "Hong Kong Telecommunications (HKT) Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "338 110",
+            "country_or_area": {
+              "en": "Jamaica"
+            },
             "networks": "Cable & Wireless Jamaica Ltd."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "655 17",
+            "country_or_area": {
+              "en": "South Africa"
+            },
             "networks": "Sishen Iron Ore Company (Ltd) Pty"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 46",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "Telecom26 AG"
           }
         ]
@@ -4149,25 +5487,61 @@
   "1078": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "232 06",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "Orange Austria Telecommunication GmbH"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "232 20",
+            "country_or_area": {
+              "en": "Austria"
+            },
             "networks": "Mtel Austrija GmbH"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "280 23",
+            "country_or_area": {
+              "en": "Cyprus"
+            },
             "networks": "Mundio Mobile Cyprus Ltd."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "248 10",
+            "country_or_area": {
+              "en": "Estonia"
+            },
             "networks": "Telcotrade OÜ"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "658 01",
+            "country_or_area": {
+              "en": "Saint Helena, Ascension and Tristan da Cunha"
+            },
             "networks": "Sure South Atlantic Ltd. (Ascension)"
           }
         ]
@@ -4248,37 +5622,92 @@
   "1080": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "400 06",
+            "country_or_area": {
+              "en": "Azerbaijan"
+            },
             "networks": "\"Nakhtel\" LLC"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "230 05",
+            "country_or_area": {
+              "en": "Czech Rep."
+            },
             "networks": "Travel Telekommunikation, s.r.o."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "230 09",
+            "country_or_area": {
+              "en": "Czech Rep."
+            },
             "networks": "Mundio Distribution Czech Republic s.r.o."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "238 17",
+            "country_or_area": {
+              "en": "Denmark"
+            },
             "networks": "Naka AG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "214 33",
+            "country_or_area": {
+              "en": "Spain"
+            },
             "networks": "EURONA WIRELESS TELECOM, S.A."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "228 03",
+            "country_or_area": {
+              "en": "Switzerland"
+            },
             "networks": "Salt Mobile SA"
           },
           {
             "mcc_mnc_codes": "228 08",
+            "country_or_area": {
+              "en": "Switzerland"
+            },
             "networks": "TelCommunication Services AG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "543 01",
+            "country_or_area": {
+              "en": "Wallis and Futuna"
+            },
             "networks": "Manuia"
           }
         ]
@@ -4292,13 +5721,20 @@
   "1081": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "730 16",
+            "country_or_area": {
+              "en": "Chile"
+            },
             "networks": "Nomade Telecomunicaciones S.A."
           },
           {
             "mcc_mnc_codes": "730 17",
+            "country_or_area": {
+              "en": "Chile"
+            },
             "networks": "COMPATEL Chile Limitada"
           }
         ]
@@ -4312,9 +5748,13 @@
   "1082": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "214 34",
+            "country_or_area": {
+              "en": "Spain"
+            },
             "networks": "AIRE NETWORKS DEL MEDITERRÁNEO, S.L. UNIPERSONAL"
           }
         ]
@@ -4373,9 +5813,13 @@
   "1084": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "228 57",
+            "country_or_area": {
+              "en": "Switzerland"
+            },
             "networks": "Mitto AG"
           }
         ]
@@ -4453,9 +5897,13 @@
   "1086": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "240 09",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Communications for Devices in Sweden AB"
           }
         ]
@@ -4468,113 +5916,235 @@
   "1087": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "208 29",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Société International Mobile Communication"
           },
           {
             "mcc_mnc_codes": "208 89",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Omer Telecom Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "208 08",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Completel"
           },
           {
             "mcc_mnc_codes": "208 12",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Hewlett-Packard France"
           },
           {
             "mcc_mnc_codes": "208 16",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Free Mobile"
           },
           {
             "mcc_mnc_codes": "208 17",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Legos"
           },
           {
             "mcc_mnc_codes": "208 18",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Voxbone"
           },
           {
             "mcc_mnc_codes": "208 92",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Plate-forme telecom"
           },
           {
             "mcc_mnc_codes": "208 94",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Halys"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "208 01",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Orange"
           },
           {
             "mcc_mnc_codes": "208 02",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Orange"
           },
           {
             "mcc_mnc_codes": "208 23",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Omea Telecom"
           },
           {
             "mcc_mnc_codes": "208 26",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Euro-Information telecom"
           },
           {
             "mcc_mnc_codes": "208 28",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Airbus defense ans space SAS"
           },
           {
             "mcc_mnc_codes": "208 91",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Orange"
           },
           {
             "mcc_mnc_codes": "647 02",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Outremer Telecom"
           },
           {
             "mcc_mnc_codes": "647 01",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "BJT Partners"
           },
           {
             "mcc_mnc_codes": "647 02",
+            "country_or_area": {
+              "en": "France"
+            },
             "networks": "Telco OI"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "340 01",
+            "country_or_area": {
+              "en": "Guadeloupe"
+            },
             "networks": "Orange Caraïbe"
           },
           {
             "mcc_mnc_codes": "340 03",
+            "country_or_area": {
+              "en": "Guadeloupe"
+            },
             "networks": "United telecommunications services Caraïbe"
           },
           {
             "mcc_mnc_codes": "340 20",
+            "country_or_area": {
+              "en": "Guadeloupe"
+            },
             "networks": "Bouygues Telecom"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "738 003",
+            "country_or_area": {
+              "en": "Guyana"
+            },
             "networks": "Quark Communications Inc."
           },
           {
             "mcc_mnc_codes": "738 05",
+            "country_or_area": {
+              "en": "Guyana"
+            },
             "networks": "eGovernment Unit, Ministry of the Presidency"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "738 01",
+            "country_or_area": {
+              "en": "Guyana"
+            },
             "networks": "U-Mobile (Cellular) Inc."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "308 02",
+            "country_or_area": {
+              "en": "Saint Pierre and Miquelon"
+            },
             "networks": "Globaltel"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "308 01",
+            "country_or_area": {
+              "en": "Saint Pierre and Miquelon"
+            },
             "networks": "SAS SPM Telecom"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 48",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "Communications for Devices in Sweden AB"
           }
         ]
@@ -4622,13 +6192,25 @@
   "1090": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "649 05",
+            "country_or_area": {
+              "en": "Namibia"
+            },
             "networks": "Demshi Investments CC"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "655 38",
+            "country_or_area": {
+              "en": "South Africa"
+            },
             "networks": "Wireless Business Solutions (Pty) Ltd"
           }
         ]
@@ -4642,21 +6224,44 @@
   "1091": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "216 03",
+            "country_or_area": {
+              "en": "Hungary"
+            },
             "networks": "DIGI Telecommunication Ltd."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "901 01",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "ICO Global Communications"
           },
           {
             "mcc_mnc_codes": "901 10",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "Asia Cellular Satellite (AceS)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 49",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "Zain Kuwait"
           }
         ]
@@ -4670,477 +6275,862 @@
   "1092": {
     "actions": [
       {
+        "action_type": "SUP",
         "entries": [
           {
             "mcc_mnc_codes": "230 07",
+            "country_or_area": {
+              "en": "Czech Rep."
+            },
             "networks": "ASTELNET s.r.o"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "425 28",
+            "country_or_area": {
+              "en": "Israel"
+            },
             "networks": "PHI Networks"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "440 01",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 02",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kansai Inc."
           },
           {
             "mcc_mnc_codes": "440 03",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Hokuriku Inc."
           },
           {
             "mcc_mnc_codes": "440 04",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 06",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 07",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "KDDI Corporation"
           },
           {
             "mcc_mnc_codes": "440 08",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "KDDI Corporation"
           },
           {
             "mcc_mnc_codes": "440 09",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kansai Inc."
           },
           {
             "mcc_mnc_codes": "440 10",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kansai Inc."
           },
           {
             "mcc_mnc_codes": "440 11",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Tokai Inc."
           },
           {
             "mcc_mnc_codes": "440 12",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 13",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 14",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Tohoku Inc."
           },
           {
             "mcc_mnc_codes": "440 15",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 16",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 17",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 18",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Tokai Inc."
           },
           {
             "mcc_mnc_codes": "440 19",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Hokkaido Inc."
           },
           {
             "mcc_mnc_codes": "440 20",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Hokuriku Inc."
           },
           {
             "mcc_mnc_codes": "440 21",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 22",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kansai Inc."
           },
           {
             "mcc_mnc_codes": "440 23",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Tokai Inc."
           },
           {
             "mcc_mnc_codes": "440 24",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Chugoku Inc."
           },
           {
             "mcc_mnc_codes": "440 25",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Hokkaido Inc."
           },
           {
             "mcc_mnc_codes": "440 26",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kyushu Inc."
           },
           {
             "mcc_mnc_codes": "440 27",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Tohoku Inc."
           },
           {
             "mcc_mnc_codes": "440 28",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Shikoku Inc."
           },
           {
             "mcc_mnc_codes": "440 29",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 30",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 31",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kansai Inc."
           },
           {
             "mcc_mnc_codes": "440 32",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 33",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Tokai Inc."
           },
           {
             "mcc_mnc_codes": "440 34",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kyushu Inc."
           },
           {
             "mcc_mnc_codes": "440 35",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kansai Inc."
           },
           {
             "mcc_mnc_codes": "440 36",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 37",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 38",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 39",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 40",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 41",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 42",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 43",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 44",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 45",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 46",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 47",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 48",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 49",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 55",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "KDDI Corporation"
           },
           {
             "mcc_mnc_codes": "440 56",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "KDDI Corporation"
           },
           {
             "mcc_mnc_codes": "440 58",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kansai Inc."
           },
           {
             "mcc_mnc_codes": "440 60",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kansai Inc."
           },
           {
             "mcc_mnc_codes": "440 61",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Chugoku Inc."
           },
           {
             "mcc_mnc_codes": "440 62",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kyushu Inc."
           },
           {
             "mcc_mnc_codes": "440 63",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 64",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 65",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Shikoku Inc."
           },
           {
             "mcc_mnc_codes": "440 66",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 67",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Tohoku Inc."
           },
           {
             "mcc_mnc_codes": "440 68",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kyushu Inc."
           },
           {
             "mcc_mnc_codes": "440 69",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "440 77",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "KDDI Corporation"
           },
           {
             "mcc_mnc_codes": "440 79",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "KDDI Corporation"
           },
           {
             "mcc_mnc_codes": "440 80",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "TU-KA Cellular Tokyo Inc."
           },
           {
             "mcc_mnc_codes": "440 81",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "TU-KA Cellular Tokyo Inc."
           },
           {
             "mcc_mnc_codes": "440 82",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "TU-KA Phone Kansai Inc."
           },
           {
             "mcc_mnc_codes": "440 83",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "TU-KA Cellular Tokai Inc."
           },
           {
             "mcc_mnc_codes": "440 84",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "TU-KA Phone Kansai Inc."
           },
           {
             "mcc_mnc_codes": "440 85",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "TU-KA Cellular Tokai Inc."
           },
           {
             "mcc_mnc_codes": "440 86",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "TU-KA Cellular Tokyo Inc."
           },
           {
             "mcc_mnc_codes": "440 87",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Chugoku Inc."
           },
           {
             "mcc_mnc_codes": "440 88",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "KDDI Corporation"
           },
           {
             "mcc_mnc_codes": "440 89",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "KDDI Corporation"
           },
           {
             "mcc_mnc_codes": "440 90",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 92",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 93",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 94",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 95",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 96",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 97",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 98",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "440 99",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "441 40",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "441 41",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "441 42",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "441 43",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kansai Inc."
           },
           {
             "mcc_mnc_codes": "441 44",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Chugoku Inc."
           },
           {
             "mcc_mnc_codes": "441 45",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Shikoku Inc."
           },
           {
             "mcc_mnc_codes": "441 50",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "TU-KA Cellular Tokyo Inc."
           },
           {
             "mcc_mnc_codes": "441 51",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "TU-KA Phone Kansai Inc."
           },
           {
             "mcc_mnc_codes": "441 61",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "441 62",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "441 63",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "441 64",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "441 65",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Vodafone"
           },
           {
             "mcc_mnc_codes": "441 70",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "KDDI Corporation"
           },
           {
             "mcc_mnc_codes": "441 90",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "441 91",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "441 92",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Inc."
           },
           {
             "mcc_mnc_codes": "441 93",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Hokkaido Inc."
           },
           {
             "mcc_mnc_codes": "441 94",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Tohoku Inc."
           },
           {
             "mcc_mnc_codes": "441 98",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kyushu Inc."
           },
           {
             "mcc_mnc_codes": "441 99",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DoCoMo Kyushu Inc."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "440 00",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "SoftBank Corp."
           },
           {
             "mcc_mnc_codes": "440 01",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "UQ Communications Inc."
           },
           {
             "mcc_mnc_codes": "440 02",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Hanshin Cable Engineering Co.,Ltd."
           },
           {
             "mcc_mnc_codes": "440 05",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Wireless City Planning Inc."
           },
           {
             "mcc_mnc_codes": "440 10",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "NTT DOCOMO, INC."
           },
           {
             "mcc_mnc_codes": "440 20",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "SoftBank Corp."
           },
           {
             "mcc_mnc_codes": "440 21",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "SoftBank Corp."
           },
           {
             "mcc_mnc_codes": "441 00",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Wireless City Planning Inc."
           },
           {
             "mcc_mnc_codes": "441 01",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "SoftBank Corp."
           },
           {
             "mcc_mnc_codes": "441 10",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "UQ Communications Inc."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "440 78",
+            "country_or_area": {
+              "en": "Japan"
+            },
             "networks": "Okinawa Cellular Telephone Company"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "240 27",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "GlobeTouch AB"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "901 50",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
             "networks": "Sawatch Limited/EchoStar Mobile Limited"
           }
         ]
@@ -5154,13 +7144,25 @@
   "1093": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "655 24",
+            "country_or_area": {
+              "en": "South Africa"
+            },
             "networks": "SMS Portal (Pty) Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "240 10",
+            "country_or_area": {
+              "en": "Sweden"
+            },
             "networks": "Tele2 Sverige AB"
           }
         ]
@@ -5420,205 +7422,386 @@
   "1096": {
     "actions": [
       {
+        "action_type": "ADD",
         "entries": [
           {
             "mcc_mnc_codes": "505 34",
+            "country_or_area": {
+              "en": "Australia"
+            },
             "networks": "Santos Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "302 300",
+            "country_or_area": {
+              "en": "Canada"
+            },
             "networks": "ECOTEL inc."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "238 11",
+            "country_or_area": {
+              "en": "Denmark"
+            },
             "networks": "Dansk Beredskabskommunikation A/S"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "244 03",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "DNA Oy"
           },
           {
             "mcc_mnc_codes": "244 04",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "DNA Oy"
           },
           {
             "mcc_mnc_codes": "244 05",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Elisa Oy"
           },
           {
             "mcc_mnc_codes": "244 09",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Nokia Siemens Networks Oy"
           },
           {
             "mcc_mnc_codes": "244 10",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "TDC Oy FINLAND"
           },
           {
             "mcc_mnc_codes": "244 12",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "DNA Oy"
           },
           {
             "mcc_mnc_codes": "244 13",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "DNA Oy"
           },
           {
             "mcc_mnc_codes": "244 14",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Alands Mobilteleofn Ab"
           },
           {
             "mcc_mnc_codes": "244 16",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Oy Finland Tele2 AB"
           },
           {
             "mcc_mnc_codes": "244 21",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Saunalahti Group Oyj"
           },
           {
             "mcc_mnc_codes": "244 29",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "SCNL TRUPHONE"
           },
           {
             "mcc_mnc_codes": "244 91",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "TeliaSonera Finland Oyj"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "244 03",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "DNA Oy"
           },
           {
             "mcc_mnc_codes": "244 04",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "DNA Oy"
           },
           {
             "mcc_mnc_codes": "244 05",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Elisa Oyj"
           },
           {
             "mcc_mnc_codes": "244 06",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Elisa Oyj"
           },
           {
             "mcc_mnc_codes": "244 07",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Nokia Solutions and Networks Oy"
           },
           {
             "mcc_mnc_codes": "244 08",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Nokia Solutions and Networks Oy"
           },
           {
             "mcc_mnc_codes": "244 09",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Nokia Solutions and Networks Oy"
           },
           {
             "mcc_mnc_codes": "244 10",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Viestintävirasto"
           },
           {
             "mcc_mnc_codes": "244 11",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Viestintävirasto"
           },
           {
             "mcc_mnc_codes": "244 12",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "DNA Oy"
           },
           {
             "mcc_mnc_codes": "244 13",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "DNA Oy"
           },
           {
             "mcc_mnc_codes": "244 14",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Ålands Telekommunikation Ab"
           },
           {
             "mcc_mnc_codes": "244 15",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Satakunnan ammattikorkeakoulu Oy"
           },
           {
             "mcc_mnc_codes": "244 17",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Liikennevirasto"
           },
           {
             "mcc_mnc_codes": "244 21",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Elisa Oyj"
           },
           {
             "mcc_mnc_codes": "244 22",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "EXFO Oy"
           },
           {
             "mcc_mnc_codes": "244 23",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "EXFO Oy"
           },
           {
             "mcc_mnc_codes": "244 24",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "TTY-säätiö"
           },
           {
             "mcc_mnc_codes": "244 26",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Compatel Limited"
           },
           {
             "mcc_mnc_codes": "244 27",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Teknologian tutkimuskeskus VTT Oy"
           },
           {
             "mcc_mnc_codes": "244 31",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Kuiri Mobile Oy"
           },
           {
             "mcc_mnc_codes": "244 32",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Voxbone S.A."
           },
           {
             "mcc_mnc_codes": "244 33",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Virve Tuotteet ja Palvelut Oy"
           },
           {
             "mcc_mnc_codes": "244 34",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Bittium Wireless Oy"
           },
           {
             "mcc_mnc_codes": "244 35",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Ukkoverkot Oy"
           },
           {
             "mcc_mnc_codes": "244 36",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "TeliaSonera Finland Oyj"
           },
           {
             "mcc_mnc_codes": "244 37",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Tismi BV"
           },
           {
             "mcc_mnc_codes": "244 38",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Nokia Solutions and Networks Oy"
           },
           {
             "mcc_mnc_codes": "244 39",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Nokia Solutions and Networks Oy"
           },
           {
             "mcc_mnc_codes": "244 40",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Nokia Solutions and Networks Oy"
           },
           {
             "mcc_mnc_codes": "244 41",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "Nokia Solutions and Networks Oy"
           },
           {
             "mcc_mnc_codes": "244 91",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "TeliaSonera Finland Oyj"
           },
           {
             "mcc_mnc_codes": "244 92",
+            "country_or_area": {
+              "en": "Finland"
+            },
             "networks": "TeliaSonera Finland Oyj"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "228 56",
+            "country_or_area": {
+              "en": "Switzerland"
+            },
             "networks": "SMSRelay AG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "228 58",
+            "country_or_area": {
+              "en": "Switzerland"
+            },
             "networks": "Beeone Communications SA"
           }
         ]
@@ -21413,6 +23596,420 @@
       "MCC: Mobile Country Code  MNC: Mobile Network Code"
     ]
   },
+  "1344": {
+    "actions": [
+      {
+        "action_type": "SUP",
+        "entries": [
+          {
+            "mcc_mnc_codes": "302 992",
+            "country_or_area": {
+              "en": "Canada"
+            },
+            "networks": "AltaLink Management Ltd"
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "302 912",
+            "country_or_area": {
+              "en": "Canada"
+            },
+            "networks": "Halton Regional Police Service"
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
+          {
+            "mcc_mnc_codes": "641 33",
+            "country_or_area": {
+              "en": "Uganda"
+            },
+            "networks": "Smile Communications Uganda Limited"
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "641 05",
+            "country_or_area": {
+              "en": "Uganda"
+            },
+            "networks": "Roke Telkom Limited"
+          },
+          {
+            "mcc_mnc_codes": "641 06",
+            "country_or_area": {
+              "en": "Uganda"
+            },
+            "networks": "Savanna Fibre Limited"
+          },
+          {
+            "mcc_mnc_codes": "641 07",
+            "country_or_area": {
+              "en": "Uganda"
+            },
+            "networks": "Blue Crane Communications (U) Limited"
+          },
+          {
+            "mcc_mnc_codes": "641 20",
+            "country_or_area": {
+              "en": "Uganda"
+            },
+            "networks": "Hamilton Telecom Limited"
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "MCC: Mobile Country Code  MNC: Mobile Network Code"
+    ]
+  },
+  "1345": {
+    "actions": [
+      {
+        "action_type": "SUP",
+        "entries": [
+          {
+            "mcc_mnc_codes": "302 100",
+            "country_or_area": {
+              "en": "Canada"
+            },
+            "networks": "Data on Tap Inc."
+          },
+          {
+            "mcc_mnc_codes": "302 330",
+            "country_or_area": {
+              "en": "Canada"
+            },
+            "networks": "OpenMobile Inc."
+          },
+          {
+            "mcc_mnc_codes": "302 351",
+            "country_or_area": {
+              "en": "Canada"
+            },
+            "networks": "MPVWIFI Inc."
+          },
+          {
+            "mcc_mnc_codes": "302 848",
+            "country_or_area": {
+              "en": "Canada"
+            },
+            "networks": "Vocom International Telecommunications, Inc"
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "425 30",
+            "country_or_area": {
+              "en": "Israel"
+            },
+            "networks": "SIMPRACY"
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
+          {
+            "mcc_mnc_codes": "441 215",
+            "country_or_area": {
+              "en": "Japan"
+            },
+            "networks": "KYOCERA Mirai Envision Co., Ltd."
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "440 27",
+            "country_or_area": {
+              "en": "Japan"
+            },
+            "networks": "Rakuten Mobile, Inc."
+          },
+          {
+            "mcc_mnc_codes": "440 28",
+            "country_or_area": {
+              "en": "Japan"
+            },
+            "networks": "OPTAGE Inc."
+          },
+          {
+            "mcc_mnc_codes": "441 217",
+            "country_or_area": {
+              "en": "Japan"
+            },
+            "networks": "NTT DOCOMO, INC."
+          },
+          {
+            "mcc_mnc_codes": "441 218",
+            "country_or_area": {
+              "en": "Japan"
+            },
+            "networks": "KDDI Corporation"
+          },
+          {
+            "mcc_mnc_codes": "441 219",
+            "country_or_area": {
+              "en": "Japan"
+            },
+            "networks": "NTT DOCOMO, INC."
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
+          {
+            "mcc_mnc_codes": "440 13",
+            "country_or_area": {
+              "en": "Japan"
+            },
+            "networks": "NTT DOCOMO BUSINESS, Inc."
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
+          {
+            "mcc_mnc_codes": "634 05",
+            "country_or_area": {
+              "en": "Sudan"
+            },
+            "networks": "Network of the World Ltd (NOW)"
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "MCC: Mobile Country Code  MNC: Mobile Network Code"
+    ]
+  },
+  "1346": {
+    "actions": [
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "302 330",
+            "country_or_area": {
+              "en": "Canada"
+            },
+            "networks": "OpenMobile Inc."
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "712 09",
+            "country_or_area": {
+              "en": "Costa Rica"
+            },
+            "networks": "COOPERATIVA DE ELECTRIFICACIÓN RURAL LOS SANTOS R.L."
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "MCC: Mobile Country Code  MNC: Mobile Network Code"
+    ]
+  },
+  "1347": {
+    "actions": [
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "730 33",
+            "country_or_area": {
+              "en": "Chile"
+            },
+            "networks": "CLARO CHILE SpA"
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "214 710",
+            "country_or_area": {
+              "en": "Spain"
+            },
+            "networks": "AUTORIDAD PORTUARIA DE VALENCIA"
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "MCC: Mobile Country Code  MNC: Mobile Network Code"
+    ]
+  },
+  "1348": {
+    "actions": [
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "505 65",
+            "country_or_area": {
+              "en": "Australia"
+            },
+            "networks": "Fear Enterprises Pty Ltd"
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "712 10",
+            "country_or_area": {
+              "en": "Costa Rica"
+            },
+            "networks": "COOPERATIVA DE ELECTRIFICACIÓN RURAL DE GUANACASTE R.L."
+          },
+          {
+            "mcc_mnc_codes": "(Country A)",
+            "country_or_area": {
+              "en": "Germany"
+            },
+            "networks": "0000099000 - 0000099099",
+            "range": "262 74"
+          },
+          {
+            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra‑territorially)",
+            "country_or_area": {
+              "en": "Sweden"
+            },
+            "networks": "0000099100 - 0000099199",
+            "range": "262 74"
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "*            MCC:     Mobile Country Code",
+      "MNC:    Mobile Network Code"
+    ]
+  },
+  "1349": {
+    "actions": [
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "214 704",
+            "country_or_area": {
+              "en": "Spain"
+            },
+            "networks": "ORANGE ESPAGNE, S.A. UNIPERSONAL"
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "734 05",
+            "country_or_area": {
+              "en": "Venezuela (Bolivarian Republic of)"
+            },
+            "networks": "TELEFÓNICA VENEZOLANA C.A."
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
+          {
+            "mcc_mnc_codes": "901 25",
+            "country_or_area": {
+              "en": "International Mobile, shared code"
+            },
+            "networks": "Datora Mobile Telecomunicações SA"
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "MCC: Mobile Country Code",
+      "MNC: Mobile Network Code"
+    ]
+  },
+  "1350": {
+    "actions": [
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "628 06",
+            "country_or_area": {
+              "en": "Gabon"
+            },
+            "networks": "Airtel Gabon S.A."
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
+          {
+            "mcc_mnc_codes": "628 03",
+            "country_or_area": {
+              "en": "Gabon"
+            },
+            "networks": "Airtel Gabon S.A."
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "744 07",
+            "country_or_area": {
+              "en": "Paraguay"
+            },
+            "networks": "NUBICOM PARAGUAY S.A."
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
+          {
+            "mcc_mnc_codes": "633 09",
+            "country_or_area": {
+              "en": "Seychelles"
+            },
+            "networks": "Airtel (Seychelles) Ltd"
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "MCC: Mobile Country Code",
+      "MNC: Mobile Network Code"
+    ]
+  },
   "955": {
     "actions": [
       {
@@ -21438,7 +24035,7 @@
   "957": {
     "actions": [
       {
-        "action_type": "ADD",
+        "action_type": "LIR",
         "position": "P 9",
         "note": "9",
         "entries": [
@@ -21448,7 +24045,14 @@
               "en": "Géorgie"
             },
             "networks": "Silknet JSC"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 9",
+        "note": "9",
+        "entries": [
           {
             "mcc_mnc_codes": "547 02",
             "country_or_area": {
@@ -21486,8 +24090,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 27",
-        "note": "27",
+        "position": "P 32",
+        "note": "32",
         "entries": [
           {
             "mcc_mnc_codes": "234 07 234 18 234 26 234 27 235 00 235 92",
@@ -21495,7 +24099,14 @@
               "en": "United Kingdom"
             },
             "networks": "Cable & Wireless UK Cloud9 Lycamobile UK Limted Teleena UK Limited Mundio Mobile Limited Cable & Wireless UK"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 27",
+        "note": "27",
+        "entries": [
           {
             "mcc_mnc_codes": "608 03",
             "country_or_area": {
@@ -21514,9 +24125,6 @@
   "961": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 30",
-        "note": "30",
         "entries": [
           {
             "mcc_mnc_codes": "240 23",
@@ -21557,9 +24165,6 @@
   "963": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 8",
-        "note": "8",
         "entries": [
           {
             "mcc_mnc_codes": "730 08",
@@ -21645,9 +24250,6 @@
   "965": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 30",
-        "note": "30",
         "entries": [
           {
             "mcc_mnc_codes": "240 27",
@@ -21667,9 +24269,6 @@
   "967": {
     "actions": [
       {
-        "action_type": "ia ",
-        "position": "P 28",
-        "note": "28",
         "entries": [
           {
             "mcc_mnc_codes": "230 05",
@@ -21710,9 +24309,9 @@
   "968": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 18",
-        "note": "18",
+        "action_type": "REP",
+        "position": "P 4",
+        "note": "4",
         "entries": [
           {
             "mcc_mnc_codes": "426 01 426-02 426-03 426 04 426 05",
@@ -21720,7 +24319,14 @@
               "en": "Bahrain"
             },
             "networks": "BATELCO Zain Bahrain Civil Aviation Authority STC Bahrain Royal Court"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 18",
+        "note": "18",
+        "entries": [
           {
             "mcc_mnc_codes": "425 11 425 12",
             "country_or_area": {
@@ -21763,8 +24369,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
+        "position": "P 8",
+        "note": "8",
         "entries": [
           {
             "mcc_mnc_codes": "280 20",
@@ -21772,7 +24378,14 @@
               "en": "Cyprus"
             },
             "networks": "Primetel PLC"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "REP",
+        "position": "P 12",
+        "note": "12",
+        "entries": [
           {
             "mcc_mnc_codes": "202 01",
             "country_or_area": {
@@ -21811,21 +24424,42 @@
           {
             "mcc_mnc_codes": "202 10",
             "networks": "WIND"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 23",
+        "note": "23",
+        "entries": [
           {
             "mcc_mnc_codes": "617 03",
             "country_or_area": {
               "en": "Mauritius"
             },
             "networks": "Mahanagar Telephone (Mauritius) Ltd."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "position": "P 27",
+        "note": "27",
+        "entries": [
           {
             "mcc_mnc_codes": "292 01",
             "country_or_area": {
               "en": "San Marino"
             },
             "networks": "Prima San Marino / San Marino Telecom"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 29",
+        "note": "29",
+        "entries": [
           {
             "mcc_mnc_codes": "240 28",
             "country_or_area": {
@@ -21849,8 +24483,6 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P Sweden",
-        "note": "Sweden",
         "entries": [
           {
             "mcc_mnc_codes": "240 29",
@@ -21867,7 +24499,7 @@
   "974": {
     "actions": [
       {
-        "action_type": "UP1",
+        "action_type": "SUP",
         "position": "P 17",
         "note": "17",
         "entries": [
@@ -21897,8 +24529,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 30",
-        "note": "30",
+        "position": "P 8",
+        "note": "8",
         "entries": [
           {
             "mcc_mnc_codes": "712 20",
@@ -21906,7 +24538,14 @@
               "en": "Costa Rica"
             },
             "networks": "Virtualis"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 30",
+        "note": "30",
+        "entries": [
           {
             "mcc_mnc_codes": "240 30",
             "country_or_area": {
@@ -21922,9 +24561,9 @@
   "976": {
     "actions": [
       {
-        "action_type": "LIR",
-        "position": "P 17",
-        "note": "17",
+        "action_type": "ADD",
+        "position": "P 5",
+        "note": "5",
         "entries": [
           {
             "mcc_mnc_codes": "257 03",
@@ -21944,21 +24583,42 @@
           {
             "mcc_mnc_codes": "257 06",
             "networks": "Yota Bel Foreign Limited Liability Company (FLLC)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 9",
+        "note": "9",
+        "entries": [
           {
             "mcc_mnc_codes": "238 13",
             "country_or_area": {
               "en": "Denmark"
             },
             "networks": "Communicate A/S"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "REP",
+        "position": "P 10",
+        "note": "10",
+        "entries": [
           {
             "mcc_mnc_codes": "244 03 244 04 244 05 244 09 244 10 244 12 244 13 244 14 244 21 244 29 244 91",
             "country_or_area": {
               "en": "Finland"
             },
             "networks": "DNA Oy DNA Oy Elisa Oy Nokia Siemens Networks Oy TDC Oy FINLAND DNA Oy DNA Oy Alands Mobilteleofn Ab Saunalahti Group Oyj SCNL TRUPHONE TeliaSonera Finland Oyj"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "position": "P 17",
+        "note": "17",
+        "entries": [
           {
             "mcc_mnc_codes": "901 13",
             "country_or_area": {
@@ -21974,9 +24634,9 @@
   "977": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 32",
-        "note": "32",
+        "action_type": "SUP",
+        "position": "P 12",
+        "note": "12",
         "entries": [
           {
             "mcc_mnc_codes": "266 09",
@@ -21984,28 +24644,56 @@
               "en": "Gibraltar"
             },
             "networks": "Cloud9 Mobile Communications"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 12",
+        "note": "12",
+        "entries": [
           {
             "mcc_mnc_codes": "266 09",
             "country_or_area": {
               "en": "Gibraltar"
             },
             "networks": "Eazi Telecom Limited"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 30",
+        "note": "30",
+        "entries": [
           {
             "mcc_mnc_codes": "240 31",
             "country_or_area": {
               "en": "Sweden"
             },
             "networks": "Mobimax AB"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 32",
+        "note": "32",
+        "entries": [
           {
             "mcc_mnc_codes": "234 09",
             "country_or_area": {
               "en": "United Kingdom"
             },
             "networks": "Wire9 Telecom PLC"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 32",
+        "note": "32",
+        "entries": [
           {
             "mcc_mnc_codes": "234 09",
             "country_or_area": {
@@ -22101,9 +24789,9 @@
   "981": {
     "actions": [
       {
-        "action_type": "P 1",
-        "position": "P 17",
-        "note": "17",
+        "action_type": "ADD",
+        "position": "P 4",
+        "note": "4",
         "entries": [
           {
             "mcc_mnc_codes": "505 62",
@@ -22118,21 +24806,42 @@
               "en": " "
             },
             "networks": "NBNCo Limited"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 10",
+        "note": "10",
+        "entries": [
           {
             "mcc_mnc_codes": "288 03",
             "country_or_area": {
               "en": "Faroe Islands "
             },
             "networks": "Edge Mobile Sp/F"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 18",
+        "note": "18",
+        "entries": [
           {
             "mcc_mnc_codes": "425 13 425 14",
             "country_or_area": {
               "en": "Israel"
             },
             "networks": "Ituran Cellular Communications Alon Cellular Ltd."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 17",
+        "note": "17",
+        "entries": [
           {
             "mcc_mnc_codes": "901 25",
             "country_or_area": {
@@ -22151,9 +24860,9 @@
   "983": {
     "actions": [
       {
-        "action_type": " 1)",
-        "position": "P 17",
-        "note": "17",
+        "action_type": "SUP",
+        "position": "P 9",
+        "note": "9",
         "entries": [
           {
             "mcc_mnc_codes": "238 13",
@@ -22161,14 +24870,28 @@
               "en": "Denmark"
             },
             "networks": "Communicate A/S"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 17",
+        "note": "17",
+        "entries": [
           {
             "mcc_mnc_codes": "901 30",
             "country_or_area": {
               "en": "International Mobile, shared code"
             },
             "networks": "Terrestar Networks"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 17",
+        "note": "17",
+        "entries": [
           {
             "mcc_mnc_codes": "901 31",
             "country_or_area": {
@@ -22211,8 +24934,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 30",
-        "note": "30",
+        "position": "P 18",
+        "note": "18",
         "entries": [
           {
             "mcc_mnc_codes": "425 07 425 15 425 16 425 17",
@@ -22220,21 +24943,42 @@
               "en": "Israel"
             },
             "networks": "Mirs Ltd Home Cellular (MVNO) Rami Levi (MVNO) Gale Phone (MVNO)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 29",
+        "note": "29",
+        "entries": [
           {
             "mcc_mnc_codes": "234 06",
             "country_or_area": {
               "en": "Sudan"
             },
             "networks": "Zain Sudan"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 30",
+        "note": "30",
+        "entries": [
           {
             "mcc_mnc_codes": "240 34",
             "country_or_area": {
               "en": "Sweden"
             },
             "networks": "Tigo Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 30",
+        "note": "30",
+        "entries": [
           {
             "mcc_mnc_codes": "294 11",
             "country_or_area": {
@@ -22251,8 +24995,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 29",
-        "note": "29",
+        "position": "P 3",
+        "note": "3",
         "entries": [
           {
             "mcc_mnc_codes": "505 20",
@@ -22260,28 +25004,56 @@
               "en": "Australia"
             },
             "networks": "Ausgrid Corporation"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 7",
+        "note": "7",
+        "entries": [
           {
             "mcc_mnc_codes": "730 11 730 12",
             "country_or_area": {
               "en": "Chile"
             },
             "networks": "Celupago S.A. Telestar Móvil S.A."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 17",
+        "note": "17",
+        "entries": [
           {
             "mcc_mnc_codes": "901 33",
             "country_or_area": {
               "en": "International Mobile, shared code"
             },
             "networks": "Smart  Communications , Inc"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 29",
+        "note": "29",
+        "entries": [
           {
             "mcc_mnc_codes": "634 06",
             "country_or_area": {
               "en": "Sudan"
             },
             "networks": "Zain Sudan"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 29",
+        "note": "29",
+        "entries": [
           {
             "mcc_mnc_codes": "240 40",
             "country_or_area": {
@@ -22298,8 +25070,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 8",
-        "note": "8",
+        "position": "P 3",
+        "note": "3",
         "entries": [
           {
             "mcc_mnc_codes": "505 21",
@@ -22307,7 +25079,14 @@
               "en": "Australia"
             },
             "networks": "Queensland Rail Limited"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 8",
+        "note": "8",
+        "entries": [
           {
             "mcc_mnc_codes": "280 22",
             "country_or_area": {
@@ -22327,8 +25106,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 18",
-        "note": "18",
+        "position": "P 9",
+        "note": "9",
         "entries": [
           {
             "mcc_mnc_codes": "630 02",
@@ -22350,7 +25129,14 @@
               "en": " "
             },
             "networks": "YOZMA TIMETURNS sprl"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 18",
+        "note": "18",
+        "entries": [
           {
             "mcc_mnc_codes": "425 08",
             "country_or_area": {
@@ -22396,9 +25182,9 @@
   "994": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 31",
-        "note": "31",
+        "action_type": "REP",
+        "position": "P 23",
+        "note": "23",
         "entries": [
           {
             "mcc_mnc_codes": "455 00",
@@ -22448,7 +25234,14 @@
               "en": "[\"Macao, China\"]"
             },
             "networks": "SmarTone – Comunicações Mõveis, S.A."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 31",
+        "note": "31",
+        "entries": [
           {
             "mcc_mnc_codes": "240 35",
             "country_or_area": {
@@ -22467,9 +25260,6 @@
   "995": {
     "actions": [
       {
-        "action_type": "ADD",
-        "position": "P 3",
-        "note": "3",
         "entries": [
           {
             "mcc_mnc_codes": "505 22",
@@ -22508,9 +25298,9 @@
   "997": {
     "actions": [
       {
-        "action_type": "an ",
-        "position": "P 29",
-        "note": "29",
+        "action_type": "REP",
+        "position": "P 11",
+        "note": "11",
         "entries": [
           {
             "mcc_mnc_codes": "628 01",
@@ -22546,14 +25336,28 @@
               "en": "[\"Gabon\"]"
             },
             "networks": "Réseau de l’Administration Gabonaise (RAG)"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 24",
+        "note": "24",
+        "entries": [
           {
             "mcc_mnc_codes": "643 03",
             "country_or_area": {
               "en": "Mozambique"
             },
             "networks": "Movitel"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "REP",
+        "position": "P 27",
+        "note": "27",
+        "entries": [
           {
             "mcc_mnc_codes": "260  01",
             "country_or_area": {
@@ -22798,7 +25602,14 @@
               "en": " "
             },
             "networks": "Play (testowy) / P4 Sp. z o.o."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 29",
+        "note": "29",
+        "entries": [
           {
             "mcc_mnc_codes": "659 92",
             "country_or_area": {
@@ -22865,8 +25676,8 @@
     "actions": [
       {
         "action_type": "ADD",
-        "position": "P 26",
-        "note": "26",
+        "position": "P 8",
+        "note": "8",
         "entries": [
           {
             "mcc_mnc_codes": "730 13 730 14",
@@ -22874,21 +25685,42 @@
               "en": "Chile"
             },
             "networks": "TRIBE Mobile Chile SPA Netline Telefónica Móvil Ltda"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 25",
+        "note": "25",
+        "entries": [
           {
             "mcc_mnc_codes": "530 06",
             "country_or_area": {
               "en": "New Zealand"
             },
             "networks": "FX Networks Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "position": "P 26",
+        "note": "26",
+        "entries": [
           {
             "mcc_mnc_codes": "242 09",
             "country_or_area": {
               "en": "Norway"
             },
             "networks": "Mundio Mobile Norway Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "position": "P 26",
+        "note": "26",
+        "entries": [
           {
             "mcc_mnc_codes": "242 09",
             "country_or_area": {

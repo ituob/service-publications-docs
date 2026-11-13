@@ -1,0 +1,24 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1345'
+reference: OB-1345
+identifier:
+  code: 1345-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-081-4
+    country:
+      en: Japan
+    dec: '8844'
+    signal_point_name: STP-1
+    signal_point_operator: Starlink Japan, GK
+  - ipsc: 4-081-5
+    country:
+      en: Japan
+    dec: '8845'
+    signal_point_name: STP-2
+    signal_point_operator: Starlink Japan, GK
+  notes:
+  - 'ISPC: International Signalling Point Codes.'

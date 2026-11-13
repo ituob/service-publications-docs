@@ -8,8 +8,9 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Stadtwerke Hof Energie+Wasser GmbH
     address_line_1: Unterkotzauer Weg 25
     address_line_2: D-95028 HOF
@@ -17,4 +18,6 @@ data:
     contact: Mr Juergen Bolz
     tel: "+49 9281 812 210"
     fax: "+49 9281 812 480"
+    email:
+    - juergen.bolz@stadtwerke-hof.de
   notes: []

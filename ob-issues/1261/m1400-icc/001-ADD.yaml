@@ -4,12 +4,13 @@ date_active: *1
 ob_issue_no: '1261'
 reference: OB-1261
 identifier:
-  code: Austria /
+  code: Austria / AUT
 data:
   _class: M1400Amendment
-  position: Austria /
+  position: Austria / AUT
   entries:
-  - country_or_area:
+  - iso_code: AUT
+    country_or_area:
       en: Austria
     company_name: yuutel GmbH
     address_line_1: Leonard Bernsteinstrasse 10
