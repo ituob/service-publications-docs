@@ -676,6 +676,13 @@ Finally the goal is to have all ITU OB data in:
 `ob-issue/{issue-no}/{text-dataset-name}/{message-id}`:: a textual general message
 
 
+== NBSP at-rest policy
+
+`build_ob_issues.rb` normalizes non-breaking spaces (NBSP) in register key
+fields with `Ituob::Helpers.replace_legacy_space` before writing patch files.
+This includes composite and fallback key fields and multilingual key values.
+Text values retain their printed NBSP; they are not normalized at rest.
+
 == Ontology toolchain (LML)
 
 The model ontology `ituob/lib/ituob/ontology/messages.lml` is the
