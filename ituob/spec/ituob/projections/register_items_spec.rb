@@ -58,6 +58,38 @@ RSpec.describe Ituob::Projections::RegisterItems, 'E164_CC register fields' do
   end
 end
 
+RSpec.describe Ituob::Projections::RegisterItems, 'E164_CC list notes' do
+  include_context 'replayed projection rows'
+  let(:register_id) { 'E164_CC' }
+
+  it 'retains each notes collection on the corresponding replayed row' do
+    indices = rows.each_index.select { |index| rows.fetch(index).key?('notes') }
+    expect(indices.size).to eq(11)
+    indices.each do |index|
+      expected = rows.fetch(index).fetch('notes')
+      expect(items.fetch(index).notes).to eq(expected)
+      expect(items.fetch(index).to_hash).to include('notes' => expected)
+    end
+  end
+end
+
+RSpec.describe Ituob::Projections::RegisterItems, 'T35_NA boolean values' do
+  include_context 'replayed projection rows'
+  let(:register_id) { 'T35_NA' }
+
+  it 'retains true and false as booleans in every row and serialized entry' do
+    expected = rows.map do |row|
+      value = row.fetch('manufactures_htv')
+      value == 'YES' ? true : value
+    end
+    expect(expected.count(false)).to eq(13)
+    expect(expected.count(true)).to be_positive
+    expect(items.map(&:manufactures_htv)).to eq(expected)
+    expect(items.map { |item| item.to_hash.fetch('manufactures_htv') }).to eq(expected)
+    expect(items.reject(&:manufactures_htv).size).to eq(13)
+  end
+end
+
 RSpec.describe Ituob::Projections::RegisterItems, 'T35_NA authority fields' do
   include_context 'replayed projection rows'
   let(:register_id) { 'T35_NA' }

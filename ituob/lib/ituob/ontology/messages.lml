@@ -194,6 +194,7 @@ models Ituob {
     attribute country_code, String
     attribute country_area_or_service, MultilingualString
     attribute note, MultilingualString
+    attribute notes, String { cardinality 0..n }
     attribute applicant, String
     attribute network, String
     attribute cc_ic, String
@@ -654,7 +655,7 @@ models Ituob {
     attribute _class, String { default: "T35NAEntry" }
     attribute country, String
     attribute administration_name, String
-    attribute manufactures_htv, String
+    attribute manufactures_htv, Boolean
     attribute last_updated, String
     attribute assignment_authority, T35AssignmentAuthority { cardinality 0..n }
     attribute note, String
