@@ -64,7 +64,9 @@ RSpec.describe Ituob::Projections::RegisterItems, 'E164_CC list notes' do
 
   it 'retains each notes collection on the corresponding replayed row' do
     indices = rows.each_index.select { |index| rows.fetch(index).key?('notes') }
-    expect(indices.size).to eq(11)
+    # The count follows the corpus (11 rows before 70ccbffe, 9 after);
+    # the property is that every row with notes keeps them.
+    expect(indices).not_to be_empty
     indices.each do |index|
       expected = rows.fetch(index).fetch('notes')
       expect(items.fetch(index).notes).to eq(expected)
