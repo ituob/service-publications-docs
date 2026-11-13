@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'liquid'
 
 RSpec.describe Ituob::Provider do
   before(:context) { @shared_provider = described_class.new }
@@ -71,7 +70,7 @@ RSpec.describe Ituob::Provider do
         '{{ e.provenance.as_of_issue }}:{% for i in e.items %}{{ i.mcc_mnc_codes }};{% endfor %}'
       )
 
-      expect(template.render('e' => small))
+      expect(template.render!('e' => small))
         .to eq("1170:#{small.items.map(&:mcc_mnc_codes).join(';')};")
     end
 
