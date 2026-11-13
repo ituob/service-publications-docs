@@ -223,6 +223,60 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
       expect(entries.map { |entry| entry.country_or_area.es }).to all(be_nil)
     end
 
+    it 'starts a separate country when a network heading follows another country entry' do
+      doc = doc_with_rows(
+        row(cell(paragraph('BAHREÏN 1)')), cell(paragraph('Unitel')), cell(paragraph('BN- -')),
+            cell(paragraph('Bahrain')), cell(paragraph('BNBA'))),
+        row(cell(paragraph('JORDANIE')), cell(paragraph('Unitel')), cell(paragraph('JO- -')),
+            cell(paragraph("\u00A0")), cell(paragraph("\u00A0"))),
+        row(cell(paragraph('')), cell(paragraph('')), cell(paragraph('')),
+            cell(paragraph('Amman')), cell(paragraph('JOAM'))),
+        row(cell(paragraph('')), cell(paragraph('')), cell(paragraph('')),
+            cell(paragraph('Jerusalem Jordan')), cell(paragraph('JOJM'))),
+      )
+      amendment = parse(doc)
+      entries = amendment.actions.first.entries
+      keys = entries.map { |entry| [entry.country_or_area.fr, entry.network_code, entry.office_code] }
+
+      expect(keys).to eq([
+        ['BAHREÏN', 'BN- -', 'BNBA'],
+        ['JORDANIE', 'JO- -', 'JOAM'],
+        ['JORDANIE', 'JO- -', 'JOJM'],
+      ])
+      expect(entries.map { |entry| entry.country_or_area.en }).to all(be_nil)
+      expect(entries.first.country_or_area_note.en).to eq('1)')
+      expect(entries.drop(1).map(&:country_or_area_note)).to all(be_nil)
+      expect(amendment.notes).to include('Unitel — JO- -')
+    end
+
+    it 'keeps consecutive language headings together after another country entry' do
+      doc = doc_with_rows(
+        row(cell(paragraph('BAHREÏN')), cell(paragraph('Unitel')), cell(paragraph('BN- -')),
+            cell(paragraph('Bahrain')), cell(paragraph('BNBA'))),
+        row(cell(paragraph('ITALIE 1)')), cell(paragraph('Unrouted')), cell(paragraph('IU- -')),
+            cell(paragraph('')), cell(paragraph(''))),
+        row(cell(paragraph('ITALY 1)')), cell(paragraph('GOVT – Ministry of Economic')), cell(paragraph('IG- -')),
+            cell(paragraph('')), cell(paragraph(''))),
+        row(cell(paragraph('ITALIA 1)')), cell(paragraph('Development, Roma')), cell(paragraph('')),
+            cell(paragraph('')), cell(paragraph(''))),
+        row(cell(paragraph('')), cell(paragraph('UTS GmbH 1)')), cell(paragraph('IT- -')),
+            cell(paragraph('15011 ACQUI TERME')), cell(paragraph('--AC'))),
+      )
+      entries = parse(doc).actions.first.entries
+
+      expect(entries.length).to eq(2)
+      expect(entries.first.country_or_area.fr).to eq('BAHREÏN')
+      expect(entries.first.country_or_area.en).to be_nil
+      expect(entries.first.country_or_area.es).to be_nil
+      expect(entries.first.country_or_area_note).to be_nil
+      expect(entries.last.country_or_area.fr).to eq('ITALIE')
+      expect(entries.last.country_or_area.en).to eq('ITALY')
+      expect(entries.last.country_or_area.es).to eq('ITALIA')
+      expect(entries.last.country_or_area_note.en).to eq('1)')
+      expect(entries.last.network_code).to eq('IT- -')
+      expect(entries.last.office_code).to eq('--AC')
+    end
+
     it 'does not carry a previous data country note into a new data country' do
       doc = doc_with_rows(
         row(cell(paragraph('ITALIE 1)')), cell(paragraph('UTS GmbH 1)')), cell(paragraph('IT- -')),

@@ -54,7 +54,7 @@ attribute :notes, :string, collection: true
       class State < WalkState
         ACTION_CLASS = F32TDIAction
 
-        attr_accessor :country, :country_note, :network_roa, :network_code, :in_notes
+        attr_accessor :country, :country_note, :network_roa, :network_code, :in_notes, :in_country_heading
         attr_reader :notes
 
         def initialize
@@ -105,6 +105,7 @@ attribute :notes, :string, collection: true
         if (p_line = text.match(/\AP\s*(\d+(?:-\d+)?)?\s+(.*)\z/))
           state.country = state.country_note = nil
           state.network_roa = state.network_code = nil
+          state.in_country_heading = false
           action = state.open_action
           action.position = p_line[1] ? "P #{p_line[1]}" : 'P'
           action.description = text
@@ -164,6 +165,12 @@ attribute :notes, :string, collection: true
       # as notes rather than creating entries with unusable keys.
       def self.consume_unkeyed_row(texts, state)
         if texts[3].empty? && !note_paragraph?(texts[0].join(' '))
+          # A country/network heading after data starts a new country;
+          # consecutive headings can print its other language variants.
+          if !texts[0].empty? && !country_only_row?(texts)
+            state.country = state.country_note = nil unless state.in_country_heading
+            state.in_country_heading = true
+          end
           merge_country_variant(state, texts[0])
           update_network(texts, state)
           texts = texts.drop(1)
@@ -226,6 +233,7 @@ attribute :notes, :string, collection: true
       end
 
       def self.build_entry(texts, state)
+        state.in_country_heading = false
         # A printed country on a data row starts a new country. Only
         # uncoded heading rows supply additional language variants.
         if texts[0].any? { |text| !note_paragraph?(text) }
