@@ -203,9 +203,12 @@ attribute :notes, :string, collection: true
       def self.merge_country_variant(state, paragraphs, new_country: false)
         parts, notes = paragraphs.partition { |text| !note_paragraph?(text) }
         parts = parts.map do |text|
-          text.sub(/\s+(\d+\)|\*)\z/) do
-            notes << Regexp.last_match(1)
-            ''
+          country, separator, marker = text.rpartition(' ')
+          if !separator.empty? && marker.match?(/\A(?:\d+\)|\*)\z/)
+            notes << marker
+            country.rstrip
+          else
+            text
           end
         end
         notes.concat(parts.drop(3))

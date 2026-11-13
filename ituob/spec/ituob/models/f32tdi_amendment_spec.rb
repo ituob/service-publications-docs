@@ -131,6 +131,23 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
       expect(entry.country_or_area.fr).to eq('CÔTE D’IVOIRE')
       expect(entry.country_or_area.en).to be_nil
     end
+
+    ['*', '12)'].each do |marker|
+      it "separates the trailing #{marker} country note marker after a long whitespace run" do
+        entry = entry_for(cell(paragraph("ITALIE#{' ' * 10_000}#{marker}")))
+
+        expect(entry.country_or_area.fr).to eq('ITALIE')
+        expect(entry.country_or_area_note.en).to eq(marker)
+      end
+    end
+
+    it 'keeps a long numeric country suffix without a closing parenthesis' do
+      country = "REGION #{'1' * 10_000}"
+      entry = entry_for(cell(paragraph(country)))
+
+      expect(entry.country_or_area.fr).to eq(country)
+      expect(entry.country_or_area_note).to be_nil
+    end
   end
 
   describe 'row shape handling' do
