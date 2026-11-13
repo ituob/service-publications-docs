@@ -3,6 +3,7 @@
 require 'spec_helper'
 require 'ituob/models'
 require 'ituob/helpers'
+require 'timeout'
 
 RSpec.describe Ituob::Models::E212MNCAmendment do
   def text_node(text)
@@ -129,6 +130,43 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
   end
 
   describe 'country-first paragraph layout (no position column)' do
+    it 'opens an action with the full parenthesised country heading' do
+      doc = document(
+        paragraph('Germany (Federal Republic of)   ADD*'),
+        paragraph('      262 01    Telekom Deutschland GmbH'),
+      )
+      actions = parse(doc).actions
+
+      expect(actions.length).to eq(1)
+      expect(actions.first.action_type).to eq('ADD')
+      expect(actions.first.entries.first.country_or_area.en).to eq('Germany (Federal Republic of)')
+      expect(actions.first.entries.first.mcc_mnc_codes).to eq('262 01')
+    end
+
+    it 'rejects long runs of spaces and NBSP within two seconds' do
+      doc = document(paragraph(" \u00a0" * 100_000))
+
+      Timeout.timeout(2) do
+        expect(parse(doc).actions).to be_empty
+        expect(described_class.country_action_line("Germany#{' ' * 200_000}UNKNOWN")).to be_nil
+        expect(described_class.country_action_line("Germany#{' ' * 200_000}ADD")).to eq(
+          country: 'Germany', action: 'ADD',
+        )
+      end
+    end
+
+    it 'preserves the country guards and the 50-character limit' do
+      ['germany', 'Germany 2', 'Germany:', 'P 35 Germany', 'A' * 51, ''].each do |country|
+        expect(described_class.country_action_line("#{country} ADD")).to be_nil
+      end
+
+      expect(described_class.country_action_line("#{'A' * 50} ADD")).to eq(
+        country: 'A' * 50, action: 'ADD',
+      )
+      expect(described_class.country_action_line('GermanyADD')).to be_nil
+      expect(described_class.country_action_line('Germany MOD')).to be_nil
+    end
+
     it 'opens one action per country line, keeping the printed action and country' do
       doc = document(
         paragraph("Belarus \u00a0\u00a0\u00a0SUP"),
