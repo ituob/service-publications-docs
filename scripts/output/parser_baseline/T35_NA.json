@@ -8,11 +8,13 @@
           {
             "country": "Norway",
             "administration_name": "Norwegian Post and Telecommunications Authority",
-            "manufactures_htv": "YES",
+            "manufactures_htv": true,
             "last_updated": "28.II.2012",
             "assignment_authority": [
               {
-                "terminal_type": "H-Series",
+                "terminal_type": [
+                  "H-Series"
+                ],
                 "contact_name": "Anne Thomassen, Hege Johnson, Johannes M Vallesverd",
                 "organization": "Norwegian Post and Telecommunications Authority",
                 "department": "Section for telephony and number management",
@@ -40,11 +42,13 @@
           {
             "country": "Germany",
             "administration_name": "Federal Network Agency for Electricity, Gas, Telecommunication, Post and Railway",
-            "manufactures_htv": "YES",
+            "manufactures_htv": true,
             "last_updated": "25 April 2012",
             "assignment_authority": [
               {
-                "terminal_type": " H-Series  T-Series    V-Series ",
+                "terminal_type": [
+                  " H-Series  T-Series    V-Series "
+                ],
                 "contact_name": " ",
                 "organization": "Federal Network Agency for Electricity, Gas, Telecommunication, Post and Railway",
                 "department": "118; Number Management",
@@ -72,11 +76,13 @@
           {
             "country": "China",
             "administration_name": "Ministry of Industry and Information Technology (MIIT)",
-            "manufactures_htv": "YES",
+            "manufactures_htv": true,
             "last_updated": "15 December 2011",
             "assignment_authority": [
               {
-                "terminal_type": "H-, T- and V-Series",
+                "terminal_type": [
+                  "H-, T- and V-Series"
+                ],
                 "contact_name": "Ms. Mei DENG, Mr. Shizhuo ZHAO",
                 "organization": "China Communication Standards Association (CCSA)",
                 "department": " ",

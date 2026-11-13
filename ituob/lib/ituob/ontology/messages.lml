@@ -192,6 +192,10 @@ models Ituob {
 
   class E164CCEntry {
     attribute _class, String { default: "E164CCEntry" }
+    attribute country_code, String
+    attribute country_area_or_service, MultilingualString
+    attribute note, MultilingualString
+    attribute notes, String { cardinality 0..n }
     attribute applicant, String
     attribute network, String
     attribute cc_ic, String
@@ -321,7 +325,7 @@ models Ituob {
     attribute country_or_area_note, MultilingualString
     attribute notes, MultilingualString
     attribute network_roa, String
-    attribute network_roa_note, String
+    attribute network_roa_note, MultilingualString
     attribute network_code, String
     attribute network_code_note, MultilingualString
     attribute telegraph_office_name, MultilingualString
@@ -617,7 +621,8 @@ models Ituob {
   // T.35 family
 
   class T35AssignmentAuthority {
-    attribute terminal_type, String
+    attribute terminal_type, String { cardinality 0..n }
+    attribute last_updated, String
     attribute contact_name, String
     attribute organization, String
     attribute department, String
@@ -651,7 +656,7 @@ models Ituob {
     attribute _class, String { default: "T35NAEntry" }
     attribute country, String
     attribute administration_name, String
-    attribute manufactures_htv, String
+    attribute manufactures_htv, Boolean
     attribute last_updated, String
     attribute assignment_authority, T35AssignmentAuthority { cardinality 0..n }
     attribute note, String

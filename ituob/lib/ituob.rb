@@ -55,6 +55,9 @@ module Ituob
   # Register / patch / replay model.
   autoload :Registers, 'ituob/registers'
 
+  # Typed views of replayed register data.
+  autoload :Projections, 'ituob/projections'
+
   # Readers for DOCX/DOC/PDF source documents.
   autoload :SourceDocuments, 'ituob/source_documents'
 
