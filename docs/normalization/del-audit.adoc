@@ -1,0 +1,1003 @@
+= Printed deletion classification audit
+
+== Result and boundary
+
+The local source contains one genuine printed `DEL` action: Sweden in OB 1335,
+Q.708 ISPC. The existing corpus stores that heading and its three deleted codes
+inside an `ADD` patch under Spain. Natural-language deletion, withdrawal and
+cancellation wording also occurs beside genuine printed `SUP` actions. Keep those
+as `SUP`; the English word “delete” does not establish that the bulletin printed
+`DEL`.
+
+This audit compares the local source submodule at
+`90f99728acd1e96d025ce0034fe43a38b572aa62` with the corpus/parser at
+`0651a679b0180d7bdc611d7c72756f64a0dd52a0`. No source or corpus patches were changed.
+Every `path:line` below refers to a physical line of the local YAML or AsciiDoc
+transcription of the printed bulletin. These are not PDF page or printed line
+numbers; the local source does not supply printed line numbering. Quoted wording
+is from that transcription.
+
+== Reproduction and scope
+
+Search all 1,439 YAML and 104 AsciiDoc files recursively under
+`itu-ob-data/issues`, including general communications, amendments and reference
+AsciiDoc. Source hit counts are lexical occurrences by physical line, not counts
+of distinct deletions. YAML and AsciiDoc may describe the same event.
+
+[source,shell]
+----
+rg -n -i '\b(delete[ds]?|deletions?)\b' itu-ob-data/issues -g '*.yaml'
+rg -n -i '\b(withdrawn|withdrawal|withdrawals|cancelled|canceled|cancellations?|removed|removal)\b' itu-ob-data/issues -g '*.yaml'
+rg -n -i '\b(delete[ds]?|deletions?|withdrawn|withdrawal|withdrawals|cancelled|canceled|cancellations?|removed|removal)\b' itu-ob-data/issues -g '*.adoc'
+rg -n '\bDEL\b' itu-ob-data/issues -g '*.yaml' -g '*.adoc'
+----
+
+The first three searches return respectively 45 YAML lines, 556 YAML lines and
+19 AsciiDoc lines. The grouped inventory below accounts for all 601 YAML lines
+and all 19 AsciiDoc lines. The separate case-sensitive `DEL` search is adjudicated
+as an action only where it heads amendment rows; uppercase `DEL` in names such
+as `NEXTEL DEL PERÚ`, addresses and place names is not an action. Lowercase
+Spanish/Italian `del`, `Del Fresno`, and URLs containing `/del-` are likewise not
+deletion instructions. The inventory is exhaustive for these explicit English
+terms in this local source snapshot, not for every possible paraphrase or other
+language.
+
+Grouping uses each hit's containing `messages` YAML element. Its `type` and
+`target.publication` select the corpus directory; payload `type` is read from the
+actual files, independently of filename suffix. Reproduce the grouping by reading
+those enclosing message elements and the listed directory's `*.yaml` payloads.
+The table lists every matched physical line, including repeated column headers.
+A directory's type summary describes its current patches; it does not assert that
+every row in that directory has the same intended action.
+
+== Printed DEL and genuine SUP controls
+
+[cols="3,4,5",options="header"]
+|===
+|Source evidence |Printed meaning |Current classification
+|`itu-ob-data/issues/1335/amendments.yaml:495`; codes at 507, 549, 591
+|`Sweden  DEL`; remove `2-080-2`, `2-080-3`, `2-081-6`.
+|`ob-issues/1335/q708-ispc/001-ADD.yaml:1` is `ADD`; line 17 stores `Sweden   DEL` as a bogus `ipsc`, and lines 20, 26, 32 store the three codes under Spain. Rebuild required.
+|`itu-ob-data/issues/1173/_reference_asciidoc/sections/amendments/00-abbrevs.adoc:8`
+|The printed legend explicitly says `SUP:: Delete`.
+|A legend, not a patch. Preserve the distinction between printed `SUP` and printed `DEL`.
+|`itu-ob-data/issues/957/amendments.yaml:5016,5307`
+|Lithuania `LT/LTXX` and Vanuatu `NH/NHVL/NHVX` “are deleted”; accompanying headers print `SUP`.
+|`ob-issues/957/f32-tdi/002-SUP.yaml` and `003-SUP.yaml` have payload `SUP`; the prose also survives in shared notes. Preserve `SUP`.
+|`itu-ob-data/issues/958/amendments.yaml:590`
+|Madagascar `MG/MGTE/MGTA/MGTR/MGTX` “deleted”; accompanying header prints `SUP`.
+|`ob-issues/958/f32-tdi/001-SUP.yaml` has payload `SUP`. Preserve `SUP`; the same note on `002-REP.yaml` does not make the Yemen replacement a deletion.
+|`itu-ob-data/issues/999/amendments.yaml:939`
+|`Norway SUP (delete)`; suppress old `242 09` Mundio Mobile Norway Ltd before the new assignment.
+|`ob-issues/999/e212-mnc/001-ADD.yaml:20` incorrectly carries the old row as `ADD`. Rebuild required.
+|`itu-ob-data/issues/1015/amendments.yaml:25`; `1001/amendments.yaml:32`; `1011/amendments.yaml:196`
+|E.118 `SUP (delete)` headings (including Montenegro at OB 1011).
+|Existing `ob-issues/1015/e118-iin/001-SUP.yaml`, `1001/e118-iin/001-SUP.yaml` through `003-SUP.yaml`, and `1011/e118-iin/002-SUP.yaml` retain payload `SUP`.
+|===
+
+== Classification rule and c7 rebuild inventory
+
+`Amendment.action_keyword_in` (`ituob/lib/ituob/models/amendment.rb:33`) and
+`Catalogs::ActionTypes.keyword_regex` / `find_last_in`
+(`ituob/lib/ituob/catalogs/action_types.rb:40,58`) recognize printed
+`ADD SUP REP LIR MOD DEL`. They do not turn deletion prose into `DEL`.
+`codemap.py action_keyword_in find_last_in` traces the callers, including the
+ProseMirror extractor, text amendment content and action splitter. Q.708 and
+E.212 use their publication parsers, so keyword catalog support alone does not
+prove that a printed heading reaches the correct output action.
+
+`Strategies::Sup` removes the entry, records `deleted_keys`, and can record a
+supersession redirect. `Strategies::Del` removes the entry, records `deleted_keys`
+and clears a lapsed marker. Therefore printed `SUP` can already mean deletion;
+relabeling every English deletion as `DEL` would change replay semantics.
+
+Source references in the rebuild table are relative to `itu-ob-data/issues/`.
+The following are confirmed corpus rebuild targets, not changes made by this
+audit. Regenerate the complete publication patch sequence so deleted rows and
+subsequent `ADD`/`LIR` replacements keep their ordering and country context.
+
+[cols="4,5,4",options="header"]
+|===
+|Existing patch |Source evidence |Required preservation/correction
+|`ob-issues/1335/q708-ispc/001-ADD.yaml`
+|`1335/amendments.yaml:495,507,549,591`
+|Keep Spanish `2-027-4` as ADD; emit the three Swedish codes as DEL, country Sweden; remove the bogus heading entry.
+|`ob-issues/999/e212-mnc/001-ADD.yaml`
+|`999/amendments.yaml:939`
+|Old Norway `242 09` is SUP; preserve subsequent ADD.
+|`ob-issues/1015/e212-mnc/001-ADD.yaml`
+|`1015/amendments.yaml:1070`
+|Old Jamaica `338 050` Mossel row is SUP; preserve Digicel ADD.
+|`ob-issues/1017/e212-mnc/001-ADD.yaml`
+|`1017/amendments.yaml:1100,1456`
+|Bulgaria old `284 01` and old Liechtenstein rows are SUP; preserve following replacements and other countries.
+|`ob-issues/1102/e212-mnc/001-ADD.yaml`
+|`1102/amendments.yaml:626`; preceding `Estonia SUP` header in same message
+|Old `248 05` row is SUP; preserve following Skycompiler replacement. A heading row is currently stored as an entry.
+|`ob-issues/1238/e164-cc/002-ADD.yaml`
+|`1238/amendments.yaml:1075,1183`
+|Printed `SUP**`, withdrawn `+882 15`, currently payload ADD.
+|`ob-issues/1240/e164-cc/001-ADD.yaml` and `002-ADD.yaml`
+|`1240/amendments.yaml:360,371,476,518,560,602,629,640,741,783,825,867`
+|Printed SUP withdrawals: `+882 12/22/33/97` and `+883 120/180/230/310`, currently payload ADD.
+|`ob-issues/1287/e164-cc/002-ADD.yaml`
+|`1287/amendments.yaml:520,625,667`
+|Printed `SUP**`, withdrawn `+883 5100/5110`, currently payload ADD.
+|`ob-issues/1312/e164-cc/002-ADD.yaml`
+|`1312/amendments.yaml:360,464`
+|Printed `SUP**`, withdrawn `+883 320`, currently payload ADD; preserve preceding LIR.
+|===
+
+Filename drift is separate from payload misclassification: these E.164 withdrawal
+files are named `ADD` but already contain payload `type: SUP`:
+`ob-issues/983/e164-cc/001-ADD.yaml`,
+`989/e164-cc/001-ADD.yaml`, `998/e164-cc/001-ADD.yaml`,
+`999/e164-cc/001-ADD.yaml`, `1001/e164-cc/001-ADD.yaml`,
+`1056/e164-cc/001-ADD.yaml`, `1091/e164-cc/001-ADD.yaml` and `002-ADD.yaml`,
+`1236/e164-cc/001-ADD.yaml`, `1257/e164-cc/001-ADD.yaml`,
+`1258/e164-cc/001-ADD.yaml`, `1260/e164-cc/001-ADD.yaml`,
+`1262/e164-cc/001-ADD.yaml`, `1282/e164-cc/001-ADD.yaml`,
+`1287/e164-cc/001-ADD.yaml`, and `1310/e164-cc/001-ADD.yaml`.
+The grouped table reports the payload value so these are not mistaken for
+additional ADD payload errors. Rebuild should bring filenames into agreement
+while retaining SUP semantics.
+
+The broader amendment hits fall into E.118 cancellation-date headers, E.164
+withdrawal descriptions/status cells, E.212 withdrawal notes and X.121 DNIC
+withdrawal headers. Their containing messages have explicit printed SUP headers;
+none supplies evidence that the printed action was DEL. General-message hits
+remain telephone-service, custom, recommendation or other textual communications.
+Withdrawal of a national numbering resource or cancellation of a service is not
+by itself a structured register DEL patch. General message classification is
+recorded below without inventing register entries from prose.
+
+== Complete YAML wording inventory
+
+Each row groups one containing source message. All source paths are relative to
+the repository root. `files(type)` reports actual payload types, not inferred
+filename types. For general textual messages, retaining their source message
+kind is the current classification; no structured amendment action is claimed.
+
+[cols="5,4,6",options="header"]
+|===
+|Source path and all matched lines |Wording family / source kind |Current corpus directory and files(payload type)
+|`itu-ob-data/issues/956/general.yaml:9300,9338`
+|cancellation, Cancellation; `telephone_service_2`
+|`ob-issues/956/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/957/amendments.yaml:5016,5307`
+|deleted; `F32_TDI`
+|`ob-issues/957/f32-tdi/` `001-ADD.yaml(ADD)`; `002-SUP.yaml(SUP)`; `003-SUP.yaml(SUP)`
+|`itu-ob-data/issues/957/general.yaml:11519,11603`
+|deleted; `custom`
+|`ob-issues/957/custom/` `001.yaml(custom)`; `002.yaml(custom)`
+|`itu-ob-data/issues/958/amendments.yaml:590`
+|deleted; `F32_TDI`
+|`ob-issues/958/f32-tdi/` `001-SUP.yaml(SUP)`; `002-REP.yaml(REP)`
+|`itu-ob-data/issues/958/general.yaml:75`
+|deleted; `custom`
+|`ob-issues/958/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/958/general.yaml:516`
+|cancellation; `telephone_service_2`
+|`ob-issues/958/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/959/general.yaml:6026,6083,6192,7059,7116,7225`
+|withdrawn; `telephone_service_2`
+|`ob-issues/959/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/960/general.yaml:2420,2454,2798,2832,3082,3116`
+|Cancellation, cancellation, withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/960/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/961/general.yaml:354,388`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/961/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/963/general.yaml:213,249`
+|cancellation, Cancellation; `telephone_service_2`
+|`ob-issues/963/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/964/general.yaml:280,314`
+|cancellation, Cancellation; `telephone_service_2`
+|`ob-issues/964/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/965/general.yaml:6955,6977`
+|withdrawal; `custom`
+|`ob-issues/965/custom/` `001.yaml(custom)`; `002.yaml(custom)`
+|`itu-ob-data/issues/967/general.yaml:289`
+|cancellation; `telephone_service_2`
+|`ob-issues/967/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/970/general.yaml:154,194,238,280`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/970/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/971/general.yaml:597,639,769,809`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/971/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/974/general.yaml:741,775`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/974/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/974/general.yaml:1327`
+|withdrawn; `custom`
+|`ob-issues/974/custom/` `001.yaml(custom)`; `002.yaml(custom)`
+|`itu-ob-data/issues/976/general.yaml:440,474`
+|withdrawal, Withdrawn; `telephone_service_2`
+|`ob-issues/976/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/977/general.yaml:945,987`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/977/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/978/general.yaml:22394,22403,22447`
+|withdrawal, withdrawn; `telephone_service_2`
+|`ob-issues/978/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/981/amendments.yaml:24,156`
+|withdrawn, Withdrawn; `E164_CC`
+|`ob-issues/981/e164-cc/` `001-SUP.yaml(SUP)`; `002-ADD.yaml(ADD)`
+|`itu-ob-data/issues/981/general.yaml:30`
+|withdrawn; `iptn`
+|`ob-issues/981/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/981/general.yaml:138`
+|withdrawn; `custom`
+|`ob-issues/981/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/982/general.yaml:5691`
+|cancelled; `custom`
+|`ob-issues/982/custom/` `001.yaml(custom)`; `002.yaml(custom)`
+|`itu-ob-data/issues/983/amendments.yaml:1219,1339`
+|withdrawn, Withdrawn; `E164_CC`
+|`ob-issues/983/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/983/general.yaml:47`
+|withdrawn; `iptn`
+|`ob-issues/983/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/983/general.yaml:3153,3670,3704,3927,3961`
+|withdrawal, Withdrawal, withdrawn; `telephone_service_2`
+|`ob-issues/983/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/983/general.yaml:7475`
+|withdrawn; `custom`
+|`ob-issues/983/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/986/general.yaml:7421,7507,7581`
+|withdrawal; `telephone_service_2`
+|`ob-issues/986/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/987/general.yaml:48,88`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/987/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/989/amendments.yaml:403,517`
+|withdrawn, Withdrawn; `E164_CC`
+|`ob-issues/989/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/990/general.yaml:10057,10101`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/990/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/991/general.yaml:608,688`
+|withdrawal; `telephone_service_2`
+|`ob-issues/991/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/992/general.yaml:710,905`
+|withdrawal; `telephone_service_2`
+|`ob-issues/992/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/995/general.yaml:1095`
+|withdrawal; `telephone_service_2`
+|`ob-issues/995/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/996/general.yaml:179,219,464,709`
+|withdrawal; `telephone_service_2`
+|`ob-issues/996/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/998/amendments.yaml:505,614`
+|withdrawal, Withdrawn; `E164_CC`
+|`ob-issues/998/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`
+|`itu-ob-data/issues/998/amendments.yaml:691`
+|withdrawal; `E212_MNC`
+|`ob-issues/998/e212-mnc/` `001-SUP.yaml(SUP)`
+|`itu-ob-data/issues/998/amendments.yaml:4433`
+|withdrawn; `X121_DNIC`
+|`ob-issues/998/x121-dnic/` `001-SUP.yaml(SUP)`
+|`itu-ob-data/issues/998/general.yaml:39`
+|withdrawn; `iptn`
+|`ob-issues/998/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/998/general.yaml:974,1014,1059,1099`
+|withdrawal; `telephone_service_2`
+|`ob-issues/998/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/998/general.yaml:2922,2964`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/998/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/998/general.yaml:3131`
+|withdrawal; `custom`
+|`ob-issues/998/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/999/amendments.yaml:939`
+|delete; `E212_MNC`
+|`ob-issues/999/e212-mnc/` `001-ADD.yaml(ADD)`
+|`itu-ob-data/issues/999/amendments.yaml:372,483`
+|withdrawn, Withdrawn; `E164_CC`
+|`ob-issues/999/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`
+|`itu-ob-data/issues/999/general.yaml:73`
+|withdrawn; `iptn`
+|`ob-issues/999/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1001/amendments.yaml:32,106`
+|cancellation, delete; `E118_IIN`
+|`ob-issues/1001/e118-iin/` `001-SUP.yaml(SUP)`; `002-SUP.yaml(SUP)`; `003-SUP.yaml(SUP)`; `004-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1001/amendments.yaml:544,649`
+|withdrawn, Withdrawn; `E164_CC`
+|`ob-issues/1001/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1001/general.yaml:398,438`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1001/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1001/general.yaml:4740`
+|withdrawn; `iptn`
+|`ob-issues/1001/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1002/general.yaml:211`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1002/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1003/general.yaml:1059`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1003/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1005/general.yaml:5514,5554`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1005/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1007/general.yaml:2506`
+|cancelled; `custom`
+|`ob-issues/1007/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/1010/general.yaml:597,677,17073,17129`
+|removed, withdrawal; `telephone_service_2`
+|`ob-issues/1010/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1011/amendments.yaml:196`
+|delete; `E118_IIN`
+|`ob-issues/1011/e118-iin/` `001-ADD.yaml(ADD)`; `002-SUP.yaml(SUP)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1012/general.yaml:79,119`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1012/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1013/amendments.yaml:102`
+|withdrawal; `E118_IIN`
+|`ob-issues/1013/e118-iin/` `001-SUP.yaml(SUP)`; `002-SUP.yaml(SUP)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1013/general.yaml:64`
+|deleted; `custom`
+|`ob-issues/1013/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/1014/general.yaml:274`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1014/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1014/general.yaml:3008`
+|withdrawal; `custom`
+|`ob-issues/1014/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/1015/amendments.yaml:25`
+|delete; `E118_IIN`
+|`ob-issues/1015/e118-iin/` `001-SUP.yaml(SUP)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1015/amendments.yaml:1070`
+|delete; `E212_MNC`
+|`ob-issues/1015/e212-mnc/` `001-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1016/general.yaml:197,237`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1016/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1017/amendments.yaml:1100,1456`
+|delete; `E212_MNC`
+|`ob-issues/1017/e212-mnc/` `001-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1020/amendments.yaml:116`
+|cancellation; `E118_IIN`
+|`ob-issues/1020/e118-iin/` `001-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1023/general.yaml:159`
+|cancelled; `custom`
+|`ob-issues/1023/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/1023/general.yaml:799,839,1031`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1023/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1026/general.yaml:11873,11930,11974`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1026/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1027/amendments.yaml:166`
+|withdrawal; `E118_IIN`
+|`ob-issues/1027/e118-iin/` `001-SUP.yaml(SUP)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1027/general.yaml:2540,2662`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1027/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1028/general.yaml:3701,3747`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1028/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1033/general.yaml:3550,3590,3852`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1033/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1034/general.yaml:48`
+|cancelled; `custom`
+|`ob-issues/1034/custom/` `001.yaml(custom)`; `002.yaml(custom)`
+|`itu-ob-data/issues/1035/general.yaml:153,164,218`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1035/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1037/general.yaml:1911,1951`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1037/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1038/general.yaml:6072`
+|deletion; `telephone_service_2`
+|`ob-issues/1038/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1039/general.yaml:310,350,433`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1039/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1040/general.yaml:226,266`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1040/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1043/general.yaml:173,213,253,293,529,569`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1043/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1045/amendments.yaml:180`
+|cancellation; `E118_IIN`
+|`ob-issues/1045/e118-iin/` `001-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1047/general.yaml:65`
+|withdrawal; `custom`
+|`ob-issues/1047/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/1047/general.yaml:407,447,487`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1047/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1048/general.yaml:3968,3972,4019`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1048/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1049/general.yaml:167,207,287`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1049/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1050/general.yaml:150,600,640`
+|withdrawal, withdrawn; `telephone_service_2`
+|`ob-issues/1050/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1051/general.yaml:227,267,307,347`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1051/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1052/general.yaml:28540,28580,28654,28694,28777,28817,28932`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1052/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1053/amendments.yaml:351`
+|withdrawal; `E118_IIN`
+|`ob-issues/1053/e118-iin/` `001-ADD.yaml(ADD)`; `002-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1053/general.yaml:2682,2722,2802`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1053/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1055/general.yaml:75,123`
+|deletion; `telephone_service_2`
+|`ob-issues/1055/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1056/amendments.yaml:2149,2267`
+|withdrawn, Withdrawn; `E164_CC`
+|`ob-issues/1056/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1062/general.yaml:167,207,399`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1062/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1063/general.yaml:9915,9955,10021,10025`
+|deletion, withdrawal, withdrawn; `telephone_service_2`
+|`ob-issues/1063/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1067/general.yaml:100`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1067/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1068/general.yaml:4155,4205`
+|deletion; `telephone_service_2`
+|`ob-issues/1068/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1069/general.yaml:797`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1069/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1070/general.yaml:79,159`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1070/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1071/general.yaml:547,587`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1071/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1072/general.yaml:313,353`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1072/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1075/general.yaml:488,532`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1075/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1080/amendments.yaml:329`
+|cancellation; `E118_IIN`
+|`ob-issues/1080/e118-iin/` `001-ADD.yaml(ADD)`; `002-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1081/amendments.yaml:8785`
+|withdrawn; `X121_DNIC`
+|`ob-issues/1081/x121-dnic/` `001-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1081/general.yaml:74,120`
+|withdrawn; `custom`
+|`ob-issues/1081/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/1091/amendments.yaml:22,143,153,274`
+|withdrawal, Withdrawn; `E164_CC`
+|`ob-issues/1091/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(SUP)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1091/general.yaml:46,111,168,233`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1091/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1091/general.yaml:5343,5415`
+|withdrawn; `ipns`
+|`ob-issues/1091/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1092/amendments.yaml:256`
+|cancellation; `E118_IIN`
+|`ob-issues/1092/e118-iin/` `001-LIR.yaml(LIR)`; `002-SUP.yaml(SUP)`; `003-LIR.yaml(LIR)`; `004-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1095/general.yaml:221,301,381`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1095/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1096/general.yaml:52,92`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1096/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1098/general.yaml:20650,20690,20850,21042`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1098/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1100/general.yaml:302,342`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1100/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1102/amendments.yaml:626`
+|withdrawn; `E212_MNC`
+|`ob-issues/1102/e212-mnc/` `001-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1104/general.yaml:249,329,409`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1104/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1105/general.yaml:216,256,448`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1105/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1107/general.yaml:157,197,357`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1107/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1112/general.yaml:311`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1112/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1114/general.yaml:8854,8958`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1114/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1114/general.yaml:15279,15280`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1114/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1116/general.yaml:170,210`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1116/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1117/amendments.yaml:544`
+|cancellation; `E118_IIN`
+|`ob-issues/1117/e118-iin/` `001-SUP.yaml(SUP)`; `002-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1119/general.yaml:480`
+|removed; `telephone_service_2`
+|`ob-issues/1119/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1121/general.yaml:366,406`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1121/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1122/general.yaml:7854,8144,8248,8408,8495,8611`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1122/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1123/general.yaml:320`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1123/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1124/amendments.yaml:262,721`
+|cancellation; `E118_IIN`
+|`ob-issues/1124/e118-iin/` `001-ADD.yaml(ADD)`; `002-SUP.yaml(SUP)`; `003-LIR.yaml(LIR)`; `004-LIR.yaml(LIR)`; `005-SUP.yaml(SUP)`; `006-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1125/general.yaml:140,180,260`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1125/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1126/general.yaml:8380,8420,8496`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1126/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1127/general.yaml:10653`
+|cancellation; `custom`
+|`ob-issues/1127/custom/` `001.yaml(custom)`; `002.yaml(custom)`
+|`itu-ob-data/issues/1127/general.yaml:10801`
+|cancellation; `custom`
+|`ob-issues/1127/custom/` `001.yaml(custom)`; `002.yaml(custom)`
+|`itu-ob-data/issues/1127/general.yaml:10979`
+|withdrawal; `misc_communications`
+|`ob-issues/1127/misc_communications/` `001.yaml(misc_communications)`
+|`itu-ob-data/issues/1128/general.yaml:327`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1128/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1129/general.yaml:82,124`
+|withdrawn; `custom`
+|`ob-issues/1129/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/1131/general.yaml:156,196,375,457`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1131/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1133/general.yaml:625,671`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1133/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1134/general.yaml:44,84`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1134/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1137/general.yaml:47,87`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1137/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1139/amendments.yaml:381,1390,2701`
+|cancellation; `E118_IIN`
+|`ob-issues/1139/e118-iin/` `001-LIR.yaml(LIR)`; `002-LIR.yaml(LIR)`; `003-SUP.yaml(SUP)`; `004-LIR.yaml(LIR)`; `005-LIR.yaml(LIR)`; `006-LIR.yaml(LIR)`; `007-LIR.yaml(LIR)`; `008-LIR.yaml(LIR)`; `009-LIR.yaml(LIR)`; `010-LIR.yaml(LIR)`; `011-LIR.yaml(LIR)`; `012-LIR.yaml(LIR)`; `013-LIR.yaml(LIR)`; `014-SUP.yaml(SUP)`; `015-LIR.yaml(LIR)`; `016-LIR.yaml(LIR)`; `017-LIR.yaml(LIR)`; `018-LIR.yaml(LIR)`; `019-LIR.yaml(LIR)`; `020-LIR.yaml(LIR)`; `021-LIR.yaml(LIR)`; `022-LIR.yaml(LIR)`; `023-LIR.yaml(LIR)`; `024-LIR.yaml(LIR)`; `025-LIR.yaml(LIR)`; `026-LIR.yaml(LIR)`; `027-SUP.yaml(SUP)`; `028-LIR.yaml(LIR)`; `029-LIR.yaml(LIR)`; `030-LIR.yaml(LIR)`; `031-ADD.yaml(ADD)`; `032-LIR.yaml(LIR)`; `033-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1140/general.yaml:310,350`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1140/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1141/amendments.yaml:296,463,626`
+|cancellation; `E118_IIN`
+|`ob-issues/1141/e118-iin/` `001-SUP.yaml(SUP)`; `002-SUP.yaml(SUP)`; `003-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1141/general.yaml:168,208,8476,8524`
+|deletion, withdrawal; `telephone_service_2`
+|`ob-issues/1141/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1142/general.yaml:8327,8367`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1142/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1143/amendments.yaml:605`
+|cancellation; `E118_IIN`
+|`ob-issues/1143/e118-iin/` `001-LIR.yaml(LIR)`; `002-LIR.yaml(LIR)`; `003-LIR.yaml(LIR)`; `004-LIR.yaml(LIR)`; `005-LIR.yaml(LIR)`; `006-LIR.yaml(LIR)`; `007-SUP.yaml(SUP)`; `008-ADD.yaml(ADD)`; `009-LIR.yaml(LIR)`; `010-ADD.yaml(ADD)`; `011-ADD.yaml(ADD)`; `012-LIR.yaml(LIR)`; `013-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1143/general.yaml:399,439,479,519,559,599`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1143/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1144/general.yaml:8248,8288`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1144/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1146/general.yaml:80,120,352,392`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1146/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1147/general.yaml:646,686,724`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1147/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1148/general.yaml:81`
+|deleted; `custom`
+|`ob-issues/1148/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/1151/amendments.yaml:725`
+|cancellation; `E118_IIN`
+|`ob-issues/1151/e118-iin/` `001-LIR.yaml(LIR)`; `002-LIR.yaml(LIR)`; `003-LIR.yaml(LIR)`; `004-LIR.yaml(LIR)`; `005-LIR.yaml(LIR)`; `006-LIR.yaml(LIR)`; `007-SUP.yaml(SUP)`; `008-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1153/amendments.yaml:2707,3939`
+|cancellation; `E118_IIN`
+|`ob-issues/1153/e118-iin/` `001-LIR.yaml(LIR)`; `002-LIR.yaml(LIR)`; `003-LIR.yaml(LIR)`; `004-LIR.yaml(LIR)`; `005-LIR.yaml(LIR)`; `006-LIR.yaml(LIR)`; `007-LIR.yaml(LIR)`; `008-LIR.yaml(LIR)`; `009-LIR.yaml(LIR)`; `010-LIR.yaml(LIR)`; `011-LIR.yaml(LIR)`; `012-LIR.yaml(LIR)`; `013-LIR.yaml(LIR)`; `014-LIR.yaml(LIR)`; `015-LIR.yaml(LIR)`; `016-LIR.yaml(LIR)`; `017-LIR.yaml(LIR)`; `018-LIR.yaml(LIR)`; `019-LIR.yaml(LIR)`; `020-LIR.yaml(LIR)`; `021-LIR.yaml(LIR)`; `022-LIR.yaml(LIR)`; `023-LIR.yaml(LIR)`; `024-LIR.yaml(LIR)`; `025-LIR.yaml(LIR)`; `026-LIR.yaml(LIR)`; `027-LIR.yaml(LIR)`; `028-LIR.yaml(LIR)`; `029-SUP.yaml(SUP)`; `030-LIR.yaml(LIR)`; `031-LIR.yaml(LIR)`; `032-LIR.yaml(LIR)`; `033-LIR.yaml(LIR)`; `034-LIR.yaml(LIR)`; `035-LIR.yaml(LIR)`; `036-LIR.yaml(LIR)`; `037-LIR.yaml(LIR)`; `038-LIR.yaml(LIR)`; `039-LIR.yaml(LIR)`; `040-SUP.yaml(SUP)`; `041-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1154/amendments.yaml:1058,2016`
+|cancellation; `E118_IIN`
+|`ob-issues/1154/e118-iin/` `001-ADD.yaml(ADD)`; `002-LIR.yaml(LIR)`; `003-LIR.yaml(LIR)`; `004-LIR.yaml(LIR)`; `005-LIR.yaml(LIR)`; `006-ADD.yaml(ADD)`; `007-SUP.yaml(SUP)`; `008-SUP.yaml(SUP)`; `009-LIR.yaml(LIR)`; `010-LIR.yaml(LIR)`; `011-LIR.yaml(LIR)`; `012-LIR.yaml(LIR)`; `013-ADD.yaml(ADD)`; `014-LIR.yaml(LIR)`; `015-SUP.yaml(SUP)`; `016-LIR.yaml(LIR)`; `017-LIR.yaml(LIR)`; `018-LIR.yaml(LIR)`; `019-LIR.yaml(LIR)`; `020-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1154/general.yaml:1211,1256`
+|deletion; `telephone_service_2`
+|`ob-issues/1154/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1156/amendments.yaml:509,692`
+|cancellation; `E118_IIN`
+|`ob-issues/1156/e118-iin/` `001-ADD.yaml(ADD)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`; `004-SUP.yaml(SUP)`; `005-SUP.yaml(SUP)`; `006-SUP.yaml(SUP)`; `007-SUP.yaml(SUP)`; `008-SUP.yaml(SUP)`; `009-SUP.yaml(SUP)`; `010-SUP.yaml(SUP)`; `011-SUP.yaml(SUP)`; `012-SUP.yaml(SUP)`; `013-SUP.yaml(SUP)`; `014-SUP.yaml(SUP)`; `015-SUP.yaml(SUP)`; `016-LIR.yaml(LIR)`; `017-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1157/amendments.yaml:628`
+|cancellation; `E118_IIN`
+|`ob-issues/1157/e118-iin/` `001-LIR.yaml(LIR)`; `002-LIR.yaml(LIR)`; `003-LIR.yaml(LIR)`; `004-LIR.yaml(LIR)`; `005-LIR.yaml(LIR)`; `006-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1159/general.yaml:1312,1352`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1159/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1160/amendments.yaml:928`
+|cancellation; `E118_IIN`
+|`ob-issues/1160/e118-iin/` `001-LIR.yaml(LIR)`; `002-LIR.yaml(LIR)`; `003-LIR.yaml(LIR)`; `004-LIR.yaml(LIR)`; `005-ADD.yaml(ADD)`; `006-ADD.yaml(ADD)`; `007-ADD.yaml(ADD)`; `008-SUP.yaml(SUP)`; `009-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1161/amendments.yaml:529`
+|cancellation; `E118_IIN`
+|`ob-issues/1161/e118-iin/` `001-SUP.yaml(SUP)`; `002-ADD.yaml(ADD)`; `003-LIR.yaml(LIR)`; `004-SUP.yaml(SUP)`; `005-ADD.yaml(ADD)`; `006-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1162/amendments.yaml:405`
+|cancellation; `E118_IIN`
+|`ob-issues/1162/e118-iin/` `001-ADD.yaml(ADD)`; `002-SUP.yaml(SUP)`; `003-ADD.yaml(ADD)`; `004-ADD.yaml(ADD)`; `005-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1162/general.yaml:835,875,1013,1053,1275,1315`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1162/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1163/amendments.yaml:407`
+|cancellation; `E118_IIN`
+|`ob-issues/1163/e118-iin/` `001-SUP.yaml(SUP)`; `002-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1164/amendments.yaml:966`
+|cancellation; `E118_IIN`
+|`ob-issues/1164/e118-iin/` `001-ADD.yaml(ADD)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`; `004-ADD.yaml(ADD)`; `005-ADD.yaml(ADD)`; `006-ADD.yaml(ADD)`; `007-SUP.yaml(SUP)`; `008-LIR.yaml(LIR)`; `009-LIR.yaml(LIR)`; `010-LIR.yaml(LIR)`; `011-LIR.yaml(LIR)`; `012-LIR.yaml(LIR)`; `013-LIR.yaml(LIR)`; `014-LIR.yaml(LIR)`; `015-LIR.yaml(LIR)`; `016-LIR.yaml(LIR)`; `017-LIR.yaml(LIR)`; `018-LIR.yaml(LIR)`; `019-LIR.yaml(LIR)`; `020-LIR.yaml(LIR)`; `021-LIR.yaml(LIR)`; `022-LIR.yaml(LIR)`; `023-LIR.yaml(LIR)`; `024-LIR.yaml(LIR)`; `025-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1166/general.yaml:336,376,700,738`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1166/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1167/amendments.yaml:1071,1321`
+|cancellation; `E118_IIN`
+|`ob-issues/1167/e118-iin/` `001-LIR.yaml(LIR)`; `002-LIR.yaml(LIR)`; `003-LIR.yaml(LIR)`; `004-LIR.yaml(LIR)`; `005-LIR.yaml(LIR)`; `006-LIR.yaml(LIR)`; `007-LIR.yaml(LIR)`; `008-LIR.yaml(LIR)`; `009-LIR.yaml(LIR)`; `010-SUP.yaml(SUP)`; `011-SUP.yaml(SUP)`; `012-SUP.yaml(SUP)`; `013-LIR.yaml(LIR)`; `014-LIR.yaml(LIR)`; `015-LIR.yaml(LIR)`; `016-LIR.yaml(LIR)`; `017-LIR.yaml(LIR)`; `018-LIR.yaml(LIR)`; `019-LIR.yaml(LIR)`; `020-LIR.yaml(LIR)`; `021-LIR.yaml(LIR)`; `022-LIR.yaml(LIR)`; `023-LIR.yaml(LIR)`; `024-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1167/general.yaml:51,115,530,568`
+|deletion, withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1167/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1169/amendments.yaml:857`
+|cancellation; `E118_IIN`
+|`ob-issues/1169/e118-iin/` `001-LIR.yaml(LIR)`; `002-ADD.yaml(ADD)`; `003-LIR.yaml(LIR)`; `004-ADD.yaml(ADD)`; `005-SUP.yaml(SUP)`; `006-LIR.yaml(LIR)`; `007-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1170/amendments.yaml:85`
+|cancellation; `E118_IIN`
+|`ob-issues/1170/e118-iin/` `001-SUP.yaml(SUP)`; `002-LIR.yaml(LIR)`; `003-LIR.yaml(LIR)`; `004-LIR.yaml(LIR)`; `005-LIR.yaml(LIR)`; `006-LIR.yaml(LIR)`; `007-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1171/general.yaml:9896,9936`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1171/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1173/amendments.yaml:820`
+|cancellation; `E118_IIN`
+|`ob-issues/1173/e118-iin/` `001-LIR.yaml(LIR)`; `002-LIR.yaml(LIR)`; `003-LIR.yaml(LIR)`; `004-LIR.yaml(LIR)`; `005-LIR.yaml(LIR)`; `006-LIR.yaml(LIR)`; `007-SUP.yaml(SUP)`; `008-ADD.yaml(ADD)`; `009-ADD.yaml(ADD)`; `010-ADD.yaml(ADD)`; `011-LIR.yaml(LIR)`; `012-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1173/general.yaml:4378`
+|deletion; `telephone_service_2`
+|`ob-issues/1173/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1176/general.yaml:54,88`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1176/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1179/general.yaml:9552`
+|withdrawal; `custom`
+|`ob-issues/1179/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/1183/general.yaml:75,110,185,260,335,410,485,560,635,710,1875`
+|withdrawal, Withdrawal, withdrawn; `telephone_service_2`
+|`ob-issues/1183/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1185/amendments.yaml:124`
+|cancellation; `E118_IIN`
+|`ob-issues/1185/e118-iin/` `001-SUP.yaml(SUP)`; `002-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1189/general.yaml:197,237,277,317,361,401,441,481`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1189/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1190/general.yaml:3111,3151`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1190/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1193/amendments.yaml:292`
+|cancellation; `E118_IIN`
+|`ob-issues/1193/e118-iin/` `001-LIR.yaml(LIR)`; `002-LIR.yaml(LIR)`; `003-SUP.yaml(SUP)`; `004-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1194/amendments.yaml:84`
+|cancellation; `E118_IIN`
+|`ob-issues/1194/e118-iin/` `001-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1194/general.yaml:5008,5072`
+|deletion; `telephone_service_2`
+|`ob-issues/1194/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1197/general.yaml:47,87,276148`
+|withdrawal, Withdrawal, withdrawn; `telephone_service_2`
+|`ob-issues/1197/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1200/general.yaml:56,96,397,438`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1200/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1204/amendments.yaml:100`
+|cancellation; `E118_IIN`
+|`ob-issues/1204/e118-iin/` `001-SUP.yaml(SUP)`; `002-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1213/amendments.yaml:283`
+|cancellation; `E118_IIN`
+|`ob-issues/1213/e118-iin/` `001-ADD.yaml(ADD)`; `002-SUP.yaml(SUP)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1218/general.yaml:1223,1275`
+|deletion; `telephone_service_2`
+|`ob-issues/1218/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1220/general.yaml:146,186,547,587,659,699,776,816,1754,1803`
+|deletion, withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1220/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1221/general.yaml:145,193`
+|deletion; `telephone_service_2`
+|`ob-issues/1221/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1222/general.yaml:6590,6596,6612,6613,6630`
+|cancellation, Cancellation; `custom`
+|`ob-issues/1222/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/1225/amendments.yaml:145`
+|cancellation; `E118_IIN`
+|`ob-issues/1225/e118-iin/` `001-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1225/general.yaml:195,280`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1225/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1228/general.yaml:2182,2226`
+|deletion; `telephone_service_2`
+|`ob-issues/1228/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1232/general.yaml:11590`
+|withdrawn; `ipns`
+|`ob-issues/1232/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1235/general.yaml:2216`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1235/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1236/amendments.yaml:141`
+|Withdrawn; `E164_CC`
+|`ob-issues/1236/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1236/general.yaml:34,99`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1236/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1236/general.yaml:169,212`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1236/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1237/general.yaml:74,114,473,513,632,672`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1237/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1238/amendments.yaml:1183`
+|Withdrawn; `E164_CC`
+|`ob-issues/1238/e164-cc/` `001-ADD.yaml(ADD)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`; `004-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1238/general.yaml:156,221`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1238/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1240/amendments.yaml:476,518,560,602,741,783,825,867`
+|Withdrawn; `E164_CC`
+|`ob-issues/1240/e164-cc/` `001-ADD.yaml(ADD)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`; `004-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1240/general.yaml:39,100,279,340`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1240/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1240/general.yaml:10055,10094`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1240/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1242/general.yaml:199,251,5576`
+|withdrawal, Withdrawals; `telephone_service_2`
+|`ob-issues/1242/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1243/amendments.yaml:110`
+|cancellation; `E118_IIN`
+|`ob-issues/1243/e118-iin/` `001-SUP.yaml(SUP)`; `002-LIR.yaml(LIR)`
+|`itu-ob-data/issues/1246/general.yaml:2152,2195`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1246/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1248/general.yaml:2610,2657`
+|deletion; `telephone_service_2`
+|`ob-issues/1248/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1250/general.yaml:55,111`
+|withdrawal, Withdrawals; `telephone_service_2`
+|`ob-issues/1250/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1252/general.yaml:91,147`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1252/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1252/general.yaml:212,297`
+|withdrawal; `telephone_service_2`
+|`ob-issues/1252/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1253/general.yaml:5494,5502,5631,7443,7659,7871`
+|withdrawal, Withdrawal, withdrawn; `telephone_service_2`
+|`ob-issues/1253/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1257/amendments.yaml:319`
+|Withdrawn; `E164_CC`
+|`ob-issues/1257/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1257/general.yaml:72,133`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1257/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1257/general.yaml:4971,5024`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1257/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1258/amendments.yaml:314`
+|Withdrawn; `E164_CC`
+|`ob-issues/1258/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1258/general.yaml:46,107`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1258/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1258/general.yaml:8721,8764`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1258/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1260/amendments.yaml:147`
+|Withdrawn; `E164_CC`
+|`ob-issues/1260/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1260/general.yaml:34,102`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1260/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1260/general.yaml:299,342`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1260/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1260/general.yaml:11154`
+|removal; `telephone_service_2`
+|`ob-issues/1260/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1262/amendments.yaml:3605`
+|Withdrawn; `E164_CC`
+|`ob-issues/1262/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1262/general.yaml:34,102`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1262/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1262/general.yaml:172,215`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1262/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1262/general.yaml:389,429,465,505`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1262/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1264/general.yaml:1693,1694`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1264/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1265/general.yaml:6433,6442,6571`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1265/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1267/amendments.yaml:90`
+|cancellation; `E118_IIN`
+|`ob-issues/1267/e118-iin/` `001-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1267/general.yaml:9545,9601`
+|withdrawal, Withdrawals; `telephone_service_2`
+|`ob-issues/1267/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1273/general.yaml:150,202`
+|withdrawal, Withdrawals; `telephone_service_2`
+|`ob-issues/1273/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1282/amendments.yaml:325`
+|Withdrawn; `E164_CC`
+|`ob-issues/1282/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1282/general.yaml:54,115`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1282/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1282/general.yaml:8248,8291`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1282/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1286/general.yaml:1578,1634,1798,1896,1994,2137,2267`
+|withdrawal, Withdrawals; `telephone_service_2`
+|`ob-issues/1286/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1287/amendments.yaml:258`
+|cancellation; `E118_IIN`
+|`ob-issues/1287/e118-iin/` `001-ADD.yaml(ADD)`; `002-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1287/amendments.yaml:489,625,667`
+|Withdrawn; `E164_CC`
+|`ob-issues/1287/e164-cc/` `001-ADD.yaml(SUP)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1287/general.yaml:44,105,162,223`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1287/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1287/general.yaml:11377,11420`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1287/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1292/general.yaml:71,4144,4205`
+|deletion; `telephone_service_2`
+|`ob-issues/1292/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1303/general.yaml:2560,2696`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1303/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1304/general.yaml:462,518,693,791,891`
+|withdrawal, Withdrawals; `telephone_service_2`
+|`ob-issues/1304/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1309/general.yaml:45,101,206,310,541,1254,1384`
+|withdrawal, Withdrawal, Withdrawals; `telephone_service_2`
+|`ob-issues/1309/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1310/amendments.yaml:3026,3068`
+|Withdrawn; `E164_CC`
+|`ob-issues/1310/e164-cc/` `001-ADD.yaml(SUP)`; `002-LIR.yaml(LIR)`; `003-ADD.yaml(ADD)`; `004-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1310/general.yaml:650,711`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1310/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1310/general.yaml:941,984`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1310/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1312/amendments.yaml:464`
+|Withdrawn; `E164_CC`
+|`ob-issues/1312/e164-cc/` `001-ADD.yaml(LIR)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1312/general.yaml:169,237`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1312/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1312/general.yaml:1290,1336`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1312/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1314/general.yaml:5110,5240`
+|withdrawal, Withdrawal; `telephone_service_2`
+|`ob-issues/1314/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1314/general.yaml:5673`
+|withdrawal; `custom`
+|`ob-issues/1314/custom/` `001.yaml(custom)`; `002.yaml(custom)`
+|`itu-ob-data/issues/1320/amendments.yaml:89`
+|cancellation; `E118_IIN`
+|`ob-issues/1320/e118-iin/` `001-SUP.yaml(SUP)`; `002-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1321/amendments.yaml:2043`
+|withdrawn; `X121_DNIC`
+|`ob-issues/1321/x121-dnic/` `001-SUP.yaml(SUP)`
+|`itu-ob-data/issues/1321/general.yaml:1461,1507`
+|withdrawal, withdrawn; `custom`
+|`ob-issues/1321/custom/` `001.yaml(custom)`; `002.yaml(custom)`
+|`itu-ob-data/issues/1323/amendments.yaml:263,305,429,471,599,641,683,725`
+|Withdrawn; `E164_CC`
+|`ob-issues/1323/e164-cc/` `001-SUP.yaml(SUP)`; `002-SUP.yaml(SUP)`; `003-SUP.yaml(SUP)`; `004-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1323/general.yaml:47,108,217,278,377,438`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1323/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1323/general.yaml:286960,287006`
+|withdrawal, withdrawn; `ipns`
+|`ob-issues/1323/ipns/` `001.yaml(ipns)`
+|`itu-ob-data/issues/1323/general.yaml:287234,287301`
+|withdrawal, withdrawn; `custom`
+|`ob-issues/1323/custom/` `001.yaml(custom)`
+|`itu-ob-data/issues/1325/amendments.yaml:141`
+|Withdrawn; `E164_CC`
+|`ob-issues/1325/e164-cc/` `001-SUP.yaml(SUP)`; `002-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1325/general.yaml:43,108`
+|withdrawal, withdrawn; `iptn`
+|`ob-issues/1325/iptn/` `001.yaml(iptn)`
+|`itu-ob-data/issues/1331/general.yaml:139,191,299,429`
+|withdrawal, Withdrawals; `telephone_service_2`
+|`ob-issues/1331/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1333/general.yaml:2747,2803,3036,3262,3360`
+|withdrawal, Withdrawals; `telephone_service_2`
+|`ob-issues/1333/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1334/general.yaml:826,2998`
+|withdrawn; `telephone_service_2`
+|`ob-issues/1334/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1337/general.yaml:49,97`
+|deletion; `telephone_service_2`
+|`ob-issues/1337/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1340/amendments.yaml:86`
+|cancellation; `E118_IIN`
+|`ob-issues/1340/e118-iin/` `001-SUP.yaml(SUP)`; `002-ADD.yaml(ADD)`; `003-ADD.yaml(ADD)`
+|`itu-ob-data/issues/1341/general.yaml:1234,1732`
+|Withdrawal; `telephone_service_2`
+|`ob-issues/1341/telephone_service_2/` `001.yaml(telephone_service_2)`
+|`itu-ob-data/issues/1342/amendments.yaml:577`
+|cancellation; `E118_IIN`
+|`ob-issues/1342/e118-iin/` `001-ADD.yaml(ADD)`; `002-ADD.yaml(ADD)`; `003-LIR.yaml(LIR)`; `004-SUP.yaml(SUP)`; `005-LIR.yaml(LIR)`; `006-LIR.yaml(LIR)`; `007-ADD.yaml(ADD)`
+|===
+
+== Complete AsciiDoc wording inventory
+
+These are transcription mirrors or the abbreviation legend, not additional
+independent events. Amendment mirrors map to the same E.118 SUP cancellation
+sections as their YAML source; general mirrors retain `telephone_service_2`.
+
+[cols="6,4",options="header"]
+|===
+|Source path and all matched lines |Current classification
+|`itu-ob-data/issues/1163/amendments/e118-iin.adoc:4`
+|E.118 printed SUP cancellation section; see YAML inventory
+|`itu-ob-data/issues/1164/amendments/e118-iin.adoc:94`
+|E.118 printed SUP cancellation section; see YAML inventory
+|`itu-ob-data/issues/1166/general/ts.adoc:8,11,31,34`
+|General telephone_service_2; see YAML inventory
+|`itu-ob-data/issues/1167/amendments/e118-iin.adoc:120,147`
+|E.118 printed SUP cancellation section; see YAML inventory
+|`itu-ob-data/issues/1167/general/ts.adoc:8,14,63,66`
+|General telephone_service_2; see YAML inventory
+|`itu-ob-data/issues/1169/amendments/e118-iin.adoc:66`
+|E.118 printed SUP cancellation section; see YAML inventory
+|`itu-ob-data/issues/1170/amendments/e118-iin.adoc:5`
+|E.118 printed SUP cancellation section; see YAML inventory
+|`itu-ob-data/issues/1171/general/ts.adoc:324,327`
+|General telephone_service_2; see YAML inventory
+|`itu-ob-data/issues/1173/_reference_asciidoc/sections/amendments/00-abbrevs.adoc:8`
+|Legend: printed SUP means Delete
+|`itu-ob-data/issues/1173/_reference_asciidoc/sections/amendments/02-itcc-iin.adoc:102`
+|E.118 printed SUP cancellation section; see YAML inventory
+|`itu-ob-data/issues/1173/amendments/e118-iin.adoc:97`
+|E.118 printed SUP cancellation section; see YAML inventory
+|===
+
+== Verification and remaining work
+
+The source-line inventory was checked mechanically against the two YAML searches:
+601 unique `(path,line)` references across 263 source-message groups, with no
+omitted or extra lexical hits. The 19 AsciiDoc references were checked against
+the third search. The genuine DEL action is recorded separately because it does
+not contain any of the natural-language search terms. `git diff --check` passes
+for this document. No parser, replay, source-data or corpus mutations are part of
+this audit; parser regression and preservation checks belong to the accompanying
+G8 specification. The c7 rebuild and its regenerated patches remain outstanding.
+
+The accompanying `del_classification_spec.rb` runs three examples against this
+revision: the independent DEL replay passes, while the OB 1335 printed DEL and
+OB 999 printed SUP preservation examples fail (both parse as ADD). Making those
+regressions pass requires changes to the Q.708 and E.212 parsers, outside this
+card's two-file scope. No corpus DEL count is asserted.
