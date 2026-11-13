@@ -54,12 +54,13 @@ attribute :notes, :string, collection: true
       class State < WalkState
         ACTION_CLASS = F32TDIAction
 
-        attr_accessor :country, :country_note, :network_roa, :network_code, :in_notes, :in_country_heading
+        attr_accessor :country, :country_note, :network_roa, :network_code, :in_notes, :in_country_heading, :network_codes
         attr_reader :notes
 
         def initialize
           super(action_class: ACTION_CLASS)
           @notes = []
+          @network_codes = []
         end
       end
 
@@ -105,6 +106,7 @@ attribute :notes, :string, collection: true
         if (p_line = text.match(/\AP\s*(\d+(?:-\d+)?)?\s+(.*)\z/))
           state.country = state.country_note = nil
           state.network_roa = state.network_code = nil
+          state.network_codes = []
           state.in_country_heading = false
           action = state.open_action
           action.position = p_line[1] ? "P #{p_line[1]}" : 'P'
@@ -153,7 +155,16 @@ attribute :notes, :string, collection: true
             # rows) — fill the next empty language slot.
             merge_country_variant(state, texts[0])
           elsif texts.length >= 5
-            state.ensure_action.entries << build_entry(texts, state)
+            # Several offices may be printed as parallel paragraphs in one row.
+            # Pair only explicit one-to-one names/codes; never guess boundaries.
+            if texts[4].length > 1 && texts[3].length == texts[4].length &&
+                texts[4].all? { |code| code.match?(/\A[A-Z]{4}\z/) }
+              texts[3].zip(texts[4]).each do |name, code|
+                state.ensure_action.entries << build_entry(texts.first(3) + [[name], [code]], state)
+              end
+            else
+              state.ensure_action.entries << build_entry(texts, state)
+            end
           elsif texts.length == 4
             merge_country_variant(state, texts[0])
           end
@@ -168,7 +179,10 @@ attribute :notes, :string, collection: true
           # A country/network heading after data starts a new country;
           # consecutive headings can print its other language variants.
           if !texts[0].empty? && !country_only_row?(texts)
-            state.country = state.country_note = nil unless state.in_country_heading
+            unless state.in_country_heading
+              state.country = state.country_note = nil
+              state.network_codes = []
+            end
             state.in_country_heading = true
           end
           merge_country_variant(state, texts[0])
@@ -238,9 +252,11 @@ attribute :notes, :string, collection: true
 
       def self.build_entry(texts, state)
         state.in_country_heading = false
-        # A printed country with its own network starts a country block.
-        # Rows inheriting the network can continue the heading's languages.
+        previous_country = state.country&.fr
+        # Country/network rows start a block; keep language continuation rows
+        # attached to it and reset collected network codes when the country changes.
         merge_country_variant(state, texts[0], new_country: texts[1..2].any?(&:any?))
+        state.network_codes = [] if previous_country && state.country&.fr != previous_country && texts[1..2].any?(&:any?)
         update_network(texts, state)
 
         F32TDIEntry.new(
@@ -248,6 +264,7 @@ attribute :notes, :string, collection: true
           country_or_area_note: state.country_note,
           network_roa: state.network_roa,
           network_code: state.network_code,
+          network_codes: state.network_codes.dup,
           telegraph_office_name: MultilingualString.new(en: texts[3].join(' ').strip),
           office_code: texts[4].to_a.join(' ').strip,
         )
@@ -258,7 +275,11 @@ attribute :notes, :string, collection: true
         state.network_roa = roa unless roa.empty?
 
         code = texts[2].join(' ').strip
-        state.network_code = code unless code.empty?
+        unless code.empty?
+          state.network_code = code
+          prefix = code[/\A[A-Z]{2}/]
+          state.network_codes << prefix if prefix && !state.network_codes.include?(prefix)
+        end
       end
 
       # Country cells print fr/en/es as three paragraphs, one

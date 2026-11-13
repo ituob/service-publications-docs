@@ -25,7 +25,7 @@ module Ituob
       def self.build_replay(entry, root: DEFAULT_ROOT)
         return nil if entry.external? || entry.seed_path.nil?
 
-        source = Ituob::Registers::DirectoryChangeSource.new(
+        source = Ituob::Registers::DirectoryChangeSource.for_register(
           register_id: entry.register_id,
           seed_path: File.expand_path(entry.seed_path, root),
           seed_issue: entry.seed_issue,
@@ -46,6 +46,9 @@ module Ituob
           next unless replay
 
           result.stats[:registers_checked] += 1
+          if replay.source.respond_to?(:legacy_seed?) && replay.source.legacy_seed?
+            result.errors << "F32_TDI: independent printed-source seed publication is not pinned; legacy fallback is unverified"
+          end
           # build_all_states includes replay.current under nil; check it once.
           replay.build_all_states.each_value do |state|
             result.merge!(verify_state(state, register: register))
@@ -95,6 +98,9 @@ module Ituob
 
       def key_failures(row, stored_key, key, counts, register)
         failures = []
+        if register.register_id == 'F32_TDI' && !entry_key(row, 'office_code').to_s.match?(/\A[A-Z]{4}\z/)
+          failures << '(e) office allocation requires a full four-letter destination indicator'
+        end
         failures << '(a) blank key' if blank_key?(key)
         failures << '(b) NBSP in key' if key&.include?("\u00a0")
         if Array(register.key_field).length > 1

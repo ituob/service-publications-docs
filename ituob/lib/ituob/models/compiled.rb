@@ -47,6 +47,12 @@ module Ituob
         E212MNCEntry
         E218TRCCAction
         E218TRCCEntry
+        F32CompletenessReport
+        F32CountryCompleteness
+        F32OfficeDifference
+        F32PrintedPage
+        F32SeedContext
+        F32SeedPublication
         F32TDIAction
         F32TDIEntry
         F400Action

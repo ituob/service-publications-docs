@@ -43,7 +43,8 @@ module Ituob
     def edition(register:, as_of:)
       catalog, items, state = resolve(register, as_of)
       Projections::RegisterEdition.new(
-        register: catalog, state: state, items: items.hydrate(state)
+        register: catalog, state: state, items: items.hydrate(state),
+        source_contexts: items.source_contexts_at(state.at_ob_issue)
       ).to_model
     end
 

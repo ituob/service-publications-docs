@@ -38,6 +38,9 @@ module Ituob
 
     # F.32
     autoload :F32TDIAmendment, 'ituob/models/f32tdi_amendment'
+    autoload :F32SeedBuilder, 'ituob/models/f32_seed_builder'
+    autoload :F32PrintedList, 'ituob/models/f32_printed_list'
+    autoload :F32CompletenessChecker, 'ituob/models/f32_completeness_checker'
 
     # F.400
     autoload :F400Amendment, 'ituob/models/f400_amendment'
