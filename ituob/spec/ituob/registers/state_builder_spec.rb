@@ -136,7 +136,7 @@ RSpec.describe Ituob::Registers::StateBuilder do
       rejected = Ituob::Registers::Change.new(
         type: 'SUP', register_id: register_id,
         identifier: { 'code' => '1171-001' }, ob_issue_no: 1171,
-        data: { 'entries' => [{ 'code' => 'A' }, { 'code' => 'missing' }] },
+        data: { 'entries' => [{ 'code' => 'missing' }] },
       )
       builder.record_history(change)
       Ituob::Registers::Strategies::Resolver.apply(builder, change, 'code')
@@ -147,6 +147,24 @@ RSpec.describe Ituob::Registers::StateBuilder do
       }.to raise_error(Ituob::Registers::Strategies::StrategyError)
       expect(builder.key_history).to eq({ 'A' => [change], 'B' => [change] })
       expect(builder.history).to eq([change, rejected])
+    end
+
+    # Data-derived rows apply one by one: a conflicting row does not undo
+    # the rows before it, so those keys record the change.
+    it 'records a partly applied change only under the rows that applied' do
+      partial = Ituob::Registers::Change.new(
+        type: 'SUP', register_id: register_id,
+        identifier: { 'code' => '1171-001' }, ob_issue_no: 1171,
+        data: { 'entries' => [{ 'code' => 'A' }, { 'code' => 'missing' }] },
+      )
+      builder.record_history(change)
+      Ituob::Registers::Strategies::Resolver.apply(builder, change, 'code')
+      builder.record_history(partial)
+
+      expect {
+        Ituob::Registers::Strategies::Resolver.apply(builder, partial, 'code')
+      }.to raise_error(Ituob::Registers::Strategies::StrategyError)
+      expect(builder.key_history).to eq({ 'A' => [change, partial], 'B' => [change] })
     end
 
     it 'preserves earlier snapshots while recording later changes' do
