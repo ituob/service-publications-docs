@@ -202,6 +202,42 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
       expect(country.es).to eq('EGIPTO')
     end
 
+    it 'starts a separate country for each coded row with a printed country' do
+      doc = doc_with_rows(
+        row(cell(paragraph('BAHREÏN')), cell(paragraph('Unitel')), cell(paragraph('BN- -')),
+            cell(paragraph('Bahrain')), cell(paragraph('BNBA'))),
+        row(cell(paragraph('JORDANIE')), cell(paragraph('Unitel')), cell(paragraph('JO- -')),
+            cell(paragraph('Amman')), cell(paragraph('JOAM'))),
+        row(cell(paragraph('')), cell(paragraph('')), cell(paragraph('')),
+            cell(paragraph('Jerusalem Jordan')), cell(paragraph('JOJM'))),
+      )
+      entries = parse(doc).actions.first.entries
+      keys = entries.map { |entry| [entry.country_or_area.fr, entry.network_code, entry.office_code] }
+
+      expect(keys).to eq([
+        ['BAHREÏN', 'BN- -', 'BNBA'],
+        ['JORDANIE', 'JO- -', 'JOAM'],
+        ['JORDANIE', 'JO- -', 'JOJM'],
+      ])
+      expect(entries.map { |entry| entry.country_or_area.en }).to all(be_nil)
+      expect(entries.map { |entry| entry.country_or_area.es }).to all(be_nil)
+    end
+
+    it 'does not carry a previous data country note into a new data country' do
+      doc = doc_with_rows(
+        row(cell(paragraph('ITALIE 1)')), cell(paragraph('UTS GmbH 1)')), cell(paragraph('IT- -')),
+            cell(paragraph('15011 ACQUI TERME')), cell(paragraph('--AC'))),
+        row(cell(paragraph('BAHREÏN')), cell(paragraph('Unitel')), cell(paragraph('BN- -')),
+            cell(paragraph('Bahrain')), cell(paragraph('BNBA'))),
+      )
+      entries = parse(doc).actions.first.entries
+
+      expect(entries.first.country_or_area.fr).to eq('ITALIE')
+      expect(entries.first.country_or_area_note.en).to eq('1)')
+      expect(entries.last.country_or_area.fr).to eq('BAHREÏN')
+      expect(entries.last.country_or_area_note).to be_nil
+    end
+
     it 'joins multi-paragraph office code cells' do
       doc = doc_with_rows(
         row(cell(paragraph('ESPAGNE')), cell(paragraph('Correos')), cell(paragraph('ES-')),
@@ -237,8 +273,14 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
 
     it 'keeps Italy headings and uncoded cross-references out of the office entries (OB 1017)' do
       expect(entries.length).to eq(235)
+      key_parts = entries.flat_map do |entry|
+        [entry.country_or_area.fr, entry.country_or_area.en, entry.country_or_area.es,
+         entry.network_code, entry.office_code]
+      end.compact
+      expect(entries.map { |entry| entry.country_or_area.fr }).to all(match(/\S/))
+      expect(entries.map(&:network_code)).to all(match(/\S/))
       expect(entries.map(&:office_code)).to all(match(/\S/))
-      expect(entries.map(&:office_code)).to all(satisfy { |code| !code.include?("\u00A0") })
+      expect(key_parts).to all(satisfy { |part| !part.include?("\u00A0") })
       expect(entries.first.office_code).to eq('--AC')
       expect(entries.first.telegraph_office_name.en).to eq('15011 ACQUI TERME')
       expect(entries.first.network_roa).to eq('UTS GmbH 1)')
@@ -279,13 +321,18 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
     context 'with Jordan (OB 1000)' do
       let(:issue_number) { '1000' }
 
-      it 'inherits the heading country and network on real office rows' do
+      it 'keeps printed data countries and inherits the heading network on real office rows' do
         expect(entries.map(&:office_code)).to eq(%w[JOAM JOJM JOAX])
-        expect(entries.first.country_or_area.fr).to eq('JORDANIE')
-        expect(entries.first.country_or_area.en).to eq('JORDAN')
-        expect(entries.last.country_or_area.es).to eq('JORDANIA')
+        expect(entries.map { |entry| entry.country_or_area.fr }).to eq(%w[JORDAN JORDANIA JORDANIA])
+        expect(entries.map { |entry| entry.country_or_area.en }).to all(be_nil)
+        expect(entries.map { |entry| entry.country_or_area.es }).to all(be_nil)
         expect(entries.map(&:network_roa)).to all(eq('Unitel'))
         expect(entries.map(&:network_code)).to all(eq('JO- -'))
+        key_parts = entries.flat_map do |entry|
+          [entry.country_or_area.fr, entry.network_code, entry.office_code]
+        end
+        expect(key_parts).to all(match(/\S/))
+        expect(key_parts).to all(satisfy { |part| !part.include?("\u00A0") })
         expect(amendment.notes).to include('Unitel — JO- -')
         expect(amendment.notes).to include(a_string_starting_with('* See Note published'))
       end
@@ -293,6 +340,55 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
   end
 
   describe 'notes' do
+    it 'keeps note-only country cell text on coded rows without replacing the current country' do
+      doc = document(
+        paragraph('P 3 GERMANY ADD'),
+        table(
+          row(cell(paragraph('ALLEMAGNE')), cell(paragraph('ROA')), cell(paragraph('DP')),
+              cell(paragraph('subarea')), cell(paragraph('DPXX'))),
+          row(cell(paragraph('* Country details')), cell(paragraph('ROA2')), cell(paragraph('DP2')),
+              cell(paragraph('office')), cell(paragraph('DPYY'))),
+        ),
+      )
+      amendment = parse(doc)
+      entries = amendment.actions.first.entries
+
+      expect(entries.last.country_or_area.fr).to eq('ALLEMAGNE')
+      expect(entries.last.country_or_area_note).to be_nil
+      expect(amendment.notes).to include('* Country details')
+    end
+
+    it 'collects note-only country cell text on four-cell rows' do
+      doc = document(
+        paragraph('P 3 GERMANY ADD'),
+        table(
+          row(cell(paragraph('ALLEMAGNE')), cell(paragraph('ROA')), cell(paragraph('DP')),
+              cell(paragraph('subarea')), cell(paragraph('DPXX'))),
+          row(cell(paragraph('* Four-cell note')), cell(paragraph('')), cell(paragraph('')),
+              cell(paragraph(''))),
+        ),
+      )
+      amendment = parse(doc)
+
+      expect(amendment.actions.first.entries.first.country_or_area.fr).to eq('ALLEMAGNE')
+      expect(amendment.notes).to include('* Four-cell note')
+    end
+
+    it 'collects numbered note-only country cell text on shorter country-only rows' do
+      doc = document(
+        paragraph('P 3 GERMANY ADD'),
+        table(
+          row(cell(paragraph('ALLEMAGNE')), cell(paragraph('ROA')), cell(paragraph('DP')),
+              cell(paragraph('subarea')), cell(paragraph('DPXX'))),
+          row(cell(paragraph('1) Country note')), cell(paragraph('')), cell(paragraph(''))),
+        ),
+      )
+      amendment = parse(doc)
+
+      expect(amendment.actions.first.entries.first.country_or_area.fr).to eq('ALLEMAGNE')
+      expect(amendment.notes).to include('1) Country note')
+    end
+
     it 'collects 1-cell footnote rows as notes, not countries' do
       doc = document(
         paragraph('P 3 GERMANY ADD'),

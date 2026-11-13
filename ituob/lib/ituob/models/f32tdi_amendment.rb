@@ -204,7 +204,10 @@ attribute :notes, :string, collection: true
         notes.concat(parts.drop(3))
         parts = parts.first(3)
         value = parts.join(' ').strip
-        return if value.empty?
+        if value.empty?
+          state.notes.concat(notes)
+          return
+        end
 
         if state.country.nil? || parts.length == 3 ||
             (language_values(state.country).length == 3 && !language_values(state.country).include?(value))
@@ -223,6 +226,11 @@ attribute :notes, :string, collection: true
       end
 
       def self.build_entry(texts, state)
+        # A printed country on a data row starts a new country. Only
+        # uncoded heading rows supply additional language variants.
+        if texts[0].any? { |text| !note_paragraph?(text) }
+          state.country = state.country_note = nil
+        end
         merge_country_variant(state, texts[0])
         update_network(texts, state)
 
