@@ -46,6 +46,7 @@ def permitted_nonpatch(path):
     # Nothing from these directories is executed by this workflow.
     return (path.startswith("issues/") or path.startswith("docs/")
             or re.fullmatch(r"\.github/workflows/[a-zA-Z0-9_.-]+\.ya?ml", path)
+            or re.fullmatch(r"\.github/scripts/[a-zA-Z0-9][a-zA-Z0-9_.-]*\.(?:sh|py)", path)
             or path in {"README.md", "README.adoc", "LICENSE", "LICENSE.md", ".gitignore"})
 
 

@@ -169,6 +169,33 @@ class StageAuthoredPatchesTest(unittest.TestCase):
         self.write(self.data, "issues/1351/amendments.yaml", b"messages: []\n")
         self.assertTrue(self.stage()["source_changed"])
 
+    def test_inert_caller_scripts_allowed_without_execution_or_source_rewrite(self):
+        script = b"#!/bin/sh\nexit 97 # must never be executed by service gate\n"
+        names = (".github/scripts/check-patch-log.sh", ".github/scripts/check-patch-log-selftest.sh",
+                 ".github/scripts/check_patch_log.py")
+        for name in names:
+            self.write(self.data, name, script).chmod(0o755)
+        self.write(self.data, PATCH, PAYLOAD)
+        manifest = self.stage()
+        self.assertFalse(manifest["source_changed"])
+        self.assertEqual([PATCH], manifest["changed_paths"])
+        self.assertEqual(PAYLOAD, (self.service / PATCH).read_bytes())
+        for name in names:
+            self.assertEqual(script, (self.data / name).read_bytes())
+            self.assertFalse((self.service / name).exists())
+
+    def test_caller_script_allowlist_does_not_allow_nested_or_generated_paths(self):
+        forbidden = (".github/scripts/nested/check.py", ".github/scripts/current.json",
+                     ".github/scripts/schema.yaml", ".github/scripts/.hidden.sh",
+                     "scripts/check-patch-log.sh", "lists/list.yaml", "reference-docs/seed.yaml")
+        for path in forbidden:
+            with self.subTest(path=path):
+                self.git("reset", "--hard", self.base)
+                self.git("clean", "-fdq")
+                self.write(self.data, path, b"unclassified")
+                with self.assertRaisesRegex(ValueError, "unsupported or generated-state"):
+                    self.stage()
+
     def test_manifest_cannot_hide_changed_bytes(self):
         self.write(self.data, PATCH, PAYLOAD)
         self.stage()
