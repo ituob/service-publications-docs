@@ -152,6 +152,23 @@ RSpec.describe Ituob::Registers::State, '#to_snapshot' do
       'history' => [
         { 'type' => 'ADD', 'ob_issue' => 1000, 'identifier' => { 'code' => 'A' } },
       ],
+      'key_history' => {},
+    })
+  end
+
+  it 'serializes the history recorded under an item key' do
+    addition = change(type: 'ADD', code: '1170-001', ob_issue_no: 1170)
+    state = Ituob::Registers::State.new(
+      register_id: 'TEST', at_ob_issue: 1170,
+      entries: { 'A' => { 'code' => 'A' } },
+      lapsed_keys: [], deleted_keys: [], history: [addition],
+      key_history: { 'A' => [addition] },
+    )
+
+    expect(state.to_snapshot(slug: 'test')['key_history']).to eq({
+      'A' => [
+        { 'type' => 'ADD', 'ob_issue' => 1170, 'identifier' => { 'code' => '1170-001' } },
+      ],
     })
   end
 
