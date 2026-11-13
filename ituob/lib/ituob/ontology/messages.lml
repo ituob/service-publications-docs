@@ -78,11 +78,12 @@ models Ituob {
   }
 
   class IssueMetadata {
-    attribute id, String
-    attribute publication_date, Date
-    attribute cutoff_date, Date
+    attribute id, Integer
+    attribute incomplete, Boolean
+    attribute publication_date, DateOrText
+    attribute cutoff_date, DateOrText
     attribute issn, String
-    attribute languages, MultilingualString
+    attribute languages, Hash
     attribute authors, IssueAuthor { cardinality 0..n }
   }
 
@@ -691,7 +692,7 @@ models Ituob {
 
   class GeneralApprovedRecommendation {
     attribute recommendation, String
-    attribute approved_date, Date
+    attribute approved_date, DateOrText
   }
 
   class GeneralApprovedRecommendations {
@@ -712,6 +713,8 @@ models Ituob {
 
   class GeneralCustom {
     attribute type, String
+    attribute title, Hash
+    attribute recommendation, String
     attribute text, String
     attribute ob_issue_no, String
     attribute contents, Hash
@@ -746,7 +749,7 @@ models Ituob {
     attribute type, String
     attribute text, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralOrgChanges {
@@ -766,8 +769,8 @@ models Ituob {
 
   class GeneralServiceRestriction {
     attribute country, MultilingualString
-    attribute ob, String
-    attribute page, String
+    attribute ob, Integer
+    attribute page, Integer
   }
 
   class GeneralSanc {
@@ -799,8 +802,8 @@ models Ituob {
   }
 
   class GeneralTelephoneCommunication {
-    attribute date, String
-    attribute contents, MultilingualString
+    attribute date, DateOrText
+    attribute contents, Hash
   }
 
   class GeneralTelephoneService {

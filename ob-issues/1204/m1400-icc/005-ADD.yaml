@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Stadtwerke Versmold GmbH
     address_line_1: Nordfeldstrasse 5
     address_line_2: D-33775 VERSMOLD
     carrier_code: SWVERS
     contact: Mrs Ute Stiller
     tel: "+49 5423 9519 305"
+    email:
+    - funkverbindung@stadtwerke-versmold.de
   notes: []

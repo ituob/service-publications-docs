@@ -37,7 +37,7 @@ RSpec.describe 'Registered amendment parsers (behavior)' do
     action = parsed.actions.first
 
     expect(parsed.actions.length).to eq(3)
-    expect(action.action_type).to eq('SUP*')
+    expect(action.action_type).to eq('SUP')
     expect(action.position).to eq('P 17')
     entry = action.entries.first
     expect(entry.applicant).to eq('ICO Global Communications')
@@ -100,7 +100,7 @@ RSpec.describe 'Registered amendment parsers (behavior)' do
     expect(parsed.actions.length).to eq(8)
     expect(action.action_type).to eq('ADD')
     entry = action.entries.first
-    expect(entry.country_or_area.en).to eq('Germany')
+    expect(entry.country_or_area.en).to eq('Germany (Federal Republic of)')
     expect(entry.company_name).to eq('BGC Breitbandgesellschaft Cottbus mbH')
     with_tel = parsed.actions.flat_map(&:entries).find { |e| e.tel.to_s.include?('104211') }
     expect(with_tel).not_to be_nil

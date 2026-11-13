@@ -114,8 +114,34 @@ module Ituob
           %w[GeneralServiceRestriction country] => ["MultilingualString", :string],
         }.freeze
 
+        # Ontology names for the lossless corpus value types
+        # (see DateOrText, HashOrText).
+        LOSSLESS_TYPES = {
+          "DateOrText" => "Ituob::Models::DateOrText",
+          "HashOrText" => "Ituob::Models::HashOrText",
+        }.freeze
+
+        # lutaml-model omits an empty value ("" or []) from the
+        # serialized hash unless the mapping says render_empty. These
+        # classes hold values the corpus stores empty on purpose
+        # (`communications: []`, `incomplete: false`), so every attribute
+        # is mapped explicitly and renders what it holds.
+        RENDER_EMPTY_CLASSES = %w[GeneralTelephoneSection IssueMetadata].freeze
+
+        def apply_key_value_mappings
+          super
+          RENDER_EMPTY_CLASSES.each do |name|
+            klass = compiled_classes.fetch(name)
+            names = klass.attributes.keys
+            klass.key_value do
+              names.each { |attr| map attr.to_s, to: attr, render_empty: true }
+            end
+          end
+        end
+
         def resolve_type(type_name)
           return :hash if type_name == "Hash"
+          return Object.const_get(LOSSLESS_TYPES.fetch(type_name)) if LOSSLESS_TYPES.key?(type_name)
 
           super
         end

@@ -1,0 +1,16 @@
+type: SUP
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1345'
+reference: OB-1345
+identifier:
+  code: 1345-006
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 634 05
+    country_or_area:
+      en: Sudan
+    networks: Network of the World Ltd (NOW)
+  notes:
+  - 'MCC: Mobile Country Code  MNC: Mobile Network Code'

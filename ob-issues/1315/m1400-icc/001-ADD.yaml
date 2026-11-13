@@ -4,21 +4,25 @@ date_active: *1
 ob_issue_no: '1315'
 reference: OB-1315
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Computerwerke Viechtach GmbH
     address_line_1: Ringstrasse 9
     address_line_2: D-94234 VIECHTACH
     carrier_code: COMWVI
     contact: Mr Christof Englmeier
     tel: "+49 9942 904726"
-  - country_or_area:
-      en: Germany
+    email:
+    - service@computerwerke-viechtach.de
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: ingenia Glasfaser GmbH
     address_line_1: Rudolf-Diesel-Strasse 5
     address_line_2: D-74592 Kirchberg a.d. Jagst
@@ -26,8 +30,11 @@ data:
     contact: Mr Michael Neska
     tel: "+49 6913 3660"
     fax: "+49 6913 36119"
-  - country_or_area:
-      en: Germany
+    email:
+    - backoffice@carrierwerke.de
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: RegioNet Schweinfurt GmbH
     address_line_1: Bodelschwinghstr. 1
     address_line_2: D-97421 SCHWEINFURT
@@ -35,24 +42,33 @@ data:
     contact: Mr Andreas Goeb
     tel: "+49 9721 931 275"
     fax: "+49 9721 931 581"
-  - country_or_area:
-      en: Germany
+    email:
+    - regulierung@stadtwerke-sw.de
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: RS net ID GmbH
     address_line_1: Ziegelhöfe 4
     address_line_2: D-79341-KENZINGEN
     carrier_code: RSNET
     contact: Mr Ronnie Schwoerer
     tel: "+49 764478111"
-  - country_or_area:
-      en: Germany
+    email:
+    - rs@rs-netit.de
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Schollmeier Autofunk e.K.
     address_line_1: Heppenheimer Str. 23
     address_line_2: D-68309 MANNHEIM
     carrier_code: SCHOTK
     contact: Mr Nico Haas
     tel: "+49 621 7209236"
-  - country_or_area:
-      en: Germany
+    email:
+    - nh@schollmeier.de
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Stadtwerke Gaggenau Service GmbH
     address_line_1: Theodor-Bergmann-Strasse 44
     address_line_2: D-76571 GAGGENAU
@@ -60,8 +76,11 @@ data:
     contact: Mr Markus Schaub
     tel: "+49 7225 9885 746"
     fax: "+49 7225 9885 705"
-  - country_or_area:
-      en: Germany
+    email:
+    - markus.schaub@stadtwerke-gaggenau.de
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: weSystems Nordics ApS
     address_line_1: Damhaven 3B 1
     address_line_2: DK-7100 VEJLE
@@ -69,4 +88,6 @@ data:
     carrier_code: WESYST
     contact: Mr Brian Norgaard
     tel: "+45 89870989"
+    email:
+    - b.norgaard@wesystems.ag
   notes: []

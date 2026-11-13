@@ -4,12 +4,13 @@ date_active: *1
 ob_issue_no: '1300'
 reference: OB-1300
 identifier:
-  code: Austria /
+  code: Austria / AUT
 data:
   _class: M1400Amendment
-  position: Austria /
+  position: Austria / AUT
   entries:
-  - country_or_area:
+  - iso_code: AUT
+    country_or_area:
       en: Austria
     company_name: FiberEins TK GmbH
     address_line_1: Castelligasse 1/15

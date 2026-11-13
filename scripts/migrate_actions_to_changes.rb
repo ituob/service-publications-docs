@@ -31,9 +31,47 @@ REGISTERS_ARG = ARGV[0] # optional: comma-separated list of register_ids
 # Canonical register action; the source corpus preserves odd extracted
 # codes verbatim (e.g. a country code mistaken for an action), which
 # Registers::Change rejects — those publish as ADD.
+REGISTER_ACTIONS = %w[ADD SUP REP LIR MOD DEL SEED].freeze
+
 def normalize_action(raw)
+  declared_action(raw) || 'ADD'
+end
+
+def declared_action(raw)
   cleaned = raw.to_s.upcase.strip
-  %w[ADD SUP REP LIR MOD DEL SEED].include?(cleaned) ? cleaned : 'ADD'
+  cleaned if REGISTER_ACTIONS.include?(cleaned)
+end
+
+# The file's own `type:` is the printed action. A filename that names
+# a different register action is a source-corpus labelling defect: the
+# type wins and the disagreement is reported rather than hidden.
+def action_for(filename_action, type, path)
+  declared = declared_action(type)
+  return normalize_action(filename_action) unless declared
+
+  if declared_action(filename_action) && declared != declared_action(filename_action)
+    return declared unless WARNED_PATHS.add?(path)
+
+    warn "migrate: #{path} is named #{filename_action} but declares type #{declared}; using #{declared}"
+  end
+  declared
+end
+
+WARNED_PATHS = Set.new
+
+# Amendment rows of one source slug are shared between a register and
+# its routed siblings (e.g. the E.164 note lists printed inside the
+# E164_CC amendments): a routed register takes the rows it claims, the
+# unrouted register the rest.
+def rows_owned_by(entry, rows)
+  siblings = Ituob::Catalogs::Registers.all.select { |e| e.amendment_slug == entry.amendment_slug }
+  rows.select do |row|
+    if entry.route
+      entry.routes?(row)
+    else
+      siblings.none? { |sibling| sibling.routes?(row) }
+    end
+  end
 end
 
 # The LML instance format collapses a one-element array of instances
@@ -72,7 +110,7 @@ registers_to_migrate.each do |register_id|
   next unless entry&.seed_path
 
   target_dir = File.join(PROJECT_ROOT, entry.seed_path, 'changes')
-  amendment_dirs = Dir.glob(File.join(OB_ISSUES_ROOT, '*', entry.slug))
+  amendment_dirs = Dir.glob(File.join(OB_ISSUES_ROOT, '*', entry.amendment_slug))
                        .select { |d| File.directory?(d) }
 
   # Regeneration replaces the previous generation wholesale.
@@ -91,13 +129,19 @@ registers_to_migrate.each do |register_id|
        .each do |name|
       seq, raw_action = name.match(/\A(\d+)-([A-Z][A-Z0-9]*)\.yaml\z/).captures
       seq = seq.to_i
-      action = normalize_action(raw_action)
-      source = YAML.safe_load(File.read(File.join(dir, name)), aliases: true,
+      path = File.join(dir, name)
+      source = YAML.safe_load(File.read(path), aliases: true,
                               permitted_classes: [Date, Time, DateTime, Symbol])
       next unless source.is_a?(Hash)
 
+      action = action_for(raw_action, source['type'], path.delete_prefix("#{PROJECT_ROOT}/"))
       data = source['data'].is_a?(Hash) ? source['data'] : {}
-      entries = data['entries'].is_a?(Array) ? data['entries'] : []
+      printed_entries = data['entries'].is_a?(Array) ? data['entries'] : []
+      entries = rows_owned_by(entry, printed_entries)
+      next if printed_entries.any? && entries.empty?
+      # A list repeat that prints no rows names no key to repeat.
+      next if action == 'LIR' && printed_entries.empty?
+      next if printed_entries.empty? && entry.route
 
       key_field = entry.key_field
       fallbacks = Array(entry.fallback_key_fields)
@@ -119,7 +163,7 @@ registers_to_migrate.each do |register_id|
         elsif entries.empty?
           data.reject { |k, _| k == 'entries' }
         else
-          data
+          data.merge('entries' => entries)
         end
 
       payload = {

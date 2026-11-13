@@ -4,12 +4,13 @@ date_active:
 ob_issue_no: '1122'
 reference: OB-1122
 identifier:
-  code: Portugal /
+  code: Portugal / PRT
 data:
   _class: M1400Amendment
-  position: Portugal /
+  position: Portugal / PRT
   entries:
-  - country_or_area:
+  - iso_code: PRT
+    country_or_area:
       en: Portugal
     company_name: MEO - Serviços de Comunicações e Multimédia, S.A
     address_line_1: Avenida Fontes Pereira de Melo, nº 40

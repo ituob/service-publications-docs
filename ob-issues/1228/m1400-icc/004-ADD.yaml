@@ -8,8 +8,9 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: The Cloud Networks Germany GmbH
     address_line_1: Leuchtenbergring 3
     address_line_2: D-81677 MUNICH
@@ -17,4 +18,6 @@ data:
     contact: Mr Achim Moehrlein
     tel: "+49 89 419422 147"
     fax: "+49 89 419422 111"
+    email:
+    - info@thecloud.eu
   notes: []

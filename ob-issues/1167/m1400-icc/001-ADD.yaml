@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1167'
 reference: OB-1167
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: amabo GmbH
     address_line_1: Essener Strasse 2 - 24
     address_line_2: 46047 OBERHAUSEN
@@ -20,8 +21,9 @@ data:
     fax: "+49 211 90096463"
     email:
     - aiko.marschner@amabo.de
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Tele Columbus AG, Bulk-Account Kaiserin-Augusta-Allee 108 D-10553
       BERLIN
     carrier_code: FLTC

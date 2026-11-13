@@ -4,15 +4,18 @@ date_active: *1
 ob_issue_no: '1206'
 reference: OB-1206
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: EnBW Energie Baden-Württemberg AG Durlacher Allee 93 D-76131 KARLSRUHE
     carrier_code: ENBW97
     contact: 'Mrs Kristina Nielsen Tel:         +49 711 28981741 Email:    k.nielsen@enbw.com'
     tel: 'Mrs Kristina Nielsen +49 711 28981741 Email:    k.nielsen@enbw.com'
+    email:
+    - 'Mrs Kristina Nielsen Tel:         +49 711 28981741 k.nielsen@enbw.com'
   notes: []

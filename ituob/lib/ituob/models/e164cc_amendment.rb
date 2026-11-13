@@ -67,14 +67,13 @@ attribute :notes, :string, collection: true
 
               state.action.note = segs[1]
               state.action.position = segs[0..1].join(" ")
-              if m = basestr.match(/[A-Z]{3}\*$/)
-                state.action.action_type = m[0].to_s
-              elsif m = basestr.match(/[A-Z]{3}$/)
+              marker = basestr.sub(/\*+\z/, '')
+              if m = marker.match(/[A-Z]{3}\z/)
                 state.action.action_type = m[0].to_s
               elsif segs[-1].length == 3
                 state.action.action_type = segs[-1]
               else
-                state.action.action_type = basestr[-3..-1]
+                state.action.action_type = marker[-3..-1]
               end
             end
 

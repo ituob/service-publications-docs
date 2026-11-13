@@ -8,8 +8,9 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: WIFISAX GmbH
     address_line_1: Bornaer Chaussee 35 a
     address_line_2: D-04416 MARKKLEEBERG
@@ -17,4 +18,6 @@ data:
     contact: Mr Andreas Woezel
     tel: "+49 3429 7918804"
     fax: "+49 3429 7918472"
+    email:
+    - andreas.woezel@wifisax.de
   notes: []

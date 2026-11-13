@@ -1,0 +1,24 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1345'
+reference: OB-1345
+identifier:
+  code: Germany (Federal Republic of) / DEU
+data:
+  _class: M1400Amendment
+  position: Germany (Federal Republic of) / DEU
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: WorkSimple GmbH
+    address_line_1: Meister-Stütting-Straße 4
+    address_line_2: 59519 MÖHNESEE
+    carrier_code: WKSMPL
+    contact: WorkSimple NOC
+    tel: "+49 2924 496992 0"
+    fax: "+49 2924 496992 99"
+    email:
+    - noc.itu@worksimple.de
+  notes: []

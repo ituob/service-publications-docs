@@ -4,12 +4,13 @@ date_active:
 ob_issue_no: '985'
 reference: OB-985
 identifier:
-  code: Denmark /
+  code: Denmark / DNK
 data:
   _class: M1400Amendment
-  position: Denmark /
+  position: Denmark / DNK
   entries:
-  - country_or_area:
+  - iso_code: DNK
+    country_or_area:
       en: Denmark
     company_name: ACN Denmark A/S Maxeland 2 GLOSTRUP 3660
     carrier_code: '12572'

@@ -139,6 +139,7 @@ module Ituob
 
         # NEW
         'custom' => Ituob::Models::GeneralCustom, # verified: renders via issue general section; 310/310 issues pass
+        'mid' => Ituob::Models::GeneralMid,
         'misc_communications' => Ituob::Models::GeneralMiscCommunications, # verified: renders via issue general section; 310/310 issues pass
         'org_changes' => Ituob::Models::GeneralOrgChanges, # verified: renders via issue general section; 310/310 issues pass
         'sanc' => Ituob::Models::GeneralSancs, # verified: renders via issue general section; 310/310 issues pass
@@ -160,7 +161,9 @@ module Ituob
             next
           end
 
-          klass.parse(message)
+          # Compiled classes (GeneralMid) carry no +parse+; their
+          # editor-era shape is the model shape.
+          klass.respond_to?(:parse) ? klass.parse(message) : klass.from_hash(message)
         end.compact
 
         gen.messages = parsed

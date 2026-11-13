@@ -8,8 +8,9 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Feuchter Gemeindewerke GmbH
     address_line_1: Unterer Zeidlerweg 1
     address_line_2: D-90537 FEUCHT
@@ -17,4 +18,6 @@ data:
     contact: Mr Markus Pitz
     tel: "+49 9128 9914 701"
     fax: "+49 9128 9914 39"
+    email:
+    - markus.pitz@feucht-gw.de
   notes: []
