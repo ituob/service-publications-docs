@@ -45,12 +45,14 @@ jobs:
       OB_ISSUES_OUT_PATH: ${{ github.workspace }}/ob-issues
       DATASETS_ROOT: ${{ github.workspace }}/datasets
       SNAPSHOTS_OUT: ${{ github.workspace }}/validation-snapshots
-      AUTHORED_MANIFEST: ${{ runner.temp }}/authored-patches.json
     steps:
       - name: Require explicit trusted repositories and commit SHAs
         shell: bash
         run: |
           set -euo pipefail
+          # The runner context is not available in job-level env, so the
+          # manifest path under the runner temp directory is set here.
+          echo "AUTHORED_MANIFEST=$RUNNER_TEMP/authored-patches.json" >> "$GITHUB_ENV"
           test "$DATA_REPOSITORY" = 'ituob/itu-ob-data'
           for ref in "$DATA_REF" "$BASE_REF" "$SERVICE_REF"; do
             [[ "$ref" =~ ^[0-9a-f]{40}$ ]] || { echo 'Full commit SHAs are required' >&2; exit 1; }
