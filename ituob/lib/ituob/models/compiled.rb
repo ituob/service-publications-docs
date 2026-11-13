@@ -138,10 +138,26 @@ module Ituob
         CLASS_NAMES.each do |name|
           klass = compiler.compiled_classes.fetch(name)
           ensure_collections_default_to_empty(klass)
+          preserve_empty_strings(name, klass)
           Models.const_set(name, klass)
         end
 
         nil
+      end
+
+      # These registers distinguish a printed blank from a missing field.
+      # Explicit mappings retain that distinction when Entry objects are
+      # serialized, while still omitting absent/nil values.
+      def self.preserve_empty_strings(name, klass)
+        return unless %w[F400Entry NumberingPlanEntry].include?(name)
+
+        attributes = klass.attributes
+        klass.key_value do
+          attributes.each do |attribute, definition|
+            map attribute.to_s, to: attribute,
+                                render_empty: definition.type == Lutaml::Model::Type::String
+          end
+        end
       end
 
       # Hand-written model classes initialize collection attributes to
