@@ -61,4 +61,122 @@ RSpec.describe Ituob::Models::F400Amendment do
       end
     end
   end
+
+  context 'with the OB 1193 Spain ADD table shape' do
+    let(:nbsp) { "\u00a0" }
+    let(:rows) do
+      [
+        [nbsp] * 7,
+        %w[Country ADMD\ Name Country\ code Service\ Name(s) HELPDESK AUTOANSWER Contact\ Address],
+        [nbsp] * 7,
+        [nbsp, nbsp, nbsp, 'MT', 'IPM', 'other', nbsp, nbsp, nbsp],
+        %w[1 2 3 4 5 6 7 8 9],
+        [nbsp] * 9,
+        ['Espagne', 'SPAIRAL', 'ES', 'SPAIRAL-MT', 'SPAIRAL-IPM', nbsp, '', '', 'SPAIRAL COMMERCE S.L. Logrono'],
+        ['Spain', nbsp, nbsp, nbsp, nbsp, nbsp, nbsp, nbsp],
+        ['España', nbsp, nbsp, nbsp, nbsp, nbsp, nbsp, nbsp],
+        [nbsp] * 9
+      ]
+    end
+    let(:document) do
+      cell = lambda do |text|
+        { 'type' => 'table_cell', 'content' => [{ 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => text }] }] }
+      end
+      { 'type' => 'doc', 'content' => [
+        { 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => "P 18  Spain  ADD" }] },
+        { 'type' => 'table', 'content' => rows.map { |r| { 'type' => 'table_row', 'content' => r.map(&cell) } } }
+      ] }
+    end
+
+    it 'keeps only the SPAIRAL allocation, never layout, header or column-number rows' do
+      entries = described_class.parse(document).actions.first.entries
+
+      expect(entries.length).to eq(1)
+      entry = entries.first
+      expect(entry.admd_name).to eq('SPAIRAL')
+      expect(entry.country_code).to eq('ES')
+      expect(entry.country_or_area.fr).to eq('Espagne')
+      expect(entry.country_or_area.en).to eq('Spain')
+      expect(entry.country_or_area.es).to eq('España')
+      expect(entry.helpdesk[:x400]).to eq('SPAIRAL-IPM')
+      expect(entry.contact_address[:address_lines]).to eq(['SPAIRAL COMMERCE S.L. Logrono'])
+      expect(entries.map(&:admd_name).join).not_to match(/\A\s*\z|\A\d+\z/)
+    end
+  end
+
+  context 'with layout and continuation row variants' do
+    let(:real) { ['Espagne', 'SPAIRAL', 'ES', 'SPAIRAL-MT', 'SPAIRAL-IPM', '', '', '', 'Addr'] }
+    let(:document) do
+      cell = lambda do |text|
+        content = text.empty? ? [{ 'type' => 'paragraph' }] : [{ 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => text }] }]
+        { 'type' => 'table_cell', 'content' => content }
+      end
+      { 'type' => 'doc', 'content' => [
+        { 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => 'P 18  Spain  ADD' }] },
+        { 'type' => 'table', 'content' => rows.map { |r| { 'type' => 'table_row', 'content' => r.map(&cell) } } }
+      ] }
+    end
+    let(:entries) { described_class.parse(document).actions.first.entries }
+
+    context 'when the column-number row has a trailing blank cell (OB 989)' do
+      let(:rows) { [%w[1 2 3 4 5 6 7 8 9] + [''], real] }
+
+      it 'skips it as layout' do
+        expect(entries.map(&:admd_name)).to eq(['SPAIRAL'])
+      end
+    end
+
+    context 'when the column-number row has a hole' do
+      let(:rows) { [['1', '2', '3', '', '5', '6', '7', '8', '9'], real] }
+
+      it 'skips it as layout' do
+        expect(entries.map(&:admd_name)).to eq(['SPAIRAL'])
+      end
+    end
+
+    context 'when a continuation row has only MT in the fourth cell' do
+      let(:rows) { [real, ['', '', '', 'MT', '', '', '', '', '']] }
+
+      it 'keeps it as continuation data' do
+        expect(entries.length).to eq(1)
+        expect(entries.first.contact_address[:address_lines]).to include('MT')
+      end
+    end
+
+    context 'when the column-number row has one leading blank cell (OB 1006)' do
+      let(:rows) { [[''] + %w[1 2 3 4 5 6 7 8 9], real] }
+
+      it 'skips it as layout' do
+        expect(entries.map(&:admd_name)).to eq(['SPAIRAL'])
+      end
+    end
+
+    context 'when a continuation row holds a few numeric cells' do
+      let(:rows) do
+        [real, ['', '', '', '', '', '', '6', '7', ''], ['', '1', '2', '', '', '', '', '', ''],
+         ['', '', '', '', '4', '5', '', '', '']]
+      end
+
+      it 'keeps them as continuation data' do
+        expect(entries.length).to eq(1)
+        expect(entries.first.contact_address[:address_lines]).to include('6', '7')
+      end
+    end
+
+    context 'when the MT/IPM sub-header is shifted one column left (OB 1006)' do
+      let(:rows) { [real, ['', '', 'MT', 'IPM', 'other', '', '', '', '']] }
+
+      it 'skips it as layout' do
+        expect(entries.first.contact_address[:address_lines]).to eq(['Addr'])
+      end
+    end
+
+    context 'when a continuation row has MT next to non-service text' do
+      let(:rows) { [real, ['', '', '', 'MT', '4', '', '', '', '']] }
+
+      it 'keeps it as continuation data' do
+        expect(entries.first.contact_address[:address_lines]).to include('MT')
+      end
+    end
+  end
 end
