@@ -142,6 +142,29 @@ end
 
 def write_change_object(issue_id:, dataset_slug:, seq:, type: 'ADD',
                         date_active:, identifier:, data:, description: nil)
+  # Use the same catalog fields as Strategies::Base.entry_key, including
+  # routed registers sharing this amendment and their fallback fields.
+  registers = Ituob::Catalogs::Registers.all.select { |entry| entry.amendment_slug == dataset_slug }
+  key_fields = registers.flat_map { |entry| Array(entry.key_field) + Array(entry.fallback_key_fields) }.uniq
+  rows = data['entries'].is_a?(Array) ? data['entries'] : [data]
+  rows.each do |row|
+    next unless row.is_a?(Hash)
+
+    key_fields.each do |field|
+      value = row[field]
+      row[field] = case value
+                   when String then Ituob::Helpers.replace_legacy_space(value)
+                   when Hash
+                     value.transform_values do |text|
+                       text.is_a?(String) ? Ituob::Helpers.replace_legacy_space(text) : text
+                     end
+                   else next
+                   end
+    end
+  end
+  if identifier['code'].is_a?(String)
+    identifier = identifier.merge('code' => Ituob::Helpers.replace_legacy_space(identifier['code']))
+  end
   obj = {
     'type' => type,
     'date_requested' => date_active,
@@ -217,7 +240,7 @@ def process_amendments(issue_id, src_dir, dst_dir, stats)
              text.match?(/^See page/) ||
              text.match?(/^[a-z]\. /) ||
              (text.length > 30 && text.match?(/Mobile Country Code/) || text.match?(/International Signalling/))
-            generic_notes << text unless text.empty?
+            generic_notes << c.join(' ') unless text.empty?
           end
         end
         parsed.notes = generic_notes if generic_notes.any?
@@ -438,4 +461,4 @@ def main
 end
 
 require 'time'
-main
+main if $PROGRAM_NAME == __FILE__
