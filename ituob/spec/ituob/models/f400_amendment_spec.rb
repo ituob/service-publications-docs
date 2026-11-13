@@ -163,6 +163,14 @@ RSpec.describe Ituob::Models::F400Amendment do
       end
     end
 
+    context 'when the MT/IPM sub-header is shifted one column left (OB 1006)' do
+      let(:rows) { [real, ['', '', 'MT', 'IPM', 'other', '', '', '', '']] }
+
+      it 'skips it as layout' do
+        expect(entries.first.contact_address[:address_lines]).to eq(['Addr'])
+      end
+    end
+
     context 'when a continuation row has MT next to non-service text' do
       let(:rows) { [real, ['', '', '', 'MT', '4', '', '', '', '']] }
 

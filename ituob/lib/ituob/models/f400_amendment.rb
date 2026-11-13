@@ -87,11 +87,10 @@ attribute :notes, :string, collection: true
               # sub-header row ("MT", "IPM", "other") are layout, not entries.
               next if numbered_layout_row?(flat)
 
-              # The sub-header reads MT, IPM, other; a lone "MT" (or MT next
-              # to other text) is a continuation row's data.
-              service_subheader = flat[3] == 'MT' && flat[0, 3].all?(&:empty?) &&
-                                  flat[4].to_s.strip.casecmp?('IPM')
-              next if service_subheader
+              # The sub-header reads MT, IPM, other, after blank leading cells
+              # (MT sits in column 3 or 4). A lone "MT", or MT next to other
+              # text, is a continuation row's data.
+              next if service_subheader?(flat)
 
               # Detect continuation rows: cells 1-5 are mostly empty.
               middle_empty = flat[1, 5].all? { |x| x.nil? || x.strip.empty? }
@@ -158,6 +157,13 @@ attribute :notes, :string, collection: true
         offsets.uniq.length == 1 && [0, 1].include?(offsets.first)
       end
       private_class_method :numbered_layout_row?
+
+      def self.service_subheader?(flat)
+        mt = flat.index('MT')
+        !mt.nil? && mt.positive? && flat[0, mt].all?(&:empty?) &&
+          flat[mt + 1].to_s.strip.casecmp?('IPM')
+      end
+      private_class_method :service_subheader?
     end
   end
 end
