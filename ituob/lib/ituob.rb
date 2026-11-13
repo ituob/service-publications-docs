@@ -19,6 +19,9 @@ module Ituob
   # Shared helpers used across model classes (text normalization, etc.).
   autoload :Helpers, 'ituob/helpers'
 
+  # Where the register data tree lives (ITUOB_DATA_ROOT / checkout).
+  autoload :DataRoot, 'ituob/data_root'
+
   # On-disk dataset directory abstraction (legacy validation API).
   autoload :Dataset, 'ituob/dataset'
 

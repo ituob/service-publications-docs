@@ -12,6 +12,14 @@ module Ituob
   # lutaml-model objects (Models::RegisterEdition, Models::RegisterKeyHistory)
   # carrying ProjectionProvenance, so they reach Liquid through to_liquid.
   #
+  # == Data root
+  #
+  # The projections read catalogs/, datasets/ and ob-issues/ from a data
+  # root (see {DataRoot}). Pass +data_root:+ or set +ITUOB_DATA_ROOT+;
+  # inside a repository checkout neither is needed. A missing or
+  # incomplete root raises Ituob::DataRoot::MissingError from +new+, naming
+  # the root and how to set it. The root is process-wide, not per provider.
+  #
   # Raises UnknownRegisterError, UnknownIssueError or
   # Projections::KeyHistory::UnknownKeyError (all ArgumentError) for input
   # that names nothing; textual registers without a compiled Entry class
@@ -21,8 +29,11 @@ module Ituob
     class UnknownIssueError < ArgumentError; end
 
     QUERIES = %i[edition history].freeze
-    REPO_ROOT = File.expand_path('../../../..', __dir__)
-    private_constant :REPO_ROOT
+
+    def initialize(data_root: nil)
+      DataRoot.configure(data_root) if data_root
+      DataRoot.path
+    end
 
     # Queries a document may invoke; nothing else is reachable.
     def lutaml_data_queries
@@ -70,7 +81,7 @@ module Ituob
     end
 
     def known_issues
-      @known_issues ||= Dir.children(File.join(REPO_ROOT, 'ob-issues'))
+      @known_issues ||= Dir.children(DataRoot.join('ob-issues'))
                            .grep(/\A\d+\z/).to_set(&:to_i)
     end
 

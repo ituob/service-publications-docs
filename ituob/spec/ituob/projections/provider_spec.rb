@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'tmpdir'
 
 RSpec.describe Ituob::Provider do
   before(:context) { @shared_provider = described_class.new }
@@ -10,6 +11,31 @@ RSpec.describe Ituob::Provider do
   let(:items_projection) { Ituob::Projections::RegisterItems.new(register: register) }
   let(:state) { items_projection.state_at(1170) }
   let(:edition) { provider.edition(register: 'e212-mnc', as_of: 1170) }
+
+  describe 'data root' do
+    around do |example|
+      Dir.mktmpdir do |root|
+        %w[catalogs datasets].each { |d| File.symlink(File.join(Ituob::DataRoot::CHECKOUT, d), File.join(root, d)) }
+        FileUtils.mkdir_p(File.join(root, 'ob-issues', '1170'))
+        @root = root
+        example.run
+      ensure
+        Ituob::DataRoot.configure(nil)
+      end
+    end
+
+    it 'reads issues from the explicit root, not the checkout' do
+      rooted = described_class.new(data_root: @root)
+      expect(rooted.edition(register: 'e212-mnc', as_of: 1170).items.size).to eq(state.active_entries.size)
+      expect { rooted.edition(register: 'e212-mnc', as_of: 1171) }
+        .to raise_error(described_class::UnknownIssueError, /Unknown OB issue 1171/)
+    end
+
+    it 'fails at construction with a root error when the root is wrong' do
+      expect { described_class.new(data_root: '/nonexistent/ituob') }
+        .to raise_error(Ituob::DataRoot::MissingError, %r{/nonexistent/ituob.*ITUOB_DATA_ROOT})
+    end
+  end
 
   describe '#lutaml_data_queries' do
     it 'names only the supported queries and each is a public method' do
