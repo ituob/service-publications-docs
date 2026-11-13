@@ -60,7 +60,7 @@ module Ituob
         data = load_yaml(path)
         return nil unless data.is_a?(Array)
 
-        supplement_seed(data, amendments) if @seed_includes_seed_issue
+        preserve_seed_effective_dates(data, amendments) if @seed_includes_seed_issue
 
         Change.new(
           type: 'SEED',
@@ -71,10 +71,10 @@ module Ituob
         )
       end
 
-      # The annex fixes membership and populated fields, but its capture
-      # may omit fields printed in that issue's amendments. Preserve those
-      # fields without replaying removals or restoring absent entries.
-      def supplement_seed(data, amendments)
+      # Preserve the effective date omitted by the annex capture. Other
+      # fields belong to the seed: amendment address lines, for example,
+      # may split the same printed address differently and must not mix.
+      def preserve_seed_effective_dates(data, amendments)
         rows_by_key = data.select { |row| row.is_a?(Hash) }.group_by do |row|
           Strategies::Base.entry_key(row, @key_field, @fallback_key_fields)
         end
@@ -83,9 +83,11 @@ module Ituob
           next if change.action_type.destructive?
 
           Strategies::Base.rows_for(change, @key_field, @fallback_key_fields).each do |row|
+            next unless row.key?('effective_date')
+
             key = Strategies::Base.entry_key(row, @key_field, @fallback_key_fields)
             Array(rows_by_key[key]).each do |seed_row|
-              row.each { |field, value| seed_row[field] = value if seed_row[field].nil? }
+              seed_row['effective_date'] ||= row['effective_date']
             end
           end
         end

@@ -5,6 +5,7 @@ require 'tmpdir'
 require 'fileutils'
 require 'ituob/registers'
 require 'ituob/catalogs'
+require 'ituob/verifiers'
 
 RSpec.describe Ituob::Registers::DirectoryChangeSource do
   let(:seed_dir) { Dir.mktmpdir('dcs-spec') }
@@ -47,6 +48,24 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
   end
 
   describe 'replaying published annex seeds' do
+    it 'keeps the annex address lines when seed-issue patches split them differently' do
+      entry = Ituob::Catalogs::Registers.find('E118_IIN')
+      replay = Ituob::Verifiers::RegisterStateIntegrityVerifier.build_replay(entry)
+      seed_rows = Ituob::Support::Yaml.safe_load_file(File.join(replay.source.seed_path, 'data.yaml'))
+      state = replay.current
+
+      aggregate_failures do
+        ['89 264 33', '89 66 02', '89 93 01'].each do |key|
+          seed_row = seed_rows.find { |row| row.fetch(entry.key_field) == key }
+          seed_addresses = seed_row.select { |field, _| field.include?('address') }
+          replayed_addresses = state.entry_for(key).select { |field, _| field.include?('address') }
+
+          expect(seed_addresses).not_to be_empty
+          expect(replayed_addresses).to eq(seed_addresses), "address lines changed for #{key}"
+        end
+      end
+    end
+
     it 'preserves the effective date printed only in the E118 seed-issue patch' do
       entry = Ituob::Catalogs::Registers.find('E118_IIN')
       root = File.expand_path('../../../..', __dir__)
@@ -135,7 +154,8 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
               'type' => 'ADD', 'register' => register_id, 'ob_issue_no' => 1161,
               'identifier' => { 'code' => 'ABC' },
               'data' => { 'entries' => [
-                { 'code' => 'ABC', 'field' => 'patch wording', 'effective_date' => '1.VII.2018' },
+                { 'code' => 'ABC', 'field' => 'patch wording', 'effective_date' => '1.VII.2018',
+                  'company_address_3' => 'patch address line', 'patch_only' => 'patch content' },
                 { 'code' => 'GONE', 'effective_date' => '1.VII.2018' },
               ] },
             }.to_yaml)
@@ -146,7 +166,7 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
             }.to_yaml)
           end
 
-          it 'fills missing fields without replacing seed content or restoring absent entries' do
+          it 'preserves only missing effective dates without replacing seed content or restoring absent entries' do
             replay = Ituob::Registers::Replay.new(
               register_id: register_id, key_field: 'code', source: source,
             )
