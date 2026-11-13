@@ -118,7 +118,19 @@ module Ituob
         warn "replay: #{msg}"
       end
 
+      # A SUP published in the seed issue itself, for a key the seed list
+      # no longer holds: the seed is the post-issue list, so the removal
+      # is already in it. The change stays in +history+ but touches no
+      # key, so +key_history+ never claims a row that was never in state.
+      # Only SUP's absence check raises a StrategyError here.
+      def already_reflected_in_seed?(change)
+        change.type.to_s == 'SUP' && !source.seed_issue.nil? &&
+          change.ob_issue_no == source.seed_issue
+      end
+
       def report_skip(builder, change, error)
+        return if already_reflected_in_seed?(change)
+
         msg = "skip #{change.type} #{change.identifier.to_hash.inspect} at OB #{change.ob_issue_no}: #{error.message}"
         builder.record_error(msg)
         warn "replay: #{msg}"

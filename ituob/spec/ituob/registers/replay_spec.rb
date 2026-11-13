@@ -193,6 +193,30 @@ RSpec.describe Ituob::Registers::Replay do
       })
       expect(replay.at_issue(669).active_keys).to eq(['DEF'])
     end
+
+    it 'treats a seed-issue SUP of a key already absent from the seed as reflected, with no skip' do
+      write_change('669-001-SUP-GONE.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '669',
+        'identifier' => { 'code' => 'GONE' },
+      })
+      state = nil
+      expect { state = replay.at_issue(669) }.not_to output(/replay: skip/).to_stderr
+      expect(state.errors).to eq([])
+      expect(state.active_keys.sort).to eq(%w[ABC DEF])
+      expect(state.deleted_keys).to be_empty
+      expect(state.history.map(&:type)).to eq(%w[SEED SUP])
+      expect(state.key_history).not_to have_key('GONE')
+    end
+
+    it 'still reports a SUP of an absent key issued after the seed issue' do
+      write_change('700-001-SUP-GONE.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '700',
+        'identifier' => { 'code' => 'GONE' },
+      })
+      state = nil
+      expect { state = replay.at_issue(700) }.to output(/replay: skip SUP.*at OB 700/).to_stderr
+      expect(state.errors.size).to eq(1)
+    end
   end
 
   describe 'returns frozen State' do
