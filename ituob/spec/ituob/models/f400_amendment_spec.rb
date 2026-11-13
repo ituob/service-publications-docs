@@ -137,9 +137,9 @@ RSpec.describe Ituob::Models::F400Amendment do
     context 'when a continuation row has only MT in the fourth cell' do
       let(:rows) { [real, ['', '', '', 'MT', '', '', '', '', '']] }
 
-      it 'keeps it as continuation data' do
+      it 'keeps it as a continuation row without leaking the service label into the address' do
         expect(entries.length).to eq(1)
-        expect(entries.first.contact_address[:address_lines]).to include('MT')
+        expect(entries.first.contact_address[:address_lines]).to eq(['Addr'])
       end
     end
 
@@ -174,9 +174,53 @@ RSpec.describe Ituob::Models::F400Amendment do
     context 'when a continuation row has MT next to non-service text' do
       let(:rows) { [real, ['', '', '', 'MT', '4', '', '', '', '']] }
 
-      it 'keeps it as continuation data' do
-        expect(entries.first.contact_address[:address_lines]).to include('MT')
+      it 'treats it as a continuation row without leaking MT or a new entry' do
+        expect(entries.length).to eq(1)
+        expect(entries.first.contact_address[:address_lines]).to eq(['Addr'])
       end
+    end
+  end
+
+  context 'with the OB 1092 German block shape (en/es rows carry service labels)' do
+    let(:nb) { "\u00a0" }
+    let(:rows) do
+      [
+        [nb] * 9,
+        [nb, nb, nb, 'MT', 'IPM', 'other', nb, nb, nb],
+        %w[1 2 3 4 5 6 7 8 9],
+        [nb] * 9,
+        ['Allemagne', 'DBP', 'DE', 'BusinessMail', 'BusinessMail', '', 'S= helpdesk', 'S=autoanswer', 'Ralf Knecht'],
+        ['Germany', '', '', 'MailGate', 'Mailbox', '', 'A=viat', 'A=viat', ''],
+        ['Alemania', '', '', 'X.400 MT', 'X.400 - IPM', '', 'C=de', 'C=de', ''],
+        [nb] * 9,
+        ['Allemagne', 'VIAT', 'DE', 'BusinessMail', 'BusinessMail', '', 'S=helpdesk', 'S=autoanswer', 'Ralf Knecht'],
+        ['Germany', '', '', 'MailGate', 'Mailbox', '', 'A=viat', 'A=viat', ''],
+        ['Alemania', '', '', 'X.400 - MT', 'X.400 - IPM', '', 'C=de', 'C=de', '']
+      ]
+    end
+    let(:document) do
+      cell = lambda do |text|
+        { 'type' => 'table_cell',
+          'content' => [{ 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => text }] }] }
+      end
+      { 'type' => 'doc', 'content' => [
+        { 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => 'P 4  ADD' }] },
+        { 'type' => 'table', 'content' => rows.map { |r| { 'type' => 'table_row', 'content' => r.map(&cell) } } }
+      ] }
+    end
+    let(:entries) { described_class.parse(document).actions.first.entries }
+
+    it 'yields one entry per ADMD block with fr/en/es country names' do
+      expect(entries.map(&:admd_name)).to eq(%w[DBP VIAT])
+      expect(entries.map(&:country_code)).to eq(%w[DE DE])
+      expect(entries.map { |e| [e.country_or_area.fr, e.country_or_area.en, e.country_or_area.es] }.uniq)
+        .to eq([%w[Allemagne Germany Alemania]])
+    end
+
+    it 'keeps the fr-row helpdesk and drops the translated service labels from the address' do
+      expect(entries.map { |e| e.helpdesk[:x400] }).to eq(%w[BusinessMail BusinessMail])
+      expect(entries.first.contact_address[:address_lines])
+        .to eq(['S= helpdesk', 'S=autoanswer', 'Ralf Knecht', 'A=viat', 'A=viat', 'C=de', 'C=de'])
     end
   end
 end
