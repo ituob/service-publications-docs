@@ -128,6 +128,68 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     expect(lir.entries.map(&:mcc_mnc_codes)).to eq(['302 490', '302 491'])
   end
 
+  it 'carries table headings through consecutive rows and switches at the next heading' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+        row(cell(paragraph('Hungary SUP')), cell(paragraph("\u00a0")), cell(paragraph(' '))),
+        row(cell(paragraph('')), cell(paragraph('216 04')), cell(paragraph('First network'))),
+        row(cell(paragraph('')), cell(paragraph('216 05')), cell(paragraph('Second network'))),
+        row(cell(paragraph('Kenya ADD'))),
+        row(cell(paragraph('639 08')), cell(paragraph('Third network'))),
+      ),
+    )
+    actions = parse(doc).actions
+
+    expect(actions.map(&:action_type)).to eq(%w[REP ADD])
+    expect(actions.map { |action| action.entries.map { |entry| entry.country_or_area.en } }).to eq(
+      [%w[Hungary Hungary], ['Kenya']],
+    )
+    expect(actions.flat_map(&:entries).map(&:mcc_mnc_codes)).to eq(['216 04', '216 05', '639 08'])
+  end
+
+  it 'skips normalized blank keys in multi-line and four-column rows' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+        row(cell(paragraph('Hungary SUP'))),
+        row(cell(paragraph('')), cell(paragraph("\u00a0"), paragraph('216 04')),
+            cell(paragraph(''), paragraph('Invitech ICT Services Ltd.'))),
+        row(cell(paragraph('')), cell(paragraph(" \u00a0 ")), cell(paragraph('')), cell(paragraph(''))),
+        row(cell(paragraph('')), cell(paragraph('216 05')), cell(paragraph('1-9')), cell(paragraph('Another network'))),
+      ),
+    )
+    amendment = parse(doc)
+    entries = amendment.actions.flat_map(&:entries)
+
+    expect(amendment.actions.map(&:action_type)).to eq(['REP'])
+    expect(entries.map(&:mcc_mnc_codes)).to eq(['216 04', '216 05'])
+    expect(entries.map { |entry| entry.country_or_area.en }).to eq(%w[Hungary Hungary])
+    expect(entries.map(&:networks)).to eq(['Invitech ICT Services Ltd.', 'Another network'])
+    expect(entries.last.range).to eq('1-9')
+  end
+
+  context 'OB 1170 table announcements' do
+    let(:amendment) do
+      parse(YAML.safe_load_file(File.expand_path('../../fixtures/e212mnc/ob1170.yaml', __dir__)))
+    end
+    let(:entries) { amendment.actions.flat_map(&:entries) }
+
+    it 'drops the blank heading keys and preserves the printed entries' do
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['216 04', '639 08'])
+      expect(entries.map(&:networks)).to eq(['Invitech ICT Services Ltd.', 'Sema Mobile Services Limited'])
+    end
+
+    it 'stamps each entry with its block country' do
+      expect(entries.map { |entry| entry.country_or_area&.en }).to eq(['Hungary', 'Kenya'])
+    end
+
+    it 'replaces the listed codes in country SUP blocks' do
+      expect(amendment.actions.map(&:action_type)).to eq(%w[REP REP])
+      expect(amendment.actions.map { |action| action.entries.map(&:mcc_mnc_codes) }).to eq([['216 04'], ['639 08']])
+    end
+  end
+
   describe 'country-first paragraph layout (no position column)' do
     it 'opens one action per country line, keeping the printed action and country' do
       doc = document(

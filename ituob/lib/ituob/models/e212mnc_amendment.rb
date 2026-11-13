@@ -87,7 +87,6 @@ attribute :country, :string
         end
 
         last_country = nil
-        editor_country = nil
 
         simplified_doc.each_with_index do |c, ci|
           next if c.nil?
@@ -207,6 +206,17 @@ attribute :country, :string
           elsif first_elem.is_a?(Array) # table
             c[1..].each do |row|
               segs = row.flatten
+              heading = Ituob::Helpers.replace_legacy_space(Array(row[0]).join(' ')).strip
+
+              if row.drop(1).flatten.all? { |text| Ituob::Helpers.replace_legacy_space(text.to_s).strip.empty? } &&
+                  (header = heading.match(COUNTRY_ACTION_LINE))
+                action = next_action(amendment, action)
+                # A table's country SUP block replaces the listed codes
+                # with the rows printed below it.
+                action.action_type = header[:action] == 'SUP' ? 'REP' : header[:action]
+                last_country = header[:country].strip
+                next
+              end
 
               if row.length == 1
                 # Editor layout: single-cell "«country»\u00a0\u00a0 ACTION"
@@ -214,24 +224,26 @@ attribute :country, :string
                 # other single-cell rows are titles — skip.
                 text = segs[0].to_s
                 if (m = text.match(/\A(.*?)[\u00a0 ]+(ADD|SUP|REP|LIR|MOD|DEL)\z/)) && !m[1].strip.empty?
-                  action = E212MNCAction.new
-                  action.action_type = m[2]
-                  action.entries = []
-                  amendment.actions << action
-                  editor_country = Ituob::Helpers.replace_legacy_space(m[1]).strip
+                  action = next_action(amendment, action)
+                  action.action_type = m[2] == 'SUP' ? 'REP' : m[2]
+                  last_country = Ituob::Helpers.replace_legacy_space(m[1]).strip
                 end
               elsif row.length == 3
                 if row[1].count > 1
                   row[1].zip(row[2]).each do |r|
+                    next if Ituob::Helpers.replace_legacy_space(r[0].to_s).strip.empty?
+
                     entry = E212MNCEntry.new
-                    entry.country_or_area = MultilingualString.new(en: row[0])
+                    entry.country_or_area = MultilingualString.new(en: last_country || row[0])
                     entry.mcc_mnc_codes = r[0]
                     entry.networks  = r[1]
                     action.entries << entry
                   end
                 else
+                  next if Ituob::Helpers.replace_legacy_space(segs[1].to_s).strip.empty?
+
                   entry = E212MNCEntry.new
-                  entry.country_or_area = MultilingualString.new(en: segs[0])
+                  entry.country_or_area = MultilingualString.new(en: last_country || segs[0])
                   entry.mcc_mnc_codes = segs[1]
                   entry.networks = segs[2]
                   action.entries << entry
@@ -242,7 +254,7 @@ attribute :country, :string
                 next unless segs[0].to_s.match?(/\A\d{3}(?:[\u00a0 ]+\d+)?\z/)
 
                 entry = E212MNCEntry.new
-                entry.country_or_area = MultilingualString.new(en: editor_country) if editor_country && !editor_country.empty?
+                entry.country_or_area = MultilingualString.new(en: last_country) if last_country
                 entry.mcc_mnc_codes = segs[0]
                 entry.networks = segs[1]
                 action.entries << entry
@@ -260,8 +272,11 @@ attribute :country, :string
               elsif row.length >= 4
                 # 4+ column rows: country/code/range/networks or
                 # code/dec/range/networks. Map first 4 cells.
+                next if Ituob::Helpers.replace_legacy_space(segs[1].to_s).strip.empty?
+
                 entry = E212MNCEntry.new
-                entry.country_or_area = MultilingualString.new(en: segs[0]) unless segs[0].to_s.strip.empty?
+                country = last_country || segs[0]
+                entry.country_or_area = MultilingualString.new(en: country) unless country.to_s.strip.empty?
                 entry.mcc_mnc_codes = segs[1]
                 entry.range = segs[2]
                 entry.networks = segs[3]
