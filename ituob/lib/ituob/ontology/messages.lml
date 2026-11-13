@@ -934,7 +934,7 @@ models Ituob {
 
   class RegisterEdition {
     attribute provenance, ProjectionProvenance { cardinality 1 }
-    attribute items, Hash { cardinality 0..n }
+    attribute items, Entry { cardinality 0..n }
     attribute lapsed_keys, String { cardinality 0..n }
     attribute deleted_keys, String { cardinality 0..n }
     attribute key_history, KeyHistoryEntry { cardinality 0..n }

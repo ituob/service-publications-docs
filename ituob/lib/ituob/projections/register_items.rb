@@ -18,9 +18,22 @@ module Ituob
       end
 
       def at_issue(issue)
+        hydrate(state_at(issue))
+      end
+
+      # Replayed register state at the end of OB issue +issue+.
+      def state_at(issue)
+        entry_class
+        replay.at_issue(issue)
+      end
+
+      # Entry instances for the active rows of +state+, in replay key
+      # order. Each carries its concrete class name as the `_class`
+      # discriminator so a RegisterEdition restores the same classes.
+      def hydrate(state)
         model = entry_class
-        replay.at_issue(issue).active_entries.values.map do |row|
-          model.from_hash(row)
+        state.active_entries.values.map do |row|
+          model.from_hash(row.merge('_class' => model.name.split('::').last))
         end
       end
 
