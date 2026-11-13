@@ -27,6 +27,14 @@ module Ituob
         @key_field = key_field.to_s
       end
 
+      # The amendment files dated before the seed issue: skipped by
+      # +each_sorted+ because the seed supersedes them.
+      def pre_seed_changes
+        return [] unless @seed_issue
+
+        each_amendment.select { |c| c.ob_issue_no && c.ob_issue_no < @seed_issue }
+      end
+
       def each_sorted
         return enum_for(:each_sorted) unless block_given?
 
