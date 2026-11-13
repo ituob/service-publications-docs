@@ -906,4 +906,29 @@ models Ituob {
       map "register", to: "register_id"
     }
   }
+
+  // Projection fields decided by PM, pending the design note.
+  // Ordering belongs to the provider: items and history follow replay;
+  // lapsed/deleted keys are sorted. Only clean projections are rendered.
+  class ProjectionProvenance {
+    attribute register_id, String { cardinality 1 }
+    attribute as_of_issue, Integer { cardinality 1 }
+    attribute seed_issue, Integer { cardinality 1 }
+    attribute last_change_issue, Integer { cardinality 0..1 }
+  }
+
+  class KeyHistoryEntry {
+    attribute key, String { cardinality 1 }
+    attribute type, ActionType { cardinality 1 }
+    attribute ob_issue_no, Integer { cardinality 1 }
+    attribute identifier, Identifier { cardinality 1 }
+  }
+
+  class RegisterEdition {
+    attribute provenance, ProjectionProvenance { cardinality 1 }
+    attribute items, Hash { cardinality 0..n }
+    attribute lapsed_keys, String { cardinality 0..n }
+    attribute deleted_keys, String { cardinality 0..n }
+    attribute key_history, KeyHistoryEntry { cardinality 0..n }
+  }
 }
