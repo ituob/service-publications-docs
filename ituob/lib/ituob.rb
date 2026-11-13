@@ -57,6 +57,7 @@ module Ituob
 
   # Typed views of replayed register data.
   autoload :Projections, 'ituob/projections'
+  autoload :Provider, 'ituob/projections/provider'
 
   # Readers for DOCX/DOC/PDF source documents.
   autoload :SourceDocuments, 'ituob/source_documents'

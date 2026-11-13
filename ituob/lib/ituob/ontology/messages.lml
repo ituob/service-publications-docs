@@ -939,4 +939,13 @@ models Ituob {
     attribute deleted_keys, String { cardinality 0..n }
     attribute key_history, KeyHistoryEntry { cardinality 0..n }
   }
+
+  // One key's touched-change history as of an issue. membership is one of
+  // active, lapsed, deleted or absent (touched but not currently listed).
+  class RegisterKeyHistory {
+    attribute provenance, ProjectionProvenance { cardinality 1 }
+    attribute key, String { cardinality 1 }
+    attribute membership, String { cardinality 1 }
+    attribute entries, KeyHistoryEntry { cardinality 0..n }
+  }
 }
