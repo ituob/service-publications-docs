@@ -48,6 +48,15 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
   end
 
   describe 'replaying published annex seeds' do
+    it 'does not restore seed-issue Portugal SUP rows in the E212 edition at issue 1170' do
+      entry = Ituob::Catalogs::Registers.find('E212_MNC')
+      replay = Ituob::Verifiers::RegisterStateIntegrityVerifier.build_replay(entry)
+      state = replay.at_issue(1170)
+
+      expect(state.entry_count).to eq(1985)
+      expect(state.active_keys).not_to include('268 02', '268 07')
+    end
+
     it 'keeps the annex address lines when seed-issue patches split them differently' do
       entry = Ituob::Catalogs::Registers.find('E118_IIN')
       replay = Ituob::Verifiers::RegisterStateIntegrityVerifier.build_replay(entry)
