@@ -1,0 +1,18 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+# The real ituob provider facade (Ituob::Provider) and the LML edition
+# container (Ituob::Models::RegisterEdition) come from the in-repo gem.
+gem "ituob", path: "../../ituob"
+
+# lutaml_data provider support: metanorma-plugin-lutaml PR #350
+# (feat/lml-loader). Pinned to the exact commit; drop the pin for a
+# release once that PR ships.
+gem "metanorma-plugin-lutaml",
+    git: "https://github.com/metanorma/metanorma-plugin-lutaml.git",
+    ref: "0265249abbb070084ba7f34740dd90d51b6ee210"
+
+gem "metanorma-standoc"
+gem "nokogiri"
+gem "bigdecimal", "~> 4.0"

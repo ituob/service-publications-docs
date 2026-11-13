@@ -162,3 +162,49 @@ RSpec.describe Ituob::Projections::RegisterItems, 'issue and register boundaries
     end
   end
 end
+
+RSpec.describe Ituob::Projections::RegisterItems, 'edition container round trip' do
+  include_context 'replayed projection rows'
+
+  %w[E212_MNC E164_CC T35_NA DP E118_IIN F32_TDI].each do |id|
+    context "with #{id} at issue 1170" do
+      let(:register_id) { id }
+      let(:edition) do
+        Ituob::Models::RegisterEdition.new(
+          provenance: Ituob::Models::ProjectionProvenance.new(
+            register_id: id, as_of_issue: 1170, seed_issue: register.seed_issue
+          ),
+          items: items
+        )
+      end
+
+      %i[yaml json].each do |format|
+        it "restores the same concrete classes, rows, order and values through #{format}" do
+          expect(items).not_to be_empty
+          expect(items.map(&:class).uniq.size).to eq(1)
+          restored = Ituob::Models::RegisterEdition.public_send("from_#{format}", edition.public_send("to_#{format}"))
+
+          expect(restored.items.size).to eq(rows.size)
+          expect(restored.items.map(&:class)).to eq(items.map(&:class))
+          expect(restored.items).to all(be_a(items.first.class))
+          expect(restored.items.map(&:to_hash)).to eq(items.map(&:to_hash))
+        end
+      end
+    end
+  end
+
+  context 'with E212_MNC' do
+    let(:register_id) { 'E212_MNC' }
+
+    it 'keeps replay key order on the restored items' do
+      edition = Ituob::Models::RegisterEdition.new(
+        provenance: Ituob::Models::ProjectionProvenance.new(register_id: register_id, as_of_issue: 1170,
+                                                              seed_issue: register.seed_issue),
+        items: items
+      )
+      restored = Ituob::Models::RegisterEdition.from_yaml(edition.to_yaml)
+
+      expect(restored.items.map(&:mcc_mnc_codes)).to eq(rows.map { |row| row['mcc_mnc_codes'] })
+    end
+  end
+end

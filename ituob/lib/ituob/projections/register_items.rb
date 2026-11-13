@@ -18,9 +18,22 @@ module Ituob
       end
 
       def at_issue(issue)
+        hydrate(state_at(issue))
+      end
+
+      # Replayed register state at the end of OB issue +issue+.
+      def state_at(issue)
+        entry_class
+        replay.at_issue(issue)
+      end
+
+      # Entry instances for the active rows of +state+, in replay key
+      # order. Each carries its concrete class name as the `_class`
+      # discriminator so a RegisterEdition restores the same classes.
+      def hydrate(state)
         model = entry_class
-        replay.at_issue(issue).active_entries.values.map do |row|
-          model.from_hash(row)
+        state.active_entries.values.map do |row|
+          model.from_hash(row.merge('_class' => model.name.split('::').last))
         end
       end
 
@@ -47,7 +60,7 @@ module Ituob
       def change_source
         Registers::DirectoryChangeSource.new(
           register_id: @register.register_id,
-          seed_path: File.expand_path(@register.seed_path, File.expand_path('../../../..', __dir__)),
+          seed_path: File.expand_path(@register.seed_path, DataRoot.path),
           seed_issue: @register.seed_issue,
           key_field: @register.key_field
         )
