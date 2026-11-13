@@ -70,8 +70,8 @@ The document needs to identify a register by catalog slug and select an
 issue for the rendering edition. A Recommendation alone can name several
 registers. For example,
 link:../catalogs/registers.yaml[catalogs/registers.yaml] contains both
-`e212-mnc` and `e212-icc` under E.212. The proof's register slug must
-therefore be confirmed rather than inferred from the Recommendation.
+`e212-mnc` and `e212-icc` under E.212. The proof uses `e212-mnc`, as
+recorded under Established decisions below.
 
 Conceptually, the input is a pair `(register slug, issue number)`.
 This is a description of the required selection, not a proposed
@@ -108,10 +108,12 @@ the integration still needs mapped projection and provenance objects.
 
 == Proof document and separate bundle/CI
 
-The proof required by #65 renders the E.212 register as it stood at
-issue 1170. It must match the site's edition page for the same register
+The proof required by #65 renders `e212-mnc` with issue 1170 explicitly
+pinned. It must match the site's edition page for the same register
 and issue: the same items, in the same order, with the same provenance
-line. The exact E.212 slug and comparison mechanism are open questions.
+line. The reference page and comparison mechanism remain open. The
+parity spec must read the row order from the site's snapshot for
+`e212-mnc` at issue 1170; it must not choose an order of its own.
 
 The proof is to have a separate Gemfile and CI build so its Metanorma and
 plugin dependencies can be exercised as a document-rendering stack.
@@ -150,24 +152,45 @@ following parts of the contract. The remaining choices are listed under
   slugs to distinguish registers; document syntax remains unspecified.
 |===
 
+The proof register is `e212-mnc` (`E212_MNC`). This is an established
+maintainer decision: it is the structured E.212 register, with a seed at
+issue 1162 and therefore a state at issue 1170. `e212-icc` (`E212_ICC`)
+is textual and has no seed. The catalog above records these distinctions.
+
 [[open-questions]]
 == Open questions
 
-All questions below are *not answered yet*.
+Each remaining question will be answered by the approved #65 card named
+next to it, except for the document syntax assigned to the plugin PR.
+These details remain open; the proof explicitly pins issue 1170 and does
+not wait on the general issue-selection policy.
 
 . *Projection API:* What model types and template bindings expose items,
   actions and per-key history? Are actions and history cumulative through
   the selected issue, limited to that issue, or selectable by a range?
   How are composite keys, removed entries and replay errors represented?
+  Answered by: "Projection types with as-of provenance in the ontology"
+  and "Edition and per-key history projections".
 . *Issue pinning and provenance:* Is an explicit issue required for every
   document, or may it request current state? If current is supported,
   which concrete issue is recorded? Which provenance fields and rendered
   line are required, including any repository revision or schema version?
+  Answered by: "Projection types with as-of provenance in the ontology"
+  and "Ituob data provider facade for Metanorma templates". The proof
+  pins issue 1170 explicitly and does not depend on this decision.
 . *Document selection:* What Metanorma syntax selects the register slug
   and issue, and what happens for an unknown slug, unavailable issue or
   an issue before the register's seed?
-. *Proof edition:* Which E.212 slug is intended at issue 1170, which site
-  edition page is the reference, and what determines its row order?
+  Answered by: "Ituob data provider facade" for the gem side. The document
+  syntax belongs to the metanorma-plugin-lutaml PR, which is outside the
+  approved #65 cards in this plan.
+. *Proof edition:* For the decided slug `e212-mnc` at issue 1170, which
+  site edition page is the reference, and what is its row order?
+  Answered by: "Parity spec: provider edition vs site snapshot". That
+  card must read the order from the site's snapshot for `e212-mnc` at
+  issue 1170 and must not choose an order of its own.
 . *Proof execution:* Where do the separate proof Gemfile, document and CI
   job live, which dependency versions and build command are used, and
   how does CI compare items, order and provenance with the site edition?
+  Answered by: "Proof Metanorma document: E.212 register at issue 1170"
+  and "CI job building the proof document".
