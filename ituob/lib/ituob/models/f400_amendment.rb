@@ -66,7 +66,7 @@ attribute :notes, :string, collection: true
             # Group rows by country entry. The first row of a country
             # entry has all 9 cells populated; subsequent rows are
             # continuation (FR/EN/ES translations + multi-line address)
-            # — recognized by having most middle cells empty.
+            # — recognized by an empty ADMD-name and country-code cell.
             current_entry = nil
             address_lines = []
             country_names = { fr: nil, en: nil, es: nil }
@@ -94,10 +94,12 @@ attribute :notes, :string, collection: true
                                   flat[4..].any? { |x| !x.empty? }
               next if service_subheader
 
-              # Detect continuation rows: cells 1-5 are mostly empty.
-              middle_empty = flat[1, 5].all? { |x| x.nil? || x.strip.empty? }
+              # Detect continuation rows: no ADMD name and no country code.
+              # Cells 3-5 may still hold translated service/helpdesk labels
+              # (OB 1092 en/es rows), so they must not decide this.
+              continuation = flat[1, 2].all?(&:empty?)
 
-              if !middle_empty && flat[0] && !flat[0].empty?
+              if !continuation && flat[0] && !flat[0].empty?
                 # New country entry — flush previous.
                 if current_entry
                   current_entry.contact_address = { address_lines: address_lines.reject(&:empty?) }
@@ -127,7 +129,6 @@ attribute :notes, :string, collection: true
                   end
                 end
                 (6..8).each { |i| address_lines << flat[i] if flat[i] && !flat[i].empty? }
-                (1..5).each { |i| address_lines << flat[i] if flat[i] && !flat[i].empty? }
               end
             end
             # Flush the last entry.
