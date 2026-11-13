@@ -20,46 +20,70 @@ module ReplaySkipInventory
     'G' => 'Documented source or extraction gap'
   }.freeze
 
-  # Evidence from 100-03-conflicts.md, checked against the printed corpus.
-  # This is classification evidence, not a list of expected skips or counts.
-  EVIDENCE = [
-    ['E118_IIN', 1161, 'SUP', '89 420 06', 'E', '1161/amendments.yaml:573'],
-    ['Q708_ISPC', 1109, 'SUP', '2-125-6', 'E', '1109/amendments.yaml:627'],
-    ['Q708_ISPC', 1109, 'SUP', '4-082-6', 'E', '1109/amendments.yaml:1189'],
-    ['F32_TDI', 1004, 'LIR', '1004-0001', 'D', '1004/amendments.yaml:213-330'],
-    ['Q708_ISPC', 1167, 'SUP', 'Genza SA Rue de Lausanne 37 1201 GENEVE', 'D', '1167/amendments.yaml:3166'],
-    ['E164_CC', 1217, 'LIR', '1217-0002', 'G', '1217/amendments.yaml:148-156'],
-    ['F32_TDI', 1013, 'SUP', 'MALAISIE', 'G', '1013/amendments.yaml:1082'],
-    ['F32_TDI', 1148, 'SUP', 'UKRAINE', 'G', '1148/amendments.yaml:680-2692'],
-    ['X121_DNIC', 1081, 'SUP', '206 1', 'G', '1081/amendments.yaml:8845']
-  ].freeze
+# Reviewed evidence from 100-03-conflicts.md, checked against the printed
+# corpus. A skip is classified only when its register, issue, action, patch
+# identifier AND the conflicting row key all match a rule; refs maps each
+# reviewed row key to its printed line in itu-ob-data/issues/<issue>/. A rule
+# with a String ref is a textual patch with no row keys. This is classification
+# evidence, not a list of expected counts.
+Rule = Struct.new(:register, :issue, :type, :code, :category, :refs, keyword_init: true) do
+  def patch?(change)
+    [register, issue, type, code] ==
+      [change.register_id, change.ob_issue_no, change.type, change.identifier.code]
+  end
 
-  ROW_PRINT_REFS = {
-    ['Q708_ISPC', 1109] => {
-      '2-125-6' => 627, '2-248-4' => 669, '5-245-2' => 711,
-      '5-245-6' => 753, '5-251-0' => 795, '6-237-4' => 837,
-      '4-082-6' => 1189, '4-086-0' => 1231, '4-086-1' => 1273
-    },
-    ['F32_TDI', 1148] => {
-      'UKRAINE | UX- - | ' => 944, 'UKRAINE | UX- - | UXCK' => 1018,
-      'UCRANIA | UX- - | UXCG' => 1072, 'UCRANIA | UX- - | UXCV' => 1126,
-      'UCRANIA | UX- - | UXDP' => 1180, 'UCRANIA | UX- - | UXDC' => 1234,
-      'UCRANIA | UX- - | UXGR' => 1288, 'UCRANIA | UX- - | UXIF' => 1342,
-      'UCRANIA | UX- - | UXHR' => 1396, 'UCRANIA | UX- - | UXHS' => 1450,
-      'UCRANIA | UX- - | UXHM' => 1504, 'UCRANIA | UX- - | UXKG' => 1558,
-      'UCRANIA | UX- - | UXKM' => 1612, 'UCRANIA | UX- - | UXKR' => 1666,
-      'UCRANIA | UX- - | UXKV' => 1720, 'UCRANIA | UX- - | UXLK' => 1774,
-      'UCRANIA | UX- - | UXLC' => 1828, 'UCRANIA | UX- - | UXLV' => 1882,
-      'UCRANIA | UX- - | UXMR' => 1936, 'UCRANIA | UX- - | UXMK' => 1990,
-      'UCRANIA | UX- - | UXOD' => 2044, 'UCRANIA | UX- - | UXPL' => 2098,
-      'UCRANIA | UX- - | UXRV' => 2152, 'UCRANIA | UX- - | UXSV' => 2206,
-      'UCRANIA | UX- - | UXSF' => 2260, 'UCRANIA | UX- - | UXSU' => 2314,
-      'UCRANIA | UX- - | UXTR' => 2368, 'UCRANIA | UX- - | UXUG' => 2422,
-      'UCRANIA | UX- - | UXVC' => 2476, 'UCRANIA | UX- - | UXYL' => 2530,
-      'UCRANIA | UX- - | UXZP' => 2584, 'UCRANIA | UX- - | UXZT' => 2638,
-      'UCRANIA | UX- - | UXKX' => 2692
-    }
-  }.freeze
+  def print_ref(error)
+    return "#{issue}/amendments.yaml:#{refs}" if refs.is_a?(String)
+
+    key = refs.keys.find { |candidate| error.include?("key #{candidate.inspect} ") }
+    "#{issue}/amendments.yaml:#{refs.fetch(key)}" if key
+  end
+end
+
+UKRAINE_REFS = {
+  'UKRAINE | UX- - | ' => 944, 'UKRAINE | UX- - | UXCK' => 1018,
+  'UCRANIA | UX- - | UXCG' => 1072, 'UCRANIA | UX- - | UXCV' => 1126,
+  'UCRANIA | UX- - | UXDP' => 1180, 'UCRANIA | UX- - | UXDC' => 1234,
+  'UCRANIA | UX- - | UXGR' => 1288, 'UCRANIA | UX- - | UXIF' => 1342,
+  'UCRANIA | UX- - | UXHR' => 1396, 'UCRANIA | UX- - | UXHS' => 1450,
+  'UCRANIA | UX- - | UXHM' => 1504, 'UCRANIA | UX- - | UXKG' => 1558,
+  'UCRANIA | UX- - | UXKM' => 1612, 'UCRANIA | UX- - | UXKR' => 1666,
+  'UCRANIA | UX- - | UXKV' => 1720, 'UCRANIA | UX- - | UXLK' => 1774,
+  'UCRANIA | UX- - | UXLC' => 1828, 'UCRANIA | UX- - | UXLV' => 1882,
+  'UCRANIA | UX- - | UXMR' => 1936, 'UCRANIA | UX- - | UXMK' => 1990,
+  'UCRANIA | UX- - | UXOD' => 2044, 'UCRANIA | UX- - | UXPL' => 2098,
+  'UCRANIA | UX- - | UXRV' => 2152, 'UCRANIA | UX- - | UXSV' => 2206,
+  'UCRANIA | UX- - | UXSF' => 2260, 'UCRANIA | UX- - | UXSU' => 2314,
+  'UCRANIA | UX- - | UXTR' => 2368, 'UCRANIA | UX- - | UXUG' => 2422,
+  'UCRANIA | UX- - | UXVC' => 2476, 'UCRANIA | UX- - | UXYL' => 2530,
+  'UCRANIA | UX- - | UXZP' => 2584, 'UCRANIA | UX- - | UXZT' => 2638,
+  'UCRANIA | UX- - | UXKX' => 2692
+}.freeze
+
+EVIDENCE = [
+  Rule.new(register: 'E118_IIN', issue: 1161, type: 'SUP', code: '89 420 06', category: 'E',
+           refs: { '89 420 06' => 573 }),
+  Rule.new(register: 'Q708_ISPC', issue: 1109, type: 'SUP', code: '2-125-6', category: 'E',
+           refs: { '2-125-6' => 627, '2-248-4' => 669, '5-245-2' => 711,
+                   '5-245-6' => 753, '5-251-0' => 795, '6-237-4' => 837 }),
+  Rule.new(register: 'Q708_ISPC', issue: 1109, type: 'SUP', code: '4-082-6', category: 'E',
+           refs: { '4-082-6' => 1189, '4-086-0' => 1231, '4-086-1' => 1273 }),
+  Rule.new(register: 'F32_TDI', issue: 1004, type: 'LIR', code: '1004-0001', category: 'D',
+           refs: '213-330'),
+  Rule.new(register: 'Q708_ISPC', issue: 1167, type: 'SUP',
+           code: 'Genza SA Rue de Lausanne 37 1201 GENEVE', category: 'D',
+           refs: { 'Genza SA Rue de Lausanne 37 1201 GENEVE' => 3166 }),
+  Rule.new(register: 'E164_CC', issue: 1217, type: 'LIR', code: '1217-0002', category: 'G',
+           refs: '148-156'),
+  Rule.new(register: 'F32_TDI', issue: 1013, type: 'SUP', code: 'MALAISIE', category: 'G',
+           refs: { 'MALAISIE | MA- | MAAS MAIP MAJB MAKU MAKO MAKB MAKL MATG MAKN MAKG MAMC MAPK MAPG MAPJ MASR MATP MAMX' => 1082 }),
+  Rule.new(register: 'F32_TDI', issue: 1148, type: 'SUP', code: 'UKRAINE', category: 'G',
+           refs: UKRAINE_REFS),
+  Rule.new(register: 'X121_DNIC', issue: 1081, type: 'SUP', code: '206 1', category: 'G',
+           refs: { '206 1' => 8845 })
+].freeze
+
+ROOT = File.expand_path('..', __dir__)
 
   # Keep the DirectoryChangeSource loader and ordering; only retain provenance
   # while it yields the already-loaded Change to Replay.
@@ -104,47 +128,53 @@ module ReplaySkipInventory
     end
   end
 
-  def self.classify(change, error: '')
-    match = EVIDENCE.find do |rule|
-      rule.first(3) == [change.register_id, change.ob_issue_no, change.type] &&
-        (rule[3].nil? || change.identifier.code == rule[3])
-    end
-    unless match
-      raise "Unclassified skip: #{change.register_id} OB #{change.ob_issue_no} #{change.identifier.to_hash.inspect}"
-    end
-
-    [match[4], print_reference(change, error, match[5])]
+def self.classify(change, error: '')
+  rule = EVIDENCE.find { |candidate| candidate.patch?(change) && candidate.print_ref(error) }
+  unless rule
+    raise "Unclassified skip: #{change.register_id} OB #{change.ob_issue_no} " \
+          "#{change.identifier.to_hash.inspect} (#{error})"
   end
 
-  def self.print_reference(change, error, fallback)
-    row_refs = ROW_PRINT_REFS.fetch([change.register_id, change.ob_issue_no], {})
-    key = row_refs.keys.find { |candidate| error.include?("key #{candidate.inspect} ") }
-    print_ref = key ? "#{change.ob_issue_no}/amendments.yaml:#{row_refs.fetch(key)}" : fallback
-    "itu-ob-data/issues/#{print_ref}"
+  [rule.category, "itu-ob-data/issues/#{rule.print_ref(error)}"]
+end
+
+# Catalog seed paths are repo-relative; resolve them against the repository
+# root so the result never depends on the working directory.
+def self.source_for(entry)
+  seed_dir = File.expand_path(entry.seed_path, ROOT)
+  unless File.directory?(seed_dir) && File.file?(File.join(seed_dir, Source::SEED_FILENAME))
+    raise "Missing seed directory or #{Source::SEED_FILENAME} for #{entry.register_id}: #{entry.seed_path}"
   end
 
-  def self.rows_for(entry, source: nil)
-    source ||= Source.new(
-      register_id: entry.register_id, seed_path: entry.seed_path,
-      seed_issue: entry.seed_issue, key_field: entry.key_field
-    )
-    replay = Replay.new(
-      register_id: entry.register_id, key_field: entry.key_field, source: source,
-      fallback_key_fields: entry.fallback_key_fields
-    )
-    state = replay.current
-    unless state.errors.length == replay.skipped_changes.length
-      raise "Non-skip replay errors in #{entry.register_id}: #{state.errors.inspect}"
-    end
+  Source.new(
+    register_id: entry.register_id, seed_path: seed_dir,
+    seed_issue: entry.seed_issue, key_field: entry.key_field
+  )
+end
 
-    state.errors.zip(replay.skipped_changes).map do |error, change|
-      category, print_ref = classify(change, error: error)
-      patch = source.respond_to?(:path_for) ? source.path_for(change) : change.reference
-      raise "Missing patch provenance for #{change.register_id} OB #{change.ob_issue_no}" unless patch
+def self.repo_relative(path)
+  path.to_s.delete_prefix("#{ROOT}/")
+end
 
-      [entry.register_id, change.ob_issue_no, patch, error, category, print_ref]
-    end
+def self.rows_for(entry, source: nil)
+  source ||= source_for(entry)
+  replay = Replay.new(
+    register_id: entry.register_id, key_field: entry.key_field, source: source,
+    fallback_key_fields: entry.fallback_key_fields
+  )
+  state = replay.current
+  unless state.errors.length == replay.skipped_changes.length
+    raise "Non-skip replay errors in #{entry.register_id}: #{state.errors.inspect}"
   end
+
+  state.errors.zip(replay.skipped_changes).map do |error, change|
+    category, print_ref = classify(change, error: error)
+    patch = source.respond_to?(:path_for) ? source.path_for(change) : change.reference
+    raise "Missing patch provenance for #{change.register_id} OB #{change.ob_issue_no}" unless patch
+
+    [entry.register_id, change.ob_issue_no, repo_relative(patch), error, category, print_ref]
+  end
+end
 
   def self.collect
     rows = Ituob::Catalogs::Registers.all.flat_map do |entry|
@@ -158,7 +188,12 @@ module ReplaySkipInventory
   def self.tsv(rows)
     CSV.generate(col_sep: "\t") do |csv|
       csv << COLUMNS
-      rows.each { |row| csv << row }
+      rows.each do |row|
+        bad = row.map(&:to_s).find { |field| field.match?(/[\t\r\n]/) }
+        raise "TSV field contains TAB, CR or LF: #{bad.inspect}" if bad
+
+        csv << row
+      end
     end
   end
 

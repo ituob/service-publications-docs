@@ -155,4 +155,81 @@ RSpec.describe ReplaySkipInventory do
       expect { rows }.to raise_error(/Unclassified skip: X121_DNIC OB 1082/)
     end
   end
+
+  context 'with a patch row whose key is not in the reviewed key set' do
+    let(:register) { 'Q708_ISPC' }
+    let(:seed_issue) { 1109 }
+    let(:issue) { 1109 }
+    let(:code) { '2-125-6' }
+    let(:patch_data) { { 'entries' => [{ 'code' => 'NEW-UNREVIEWED' }] } }
+
+    it 'fails even though the patch identifier matches reviewed evidence' do
+      expect { rows }.to raise_error(/Unclassified skip: Q708_ISPC OB 1109.*NEW-UNREVIEWED/)
+    end
+  end
+
+  context 'with an unreviewed row in a reviewed multi-row patch' do
+    let(:register) { 'F32_TDI' }
+    let(:seed_issue) { 980 }
+    let(:issue) { 1148 }
+    let(:code) { 'UKRAINE' }
+    let(:patch_data) do
+      { 'entries' => [{ 'country_or_area' => 'BOGUS', 'network_code' => 'ZZ', 'office_code' => '' }] }
+    end
+
+    it 'fails instead of reusing the patch-level class' do
+      expect { rows }.to raise_error(/Unclassified skip: F32_TDI OB 1148/)
+    end
+  end
+
+  context 'with the committed ledger' do
+    let(:docs) { File.expand_path('../../../docs/normalization', __dir__) }
+    let(:committed_tsv) { File.binread(File.join(docs, 'replay-skips.tsv')) }
+    let(:committed_adoc) { File.binread(File.join(docs, 'replay-skips.adoc')) }
+
+    it 'regenerates the committed TSV and adoc byte for byte from the real corpus' do
+      generated = described_class.collect
+      expect(described_class.tsv(generated).b).to eq(committed_tsv)
+      expect(described_class.adoc(generated).b).to eq(committed_adoc)
+    end
+
+    it 'gives the same ledger from any working directory' do
+      generated = Dir.mktmpdir('replay-cwd') { |dir| Dir.chdir(dir) { described_class.collect } }
+      expect(generated.length).to be > 0
+      expect(described_class.tsv(generated).b).to eq(committed_tsv)
+    end
+
+    it 'records repo-relative patch paths' do
+      patches = described_class.collect.map { |row| row[2] }
+      expect(patches).to all(start_with('datasets/'))
+    end
+  end
+
+  context 'with a catalogued seed directory that does not exist' do
+    let(:register) { 'X121_DNIC' }
+    let(:seed_issue) { 977 }
+    let(:entry) do
+      Ituob::Catalogs::Registers::Entry.new(
+        register_id: register, key_field: 'code', seed_issue: seed_issue,
+        seed_path: 'datasets/does-not-exist'
+      )
+    end
+
+    it 'fails loudly instead of yielding an empty ledger' do
+      expect { described_class.rows_for(entry) }
+        .to raise_error(/Missing seed directory.*datasets\/does-not-exist/)
+    end
+  end
+
+  describe '.tsv' do
+    let(:row) { %w[X121_DNIC 1081 datasets/x.yaml error G itu-ob-data/issues/1081/amendments.yaml:1] }
+
+    %W[\t \n \r].each do |character|
+      it "rejects a field containing #{character.inspect}" do
+        bad = row.dup
+        bad[2] = "datasets/p#{character}q.yaml"
+        expect { described_class.tsv([bad]) }.to raise_error(/TAB, CR or LF/)
+      end
+    end
+  end
 end
