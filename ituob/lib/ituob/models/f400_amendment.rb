@@ -83,6 +83,12 @@ attribute :notes, :string, collection: true
               # Header rows — skip.
               next if flat[0].to_s.match?(/^Country/) || flat[0].to_s.match?(/^MT$/)
 
+              # Column-number row ("1", "2", ... "9") and the service-name
+              # sub-header row ("MT", "IPM", "other") are layout, not entries.
+              populated = flat.reject(&:empty?)
+              next if populated.each_with_index.all? { |x, i| x == (i + 1).to_s } && populated.length > 1 && populated.length == flat.length
+              next if flat[3] == 'MT' && flat[0].empty? && flat[1].empty? && flat[2].empty?
+
               # Detect continuation rows: cells 1-5 are mostly empty.
               middle_empty = flat[1, 5].all? { |x| x.nil? || x.strip.empty? }
 

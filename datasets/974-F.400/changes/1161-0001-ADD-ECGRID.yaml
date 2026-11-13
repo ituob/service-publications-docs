@@ -1,0 +1,19 @@
+type: ADD
+register: F400_ADMD
+recommendation: F.400
+ob_issue_no: '1161'
+identifier:
+  code: ECGRID
+data:
+  country_or_area:
+    en: France
+    fr: France
+    es: Francia
+  admd_name: ECGRID
+  country_code: FR
+  contact_address:
+    address_lines:
+    - 'true'
+    - 'ECGrid Opérations Techniques Loren Data Corp 345, rue Lavoisier 38330 Montbonnot
+      Saint Martin, France X.400: c=fr; a=ecgrid; s=techops E-mail: techops@ecgrid.com'
+reference: OB-1161

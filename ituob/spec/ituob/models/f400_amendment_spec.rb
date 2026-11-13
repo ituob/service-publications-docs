@@ -61,4 +61,46 @@ RSpec.describe Ituob::Models::F400Amendment do
       end
     end
   end
+
+  context 'with the OB 1193 Spain ADD table shape' do
+    let(:nbsp) { "\u00a0" }
+    let(:rows) do
+      [
+        [nbsp] * 7,
+        %w[Country ADMD\ Name Country\ code Service\ Name(s) HELPDESK AUTOANSWER Contact\ Address],
+        [nbsp] * 7,
+        [nbsp, nbsp, nbsp, 'MT', 'IPM', 'other', nbsp, nbsp, nbsp],
+        %w[1 2 3 4 5 6 7 8 9],
+        [nbsp] * 9,
+        ['Espagne', 'SPAIRAL', 'ES', 'SPAIRAL-MT', 'SPAIRAL-IPM', nbsp, '', '', 'SPAIRAL COMMERCE S.L. Logrono'],
+        ['Spain', nbsp, nbsp, nbsp, nbsp, nbsp, nbsp, nbsp],
+        ['España', nbsp, nbsp, nbsp, nbsp, nbsp, nbsp, nbsp],
+        [nbsp] * 9
+      ]
+    end
+    let(:document) do
+      cell = lambda do |text|
+        { 'type' => 'table_cell', 'content' => [{ 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => text }] }] }
+      end
+      { 'type' => 'doc', 'content' => [
+        { 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => "P 18  Spain  ADD" }] },
+        { 'type' => 'table', 'content' => rows.map { |r| { 'type' => 'table_row', 'content' => r.map(&cell) } } }
+      ] }
+    end
+
+    it 'keeps only the SPAIRAL allocation, never layout, header or column-number rows' do
+      entries = described_class.parse(document).actions.first.entries
+
+      expect(entries.length).to eq(1)
+      entry = entries.first
+      expect(entry.admd_name).to eq('SPAIRAL')
+      expect(entry.country_code).to eq('ES')
+      expect(entry.country_or_area.fr).to eq('Espagne')
+      expect(entry.country_or_area.en).to eq('Spain')
+      expect(entry.country_or_area.es).to eq('España')
+      expect(entry.helpdesk[:x400]).to eq('SPAIRAL-IPM')
+      expect(entry.contact_address[:address_lines]).to eq(['SPAIRAL COMMERCE S.L. Logrono'])
+      expect(entries.map(&:admd_name).join).not_to match(/\A\s*\z|\A\d+\z/)
+    end
+  end
 end
