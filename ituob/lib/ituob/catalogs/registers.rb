@@ -25,7 +25,7 @@ module Ituob
         :register_id, :slug, :recommendation, :title, :key_field,
         :fallback_key_fields, :classification, :parser_class_name,
         :renderer, :seed_issue, :seed_path, :external,
-        :source_slug, :route,
+        :source_slug, :route, :seed_includes_seed_issue,
         keyword_init: true,
       ) do
         def structured? = classification&.structured?
@@ -83,6 +83,7 @@ module Ituob
             renderer: hash['renderer'],
             seed_issue: hash['seed_issue'],
             seed_path: hash['seed_path'],
+            seed_includes_seed_issue: hash['seed_includes_seed_issue'] == true,
             external: hash['external'],
             source_slug: hash['source_slug'],
             route: hash['route'],

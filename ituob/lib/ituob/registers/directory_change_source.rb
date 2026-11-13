@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'yaml'
+require 'ituob/catalogs'
 
 module Ituob
   module Registers
@@ -24,18 +25,27 @@ module Ituob
         super(register_id: register_id)
         @seed_path = seed_path.to_s
         @seed_issue = seed_issue&.to_i
-        @key_field = key_field.to_s
+        @key_field = key_field
+        entry = Ituob::Catalogs::Registers.find(register_id)
+        @fallback_key_fields = Array(entry&.fallback_key_fields)
+        @seed_includes_seed_issue = entry&.seed_includes_seed_issue == true && entry.seed_issue == @seed_issue
       end
 
       def each_sorted
         return enum_for(:each_sorted) unless block_given?
 
-        yield seed_change if seed_change
-        each_amendment do |c|
+        amendments = each_amendment
+        amendments = amendments.to_a if @seed_includes_seed_issue
+        seed = seed_change(amendments)
+        yield seed if seed
+        amendments.each do |c|
           # The seed list already embodies every amendment published
           # before the seed issue; replaying them would target entries
           # of a list state that no longer exists.
           next if @seed_issue && c.ob_issue_no && c.ob_issue_no < @seed_issue
+          # Only catalogued annexes positioned on the issue date also
+          # embody that issue's patches. Other seeds remain inclusive.
+          next if @seed_includes_seed_issue && c.ob_issue_no == @seed_issue
 
           yield c
         end
@@ -43,12 +53,14 @@ module Ituob
 
       private
 
-      def seed_change
+      def seed_change(amendments)
         path = File.join(@seed_path, SEED_FILENAME)
         return nil unless File.file?(path)
 
         data = load_yaml(path)
         return nil unless data.is_a?(Array)
+
+        preserve_seed_effective_dates(data, amendments) if @seed_includes_seed_issue
 
         Change.new(
           type: 'SEED',
@@ -57,6 +69,28 @@ module Ituob
           data: data,
           ob_issue_no: @seed_issue,
         )
+      end
+
+      # Preserve the effective date omitted by the annex capture. Other
+      # fields belong to the seed: amendment address lines, for example,
+      # may split the same printed address differently and must not mix.
+      def preserve_seed_effective_dates(data, amendments)
+        rows_by_key = data.select { |row| row.is_a?(Hash) }.group_by do |row|
+          Strategies::Base.entry_key(row, @key_field, @fallback_key_fields)
+        end
+        amendments.each do |change|
+          next unless change.ob_issue_no == @seed_issue
+          next if change.action_type.destructive?
+
+          Strategies::Base.rows_for(change, @key_field, @fallback_key_fields).each do |row|
+            next unless row.key?('effective_date')
+
+            key = Strategies::Base.entry_key(row, @key_field, @fallback_key_fields)
+            Array(rows_by_key[key]).each do |seed_row|
+              seed_row['effective_date'] ||= row['effective_date']
+            end
+          end
+        end
       end
 
       def each_amendment

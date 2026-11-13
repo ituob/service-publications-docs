@@ -22,6 +22,8 @@ registers:
     parser_class: Ituob::Models::E118Amendment
     renderer: iin-table
     seed_issue: 1161
+    # ob-issues/1161/annexes.yaml:2 position_on matches meta.yaml:2 (2018-12-01).
+    seed_includes_seed_issue: true
     seed_path: datasets/1161-E.118
 
   # === E.164 ===
@@ -36,6 +38,8 @@ registers:
     renderer: dp-table
     seed_issue: 994
     seed_path: datasets/994-E.164C
+    # ob-issues/994/annexes.yaml:2 position_on matches meta.yaml:2 (2011-12-15).
+    seed_includes_seed_issue: true
 
   - register_id: E164_ACN
     slug: e164-acn
@@ -47,6 +51,8 @@ registers:
     renderer: acn-table
     seed_issue: 1015
     seed_path: datasets/1015-E.164B
+    # ob-issues/1015/annexes.yaml:2 position_on matches meta.yaml:2 (2012-11-01).
+    seed_includes_seed_issue: true
 
   - register_id: E164_CC
     slug: e164-cc
@@ -59,6 +65,8 @@ registers:
     renderer: cc-table
     seed_issue: 1114
     seed_path: datasets/1114-E.164D
+    # ob-issues/1114/annexes.yaml:2 position_on matches meta.yaml:2 (2016-12-15).
+    seed_includes_seed_issue: true
 
   # The E.164 notes lists are printed inside the E164_CC amendments;
   # rows route to a note register by code prefix.
@@ -118,6 +126,8 @@ registers:
     renderer: mnc-table
     seed_issue: 1162
     seed_path: datasets/1162-E.212
+    # ob-issues/1162/annexes.yaml:2 position_on matches meta.yaml:2 (2018-12-15).
+    seed_includes_seed_issue: true
 
   - register_id: E212_SHARED_MCC
     slug: e212-shared-mcc
@@ -152,6 +162,8 @@ registers:
     renderer: trcc-table
     seed_issue: 1125
     seed_path: datasets/1125-E.218
+    # ob-issues/1125/annexes.yaml:4 position_on matches meta.yaml:2 (2017-06-01).
+    seed_includes_seed_issue: true
 
   # === F.1 ===
   - register_id: F1
@@ -174,6 +186,8 @@ registers:
     renderer: tdi-table
     seed_issue: 980
     seed_path: datasets/980-F.32
+    # ob-issues/980/annexes.yaml:2 position_on matches meta.yaml:2 (2011-05-15).
+    seed_includes_seed_issue: true
 
   # === F.170 ===
   - register_id: BUREAUFAX
@@ -197,6 +211,8 @@ registers:
     renderer: admd-table
     seed_issue: 974
     seed_path: datasets/974-F.400
+    # ob-issues/974/annexes.yaml:2 position_on matches meta.yaml:2 (2011-02-15).
+    seed_includes_seed_issue: true
 
   # === M.1400 ===
   - register_id: M1400_ICC
@@ -209,6 +225,8 @@ registers:
     renderer: icc-table
     seed_issue: 1060
     seed_path: datasets/1060-M.1400
+    # ob-issues/1060/annexes.yaml:2 position_on matches meta.yaml:2 (2014-09-15).
+    seed_includes_seed_issue: true
 
   # === Q.708 ===
   - register_id: Q708_ISPC
@@ -220,6 +238,8 @@ registers:
     parser_class: Ituob::Models::Q708ISPCAmendment
     renderer: ispc-table
     seed_issue: 1109
+    # ob-issues/1109/annexes.yaml:2 position_on matches meta.yaml:2 (2016-10-01).
+    seed_includes_seed_issue: true
     seed_path: datasets/1109-Q.708B
 
   - register_id: Q708_SANC
@@ -232,6 +252,8 @@ registers:
     renderer: sanc-table
     seed_issue: 1125
     seed_path: datasets/1125-Q.708A
+    # ob-issues/1125/annexes.yaml:2 position_on matches meta.yaml:2 (2017-06-01).
+    seed_includes_seed_issue: true
 
   # === T.35 ===
   - register_id: T35_NA
@@ -276,6 +298,8 @@ registers:
     renderer: text-amendment
     seed_issue: 1154
     seed_path: datasets/1154-RR.25.1
+    # ob-issues/1154/annexes.yaml:2 position_on matches meta.yaml:2 (2018-08-15).
+    seed_includes_seed_issue: true
 
   # === External (not annexed) ===
   - register_id: List of Coast Stations and Special Service Stations
