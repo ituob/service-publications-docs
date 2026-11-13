@@ -47,6 +47,29 @@ RSpec.describe 'validate_data_lml freeform inventory' do
     end
   end
 
+  context 'when the inventory file is empty' do
+    before do
+      File.write(File.join(@root, 'catalogs/freeform_messages.yaml'), '')
+    end
+
+    it 'still rejects unlisted freeform messages with a clear failure' do
+      stdout, stderr, status = result
+      expect(status.success?).to be(false)
+      expect(stdout).to include(file, 'unlisted freeform general message')
+      expect(stderr).not_to include('NoMethodError')
+    end
+
+    context 'when all messages are structured' do
+      let(:contents) { { 'type' => 'doc', 'content' => [] } }
+
+      it 'validates the messages without freeform skips' do
+        stdout, stderr, status = result
+        expect(status.success?).to be(true), "#{stdout}\n#{stderr}"
+        expect(stdout).to include('INSTANCE DATA VALID', 'files validated: 1', 'skipped (freeform): 0')
+      end
+    end
+  end
+
   context 'when a listed message is now structured' do
     let(:contents) { { 'type' => 'doc', 'content' => [] } }
 
