@@ -1,0 +1,165 @@
+= Authored patch and general-message validation
+
+== Design and boundary
+
+Approval commits authoritative patch bytes to
+`ituob/itu-ob-data:ob-issues/{issue}/{slug}/NNN-ACTION.yaml`.
+The reusable service workflow validates an explicit data head SHA against an
+explicit base SHA. It checks out trusted service code at a separate explicit
+service SHA matching the caller's pinned reusable workflow reference; it never
+uses the data repository's `github.sha` to select executable service code.
+
+The staging gate reads blobs from the exact head commit, checks the checkout
+matches that commit, rejects symlinks, unsafe paths and generated-state writes,
+and overlays the cumulative authored head byte for byte onto the existing service
+corpus. The exact base-to-head diff governs append-only policy; the manifest
+records changed paths separately from all staged paths. This preserves earlier
+data PRs even when their patches are absent from the legacy service baseline.
+Existing different bytes at the same historical path fail with that path.
+Identical historical copies are accepted to permit a later canonical migration;
+they do not change the effective corpus. Identical bytes are not an exemption
+from incoming model and replay gates: legacy naming or shape defects still
+fail and must be resolved before those records can be canonically copied.
+Modifications, deletions and renames of
+already authored patches fail until an approved unpublished-withdrawal metadata
+contract exists. No publication status is inferred from invented fields.
+
+The gate records SHA-256 digests for every incoming patch and verifies both the
+head checkout and staged corpus after the full validation pipeline. It never
+runs `build_ob_issues.rb` over authored patches. Trusted legacy corpus files and
+seed datasets remain in the service repository at this baseline. This overlay is
+a validation boundary, not completion of the pending full SSOT migration.
+
+Each incoming patch must resolve to a replayable catalog register and its
+modeled amendment class. Its envelope and item payload are validated directly
+from the submitted bytes. Existing full corpus LML, dataset and reference gates
+remain required. Derived changes are regenerated from the combined corpus;
+snapshots are rebuilt and checked for integrity, and incoming additions must
+appear in the derived changes and replay history. Parser equivalence runs when
+the legacy source tree is unchanged, without recapturing any baseline.
+
+New issues require `ob-issues/{issue}/meta.yaml`, either in the trusted corpus or
+added in the same data PR. Submitted metadata is preserved and hashed like patch
+bytes, validates through `IssueMetadata`, and must carry a matching issue id and
+valid publication and cutoff dates. Missing metadata fails with a prerequisite
+message. The gate does not synthesize metadata or weaken model validation. Real D1
+publication is outside this workflow; snapshots provide local replay evidence.
+
+== Caller contract
+
+The caller pins `uses: ituob/service-publications-docs/.github/workflows/validate-itu-ob-data.yml@<service SHA>`
+and passes that same 40-character commit SHA as `service_ref`, the data PR head
+SHA as `data_ref`, and the PR base SHA as `base_ref`. `data_repository` defaults
+to, and is restricted to, `ituob/itu-ob-data`. No repository secrets are required.
+The job has read-only repository permissions and never executes data checkout
+scripts or workflow files.
+
+== Authoring format and policy
+
+The accepted action filenames are exactly `NNN-ADD.yaml`, `NNN-SUP.yaml`,
+`NNN-REP.yaml`, `NNN-LIR.yaml`, `NNN-MOD.yaml`, `NNN-DEL.yaml`, and
+`NNN-SEED.yaml`, under a registered, replayable amendment slug. The envelope
+`type` must match the filename, `ob_issue_no` must match the directory, and
+`identifier.code` must be a nonempty string. `data._class` must name the slug's
+amendment model; nested actions and entries validate through that model's
+attribute classes. Unknown modeled keys and serialized class substitutions fail.
+Full-state objects or arbitrary model serializations are not patch authoring.
+
+Legacy `issues/` sources and inert `docs/`, workflow YAML, direct
+`.github/scripts/<safe-name>.sh` or `.py` guard scripts, README, LICENSE and
+`.gitignore` maintenance may accompany a data PR. Unknown top-level paths and
+`datasets/`, snapshot or generated-state writes fail. All data Git entries must
+be regular files; authored YAML must not be executable. Neither data scripts nor
+its workflow files are executed by this service workflow.
+
+The service bundle uses `BUNDLE_GEMFILE=ituob/Gemfile`. Gate order is direct general-message and
+incoming patch model validation, changes migration, full LML validation, dataset
+validation, references, applicable parser equivalence, snapshot generation and
+integrity, incoming replay witness, then exact-byte recheck. The final recheck
+runs even after a failed gate. `authored-patch-proof` retains the digest manifest
+and generated snapshots in hosted CI. No source or baseline normalization is
+performed and no parser baseline is recaptured.
+
+== Focused verification
+
+Run the Git/byte boundary regressions with the Python standard library:
+
+[source,sh]
+----
+python3 -m unittest discover -s scripts/tests -q
+----
+
+With Ruby 3.4 and the trusted service bundle installed, enable the tests which
+execute the actual workflow model and replay gates (including hostile nested
+keys, class substitution and a history-only ADD without an active snapshot row):
+
+[source,sh]
+----
+AUTHORED_PATCH_RUBY_TESTS=1 BUNDLE_GEMFILE=ituob/Gemfile \
+  python3 -m unittest discover -s scripts/tests -q
+----
+
+The workflow deliberately fails closed when an otherwise modeled action cannot
+be projected and replayed by the current adapters. In particular, declaring a
+SEED action alone does not prove a seed batch was replayed: its authored entry
+keys must appear in the issue snapshot. Supporting a new action representation
+requires the migration/replay adapter to produce that evidence as well.
+
+
+== Canonical general-message lane
+
+General messages are authoritative issue-corpus records, separate from register
+actions. The accepted shapes of paths are:
+
+* `ob-issues/{issue}/general/running_annexes.yaml`
+* `ob-issues/{issue}/general/approved_recommendations.yaml`
+* `ob-issues/{issue}/{recognized-general-family}/NNN.yaml`
+
+The trusted service `CorpusTree.class_name_for` dispatch is authoritative for
+class binding. Numbered paths must resolve to a `General*` class; unknown
+families, freeform general paths and register-amendment families cannot become
+general messages by supplying a `_class` tag. The optional tag must match the
+resolved class. Each record requires a canonical `type` matching its family
+(or singleton basename), and `ob_issue_no` must be a string matching the issue
+directory. Existing service dispatch currently maps `sanc` to `GeneralMessage`;
+a differently named site class does not override that binding.
+
+Staging records general files in `manifest.messages`, while action patches and
+issue metadata remain in `manifest.patches`. Both collections are staged from
+the cumulative exact Git head and included in the final digest check. The same
+append-only, issue-metadata, historical collision, symlink and nonexecutable-file
+policies apply. Canonical singleton filenames do not grant permission to rewrite
+existing history.
+
+After the trusted Ruby bundle is installed, callers MUST run:
+
+[source,sh]
+----
+python3 scripts/stage_authored_patches.py validate-messages \
+  --data-root /absolute/path/to/itu-ob-data \
+  --service-root /absolute/path/to/service-projection \
+  --manifest /absolute/path/to/authored-patches.json
+----
+
+The command uses the projection's trusted `ituob/Gemfile`, compiled model tree
+and existing dispatch. Staging performs path and byte checks; this later command
+completes semantic class dispatch and rejects unknown syntactically numbered
+families even when `_class` is absent. It validates declared nested model
+attributes, rejects unknown keys and class substitutions, and serializes/reloads
+real typed objects to verify their model round-trip. It checks both source and
+staged bytes before and after validation. Serialized model output is never
+written over an authored record.
+
+`GeneralMiscCommunications.contents` retains the existing `HashOrText` model,
+including a plain authored string. Structured singleton items and telephone
+sections validate through their existing nested compiled types. Opaque fields
+already typed as Hash remain opaque; this gate does not introduce a field schema
+or a ProseMirror editor. Accepting legacy document Hashes is not proof of a usable
+general-message authoring interface or authoring parity.
+
+General messages do not mutate register state and are excluded from the
+register-row replay witness. Their acceptance requires this typed gate and a
+separate site-render proof. The site projection helper must call
+`validate-messages` after staging when `manifest.messages` is nonempty, then
+preserve all staged messages in its corpus consumed by the site. No site-render
+or real-provider publication acceptance is claimed by service validation alone.

@@ -1,0 +1,261 @@
+name: Validate authored ITU OB data
+
+on:
+  workflow_call:
+    inputs:
+      data_repository:
+        type: string
+        default: ituob/itu-ob-data
+      data_ref:
+        type: string
+        required: true
+      base_ref:
+        type: string
+        required: true
+      service_ref:
+        description: Same full service commit SHA as the caller reusable-workflow pin
+        type: string
+        required: true
+  workflow_dispatch:
+    inputs:
+      data_repository:
+        default: ituob/itu-ob-data
+        required: true
+      data_ref:
+        required: true
+      base_ref:
+        required: true
+      service_ref:
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      DATA_REPOSITORY: ${{ inputs.data_repository }}
+      DATA_REF: ${{ inputs.data_ref }}
+      BASE_REF: ${{ inputs.base_ref }}
+      SERVICE_REF: ${{ inputs.service_ref }}
+      BUNDLE_GEMFILE: ituob/Gemfile
+      ITU_OB_DATA_ROOT: ${{ github.workspace }}/itu-ob-data/issues
+      OB_ISSUES_OUT_PATH: ${{ github.workspace }}/ob-issues
+      DATASETS_ROOT: ${{ github.workspace }}/datasets
+      SNAPSHOTS_OUT: ${{ github.workspace }}/validation-snapshots
+    steps:
+      - name: Require explicit trusted repositories and commit SHAs
+        shell: bash
+        run: |
+          set -euo pipefail
+          # The runner context is not available in job-level env, so the
+          # manifest path under the runner temp directory is set here.
+          echo "AUTHORED_MANIFEST=$RUNNER_TEMP/authored-patches.json" >> "$GITHUB_ENV"
+          test "$DATA_REPOSITORY" = 'ituob/itu-ob-data'
+          for ref in "$DATA_REF" "$BASE_REF" "$SERVICE_REF"; do
+            [[ "$ref" =~ ^[0-9a-f]{40}$ ]] || { echo 'Full commit SHAs are required' >&2; exit 1; }
+          done
+
+      # Reusable workflows inherit the CALLER github context: github.sha is
+      # the DATA head, not the service workflow commit. Never use it here.
+      - name: Check out pinned service code
+        uses: actions/checkout@v4
+        with:
+          repository: ituob/service-publications-docs
+          ref: ${{ inputs.service_ref }}
+          persist-credentials: false
+
+      - name: Check out exact incoming data head
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.data_repository }}
+          ref: ${{ inputs.data_ref }}
+          path: itu-ob-data
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Stage exact authored blobs over trusted historical corpus
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$SERVICE_REF"
+          python3 scripts/stage_authored_patches.py stage \
+            --data-root "$GITHUB_WORKSPACE/itu-ob-data" \
+            --service-root "$GITHUB_WORKSPACE" \
+            --base-ref "$BASE_REF" --data-ref "$DATA_REF" \
+            --manifest "$AUTHORED_MANIFEST"
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+
+      - name: Install trusted service gem bundle
+        run: bundle install
+
+      - name: Validate authored general messages through trusted model dispatch
+        shell: bash
+        run: |
+          python3 scripts/stage_authored_patches.py validate-messages \
+            --data-root "$GITHUB_WORKSPACE/itu-ob-data" \
+            --service-root "$GITHUB_WORKSPACE" \
+            --manifest "$AUTHORED_MANIFEST"
+
+      - name: Validate incoming envelopes, amendment items and issue metadata
+        shell: bash
+        run: |
+          bundle exec ruby -Iituob/lib -rituob -rjson -ryaml -rdate <<'RUBY'
+          def strict_model(klass, value, path)
+            raise "#{path}: expected mapping" unless value.is_a?(Hash)
+            if value.key?('_class') && ![klass.name, klass.name.split('::').last].include?(value['_class'])
+              raise "#{path}: serialized class does not match #{klass}"
+            end
+            attributes = klass.attributes.transform_keys(&:to_s)
+            serialized = attributes.keys.map { |key| key == 'register_id' ? 'register' : key }
+            unknown = value.keys - serialized
+            raise "#{path}: unknown #{klass} keys #{unknown.inspect}" unless unknown.empty?
+            attributes.each do |name, attribute|
+              key = name == 'register_id' ? 'register' : name
+              child = value[key]
+              members = attribute.union? ? attribute.union_member_types : [attribute.type]
+              types = members.select { |type| type.respond_to?(:attributes) }
+              next if child.nil? || types.empty?
+              # LML union attributes (e.g. author name) accept a scalar or a
+              # multilingual model; validate the model branch when mapped.
+              next if attribute.union? && !child.is_a?(Hash) && !child.is_a?(Array)
+              children = attribute.collection? && child.is_a?(Array) ? child : [child]
+              children.each { |item| strict_model(types.first, item, "#{path}/#{key}") }
+            end
+            klass.from_hash(value)
+          end
+
+          manifest = JSON.parse(File.read(ENV.fetch('AUTHORED_MANIFEST')))
+          manifest.fetch('patches').each do |record|
+            path = record.fetch('path')
+            issue, slug, filename = path.split('/').drop(1)
+            bytes = File.read(path, encoding: 'UTF-8')
+            data = YAML.safe_load(bytes, permitted_classes: [Date, Time], aliases: true)
+            if slug == 'meta.yaml'
+              strict_model(Ituob::Models::IssueMetadata, data, path)
+              raise "#{path}: issue id mismatch" unless data['id'].to_s == issue
+              %w[publication_date cutoff_date].each do |field|
+                value = data.fetch(field)
+                valid = value.is_a?(Date) || value.is_a?(Time) ||
+                  (value.is_a?(String) && DateTime.iso8601(value))
+                raise "#{path}: invalid #{field}" unless valid
+              end
+              next
+            end
+            action = filename.delete_suffix('.yaml').split('-').last
+            raise "#{path}: type/filename mismatch" unless data.is_a?(Hash) && data['type'] == action
+            raise "#{path}: issue id mismatch" unless data['ob_issue_no'].to_s == issue
+            identifier = data.fetch('identifier')
+            raise "#{path}: identifier code required" unless identifier.is_a?(Hash) &&
+              identifier['code'].is_a?(String) && !identifier['code'].empty?
+            strict_model(Ituob::Registers::Change, data, path)
+            klass_name = Ituob::Support::CorpusTree::CLASS_BY_DIR[slug]
+            entries = Ituob::Catalogs::Registers.all.select do |entry|
+              entry.amendment_slug == slug && !entry.external? && entry.seed_path &&
+                issue.to_i >= entry.seed_issue.to_i
+            end
+            raise "#{path}: no replayable modeled amendment register" unless
+              klass_name&.end_with?('Amendment') && entries.any?
+            payload = data.fetch('data')
+            raise "#{path}: amendment class mismatch" unless payload.is_a?(Hash) && payload['_class'] == klass_name
+            strict_model(Ituob::Models.const_get(klass_name), payload, "#{path}/data")
+          end
+          puts 'Incoming envelope, item and metadata models valid'
+          RUBY
+
+      - name: Regenerate derived changes from combined authored corpus
+        run: bundle exec ruby scripts/migrate_actions_to_changes.rb
+
+      - name: Validate full corpus and derived changes against LML
+        run: bundle exec ruby scripts/validate_data_lml.rb --all
+
+      - name: Validate datasets
+        run: bundle exec ituob dataset validate
+
+      - name: Validate references
+        run: bundle exec ruby scripts/validate_references.rb
+
+      - name: Verify parser equivalence when legacy source is unchanged
+        shell: bash
+        run: |
+          if python3 -c 'import json, os, sys; sys.exit(json.load(open(os.environ["AUTHORED_MANIFEST"]))["source_changed"])'; then
+            bundle exec ruby scripts/verify_parser_equivalence.rb --verify
+          else
+            echo 'Legacy issues/ sources changed; stored parser baselines do not describe this source revision.'
+          fi
+
+      - name: Replay register snapshots and verify snapshot integrity
+        run: bundle exec ruby scripts/generate_register_snapshots.rb
+
+      - name: Prove each incoming patch participates in derived replay
+        shell: bash
+        run: |
+          bundle exec ruby -Iituob/lib -rituob -rjson -ryaml -rdate <<'RUBY'
+          manifest = JSON.parse(File.read(ENV.fetch('AUTHORED_MANIFEST')))
+          manifest.fetch('patches').each do |record|
+            path = record.fetch('path')
+            next if path.end_with?('/meta.yaml')
+            issue, slug, filename = path.split('/').drop(1)
+            sequence, action = filename.delete_suffix('.yaml').split('-')
+            source = YAML.safe_load_file(path, permitted_classes: [Date, Time], aliases: true)
+            projections = []
+            Ituob::Catalogs::Registers.all.each do |entry|
+              next unless entry.amendment_slug == slug && entry.seed_path && !entry.external?
+              pattern = File.join(entry.seed_path, 'changes',
+                format('%04d-%04d-%s-*.yaml', issue.to_i, sequence.to_i, action))
+              Dir.glob(pattern).each do |change_path|
+                change = YAML.safe_load_file(change_path, permitted_classes: [Date, Time], aliases: true)
+                snapshot_path = File.join(ENV.fetch('SNAPSHOTS_OUT'), entry.slug, "at-#{issue}.json")
+                snapshot = JSON.parse(File.read(snapshot_path))
+                witnessed = snapshot.fetch('history').any? do |history|
+                  history.fetch('ob_issue') == issue.to_i && history.fetch('type') == action &&
+                    history.fetch('identifier').fetch('code') == change.fetch('identifier').fetch('code')
+                end
+                raise "#{path}: derived change absent from replay history" unless witnessed
+                failures = snapshot.fetch('errors').grep(/ at OB #{Regexp.escape(issue)}:/)
+                raise "#{path}: replay failed: #{failures.join('; ')}" unless failures.empty?
+                if %w[ADD SEED].include?(action)
+                  rows = source.fetch('data').fetch('entries')
+                  raise "#{path}: #{action} requires nonempty amendment entries" unless rows.is_a?(Array) && rows.any?
+                  rows.each do |row|
+                    siblings = Ituob::Catalogs::Registers.all.select { |s| s.amendment_slug == slug }
+                    owned = entry.route ? entry.routes?(row) : siblings.none? { |s| s.route && s.routes?(row) }
+                    next unless owned
+                    key = Ituob::Registers::Strategies::Base.entry_key(row, entry.key_field, Array(entry.fallback_key_fields))
+                    present = snapshot.fetch('active_entries').any? do |item|
+                      Ituob::Registers::Strategies::Base.entry_key(item, entry.key_field, Array(entry.fallback_key_fields)) == key
+                    end
+                    raise "#{path}: incoming #{action} key #{key.inspect} absent from snapshot" unless key && present
+                  end
+                end
+                projections << change_path
+              end
+            end
+            raise "#{path}: authored patch ignored by migration/replay" if projections.empty?
+          end
+          puts 'All incoming authored actions witnessed in replay'
+          RUBY
+
+      - name: Verify incoming hashes after all gates
+        if: always()
+        shell: bash
+        run: |
+          python3 scripts/stage_authored_patches.py check \
+            --data-root "$GITHUB_WORKSPACE/itu-ob-data" \
+            --service-root "$GITHUB_WORKSPACE" \
+            --manifest "$AUTHORED_MANIFEST"
+
+      - name: Retain byte manifest and snapshot proof
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: authored-patch-proof
+          path: |
+            ${{ runner.temp }}/authored-patches.json
+            validation-snapshots/
+          if-no-files-found: warn
