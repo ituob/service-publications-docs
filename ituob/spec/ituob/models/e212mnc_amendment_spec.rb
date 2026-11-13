@@ -143,6 +143,21 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(actions.first.entries.first.mcc_mnc_codes).to eq('262 01')
     end
 
+    it 'keeps a parenthesised SUP heading out of the preceding country action' do
+      doc = document(
+        paragraph('Estonia ADD'),
+        paragraph('      248 01    AS Eesti Telekom'),
+        paragraph('Moldova (Republic of) SUP'),
+        paragraph('      259 04    Eventis Mobile GSM'),
+      )
+      actions = parse(doc).actions
+
+      expect(actions.map(&:action_type)).to eq(%w[ADD SUP])
+      expect(actions.first.entries.map(&:mcc_mnc_codes)).to eq(['248 01'])
+      expect(actions.last.entries.first.country_or_area.en).to eq('Moldova (Republic of)')
+      expect(actions.last.entries.first.mcc_mnc_codes).to eq('259 04')
+    end
+
     it 'rejects long runs of spaces and NBSP within two seconds' do
       doc = document(paragraph(" \u00a0" * 100_000))
 
