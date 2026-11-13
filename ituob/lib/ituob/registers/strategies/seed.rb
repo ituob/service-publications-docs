@@ -3,8 +3,9 @@
 module Ituob
   module Registers
     module Strategies
-      # SEED — the initial publication batch. +data+ is an array of
-      # rows. The strategy expands the batch into N implicit ADD
+      # SEED — the initial publication batch. Original publications
+      # carry an array; authored projections carry the same flat-row
+      # or entries hash as other changes. Expand either into implicit ADD
       # operations at the seed-issue ob_issue_no.
       #
       # If a row already exists (e.g., on a re-run), it is treated as
@@ -13,7 +14,7 @@ module Ituob
         extend Ituob::Support::HashField
 
         def self.apply(builder, change, key_field, _key, fallbacks = [])
-          rows = Array(change.data)
+          rows = change.data.is_a?(Hash) ? rows_for(change, key_field, fallbacks) : Array(change.data)
           rows.each do |row|
             row_key = Base.entry_key(row, key_field, fallbacks)
             next if row_key.nil? || row_key.to_s.empty?
