@@ -160,11 +160,11 @@ attribute :notes, :string, collection: true
         end
       end
 
-      # Country/network headings have no office or assigned code. Other
-      # uncoded rows (including office cross-references) retain their text
-      # as notes rather than creating entries with unusable keys.
+      # Rows without an assigned code can still introduce a country/network.
+      # Retain their other text (including office cross-references) as notes
+      # rather than creating entries with unusable keys.
       def self.consume_unkeyed_row(texts, state)
-        if texts[3].empty? && !note_paragraph?(texts[0].join(' '))
+        unless note_paragraph?(texts[0].join(' '))
           # A country/network heading after data starts a new country;
           # consecutive headings can print its other language variants.
           if !texts[0].empty? && !country_only_row?(texts)
@@ -234,11 +234,8 @@ attribute :notes, :string, collection: true
 
       def self.build_entry(texts, state)
         state.in_country_heading = false
-        # A printed country on a data row starts a new country. Only
-        # uncoded heading rows supply additional language variants.
-        if texts[0].any? { |text| !note_paragraph?(text) }
-          state.country = state.country_note = nil
-        end
+        # Language variants can span headings and coded office rows.
+        # Share the country so later languages also reach earlier entries.
         merge_country_variant(state, texts[0])
         update_network(texts, state)
 

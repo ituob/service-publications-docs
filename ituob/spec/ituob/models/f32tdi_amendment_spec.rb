@@ -202,11 +202,16 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
       expect(country.es).to eq('EGIPTO')
     end
 
-    it 'starts a separate country for each coded row with a printed country' do
+    it 'fills language variants across coded rows before starting a complete new country' do
       doc = doc_with_rows(
-        row(cell(paragraph('BAHREÏN')), cell(paragraph('Unitel')), cell(paragraph('BN- -')),
+        row(cell(paragraph('BAHREÏN 1)')), cell(paragraph('Unitel')), cell(paragraph('BN- -')),
             cell(paragraph('Bahrain')), cell(paragraph('BNBA'))),
-        row(cell(paragraph('JORDANIE')), cell(paragraph('Unitel')), cell(paragraph('JO- -')),
+        row(cell(paragraph('BAHRAIN')), cell(paragraph('')), cell(paragraph('')),
+            cell(paragraph('Manama')), cell(paragraph('BNMA'))),
+        row(cell(paragraph('BAHREIN')), cell(paragraph('')), cell(paragraph('')),
+            cell(paragraph('Other destinations')), cell(paragraph('BNAX'))),
+        row(cell(paragraph('JORDANIE'), paragraph('JORDAN'), paragraph('JORDANIA')),
+            cell(paragraph('Unitel')), cell(paragraph('JO- -')),
             cell(paragraph('Amman')), cell(paragraph('JOAM'))),
         row(cell(paragraph('')), cell(paragraph('')), cell(paragraph('')),
             cell(paragraph('Jerusalem Jordan')), cell(paragraph('JOJM'))),
@@ -216,11 +221,17 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
 
       expect(keys).to eq([
         ['BAHREÏN', 'BN- -', 'BNBA'],
+        ['BAHREÏN', 'BN- -', 'BNMA'],
+        ['BAHREÏN', 'BN- -', 'BNAX'],
         ['JORDANIE', 'JO- -', 'JOAM'],
         ['JORDANIE', 'JO- -', 'JOJM'],
       ])
-      expect(entries.map { |entry| entry.country_or_area.en }).to all(be_nil)
-      expect(entries.map { |entry| entry.country_or_area.es }).to all(be_nil)
+      expect(entries.first(3).map { |entry| entry.country_or_area.en }).to all(eq('BAHRAIN'))
+      expect(entries.first(3).map { |entry| entry.country_or_area.es }).to all(eq('BAHREIN'))
+      expect(entries.first(3).map { |entry| entry.country_or_area_note.en }).to all(eq('1)'))
+      expect(entries.last(2).map { |entry| entry.country_or_area.en }).to all(eq('JORDAN'))
+      expect(entries.last(2).map { |entry| entry.country_or_area.es }).to all(eq('JORDANIA'))
+      expect(entries.last(2).map(&:country_or_area_note)).to all(be_nil)
     end
 
     it 'starts a separate country when a network heading follows another country entry' do
@@ -277,11 +288,38 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
       expect(entries.last.office_code).to eq('--AC')
     end
 
+    it 'uses the country on an uncoded office row for the entries that follow' do
+      doc = doc_with_rows(
+        row(cell(paragraph('BAHREÏN 1)')), cell(paragraph('Unitel')), cell(paragraph('BN- -')),
+            cell(paragraph('Bahrain')), cell(paragraph('BNBA'))),
+        row(cell(paragraph('JORDANIE 2)')), cell(paragraph('Unitel')), cell(paragraph('JO- -')),
+            cell(paragraph('Amman -->')), cell(paragraph("\u00A0"))),
+        row(cell(paragraph('JORDAN')), cell(paragraph('')), cell(paragraph('')),
+            cell(paragraph('Amman')), cell(paragraph('JOAM'))),
+        row(cell(paragraph('JORDANIA')), cell(paragraph('')), cell(paragraph('')),
+            cell(paragraph('Jerusalem Jordan')), cell(paragraph('JOJM'))),
+      )
+      amendment = parse(doc)
+      entries = amendment.actions.first.entries
+
+      expect(entries.map(&:office_code)).to eq(%w[BNBA JOAM JOJM])
+      expect(entries.first.country_or_area.fr).to eq('BAHREÏN')
+      expect(entries.first.country_or_area.en).to be_nil
+      expect(entries.first.country_or_area_note.en).to eq('1)')
+      expect(entries.drop(1).map { |entry| entry.country_or_area.fr }).to all(eq('JORDANIE'))
+      expect(entries.drop(1).map { |entry| entry.country_or_area.en }).to all(eq('JORDAN'))
+      expect(entries.drop(1).map { |entry| entry.country_or_area.es }).to all(eq('JORDANIA'))
+      expect(entries.drop(1).map { |entry| entry.country_or_area_note.en }).to all(eq('2)'))
+      expect(entries.drop(1).map(&:network_code)).to all(eq('JO- -'))
+      expect(amendment.notes).to include('Unitel — JO- - — Amman -->')
+    end
+
     it 'does not carry a previous data country note into a new data country' do
       doc = doc_with_rows(
         row(cell(paragraph('ITALIE 1)')), cell(paragraph('UTS GmbH 1)')), cell(paragraph('IT- -')),
             cell(paragraph('15011 ACQUI TERME')), cell(paragraph('--AC'))),
-        row(cell(paragraph('BAHREÏN')), cell(paragraph('Unitel')), cell(paragraph('BN- -')),
+        row(cell(paragraph('BAHREÏN'), paragraph('BAHRAIN'), paragraph('BAHREIN')),
+            cell(paragraph('Unitel')), cell(paragraph('BN- -')),
             cell(paragraph('Bahrain')), cell(paragraph('BNBA'))),
       )
       entries = parse(doc).actions.first.entries
@@ -375,11 +413,11 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
     context 'with Jordan (OB 1000)' do
       let(:issue_number) { '1000' }
 
-      it 'keeps printed data countries and inherits the heading network on real office rows' do
+      it 'shares all three country languages and the heading network across real office rows' do
         expect(entries.map(&:office_code)).to eq(%w[JOAM JOJM JOAX])
-        expect(entries.map { |entry| entry.country_or_area.fr }).to eq(%w[JORDAN JORDANIA JORDANIA])
-        expect(entries.map { |entry| entry.country_or_area.en }).to all(be_nil)
-        expect(entries.map { |entry| entry.country_or_area.es }).to all(be_nil)
+        expect(entries.map { |entry| entry.country_or_area.fr }).to all(eq('JORDANIE'))
+        expect(entries.map { |entry| entry.country_or_area.en }).to all(eq('JORDAN'))
+        expect(entries.map { |entry| entry.country_or_area.es }).to all(eq('JORDANIA'))
         expect(entries.map(&:network_roa)).to all(eq('Unitel'))
         expect(entries.map(&:network_code)).to all(eq('JO- -'))
         key_parts = entries.flat_map do |entry|
