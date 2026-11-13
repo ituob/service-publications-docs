@@ -94,6 +94,14 @@ jobs:
       - name: Install trusted service gem bundle
         run: bundle install
 
+      - name: Validate authored general messages through trusted model dispatch
+        shell: bash
+        run: |
+          python3 scripts/stage_authored_patches.py validate-messages \
+            --data-root "$GITHUB_WORKSPACE/itu-ob-data" \
+            --service-root "$GITHUB_WORKSPACE" \
+            --manifest "$AUTHORED_MANIFEST"
+
       - name: Validate incoming envelopes, amendment items and issue metadata
         shell: bash
         run: |

@@ -196,6 +196,77 @@ class StageAuthoredPatchesTest(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "unsupported or generated-state"):
                     self.stage()
 
+    def test_general_messages_stage_separately_from_register_patch_witnesses(self):
+        paths = ("ob-issues/1351/general/running_annexes.yaml",
+                 "ob-issues/1351/general/approved_recommendations.yaml",
+                 "ob-issues/1351/misc_communications/001.yaml",
+                 "ob-issues/1351/telephone_service_2/001.yaml")
+        for path in paths:
+            self.write(self.data, path, b"# exact general bytes\r\ncontents: notice\r\n")
+        self.write(self.data, PATCH, PAYLOAD)
+        manifest = self.stage()
+        self.assertEqual([PATCH], [record["path"] for record in manifest["patches"]])
+        self.assertEqual(set(paths), {record["path"] for record in manifest["messages"]})
+        for path in paths:
+            self.assertEqual((self.data / path).read_bytes(), (self.service / path).read_bytes())
+        gate.check(self.data, self.service, self.manifest)
+
+    def test_previous_general_head_remains_in_cumulative_overlay(self):
+        path = "ob-issues/1351/misc_communications/001.yaml"
+        self.write(self.data, path, b"previous approved message")
+        self.base = self.commit()
+        self.write(self.data, PATCH, PAYLOAD)
+        manifest = self.stage()
+        self.assertEqual([PATCH], manifest["changed_paths"])
+        self.assertEqual([path], [record["path"] for record in manifest["messages"]])
+        self.assertEqual(b"previous approved message", (self.service / path).read_bytes())
+
+    def test_general_history_rewrite_and_delete_rejected(self):
+        path = "ob-issues/1351/misc_communications/001.yaml"
+        self.write(self.data, path, b"approved")
+        self.base = self.commit()
+        self.write(self.data, path, b"rewritten")
+        with self.assertRaisesRegex(ValueError, "history cannot be modified/deleted"):
+            self.stage()
+        (self.data / path).unlink()
+        with self.assertRaisesRegex(ValueError, "history cannot be modified/deleted"):
+            self.stage()
+
+    def test_general_message_requires_issue_metadata(self):
+        (self.service / META).unlink()
+        self.write(self.data, "ob-issues/1351/misc_communications/001.yaml", b"notice")
+        with self.assertRaisesRegex(ValueError, "metadata prerequisite missing"):
+            self.stage()
+
+    def test_general_collision_fails_without_changing_historical_bytes(self):
+        path = "ob-issues/1351/general/running_annexes.yaml"
+        self.write(self.service, path, b"historical")
+        self.write(self.data, path, b"authored")
+        with self.assertRaisesRegex(ValueError, "historical corpus collision"):
+            self.stage()
+        self.assertEqual(b"historical", (self.service / path).read_bytes())
+
+    def test_general_symlink_rejected(self):
+        path = self.data / "ob-issues/1351/misc_communications/001.yaml"
+        path.parent.mkdir(parents=True)
+        path.symlink_to("../../../issues/1350/source.yaml")
+        with self.assertRaisesRegex(ValueError, "symlink/submodule"):
+            self.stage()
+
+    def test_general_bytes_and_manifest_category_verified_after_gates(self):
+        path = "ob-issues/1351/misc_communications/001.yaml"
+        self.write(self.data, path, b"reviewed message")
+        self.stage()
+        self.write(self.service, path, b"normalized message")
+        with self.assertRaisesRegex(ValueError, "bytes changed"):
+            gate.check(self.data, self.service, self.manifest)
+        self.write(self.service, path, b"reviewed message")
+        manifest = json.loads(self.manifest.read_text())
+        manifest["patches"] = manifest.pop("messages")
+        self.manifest.write_text(json.dumps(manifest))
+        with self.assertRaisesRegex(ValueError, "invalid manifest patches path"):
+            gate.check(self.data, self.service, self.manifest)
+
     def test_manifest_cannot_hide_changed_bytes(self):
         self.write(self.data, PATCH, PAYLOAD)
         self.stage()

@@ -1,4 +1,4 @@
-= Authored patch validation
+= Authored patch and general-message validation
 
 == Design and boundary
 
@@ -65,14 +65,15 @@ amendment model; nested actions and entries validate through that model's
 attribute classes. Unknown modeled keys and serialized class substitutions fail.
 Full-state objects or arbitrary model serializations are not patch authoring.
 
-Legacy `issues/` sources and inert `docs/`, workflow YAML, README, LICENSE and
+Legacy `issues/` sources and inert `docs/`, workflow YAML, direct
+`.github/scripts/<safe-name>.sh` or `.py` guard scripts, README, LICENSE and
 `.gitignore` maintenance may accompany a data PR. Unknown top-level paths and
 `datasets/`, snapshot or generated-state writes fail. All data Git entries must
 be regular files; authored YAML must not be executable. Neither data scripts nor
 its workflow files are executed by this service workflow.
 
-The service bundle uses `BUNDLE_GEMFILE=ituob/Gemfile`. Gate order is direct
-incoming model validation, changes migration, full LML validation, dataset
+The service bundle uses `BUNDLE_GEMFILE=ituob/Gemfile`. Gate order is direct general-message and
+incoming patch model validation, changes migration, full LML validation, dataset
 validation, references, applicable parser equivalence, snapshot generation and
 integrity, incoming replay witness, then exact-byte recheck. The final recheck
 runs even after a failed gate. `authored-patch-proof` retains the digest manifest
@@ -103,3 +104,62 @@ be projected and replayed by the current adapters. In particular, declaring a
 SEED action alone does not prove a seed batch was replayed: its authored entry
 keys must appear in the issue snapshot. Supporting a new action representation
 requires the migration/replay adapter to produce that evidence as well.
+
+
+== Canonical general-message lane
+
+General messages are authoritative issue-corpus records, separate from register
+actions. The accepted shapes of paths are:
+
+* `ob-issues/{issue}/general/running_annexes.yaml`
+* `ob-issues/{issue}/general/approved_recommendations.yaml`
+* `ob-issues/{issue}/{recognized-general-family}/NNN.yaml`
+
+The trusted service `CorpusTree.class_name_for` dispatch is authoritative for
+class binding. Numbered paths must resolve to a `General*` class; unknown
+families, freeform general paths and register-amendment families cannot become
+general messages by supplying a `_class` tag. The optional tag must match the
+resolved class. Each record requires a canonical `type` matching its family
+(or singleton basename), and `ob_issue_no` must be a string matching the issue
+directory. Existing service dispatch currently maps `sanc` to `GeneralMessage`;
+a differently named site class does not override that binding.
+
+Staging records general files in `manifest.messages`, while action patches and
+issue metadata remain in `manifest.patches`. Both collections are staged from
+the cumulative exact Git head and included in the final digest check. The same
+append-only, issue-metadata, historical collision, symlink and nonexecutable-file
+policies apply. Canonical singleton filenames do not grant permission to rewrite
+existing history.
+
+After the trusted Ruby bundle is installed, callers MUST run:
+
+[source,sh]
+----
+python3 scripts/stage_authored_patches.py validate-messages \
+  --data-root /absolute/path/to/itu-ob-data \
+  --service-root /absolute/path/to/service-projection \
+  --manifest /absolute/path/to/authored-patches.json
+----
+
+The command uses the projection's trusted `ituob/Gemfile`, compiled model tree
+and existing dispatch. Staging performs path and byte checks; this later command
+completes semantic class dispatch and rejects unknown syntactically numbered
+families even when `_class` is absent. It validates declared nested model
+attributes, rejects unknown keys and class substitutions, and serializes/reloads
+real typed objects to verify their model round-trip. It checks both source and
+staged bytes before and after validation. Serialized model output is never
+written over an authored record.
+
+`GeneralMiscCommunications.contents` retains the existing `HashOrText` model,
+including a plain authored string. Structured singleton items and telephone
+sections validate through their existing nested compiled types. Opaque fields
+already typed as Hash remain opaque; this gate does not introduce a field schema
+or a ProseMirror editor. Accepting legacy document Hashes is not proof of a usable
+general-message authoring interface or authoring parity.
+
+General messages do not mutate register state and are excluded from the
+register-row replay witness. Their acceptance requires this typed gate and a
+separate site-render proof. The site projection helper must call
+`validate-messages` after staging when `manifest.messages` is nonempty, then
+preserve all staged messages in its corpus consumed by the site. No site-render
+or real-provider publication acceptance is claimed by service validation alone.
