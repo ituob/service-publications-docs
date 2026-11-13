@@ -129,24 +129,31 @@ Metanorma, plugin and lutaml-lml dependencies. Exact paths, versions,
 build command and CI triggers remain to be agreed. This documentation
 change adds no proof bundle, provider, plugin support or workflow.
 
-== Maintainer answers and decision status
+== Established decisions
 
-Atlas clarified that no separate written answers exist yet. The plan
-approval dated 2026-11-13 did not answer the provider questions. The
-settled constraints in this note come from #65's Tasks, Constraints and
-Acceptance sections; no additional API decision is attributed to a
-maintainer.
+Issue #65's Tasks, Constraints and Acceptance sections establish the
+following parts of the contract. The remaining choices are listed under
+<<open-questions>>.
 
-Atlas directed that unanswered choices be kept in an Open questions
-section and raised in the PR description for a reviewer or maintainer
-to answer. When answers arrive, copy them here with their source and
-update the corresponding contract text.
+[cols="1,3",options="header"]
+|===
+| Contract question | Established requirement
+| Which projections?
+| Items, actions and per-key history; rendering consumes projections of
+  the git patch log, with items validated against LML Entry classes and
+  actions against LML message schemas.
+| Which issue pins a rendering?
+| Every projection carries its as-of issue. The proof renders issue 1170
+  and matches the site's edition in items, order and provenance line.
+| How does a document choose a register and edition?
+| Selection must identify a register and an issue. This note uses catalog
+  slugs to distinguish registers; document syntax remains unspecified.
+|===
 
 [[open-questions]]
 == Open questions
 
-All questions below are *not answered yet*. They are also the review
-questions to include in the PR description.
+All questions below are *not answered yet*.
 
 . *Projection API:* What model types and template bindings expose items,
   actions and per-key history? Are actions and history cumulative through
