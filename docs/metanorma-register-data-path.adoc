@@ -1,0 +1,166 @@
+= Metanorma register data path
+
+This note records the contract established by
+https://github.com/ituob/service-publications-docs/issues/65[issue #65]
+and the decisions still needed before implementing its provider and proof.
+The existing ontology and validation chain is described in
+link:../ituob/lib/ituob/ontology/GRAPH.adoc[ontology/GRAPH.adoc]; its schema
+source is
+link:../ituob/lib/ituob/ontology/messages.lml[messages.lml].
+This note describes the intended integration, not an already available
+Metanorma provider or document syntax.
+
+== Data path and responsibilities
+
+[source,text]
+----
+Metanorma document (register slug + issue selection)
+  -> metanorma-plugin-lutaml (LML loading and provider context binding)
+    -> ituob provider (ontology-backed register projections)
+      -> Metanorma templates -> rendered register content
+
+git patch log -> ituob replay -> register projections
+messages.lml -> lutaml-lml -> lutaml-model classes and mappings
+----
+
+The ituob provider loads the ontology through lutaml-lml and exposes the
+compiled classes and register projections to the plugin as lutaml-model
+objects. The plugin supplies LML document loading and the context binding
+that makes these objects accessible to Metanorma templates. Metanorma
+renders the selected projection.
+
+The patch log in git is the only source of truth. The renderer consumes
+projections: current state, point-in-time states and snapshots. It never
+derives patches from full files. These are constraints from #65, rather
+than choices for the template author.
+
+== Projection contract
+
+The first task in #65 identifies three views for the provider contract:
+items, actions and per-key history. The following describes their purpose;
+the exact public API and unresolved selection semantics are listed under
+<<open-questions>>.
+
+[cols="1,3,2",options="header"]
+|===
+| View | Content | Validation boundary
+| Items
+| Register entries in the selected state or snapshot.
+| Items validate against the ontology's LML Entry classes.
+| Actions
+| Register changes from the source patch log, associated with their
+  originating issues.
+| Actions validate against the LML message schemas.
+| Per-key history
+| The action history associated with a selected register key.
+| Uses the same validated actions; key selection and history boundaries
+  still need an agreed contract.
+|===
+
+Every projection carries its as-of issue. The provider attaches this
+provenance to everything it hands to templates, as required by #65.
+An action's originating issue and a projection's as-of issue serve
+different purposes: one identifies the source change, the other identifies
+the selected rendering edition. The precise provenance model and its
+template field names remain unanswered.
+
+== Register and edition selection
+
+The document needs to identify a register by catalog slug and select an
+issue for the rendering edition. A Recommendation alone can name several
+registers. For example,
+link:../catalogs/registers.yaml[catalogs/registers.yaml] contains both
+`e212-mnc` and `e212-icc` under E.212. The proof's register slug must
+therefore be confirmed rather than inferred from the Recommendation.
+
+Conceptually, the input is a pair `(register slug, issue number)`.
+This is a description of the required selection, not a proposed
+Metanorma attribute, macro or provider method signature. The plugin's
+document syntax and binding names still require a decision.
+
+The existing
+link:../ituob/lib/ituob/registers/replay.rb[register replay] implements
+`at_issue(N)` as the state at the end of issue N, including its changes.
+Its `current` operation applies all available changes via `at_issue(nil)`;
+the resulting state carries a nil issue cutoff. These are existing replay
+behaviors, not settled answers about the new provider's defaults.
+The provider must meet #65's as-of-issue requirement even when exposing
+current state; how it resolves and records that issue is open.
+
+An explicitly selected issue is the edition pin for the proof. The
+rendered provenance line must agree with the site's page for that same
+register and edition. Whether provenance also records a git revision,
+ontology version or other build inputs remains open; an issue number
+alone does not identify the repository revision containing its data.
+
+== Serialization boundary
+
+All serialization in this integration goes through lutaml-model mappings.
+The provider and plugin must use the ontology-backed model objects and
+their mapped representations. They must not introduce hand-written
+`to_h`/`from_h` conversions, a parallel schema, or a separate serialization
+path for templates. Entry and message validation stays attached to the
+same ontology that validates the corpus.
+
+This is the mandatory boundary from #65. Existing replay helpers do not
+by themselves establish a compliant provider serialization contract;
+the integration still needs mapped projection and provenance objects.
+
+== Proof document and separate bundle/CI
+
+The proof required by #65 renders the E.212 register as it stood at
+issue 1170. It must match the site's edition page for the same register
+and issue: the same items, in the same order, with the same provenance
+line. The exact E.212 slug and comparison mechanism are open questions.
+
+The proof is to have a separate Gemfile and CI build so its Metanorma and
+plugin dependencies can be exercised as a document-rendering stack.
+The existing
+link:../ituob/Gemfile[gem bundle] and
+link:../.github/workflows/test.yml[Test workflow] exercise the gem without
+the Metanorma chain. The proof build is a separate integration check
+alongside those model and corpus checks.
+
+The follow-up implementation needs to install the proof bundle, build
+the document through Metanorma and metanorma-plugin-lutaml, and verify
+the rendered rows, order and provenance against the selected site
+edition. Its bundle must include the local ituob provider and compatible
+Metanorma, plugin and lutaml-lml dependencies. Exact paths, versions,
+build command and CI triggers remain to be agreed. This documentation
+change adds no proof bundle, provider, plugin support or workflow.
+
+== Maintainer answers and decision status
+
+Atlas clarified that no separate written answers exist yet. The plan
+approval dated 2026-11-13 did not answer the provider questions. The
+settled constraints in this note come from #65's Tasks, Constraints and
+Acceptance sections; no additional API decision is attributed to a
+maintainer.
+
+Atlas directed that unanswered choices be kept in an Open questions
+section and raised in the PR description for a reviewer or maintainer
+to answer. When answers arrive, copy them here with their source and
+update the corresponding contract text.
+
+[[open-questions]]
+== Open questions
+
+All questions below are *not answered yet*. They are also the review
+questions to include in the PR description.
+
+. *Projection API:* What model types and template bindings expose items,
+  actions and per-key history? Are actions and history cumulative through
+  the selected issue, limited to that issue, or selectable by a range?
+  How are composite keys, removed entries and replay errors represented?
+. *Issue pinning and provenance:* Is an explicit issue required for every
+  document, or may it request current state? If current is supported,
+  which concrete issue is recorded? Which provenance fields and rendered
+  line are required, including any repository revision or schema version?
+. *Document selection:* What Metanorma syntax selects the register slug
+  and issue, and what happens for an unknown slug, unavailable issue or
+  an issue before the register's seed?
+. *Proof edition:* Which E.212 slug is intended at issue 1170, which site
+  edition page is the reference, and what determines its row order?
+. *Proof execution:* Where do the separate proof Gemfile, document and CI
+  job live, which dependency versions and build command are used, and
+  how does CI compare items, order and provenance with the site edition?
