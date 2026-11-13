@@ -29,9 +29,7 @@ attribute :country, :string
       # "Belarus    SUP": a country line carrying its action, with no
       # position column.
       COUNTRY_ACTION_LINE = /\A(?<country>\p{Lu}[^\d:()]{1,50}?)\s+(?<action>ADD|SUP|LIR|REP)\*?\z/
-      # Table cells delimit country headings, including parenthesized
-      # names, without the paragraph layout's ambiguity.
-      TABLE_COUNTRY_ACTION_LINE = /\A(?<country>.+?)\s+(?<action>ADD|SUP|REP|LIR|MOD|DEL)(?:\s*\*)?\z/
+      TABLE_ACTION_TYPES = %w[ADD SUP REP LIR MOD DEL].freeze
       # "Sweden  (extra-territorial use of MCC/MNC, ...)": the heading of a
       # table that repeats codes with the MSIN ranges they may use abroad.
       # Found by string search, not a regex: a lazy run before `\s*\(`
@@ -210,14 +208,17 @@ attribute :country, :string
             c[1..].each do |row|
               segs = row.flatten
               heading = Ituob::Helpers.replace_legacy_space(Array(row[0]).join(' ')).strip
+              # Split the suffix instead of matching an arbitrary country
+              # followed by whitespace: that regex backtracks on long spaces.
+              heading_country, _, heading_action = heading.delete_suffix('*').rstrip.rpartition(' ')
 
               if row.drop(1).flatten.all? { |text| Ituob::Helpers.replace_legacy_space(text.to_s).strip.empty? } &&
-                  (header = heading.match(TABLE_COUNTRY_ACTION_LINE))
+                  !heading_country.strip.empty? && TABLE_ACTION_TYPES.include?(heading_action)
                 action = next_action(amendment, action)
                 # A table's country SUP block replaces the listed codes
                 # with the rows printed below it.
-                action.action_type = header[:action] == 'SUP' ? 'REP' : header[:action]
-                last_country = header[:country].strip
+                action.action_type = heading_action == 'SUP' ? 'REP' : heading_action
+                last_country = heading_country.strip
                 next
               end
 
