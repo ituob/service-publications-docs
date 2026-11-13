@@ -11,10 +11,11 @@ data:
   entries:
   - country: China
     administration_name: Ministry of Industry and Information Technology (MIIT)
-    manufactures_htv: 'YES'
+    manufactures_htv: true
     last_updated: 15 December 2011
     assignment_authority:
-    - terminal_type: H-, T- and V-Series
+    - terminal_type:
+      - H-, T- and V-Series
       contact_name: Ms. Mei DENG, Mr. Shizhuo ZHAO
       organization: China Communication Standards Association (CCSA)
       department: " "
