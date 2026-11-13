@@ -19,7 +19,7 @@ RSpec.describe 'validate_data_lml freeform inventory' do
   around do |example|
     Dir.mktmpdir('freeform-validation') do |root|
       @root = root
-      ['scripts', 'catalogs', File.dirname("ob-issues/#{file}"), 'sources'].each do |dir|
+      ['scripts', 'catalogs', File.dirname("ob-issues/#{file}"), File.dirname(asset)].each do |dir|
         FileUtils.mkdir_p(File.join(root, dir))
       end
       FileUtils.cp(File.expand_path('../../../scripts/validate_data_lml.rb', __dir__), File.join(root, 'scripts'))
@@ -78,6 +78,44 @@ RSpec.describe 'validate_data_lml freeform inventory' do
       stdout, _stderr, status = result
       expect(status.success?).to be(false)
       expect(stdout).to include(file, 'missing source asset')
+    end
+  end
+
+  context 'with the real inventory and an uninitialized source submodule' do
+    let(:inventory) do
+      YAML.load_file(File.expand_path('../../../catalogs/freeform_messages.yaml', __dir__))
+    end
+    let(:file) { inventory.first.fetch('file') }
+    let(:asset) { "ob-issues/#{file.split('/').first}/general/misc_comms.adoc" }
+
+    before do
+      inventory.each do |entry|
+        message = File.join(@root, 'ob-issues', entry.fetch('file'))
+        source = File.join(File.dirname(File.dirname(message)), 'general/misc_comms.adoc')
+        FileUtils.mkdir_p(File.dirname(message))
+        FileUtils.mkdir_p(File.dirname(source))
+        File.write(message, { 'contents' => 'general/misc_comms.adoc' }.to_yaml)
+        File.write(source, 'Printed message')
+      end
+    end
+
+    it 'validates all issues using the assets in the issue tree' do
+      expect(File.exist?(File.join(@root, 'itu-ob-data'))).to be(false)
+      stdout, stderr, status = result
+      expect(status.success?).to be(true), "#{stdout}\n#{stderr}"
+      expect(stdout).to include('INSTANCE DATA VALID')
+      inventory.each { |entry| expect(stdout).to include("SKIP #{entry.fetch('file')}") }
+    end
+
+    context 'in sample mode' do
+      let(:arguments) { [] }
+
+      it 'accepts the inventory assets even for issues outside the sample' do
+        expect(File.exist?(File.join(@root, 'itu-ob-data'))).to be(false)
+        stdout, stderr, status = result
+        expect(status.success?).to be(true), "#{stdout}\n#{stderr}"
+        expect(stdout).to include('INSTANCE DATA VALID')
+      end
     end
   end
 
