@@ -25,6 +25,11 @@ def deep_stringify_keys(value)
   end
 end
 
+def freeform_general_message?(rel, data)
+  resolved = Ituob::Support::CorpusTree.resolve_for(rel, data)
+  resolved&.start_with?('General') && data.is_a?(Hash) && data['contents'].is_a?(String)
+end
+
 issues = Dir.children(ROOT).grep(/\A\d+\z/).map(&:to_i).sort
 selected = ALL ? issues : issues.select { |i| (i % 10).zero? || i == issues.min || i == issues.max }
 selected -= [669, 1075] if selected.include?(669) && !ALL # incomplete editions validated separately
@@ -32,6 +37,33 @@ selected -= [669, 1075] if selected.include?(669) && !ALL # incomplete editions 
 failures = []
 validated = 0
 skipped = 0
+
+# Check the complete inventory even when validating a sample of issues.
+freeform_messages = YAML.load_file(File.expand_path('../catalogs/freeform_messages.yaml', __dir__))
+freeform_by_file = {}
+freeform_messages.each do |entry|
+  file = entry.fetch('file')
+  asset = entry.fetch('source_asset')
+  reason = entry.fetch('reason')
+  failures << "#{file}: duplicate freeform listing" if freeform_by_file.key?(file)
+  failures << "#{file}: missing freeform reason" if reason.to_s.strip.empty?
+  freeform_by_file[file] = entry
+  path = File.join(ROOT, file)
+  unless File.file?(path)
+    failures << "#{file}: listed message is missing"
+    next
+  end
+
+  data = YAML.load_file(path, permitted_classes: [Date, Time], aliases: true)
+  unless freeform_general_message?(file.split('/', 2).last, data)
+    failures << "#{file}: listed message is no longer freeform"
+  end
+  unless File.file?(File.expand_path(asset, File.expand_path('..', __dir__)))
+    failures << "#{file}: missing source asset #{asset}"
+  end
+rescue StandardError => e
+  failures << "#{file}: #{e.class}: #{e.message.lines.first.strip}"
+end
 
 selected.each do |issue|
   dir = File.join(ROOT, issue.to_s)
@@ -65,12 +97,15 @@ selected.each do |issue|
       skipped += 1
       next
     end
-    # Textual general messages whose payload is not an inlined
-    # ProseMirror document are unmodeled freeform (e.g. three
-    # misc_communications files reference a source AsciiDoc asset).
-    if resolved.start_with?('General') &&
-       data.is_a?(Hash) && data.key?('contents') && data['contents'].is_a?(String)
-      skipped += 1
+    if freeform_general_message?(rel, data)
+      file = "#{issue}/#{rel}"
+      entry = freeform_by_file[file]
+      if entry
+        puts "SKIP #{file}: #{entry.fetch('reason')} (source: #{entry.fetch('source_asset')})"
+        skipped += 1
+      else
+        failures << "#{file}: unlisted freeform general message"
+      end
       next
     end
     if resolved == 'RegisterChange'

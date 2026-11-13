@@ -32,20 +32,7 @@ end
 # Build a Replay for one catalog entry. Returns nil for external or
 # seed-less registers (skipped cleanly — not an error).
 def build_replay(entry)
-  return nil if entry.external? || entry.seed_path.nil?
-
-  source = Ituob::Registers::DirectoryChangeSource.new(
-    register_id: entry.register_id,
-    seed_path: entry.seed_path,
-    seed_issue: entry.seed_issue,
-    key_field: entry.key_field,
-  )
-  Ituob::Registers::Replay.new(
-    register_id: entry.register_id,
-    key_field: entry.key_field,
-    source: source,
-    fallback_key_fields: entry.fallback_key_fields,
-  )
+  Ituob::Verifiers::RegisterStateIntegrityVerifier.build_replay(entry)
 end
 
 # Returns the count of files written for this register, or :skipped

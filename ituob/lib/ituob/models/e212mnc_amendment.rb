@@ -28,7 +28,7 @@ attribute :country, :string
 
       # "Belarus    SUP": a country line carrying its action, with no
       # position column.
-      COUNTRY_ACTION_LINE = /\A(?<country>\p{Lu}[^\d:()]{1,50}?)\s+(?<action>ADD|SUP|LIR|REP)\*?\z/
+      COUNTRY_ACTION_SUFFIX = /\s(?<action>ADD|SUP|LIR|REP)\*?\z/
       # "Sweden  (extra-territorial use of MCC/MNC, ...)": the heading of a
       # table that repeats codes with the MSIN ranges they may use abroad.
       # Found by string search, not a regex: a lazy run before `\s*\(`
@@ -57,6 +57,21 @@ attribute :country, :string
         return unless line[open, EXTRA_TERRITORIAL_MARK.length]&.casecmp?(EXTRA_TERRITORIAL_MARK)
 
         line[0...open].strip
+      end
+
+      # Extract the fixed-size suffix before checking the country, so
+      # country whitespace never competes with an action separator.
+      def self.country_action_line(line)
+        return if line.match?(/\AP\s*\d/)
+
+        suffix = line.match(COUNTRY_ACTION_SUFFIX)
+        return unless suffix
+
+        country = line[0...suffix.begin(0)].rstrip
+        return unless country.length.between?(1, 50)
+        return unless country.match?(/\A\p{Lu}[^\d:]*\z/)
+
+        { country: country, action: suffix[:action] }
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
@@ -115,7 +130,7 @@ attribute :country, :string
               end
             end
 
-            if !stripped.match?(/\AP\s*\d/) && (header = stripped.match(COUNTRY_ACTION_LINE))
+            if (header = country_action_line(stripped))
               action = next_action(amendment, action)
               action.action_type = header[:action]
               last_country = header[:country].strip

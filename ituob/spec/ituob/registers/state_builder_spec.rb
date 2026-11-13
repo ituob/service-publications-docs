@@ -82,6 +82,133 @@ RSpec.describe Ituob::Registers::StateBuilder do
     end
   end
 
+  describe '#key_history' do
+    let(:change) do
+      Ituob::Registers::Change.new(
+        type: type, register_id: register_id,
+        identifier: { 'code' => '1170-001' }, ob_issue_no: 1170,
+        data: { 'entries' => [{ 'code' => 'A' }, { 'code' => 'B' }] },
+      )
+    end
+    let(:type) { 'REP' }
+
+    before do
+      builder.set_entry('A', { 'code' => 'A', 'name' => 'Alpha' })
+      builder.set_entry('B', { 'code' => 'B', 'name' => 'Beta' })
+      builder.set_entry('C', { 'code' => 'C', 'name' => 'Gamma' })
+    end
+
+    %w[ADD MOD LIR REP SUP DEL].each do |action|
+      context "with a multi-row #{action}" do
+        let(:type) { action }
+
+        it 'records the change once under each affected data key' do
+          builder.record_history(change)
+          Ituob::Registers::Strategies::Resolver.apply(builder, change, 'code')
+
+          expect(builder.key_history).to eq({ 'A' => [change], 'B' => [change] })
+          expect(builder.history).to eq([change])
+        end
+      end
+    end
+
+    it 'records a lapse under the normalized key' do
+      builder.record_history(change)
+      builder.mark_lapsed(:A, reason: { 'en' => 'expired' })
+      builder.mark_lapsed('A')
+
+      expect(builder.key_history).to eq({ 'A' => [change] })
+    end
+
+    it 'records the resolved key for a query-based change' do
+      queried = Ituob::Registers::Change.new(
+        type: 'MOD', register_id: register_id,
+        identifier: { 'query' => { 'field' => 'name', 'value' => 'Beta' } },
+        data: { 'name' => 'Updated' }, ob_issue_no: 1170,
+      )
+      builder.record_history(queried)
+      Ituob::Registers::Strategies::Resolver.apply(builder, queried, 'code')
+
+      expect(builder.key_history).to eq({ 'B' => [queried] })
+    end
+
+    it 'keeps rejected changes only in the flat history' do
+      rejected = Ituob::Registers::Change.new(
+        type: 'SUP', register_id: register_id,
+        identifier: { 'code' => '1171-001' }, ob_issue_no: 1171,
+        data: { 'entries' => [{ 'code' => 'missing' }] },
+      )
+      builder.record_history(change)
+      Ituob::Registers::Strategies::Resolver.apply(builder, change, 'code')
+      builder.record_history(rejected)
+
+      expect {
+        Ituob::Registers::Strategies::Resolver.apply(builder, rejected, 'code')
+      }.to raise_error(Ituob::Registers::Strategies::StrategyError)
+      expect(builder.key_history).to eq({ 'A' => [change], 'B' => [change] })
+      expect(builder.history).to eq([change, rejected])
+    end
+
+    # Data-derived rows apply one by one: a conflicting row does not undo
+    # the rows before it, so those keys record the change.
+    it 'records a partly applied change only under the rows that applied' do
+      partial = Ituob::Registers::Change.new(
+        type: 'SUP', register_id: register_id,
+        identifier: { 'code' => '1171-001' }, ob_issue_no: 1171,
+        data: { 'entries' => [{ 'code' => 'A' }, { 'code' => 'missing' }] },
+      )
+      builder.record_history(change)
+      Ituob::Registers::Strategies::Resolver.apply(builder, change, 'code')
+      builder.record_history(partial)
+
+      expect {
+        Ituob::Registers::Strategies::Resolver.apply(builder, partial, 'code')
+      }.to raise_error(Ituob::Registers::Strategies::StrategyError)
+      expect(builder.key_history).to eq({ 'A' => [change, partial], 'B' => [change] })
+    end
+
+    it 'preserves earlier snapshots while recording later changes' do
+      builder.record_history(change)
+      Ituob::Registers::Strategies::Resolver.apply(builder, change, 'code')
+      state = builder.to_state(1170)
+      later = Ituob::Registers::Change.new(
+        type: 'DEL', register_id: register_id,
+        identifier: { 'code' => 'A' }, ob_issue_no: 1171,
+      )
+      builder.record_history(later)
+      Ituob::Registers::Strategies::Resolver.apply(builder, later, 'code')
+      current = builder.to_state(1171)
+
+      expect(state.key_history).to eq({ 'A' => [change], 'B' => [change] })
+      expect(state.history).to eq([change])
+      expect(current.key_history).to eq({ 'A' => [change, later], 'B' => [change] })
+      expect(current.history).to eq([change, later])
+    end
+
+    it 'preserves key histories through replay issue boundaries' do
+      deletion = Ituob::Registers::Change.new(
+        type: 'SUP', register_id: register_id,
+        identifier: { 'code' => '1171-001' }, ob_issue_no: 1171,
+        data: change.data,
+      )
+      source = Ituob::Registers::InlineChangeSource.new(
+        register_id: register_id, changes: [change, deletion],
+      )
+      replay = Ituob::Registers::Replay.new(
+        register_id: register_id, key_field: 'code', source: source,
+      )
+      states = replay.build_all_states
+
+      expect(states[1170].key_history).to eq({ 'A' => [change], 'B' => [change] })
+      expect(states[nil].key_history).to eq({
+        'A' => [change, deletion], 'B' => [change, deletion],
+      })
+      expect(states[nil].history).to eq([change, deletion])
+      expect(states[nil].entries).to be_empty
+      expect(states[nil].errors).to be_empty
+    end
+  end
+
   describe '#find_key_by_query' do
     it 'returns the first key whose entry matches the identifier' do
       builder.set_entry('A', { 'code' => 'A', 'name' => 'Alpha' })

@@ -18,6 +18,7 @@ module Ituob
     autoload :ChangeSchemaVerifier, 'ituob/verifiers/change_schema_verifier'
     autoload :CatalogIntegrityVerifier, 'ituob/verifiers/catalog_integrity_verifier'
     autoload :SnapshotIntegrityVerifier, 'ituob/verifiers/snapshot_integrity_verifier'
+    autoload :RegisterStateIntegrityVerifier, 'ituob/verifiers/register_state_integrity_verifier'
     autoload :ParserEquivalence, 'ituob/verifiers/parser_equivalence'
   end
 end
