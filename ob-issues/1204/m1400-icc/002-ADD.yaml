@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: E.ON Energie Deutschland GmbH
     address_line_1: Arnulfstrasse 203
     address_line_2: D-80634 MUNICH
     carrier_code: EONTEL
     contact: Mr Maximilian Schardt
     tel: "+49 89 1254 1962"
+    email:
+    - maximilian.schardt@eon.com
   notes: []

@@ -58,10 +58,12 @@ module Ituob
         GeneralTelephoneCommunication
         GeneralTelephoneSection
         GeneralTelephoneService
+        Identifier
         IptnEntry
         IssueAuthor
         IssueContact
         IssueMetadata
+        KeyHistoryEntry
         ListVIIIAction
         ListVIIICentralizingOffice
         ListVIIIMeasurement
@@ -71,12 +73,14 @@ module Ituob
         MultilingualString
         NNPAction
         NumberingPlanEntry
+        ProjectionProvenance
         Q708ISPCAction
         Q708ISPCEntry
         Q708SANCAction
         Q708SANCEntry
         RR251Action
         RR251Entry
+        RegisterEdition
         T35AssignmentAuthority
         T35NAAction
         T35NAEntry
@@ -114,14 +118,41 @@ module Ituob
           %w[GeneralServiceRestriction country] => ["MultilingualString", :string],
         }.freeze
 
+        # Ontology names for the lossless corpus value types
+        # (see DateOrText, HashOrText).
+        LOSSLESS_TYPES = {
+          "DateOrText" => "Ituob::Models::DateOrText",
+          "HashOrText" => "Ituob::Models::HashOrText",
+        }.freeze
+
+        # lutaml-model omits an empty value ("" or []) from the
+        # serialized hash unless the mapping says render_empty. These
+        # classes hold values the corpus stores empty on purpose
+        # (`communications: []`, `incomplete: false`), so every attribute
+        # is mapped explicitly and renders what it holds.
+        RENDER_EMPTY_CLASSES = %w[GeneralTelephoneSection IssueMetadata].freeze
+
+        def apply_key_value_mappings
+          super
+          RENDER_EMPTY_CLASSES.each do |name|
+            klass = compiled_classes.fetch(name)
+            names = klass.attributes.keys
+            klass.key_value do
+              names.each { |attr| map attr.to_s, to: attr, render_empty: true }
+            end
+          end
+        end
+
         def resolve_type(type_name)
           return :hash if type_name == "Hash"
+          return Object.const_get(LOSSLESS_TYPES.fetch(type_name)) if LOSSLESS_TYPES.key?(type_name)
 
           super
         end
 
         def build_attributes(klass_def)
           super.map do |attr_name, raw_type, type, options|
+            options = projection_options(klass_def, options)
             members = UNION_ATTRIBUTES[[klass_def.name.to_s, attr_name.to_s]]
             next [attr_name, raw_type, type, options] unless members
 
@@ -131,6 +162,14 @@ module Ituob
             [attr_name, raw_type, Lutaml::Model::Type::Union,
              options.merge(union_member_types: resolved)]
           end
+        end
+
+        # Deserialization assigns missing fields after initialize;
+        # projection collections need attribute defaults as well.
+        def projection_options(klass_def, options)
+          return options unless klass_def.name.to_s == 'RegisterEdition' && options[:collection]
+
+          options.merge(default: -> { [] })
         end
       end
 

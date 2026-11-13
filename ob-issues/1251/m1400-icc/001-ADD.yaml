@@ -4,17 +4,20 @@ date_active: *1
 ob_issue_no: '1251'
 reference: OB-1251
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: ONENEO GmbH Bulk-Account
     address_line_1: Am Alten Gericht 25
     address_line_2: D-95131 SCHWARZENBACH A. WALD
     carrier_code: FL1NEO
     contact: Mr Martin Pister
     tel: "+49 9289 8575 471"
+    email:
+    - martin.pister@oneneo.de
   notes: []

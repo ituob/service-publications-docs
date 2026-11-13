@@ -83,6 +83,10 @@ module Ituob
     autoload :GeneralServiceRestrictions, 'ituob/models/general_service_restrictions'
     autoload :GeneralTelephoneServices, 'ituob/models/general_telephone_service'
 
+    # Value types for corpus fields that must be kept as stored
+    autoload :DateOrText, 'ituob/models/date_or_text'
+    autoload :HashOrText, 'ituob/models/hash_or_text'
+
     # Data-shape classes compiled from the LML ontology; loaded
     # eagerly because sibling leaf files reference these constants at
     # load time (e.g. ListVIIIAction's entries type).

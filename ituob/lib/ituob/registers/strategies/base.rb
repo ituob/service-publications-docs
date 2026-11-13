@@ -14,9 +14,9 @@ module Ituob
       # printed amendments it records the table position ("P 19"),
       # which is not a key.
       #
-      # When rows are data-derived, validation runs for every key
-      # BEFORE any mutation (a change applies atomically or not at
-      # all).
+      # When rows are data-derived, each row is validated and applied
+      # on its own; rows that conflict are reported individually and
+      # do not stop the others.
       class Base
         # Does this strategy destroy or remove data? Default false.
         # Destructive strategies (SUP, DEL) override to return true.
@@ -51,6 +51,20 @@ module Ituob
         # resolve to their first non-empty entry in the OB canonical
         # language order, matching how the printed list reads.
         def self.entry_key(row, key_field, fallbacks = [])
+          key = composite_key(row, key_field)
+          return key if key
+
+          Array(fallbacks).each do |field|
+            key = composite_key(row, field, blank_absent: true)
+            return key if key
+          end
+          nil
+        end
+
+        # +blank_absent+: a part holding only whitespace or NBSP counts as
+        # missing. Fallback fields set it so a blank cell never becomes a
+        # key; the primary field keeps the printed cell as the key.
+        def self.composite_key(row, key_field, blank_absent: false)
           parts = Array(key_field).map do |field|
             value = row[field] || row[field.to_sym]
             case value
@@ -59,9 +73,14 @@ module Ituob
             else value.to_s
             end
           end
+          parts = parts.map { |p| blank_part?(p) ? nil : p } if blank_absent
           return nil if parts.all? { |p| p.nil? || p.empty? }
 
           parts.map { |p| p.nil? || p.empty? ? '' : p }.join(' | ')
+        end
+
+        def self.blank_part?(part)
+          part&.delete(" \t\r\n\u00a0")&.empty?
         end
 
         # Canonical OB language order (matches the site renderer).
@@ -101,10 +120,11 @@ module Ituob
           apply(builder, change, key_field, key, fallbacks)
         end
 
-        # Common entry: validate then apply. Data-derived keys are
-        # validated as a set first so a partial change never half-
-        # applies.
-        def self.call(builder, change, key_field, fallbacks = [])
+        # Common entry. Single-key changes validate then apply. Data-
+        # derived rows apply one by one: a row that conflicts is handed
+        # to +on_conflict+ (one report per row) and the remaining rows
+        # still apply. Without a block the first conflict raises.
+        def self.call(builder, change, key_field, fallbacks = [], &on_conflict)
           rows = rows_for(change, key_field, fallbacks)
           if rows.empty?
             key = resolve_key(builder, change, key_field, fallbacks)
@@ -113,10 +133,26 @@ module Ituob
             return
           end
 
-          keys = rows.map { |r| entry_key(r, key_field, fallbacks) }
-          keys.each_with_index { |k, i| validate!(builder, change, k, rows[i]) }
-          keys.each_with_index { |k, i| apply_row(builder, change, key_field, k, rows[i], fallbacks) }
+          seen = {}
+          rows.each do |row|
+            apply_valid_row(builder, change, key_field, row, fallbacks, seen, &on_conflict)
+          end
         end
+
+        # A key repeated within one change is validated once, against the
+        # state before the change; earlier rows of the same change must not
+        # turn a repeat into a conflict.
+        def self.apply_valid_row(builder, change, key_field, row, fallbacks, seen, &on_conflict)
+          key = entry_key(row, key_field, fallbacks)
+          validate!(builder, change, key, row) unless seen.key?(key)
+          seen[key] = true
+          apply_row(builder, change, key_field, key, row, fallbacks)
+        rescue StrategyError => e
+          raise unless on_conflict
+
+          on_conflict.call(e)
+        end
+        private_class_method :apply_valid_row
       end
     end
   end

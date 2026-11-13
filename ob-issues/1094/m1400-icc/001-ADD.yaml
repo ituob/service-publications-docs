@@ -4,23 +4,26 @@ date_active:
 ob_issue_no: '1094'
 reference: OB-1094
 identifier:
-  code: Switzerland (Confederation
+  code: Switzerland (Confederation of) / CHE
 data:
   _class: M1400Amendment
-  position: Switzerland (Confederation
+  position: Switzerland (Confederation of) / CHE
   entries:
-  - country_or_area:
-      en: Switzerland
+  - iso_code: CHE
+    country_or_area:
+      en: Switzerland (Confederation of)
     company_name: AAA COMMUNICATION EUROPE AG
     carrier_code: ACE
     contact: M. Allan Barquero
-  - country_or_area:
-      en: Switzerland
+  - iso_code: CHE
+    country_or_area:
+      en: Switzerland (Confederation of)
     company_name: Gasometerstrasse 34
     contact: 'Tel:         +41 76 7922495'
     tel: "+41 76 7922495"
-  - country_or_area:
-      en: Switzerland
+  - iso_code: CHE
+    country_or_area:
+      en: Switzerland (Confederation of)
     company_name: 8005 ZÜRICH
     contact: 'E-mail:     info@acommgroup.com'
     email:

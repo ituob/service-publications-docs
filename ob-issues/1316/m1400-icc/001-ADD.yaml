@@ -4,17 +4,20 @@ date_active: *1
 ob_issue_no: '1316'
 reference: OB-1316
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Bahnhof Nätverk GmbH
     address_line_1: Kottbusser Damm 76
     address_line_2: D-10967 BERLIN
     carrier_code: BHOF02
     contact: Mr Philip Göransson
     tel: "+46 76 111 01 37"
+    email:
+    - philip.goransson@bahnhof.net
   notes: []

@@ -4,17 +4,20 @@ date_active: *1
 ob_issue_no: '1322'
 reference: OB-1322
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: monowi e.K.
     address_line_1: Klingholz 3
     address_line_2: D-97232 GIEBELSTADT
     carrier_code: MONOWI
     contact: Network Operations (NOC)
     tel: "+49 9334 2469485"
+    email:
+    - operation@monovi.net
   notes: []

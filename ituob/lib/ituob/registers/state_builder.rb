@@ -15,7 +15,7 @@ module Ituob
       include Ituob::Support::DeepFreeze
 
       attr_reader :register_id, :entries, :lapsed_keys, :deleted_keys,
-                  :supersessions, :lapse_reasons, :history, :errors
+                  :supersessions, :lapse_reasons, :history, :key_history, :errors
 
       def initialize(register_id)
         @register_id = register_id
@@ -25,18 +25,23 @@ module Ituob
         @supersessions = {}
         @lapse_reasons = {}
         @history = []
+        @key_history = {}
+        @touched_keys = Set.new
         @errors = []
       end
 
       def set_entry(key, row)
+        record_key_history(key)
         @entries[key.to_s] = row
       end
 
       def remove_entry(key)
+        record_key_history(key) if @entries.key?(key.to_s)
         @entries.delete(key.to_s)
       end
 
       def mark_lapsed(key, reason: nil)
+        record_key_history(key)
         @lapsed_keys << key.to_s
         @lapse_reasons[key.to_s] = reason if reason
       end
@@ -47,6 +52,7 @@ module Ituob
       end
 
       def mark_deleted(key)
+        record_key_history(key)
         @deleted_keys << key.to_s
       end
 
@@ -59,6 +65,7 @@ module Ituob
       end
 
       def record_history(change)
+        @touched_keys.clear
         @history << change
       end
 
@@ -88,10 +95,23 @@ module Ituob
           lapsed_keys: @lapsed_keys.dup,
           deleted_keys: @deleted_keys.dup,
           history: @history.dup,
+          key_history: @key_history.transform_values(&:dup),
           error_count: @errors.length,
           errors: @errors.dup,
           lapse_reasons: @lapse_reasons.dup,
         )
+      end
+
+      private
+
+      # Replay records a change before its strategy runs. Attribute each
+      # subsequent mutation to that change, once per key even when the
+      # strategy both removes the entry and marks it deleted.
+      def record_key_history(key)
+        return if @history.empty?
+        return unless @touched_keys.add?(key.to_s)
+
+        (@key_history[key.to_s] ||= []) << @history.last
       end
     end
   end

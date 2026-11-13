@@ -157,15 +157,41 @@ RSpec.describe Ituob::Registers::Replay do
       expect(s.deleted_keys).to contain_exactly('ABC', 'DEF')
     end
 
-    it 'applies atomically: one bad key skips the whole change' do
+    it 'applies the rows that exist and reports each missing row on its own' do
       write_change('700-001-SUP-P19.yaml', {
         'type' => 'SUP', 'ob_issue_no' => '700',
         'identifier' => { 'code' => 'P 19' },
-        'data' => { 'entries' => [{ 'code' => 'ABC' }, { 'code' => 'NOPE' }] },
+        'data' => { 'entries' => [{ 'code' => 'ABC' }, { 'code' => 'NOPE' }, { 'code' => 'NADA' }] },
       })
       s = replay.at_issue(700)
-      expect(s.active_keys).to contain_exactly('ABC', 'DEF')
-      expect(s.errors.join).to include('SUP conflict')
+      expect(s.active_keys).to eq(['DEF'])
+      expect(s.deleted_keys).to contain_exactly('ABC')
+      expect(s.errors.size).to eq(2)
+      expect(s.errors[0]).to include('SUP conflict', '"NOPE"')
+      expect(s.errors[1]).to include('SUP conflict', '"NADA"')
+    end
+
+    it 'applies every row of a multi-row amendment keyed by a fallback field' do
+      replay = described_class.new(
+        register_id: 'F1', key_field: 'code', source: source, fallback_key_fields: ['cc_ic'],
+      )
+      write_change('700-001-SUP-Noteo.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '700',
+        'identifier' => { 'code' => 'Note o)' },
+        'data' => { 'entries' => [{ 'cc_ic' => 'ABC' }, { 'cc_ic' => 'DEF' }] },
+      })
+      s = replay.at_issue(700)
+      expect(s.active_keys).to eq([])
+      expect(s.deleted_keys).to contain_exactly('ABC', 'DEF')
+    end
+
+    it 'applies a patch issued in the seed issue after the seed' do
+      write_change('669-001-SUP-P1.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '669',
+        'identifier' => { 'code' => 'P 1' },
+        'data' => { 'entries' => [{ 'code' => 'ABC' }] },
+      })
+      expect(replay.at_issue(669).active_keys).to eq(['DEF'])
     end
   end
 

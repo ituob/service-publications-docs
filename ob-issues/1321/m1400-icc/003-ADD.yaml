@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: net services GmbH & Co. KG
     address_line_1: Lise-Meitner-Straße 4
     address_line_2: D-24941 FLENSBURG
     carrier_code: NETSER
     contact: Klaus Horter
     tel: "+49 461 404848 60"
+    email:
+    - klaus.horter@netservices.de
   notes: []

@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Giganet Services GmbH
     address_line_1: Friedrich-Ebert-Anlage 36
     address_line_2: D-60325 FRANKFURT
     carrier_code: GSGISP
     contact: Mr Frank Bonnemeier
     tel: "+49 170 4497116"
+    email:
+    - f.bonnemeier@giganet-services.gmbh
   notes: []

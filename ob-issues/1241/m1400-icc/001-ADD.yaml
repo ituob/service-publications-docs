@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1241'
 reference: OB-1241
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Melanie Brandl - Brandl Systems -
     address_line_1: Buchbitze 7 b
     address_line_2: D-53797 LOHMAR
@@ -18,4 +19,6 @@ data:
     contact: Mrs Melanie Brandl
     tel: "+49 2246 906 972 0"
     fax: "+49 2246 906 972 99"
+    email:
+    - info@brandl-systems.de
   notes: []

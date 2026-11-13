@@ -46,6 +46,24 @@ OB_ISSUES_OUT_PATH = ENV.fetch('OB_ISSUES_OUT_PATH') {
   File.expand_path('../ob-issues', __dir__)
 }
 
+# Cutover guard. Editions >= CUTOVER_EDITION are owned by the member-submission
+# workflow (the Worker writes ob-issues/{N}/... directly), so the legacy
+# itu-ob-data feed must never wipe or rewrite them. nil (the default: unset or
+# empty env var) keeps the historic behavior for every edition.
+def parse_cutover_edition(raw)
+  return nil if raw.nil? || raw.strip.empty?
+
+  Integer(raw.strip, 10)
+rescue ArgumentError
+  abort "CUTOVER_EDITION must be a non-negative integer, got #{raw.inspect}"
+end
+
+CUTOVER_EDITION = parse_cutover_edition(ENV['CUTOVER_EDITION'])
+
+def after_cutover?(issue_id)
+  !CUTOVER_EDITION.nil? && issue_id.to_i >= CUTOVER_EDITION
+end
+
 # Map OB publication identifiers to filesystem-safe dataset names.
 DATASET_SLUG_BY_PUBLICATION = {
   'E118_IIN' => 'e118-iin',
@@ -320,6 +338,11 @@ def process_general(issue_id, src_dir, dst_dir, stats)
 end
 
 def process_issue(issue_id, stats)
+  if after_cutover?(issue_id)
+    stats[:issues_preserved] += 1
+    return
+  end
+
   src_dir = File.join(ITU_OB_DATA_PATH, issue_id.to_s)
   return unless File.directory?(src_dir)
 
