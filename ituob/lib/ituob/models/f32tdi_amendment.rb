@@ -214,7 +214,7 @@ attribute :notes, :string, collection: true
 
       # A country-only row prints one language of the current country.
       # Fill the first empty fr/en/es slot (or open a new country).
-      def self.merge_country_variant(state, paragraphs, new_country: false)
+      def self.merge_country_variant(state, paragraphs, new_country: false, allow_duplicate_language: false)
         parts, notes = paragraphs.partition { |text| !note_paragraph?(text) }
         parts = parts.map do |text|
           country, separator, marker = text.rpartition(' ')
@@ -233,12 +233,14 @@ attribute :notes, :string, collection: true
           return
         end
 
+        country_values = language_values(state.country) if state.country
         if state.country.nil? || parts.length == 3 ||
-            ((new_country || language_values(state.country).length == 3) &&
-              !language_values(state.country).include?(value))
+            ((new_country || country_values.length == 3) && !country_values.include?(value))
           state.country = trilingual_country(parts)
           state.country_note = nil
-        elsif !language_values(state.country).include?(value)
+        elsif !country_values.include?(value) || allow_duplicate_language
+          # After a standalone heading, repeated labels can fill distinct
+          # language slots with the same spelling (UKRAINE/UKRAINE/UCRANIA).
           lang = %i[en es fr].find { |language| state.country.public_send(language).nil? }
           state.country.public_send("#{lang}=", value) if lang
         end
@@ -251,12 +253,14 @@ attribute :notes, :string, collection: true
       end
 
       def self.build_entry(texts, state)
+        heading_context = state.in_country_heading
         state.in_country_heading = false
         previous_country = state.country&.fr
-        # Country/network rows start a block; keep language continuation rows
-        # attached to it and reset collected network codes when the country changes.
-        merge_country_variant(state, texts[0], new_country: texts[1..2].any?(&:any?))
-        state.network_codes = [] if previous_country && state.country&.fr != previous_country && texts[1..2].any?(&:any?)
+        # A printed network code starts a country block. The network-name
+        # column can continue across translated country rows (OB 1148).
+        merge_country_variant(state, texts[0], new_country: !texts[2].empty?,
+          allow_duplicate_language: heading_context)
+        state.network_codes = [] if previous_country && state.country&.fr != previous_country && !texts[2].empty?
         update_network(texts, state)
 
         F32TDIEntry.new(
