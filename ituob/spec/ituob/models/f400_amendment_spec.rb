@@ -48,6 +48,17 @@ RSpec.describe Ituob::Models::F400Amendment do
           ['Berlin', 'Street 2', 'Contact DE']
         ])
       end
+
+      it 'preserves Spanish when the blank row separates English and Spanish continuations' do
+        rows[1], rows[2] = rows[2], rows[1]
+
+        entries = described_class.parse(document).actions.first.entries
+
+        expect(entries.map(&:admd_name)).to eq(['ADMD-FR', 'ADMD-DE'])
+        expect(entries.first.country_or_area.en).to eq('France EN')
+        expect(entries.first.country_or_area.es).to eq('Francia')
+        expect(entries.last.country_or_area.fr).to eq('Allemagne')
+      end
     end
   end
 end
