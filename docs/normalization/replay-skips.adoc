@@ -12,16 +12,15 @@ Unclassified skips or unexpected replay errors fail generation instead of being
 silently assigned a source-gap class. Print references identify the transcribed
 wording in `itu-ob-data`, not a PDF page or a reconstructed seed.
 
-Total skips: *46*.
+Total skips: *37*.
 
 == Totals per register
 
 [cols="1,1",options="header"]
 |===
 |Register |Skips
-|E118_IIN |1
 |F32_TDI |34
-|Q708_ISPC |10
+|Q708_ISPC |2
 |X121_DNIC |1
 |===
 
@@ -34,7 +33,7 @@ pre-#66 counts are historical baselines; they are not expected totals here.
 |===
 |Class |Meaning |Skips
 |S |Seed or route from an existing dataset |0
-|E |Engine rule (including seed-issue amendments already embodied) |10
+|E |Engine rule (including seed-issue amendments already embodied) |1
 |T |Correct the action type from print |0
 |D |Mis-filed patch |1
 |G |Documented source or extraction gap |35
