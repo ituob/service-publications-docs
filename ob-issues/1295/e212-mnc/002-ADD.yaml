@@ -1,0 +1,51 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1295'
+reference: OB-1295
+identifier:
+  code: 1295-002
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 525 04
+    country_or_area:
+      en: Singapore
+    networks: Grid Communications Limited
+  - mcc_mnc_codes: 525 06
+    country_or_area:
+      en: Singapore
+    networks: StarHub Mobile Pte Ltd
+  - mcc_mnc_codes: 525 07
+    country_or_area:
+      en: Singapore
+    networks: StarHub Mobile Pte Ltd
+  - mcc_mnc_codes: 525 11
+    country_or_area:
+      en: Singapore
+    networks: M1 Limited
+  - mcc_mnc_codes: 525 200
+    country_or_area:
+      en: Singapore
+    networks: 5G Test Bed
+  - mcc_mnc_codes: 525 201
+    country_or_area:
+      en: Singapore
+    networks: 5G EP Twin Networks
+  - mcc_mnc_codes: 525 202
+    country_or_area:
+      en: Singapore
+    networks: 5G EP Twin Networks
+  - mcc_mnc_codes: 525 203
+    country_or_area:
+      en: Singapore
+    networks: 5G EP Twin Networks
+  - mcc_mnc_codes: 525 204
+    country_or_area:
+      en: Singapore
+    networks: 5G EP Twin Networks
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

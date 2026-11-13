@@ -1,0 +1,19 @@
+type: SUP
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1183'
+identifier:
+  code: 748 00
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 748 00
+    country_or_area:
+      en: Uruguay
+    networks: Ancel - TDMA
+  - mcc_mnc_codes: 748 03
+    country_or_area:
+      en: Uruguay
+    networks: Ancel
+  notes: []
+reference: OB-1183

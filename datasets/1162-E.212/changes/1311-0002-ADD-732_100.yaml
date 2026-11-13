@@ -1,0 +1,44 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1311'
+identifier:
+  code: 732 100
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 732 100
+    country_or_area:
+      en: Colombia
+    networks: COMUNICACION CELULAR S A COMCEL S A
+  - mcc_mnc_codes: 732 124
+    country_or_area:
+      en: Colombia
+    networks: COLOMBIA TELECOMUNICACIONES S.A E.S.P BIC
+  - mcc_mnc_codes: 732 154
+    country_or_area:
+      en: Colombia
+    networks: VIRGIN MOBILE COLOMBIA S.A.S.
+  - mcc_mnc_codes: 732 165
+    country_or_area:
+      en: Colombia
+    networks: COLOMBIA MOVIL S A E S P
+  - mcc_mnc_codes: 732 187
+    country_or_area:
+      en: Colombia
+    networks: EMPRESA DE TELECOMUNICACIONES DE BOGOTÁ S.A. ESP - ETB S.A. E.S.P.
+  - mcc_mnc_codes: 732 199
+    country_or_area:
+      en: Colombia
+    networks: SUMA MOVIL S.A.S.
+  - mcc_mnc_codes: 732 360
+    country_or_area:
+      en: Colombia
+    networks: PARTNERS TELECOM COLOMBIA SAS
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'
+reference: OB-1311
+date_active: 2018-11-14 23:00:00.000000000 Z

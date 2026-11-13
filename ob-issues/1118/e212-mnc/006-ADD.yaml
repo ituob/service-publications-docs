@@ -1,0 +1,43 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1118'
+reference: OB-1118
+identifier:
+  code: 1118-006
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 450 01
+    country_or_area:
+      en: Korea (Rep. of)
+    networks: Globalstar Asia Pacific / Satellite network
+  - mcc_mnc_codes: 450 04
+    country_or_area:
+      en: Korea (Rep. of)
+    networks: KT / IoT network
+  - mcc_mnc_codes: 450 05
+    country_or_area:
+      en: Korea (Rep. of)
+    networks: SK Telecom / 3G, 4G network
+  - mcc_mnc_codes: 450 07
+    country_or_area:
+      en: Korea (Rep. of)
+    networks: KT Powertel / 3G network
+  - mcc_mnc_codes: 450 08
+    country_or_area:
+      en: Korea (Rep. of)
+    networks: KT / 3G, 4G network
+  - mcc_mnc_codes: 450 11
+    country_or_area:
+      en: Korea (Rep. of)
+    networks: SK Telecom / 3G, 4G  network
+  - mcc_mnc_codes: 450 12
+    country_or_area:
+      en: Korea (Rep. of)
+    networks: SK Telecom / IoT network
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

@@ -1,0 +1,23 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1131'
+identifier:
+  code: 302 130
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 302 130
+    country_or_area:
+      en: Canada
+    networks: Xplornet Communications
+  - mcc_mnc_codes: 302 131
+    country_or_area:
+      en: Canada
+    networks: Xplornet Communications
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"
+reference: OB-1131

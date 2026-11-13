@@ -5,11 +5,8 @@ ob_issue_no: '1180'
 identifier:
   code: 302 330
 data:
-  _class: E212MNCAmendment
-  entries:
-  - country_or_area:
-      en: Canada ADD
-  - mcc_mnc_codes: 302 330
-    networks: Blue Canada Wireless Inc
-  notes: []
+  mcc_mnc_codes: 302 330
+  country_or_area:
+    en: Canada
+  networks: Blue Canada Wireless Inc
 reference: OB-1180

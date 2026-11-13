@@ -1,0 +1,23 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1156'
+identifier:
+  code: 414 22
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 414 22
+    country_or_area:
+      en: Myanmar
+    networks: Fortune Telecom Co., Ltd
+  - mcc_mnc_codes: 414 23
+    country_or_area:
+      en: Myanmar
+    networks: Global Technology Co., Ltd
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"
+reference: OB-1156

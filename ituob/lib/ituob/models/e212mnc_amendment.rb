@@ -59,6 +59,24 @@ attribute :country, :string
         line[0...open].strip
       end
 
+      # A three-cell table row holding only "«country» ACTION", with blank
+      # code and network cells, or nil when the row carries data.
+      def self.rowspan_heading(segs)
+        return unless segs[1..].all? { |cell| cell.to_s.gsub(/[ \s]/, '').empty? }
+
+        # The blank cells already mark a heading, so the country text is
+        # looser than country_action_line: headings such as "shared code"
+        # or "Trial of a proposed new international telecommunication
+        # service, shared code" start lowercase or run past 50 characters.
+        line = Ituob::Helpers.normalize_whitespace(segs[0])
+        # The footnote star may stand apart: "shared code LIR *".
+        suffix = line.match(/\s(?<action>ADD|SUP|LIR|REP)(?:\s?\*)?\z/)
+        return unless suffix
+
+        country = line[0...suffix.begin(0)].rstrip
+        { country: country, action: suffix[:action] } unless country.empty?
+      end
+
       # Extract the fixed-size suffix before checking the country, so
       # country whitespace never competes with an action separator.
       def self.country_action_line(line)
@@ -235,6 +253,13 @@ attribute :country, :string
                   amendment.actions << action
                   editor_country = Ituob::Helpers.replace_legacy_space(m[1]).strip
                 end
+              elsif row.length == 3 && (header = rowspan_heading(segs))
+                # Prosemirror layout: "«country» ACTION" spans the code
+                # and network rows below it; its own code and network
+                # cells are blank. It opens an action, it is not an entry.
+                action = next_action(amendment, action)
+                action.action_type = header[:action]
+                editor_country = header[:country]
               elsif row.length == 3
                 if row[1].count > 1
                   row[1].zip(row[2]).each do |r|

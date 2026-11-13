@@ -1,0 +1,27 @@
+type: SUP
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1309'
+reference: OB-1309
+identifier:
+  code: 1309-004
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 454 29
+    country_or_area:
+      en: Hong Kong, China
+    networks: Hong Kong Telecommunications (HKT) Limited
+  - mcc_mnc_codes: 454 32
+    country_or_area:
+      en: Hong Kong, China
+    networks: Hong Kong Broadband Network Ltd
+  - mcc_mnc_codes: 454 36
+    country_or_area:
+      en: Hong Kong, China
+    networks: Easco Telecommunications Limited
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

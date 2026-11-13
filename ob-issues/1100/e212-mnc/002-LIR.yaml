@@ -1,0 +1,30 @@
+type: LIR
+date_requested:
+date_active:
+ob_issue_no: '1100'
+reference: OB-1100
+identifier:
+  code: 1100-002
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 525 01
+    country_or_area:
+      en: Singapore
+    networks: Singtel ST GSM900
+  - mcc_mnc_codes: 525 02
+    country_or_area:
+      en: Singapore
+    networks: Singtel ST GSM1800
+  - mcc_mnc_codes: 525 03
+    country_or_area:
+      en: Singapore
+    networks: M1
+  - mcc_mnc_codes: 525 05
+    country_or_area:
+      en: Singapore
+    networks: StarHub
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil   MNC:  Mobile Network Code / Code de réseau mobile / Indicativo
+    de red para el servicio móvil"
