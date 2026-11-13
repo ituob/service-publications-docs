@@ -30,13 +30,9 @@ def check(label, ok, detail = nil)
   $failures << label unless ok
 end
 
-begin
-  # fetch runs the plugin's own discovery (Gem.find_files) first.
-  Metanorma::Plugin::Lutaml::DataProviders.fetch("ituob")
-rescue Metanorma::Plugin::Lutaml::DataProviders::Error
-  require_relative "ituob_provider_shim"
-  puts "NOTE using docs/proof/ituob_provider_shim.rb (card 127 registration not present)"
-end
+# The plugin's own discovery (Gem.find_files) loads the ituob gem's
+# registration file; no local registration here.
+Metanorma::Plugin::Lutaml::DataProviders.fetch("ituob")
 
 # Ground truth straight from the provider (not through the document).
 edition = Ituob::Provider.new.edition(register: REGISTER, as_of: AS_OF)
