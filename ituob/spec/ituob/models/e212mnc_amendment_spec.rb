@@ -169,6 +169,89 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     expect(entries.last.range).to eq('1-9')
   end
 
+  %w[paragraph table].each do |layout|
+    it "prefers printed row countries after a #{layout} country heading" do
+      heading = if layout == 'paragraph'
+                  paragraph('Hungary ADD')
+                else
+                  table(
+                    row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+                    row(cell(paragraph('Hungary ADD'))),
+                    row(cell(paragraph('216 04')), cell(paragraph('Hungarian network'))),
+                  )
+                end
+      doc = document(
+        heading,
+        table(
+          row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+          row(cell(paragraph('Belgium')), cell(paragraph('206 01')), cell(paragraph('Proximus'))),
+          row(cell(paragraph('Belgium')), cell(paragraph('206 02'), paragraph('206 03')),
+              cell(paragraph('Second network'), paragraph('Third network'))),
+        ),
+        table(
+          row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Range')), cell(paragraph('Network'))),
+          row(cell(paragraph('Belgium')), cell(paragraph('206 04')), cell(paragraph('1-9')), cell(paragraph('Fourth network'))),
+        ),
+      )
+      entries = parse(doc).actions.flat_map(&:entries).select { |entry| entry.mcc_mnc_codes.start_with?('206') }
+
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['206 01', '206 02', '206 03', '206 04'])
+      expect(entries.map { |entry| entry.country_or_area.en }).to eq(Array.new(4, 'Belgium'))
+    end
+  end
+
+  it 'recognizes multi-cell country headings with parentheses' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+        row(cell(paragraph('Hungary ADD')), cell(paragraph('')), cell(paragraph(''))),
+        row(cell(paragraph('216 04')), cell(paragraph('Hungarian network'))),
+        row(cell(paragraph('Iran (Islamic Republic of) SUP')), cell(paragraph("\u00a0")), cell(paragraph(' '))),
+        row(cell(paragraph('432 11')), cell(paragraph('Iranian network'))),
+        row(cell(paragraph("\u00a0")), cell(paragraph('432 12')), cell(paragraph('Another Iranian network'))),
+      ),
+    )
+    actions = parse(doc).actions
+
+    expect(actions.map(&:action_type)).to eq(%w[ADD REP])
+    expect(actions.map { |action| action.entries.map(&:mcc_mnc_codes) }).to eq([['216 04'], ['432 11', '432 12']])
+    expect(actions.last.entries.map { |entry| entry.country_or_area.en }).to eq(
+      ['Iran (Islamic Republic of)', 'Iran (Islamic Republic of)'],
+    )
+    expect(actions.last.entries.map(&:networks)).to eq(['Iranian network', 'Another Iranian network'])
+  end
+
+  it 'classifies single-cell editor SUP headings as replacement blocks' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country / Geographical area'))),
+        row(cell(paragraph('MCC + MNC')), cell(paragraph('Operator / Network'))),
+        row(cell(paragraph("Iran (Islamic Republic of)\u00a0 SUP"))),
+        row(cell(paragraph('432 11')), cell(paragraph('Iranian network'))),
+      ),
+    )
+    actions = parse(doc).actions
+
+    expect(actions.map(&:action_type)).to eq(['REP'])
+    expect(actions.first.entries.map(&:mcc_mnc_codes)).to eq(['432 11'])
+    expect(actions.first.entries.first.country_or_area.en).to eq('Iran (Islamic Republic of)')
+  end
+
+  it 'preserves starred actions in multi-cell country headings' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+        row(cell(paragraph('Hungary SUP*')), cell(paragraph('')), cell(paragraph(''))),
+        row(cell(paragraph('216 04')), cell(paragraph('Hungarian network'))),
+      ),
+    )
+    actions = parse(doc).actions
+
+    expect(actions.map(&:action_type)).to eq(['REP'])
+    expect(actions.first.entries.map(&:mcc_mnc_codes)).to eq(['216 04'])
+    expect(actions.first.entries.first.country_or_area.en).to eq('Hungary')
+  end
+
   context 'OB 1170 table announcements' do
     let(:amendment) do
       parse(YAML.safe_load_file(File.expand_path('../../fixtures/e212mnc/ob1170.yaml', __dir__)))

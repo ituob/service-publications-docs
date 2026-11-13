@@ -29,6 +29,9 @@ attribute :country, :string
       # "Belarus    SUP": a country line carrying its action, with no
       # position column.
       COUNTRY_ACTION_LINE = /\A(?<country>\p{Lu}[^\d:()]{1,50}?)\s+(?<action>ADD|SUP|LIR|REP)\*?\z/
+      # Table cells delimit country headings, including parenthesized
+      # names, without the paragraph layout's ambiguity.
+      TABLE_COUNTRY_ACTION_LINE = /\A(?<country>.+?)\s+(?<action>ADD|SUP|REP|LIR|MOD|DEL)\*?\z/
       # "Sweden  (extra-territorial use of MCC/MNC, ...)": the heading of a
       # table that repeats codes with the MSIN ranges they may use abroad.
       # Found by string search, not a regex: a lazy run before `\s*\(`
@@ -209,7 +212,7 @@ attribute :country, :string
               heading = Ituob::Helpers.replace_legacy_space(Array(row[0]).join(' ')).strip
 
               if row.drop(1).flatten.all? { |text| Ituob::Helpers.replace_legacy_space(text.to_s).strip.empty? } &&
-                  (header = heading.match(COUNTRY_ACTION_LINE))
+                  (header = heading.match(TABLE_COUNTRY_ACTION_LINE))
                 action = next_action(amendment, action)
                 # A table's country SUP block replaces the listed codes
                 # with the rows printed below it.
@@ -218,23 +221,17 @@ attribute :country, :string
                 next
               end
 
-              if row.length == 1
-                # Editor layout: single-cell "«country»\u00a0\u00a0 ACTION"
-                # rows carry the action for the entry rows that follow;
-                # other single-cell rows are titles — skip.
-                text = segs[0].to_s
-                if (m = text.match(/\A(.*?)[\u00a0 ]+(ADD|SUP|REP|LIR|MOD|DEL)\z/)) && !m[1].strip.empty?
-                  action = next_action(amendment, action)
-                  action.action_type = m[2] == 'SUP' ? 'REP' : m[2]
-                  last_country = Ituob::Helpers.replace_legacy_space(m[1]).strip
-                end
-              elsif row.length == 3
+              # Other single-cell rows are titles, not entries.
+              next if row.length == 1
+
+              country = heading.empty? ? last_country : heading
+              if row.length == 3
                 if row[1].count > 1
                   row[1].zip(row[2]).each do |r|
                     next if Ituob::Helpers.replace_legacy_space(r[0].to_s).strip.empty?
 
                     entry = E212MNCEntry.new
-                    entry.country_or_area = MultilingualString.new(en: last_country || row[0])
+                    entry.country_or_area = MultilingualString.new(en: country) if country
                     entry.mcc_mnc_codes = r[0]
                     entry.networks  = r[1]
                     action.entries << entry
@@ -243,7 +240,7 @@ attribute :country, :string
                   next if Ituob::Helpers.replace_legacy_space(segs[1].to_s).strip.empty?
 
                   entry = E212MNCEntry.new
-                  entry.country_or_area = MultilingualString.new(en: last_country || segs[0])
+                  entry.country_or_area = MultilingualString.new(en: country) if country
                   entry.mcc_mnc_codes = segs[1]
                   entry.networks = segs[2]
                   action.entries << entry
@@ -275,8 +272,7 @@ attribute :country, :string
                 next if Ituob::Helpers.replace_legacy_space(segs[1].to_s).strip.empty?
 
                 entry = E212MNCEntry.new
-                country = last_country || segs[0]
-                entry.country_or_area = MultilingualString.new(en: country) unless country.to_s.strip.empty?
+                entry.country_or_area = MultilingualString.new(en: country) if country
                 entry.mcc_mnc_codes = segs[1]
                 entry.range = segs[2]
                 entry.networks = segs[3]
