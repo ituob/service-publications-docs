@@ -142,6 +142,42 @@ RSpec.describe Ituob::Models::F400Amendment do
         expect(entries.first.contact_address[:address_lines]).to eq(['Addr'])
       end
     end
+
+    context 'when the column-number row has one leading blank cell (OB 1006)' do
+      let(:rows) { [[''] + %w[1 2 3 4 5 6 7 8 9], real] }
+
+      it 'skips it as layout' do
+        expect(entries.map(&:admd_name)).to eq(['SPAIRAL'])
+      end
+    end
+
+    context 'when a continuation row holds a few numeric cells' do
+      let(:rows) do
+        [real, ['', '', '', '', '', '', '6', '7', ''], ['', '1', '2', '', '', '', '', '', ''],
+         ['', '', '', '', '4', '5', '', '', '']]
+      end
+
+      it 'keeps them as continuation data' do
+        expect(entries.length).to eq(1)
+        expect(entries.first.contact_address[:address_lines]).to include('6', '7')
+      end
+    end
+
+    context 'when the MT/IPM sub-header is shifted one column left (OB 1006)' do
+      let(:rows) { [real, ['', '', 'MT', 'IPM', 'other', '', '', '', '']] }
+
+      it 'skips it as layout' do
+        expect(entries.first.contact_address[:address_lines]).to eq(['Addr'])
+      end
+    end
+
+    context 'when a continuation row has MT next to non-service text' do
+      let(:rows) { [real, ['', '', '', 'MT', '4', '', '', '', '']] }
+
+      it 'keeps it as continuation data' do
+        expect(entries.first.contact_address[:address_lines]).to include('MT')
+      end
+    end
   end
 
   context 'with the OB 1092 German block shape (en/es rows carry service labels)' do
