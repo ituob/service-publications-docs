@@ -15,7 +15,8 @@ module Ituob
       include Ituob::Support::DeepFreeze
 
       attr_reader :register_id, :entries, :lapsed_keys, :deleted_keys,
-                  :supersessions, :lapse_reasons, :history, :key_history, :errors
+                  :supersessions, :lapse_reasons, :history, :key_history, :errors,
+                  :reflected_in_seed
 
       def initialize(register_id)
         @register_id = register_id
@@ -28,6 +29,8 @@ module Ituob
         @key_history = {}
         @touched_keys = Set.new
         @errors = []
+        @reflected_in_seed = []
+        @reflected_keys = Set.new
       end
 
       def set_entry(key, row)
@@ -73,6 +76,17 @@ module Ituob
         @errors << message
       end
 
+      # A seed-issue removal the seed list already embodies: kept out of
+      # +errors+ but listed, so it stays visible.
+      def record_reflected(change, key)
+        @reflected_keys << key.to_s
+        @reflected_in_seed << "#{change.type} #{key.inspect} at OB #{change.ob_issue_no}: already absent from the seed"
+      end
+
+      def reflected?(key)
+        @reflected_keys.include?(key.to_s)
+      end
+
       def find_key_by_query(identifier, key_field)
         match = @entries.find do |k, row|
           identifier.matches?(row, key_field)
@@ -98,6 +112,7 @@ module Ituob
           key_history: @key_history.transform_values(&:dup),
           error_count: @errors.length,
           errors: @errors.dup,
+          reflected_in_seed: @reflected_in_seed.dup,
           lapse_reasons: @lapse_reasons.dup,
         )
       end

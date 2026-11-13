@@ -123,8 +123,9 @@ ROOT = File.expand_path('..', __dir__)
     private
 
     def report_skip(builder, change, error)
-      super
-      @skipped_changes << change
+      skipped = super
+      @skipped_changes << change if skipped
+      skipped
     end
   end
 
