@@ -3,6 +3,7 @@
 require 'spec_helper'
 require 'ituob/models'
 require 'ituob/helpers'
+require 'tmpdir'
 
 RSpec.describe Ituob::Models::F400Amendment do
   ['', " \t ", " \u00a0 "].each do |blank|
@@ -311,6 +312,40 @@ RSpec.describe Ituob::Models::F400Amendment do
 
       expect(entries.first.admd_name).to be_nil
       expect(entries.first.country_code).to eq('DE')
+    end
+  end
+
+  context 'with the OB 1093 Belgium row whose HELPDESK/AUTOANSWER are the bare scalars YES and NO' do
+    let(:source) do
+      printed = ['Belgique', 'INTEGRATIONCLOUD', 'BE', '"\\_"', '"\\_"', '"\\_"', 'YES', 'NO', 'Codit']
+      cells = printed.map do |c|
+        "{type: table_cell, content: [{type: paragraph, content: [{type: text, text: #{c}}]}]}"
+      end
+      <<~YAML
+        messages:
+          - contents:
+              en:
+                type: doc
+                content:
+                  - {type: paragraph, content: [{type: text, text: P 1 ADD}]}
+                  - type: table
+                    content:
+                      - {type: table_row, content: [#{cells.join(', ')}]}
+      YAML
+    end
+    let(:document) do
+      Dir.mktmpdir do |dir|
+        path = File.join(dir, 'amendments.yaml')
+        File.write(path, source)
+        Ituob::Support::Yaml.load_source_file(path)['messages'].first['contents']['en']
+      end
+    end
+
+    it 'keeps the printed YES and NO instead of the YAML 1.1 booleans' do
+      entry = described_class.parse(document).actions.first.entries.first
+
+      expect(entry.helpdesk).to eq({ x400: 'YES' })
+      expect(entry.autoanswer).to eq({ x400: 'NO' })
     end
   end
 end

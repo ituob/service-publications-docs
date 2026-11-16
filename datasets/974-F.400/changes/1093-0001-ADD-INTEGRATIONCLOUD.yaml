@@ -12,7 +12,9 @@ data:
   admd_name: INTEGRATIONCLOUD
   country_code: BE
   helpdesk:
-    x400: 'true'
+    x400: 'YES'
+  autoanswer:
+    x400: 'NO'
   contact_address:
     address_lines:
     - 'Codit Skaldenstraat 7b 9042 GHENT Belgium Email: support@codit.eu'

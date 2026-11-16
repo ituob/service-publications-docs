@@ -3,7 +3,7 @@ register: M1400_ICC
 recommendation: M.1400
 ob_issue_no: '1054'
 identifier:
-  code: 'true'
+  code: 'ON'
 data:
   _class: M1400Amendment
   entries:
@@ -11,7 +11,7 @@ data:
     country_or_area:
       en: Germany (Federal Republic of)
     company_name: OpenNumbers eG
-    carrier_code: 'true'
+    carrier_code: 'ON'
     contact: Mr. Joern Dost
   - iso_code: DEU
     country_or_area:
