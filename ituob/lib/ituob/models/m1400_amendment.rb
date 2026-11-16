@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'prosereflect'
+require 'ituob/catalogs'
+require 'ituob/support'
 
 module Ituob
   module Models
@@ -158,7 +160,7 @@ attribute :notes, :string, collection: true
                 next
               end
               m = heading_with_action(rf)
-              if !m && row.count { |cell| !cell.flatten.join.strip.empty? } == 1
+              if !m && row.count { |cell| !Ituob::Helpers.normalize_whitespace(cell.flatten.join).empty? } == 1
                 m = heading_without_slash(rf)
               end
               if m

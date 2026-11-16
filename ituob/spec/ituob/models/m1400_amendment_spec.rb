@@ -47,7 +47,7 @@ RSpec.describe Ituob::Models::M1400Amendment do
   describe 'country heading' do
     {
       'Germany / DEU' => ['Germany', 'DEU', nil],
-      'Germany DEU ADD' => ['Germany', 'DEU', 'ADD'],
+      'Germany / DEU ADD' => ['Germany', 'DEU', 'ADD'],
       'P 28 to P 29 Germany / DEU ADD' => ['Germany', 'DEU', 'ADD'],
       'P 28 Germany / DEU ADD' => ['Germany', 'DEU', 'ADD'],
       'Germany/DEU ADD' => ['Germany', 'DEU', 'ADD'],
@@ -86,6 +86,16 @@ RSpec.describe Ituob::Models::M1400Amendment do
       end
     end
 
+    it 'parses a heading in the only nonempty cell of a multi-cell row' do
+      amendment = described_class.parse(
+        doc(table(row(cell(paragraph('Germany DEU ADD')), cell(paragraph("\u00a0")), cell), company_row('Email: a@b.net')))
+      )
+      action = amendment.actions.first
+      entry = action.entries.first
+
+      expect([entry.country_or_area.en, entry.iso_code, action.action_type]).to eq(['Germany', 'DEU', 'ADD'])
+    end
+
     ['paragraph', 'single-cell table'].each do |shape|
       it "accepts a starred action in a #{shape}" do
         nodes = if shape == 'paragraph'
@@ -110,9 +120,17 @@ RSpec.describe Ituob::Models::M1400Amendment do
                     [table(row(cell(paragraph(heading))), company_row('Email: a@b.net'))]
                   end
           amendment = described_class.parse(doc(*nodes))
-          entry = amendment.actions.first.entries.first
+          entries = amendment.actions.flat_map(&:entries)
 
-          expect([entry.country_or_area&.en, entry.iso_code, amendment.actions.first.action_type]).to eq([nil, nil, nil])
+          if shape == 'paragraph'
+            company_entry = entries.find { |entry| entry.company_name == 'Timo Jung Streamworx' }
+            expect([company_entry.country_or_area&.en, company_entry.iso_code, amendment.actions.first.action_type])
+              .to eq([nil, nil, nil])
+          else
+            expect(entries.map(&:company_name)).to include(heading, 'Timo Jung Streamworx')
+            company_entry = entries.find { |entry| entry.company_name == 'Timo Jung Streamworx' }
+            expect([company_entry.country_or_area&.en, company_entry.iso_code]).to eq([nil, nil])
+          end
         end
       end
     end
@@ -133,8 +151,10 @@ RSpec.describe Ituob::Models::M1400Amendment do
         doc(paragraph('Palau / PLW ADD'),
             table(row(cell(paragraph('Germany DEU XYZ')), cell, cell), company_row('Email: a@b.net')))
       )
-      entry = amendment.actions.first.entries.first
+      entries = amendment.actions.first.entries
+      entry = entries.find { |candidate| candidate.company_name == 'Timo Jung Streamworx' }
 
+      expect(entries.map(&:company_name)).to include('Germany DEU XYZ', 'Timo Jung Streamworx')
       expect([entry.country_or_area.en, entry.iso_code]).to eq(['Palau', 'PLW'])
     end
 
