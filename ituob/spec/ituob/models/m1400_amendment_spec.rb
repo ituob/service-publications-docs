@@ -45,6 +45,160 @@ RSpec.describe Ituob::Models::M1400Amendment do
   end
 
   describe 'country heading' do
+    it 'keeps a padded ISO row as company data while preserving the prior action' do
+      padded_row = 'Germany (Federal Republic of) /     DEU'
+      amendment = described_class.parse(
+        doc(paragraph('Germany (Federal Republic of) / DEU ADD'),
+            table(row(cell(paragraph(padded_row)), cell, cell),
+                  company_row('Email: a@b.net')))
+      )
+      entries = amendment.actions.flat_map(&:entries)
+      action = amendment.actions.find { |candidate| candidate.entries.length == 2 }
+
+      expect(entries.map(&:company_name)).to eq([padded_row, 'Timo Jung Streamworx'])
+      expect(entries.map { |entry| [entry.country_or_area&.en, entry.iso_code] })
+        .to eq([['Germany (Federal Republic of)', 'DEU'], ['Germany (Federal Republic of)', 'DEU']])
+      expect(action&.action_type).to eq('ADD')
+    end
+
+    ['Country or area/ISO code ADD', 'Notes and/or updates ADD'].each do |heading|
+      it "does not replace country context with #{heading.inspect}" do
+        prior_note = parse('Germany / DEU ADD', 'Email: a@b.net').actions.first.note
+        amendment = described_class.parse(
+          doc(paragraph('Germany / DEU ADD'), paragraph(heading), table(company_row('Email: a@b.net')))
+        )
+        action = amendment.actions.find { |candidate| candidate.entries.any? }
+        entry = action.entries.first
+
+        expect([entry.country_or_area.en, entry.iso_code, action.action_type, action.note])
+          .to eq(['Germany', 'DEU', 'ADD', prior_note])
+      end
+    end
+
+    it 'keeps the action for a translated label of the same ISO country' do
+      amendment = described_class.parse(
+        doc(paragraph('Germany (República Federal de) / DEU ADD'),
+            table(row(cell(paragraph('Germany (Federal Republic of) / DEU')), cell, cell),
+                  company_row('Email: a@b.net')))
+      )
+      action = amendment.actions.find { |candidate| candidate.entries.any? }
+      entry = action.entries.first
+
+      expect([entry.country_or_area.en, entry.iso_code, action.action_type])
+        .to eq(['Germany (Federal Republic of)', 'DEU', 'ADD'])
+    end
+
+    ['Country or area/ISO ADD', 'Country or area/ISO REP all information by:'].each do |heading|
+      it "does not map generic heading title #{heading.inspect}" do
+        amendment = described_class.parse(
+          doc(paragraph('Germany / DEU ADD'), paragraph(heading), table(company_row('Email: a@b.net')))
+        )
+        action = amendment.actions.find { |candidate| candidate.entries.any? }
+        entry = action.entries.first
+
+        expect([entry.country_or_area.en, entry.iso_code, action.action_type])
+          .to eq(['Germany', 'DEU', 'ADD'])
+      end
+    end
+
+    [
+      ['Luxembourg / LUX REP all information by: x / y', 'REP', 'all information by: x / y'],
+      ['Luxembourg / LUX DEL x / y', 'DEL', 'x / y'],
+      ['Luxembourg / LUX DEL x/y', 'DEL', 'x/y'],
+      ['Luxembourg / LUX REP visit https://example.test/a/b', 'REP', 'visit https://example.test/a/b']
+    ].each do |heading, action_type, note|
+      ['paragraph', 'single-cell table'].each do |shape|
+        it "parses #{shape} annotation with slash note #{heading.inspect}" do
+          nodes = if shape == 'paragraph'
+                    [paragraph('Germany / DEU ADD'), paragraph(heading), table(company_row('Email: a@b.net'))]
+                  else
+                    [paragraph('Germany / DEU ADD'),
+                     table(row(cell(paragraph(heading))), company_row('Email: a@b.net'))]
+                  end
+          amendment = described_class.parse(doc(*nodes))
+          action = amendment.actions.find { |candidate| candidate.entries.any? }
+          entry = action.entries.first
+
+          expect([entry.country_or_area.en, entry.iso_code, action.action_type, action.note])
+            .to eq(['Luxembourg', 'LUX', action_type, note])
+        end
+      end
+    end
+
+    ['paragraph', 'single-cell table'].each do |shape|
+      it "does not infer an ambiguous country from a #{shape} annotated heading" do
+        ambiguous_heading = 'Foo / Bar / LUX REP x'
+        nodes = if shape == 'paragraph'
+                  [paragraph('Germany / DEU ADD'), paragraph(ambiguous_heading), table(company_row('Email: a@b.net'))]
+                else
+                  [paragraph('Germany / DEU ADD'),
+                   table(row(cell(paragraph(ambiguous_heading)), cell, cell), company_row('Email: a@b.net'))]
+                end
+        amendment = described_class.parse(doc(*nodes))
+        entries = amendment.actions.flat_map(&:entries)
+        company_entry = entries.find { |entry| entry.company_name == 'Timo Jung Streamworx' }
+
+        expect([company_entry.country_or_area.en, company_entry.iso_code, amendment.actions.first.action_type])
+          .to eq(['Germany', 'DEU', 'ADD'])
+        expect(entries.map(&:company_name)).to include(ambiguous_heading) if shape == 'single-cell table'
+      end
+    end
+
+    it 'starts an unannotated Djibouti action after a page-prefixed table heading' do
+      amendment = described_class.parse(
+        doc(paragraph('Germany / DEU ADD'),
+            table(row(cell(paragraph('P 19 Djibouti (Republic of) / DJI')), cell, cell),
+                  row(cell(paragraph('Djibouti Company')), cell(paragraph('DJB')),
+                      cell(paragraph('Djibouti contact')))))
+      )
+      action = amendment.actions.find { |candidate| candidate.entries.any? }
+      entry = action.entries.first
+
+      expect([entry.country_or_area.en, entry.iso_code, action.action_type, action.note])
+        .to eq(['Djibouti (Republic of)', 'DJI', nil, nil])
+    end
+
+    it 'does not retroactively change an earlier country action across a table heading' do
+      amendment = described_class.parse(
+        doc(paragraph('Germany / DEU ADD'),
+            table(company_row('Email: a@b.net'),
+                  row(cell(paragraph('P 19 Djibouti (Republic of) / DJI')), cell, cell),
+                  row(cell(paragraph('Djibouti Company')), cell(paragraph('DJB')),
+                      cell(paragraph('Djibouti contact')))))
+      )
+      actions = amendment.actions.select { |candidate| candidate.entries.any? }
+
+      expect(actions.length).to eq(2)
+      expect(actions.map(&:action_type)).to eq(['ADD', nil])
+      expect(actions.flat_map(&:entries).map { |entry| [entry.country_or_area.en, entry.iso_code] })
+        .to eq([['Germany', 'DEU'], ['Djibouti (Republic of)', 'DJI']])
+    end
+
+    it 'keeps the current action for a repeated same-country ISO row' do
+      amendment = described_class.parse(
+        doc(paragraph('Germany / DEU ADD'),
+            table(row(cell(paragraph('Germany / DEU')), cell, cell), company_row('Email: a@b.net')))
+      )
+      action = amendment.actions.find { |candidate| candidate.entries.any? }
+
+      expect(action.entries.map(&:company_name)).to eq(['Timo Jung Streamworx'])
+      expect([action.entries.first.country_or_area.en, action.entries.first.iso_code, action.action_type])
+        .to eq(['Germany', 'DEU', 'ADD'])
+    end
+
+    it 'starts a new unannotated action for an unprefixed different-country table heading' do
+      amendment = described_class.parse(
+        doc(paragraph('Germany / DEU ADD'),
+            table(row(cell(paragraph('Djibouti (Republic of) / DJI')), cell, cell),
+                  row(cell(paragraph('Djibouti Company')), cell(paragraph('DJB')),
+                      cell(paragraph('Djibouti contact')))))
+      )
+      action = amendment.actions.find { |candidate| candidate.entries.any? }
+
+      expect([action.entries.first.country_or_area.en, action.entries.first.iso_code, action.action_type])
+        .to eq(['Djibouti (Republic of)', 'DJI', nil])
+    end
+
     [
       ['P 28 Luxembourg / LUX REP all information by:', 'Luxembourg', 'LUX', 'REP', 'all information by:', 'P 28'],
       ['P 28 to P 29 Luxembourg / LUX REP all information by:', 'Luxembourg', 'LUX', 'REP',

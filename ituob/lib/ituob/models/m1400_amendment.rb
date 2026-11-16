@@ -31,7 +31,7 @@ attribute :notes, :string, collection: true
       HEADING_MARK = ' / '
 
       def self.normalize_heading(text)
-        Ituob::Helpers.normalize_whitespace(text).split('/', -1).map(&:strip).join(HEADING_MARK)
+        Ituob::Helpers.normalize_whitespace(text).split('/', 2).map(&:strip).join(HEADING_MARK)
       end
 
       # Split from the end so country names take linear time, even on long lines.
@@ -49,7 +49,7 @@ attribute :notes, :string, collection: true
       end
 
       def self.heading_with_annotation(text)
-        country, mark, remainder = text.rpartition(HEADING_MARK)
+        country, mark, remainder = text.partition(HEADING_MARK)
         return if mark.empty? || country.empty?
 
         iso, action_type, note = remainder.split(' ', 3)
@@ -123,6 +123,8 @@ attribute :notes, :string, collection: true
             if first_elem.length < 3 
               next
             else
+              next if heading_text.match?(/\ACountry or area \//i)
+
               if heading = heading_with_annotation(heading_text)
                 country, country_code = heading[1..2]
                 action.action_type = heading[3]
@@ -139,6 +141,10 @@ attribute :notes, :string, collection: true
               end
               next unless slash_heading?(fixed_str)
 
+              heading = fixed_str.sub(%r{(/[[:space:]]*[A-Z]{3})[[:space:]]+[A-Z]{3}\*?\z}, '\\1').squeeze(' ').strip
+              heading_country, heading_iso = heading.sub(/\AP \S+ (?:to P \S+ )?/, '').split(' / ', 2)
+              next unless heading_country && !heading_country.empty? && heading_iso&.match?(/\A[A-Z]{3}\z/)
+
               action.note = segs[1]
               action.action_type = nil
               if Ituob::Catalogs::ActionTypes.valid?(fixed_str.split.last)
@@ -148,14 +154,12 @@ attribute :notes, :string, collection: true
                   action.action_type = m[0].to_s
                 end
               end
-              heading = fixed_str.sub(%r{(/[[:space:]]*[A-Z]{3})[[:space:]]+[A-Z]{3}\*?\z}, '\\1').squeeze(' ').strip
               if fixed_str.match(/^P /)
                 action.position = segs[0..1].join(" ")
-                country, country_code = heading.sub(/\AP \S+ (?:to P \S+ )?/, '').split(' / ', 2)
               else
                 action.position = heading
-                country, country_code = heading.split(' / ', 2)
               end
+              country, country_code = heading_country, heading_iso
             end
 
           elsif first_elem.is_a?(Array) # table
@@ -175,13 +179,21 @@ attribute :notes, :string, collection: true
             c.each do |row|
               rf = Ituob::Helpers.replace_legacy_space(row.flatten.join('')).strip
               single_cell = row.count { |cell| !Ituob::Helpers.normalize_whitespace(cell.flatten.join).empty? } == 1
-              if single_cell
+              # Blank-padded ISO-only rows were emitted as entries on main.
+              # Do not broaden that shape while recovering compact slashes.
+              if single_cell && (!rf.match?(%r{ / {2,}[A-Z]{3}\z}) || rf.match?(/\AP \d+ /))
                 rf = normalize_heading(rf).sub(/\AP \d+ (?:to P \d+ )?/, '')
               end
               next if rf.match(/^Country/)
               next if rf.match(/Company.Name/)
               if rf.match?(/ \/ [A-Z]{3}$/)
-                country, country_code = rf.split(' / ')
+                heading_country, heading_iso = rf.split(' / ')
+                if heading_iso != country_code
+                  action = M1400Action.new
+                  action.entries = []
+                  amendment.actions << action
+                end
+                country, country_code = heading_country, heading_iso
                 next
               end
               m = single_cell ? heading_with_annotation(rf) : nil
