@@ -57,16 +57,19 @@ RSpec.describe Ituob::Provider, 'edition and actions projections' do
     expect(restored.changes.map(&:to_hash)).to eq(actions.changes.map(&:to_hash))
   end
 
-  it 'keeps key history consistent with replay-touched changes for that key' do
-    key, changes = state.key_history.find do |candidate, entries|
-      entries.any? { |change| change.identifier.code == candidate }
-    end
-    history = provider.history(register: 'e212-mnc', key: key, as_of: 1170)
-    keyed_changes = state.history.select { |change| changes.include?(change) }
+  it 'matches global history filtered by identifier across multiple issues in replay order' do
+    changes_by_identifier = state.history.reject(&:seed?).group_by { |change| change.identifier.code }
+    key, = changes_by_identifier.max_by { |_identifier, changes| changes.map(&:ob_issue_no).uniq.size }
+    expected = state.history.select { |change| change.identifier.code == key }
 
     expect(key).not_to be_nil
-    expect(history.entries.map(&:ob_issue_no)).to eq(changes.map(&:ob_issue_no))
-    expect(history.entries.map(&:ob_issue_no)).to eq(keyed_changes.map(&:ob_issue_no))
+    expect(expected.map(&:ob_issue_no).uniq.size).to be > 1
+    history = provider.history(register: 'e212-mnc', key: key, as_of: 1170)
+
+    expect(history.key).to eq(key)
+    expect(history.entries.map(&:ob_issue_no)).to eq(expected.map(&:ob_issue_no))
+    expect(history.entries.map { |entry| [entry.type.value, entry.identifier.code] })
+      .to eq(expected.map { |change| [change.type, change.identifier.code] })
   end
 
   it 'rejects unknown registers, issues and pre-seed issues for actions' do
