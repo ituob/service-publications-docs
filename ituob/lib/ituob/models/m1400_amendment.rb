@@ -28,6 +28,24 @@ attribute :notes, :string, collection: true
 
       HEADING_MARK = ' / '
 
+      def self.normalize_heading(text)
+        Ituob::Helpers.normalize_whitespace(text).split('/', -1).map(&:strip).join(HEADING_MARK)
+      end
+
+      # Split from the end so country names take linear time, even on long lines.
+      def self.heading_without_slash(text)
+        return if text.include?('/')
+
+        heading, _, action_type = text.rpartition(' ')
+        return unless action_type.match?(/\A[A-Z]{3}\*?\z/) &&
+          Ituob::Catalogs::ActionTypes.valid?(action_type)
+
+        country, _, iso = heading.rpartition(' ')
+        return if country.empty? || !iso.match?(/\A[A-Z]{3}\z/)
+
+        [text, country, iso, action_type]
+      end
+
       # True when some line has a "/" followed, later on that line, by a
       # three-capital action or ISO code at its end. Same as the old
       # /^.*\/.*[A-Z]{3}$/ without its polynomial backtracking (CodeQL).
@@ -84,18 +102,27 @@ attribute :notes, :string, collection: true
           first_elem = c[0] 
           if first_elem.is_a?(String)
             fixed_str = Ituob::Helpers.replace_legacy_space(c.join(' '))
+            segs = Ituob::Helpers.split_str(fixed_str)
+            fixed_str = normalize_heading(fixed_str)
 
             if first_elem.length < 3 
               next
             else
+              if heading = heading_without_slash(fixed_str)
+                country, country_code = heading[1..2]
+                action.action_type = heading[3]
+                action.position = "#{country} / #{country_code}"
+                next
+              end
               next unless slash_heading?(fixed_str)
-              segs = Ituob::Helpers.split_str(fixed_str)
 
               action.note = segs[1]
-              if m = fixed_str.match(/[A-Z]{3}\*$/)
-                action.action_type = m[0].to_s
-              elsif m = fixed_str.match(/[A-Z]{3}$/)
-                action.action_type = m[0].to_s
+              if Ituob::Catalogs::ActionTypes.valid?(fixed_str.split.last)
+                if m = fixed_str.match(/[A-Z]{3}\*$/)
+                  action.action_type = m[0].to_s
+                elsif m = fixed_str.match(/[A-Z]{3}$/)
+                  action.action_type = m[0].to_s
+                end
               end
               heading = fixed_str.sub(%r{(/[[:space:]]*[A-Z]{3})[[:space:]]+[A-Z]{3}\*?\z}, '\\1').squeeze(' ').strip
               if fixed_str.match(/^P /)
@@ -122,7 +149,8 @@ attribute :notes, :string, collection: true
             # detected — many M1400 amendments emit one data row per
             # table with no header at all).
             c.each do |row|
-              rf = Ituob::Helpers.replace_legacy_space(row.flatten.join('')).strip
+              rf = normalize_heading(row.flatten.join(''))
+              rf = rf.sub(/\AP \d+ (?:to P \d+ )?/, '')
               next if rf.match(/^Country/)
               next if rf.match(/Company.Name/)
               if rf.match?(/ \/ [A-Z]{3}$/)
@@ -130,6 +158,9 @@ attribute :notes, :string, collection: true
                 next
               end
               m = heading_with_action(rf)
+              if !m && row.count { |cell| !cell.flatten.join.strip.empty? } == 1
+                m = heading_without_slash(rf)
+              end
               if m
                 # This seems to actually trigger a new action
                 action = M1400Action.new
