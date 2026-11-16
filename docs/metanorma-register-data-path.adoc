@@ -176,6 +176,9 @@ not wait on the general issue-selection policy.
   from replay's `State#history`, in replay order: cumulative through the
   as-of issue, filter by `ob_issue_no` for one issue. The one-issue filter
   is `ob_issue_no == provenance.as_of_issue`; no range argument is added.
+  *Payload shape decided by PM:* `RegisterChange.data` uses `HashOrList`:
+  a mapping for an amendment or a plain array of rows for a seed batch.
+  This widens the public schema while preserving existing mapping payloads.
 . *Issue pinning and provenance:* Is an explicit issue required for every
   document, or may it request current state? If current is supported,
   which concrete issue is recorded? Which provenance fields and rendered

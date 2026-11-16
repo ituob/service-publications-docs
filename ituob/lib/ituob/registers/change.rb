@@ -12,7 +12,8 @@ module Ituob
       attribute :register_id, :string
       attribute :identifier, Identifier
       attribute :recommendation, :string
-      attribute :data, :hash
+      attribute :data, Models::HashOrList
+      Models::HashOrList.configure_attribute(attributes[:data])
       attribute :ob_issue_no, :integer
       attribute :date_active, :string
       attribute :date_requested, :string
@@ -27,7 +28,7 @@ module Ituob
         map :register, to: :register_id
         map :identifier, to: :identifier
         map :recommendation, to: :recommendation
-        map :data, to: :data
+        map :data, to: :data, render_empty: true
         map :ob_issue_no, to: :ob_issue_no
         map :date_active, to: :date_active
         map :date_requested, to: :date_requested

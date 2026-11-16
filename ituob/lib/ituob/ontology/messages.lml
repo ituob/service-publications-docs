@@ -901,7 +901,7 @@ models Ituob {
     attribute register_id, String
     attribute identifier, Identifier { cardinality 1 }
     attribute recommendation, String
-    attribute data, Hash
+    attribute data, HashOrList
     attribute ob_issue_no, Integer
     attribute date_active, String
     attribute date_requested, String

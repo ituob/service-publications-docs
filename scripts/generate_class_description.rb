@@ -30,9 +30,9 @@ OUTPUT_PATH = ENV.fetch('CLASS_DESCRIPTION_PATH') do
   File.expand_path('../../ituob.org/src/lib/form/class-description.generated.json', __dir__)
 end
 
-# Ontology scalar types. Hash/HashOrText/DateOrText are opaque to the form
+# Ontology scalar types. Hash/HashOrText/HashOrList/DateOrText are opaque to the form
 # (kept exactly as stored); see src/lib/form/model.ts for their handling.
-PRIMITIVES = %w[String Integer Boolean Date Float Time Hash HashOrText DateOrText].freeze
+PRIMITIVES = %w[String Integer Boolean Date Float Time Hash HashOrText HashOrList DateOrText].freeze
 
 doc = Lutaml::Lml.parse_document(File.open(ONTOLOGY_PATH))
 enums = doc.enums.to_h { |e| [e.name.to_s, e.attributes.map { |m| m.name.to_s }] }
