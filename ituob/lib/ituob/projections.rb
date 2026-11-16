@@ -5,6 +5,7 @@ module Ituob
   module Projections
     autoload :RegisterItems, 'ituob/projections/register_items'
     autoload :RegisterEdition, 'ituob/projections/register_edition'
+    autoload :RegisterLocale, 'ituob/projections/register_locale'
     autoload :KeyHistory, 'ituob/projections/key_history'
   end
 end

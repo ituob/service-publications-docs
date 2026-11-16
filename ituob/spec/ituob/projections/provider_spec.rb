@@ -39,9 +39,9 @@ RSpec.describe Ituob::Provider do
 
   describe '#lutaml_data_queries' do
     it 'names only the supported queries and each is a public method' do
-      expect(provider.lutaml_data_queries).to eq(%i[edition history])
+      expect(provider.lutaml_data_queries).to eq(%i[edition history locale])
       expect(provider.lutaml_data_queries).to all(satisfy { |q| provider.respond_to?(q) })
-      expect(provider.public_methods(false)).to contain_exactly(:lutaml_data_queries, :edition, :history)
+      expect(provider.public_methods(false)).to contain_exactly(:lutaml_data_queries, :edition, :history, :locale)
     end
   end
 

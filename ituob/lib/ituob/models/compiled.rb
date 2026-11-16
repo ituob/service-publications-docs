@@ -64,6 +64,7 @@ module Ituob
         IssueContact
         IssueMetadata
         KeyHistoryEntry
+        LocaleLabel
         ListVIIIAction
         ListVIIICentralizingOffice
         ListVIIIMeasurement
@@ -81,6 +82,7 @@ module Ituob
         RR251Action
         RR251Entry
         RegisterEdition
+        RegisterLocale
         RegisterKeyHistory
         T35AssignmentAuthority
         T35NAAction
