@@ -331,7 +331,71 @@ models Ituob {
     attribute telegraph_office_name, MultilingualString
     attribute office_code, String
     attribute office_code_note, MultilingualString
+    attribute network_codes, String { cardinality 0..n }
     attribute subarea, MultilingualString
+  }
+
+  class F32OfficeDifference {
+    attribute country, String
+    attribute office_code, String
+    attribute expected, F32TDIEntry
+    attribute actual, F32TDIEntry
+    attribute reason, String
+  }
+
+  class F32CountryCompleteness {
+    attribute country, String
+    attribute matching, Integer
+    attribute missing, Integer
+    attribute extra, Integer
+    attribute different, Integer
+  }
+
+  class F32CompletenessReport {
+    attribute source_uri, String
+    attribute source_sha256, String
+    attribute candidate_source, String
+    attribute candidate_rows, Integer
+    attribute candidate_context_rows, Integer
+    attribute matching_keys, String { cardinality 0..n }
+    attribute missing, F32OfficeDifference { cardinality 0..n }
+    attribute extra, F32OfficeDifference { cardinality 0..n }
+    attribute different, F32OfficeDifference { cardinality 0..n }
+    attribute countries, F32CountryCompleteness { cardinality 0..n }
+  }
+
+  class F32PrintedPage {
+    attribute number, Integer
+    attribute text, String
+  }
+
+  class F32SeedContext {
+    attribute kind, String
+    attribute ob_issue_no, Integer
+    attribute entry, F32TDIEntry
+    attribute source_uri, String
+    attribute source_page, Integer
+    attribute source_path, String
+    attribute source_row, Integer
+    attribute related_office_code, String
+    attribute network_codes, String { cardinality 0..n }
+    attribute continuation_target, F32TDIEntry
+    attribute explanation, String
+  }
+
+  class F32SeedPublication {
+    attribute _class, String { default: "F32SeedPublication" }
+    attribute source_uri, String
+    attribute source_sha256, String
+    attribute source_position_on, Date
+    attribute source_path, String
+    attribute seed_sha256, String
+    attribute source_row_count, Integer
+    attribute source_complete, Boolean { default: false }
+    attribute legacy_rows, F32TDIEntry { cardinality 0..n }
+    attribute pages, F32PrintedPage { cardinality 0..n }
+    attribute allocations, F32TDIEntry { cardinality 0..n }
+    attribute contexts, F32SeedContext { cardinality 0..n }
   }
 
   // F.400
@@ -935,6 +999,7 @@ models Ituob {
   class RegisterEdition {
     attribute provenance, ProjectionProvenance { cardinality 1 }
     attribute items, Entry { cardinality 0..n }
+    attribute source_contexts, F32SeedContext { cardinality 0..n }
     attribute lapsed_keys, String { cardinality 0..n }
     attribute deleted_keys, String { cardinality 0..n }
     attribute key_history, KeyHistoryEntry { cardinality 0..n }

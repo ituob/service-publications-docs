@@ -100,6 +100,32 @@ RSpec.describe Ituob::Provider do
         .to eq("1170:#{small.items.map(&:mcc_mnc_codes).join(';')};")
     end
 
+    it 'returns source-backed F.32 contexts separately from assigned office items' do
+      f32 = provider.edition(register: 'f32-tdi', as_of: 980)
+
+      expect(f32.items).to all(be_a(Ituob::Models::F32TDIEntry))
+      expect(f32.items.map(&:office_code)).to all(match(/\A[A-Z]{4}\z/))
+      expect(f32.source_contexts).to all(be_a(Ituob::Models::F32SeedContext))
+      expect(f32.source_contexts.map(&:kind)).to include('heading', 'network', 'reservation', 'alias')
+      expect(f32.source_contexts.map(&:ob_issue_no).uniq).to eq([980])
+
+      restored = Ituob::Models::RegisterEdition.from_yaml(f32.to_yaml)
+      expect(restored.source_contexts.map(&:to_hash)).to eq(f32.source_contexts.map(&:to_hash))
+      expect(restored.items.map(&:office_code)).to eq(f32.items.map(&:office_code))
+    end
+
+    it 'retains printed relative office suffixes when a network prefix is ambiguous' do
+      f32 = provider.edition(register: 'f32-tdi', as_of: 980)
+      relative = f32.source_contexts.select do |context|
+        context.kind == 'network-relative-office' && context.ob_issue_no == 980
+      end
+
+      expect(relative).not_to be_empty
+      expect(relative.map { |context| context.entry.office_code }).to all(match(/\A--[A-Z]{2}\z/))
+      expect(f32.items.map(&:office_code)).to all(match(/\A[A-Z]{4}\z/))
+      expect(relative.map(&:network_codes)).to all(satisfy { |codes| codes.uniq.size > 1 })
+    end
+
     it 'rejects unknown registers, issues and unsupported registers with clear errors' do
       expect { provider.edition(register: 'nope', as_of: 1170) }
         .to raise_error(described_class::UnknownRegisterError, /Unknown register "nope"; known: .*e212-mnc/)
