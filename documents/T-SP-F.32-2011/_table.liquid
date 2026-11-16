@@ -1,5 +1,11 @@
 
-== {{ metadata.title[lang] }}
+{% case lang %}
+{% when "fr" %}{% assign title = "Indicateurs de destination (ID) attribués aux bureaux télégraphiques" %}{% assign headers = "Pays /zone géographique|Réseau (administration/ER)|Code de réseau|Nom du bureau télégraphique|Code de bureau" | split: "|" %}
+{% when "es" %}{% assign title = "Indicadores de destino (ID) atribuidos a oficinas telegráficas" %}{% assign headers = "País / zona geográfica|Red (administración/EER)|Código de red|Nombre de la oficina telegráfica|Código  de oficina" | split: "|" %}
+{% else %}{% assign title = "Destination Indicators (DI) assigned to telegraph offices" %}{% assign headers = "Country / Geographical Area|Network (administration/ROA)|Network code|Name of Telegraph Office|Office code" | split: "|" %}
+{% endcase %}
+
+== {{ title }}
 
 {% assign note_present = false %}
 {% assign first_pass = true %}
@@ -10,6 +16,7 @@
 {% assign network_roa_batch = data | where: "network_roa", country_data.network_roa %}
 
 {% assign next_country = country_data.country_or_area[lang] %}
+{% assign country_en = country_data.country_or_area.en | remove: "1)" %}
 {% assign next_network_roa = country_data.network_roa %}
 {% assign next_network_code = country_data.network_code %}
 {% assign next_subarea = country_data.subarea[lang] %}
@@ -23,11 +30,11 @@
 [cols="5",options="unnumbered"]
 |===
 
-^h| {{ metadata.locale | where: "key", "country_or_area"       | map: lang | first }}
-^h| {{ metadata.locale | where: "key", "network_roa"           | map: lang | first }}
-^h| {{ metadata.locale | where: "key", "network_code"          | map: lang | first }}
-^h| {{ metadata.locale | where: "key", "telegraph_office_name" | map: lang | first }}
-^h| {{ metadata.locale | where: "key", "office_code"           | map: lang | first }}
+^h| {{ headers[0] }}
+^h| {{ headers[1] }}
+^h| {{ headers[2] }}
+^h| {{ headers[3] }}
+^h| {{ headers[4] }}
 
 ^| 1 ^| 2 ^| 3 ^| 4 ^| 5
 
@@ -37,36 +44,36 @@
 
 {% if next_country != current_country %}
 
-{% unless country_data.country_or_area.en == "INDIA" or country_data.country_or_area.en == "AUSTRALIA" or country_data.country_or_area.en == "CHILE" or country_data.country_or_area.en == "UNITED STATES" -%}
+{% unless country_en == "INDIA" or country_en == "AUSTRALIA" or country_en == "CHILE" or country_en == "UNITED STATES" -%}
 .{{ country_batch.size }}+
 {%- endunless -%}
-a| *{{ country_data.country_or_area.fr }}*
+a| *{{ country_data.country_or_area.fr | remove: "1)" }}*
 {% if country_data.country_or_area_note -%}
 footnote:[{{ country_data.country_or_area_note[lang] }}]
 {%- endif %} +
-  *{{ country_data.country_or_area.en }}*
+  *{{ country_data.country_or_area.en | remove: "1)" }}*
 {% if country_data.country_or_area_note -%}
 footnote:[{{ country_data.country_or_area_note[lang] }}]
 {%- endif %} +
-  *{{ country_data.country_or_area.es }}*
+  *{{ country_data.country_or_area.es | remove: "1)" }}*
 {% if country_data.country_or_area_note -%}
 footnote:[{{ country_data.country_or_area_note[lang] }}]
 {%- endif %}
 
-{% if country_data.country_or_area.en == "SAUDI ARABIA" %}
+{% if country_en == "SAUDI ARABIA" %}
   {%- assign saudi_batch = data | where: "network_code", "SJ - -" %}
   {%- for saudi_data in saudi_batch -%}
     {% if saudi_data.telegraph_office_name and saudi_data.notes %}
-    . {{ saudi_data.telegraph_office_name[lang] }} footnote:[{{ saudi_data.notes[lang] }}]
+    . {{ saudi_data.telegraph_office_name[lang] | default: saudi_data.telegraph_office_name.en }} footnote:[{{ saudi_data.notes[lang] }}]
     {% endif %}
   {%- endfor %}
 {% endif %}
 
-{% if country_data.country_or_area.en == "UNITED ARAB EMIRATES" -%}
+{% if country_en == "UNITED ARAB EMIRATES" -%}
   {{ country_data.subarea[lang] }}
 {%- endif %}
 
-{% if country_data.country_or_area.en == "UNITED STATES" -%}
+{% if country_en == "UNITED STATES" -%}
   {{ country_data.subarea[lang] }}
 {%- endif %}
 
@@ -76,23 +83,23 @@ footnote:[{{ country_data.country_or_area_note[lang] }}]
 {% elsif country_data.subarea -%}
   {% if next_subarea != current_subarea %}
     {% assign current_subarea = next_subarea %}
-    {% if country_data.country_or_area.en == "AUSTRALIA" -%}
+    {% if country_en == "AUSTRALIA" -%}
       a| {{ country_data.subarea.fr }} +
          {{ country_data.subarea.en }} +
          {{ country_data.subarea.es }}
 
-    {% elsif country_data.country_or_area.en == "CHILE" or country_data.country_or_area.en == "UNITED STATES" and country_data.subarea.en contains "Network I"  %}
+    {% elsif country_en == "CHILE" or country_en == "UNITED STATES" and country_data.subarea.en contains "Network I"  %}
       | {{ country_data.subarea.fr | remove: "I" }} / {{ country_data.subarea.en | remove: "I" }} / {{ country_data.subarea.es }}
-    {% elsif country_data.country_or_area.en != "UNITED ARAB EMIRATES" %}
+    {% elsif country_en != "UNITED ARAB EMIRATES" %}
       | {{ country_data.subarea[lang] }}
     {%- endif %}
   {% else %}
-    {% if country_data.country_or_area.en != "UNITED ARAB EMIRATES" %}
+    {% if country_en != "UNITED ARAB EMIRATES" %}
       |
     {% endif %}
   {% endif %}
 
-{% elsif country_data.country_or_area.en == "CHILE" or country_data.country_or_area.en == "UNITED STATES" %}
+{% elsif country_en == "CHILE" or country_en == "UNITED STATES" %}
   |
 {% endif %}
 
@@ -107,7 +114,7 @@ footnote:[{{ country_data.country_or_area_note[lang] }}]
 {% endif %}
 
 {% if next_network_code != current_network_code %}
-  | {{ country_data.network_code }}
+  | {{ country_data.network_code }}{% if country_data.network_code.size == 2 %}- -{% endif %}
   {%- if country_data.network_code_note -%}
     footnote:[{{ country_data.network_code_note[lang] }}]
   {%- endif %}
@@ -116,8 +123,8 @@ footnote:[{{ country_data.country_or_area_note[lang] }}]
   |
 {% endif %}
 
-| {{ country_data.telegraph_office_name[lang] }}
-{%- if country_data.country_or_area.en == "BARBADOS" and country_data.notes -%}
+| {{ country_data.telegraph_office_name[lang] | default: country_data.telegraph_office_name.en }}
+{%- if country_en == "BARBADOS" and country_data.notes -%}
   footnote:[{{ country_data.notes[lang] }}]
 {%- endif -%}
 
