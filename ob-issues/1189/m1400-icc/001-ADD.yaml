@@ -4,17 +4,20 @@ date_active:
 ob_issue_no: '1189'
 reference: OB-1189
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: New Fiber Networks GmbH
     address_line_1: Gontardstrasse 11
     address_line_2: D-10178 BERLIN
     carrier_code: LYTENF
     contact: Mr Rolf Tresch
     tel: "+49 800 6008100"
+    email:
+    - info@lyte.net
   notes: []

@@ -1,0 +1,48 @@
+name: Metanorma proof
+
+# Renders the E.212 register as of OB issue 1170 through Metanorma
+# (standoc + metanorma-plugin-lutaml) and the real Ituob::Provider, then
+# asserts row count, row order and provenance. See docs/proof/.
+on:
+  pull_request:
+    paths:
+      - 'docs/proof/**'
+      - 'ituob/**'
+      - 'itu-ob-data/**'
+      - 'ob-issues/**'
+      - 'catalogs/**'
+      - '.github/workflows/metanorma-proof.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  e212-proof:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.4'
+        working-directory: docs/proof
+        bundler-cache: true
+
+    - name: Convert E.212 @ OB 1170 and verify rows and provenance
+      working-directory: docs/proof
+      env:
+        PROOF_OUT: ${{ runner.temp }}/e212-1170.xml
+      run: bundle exec ruby check_e212_1170.rb
+
+    - name: Upload converted output
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: e212-1170-proof
+        path: |
+          ${{ runner.temp }}/e212-1170.xml
+        if-no-files-found: warn

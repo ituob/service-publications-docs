@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Blue Sky Operations GmbH
     address_line_1: Honenberg 27
     address_line_2: D-21398 NEETZE
     carrier_code: BSO23
     contact: Mr Lukas Lange
     tel: "+49 152 01445123"
+    email:
+    - info@blue-sky-ops.de
   notes: []

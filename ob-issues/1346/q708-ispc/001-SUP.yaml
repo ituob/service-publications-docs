@@ -1,0 +1,37 @@
+type: SUP
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1346'
+reference: OB-1346
+identifier:
+  code: 1346-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-083-0
+    country:
+      en: Japan
+    dec: '8856'
+    signal_point_name: Kyoto1
+    signal_point_operator: SoftBank Corp.
+  - ipsc: 4-083-2
+    country:
+      en: Japan
+    dec: '8858'
+    signal_point_name: Chiba2
+    signal_point_operator: SoftBank Corp.
+  - ipsc: 4-085-0
+    country:
+      en: Japan
+    dec: '8872'
+    signal_point_name: Kyoto2
+    signal_point_operator: SoftBank Corp.
+  - ipsc: 4-085-2
+    country:
+      en: Japan
+    dec: '8874'
+    signal_point_name: Chiba4
+    signal_point_operator: SoftBank Corp.
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

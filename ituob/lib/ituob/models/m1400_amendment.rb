@@ -26,6 +26,40 @@ attribute :notes, :string, collection: true
         map 'notes', to: :notes
       end
 
+      HEADING_MARK = ' / '
+
+      # True when some line has a "/" followed, later on that line, by a
+      # three-capital action or ISO code at its end. Same as the old
+      # /^.*\/.*[A-Z]{3}$/ without its polynomial backtracking (CodeQL).
+      def self.slash_heading?(text)
+        text.split("\n", -1).any? do |line|
+          slash = line.index('/')
+          slash && slash <= line.length - 4 && line.match?(/[A-Z]{3}\z/)
+        end
+      end
+
+      # "Country / ISO ... ACT" on one line: [line, country, iso, action]
+      # (indexed like the MatchData it replaces) for the first such line, splitting at the last " / ISO" that leaves room for
+      # the action. Same captures as the old
+      # /(.*) \/ ([A-Z]{3}).+([A-Z]{3})$/, in linear time (CodeQL).
+      def self.heading_with_action(text)
+        text.split("\n", -1).each do |line|
+          next unless line.match?(/[A-Z]{3}\z/)
+
+          i = line.length - 10
+          while i >= 0
+            i = line.rindex(HEADING_MARK, i)
+            break if i.nil?
+
+            iso = line[i + 3, 3]
+            return [line, line[0...i], iso, line[-3..]] if iso.match?(/\A[A-Z]{3}\z/)
+
+            i -= 1
+          end
+        end
+        nil
+      end
+
       def self.parse(hash, position_on: nil, dataset_code: nil)
         amendment = new
 
@@ -54,20 +88,22 @@ attribute :notes, :string, collection: true
             if first_elem.length < 3 
               next
             else
-              next unless fixed_str.match(/^.*\/.*[A-Z]{3}$/)
+              next unless slash_heading?(fixed_str)
               segs = Ituob::Helpers.split_str(fixed_str)
 
               action.note = segs[1]
-              action.position = segs[0..1].join(" ")
               if m = fixed_str.match(/[A-Z]{3}\*$/)
                 action.action_type = m[0].to_s
               elsif m = fixed_str.match(/[A-Z]{3}$/)
                 action.action_type = m[0].to_s
               end
+              heading = fixed_str.sub(%r{(/[[:space:]]*[A-Z]{3})[[:space:]]+[A-Z]{3}\*?\z}, '\\1').squeeze(' ').strip
               if fixed_str.match(/^P /)
-                country, country_code = segs[2].split(' / ')
+                action.position = segs[0..1].join(" ")
+                country, country_code = heading.sub(/\AP \S+ (?:to P \S+ )?/, '').split(' / ', 2)
               else
-                country, country_code = segs[0].split(' / ')
+                action.position = heading
+                country, country_code = heading.split(' / ', 2)
               end
             end
 
@@ -89,11 +125,11 @@ attribute :notes, :string, collection: true
               rf = Ituob::Helpers.replace_legacy_space(row.flatten.join('')).strip
               next if rf.match(/^Country/)
               next if rf.match(/Company.Name/)
-              if rf.match(/.* \/ ([A-Z]{3})$/)
+              if rf.match?(/ \/ [A-Z]{3}$/)
                 country, country_code = rf.split(' / ')
                 next
               end
-              m = rf.match(/(.*) \/ ([A-Z]{3}).+([A-Z]{3})$/)
+              m = heading_with_action(rf)
               if m
                 # This seems to actually trigger a new action
                 action = M1400Action.new
@@ -118,7 +154,8 @@ attribute :notes, :string, collection: true
               entry.contact = Ituob::Helpers.strip_legacy(row[2][0]) rescue nil
               entry.fax = Ituob::Helpers.isolate_key(row[2], 'Fax')
               entry.tel = Ituob::Helpers.isolate_key(row[2], 'Tel')
-              entry.email = Ituob::Helpers.isolate_key(row[2], 'E-mail')
+              entry.email = Ituob::Helpers.isolate_key(row[2], 'E-mail') ||
+                            Ituob::Helpers.isolate_key(row[2], 'Email')
 
               action.entries << entry
             end

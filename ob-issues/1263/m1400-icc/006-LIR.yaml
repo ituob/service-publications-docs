@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1263'
 reference: OB-1263
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: RigiNet GmbH
     address_line_1: Hauptstrasse 116
     address_line_2: D-82380 PEISSENBERG
@@ -18,4 +19,6 @@ data:
     contact: Mr Stefan Sedlmeir
     tel: "+49 8803 690299"
     fax: "+49 8803 690250"
+    email:
+    - stefan.sedlmeir@peissenberg.de
   notes: []

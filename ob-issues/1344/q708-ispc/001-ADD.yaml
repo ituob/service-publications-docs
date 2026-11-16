@@ -1,0 +1,18 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1344'
+reference: OB-1344
+identifier:
+  code: 1344-001
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-145-6
+    country:
+      en: South Africa
+    dec: '13454'
+    signal_point_name: LSvSTP
+    signal_point_operator: MTN Pty Ltd
+  notes:
+  - 'ISPC: International Signalling Point Codes.'

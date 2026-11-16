@@ -4,12 +4,13 @@ date_active: *1
 ob_issue_no: '1221'
 reference: OB-1221
 identifier:
-  code: Palau /
+  code: Palau / PLW
 data:
   _class: M1400Amendment
-  position: Palau /
+  position: Palau / PLW
   entries:
-  - country_or_area:
+  - iso_code: PLW
+    country_or_area:
       en: Palau
     company_name: Palau Communication and Electronics Company
     address_line_1: PECI Building

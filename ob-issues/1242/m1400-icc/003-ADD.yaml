@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Liberty Networks Germany GmbH
     address_line_1: Subbelrather Strasse 15 a
     address_line_2: D-50823 COLOGNE
     carrier_code: LNGER
     contact: Mr Thomas Schidek
     tel: "+49 151 1142 7457"
+    email:
+    - thomas.schidek@libertynetworks.de
   notes: []

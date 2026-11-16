@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1280'
 reference: OB-1280
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: BT (Germany) GmbH & Co. oHG Bulk Account
     address_line_1: Barthstrasse 4
     address_line_2: D-80339 MUNICH

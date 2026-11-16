@@ -1,0 +1,19 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1349'
+reference: OB-1349
+identifier:
+  code: 1349-002
+data:
+  _class: M1400Amendment
+  entries:
+  - company_name: Telekom Deutschland GmbH
+    address_line_1: Landgrabenweg 149
+    address_line_2: 53227 BONN
+    carrier_code: TDMOB
+    contact: Mr. Ingo Schnatz
+    tel: "+49 228 181 645 11"
+    email:
+    - ingo.schnatz@telekom.de
+  notes: []

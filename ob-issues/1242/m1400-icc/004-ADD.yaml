@@ -8,8 +8,9 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Mister Fuxx GmbH
     address_line_1: Rosenauer Str. 100
     address_line_2: 96450 COBURG
@@ -17,4 +18,6 @@ data:
     contact: Mr Werner Weber
     tel: "+49 15231701138"
     fax: "+49 91913514380"
+    email:
+    - w.weber@mr-fuxx.de
   notes: []

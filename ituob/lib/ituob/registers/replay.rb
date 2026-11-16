@@ -107,13 +107,19 @@ module Ituob
 
       def apply_change(builder, change)
         builder.record_history(change)
-        Strategies::Resolver.apply(builder, change, @key_field, @fallback_key_fields)
+        Strategies::Resolver.apply(builder, change, @key_field, @fallback_key_fields) do |e|
+          report_skip(builder, change, e)
+        end
       rescue Strategies::StrategyError => e
-        msg = "skip #{change.type} #{change.identifier.to_hash.inspect} at OB #{change.ob_issue_no}: #{e.message}"
-        builder.record_error(msg)
-        warn "replay: #{msg}"
+        report_skip(builder, change, e)
       rescue StandardError => e
         msg = "error #{change.type} #{change.identifier.to_hash.inspect} at OB #{change.ob_issue_no}: #{e.class}: #{e.message}"
+        builder.record_error(msg)
+        warn "replay: #{msg}"
+      end
+
+      def report_skip(builder, change, error)
+        msg = "skip #{change.type} #{change.identifier.to_hash.inspect} at OB #{change.ob_issue_no}: #{error.message}"
         builder.record_error(msg)
         warn "replay: #{msg}"
       end

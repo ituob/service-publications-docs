@@ -19,9 +19,9 @@ module Ituob
           end
 
           # Apply +change+ to +builder+ using the appropriate strategy.
-          def apply(builder, change, key_field, fallbacks = [])
+          def apply(builder, change, key_field, fallbacks = [], &on_conflict)
             strategy = strategy_for(change.type)
-            strategy.call(builder, change, key_field, fallbacks)
+            strategy.call(builder, change, key_field, fallbacks, &on_conflict)
           end
 
           private

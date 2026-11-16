@@ -25,12 +25,24 @@ module Ituob
         :register_id, :slug, :recommendation, :title, :key_field,
         :fallback_key_fields, :classification, :parser_class_name,
         :renderer, :seed_issue, :seed_path, :external,
+        :source_slug, :route,
         keyword_init: true,
       ) do
         def structured? = classification&.structured?
         def textual? = classification&.textual?
         def external? = external == true
         def title_en = title&.dig('en') || ''
+
+        # Directory under ob-issues/ holding this register's amendments.
+        def amendment_slug = source_slug || slug
+
+        # Does a printed row belong to this register? A register with
+        # no +route+ owns the rows no routed sibling claims.
+        def routes?(row)
+          return false unless route
+
+          row[route['field']].to_s.start_with?(route['prefix'])
+        end
       end
 
       class << self
@@ -47,7 +59,7 @@ module Ituob
         end
 
         def default_path
-          File.expand_path('../../../../catalogs/registers.yaml', __dir__)
+          DataRoot.join('catalogs', 'registers.yaml')
         end
 
         def declare_indices
@@ -72,6 +84,8 @@ module Ituob
             seed_issue: hash['seed_issue'],
             seed_path: hash['seed_path'],
             external: hash['external'],
+            source_slug: hash['source_slug'],
+            route: hash['route'],
           )
         end
 

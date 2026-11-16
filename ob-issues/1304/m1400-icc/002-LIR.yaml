@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1304'
 reference: OB-1304
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: 1N Telecom GmbH
     address_line_1: Flughafenstrasse 103
     address_line_2: D-40474 DUESSELDORF
@@ -19,12 +20,15 @@ data:
     tel: "+49 211 73511000"
     email:
     - phoffmann@1n.de
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Northern Access GmbH
     address_line_1: Lange Strasse 42 - 44
     address_line_2: D-31618 LIEBENAU
     carrier_code: NA000
     contact: Mr Joscha Voigts
     tel: "+49 151 51042037"
+    email:
+    - joscha.voigts@northern-access.de
   notes: []

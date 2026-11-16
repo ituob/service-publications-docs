@@ -252,6 +252,61 @@ RSpec.describe Ituob::Registers::State, 'lapse_reasons preservation' do
   end
 end
 
+RSpec.describe Ituob::Registers::State, 'per-key replay history' do
+  let(:change_a) do
+    Ituob::Registers::Change.new(type: 'ADD', register_id: 'F1',
+                                 identifier: { 'code' => 'A' }, ob_issue_no: 700)
+  end
+  let(:change_b) do
+    Ituob::Registers::Change.new(type: 'MOD', register_id: 'F1',
+                                 identifier: { 'code' => 'B' }, ob_issue_no: 701)
+  end
+
+  it 'defaults key_history to a frozen empty hash' do
+    state = Ituob::Registers::State.new(
+      register_id: 'F1', at_ob_issue: 701, entries: {}, lapsed_keys: [],
+      deleted_keys: [], history: [change_a, change_b]
+    )
+
+    expect(state.key_history).to eq({})
+    expect(state.key_history).to be_frozen
+  end
+
+  it 'freezes the key-history hash and each change array' do
+    state = Ituob::Registers::State.new(
+      register_id: 'F1', at_ob_issue: 701, entries: {}, lapsed_keys: [],
+      deleted_keys: [], history: [change_a, change_b],
+      key_history: { 'A' => [change_a], 'B' => [change_b] }
+    )
+
+    expect(state.key_history).to be_frozen
+    expect(state.key_history['A']).to be_frozen
+    expect(state.key_history['B']).to be_frozen
+  end
+
+  it 'serializes each key history with the flat history format' do
+    state = Ituob::Registers::State.new(
+      register_id: 'F1', at_ob_issue: 701, entries: {}, lapsed_keys: [],
+      deleted_keys: [], history: [change_a, change_b],
+      key_history: { 'A' => [change_a, change_b], 'B' => [change_b] },
+    )
+    snapshot = state.to_snapshot(slug: 'f1')
+
+    expected_a = [
+      { 'type' => 'ADD', 'ob_issue' => 700, 'identifier' => { 'code' => 'A' } },
+      { 'type' => 'MOD', 'ob_issue' => 701, 'identifier' => { 'code' => 'B' } },
+    ]
+    expected_b = [
+      { 'type' => 'MOD', 'ob_issue' => 701, 'identifier' => { 'code' => 'B' } },
+    ]
+    expect(snapshot['history']).to eq(expected_a)
+    expect(snapshot['key_history']).to eq(
+      'A' => expected_a,
+      'B' => expected_b,
+    )
+  end
+end
+
 RSpec.describe Ituob::Registers::StateBuilder, 'reason + error round-trip' do
   let(:builder) { Ituob::Registers::StateBuilder.new('F1') }
 

@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1234'
 reference: OB-1234
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Stadtwerke Lünen GmbH
     address_line_1: Borker Strasse 56-58
     address_line_2: D-44534 LUENEN
@@ -18,4 +19,6 @@ data:
     contact: Mr Colja Krause
     tel: "+49 2306 707 391"
     fax: "+49 2306 707 161"
+    email:
+    - c.krause@swl24.de
   notes: []

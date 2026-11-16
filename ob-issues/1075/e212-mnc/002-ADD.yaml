@@ -1,0 +1,42 @@
+type: ADD
+date_requested: 2013-0-1
+date_active: 2013-0-1
+ob_issue_no: '1075'
+reference: OB-1075
+identifier:
+  code: 1075-002
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 232 08
+    country_or_area:
+      en: Austria
+    networks: Lycamobile Austria Ltd
+  - mcc_mnc_codes: 232 12
+    country_or_area:
+      en: Austria
+    networks: A1 Telekom Austria AG
+  - mcc_mnc_codes: 232 13
+    country_or_area:
+      en: Austria
+    networks: UPC Austria Services GmbH
+  - mcc_mnc_codes: 232 16
+    country_or_area:
+      en: Austria
+    networks: Hutchison Drei Austria GmbH
+  - mcc_mnc_codes: 232 17
+    country_or_area:
+      en: Austria
+    networks: MASS Response Service GmbH
+  - mcc_mnc_codes: 232 18
+    country_or_area:
+      en: Austria
+    networks: smartspace GmbH
+  - mcc_mnc_codes: 232 19
+    country_or_area:
+      en: Austria
+    networks: Tele2 Telecommunication GmbH
+  notes:
+  - "*   MCC:  Country Code / Indicatif de pays du mobile / Indicativo de país para
+    el servicio móvil       MNC:  Network Code / Code de réseau mobile / Indicativo
+    de red para el servicio móvil"

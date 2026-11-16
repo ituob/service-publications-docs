@@ -4,17 +4,20 @@ date_active: *1
 ob_issue_no: '1246'
 reference: OB-1246
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: 2provide GmbH Bulk-Account
     address_line_1: Edisonstrasse 3
     address_line_2: D-24145 KIEL
     carrier_code: FL2PRV
     contact: Mr Sascha Mueller
     tel: "+49 171 1464433"
+    email:
+    - sascha.mueller@2provide.de
   notes: []

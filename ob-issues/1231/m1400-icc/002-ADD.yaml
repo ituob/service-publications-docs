@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Stadtwerke Greven GmbH
     address_line_1: Saerbecker Strasse 77 - 81
     address_line_2: D-48268 GREVEN
     carrier_code: SWGREV
     contact: Mr Simon Werning
     tel: "+49 2571 509455"
+    email:
+    - info@stadtwerke-greven.de
   notes: []

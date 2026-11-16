@@ -4,17 +4,20 @@ date_active: *1
 ob_issue_no: '1319'
 reference: OB-1319
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Prechtl Cl GmbH
     address_line_1: An der B20, Nr. 1
     address_line_2: D-83404 AINRING
     carrier_code: PINFRA
     contact: Mr Jonas Prechtl
     tel: "+49 86826504908"
+    email:
+    - kontakt@prechtl-ci.de
   notes: []

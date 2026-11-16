@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: DNCC Services GmbH
     address_line_1: Hindenburgstrasse 3 a
     address_line_2: D-96450 COBURG
     carrier_code: DNCC
     contact: Mr Julian Seifert
     tel: "+49 151 11458581"
+    email:
+    - js@dncc.de
   notes: []

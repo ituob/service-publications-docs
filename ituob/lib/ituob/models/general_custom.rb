@@ -8,8 +8,12 @@ module Ituob
       attribute :ob_issue_no, :string
       attribute :contents, :hash
       attribute :text, :string
+      attribute :title, :hash
+      attribute :recommendation, :string
 
       key_value do
+        map 'title', to: :title
+        map 'recommendation', to: :recommendation
         map 'ob_issue_no', to: :ob_issue_no
         map 'contents', to: :contents
         map 'text', to: :text

@@ -32,11 +32,28 @@ RSpec.describe Ituob::Catalogs::Registers do
   describe '.for_recommendation' do
     it 'returns every register created by a recommendation' do
       expect(described_class.for_recommendation('E.212').map(&:register_id).sort)
-        .to eq(%w[E212_ICC E212_MNC])
+        .to eq(%w[E212_ICC E212_MNC E212_SHARED_MCC])
     end
 
     it 'is empty for unknown recommendations' do
       expect(described_class.for_recommendation('Z.999')).to be_empty
+    end
+  end
+
+  describe 'routed registers' do
+    it 'reads amendments from the slug they share with their parent register' do
+      note = described_class.find('E164_NOTE_O')
+
+      expect(note.amendment_slug).to eq('e164-cc')
+      expect(described_class.find('E164_CC').amendment_slug).to eq('e164-cc')
+    end
+
+    it 'claims the rows whose routed field starts with the prefix' do
+      note = described_class.find('E164_NOTE_O')
+
+      expect(note.routes?('cc_ic' => '+882 13')).to be(true)
+      expect(note.routes?('cc_ic' => '+883 100')).to be(false)
+      expect(described_class.find('E164_CC').routes?('cc_ic' => '+882 13')).to be(false)
     end
   end
 

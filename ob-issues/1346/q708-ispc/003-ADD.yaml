@@ -1,0 +1,25 @@
+type: ADD
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1346'
+reference: OB-1346
+identifier:
+  code: 1346-003
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-200-3
+    country:
+      en: Kuwait
+    dec: '9795'
+    signal_point_name: Mobile Operator
+    signal_point_operator: Zain
+  - ipsc: 4-200-4
+    country:
+      en: Kuwait
+    dec: '9796'
+    signal_point_name: Mobile Operator
+    signal_point_operator: Zain
+  notes:
+  - ____________
+  - 'ISPC: International Signalling Point Codes.'

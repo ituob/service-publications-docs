@@ -13,11 +13,12 @@ module Ituob
 
       attr_reader :register_id, :at_ob_issue, :entries, :lapsed_keys,
                   :deleted_keys, :history, :error_count, :errors,
-                  :lapse_reasons
+                  :lapse_reasons, :key_history
 
       def initialize(register_id:, at_ob_issue:, entries:,
                      lapsed_keys:, deleted_keys:, history:,
-                     error_count: 0, errors: [], lapse_reasons: {})
+                     error_count: 0, errors: [], lapse_reasons: {},
+                     key_history: {})
         @register_id = register_id
         @at_ob_issue = at_ob_issue
         # Deep-freeze: freeze the hash AND every row value inside it.
@@ -25,6 +26,7 @@ module Ituob
         @lapsed_keys = lapsed_keys.freeze
         @deleted_keys = deleted_keys.freeze
         @history = history.freeze
+        @key_history = key_history.transform_values(&:freeze).freeze
         @error_count = error_count.to_i
         @errors = Array(errors).map(&:freeze).freeze
         @lapse_reasons = deep_freeze(lapse_reasons)
@@ -102,6 +104,9 @@ module Ituob
           'lapse_reasons' => @lapse_reasons,
           'deleted_keys' => @deleted_keys.to_a.sort,
           'history' => @history.map { |c| history_entry_to_hash(c) },
+          'key_history' => @key_history.transform_values do |changes|
+            changes.map { |change| history_entry_to_hash(change) }
+          end,
         }
       end
 

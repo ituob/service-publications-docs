@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1311'
 reference: OB-1311
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: 1&1 Telecom GmbH
     address_line_1: Elgendorfer Strasse 57
     address_line_2: 56410 MONTABAUR
@@ -19,16 +20,20 @@ data:
     tel: "+49 2602 963824"
     email:
     - ocm-auftragskoordination@1und1.de
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: energis GmbH
     address_line_1: Heinrich-Boecking-Strasse 10 - 14
     address_line_2: D-66121 SAARBRUECKEN
     carrier_code: ENERGS
     contact: Mr Christoph Morguet
     tel: "+49 681 9069 1533"
-  - country_or_area:
-      en: Germany
+    email:
+    - christoph.morguet@energis.de
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: SKYTRON Communications GmbH & Co.KG
     address_line_1: Im Stöckmädle 13
     address_line_2: 76307 KARLSBAD

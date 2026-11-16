@@ -1,0 +1,28 @@
+type: ADD
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1344'
+reference: OB-1344
+identifier:
+  code: 1344-004
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 641 05
+    country_or_area:
+      en: Uganda
+    networks: Roke Telkom Limited
+  - mcc_mnc_codes: 641 06
+    country_or_area:
+      en: Uganda
+    networks: Savanna Fibre Limited
+  - mcc_mnc_codes: 641 07
+    country_or_area:
+      en: Uganda
+    networks: Blue Crane Communications (U) Limited
+  - mcc_mnc_codes: 641 20
+    country_or_area:
+      en: Uganda
+    networks: Hamilton Telecom Limited
+  notes:
+  - 'MCC: Mobile Country Code  MNC: Mobile Network Code'

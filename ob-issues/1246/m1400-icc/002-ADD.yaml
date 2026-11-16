@@ -8,8 +8,9 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Husum Glasfaser GmbH & Co.KG
     address_line_1: Am Binnenhafen 1
     address_line_2: D-25813 HUSUM
@@ -17,4 +18,6 @@ data:
     contact: Mr Norbert Jungjohann
     tel: "+49 4841 8997 777"
     fax: "+49 4841 8997 188"
+    email:
+    - n.jungjohann@husumnetz.de
   notes: []

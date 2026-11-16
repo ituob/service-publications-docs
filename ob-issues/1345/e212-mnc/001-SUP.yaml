@@ -1,0 +1,28 @@
+type: SUP
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1345'
+reference: OB-1345
+identifier:
+  code: 1345-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 302 100
+    country_or_area:
+      en: Canada
+    networks: Data on Tap Inc.
+  - mcc_mnc_codes: 302 330
+    country_or_area:
+      en: Canada
+    networks: OpenMobile Inc.
+  - mcc_mnc_codes: 302 351
+    country_or_area:
+      en: Canada
+    networks: MPVWIFI Inc.
+  - mcc_mnc_codes: 302 848
+    country_or_area:
+      en: Canada
+    networks: Vocom International Telecommunications, Inc
+  notes:
+  - 'MCC: Mobile Country Code  MNC: Mobile Network Code'

@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: telekommtec Kohlmann e.K.
     address_line_1: Grafingerstrasse 4
     address_line_2: D-85567 GRAFING
     carrier_code: TKTEC
     contact: Mr Ralf Kohlmann
     tel: "+49 8092 2558459"
+    email:
+    - info@telekommtec.de
   notes: []

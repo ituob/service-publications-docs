@@ -4,13 +4,14 @@ date_active:
 ob_issue_no: '1186'
 reference: OB-1186
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: ELBFIBER Netzwerkinfrastrukturen UG (haftungsbeschränkt)
     address_line_1: Kirchenstegel 4
     address_line_2: D-21039 HAMBURG
@@ -18,4 +19,6 @@ data:
     contact: Mr Fabian Alexander Hars
     tel: "+49 40 3346936 0"
     fax: "+49 40 3346936 99"
+    email:
+    - info@elbfiber.com
   notes: []

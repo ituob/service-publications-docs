@@ -1,0 +1,23 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1346'
+reference: OB-1346
+identifier:
+  code: 1346-002
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: NTTCable Deutschland KG
+    address_line_1: Escher Straße 19
+    address_line_2: 65510 IDSTEIN
+    carrier_code: NTTDEU
+    contact: Ms Yvonne Kurth
+    tel: "+49 6126 9987659"
+    fax: "+49 6126 99876543"
+    email:
+    - y.kurth@nttcable.de
+  notes: []

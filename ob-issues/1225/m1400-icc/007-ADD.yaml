@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: miecom-Netzservice GmbH Zum Ried 6
     address_line_1: D-86637 BINSWANGEN
     carrier_code: MIECOM
     contact: Mr Joachim Geiger
     tel: "+49 8272 6097911"
     fax: "+49 8272 6097912"
+    email:
+    - info@miecom.de
   notes: []

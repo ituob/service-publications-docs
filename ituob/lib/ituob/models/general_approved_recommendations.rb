@@ -19,20 +19,17 @@ map 'ob_issue_no', to: :ob_issue_no
 map 'payload', to: :payload
       end
 
+      # Editor-era `items` is a {recommendation => date} mapping; the
+      # model holds a list. The date is kept as stored (a timestamp
+      # stays that timestamp, free text such as "2015" stays text).
       def self.parse(data)
         return unless data.is_a?(Hash) && data['type'] == 'approved_recommendations'
 
-        # Ensure the 'items' field is an array
-        items = data['items'].inject([]) do |acc, (key, value)|
-          acc << {
-            recommendation: key.gsub(/[[:space:]]/, ' ').strip,
-            approved_date: value,
-          }
-          acc
+        items = (data['items'] || {}).map do |key, value|
+          { 'recommendation' => key.gsub(/[[:space:]]/, ' ').strip, 'approved_date' => value }
         end
-        data['items'] = items
 
-        from_hash(data)
+        from_hash(data.merge('items' => items))
       end
 
     end

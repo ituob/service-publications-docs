@@ -4,13 +4,14 @@ date_active:
 ob_issue_no: '1193'
 reference: OB-1193
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: NL Bandwidth B.V.
     address_line_1: Prins Bernhardplein 200
     address_line_2: 1097JB AMSTERDAM
@@ -18,4 +19,6 @@ data:
     carrier_code: BAND
     contact: Mr Jeff Slater
     tel: "+1 919 726 7654"
+    email:
+    - EUnumbers@bandwidth.com
   notes: []

@@ -4,28 +4,32 @@ date_active:
 ob_issue_no: '1103'
 reference: OB-1103
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Brandl Services GmbH
     carrier_code: BRANDL
     contact: Mr Chris Brandl
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Theresienstr. 20
     contact: 'Tel.: +49 9180 409999 4'
     tel: "+49 9180 409999 4"
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: 92353 PAVELSBACH
     contact: 'Fax: +49 9180 409999 8'
     fax: "+49 9180 409999 8"
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     contact: 'E-mail: info@brandl-services.com'
     email:
     - info@brandl-services.com

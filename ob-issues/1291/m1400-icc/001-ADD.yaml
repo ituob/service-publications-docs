@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1291'
 reference: OB-1291
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Campus Networks & Events GmbH
     address_line_1: Am Studio 2 a
     address_line_2: D-12489 BERLIN
@@ -18,8 +19,11 @@ data:
     contact: Mr Christian Kroeger
     tel: "+49 30 200043 415"
     fax: "+49 30 138827 499"
-  - country_or_area:
-      en: Germany
+    email:
+    - c.kroeger@caneev.de
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: CNE-Solutions GmbH
     address_line_1: Umgehungsstrasse Nord 1
     address_line_2: D-36381 SCHLÜCHTERN
@@ -27,8 +31,11 @@ data:
     contact: Mr Julian Skribek
     tel: "+49 6661 70979 0"
     fax: "+49 6661 70979 99"
-  - country_or_area:
-      en: Germany
+    email:
+    - portierung@cne-solutions.de
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Ress Kommunikation e.K.
     address_line_1: An den Hecken 3
     address_line_2: D-55286 SULZHEIM
@@ -36,4 +43,6 @@ data:
     contact: Mr Michael Ress
     tel: "+49 6732 93393 0"
     fax: "+49 6732 93393 38"
+    email:
+    - service@ress-kom.de
   notes: []

@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Stadtwerke Karlsruhe GmbH
     address_line_1: Daxlander Strasse 72
     address_line_2: D-76185 KARLSRUHE
     carrier_code: SWKA
     contact: Mr Robin Birk
     tel: "+49 721 5991034"
+    email:
+    - robin.birk@stadtwerke-karlsruhe.de
   notes: []

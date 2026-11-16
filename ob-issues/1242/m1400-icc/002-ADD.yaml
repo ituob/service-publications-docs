@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1242'
 reference: OB-1242
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Astelon Estate Services Germany Ltd. & Co.KG
     address_line_1: Faerberstrasse 3 A
     address_line_2: D-78467 KONSTANZ
@@ -18,4 +19,6 @@ data:
     contact: Mr Julius Kempa
     tel: "+49 7531 19564950"
     fax: "+49 7531 19564959"
+    email:
+    - julius.kempa@astelon.de
   notes: []

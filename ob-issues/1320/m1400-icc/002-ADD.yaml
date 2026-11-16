@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Rechenzentrum Haßfurt GmbH
     address_line_1: Augsfelderstraße 6
     address_line_2: D-97437 Haßfurt
     carrier_code: RZHAS
     contact: Mr Matthias Hoh
     tel: "+49 9521 949490"
+    email:
+    - matthias.hoh@rzhas.de
   notes: []

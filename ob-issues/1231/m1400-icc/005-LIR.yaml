@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1231'
 reference: OB-1231
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Stadtwerke Lauterbach GmbH
     address_line_1: Hinter dem Spittel 15
     address_line_2: D-36341 LAUTERBACH
@@ -20,8 +21,9 @@ data:
     fax: "+49 30 235 919 299"
     email:
     - l.martens@vivax-consulting.de
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: TELE AG
     address_line_1: Wilhelm-Sammet-Strasse 37
     address_line_2: D-04157 LEIPZIG
@@ -31,8 +33,9 @@ data:
     fax: "+49 341 523801 99"
     email:
     - anne.hafermalz@tele-ag.de
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: TELE AG Bulk-Account
     address_line_1: Wilhelm-Sammet-Strasse 37
     address_line_2: D-04157 LEIPZIG

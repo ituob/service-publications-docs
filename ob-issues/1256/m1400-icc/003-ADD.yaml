@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: mawacon GmbH
     address_line_1: Am Toenniesberg 20
     address_line_2: D-30453 HANNOVER
     carrier_code: MAWACN
     contact: Mrs Alexandra Schmidt-Laubscher
     tel: "+49 159 01360831"
+    email:
+    - a.schmidt-laubscher@mawacon.eu
   notes: []

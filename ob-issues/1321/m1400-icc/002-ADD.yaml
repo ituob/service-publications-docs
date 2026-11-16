@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Indusys GmbH
     address_line_1: Kerkhagen 9
     address_line_2: D-58513 LUEDENSCHEID
     carrier_code: INDUS1
     contact: Zoran Trajkovic
     tel: "+49 2351 997410"
+    email:
+    - trajkovic@indusys.de
   notes: []

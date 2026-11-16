@@ -60,6 +60,44 @@ registers:
     seed_issue: 1114
     seed_path: datasets/1114-E.164D
 
+  # The E.164 notes lists are printed inside the E164_CC amendments;
+  # rows route to a note register by code prefix.
+  - register_id: E164_NOTE_N
+    slug: e164-note-n
+    recommendation: E.164
+    title: { en: List of Rec. ITU-T E.164 Note N codes }
+    key_field: cc_ic
+    classification: structured
+    parser_class: Ituob::Models::E164CCAmendment
+    seed_issue: 1114
+    seed_path: datasets/1114-E.164D-Note-N
+    source_slug: e164-cc
+    route: { field: cc_ic, prefix: '+881' }
+
+  - register_id: E164_NOTE_O
+    slug: e164-note-o
+    recommendation: E.164
+    title: { en: List of Rec. ITU-T E.164 Note O codes }
+    key_field: cc_ic
+    classification: structured
+    parser_class: Ituob::Models::E164CCAmendment
+    seed_issue: 1114
+    seed_path: datasets/1114-E.164D-Note-O
+    source_slug: e164-cc
+    route: { field: cc_ic, prefix: '+882' }
+
+  - register_id: E164_NOTE_PQ
+    slug: e164-note-pq
+    recommendation: E.164
+    title: { en: List of Rec. ITU-T E.164 Notes P and Q codes }
+    key_field: cc_ic
+    classification: structured
+    parser_class: Ituob::Models::E164CCAmendment
+    seed_issue: 1114
+    seed_path: datasets/1114-E.164D-Note-PQ
+    source_slug: e164-cc
+    route: { field: cc_ic, prefix: '+883' }
+
   - register_id: NNP
     slug: nnp
     recommendation: E.129
@@ -80,6 +118,19 @@ registers:
     renderer: mnc-table
     seed_issue: 1162
     seed_path: datasets/1162-E.212
+
+  - register_id: E212_SHARED_MCC
+    slug: e212-shared-mcc
+    recommendation: E.212
+    title: { en: Shared Mobile Country Codes (MCC) for networks and their respective Mobile Network Codes (MNC) }
+    key_field: mcc_mnc_codes
+    classification: structured
+    parser_class: Ituob::Models::E212MNCAmendment
+    renderer: mnc-table
+    seed_issue: 1162
+    seed_path: datasets/1162-E.212-Shared-MCC
+    source_slug: e212-mnc
+    route: { field: mcc_mnc_codes, prefix: '901 ' }
 
   - register_id: E212_ICC
     slug: e212-icc

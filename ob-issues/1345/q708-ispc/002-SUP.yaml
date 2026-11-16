@@ -1,0 +1,48 @@
+type: SUP
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1345'
+reference: OB-1345
+identifier:
+  code: 1345-002
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 4-082-2
+    country:
+      en: Japan
+    dec: '8850'
+    signal_point_name: Kiba-CDC1
+    signal_point_operator: Rakuten Mobile, Inc.
+  - ipsc: 4-082-3
+    country:
+      en: Japan
+    dec: '8851'
+    signal_point_name: Kiba-CDC2
+    signal_point_operator: Rakuten Mobile, Inc.
+  - ipsc: 4-083-7
+    country:
+      en: Japan
+    dec: '8863'
+    signal_point_name: Tokyo-CDC1
+    signal_point_operator: Rakuten Mobile, Inc.
+  - ipsc: 4-084-0
+    country:
+      en: Japan
+    dec: '8864'
+    signal_point_name: Tokyo-CDC2
+    signal_point_operator: Rakuten Mobile, Inc.
+  - ipsc: 4-084-1
+    country:
+      en: Japan
+    dec: '8865'
+    signal_point_name: Osaka-CDC1
+    signal_point_operator: Rakuten Mobile, Inc.
+  - ipsc: 4-084-2
+    country:
+      en: Japan
+    dec: '8866'
+    signal_point_name: Osaka-CDC2
+    signal_point_operator: Rakuten Mobile, Inc.
+  notes:
+  - 'ISPC: International Signalling Point Codes.'

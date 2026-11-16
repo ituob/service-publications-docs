@@ -1,0 +1,35 @@
+type: ADD
+date_requested: &1 2014-08-15
+date_active: *1
+ob_issue_no: '1344'
+reference: OB-1344
+identifier:
+  code: 1344-002
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Erznet Antennengemeinschaft, Marienberg
+    address_line_1: Dörfelstraße 7
+    address_line_2: '09496 MARIENBERG'
+    carrier_code: ERZN01
+    contact: Mr Thilo Schwarz
+    tel: "+49 176 72002109"
+    fax: "+49 3735 266271"
+    email:
+    - thilo.schwarz@erznet.tv
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: euroSIP GmbH
+    address_line_1: Gartenfelder Straße 29
+    address_line_2: 13599 BERLIN
+    carrier_code: EUSIP
+    contact: Mr Phillip Rohwerder
+    tel: "+49 30 2001160"
+    fax: "+49 30 2001169"
+    email:
+    - mail@eurosip.de
+  notes: []

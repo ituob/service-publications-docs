@@ -1,0 +1,36 @@
+type: SUP
+date_requested: &1 2024-06-01
+date_active: *1
+ob_issue_no: '1345'
+reference: OB-1345
+identifier:
+  code: 1345-004
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-109-2
+    country:
+      en: South Africa
+    dec: '13162'
+    signal_point_name: ILIZWI-MSC-01
+    signal_point_operator: Illizwi Telecommunications
+  - ipsc: 6-111-0
+    country:
+      en: South Africa
+    dec: '13176'
+    signal_point_name: Sentech LTH 1
+    signal_point_operator: Sentech (Pty) Ltd.
+  - ipsc: 6-111-7
+    country:
+      en: South Africa
+    dec: '13183'
+    signal_point_name: Sentech LTH 2
+    signal_point_operator: Sentech (Pty) Ltd.
+  - ipsc: 6-113-6
+    country:
+      en: South Africa
+    dec: '13198'
+    signal_point_name: WIRECONNECT-00
+    signal_point_operator: Wirels Connect
+  notes:
+  - 'ISPC: International Signalling Point Codes.'

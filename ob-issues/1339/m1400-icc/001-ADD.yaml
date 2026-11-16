@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1339'
 reference: OB-1339
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Aircall SAS
     address_line_1: 11-15 rue Saint Georges
     address_line_2: F-75009 PARIS

@@ -8,8 +8,9 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: HostProfis ISP Telekom GmbH
     address_line_1: Tiroler Strasse 17
     address_line_2: A-9500 VILLACH
@@ -18,4 +19,6 @@ data:
     contact: Mr Mario Oberdorfer
     tel: "+43 599 00 444"
     fax: "+43 599 00 900"
+    email:
+    - m.oberdorfer@hostprofis.com
   notes: []

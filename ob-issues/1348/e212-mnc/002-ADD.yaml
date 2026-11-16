@@ -1,0 +1,27 @@
+type: ADD
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1348'
+reference: OB-1348
+identifier:
+  code: 1348-002
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 712 10
+    country_or_area:
+      en: Costa Rica
+    networks: COOPERATIVA DE ELECTRIFICACIÓN RURAL DE GUANACASTE R.L.
+  - mcc_mnc_codes: "(Country A)"
+    country_or_area:
+      en: Germany
+    networks: '0000099000 - 0000099099'
+    range: 262 74
+  - mcc_mnc_codes: "(Country B – Where the MCC+MNC is to be used extra‑territorially)"
+    country_or_area:
+      en: Sweden
+    networks: '0000099100 - 0000099199'
+    range: 262 74
+  notes:
+  - "*            MCC:     Mobile Country Code"
+  - 'MNC:    Mobile Network Code'

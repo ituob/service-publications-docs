@@ -4,28 +4,32 @@ date_active:
 ob_issue_no: '1104'
 reference: OB-1104
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Tim Steinmann - Blindlabs -
     carrier_code: '081500'
     contact: Mr. Tim Steinmann
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Muehlenstrasse 8 a
     contact: 'Tel.:          +49 30 2325639 0'
     tel: "+49 30 2325639 0"
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: 12167 BERLIN
     contact: 'Fax:          +49 30 2325639 99'
     fax: "+49 30 2325639 99"
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     contact: 'E-mail:     carrier@blindlabs.de'
     email:
     - carrier@blindlabs.de

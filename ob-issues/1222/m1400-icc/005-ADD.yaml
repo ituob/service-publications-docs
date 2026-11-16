@@ -8,12 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Stadtwerke Bad Nauheim GmbH
     address_line_1: Hohe Straße 14 - 18
     address_line_2: D-61231 BAD NAUHEIM
     carrier_code: SWBN
     contact: Mr Sascha Kammer
     tel: "+49 6032 807152"
+    email:
+    - s.kammer@stadtwerke-bad-nauheim.de
   notes: []

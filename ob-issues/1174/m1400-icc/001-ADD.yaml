@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1174'
 reference: OB-1174
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Netzgesellschaft Herzebrock-Clarholz GmbH & Co.KG Am Rathaus 1 D-33442
       HERZEBROCK-CLARHOLZ
     carrier_code: '19076'
@@ -19,5 +20,8 @@ data:
     tel: 'Mr Heinz-Dieter Wette +49 5245 444 135 Fax:     +49 5245 444 137 Email:
       heinz-dieter.wette@gt-net.de'
     fax: 'Mr Heinz-Dieter Wette Tel.:     +49 5245 444 135 +49 5245 444 137 Email:
+      heinz-dieter.wette@gt-net.de'
+    email:
+    - 'Mr Heinz-Dieter Wette Tel.:     +49 5245 444 135 Fax:     +49 5245 444 137
       heinz-dieter.wette@gt-net.de'
   notes: []

@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1164'
 reference: OB-1164
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Markus Seemann my-netphone
     address_line_1: Wiesenweg 2
     address_line_2: 83098 BRANNENBURG
@@ -18,4 +19,6 @@ data:
     contact: Mr Markus Seemann
     tel: "+49 8034 7096030"
     fax: "+49 8034 7096031"
+    email:
+    - manfred.dohmen@enghouse.com
   notes: []

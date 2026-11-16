@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1298'
 reference: OB-1298
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Terrera AG
     address_line_1: Schloßstr. 19
     address_line_2: D-82031 GRÜNWALD
@@ -18,4 +19,6 @@ data:
     contact: Mr Michael Lenz
     tel: "+49 6474 274416"
     fax: "+49 6474 274463"
+    email:
+    - michael.lenz@terrera.ag
   notes: []

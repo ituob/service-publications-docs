@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1310'
 reference: OB-1310
 identifier:
-  code: Germany (Federal
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: BKN GmbH & Co.KG
     address_line_1: Kerkpatt 25
     address_line_2: D-48317 DRENSTEINFURT
@@ -18,12 +19,17 @@ data:
     contact: Mr Maximilian Knicker
     tel: "+49 2387 55302 0"
     fax: "+49 2387 55302 99"
-  - country_or_area:
-      en: Germany
+    email:
+    - knicker@bknetzwerk.de
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Breitbandnetz GmbH & Co.KG
     address_line_1: Husumer Strasse 63
     address_line_2: D-25821 BREKLUM
     carrier_code: BNGNF
     contact: Mr Daniel Pastewka
     tel: "+49 4671 79796 23"
+    email:
+    - pastewka@breitbandnetz-nf.de
   notes: []

@@ -1,0 +1,15 @@
+type: ADD
+register: E212_SHARED_MCC
+recommendation: E.212
+ob_issue_no: '1175'
+identifier:
+  code: 901 67
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 901 67
+    networks: 1NCE GmbH
+  - mcc_mnc_codes: 901 68
+    networks: Maersk Line A/S
+  notes: []
+reference: OB-1175

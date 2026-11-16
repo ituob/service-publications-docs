@@ -78,11 +78,12 @@ models Ituob {
   }
 
   class IssueMetadata {
-    attribute id, String
-    attribute publication_date, Date
-    attribute cutoff_date, Date
+    attribute id, Integer
+    attribute incomplete, Boolean
+    attribute publication_date, DateOrText
+    attribute cutoff_date, DateOrText
     attribute issn, String
-    attribute languages, MultilingualString
+    attribute languages, Hash
     attribute authors, IssueAuthor { cardinality 0..n }
   }
 
@@ -191,6 +192,10 @@ models Ituob {
 
   class E164CCEntry {
     attribute _class, String { default: "E164CCEntry" }
+    attribute country_code, String
+    attribute country_area_or_service, MultilingualString
+    attribute note, MultilingualString
+    attribute notes, String { cardinality 0..n }
     attribute applicant, String
     attribute network, String
     attribute cc_ic, String
@@ -320,7 +325,7 @@ models Ituob {
     attribute country_or_area_note, MultilingualString
     attribute notes, MultilingualString
     attribute network_roa, String
-    attribute network_roa_note, String
+    attribute network_roa_note, MultilingualString
     attribute network_code, String
     attribute network_code_note, MultilingualString
     attribute telegraph_office_name, MultilingualString
@@ -616,7 +621,8 @@ models Ituob {
   // T.35 family
 
   class T35AssignmentAuthority {
-    attribute terminal_type, String
+    attribute terminal_type, String { cardinality 0..n }
+    attribute last_updated, String
     attribute contact_name, String
     attribute organization, String
     attribute department, String
@@ -650,7 +656,7 @@ models Ituob {
     attribute _class, String { default: "T35NAEntry" }
     attribute country, String
     attribute administration_name, String
-    attribute manufactures_htv, String
+    attribute manufactures_htv, Boolean
     attribute last_updated, String
     attribute assignment_authority, T35AssignmentAuthority { cardinality 0..n }
     attribute note, String
@@ -691,7 +697,7 @@ models Ituob {
 
   class GeneralApprovedRecommendation {
     attribute recommendation, String
-    attribute approved_date, Date
+    attribute approved_date, DateOrText
   }
 
   class GeneralApprovedRecommendations {
@@ -712,6 +718,8 @@ models Ituob {
 
   class GeneralCustom {
     attribute type, String
+    attribute title, Hash
+    attribute recommendation, String
     attribute text, String
     attribute ob_issue_no, String
     attribute contents, Hash
@@ -746,7 +754,7 @@ models Ituob {
     attribute type, String
     attribute text, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralOrgChanges {
@@ -766,8 +774,8 @@ models Ituob {
 
   class GeneralServiceRestriction {
     attribute country, MultilingualString
-    attribute ob, String
-    attribute page, String
+    attribute ob, Integer
+    attribute page, Integer
   }
 
   class GeneralSanc {
@@ -799,8 +807,8 @@ models Ituob {
   }
 
   class GeneralTelephoneCommunication {
-    attribute date, String
-    attribute contents, MultilingualString
+    attribute date, DateOrText
+    attribute contents, Hash
   }
 
   class GeneralTelephoneService {
@@ -905,5 +913,39 @@ models Ituob {
     mapping yaml {
       map "register", to: "register_id"
     }
+  }
+
+  // Projection fields decided by PM, pending the design note.
+  // Ordering belongs to the provider: items and history follow replay;
+  // lapsed/deleted keys are sorted. Only clean projections are rendered.
+  class ProjectionProvenance {
+    attribute register_id, String { cardinality 1 }
+    attribute as_of_issue, Integer { cardinality 1 }
+    attribute seed_issue, Integer { cardinality 1 }
+    attribute last_change_issue, Integer { cardinality 0..1 }
+  }
+
+  class KeyHistoryEntry {
+    attribute key, String { cardinality 1 }
+    attribute type, ActionType { cardinality 1 }
+    attribute ob_issue_no, Integer { cardinality 1 }
+    attribute identifier, Identifier { cardinality 1 }
+  }
+
+  class RegisterEdition {
+    attribute provenance, ProjectionProvenance { cardinality 1 }
+    attribute items, Entry { cardinality 0..n }
+    attribute lapsed_keys, String { cardinality 0..n }
+    attribute deleted_keys, String { cardinality 0..n }
+    attribute key_history, KeyHistoryEntry { cardinality 0..n }
+  }
+
+  // One key's touched-change history as of an issue. membership is one of
+  // active, lapsed, deleted or absent (touched but not currently listed).
+  class RegisterKeyHistory {
+    attribute provenance, ProjectionProvenance { cardinality 1 }
+    attribute key, String { cardinality 1 }
+    attribute membership, String { cardinality 1 }
+    attribute entries, KeyHistoryEntry { cardinality 0..n }
   }
 }

@@ -8,8 +8,9 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Telematica Internet Service Provider GmbH
     address_line_1: Muenzgrabenstrasse 84b/5
     address_line_2: A-8010 GRAZ
@@ -18,4 +19,6 @@ data:
     contact: Mr Matthias Hohl
     tel: "+43 5056400 30"
     fax: "+43 5056400 100"
+    email:
+    - ordermanagement@telematica.at
   notes: []

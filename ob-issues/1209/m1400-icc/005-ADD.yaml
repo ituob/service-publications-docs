@@ -8,8 +8,9 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - country_or_area:
-      en: Germany
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: Telnyx Ireland Ltd.
     address_line_1: Level 5, Waterways House
     address_line_2: Grand Canal Quay
@@ -18,4 +19,6 @@ data:
     contact: Mr David Casem
     tel: 'Email: regulatory@nyx.com'
     fax: "+353 1 912 6121"
+    email:
+    - regulatory@telnyx.com
   notes: []
