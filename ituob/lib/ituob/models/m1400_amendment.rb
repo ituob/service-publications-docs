@@ -131,12 +131,14 @@ attribute :notes, :string, collection: true
               if heading = heading_without_slash(fixed_str)
                 country, country_code = heading[1..2]
                 action.action_type = heading[3]
+                action.note = nil
                 action.position = "#{country} / #{country_code}"
                 next
               end
               next unless slash_heading?(fixed_str)
 
               action.note = segs[1]
+              action.action_type = nil
               if Ituob::Catalogs::ActionTypes.valid?(fixed_str.split.last)
                 if m = fixed_str.match(/[A-Z]{3}\*$/)
                   action.action_type = m[0].to_s

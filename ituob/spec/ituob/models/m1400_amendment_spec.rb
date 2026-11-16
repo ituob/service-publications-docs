@@ -245,6 +245,30 @@ RSpec.describe Ituob::Models::M1400Amendment do
       expect(amendment.actions.first.action_type).to eq('ADD')
     end
 
+    it 'clears the annotated note when a later paragraph declares a new action' do
+      amendment = described_class.parse(
+        doc(paragraph('Luxembourg / LUX REP all information by:'),
+            paragraph('Germany DEU ADD'),
+            table(company_row('Email: a@b.net')))
+      )
+      action = amendment.actions.find { |candidate| candidate.entries.any? }
+      entry = action.entries.first
+
+      expect([entry.country_or_area.en, entry.iso_code, action.action_type, action.note])
+        .to eq(['Germany', 'DEU', 'ADD', nil])
+    end
+
+    it 'updates the country when a slash heading has no action marker' do
+      amendment = described_class.parse(
+        doc(paragraph('Germany / DEU ADD'), paragraph('Luxembourg / LUX'),
+            table(company_row('Email: a@b.net')))
+      )
+      action = amendment.actions.find { |candidate| candidate.entries.any? }
+      entry = action.entries.first
+
+      expect([entry.country_or_area.en, entry.iso_code, action.action_type]).to eq(['Luxembourg', 'LUX', nil])
+    end
+
     it 'keeps a single-word country with its ISO code' do
       amendment = parse('Palau / PLW ADD', 'E-mail: a@b.net')
 
