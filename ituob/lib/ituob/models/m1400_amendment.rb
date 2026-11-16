@@ -171,15 +171,17 @@ attribute :notes, :string, collection: true
             # detected — many M1400 amendments emit one data row per
             # table with no header at all).
             c.each do |row|
-              rf = normalize_heading(row.flatten.join(''))
-              rf = rf.sub(/\AP \d+ (?:to P \d+ )?/, '')
+              rf = Ituob::Helpers.replace_legacy_space(row.flatten.join('')).strip
+              single_cell = row.count { |cell| !Ituob::Helpers.normalize_whitespace(cell.flatten.join).empty? } == 1
+              if single_cell
+                rf = normalize_heading(rf).sub(/\AP \d+ (?:to P \d+ )?/, '')
+              end
               next if rf.match(/^Country/)
               next if rf.match(/Company.Name/)
               if rf.match?(/ \/ [A-Z]{3}$/)
                 country, country_code = rf.split(' / ')
                 next
               end
-              single_cell = row.count { |cell| !Ituob::Helpers.normalize_whitespace(cell.flatten.join).empty? } == 1
               m = single_cell ? heading_with_annotation(rf) : nil
               m ||= heading_with_action(rf)
               if !m && single_cell

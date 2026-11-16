@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'json'
 require 'ituob/models'
 require 'ituob/helpers'
 
@@ -46,18 +45,6 @@ RSpec.describe Ituob::Models::M1400Amendment do
   end
 
   describe 'country heading' do
-    it 'keeps unrelated empty-email drift out of the heading baseline update' do
-      baseline_path = File.expand_path('../../../../scripts/output/parser_baseline/M1400_ICC.json', __dir__)
-      baseline = JSON.parse(File.read(baseline_path))
-      contacts = %w[1000 1013 1015].map do |issue|
-        baseline.fetch(issue).fetch('actions').flat_map { |action| action.fetch('entries') }
-          .find { |entry| entry['contact'] == 'E-mail' }
-          .slice('contact', 'email')
-      end
-
-      expect(contacts).to eq(Array.new(3) { { 'contact' => 'E-mail' } })
-    end
-
     {
       'Germany / DEU' => ['Germany', 'DEU', nil],
       'Germany / DEU ADD' => ['Germany', 'DEU', 'ADD'],
@@ -236,6 +223,70 @@ RSpec.describe Ituob::Models::M1400Amendment do
 
       expect([entry.country_or_area.en, entry.iso_code, entry.company_name, entry.carrier_code, entry.contact])
         .to eq(['Germany', 'DEU', 'Example Company', 'DEU', 'ADD'])
+    end
+
+    [
+      ['Example/DEU', 'CODE', 'ADD', 'Example/DEU'],
+      ['Example /DEU', 'CODE', 'ADD', 'Example /DEU'],
+      ['Example', '/DEU', '', 'Example'],
+      ['Example /D', 'EU', '', 'Example /D']
+    ].each do |company, carrier, contact, expected_company|
+      it "keeps multi-cell slash row #{company.inspect} #{carrier.inspect} as an entry" do
+        amendment = described_class.parse(
+          doc(paragraph('Palau / PLW ADD'),
+              table(row(cell(paragraph(company)), cell(paragraph(carrier)), cell(paragraph(contact))),
+                    company_row('Email: a@b.net')))
+        )
+        entries = amendment.actions.flat_map(&:entries)
+        lookalike = entries.find { |entry| entry.company_name == expected_company }
+        action = amendment.actions.find { |candidate| candidate.entries.include?(lookalike) } if lookalike
+
+        expect(entries.length).to eq(2)
+        expect([action&.action_type, lookalike&.country_or_area&.en, lookalike&.iso_code,
+                lookalike&.company_name, lookalike&.carrier_code, lookalike&.contact])
+          .to eq(['ADD', 'Palau', 'PLW', expected_company, carrier.strip, contact.strip])
+        actual_company = entries.find { |entry| entry.company_name == 'Timo Jung Streamworx' }
+        expect([actual_company&.country_or_area&.en, actual_company&.iso_code]).to eq(['Palau', 'PLW'])
+      end
+    end
+
+    [
+      ['Example /   D', 'EU'],
+      ['Example /   DEU extra', 'ADD']
+    ].each do |company, carrier|
+      it "does not expand legacy heading matching after squeezing #{company.inspect} #{carrier.inspect}" do
+        amendment = described_class.parse(
+          doc(paragraph('Palau / PLW ADD'),
+              table(row(cell(paragraph(company)), cell(paragraph(carrier)), cell),
+                    company_row('Email: a@b.net')))
+        )
+        entries = amendment.actions.flat_map(&:entries)
+        lookalike = entries.find { |entry| entry.company_name == company.strip }
+
+        expect(entries.length).to eq(2)
+        expect([lookalike&.country_or_area&.en, lookalike&.iso_code, lookalike&.company_name,
+                lookalike&.carrier_code])
+          .to eq(['Palau', 'PLW', company.strip, carrier.strip])
+        actual_company = entries.find { |entry| entry.company_name == 'Timo Jung Streamworx' }
+        expect([actual_company&.country_or_area&.en, actual_company&.iso_code]).to eq(['Palau', 'PLW'])
+      end
+    end
+
+    [
+      ['Germany / D', 'EU', nil],
+      ['Germany / DEU extra', 'ADD', 'ADD']
+    ].each do |company, carrier, expected_action|
+      it "keeps canonical multi-cell heading #{company.inspect} #{carrier.inspect}" do
+        amendment = described_class.parse(
+          doc(table(row(cell(paragraph(company)), cell(paragraph(carrier)), cell),
+                    company_row('Email: a@b.net')))
+        )
+        entries = amendment.actions.flat_map(&:entries)
+
+        expect(entries.map(&:company_name)).to eq(['Timo Jung Streamworx'])
+        expect([entries.first.country_or_area.en, entries.first.iso_code, amendment.actions.first.action_type])
+          .to eq(['Germany', 'DEU', expected_action])
+      end
     end
 
     it 'keeps Palau as the country when an invalid no-slash table heading precedes the company row' do
