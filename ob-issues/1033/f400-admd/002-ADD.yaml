@@ -10,7 +10,9 @@ data:
   position: Denmark ADD
   entries:
   - country_or_area:
+      en: Denmark
       fr: Danemark
+      es: Dinamarca
     admd_name: DK400
     country_code: DK
     helpdesk:
@@ -22,43 +24,9 @@ data:
       - S=helpdesk
       - 'NO'
       - Evenex ApS
-  - country_or_area:
-      fr: Denmark
-    admd_name: " "
-    country_code: " "
-    helpdesk:
-      x400: " "
-    autoanswer:
-      x400: " "
-    contact_address:
-      address_lines:
       - A=dk400
-      - " "
       - Blokken 9
-  - country_or_area:
-      fr: Dinamarca
-    admd_name: " "
-    country_code: " "
-    helpdesk:
-      x400: " "
-    autoanswer:
-      x400: " "
-    contact_address:
-      address_lines:
       - C=dk
-      - " "
       - DK-3460 BIRKERØD, Denmark
-  - country_or_area:
-      fr: " "
-    admd_name: " "
-    country_code: " "
-    helpdesk:
-      x400: " "
-    autoanswer:
-      x400: " "
-    contact_address:
-      address_lines:
-      - " "
-      - " "
-      - X.400:        S=helpdesk; A=dk400; C=dk;
+      - 'X.400:        S=helpdesk; A=dk400; C=dk;'
   notes: []

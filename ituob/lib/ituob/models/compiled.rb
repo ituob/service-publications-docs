@@ -81,6 +81,7 @@ module Ituob
         RR251Action
         RR251Entry
         RegisterEdition
+        RegisterKeyHistory
         T35AssignmentAuthority
         T35NAAction
         T35NAEntry
@@ -134,6 +135,7 @@ module Ituob
 
         def apply_key_value_mappings
           super
+          map_edition_items
           RENDER_EMPTY_CLASSES.each do |name|
             klass = compiled_classes.fetch(name)
             names = klass.attributes.keys
@@ -150,9 +152,31 @@ module Ituob
           super
         end
 
+        # lutaml-lml 0.3.1 builds every class directly on Serializable and
+        # LML has no inheritance syntax. Entry classes must descend from
+        # the hand-written Entry anchor so a heterogeneous collection
+        # (RegisterEdition#items) can hold concrete instances of any of
+        # them; this mirrors ModelCompiler#build_compiled_class otherwise.
+        def build_compiled_class(def_obj)
+          return super unless entry_class?(def_obj)
+
+          all_attrs = build_attributes(def_obj)
+          immediate, deferred = all_attrs.partition do |(_, raw_type, type, _)|
+            type != :string || TYPE_MAP.key?(raw_type) || raw_type.start_with?('reference:(')
+          end
+          compiled_klass = Class.new(Ituob::Models::Entry) do
+            immediate.each { |attr_name, _raw, type, options| attribute attr_name, type, **options }
+          end
+          @forward_refs[def_obj.name.to_s] = deferred unless deferred.empty?
+          compiled_klass
+        end
+
         def build_attributes(klass_def)
           super.map do |attr_name, raw_type, type, options|
             options = projection_options(klass_def, options)
+            if klass_def.name.to_s == 'RegisterEdition' && attr_name == :items
+              next [attr_name, raw_type, Ituob::Models::Entry, options.merge(polymorphic: true)]
+            end
             members = UNION_ATTRIBUTES[[klass_def.name.to_s, attr_name.to_s]]
             next [attr_name, raw_type, type, options] unless members
 
@@ -164,10 +188,38 @@ module Ituob
           end
         end
 
+        # Register row classes carry the `_class` discriminator
+        # (KeyHistoryEntry, a plain value class, does not).
+        def entry_class?(klass_def)
+          name = klass_def.name.to_s
+          name.end_with?('Entry') && CLASS_NAMES.include?(name) &&
+            Array(klass_def.attributes).any? { |attr| attr.name.to_s == '_class' }
+        end
+
+        # The discriminator is the entry's own `_class`; hydration sets it
+        # so each item serializes with, and restores, its concrete class.
+        def map_edition_items
+          edition = compiled_classes.fetch('RegisterEdition')
+          # Compiled entries are not constants yet while compiling.
+          names = (CLASS_NAMES + Ituob::Models.constants.map(&:to_s)).grep(/Entry\z/).uniq
+          class_map = names.to_h { |name| [name, "Ituob::Models::#{name}"] }
+          attrs = edition.attributes.keys
+          edition.key_value do
+            attrs.each do |attr|
+              if attr == :items
+                map 'items', to: :items,
+                             polymorphic: { attribute: '_class', class_map: class_map }
+              else
+                map attr.to_s, to: attr
+              end
+            end
+          end
+        end
+
         # Deserialization assigns missing fields after initialize;
         # projection collections need attribute defaults as well.
         def projection_options(klass_def, options)
-          return options unless klass_def.name.to_s == 'RegisterEdition' && options[:collection]
+          return options unless %w[RegisterEdition RegisterKeyHistory].include?(klass_def.name.to_s) && options[:collection]
 
           options.merge(default: -> { [] })
         end
@@ -177,10 +229,26 @@ module Ituob
         CLASS_NAMES.each do |name|
           klass = compiler.compiled_classes.fetch(name)
           ensure_collections_default_to_empty(klass)
+          preserve_empty_strings(name, klass)
           Models.const_set(name, klass)
         end
 
         nil
+      end
+
+      # These registers distinguish a printed blank from a missing field.
+      # Explicit mappings retain that distinction when Entry objects are
+      # serialized, while still omitting absent/nil values.
+      def self.preserve_empty_strings(name, klass)
+        return unless %w[F400Entry NumberingPlanEntry].include?(name)
+
+        attributes = klass.attributes
+        klass.key_value do
+          attributes.each do |attribute, definition|
+            map attribute.to_s, to: attribute,
+                                render_empty: definition.type == Lutaml::Model::Type::String
+          end
+        end
       end
 
       # Hand-written model classes initialize collection attributes to

@@ -143,10 +143,16 @@ RSpec.describe 'Ituob model ontology (ituob/ontology/messages.lml)' do
         identifier: Ituob::Models::Identifier.new(code: '234 | 15')
       )
     end
+    let(:entry) do
+      Ituob::Models::E212MNCEntry.from_hash(
+        '_class' => 'E212MNCEntry', 'mcc_mnc_codes' => '234 | 15',
+        'networks' => 'Example network', 'country_or_area' => { 'en' => 'United Kingdom' }
+      )
+    end
     let(:edition) do
       Ituob::Models::RegisterEdition.new(
         provenance: provenance,
-        items: [{ 'mcc' => '234', 'mnc' => '15', 'operator' => { 'en' => 'Example' } }],
+        items: [entry],
         lapsed_keys: ['234 | 01', '234 | 02'],
         deleted_keys: ['234 | 03'], key_history: [history_entry]
       )
@@ -173,7 +179,28 @@ RSpec.describe 'Ituob model ontology (ituob/ontology/messages.lml)' do
       expect(restored.key_history.first.identifier).to be_a(Ituob::Models::Identifier)
       expect(restored.key_history.first.key).to eq('234 | 15')
       expect(restored.key_history.first.type.value).to eq('MOD')
+      expect(restored.items.map(&:class)).to eq([Ituob::Models::E212MNCEntry])
       expect(restored.items).to eq(edition.items)
+      expect(restored.items.first.country_or_area).to be_a(Ituob::Models::MultilingualString)
+    end
+
+    it 'keeps heterogeneous concrete entry classes in order across formats' do
+      cc = Ituob::Models::E164CCEntry.from_hash(
+        '_class' => 'E164CCEntry', 'country_code' => '44', 'notes' => %w[a b]
+      )
+      mixed = Ituob::Models::RegisterEdition.new(provenance: provenance, items: [cc, entry, cc])
+
+      %i[yaml json].each do |format|
+        restored = Ituob::Models::RegisterEdition.public_send("from_#{format}", mixed.public_send("to_#{format}"))
+        expect(restored.items.map(&:class)).to eq([Ituob::Models::E164CCEntry, Ituob::Models::E212MNCEntry,
+                                                   Ituob::Models::E164CCEntry])
+        expect(restored.items.map(&:to_hash)).to eq(mixed.items.map(&:to_hash))
+      end
+    end
+
+    it 'makes compiled entry classes descend from the Entry anchor' do
+      expect(Ituob::Models::E212MNCEntry.ancestors).to include(Ituob::Models::Entry)
+      expect(Ituob::Models::Entry.ancestors).not_to include(Ituob::Models::E212MNCEntry)
     end
 
     it 'round-trips query identifiers through the compiled identifier type' do
@@ -211,29 +238,29 @@ RSpec.describe 'Ituob model ontology (ituob/ontology/messages.lml)' do
       let(:changes) do
         [
           Ituob::Registers::Change.new(
-            type: 'SEED', register_id: 'F1', ob_issue_no: 669,
-            identifier: { code: 'seed' }, data: [{ 'code' => 'Z', 'label' => 'seed' }]
+            type: 'SEED', register_id: 'E212_MNC', ob_issue_no: 669,
+            identifier: { code: 'seed' }, data: [{ 'mcc_mnc_codes' => '001 | 01', 'networks' => 'seed' }]
           ),
           Ituob::Registers::Change.new(
-            type: 'ADD', register_id: 'F1', ob_issue_no: 700,
-            identifier: { code: 'A' }, data: { 'label' => 'added' }
+            type: 'ADD', register_id: 'E212_MNC', ob_issue_no: 700,
+            identifier: { code: '002 | 01' }, data: { 'mcc_mnc_codes' => '002 | 01', 'networks' => 'added' }
           ),
           Ituob::Registers::Change.new(
-            type: 'ADD', register_id: 'F1', ob_issue_no: 701,
-            identifier: { code: 'M' }, data: { 'label' => 'kept' }
+            type: 'ADD', register_id: 'E212_MNC', ob_issue_no: 701,
+            identifier: { code: '003 | 01' }, data: { 'mcc_mnc_codes' => '003 | 01', 'networks' => 'kept' }
           ),
           Ituob::Registers::Change.new(
-            type: 'DEL', register_id: 'F1', ob_issue_no: 702, identifier: { code: 'A' }
+            type: 'DEL', register_id: 'E212_MNC', ob_issue_no: 702, identifier: { code: '002 | 01' }
           ),
           Ituob::Registers::Change.new(
-            type: 'MOD', register_id: 'F1', ob_issue_no: 800,
-            identifier: { code: 'M' }, data: { 'label' => 'future' }
+            type: 'MOD', register_id: 'E212_MNC', ob_issue_no: 800,
+            identifier: { code: '003 | 01' }, data: { 'networks' => 'future' }
           )
         ]
       end
-      let(:source) { Ituob::Registers::InlineChangeSource.new(register_id: 'F1', changes: changes) }
+      let(:source) { Ituob::Registers::InlineChangeSource.new(register_id: 'E212_MNC', changes: changes) }
       let(:state) do
-        Ituob::Registers::Replay.new(register_id: 'F1', key_field: 'code', source: source).at_issue(710)
+        Ituob::Registers::Replay.new(register_id: 'E212_MNC', key_field: 'mcc_mnc_codes', source: source).at_issue(710)
       end
       let(:replayed_edition) do
         Ituob::Models::RegisterEdition.new(
@@ -241,12 +268,14 @@ RSpec.describe 'Ituob model ontology (ituob/ontology/messages.lml)' do
             register_id: state.register_id, as_of_issue: state.at_ob_issue,
             seed_issue: source.seed_issue, last_change_issue: state.last_issue
           ),
-          items: state.active_entries.values,
+          items: state.active_entries.values.map do |row|
+            Ituob::Models::E212MNCEntry.from_hash(row.merge('_class' => 'E212MNCEntry'))
+          end,
           lapsed_keys: state.lapsed_keys.to_a.sort,
           deleted_keys: state.deleted_keys.to_a.sort,
           key_history: state.history.map do |change|
             Ituob::Models::KeyHistoryEntry.new(
-              key: change.seed? ? 'Z' : change.identifier.code,
+              key: change.seed? ? '001 | 01' : change.identifier.code,
               type: action_type.public_send(change.type), ob_issue_no: change.ob_issue_no,
               identifier: Ituob::Models::Identifier.new(code: change.identifier.code)
             )
@@ -258,20 +287,20 @@ RSpec.describe 'Ituob model ontology (ituob/ontology/messages.lml)' do
         expect(state.errors).to be_empty
         restored = Ituob::Models::RegisterEdition.from_json(replayed_edition.to_json)
 
-        expect(restored.provenance.register_id).to eq('F1')
+        expect(restored.provenance.register_id).to eq('E212_MNC')
         expect(restored.provenance.as_of_issue).to eq(710)
         expect(restored.provenance.seed_issue).to eq(669)
         expect(restored.provenance.last_change_issue).to eq(702)
-        expect(restored.items).to eq(
-          [{ 'code' => 'Z', 'label' => 'seed' }, { 'code' => 'M', 'label' => 'kept' }]
-        )
+        expect(restored.items.map(&:class)).to eq([Ituob::Models::E212MNCEntry] * 2)
+        expect(restored.items.map { |item| [item.mcc_mnc_codes, item.networks] })
+          .to eq([['001 | 01', 'seed'], ['003 | 01', 'kept']])
         expect(restored.lapsed_keys).to eq([])
-        expect(restored.deleted_keys).to eq(['A'])
+        expect(restored.deleted_keys).to eq(['002 | 01'])
         expect(restored.key_history.map do |entry|
           [entry.key, entry.type.value, entry.ob_issue_no, entry.identifier.code]
         end)
-          .to eq([['Z', 'SEED', 669, 'seed'], ['A', 'ADD', 700, 'A'],
-                  ['M', 'ADD', 701, 'M'], ['A', 'DEL', 702, 'A']])
+          .to eq([['001 | 01', 'SEED', 669, 'seed'], ['002 | 01', 'ADD', 700, '002 | 01'],
+                  ['003 | 01', 'ADD', 701, '003 | 01'], ['002 | 01', 'DEL', 702, '002 | 01']])
         expect(restored.class.attributes.keys).to contain_exactly(
           :provenance, :items, :lapsed_keys, :deleted_keys, :key_history
         )

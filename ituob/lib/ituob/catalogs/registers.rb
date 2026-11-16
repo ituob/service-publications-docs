@@ -59,7 +59,7 @@ module Ituob
         end
 
         def default_path
-          File.expand_path('../../../../catalogs/registers.yaml', __dir__)
+          DataRoot.join('catalogs', 'registers.yaml')
         end
 
         def declare_indices

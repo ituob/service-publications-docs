@@ -39,7 +39,7 @@ validated = 0
 skipped = 0
 
 # Check the complete inventory even when validating a sample of issues.
-freeform_messages = YAML.load_file(File.expand_path('../catalogs/freeform_messages.yaml', __dir__))
+freeform_messages = YAML.load_file(File.expand_path('../catalogs/freeform_messages.yaml', __dir__)) || []
 freeform_by_file = {}
 freeform_messages.each do |entry|
   file = entry.fetch('file')
