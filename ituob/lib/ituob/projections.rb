@@ -6,5 +6,6 @@ module Ituob
     autoload :RegisterItems, 'ituob/projections/register_items'
     autoload :RegisterEdition, 'ituob/projections/register_edition'
     autoload :KeyHistory, 'ituob/projections/key_history'
+    autoload :RegisterActions, 'ituob/projections/register_actions'
   end
 end

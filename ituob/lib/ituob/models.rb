@@ -89,6 +89,8 @@ module Ituob
     # Value types for corpus fields that must be kept as stored
     autoload :DateOrText, 'ituob/models/date_or_text'
     autoload :HashOrText, 'ituob/models/hash_or_text'
+    autoload :HashOrList, 'ituob/models/hash_or_list'
+    autoload :RegisterChangeMapping, 'ituob/models/register_change_mapping'
 
     # Data-shape classes compiled from the LML ontology; loaded
     # eagerly because sibling leaf files reference these constants at

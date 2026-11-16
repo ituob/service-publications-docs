@@ -39,13 +39,14 @@ TS_TYPE = {
   'Time' => 'string',
   'Hash' => 'Record<string, unknown>', # free-form mappings (no LML primitive)
   'HashOrText' => 'Record<string, unknown> | string', # mapping, or a string kept as stored
+  'HashOrList' => 'Record<string, unknown> | Record<string, unknown>[]',
   'DateOrText' => 'string', # date or timestamp as ISO text, or free text; kept as stored
 }.freeze
 
 VALIDATOR_RUNTIME_HEADER = <<~'TS'
   export type FieldKind =
     | "string" | "integer" | "float" | "boolean" | "date" | "time"
-    | "hash" | "hashOrText" | "dateOrText" | "enum" | "class";
+    | "hash" | "hashOrText" | "hashOrList" | "dateOrText" | "enum" | "class";
 
   export interface FieldSpec {
     kind: FieldKind;
@@ -71,6 +72,7 @@ VALIDATOR_RUNTIME_BODY = <<~'TS'
     string: "a string", integer: "an integer", float: "a number", boolean: "a boolean",
     date: "an ISO date string (YYYY-MM-DD)", time: "a timestamp string", hash: "an object",
     hashOrText: "an object or a string", dateOrText: "a string", enum: "an enum member", class: "an object",
+    hashOrList: "an object or a list of objects",
   };
 
   function scalarOk(kind: FieldKind, v: unknown): boolean {
@@ -83,6 +85,7 @@ VALIDATOR_RUNTIME_BODY = <<~'TS'
       case "time": return typeof v === "string";
       case "hash": return isObj(v);
       case "hashOrText": return isObj(v) || typeof v === "string";
+      case "hashOrList": return isObj(v) || (Array.isArray(v) && v.every(isObj));
       case "dateOrText": return typeof v === "string";
       default: return false;
     }
@@ -203,6 +206,7 @@ puts "wrote #{OUTPUT_PATH} (#{doc.classes.length} interfaces)"
 VALIDATOR_KIND = {
   'String' => 'string', 'Integer' => 'integer', 'Float' => 'float', 'Boolean' => 'boolean',
   'Date' => 'date', 'Time' => 'time', 'Hash' => 'hash', 'HashOrText' => 'hashOrText',
+  'HashOrList' => 'hashOrList',
   'DateOrText' => 'dateOrText'
 }.freeze
 
