@@ -222,5 +222,11 @@ RSpec.describe Ituob::Models::F400Amendment do
       expect(entries.first.contact_address[:address_lines])
         .to eq(['S= helpdesk', 'S=autoanswer', 'Ralf Knecht', 'A=viat', 'A=viat', 'C=de', 'C=de'])
     end
+
+    it 'keeps the stacked fr/en/es service names under their MT and IPM columns' do
+      expect(entries.first.mt).to eq("BusinessMail\nMailGate\nX.400 MT")
+      expect(entries.first.ipm).to eq("BusinessMail\nMailbox\nX.400 - IPM")
+      expect(entries.first.other).to be_nil
+    end
   end
 end

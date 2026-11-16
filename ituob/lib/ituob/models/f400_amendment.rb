@@ -69,6 +69,7 @@ attribute :notes, :string, collection: true
             # — recognized by an empty ADMD-name and country-code cell.
             current_entry = nil
             address_lines = []
+            services = Hash.new { |h, k| h[k] = [] }
             country_names = { fr: nil, en: nil, es: nil }
             lang_idx = 0
 
@@ -101,6 +102,7 @@ attribute :notes, :string, collection: true
                 # New country entry — flush previous.
                 if current_entry
                   current_entry.contact_address = { address_lines: address_lines.reject(&:empty?) }
+                  assign_services(current_entry, services)
                   current_entry.country_or_area = MultilingualString.new(
                     fr: country_names[:fr], en: country_names[:en], es: country_names[:es]
                   )
@@ -108,6 +110,7 @@ attribute :notes, :string, collection: true
                 end
                 current_entry = F400Entry.new
                 address_lines = []
+                services = Hash.new { |h, k| h[k] = [] }
                 country_names = { fr: nil, en: nil, es: nil }
                 lang_idx = 0
 
@@ -116,6 +119,7 @@ attribute :notes, :string, collection: true
                 current_entry.country_code = flat[2]
                 current_entry.helpdesk = { x400: flat[4] } if flat[4] && !flat[4].empty?
                 current_entry.autoanswer = { x400: flat[5] } if flat[5] && !flat[5].empty?
+                SERVICE_COLUMNS.each { |key, i| services[key] << flat[i] if flat[i] && !flat[i].empty? }
                 (6..8).each { |i| address_lines << flat[i] if flat[i] && !flat[i].empty? }
               elsif current_entry
                 # Continuation row.
@@ -127,11 +131,15 @@ attribute :notes, :string, collection: true
                   end
                 end
                 (6..8).each { |i| address_lines << flat[i] if flat[i] && !flat[i].empty? }
+                # Cells 3-5 continue the stacked service-name columns
+                # (OB 1092 en/es rows); they never belong in the address.
+                SERVICE_COLUMNS.each { |key, i| services[key] << flat[i] if flat[i] && !flat[i].empty? }
               end
             end
             # Flush the last entry.
             if current_entry
               current_entry.contact_address = { address_lines: address_lines.reject(&:empty?) }
+              assign_services(current_entry, services)
               current_entry.country_or_area = MultilingualString.new(
                 fr: country_names[:fr], en: country_names[:en], es: country_names[:es]
               )
@@ -150,6 +158,15 @@ attribute :notes, :string, collection: true
       # one leading blank). Blank holes or a trailing blank do not
       # disqualify it; a continuation row with a few numeric cells does not
       # qualify.
+      SERVICE_COLUMNS = { mt: 3, ipm: 4, other: 5 }.freeze
+
+      # Stacked service names (first row plus fr/en/es continuation rows),
+      # one per line, under the MT/IPM/other column they were printed in.
+      def self.assign_services(entry, services)
+        services.each { |key, lines| entry.public_send("#{key}=", lines.join("\n")) unless lines.empty? }
+      end
+      private_class_method :assign_services
+
       def self.numbered_layout_row?(flat)
         cells = flat.each_with_index.reject { |x, _| x.empty? }
         return false if cells.length < 5 || cells.first.first != '1'
