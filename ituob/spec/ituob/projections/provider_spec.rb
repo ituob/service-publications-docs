@@ -169,10 +169,15 @@ RSpec.describe Ituob::Provider do
     end
 
     it 'limits history to changes at or before as_of' do
-      earlier = provider.history(register: 'e212-mnc', key: key, as_of: register.seed_issue)
+      seed_key, full_history = state.key_history.find do |_entry_key, changes|
+        changes.first.ob_issue_no == register.seed_issue && changes.size > 1
+      end
+      expect(seed_key).not_to be_nil
+
+      earlier = provider.history(register: 'e212-mnc', key: seed_key, as_of: register.seed_issue)
 
       expect(earlier.entries.map(&:ob_issue_no).max).to be <= register.seed_issue
-      expect(earlier.entries.size).to be < history.entries.size
+      expect(earlier.entries.size).to be < full_history.size
     end
 
     it 'rejects an unknown key, register and issue with clear errors' do
