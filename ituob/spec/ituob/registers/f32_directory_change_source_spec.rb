@@ -118,6 +118,23 @@ RSpec.describe Ituob::Registers::F32DirectoryChangeSource do
         expect(removed.count("UNPO")).to eq(1)
       end
 
+      it "does not withdraw an office an earlier REP moved to another network" do
+        changes << ["REP", 981, { "entries" => [office.("UNTG").merge("network_code" => "XY--")] }]
+        changes << replace.("replaces_network" => true)
+        expect(removed).to match_array(seed_un - %w[UNAK UNTG])
+      end
+
+      it "does not withdraw an office deleted before the replacement" do
+        changes << ["DEL", 981, { "entries" => [office.("UNTG")] }]
+        changes << replace.("replaces_network" => true)
+        expect(removed).to match_array(seed_un - %w[UNAK UNTG])
+      end
+
+      it "fails loudly when the flagged entries are only headings" do
+        changes << ["REP", 982, { "replaces_network" => true, "entries" => [office.("").merge("network_code" => nil)] }]
+        expect { removed }.to raise_error(RuntimeError, /0982-0000-REP-X\.yaml sets replaces_network but has no entries/)
+      end
+
       it "fails loudly naming the file when the flag has no entries" do
         changes << ["REP", 982, { "replaces_network" => true, "entries" => [] }]
         expect { removed }.to raise_error(RuntimeError, /0982-0000-REP-X\.yaml sets replaces_network but has no entries/)

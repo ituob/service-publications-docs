@@ -126,6 +126,7 @@ module Ituob
             [entry.to_hash]
           end
           if offices.empty?
+            reject_empty_network_replacement!(change)
             @context_only_changes << change
             @context_only_sources << { change: change, path: @loaded_path }
             next
@@ -178,17 +179,31 @@ module Ituob
         end
       end
 
+      # An office lives on one network at a time: a later ADD, REP or MOD
+      # that moves it takes it off its old network, and SUP or DEL drops it.
       def track_network_offices(change)
         entries = change.data.is_a?(Hash) ? Array(change.data['entries']) : []
         case change.type
         when 'ADD', 'REP'
-          entries.each do |office|
-            (@network_offices[network_prefix(office)] ||= {})[office['office_code']] = office
+          entries.each { |office| file_office(office) }
+        when 'MOD'
+          entries.each do |patch|
+            current = forget_office(patch['office_code'])
+            file_office(current ? current.merge(patch) : patch)
           end
-        when 'SUP'
+        when 'SUP', 'DEL'
           codes = entries.empty? ? [change.identifier.code] : entries.map { |office| office['office_code'] }
-          @network_offices.each_value { |offices| codes.each { |code| offices.delete(code) } }
+          codes.each { |code| forget_office(code) }
         end
+      end
+
+      def file_office(office)
+        forget_office(office['office_code'])
+        (@network_offices[network_prefix(office)] ||= {})[office['office_code']] = office
+      end
+
+      def forget_office(code)
+        @network_offices.each_value.filter_map { |offices| offices.delete(code) }.first
       end
 
       def network_prefix(office)
