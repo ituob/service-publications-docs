@@ -421,6 +421,26 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entries.map(&:mcc_mnc_codes)).to eq(['208 01'])
     end
 
+    # A row 1 holding a code is a data row under the title, not a header:
+    # each shape below was dropped as a header before the fix.
+    [
+      ['310 260*', 'footnote star on the code'],
+      ['310 260 / 310 270', 'two codes in one cell'],
+      ['310260', 'code without the space'],
+      ['310 260, 310 270', 'comma-separated codes'],
+      ['310 26A', 'letter in the code']
+    ].each do |code, shape|
+      it "keeps a data row under a single-cell title when the code has #{shape} (#{code})" do
+        title = row(cell(paragraph('Extra-territorial use of MCC+MNC')))
+        data = row(cell(paragraph('Sweden')), cell(paragraph(code)), cell(paragraph('A')), cell(paragraph('Op A')))
+        following = row(cell(paragraph('Sweden')), cell(paragraph('310 270')),
+                        cell(paragraph('A')), cell(paragraph('Op B')))
+        entries = parse(document(table(title, data, following))).actions.flat_map(&:entries)
+
+        expect(entries.map(&:mcc_mnc_codes)).to eq([code, '310 270'])
+      end
+    end
+
     it 'keeps a Country B row with no matching Country A code as its own entry' do
       header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC')),
                    cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))

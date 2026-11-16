@@ -107,16 +107,15 @@ attribute :country, :string
         { country: country, action: suffix[:action] }
       end
 
-      CODE_CELL = /\A\d{3}\s+\d+\z/
-
       # Row 0 is the column header, except when a single-cell title row
-      # comes first: then the header is row 1, unless that row carries a
-      # code (a data row under a title).
+      # comes first: then the header is row 1, unless one of its cells has
+      # a digit. Printed headers are words ("MCC+MNC*", "Operator / Network");
+      # a code has a digit whatever its punctuation ("310 260*", "310 26A").
       def self.header_row_index(table)
         title, candidate = table
         return 0 unless candidate && title.length == 1 && candidate.length > 1
 
-        row_cells(candidate).any? { |cell| cell.match?(CODE_CELL) } ? 0 : 1
+        row_cells(candidate).any? { |cell| cell.match?(/\d/) } ? 0 : 1
       end
 
       # One normalized string per cell of a table row.
