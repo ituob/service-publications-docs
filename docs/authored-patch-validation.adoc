@@ -52,7 +52,9 @@ and passes that same 40-character commit SHA as `service_ref`, the data PR head
 SHA as `data_ref`, and the PR base SHA as `base_ref`. `data_repository` defaults
 to, and is restricted to, `ituob/itu-ob-data`. No repository secrets are required.
 The job has read-only repository permissions and never executes data checkout
-scripts or workflow files.
+scripts or workflow files. The reusable workflow is callable only; it has no
+direct manual-dispatch trigger, so untrusted authored revisions enter through
+the data repository's pull-request validation path.
 
 == Authoring format and policy
 

@@ -16,18 +16,6 @@ on:
         description: Same full service commit SHA as the caller reusable-workflow pin
         type: string
         required: true
-  workflow_dispatch:
-    inputs:
-      data_repository:
-        default: ituob/itu-ob-data
-        required: true
-      data_ref:
-        required: true
-      base_ref:
-        required: true
-      service_ref:
-        required: true
-
 permissions:
   contents: read
 
