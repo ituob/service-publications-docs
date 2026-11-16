@@ -69,7 +69,7 @@ attribute :notes, :string, collection: true
             # — recognized by an empty ADMD-name and country-code cell.
             current_entry = nil
             stacks = Hash.new { |h, k| h[k] = [] }
-            country_names = { fr: nil, en: nil, es: nil }
+            country_names = { fr: nil, en: nil, es: nil, extra: [] }
             lang_idx = 0
 
             c.each do |row|
@@ -97,23 +97,17 @@ attribute :notes, :string, collection: true
               # (OB 1092 en/es rows), so they must not decide this.
               continuation = flat[1, 2].all?(&:empty?)
 
-              if !continuation && flat[0] && !flat[0].empty?
+              if !continuation && (!flat[0].empty? || !stray_numbers?(flat))
                 # New country entry — flush previous.
-                if current_entry
-                  assign_columns(current_entry, stacks)
-                  current_entry.country_or_area = MultilingualString.new(
-                    fr: country_names[:fr], en: country_names[:en], es: country_names[:es]
-                  )
-                  action.entries << current_entry
-                end
+                action.entries << finish_entry(current_entry, stacks, country_names) if current_entry
                 current_entry = F400Entry.new
                 stacks = Hash.new { |h, k| h[k] = [] }
-                country_names = { fr: nil, en: nil, es: nil }
+                country_names = { fr: nil, en: nil, es: nil, extra: [] }
                 lang_idx = 0
 
-                country_names[:fr] = flat[0]
-                current_entry.admd_name = flat[1]
-                current_entry.country_code = flat[2]
+                current_entry.admd_name = presence(flat[1])
+                current_entry.country_code = presence(flat[2])
+                country_names[:fr] = presence(flat[0])
                 stack_columns(stacks, flat)
               elsif current_entry
                 # Continuation row.
@@ -122,6 +116,7 @@ attribute :notes, :string, collection: true
                   case lang_idx
                   when 1 then country_names[:en] = flat[0]
                   when 2 then country_names[:es] = flat[0]
+                  else country_names[:extra] << flat[0]
                   end
                 end
                 # Cells 3-8 continue the entry's stacked columns.
@@ -129,13 +124,7 @@ attribute :notes, :string, collection: true
               end
             end
             # Flush the last entry.
-            if current_entry
-              assign_columns(current_entry, stacks)
-              current_entry.country_or_area = MultilingualString.new(
-                fr: country_names[:fr], en: country_names[:en], es: country_names[:es]
-              )
-              action.entries << current_entry
-            end
+            action.entries << finish_entry(current_entry, stacks, country_names) if current_entry
           else
             next if first_elem.nil?
             raise "Unexpected non-string/array elem in c[0]"
@@ -157,8 +146,32 @@ attribute :notes, :string, collection: true
 
       def self.stack_columns(stacks, flat)
         STACKED_COLUMNS.each { |key, i| stacks[key] << flat[i] if flat[i] && !flat[i].empty? }
+        # The printed table has nine columns; anything beyond is kept with the contact lines.
+        flat.drop(STACKED_COLUMNS[:contact] + 1).each { |cell| stacks[:contact] << cell unless cell.empty? }
       end
       private_class_method :stack_columns
+
+      # A row without a country name that carries only digits in the ADMD
+      # and code cells is a stray column number, not a new entry.
+      def self.stray_numbers?(flat)
+        flat[1, 2].all? { |cell| cell.match?(/\A\d*\z/) }
+      end
+      private_class_method :stray_numbers?
+
+      def self.presence(text)
+        text.to_s.empty? ? nil : text
+      end
+      private_class_method :presence
+
+      # MultilingualString holds one name per language; names past the
+      # third continuation row have no language slot, so they go to note.
+      def self.finish_entry(entry, stacks, names)
+        assign_columns(entry, stacks)
+        entry.country_or_area = MultilingualString.new(fr: names[:fr], en: names[:en], es: names[:es])
+        entry.note = names[:extra].join("\n") unless names[:extra].empty?
+        entry
+      end
+      private_class_method :finish_entry
 
       def self.assign_columns(entry, stacks)
         %i[mt ipm other].each do |key|

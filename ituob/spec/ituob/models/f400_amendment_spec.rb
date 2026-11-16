@@ -246,4 +246,54 @@ RSpec.describe Ituob::Models::F400Amendment do
       expect(entries.first.other).to be_nil
     end
   end
+
+  describe 'rows and cells the parser must not drop' do
+    def parse_rows(rows)
+      cell = ->(text) { { 'type' => 'table_cell', 'content' => [{ 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => text }] }] } }
+      document = { 'type' => 'doc', 'content' => [
+        { 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => 'P 1 ADD' }] },
+        { 'type' => 'table', 'content' => rows.map { |r| { 'type' => 'table_row', 'content' => r.map(&cell) } } }
+      ] }
+      described_class.parse(document).actions.first.entries
+    end
+
+    let(:first_row) { ['France', 'ADMD-FR', 'FR', 'm1', 'i1', 'o1', 'h1', 'a1', 'c1'] }
+    let(:nameless_row) { ['', 'AD2', 'DE', 'm2', 'i2', 'o2', 'h2', 'a2', 'c2'] }
+
+    it 'starts a new entry for a nameless-country row with an ADMD and code after an entry' do
+      entries = parse_rows([first_row, nameless_row])
+
+      expect(entries.map(&:admd_name)).to eq(%w[ADMD-FR AD2])
+      expect(entries.map(&:country_code)).to eq(%w[FR DE])
+      expect(entries.last.country_or_area.fr).to be_nil
+      expect(entries.last.mt).to eq('m2')
+    end
+
+    it 'keeps a nameless-country row as the first data row' do
+      entries = parse_rows([nameless_row])
+
+      expect(entries.map(&:admd_name)).to eq(%w[AD2])
+      expect(entries.first.contact_address[:address_lines]).to eq(['c2'])
+    end
+
+    it 'keeps country names beyond the third row' do
+      entries = parse_rows([first_row, ['English'] + [''] * 8, ['Espanol'] + [''] * 8, ['Extra'] + [''] * 8])
+
+      expect(entries.first.country_or_area.es).to eq('Espanol')
+      expect(entries.first.note).to eq('Extra')
+    end
+
+    it 'keeps a non-empty cell past the ninth column with the contact lines' do
+      entries = parse_rows([first_row + ['tenth']])
+
+      expect(entries.first.contact_address[:address_lines]).to eq(%w[c1 tenth])
+    end
+
+    it 'leaves a blank ADMD name nil' do
+      entries = parse_rows([['DE', '', 'DE']])
+
+      expect(entries.first.admd_name).to be_nil
+      expect(entries.first.country_code).to eq('DE')
+    end
+  end
 end
