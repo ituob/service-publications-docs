@@ -122,8 +122,8 @@ module Ituob
       # no longer holds, is already reflected: the seed is the post-issue
       # list. Accepted only with evidence that it is a real removal and
       # not a typo: the seed has been applied, no change at or after the
-      # seed issue has touched the key (so not a second SUP), and an earlier edition (a pre-seed change) names the
-      # key. The change stays in +history+, touches no key, and is
+      # seed issue has touched the key (so not a second SUP), and the key was still held at the end of
+      # the earlier editions (pre-seed changes). The change stays in +history+, touches no key, and is
       # listed in +reflected_in_seed+ instead of +errors+. Only SUP's
       # absence check raises a StrategyError here.
       def reflected_in_seed?(builder, change, error)
@@ -138,13 +138,20 @@ module Ituob
         pre_seed_keys.include?(key.to_s)
       end
 
-      # Keys named by changes published before the seed issue.
+      # Keys still held after the changes published before the seed issue:
+      # an ADD/REP/LIR/MOD row adds its key, a SUP/DEL row removes it, in
+      # issue order. A change's direct identifier counts only when its rows
+      # name no key (a table-position label such as "P 19" is not a key).
+      # Not memoized: the source is re-read so a reused Replay agrees with
+      # a fresh one.
       def pre_seed_keys
-        @pre_seed_keys ||= source.pre_seed_changes.each_with_object(Set.new) do |c, keys|
-          Strategies::Base.rows_for(c, @key_field, @fallback_key_fields).each do |row|
-            keys << Strategies::Base.entry_key(row, @key_field, @fallback_key_fields).to_s
-          end
-          keys << c.identifier.code.to_s if c.identifier.direct?
+        ordered = source.pre_seed_changes.each_with_index.sort_by { |c, i| [c.ob_issue_no.to_i, i] }.map(&:first)
+        ordered.each_with_object(Set.new) do |c, keys|
+          named = Strategies::Base.rows_for(c, @key_field, @fallback_key_fields).map do |row|
+            Strategies::Base.entry_key(row, @key_field, @fallback_key_fields)
+          end.compact.map(&:to_s).reject(&:empty?)
+          named = [c.identifier.code.to_s] if named.empty? && c.identifier.direct?
+          c.sup? || c.del? ? keys.subtract(named) : keys.merge(named)
         end
       end
 

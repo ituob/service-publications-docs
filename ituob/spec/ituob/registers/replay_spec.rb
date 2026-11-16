@@ -256,6 +256,40 @@ RSpec.describe Ituob::Registers::Replay do
       expect(state.deleted_keys.to_a).to eq(['ABC'])
     end
 
+    it 'still reports a seed-issue SUP of a key an earlier edition had already removed' do
+      write_pre_seed_add('GONE')
+      write_change('0665-001-SUP-GONE.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '665',
+        'identifier' => { 'code' => 'GONE' }, 'data' => { 'code' => 'GONE' },
+      })
+      write_seed_sup('669-001-SUP-GONE.yaml', 'GONE')
+      state = nil
+      expect { state = replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      expect(state.errors.size).to eq(1)
+      expect(state.reflected_in_seed).to be_empty
+    end
+
+    it 'does not take a table-position identifier as evidence when the rows carry keys' do
+      write_change('0660-001-ADD-P19.yaml', {
+        'type' => 'ADD', 'ob_issue_no' => '660',
+        'identifier' => { 'code' => 'P 19' }, 'data' => { 'entries' => [{ 'code' => 'REAL' }] },
+      })
+      write_seed_sup('669-001-SUP-P19.yaml', 'P 19')
+      state = nil
+      expect { state = replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      expect(state.errors.size).to eq(1)
+      expect(state.reflected_in_seed).to be_empty
+    end
+
+    it 'gives a reused Replay the same verdict as a fresh one after the source changes' do
+      write_seed_sup('669-001-SUP-GONE.yaml', 'GONE')
+      expect { replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      write_pre_seed_add('GONE')
+      state = nil
+      expect { state = replay.at_issue(669) }.not_to output(skip_stderr).to_stderr
+      expect(state.reflected_in_seed.size).to eq(1)
+    end
+
     it 'judges each row of a multi-entry seed-issue SUP on its own' do
       write_pre_seed_add('OLD')
       write_seed_sup('669-001-SUP-MULTI.yaml', 'ABC', entries: %w[ABC OLD GONE])
