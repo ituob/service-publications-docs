@@ -1288,15 +1288,6 @@
     zh: 比利时
     ar: بلجيكا
   networks: IP Nexia
-- mcc_mnc_codes: 270 77
-  country_or_area:
-    en: Belgium
-    fr: Belgique
-    es: Bélgica
-    ru: Бельгия
-    zh: 比利时
-    ar: بلجيكا
-  networks: Tango S.A.
 - mcc_mnc_codes: 702 67
   country_or_area:
     en: Belize
@@ -3628,15 +3619,6 @@
     zh: 福克兰群岛（马尔维纳斯）
     ar: جزر فوكلاند (مالفيناس)
   networks: Touch
-- mcc_mnc_codes: 274 02
-  country_or_area:
-    en: Faroe Islands
-    fr: Féroé (Iles)
-    es: Feroe (Islas)
-    ru: Фарерские острова
-    zh: 法罗群岛
-    ar: جزر فارويه
-  networks: P/F Kall, reg. No 2868 (Vodafone FO)
 - mcc_mnc_codes: 288 01
   country_or_area:
     en: Faroe Islands
@@ -3682,6 +3664,13 @@
     zh: 斐济
     ar: فيجي
   networks: Digicel (Fiji) Ltd
+  note:
+    en: "Extra-territorial use in Nauru: Digicel (Fiji) Ltd"
+    fr: "Nauru: Digicel (Fiji) Ltd"
+    es: "Nauru: Digicel (Fiji) Ltd"
+    ru: "Науру: Digicel (Fiji) Ltd"
+    zh: "瑙鲁: Digicel (Fiji) Ltd"
+    ar: "ناورو: Digicel (Fiji) Ltd"
 - mcc_mnc_codes: 542 03
   country_or_area:
     en: Fiji
@@ -5791,6 +5780,13 @@
     zh: 冰岛
     ar: أيسلندا
   networks: Og fjarskipti hf (Vodafone Iceland)
+  note:
+    en: "Extra-territorial use in Faroe Islands: P/F Kall, reg. No 2868 (Vodafone FO)"
+    fr: "Féroé (Iles): P/F Kall, reg. No 2868 (Vodafone FO)"
+    es: "Feroe (Islas): P/F Kall, reg. No 2868 (Vodafone FO)"
+    ru: "Фарерские Острова: P/F Kall, reg. No 2868 (Vodafone FO)"
+    zh: "法罗群岛: P/F Kall, reg. No 2868 (Vodafone FO)"
+    ar: "جزر فارويه: P/F Kall, reg. No 2868 (Vodafone FO)"
 - mcc_mnc_codes: 274 03
   country_or_area:
     en: Iceland
@@ -8986,15 +8982,6 @@
     zh: 利比里亚
     ar: ليبيريا
   networks: Comium Liberia
-- mcc_mnc_codes: 228 01
-  country_or_area:
-    en: Liechtenstein
-    fr: Liechtenstein
-    es: Liechtenstein
-    ru: Лихтенштейн
-    zh: 列支敦士登
-    ar: ليختنشتاين
-  networks: Swisscom Schweiz AG
 - mcc_mnc_codes: 295 01
   country_or_area:
     en: Liechtenstein
@@ -9130,6 +9117,13 @@
     zh: 卢森堡
     ar: لكسمبرغ
   networks: Tango S.A.
+  note:
+    en: "Extra-territorial use in Belgium: Tango S.A."
+    fr: "Belgique: Tango S.A."
+    es: "Bélgica: Tango S.A."
+    ru: "Бельгия: Tango S.A."
+    zh: "比利时: Tango S.A."
+    ar: "بلجيكا: Tango S.A."
 - mcc_mnc_codes: 270 78
   country_or_area:
     en: Luxembourg
@@ -9982,15 +9976,6 @@
     zh: 纳米比亚
     ar: ناميبيا
   networks: MTN Namibia
-- mcc_mnc_codes: 542 02
-  country_or_area:
-    en: Nauru
-    fr: Nauru
-    es: Nauru
-    ru: Науру
-    zh: 瑙鲁
-    ar: ناورو
-  networks: Digicel (Fiji) Ltd
 - mcc_mnc_codes: 429 01
   country_or_area:
     en: Nepal
@@ -13278,6 +13263,13 @@
     zh: 瑞士
     ar: سويسرا
   networks: Swisscom Schweiz AG
+  note:
+    en: "Extra-territorial use in Liechtenstein: Swisscom Schweiz AG"
+    fr: "Liechtenstein: Swisscom Schweiz AG"
+    es: "Liechtenstein: Swisscom Schweiz AG"
+    ru: "Лихтенштейн: Swisscom Schweiz AG"
+    zh: "列支敦士登: Swisscom Schweiz AG"
+    ar: "ليختنشتاين: Swisscom Schweiz AG"
 - mcc_mnc_codes: 228 02
   country_or_area:
     en: Switzerland

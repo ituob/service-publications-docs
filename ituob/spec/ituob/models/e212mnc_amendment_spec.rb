@@ -511,5 +511,28 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
         expect(rows.first['note']['en']).to start_with('Extra-territorial use in Monaco')
       end
     end
+
+    it 'has no duplicate MCC+MNC key' do
+      duplicates = seed.group_by { |row| row['mcc_mnc_codes'] }
+                       .select { |_code, rows| rows.size > 1 }
+                       .transform_values { |rows| rows.map { |row| row['country_or_area']['en'] } }
+
+      expect(duplicates).to eq({})
+    end
+
+    it 'keeps the owning country and notes the extra-territorial one (OB 1162 Country A / B)' do
+      {
+        '270 77' => %w[Luxembourg Belgium],
+        '274 02' => ['Iceland', 'Faroe Islands'],
+        '542 02' => %w[Fiji Nauru],
+        '228 01' => %w[Switzerland Liechtenstein]
+      }.each do |code, (owner, extra)|
+        row = seed.find { |entry| entry['mcc_mnc_codes'] == code }
+
+        expect(row['country_or_area']['en']).to eq(owner)
+        expect(row['note']['en']).to start_with("Extra-territorial use in #{extra}")
+        expect(row['note'].keys).to eq(%w[en fr es ru zh ar])
+      end
+    end
   end
 end
