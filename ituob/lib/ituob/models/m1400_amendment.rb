@@ -117,22 +117,24 @@ attribute :notes, :string, collection: true
             fixed_str = Ituob::Helpers.replace_legacy_space(c.join(' '))
             segs = Ituob::Helpers.split_str(fixed_str)
             fixed_str = normalize_heading(fixed_str)
+            page_heading = fixed_str.match(/\A(P \d+)(?: to P \d+)? /)
+            heading_text = page_heading ? fixed_str[page_heading.end(0)..] : fixed_str
 
             if first_elem.length < 3 
               next
             else
-              if heading = heading_with_annotation(fixed_str)
+              if heading = heading_with_annotation(heading_text)
                 country, country_code = heading[1..2]
                 action.action_type = heading[3]
                 action.note = heading[4]
-                action.position = "#{country} / #{country_code}"
+                action.position = page_heading ? page_heading[1] : "#{country} / #{country_code}"
                 next
               end
-              if heading = heading_without_slash(fixed_str)
+              if heading = heading_without_slash(heading_text)
                 country, country_code = heading[1..2]
                 action.action_type = heading[3]
                 action.note = nil
-                action.position = "#{country} / #{country_code}"
+                action.position = page_heading ? page_heading[1] : "#{country} / #{country_code}"
                 next
               end
               next unless slash_heading?(fixed_str)

@@ -45,6 +45,29 @@ RSpec.describe Ituob::Models::M1400Amendment do
   end
 
   describe 'country heading' do
+    [
+      ['P 28 Luxembourg / LUX REP all information by:', 'Luxembourg', 'LUX', 'REP', 'all information by:', 'P 28'],
+      ['P 28 to P 29 Luxembourg / LUX REP all information by:', 'Luxembourg', 'LUX', 'REP',
+       'all information by:', 'P 28'],
+      ['  P 28 Luxembourg / LUX REP all information by:', 'Luxembourg', 'LUX', 'REP', 'all information by:', 'P 28'],
+      ['  P 28 to P 29 Luxembourg / LUX REP all information by:', 'Luxembourg', 'LUX', 'REP',
+       'all information by:', 'P 28'],
+      ['P 59 Germany DEU ADD', 'Germany', 'DEU', 'ADD', nil, 'P 59'],
+      ['P 59 to P 60 Germany DEU ADD', 'Germany', 'DEU', 'ADD', nil, 'P 59'],
+      ['  P 59 Germany DEU ADD', 'Germany', 'DEU', 'ADD', nil, 'P 59'],
+      ['  P 59 to P 60 Germany DEU ADD', 'Germany', 'DEU', 'ADD', nil, 'P 59']
+    ].each do |heading, country, iso_code, action_type, note, position|
+      it "keeps page prefix out of country for #{heading.inspect}" do
+        amendment = parse(heading, 'Email: a@b.net')
+        action = amendment.actions.first
+        entry = action.entries.first
+
+        expect([entry.country_or_area.en, entry.iso_code, action.action_type, action.note])
+          .to eq([country, iso_code, action_type, note])
+        expect(action.position).to eq(position)
+      end
+    end
+
     {
       'Germany / DEU' => ['Germany', 'DEU', nil],
       'Germany / DEU ADD' => ['Germany', 'DEU', 'ADD'],
