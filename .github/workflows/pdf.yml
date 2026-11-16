@@ -12,6 +12,7 @@ on:
     paths:
       - 'documents/T-SP-PP.RES.21-2011/**'
       - 'datasets/991-PP.RES.21.pp/**'
+      - 'metanorma.yml'
       - '.github/workflows/pdf.yml'
   workflow_dispatch:
 
@@ -50,6 +51,27 @@ jobs:
           for lang in E F S; do
             test -s "$DOC_DIR/$DOC_ID-$lang.pdf"
             ls -l "$DOC_DIR/$DOC_ID-$lang.pdf"
+          done
+
+      # A PDF built from an empty dataset is still a valid, non-empty file
+      # (metanorma exits 0), so check the rendered content: every dataset
+      # row must appear in the document metanorma built the PDF from.
+      - name: Check the PDFs contain the dataset rows
+        env:
+          DATA: datasets/991-PP.RES.21.pp/data.yaml
+        run: |
+          set -eu
+          for lang in E F S; do
+            ruby -ryaml -e '
+              lang = { "E" => "en", "F" => "fr", "S" => "es" }.fetch(ARGV[1])
+              rows = YAML.safe_load_file(ARGV[0])
+              abort "dataset #{ARGV[0]} has no rows" if rows.nil? || rows.empty?
+              text = File.read(ARGV[2]).gsub(/<[^>]+>/, " ")
+              missing = rows.map { |r| r["geographic_area"][lang] }
+                            .reject { |name| text.include?(name) }
+              abort "#{ARGV[2]}: #{missing.size} of #{rows.size} rows missing, e.g. #{missing.first(3).inspect}" unless missing.empty?
+              puts "#{ARGV[2]}: all #{rows.size} rows present"
+            ' "$DATA" "$lang" "$DOC_DIR/$DOC_ID-$lang.presentation.xml"
           done
 
       - name: Upload PDFs
