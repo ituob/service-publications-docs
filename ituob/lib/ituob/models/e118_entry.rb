@@ -84,7 +84,16 @@ module Ituob
 
         # Extract contact info
         if prosemirror_row.cells.size > 3
-          lines = prosemirror_row.cells[3].lines
+          lines = prosemirror_row.cells[3].content.to_a.flat_map do |node|
+            case node
+            when Prosereflect::Paragraph
+              node.text_content.split("\n")
+            when Prosereflect::Table
+              node.rows.map { |row| row.cells.map { |cell| cell.lines.join(' ') }.join(' ') }
+            else
+              []
+            end
+          end.map(&:strip).reject(&:empty?)
           contact_lines = []
           tel_fax_email_lines = []
           contact_info_started = false
@@ -124,15 +133,15 @@ module Ituob
               tel << text unless text.empty?
 
             elsif line =~ /^Fax\s*(?:\.|:)/i
-              text = line.gsub(/^Fax(?:\.|:)[[:space:]]*/, '').strip
+              text = line.gsub(/^Fax\s*(?:\.|:)[[:space:]]*/, '').strip
               fax << text unless text.empty?
 
             elsif line =~ /^E-?mail\s*(?:\.|:)/i || line.include?('@')
               if line.count('@') > 1
-                emails = line.sub(/^E-?mail(?:\.|:)[[:space:]]*/, '').split(/\s+/).select { |e| e.include?('@') }
+                emails = line.sub(/^E-?mail\s*(?:\.|:)[[:space:]]*/, '').split(/\s+/).select { |e| e.include?('@') }
                 email.concat(emails)
               else
-                text = line.sub(/^E-?mail(?:\.|:)[[:space:]]*/, '').strip
+                text = line.sub(/^E-?mail\s*(?:\.|:)[[:space:]]*/, '').strip
                 email << text unless text.empty?
               end
             end

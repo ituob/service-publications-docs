@@ -1,0 +1,55 @@
+# Evidence is the independently published OB 980 annex, not recovered replay.
+source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+position_on: 2011-05-15
+source_sha256: 7ef59fbbfcddd5690dd4f5e2de87a618e31898c8943ca1335c6c4e2a4556c3d9
+source_pages: 47
+# Printed multi-line names were captured as separate rows in the old seed.
+continuations:
+  - country: BAHRAIN
+    text: Manama Diplomatic
+    following_code: BNDP
+    page: 5
+  - country: BAHRAIN
+    text: Manama Shaikh Mubarrak
+    following_code: BNSM
+    page: 5
+  - country: BELGIUM
+    text: Oostende Radio / Ostende
+    following_code: BEOS
+    page: 5
+# This printed row has no assigned office code; SUMX occurs in its footnote.
+unassigned:
+  - country: RUSSIAN FEDERATION
+    text: All others
+    page: 15
+    explanation: The printed office-code cell is empty; the footnote permits SUMX for certain former USSR countries.
+# Country lines wrapped across the printed column. Counts are FR/EN/ES lines.
+country_layouts:
+  - first: FALKLAND (ÎLES)
+    lines: [2, 2, 2]
+  - first: FRANCE DE L’OCÉAN
+    lines: [2, 3, 3]
+  - first: IRAN (RÉPUBLIQUE
+    lines: [2, 1, 2]
+  - first: L'EX-RÉPUBLIQUE
+    lines: [3, 2, 3]
+  - first: PAPOUASIE-NOUVELLE-
+    lines: [2, 1, 1]
+  - first: RÉPUBLIQUE ARABE
+    lines: [2, 1, 1]
+  - first: RÉP. POP. DÉM. DE CORÉE
+    lines: [1, 2, 1]
+  - first: SAINT-VINCENT-ET-LES
+    lines: [2, 2, 2]
+  - first: SAINTE-HÉLÈNE,
+    lines: [3, 2, 2]
+  - first: SAINT-PIERRE-ET-
+    lines: [2, 2, 1]
+  - first: TERRES AUSTRALES ET
+    lines: [3, 2, 2]
+  - first: TURQUES ET CAÏQUES
+    lines: [2, 2, 2]
+  - first: VIERGES AMÉRICAINES
+    lines: [2, 2, 2]
+  - first: VIERGES BRITANNIQUES
+    lines: [2, 1, 2]

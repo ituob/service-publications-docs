@@ -5,11 +5,11 @@ require 'lutaml/model'
 module Ituob
   module Models
     # File-level envelope for the freeform textual general messages:
-    # the ProseMirror document travels in `contents` (untyped Hash).
+    # the ProseMirror document travels in `contents` (a mapping, or authored plain prose).
     class GeneralMessage < Lutaml::Model::Serializable
       attribute :type, :string
       attribute :ob_issue_no, :string
-      attribute :contents, :hash
+      attribute :contents, HashOrText
 
       key_value do
         map 'type', to: :type

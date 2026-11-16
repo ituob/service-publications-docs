@@ -171,6 +171,14 @@ not wait on the general issue-selection policy.
   How are composite keys, removed entries and replay errors represented?
   Answered by: "Projection types with as-of provenance in the ontology"
   and "Edition and per-key history projections".
+  *Actions decided by PM:* `Provider.actions(register:, as_of:)` returns
+  `RegisterActions` with `ProjectionProvenance` and `RegisterChange` objects
+  from replay's `State#history`, in replay order: cumulative through the
+  as-of issue, filter by `ob_issue_no` for one issue. The one-issue filter
+  is `ob_issue_no == provenance.as_of_issue`; no range argument is added.
+  *Payload shape decided by PM:* `RegisterChange.data` uses `HashOrList`:
+  a mapping for an amendment or a plain array of rows for a seed batch.
+  This widens the public schema while preserving existing mapping payloads.
 . *Issue pinning and provenance:* Is an explicit issue required for every
   document, or may it request current state? If current is supported,
   which concrete issue is recorded? Which provenance fields and rendered

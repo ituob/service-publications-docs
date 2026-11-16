@@ -455,6 +455,34 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
       expect(actions.last.entries.first.country_or_area_note).to be_nil
     end
 
+    context 'with Malaysia (OB 1013)' do
+      let(:issue_number) { '1013' }
+
+      it 'pairs every explicitly parallel office name and full destination code' do
+        expect(entries.map(&:office_code)).to eq(%w[MAAS MAIP MAJB MAKU MAKO MAKB MAKL MATG MAKN MAKG MAMC MAPK MAPG MAPJ MASR MATP MAMX])
+        expect(entries.find { |entry| entry.office_code == 'MAKO' }.telegraph_office_name.en).to eq('KOTA BHARU KELANTAN')
+        expect(entries.find { |entry| entry.office_code == 'MAPK' }.telegraph_office_name.en).to eq('Pelabuhan Kelang')
+        expect(entries.last.telegraph_office_name.en).to eq('All others')
+        expect(amendment.actions.map(&:action_type)).to eq(['SUP'])
+        expect(entries.map { |entry| entry.country_or_area.en }).to all(eq('MALAYSIA'))
+      end
+    end
+
+    context 'with Ukraine (OB 1148)' do
+      let(:issue_number) { '1148' }
+
+      it 'shares repeated and translated country names across network-name continuation rows' do
+        expect(entries.map(&:office_code)).to include('UXCK', 'UXCG', 'UXKX')
+        expect(entries.map(&:office_code)).to all(match(/\AUX[A-Z]{2}\z/))
+        expect(entries.map { |entry| entry.country_or_area.fr }).to all(eq('UKRAINE'))
+        expect(entries.map { |entry| entry.country_or_area.en }).to all(eq('UKRAINE'))
+        expect(entries.map { |entry| entry.country_or_area.es }).to all(eq('UCRANIA'))
+        expect(entries.map(&:network_code)).to all(eq('UX- -'))
+        expect(amendment.actions.map(&:action_type)).to eq(['SUP'])
+        expect(amendment.notes).to include(a_string_including('Ukrainian Telecom', 'UX- -'))
+      end
+    end
+
     context 'with Jordan (OB 1000)' do
       let(:issue_number) { '1000' }
 

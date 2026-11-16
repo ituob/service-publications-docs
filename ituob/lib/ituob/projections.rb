@@ -7,5 +7,6 @@ module Ituob
     autoload :RegisterEdition, 'ituob/projections/register_edition'
     autoload :RegisterLocale, 'ituob/projections/register_locale'
     autoload :KeyHistory, 'ituob/projections/key_history'
+    autoload :RegisterActions, 'ituob/projections/register_actions'
   end
 end
