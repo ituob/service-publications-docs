@@ -109,8 +109,18 @@ attribute :notes, :string, collection: true
                 current_entry.country_code = presence(flat[2])
                 country_names[:fr] = presence(flat[0])
                 stack_columns(stacks, flat)
-              elsif current_entry
-                # Continuation row.
+              else
+                # Continuation row. A table that opens with one still gets an
+                # entry, so no printed cell is discarded.
+                unless current_entry
+                  current_entry = F400Entry.new
+                  stacks = Hash.new { |h, k| h[k] = [] }
+                  country_names = { fr: nil, en: nil, es: nil, extra: [] }
+                  lang_idx = 0
+                end
+                # Stray digits in the ADMD/code cells have no field of their
+                # own; keep them with the note rather than drop them.
+                flat[1, 2].each { |cell| country_names[:extra] << cell unless cell.empty? }
                 lang_idx += 1
                 if flat[0] && !flat[0].empty?
                   case lang_idx

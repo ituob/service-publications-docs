@@ -289,6 +289,23 @@ RSpec.describe Ituob::Models::F400Amendment do
       expect(entries.first.contact_address[:address_lines]).to eq(%w[c1 tenth])
     end
 
+    it 'keeps digits-only ADMD and code cells of a nameless-country row in the note' do
+      entries = parse_rows([first_row, ['', '400', '1', 'm2', '', '', '', '', '']])
+
+      expect(entries.size).to eq(1)
+      expect(entries.first.note).to eq("400\n1")
+      expect(entries.first.mt).to eq("m1\nm2")
+    end
+
+    it 'keeps a continuation-looking row that opens the table' do
+      entries = parse_rows([['', '', '49', 'm2', 'i2', '', '', '', 'c2']])
+
+      expect(entries.size).to eq(1)
+      expect(entries.first.note).to eq('49')
+      expect(entries.first.mt).to eq('m2')
+      expect(entries.first.contact_address[:address_lines]).to eq(['c2'])
+    end
+
     it 'leaves a blank ADMD name nil' do
       entries = parse_rows([['DE', '', 'DE']])
 
