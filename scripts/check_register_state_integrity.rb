@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift(File.expand_path('../ituob/lib', __dir__))
-require 'ituob/verifiers'
+require 'ituob'
 
 result = Ituob::Verifiers::RegisterStateIntegrityVerifier.new.verify
 result.details.group_by { |detail| detail[:register_id] }.each do |register_id, states|

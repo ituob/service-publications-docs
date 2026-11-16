@@ -1,0 +1,46 @@
+name: Register State Integrity
+
+on:
+  pull_request:
+    paths:
+      - 'datasets/**'
+      - 'catalogs/**'
+      - 'ob-issues/**'
+      - 'ituob/**'
+      - 'scripts/check_register_state_integrity.rb'
+      - '.github/workflows/register-state-integrity.yml'
+  push:
+    branches: [ main ]
+    paths:
+      - 'datasets/**'
+      - 'catalogs/**'
+      - 'ob-issues/**'
+      - 'ituob/**'
+      - 'scripts/check_register_state_integrity.rb'
+      - '.github/workflows/register-state-integrity.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.4'
+
+    - name: Install the gem bundle
+      env:
+        BUNDLE_GEMFILE: ituob/Gemfile
+      run: bundle install
+
+    # Reads catalogs/, datasets/ and ob-issues/ from this checkout
+    # (Ituob::DataRoot); the itu-ob-data submodule is not needed.
+    - name: Check register state integrity
+      env:
+        BUNDLE_GEMFILE: ituob/Gemfile
+      run: bundle exec ruby scripts/check_register_state_integrity.rb
