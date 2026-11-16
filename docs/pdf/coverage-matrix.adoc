@@ -11,15 +11,16 @@
 * Rows by register state: current: 12, no register: 21, outdated: 54
 * Rows whose header `:docnumber:` differs from the as-of issue: 42
 
-The as-of OB issue is the leading number of the first dataset directory the
-document reads (for example `1114-E.164D`). The header `:docnumber:` is not
-used for it: it is often not an issue number or is stale.
+The as-of OB issue is the highest leading number among the dataset directories
+named in the document's `yaml2text` block (for example `1114-E.164D`); when
+the datasets differ, every dataset issue is listed. The header `:docnumber:`
+is not used for it: it is often not an issue number or is stale.
 
-Register state is the newest OB issue with a change on disk under
+Register state is the newest OB issue the change loader would replay from
 `datasets/<seed>/changes/` (or the seed issue when there is none), read
-from `catalogs/registers.yaml`. A row is outdated when its as-of OB issue is
-older than that. Datasets with no register in the catalog are listed as
-"no register" and are not compared.
+from `catalogs/registers.yaml`. A row is outdated when the issue of the dataset
+it reads for a register is older than that. Datasets with no register in the
+catalog are listed as "no register" and are not compared.
 
 == Matrix
 

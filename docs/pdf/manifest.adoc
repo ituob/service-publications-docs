@@ -23,15 +23,31 @@ distinct publications that share a Recommendation.
 | Field | Type | Source and rule
 
 | `standard` | string | Directory token, for example `E.212B`.
+| `recommendation` | string | The Recommendation the publication belongs to, for grouping
+  (ituob.github.io#112: "grouped by Recommendation, then edition"). Derived from
+  `standard` by dropping one trailing uppercase letter that follows a digit:
+  `E.164B` -> `E.164`, `X.121A` -> `X.121`, `T.35B` -> `T.35`; `E.118`, `M.1400`,
+  `RR.25.1`, `PP.RES.21`, `SR.1` stay as they are. Checked against all 22 directory
+  tokens. It is not read from `catalogs/registers.yaml`, because 21 matrix rows
+  (E.180, E.212A, F.68, PP.RES.21, SR.1, X.121A) have no register.
 | `edition_year` | integer | Directory year, for example `2018`.
-| `language` | enum `A C E F R S` | Last token of the `.adoc` file name.
-| `title` | string | The document title in that language: `metadata.title[<lang>]` of the
-  first dataset the document reads; the `.adoc` `=` title line only as fallback.
+| `language` | enum `A C E F R S` | Last token of the `.adoc` file name, after any
+  stem (see Path).
+| `title` | string | The document title in that language: `metadata.title[<code>]` of the
+  first dataset the document reads, where `<code>` is the metadata language key for
+  the letter: `E`=`en`, `F`=`fr`, `S`=`es`, `R`=`ru`, `C`=`zh`, `A`=`ar`. Measured:
+  all 87 rows resolve to a non-empty title with this mapping. (Q.708B metadata uses
+  `ch` for Chinese; Q.708B has no `C` file, so nothing breaks today.) The `.adoc`
+  `=` title line is the fallback.
 | `registers` | list of string | Register slugs from `catalogs/registers.yaml`,
   resolved through the datasets the document reads. May be empty (see coverage matrix).
-| `as_of_issue` | integer | The OB issue the rendered data represents. It is the
-  provider's `edition.provenance.as_of_issue` for the data the render used,
-  never the build date or the header `:docnumber:`. See below.
+| `as_of_issue` | integer | The OB issue the rendered data represents: the highest
+  of the issues of every dataset the document reads. It is the provider's
+  `edition.provenance.as_of_issue` for the data the render used, never the build
+  date or the header `:docnumber:`. See below.
+| `dataset_issues` | map string to integer | Per-dataset issue for each numbered
+  dataset the document reads, for example `{1161-E.118: 1161}`. Recorded so a
+  consumer can see when a publication reads datasets from different issues.
 | `checksum_sha256` | string | SHA-256 of the PDF bytes, hex.
 | `status` | enum `candidate`, `itu-adopted` | See below.
 | `path` | string | Deterministic, relative: see below.
@@ -57,6 +73,14 @@ directory. Until the provider is the render's data path (spd#89 task 3), the
 manifest emitter takes `as_of_issue` from the dataset directory number; after
 it, from the provider.
 
+A document may read several datasets (`E.164D` reads four). The matrix generator
+reduces them like this: `as_of_issue` is the maximum of the dataset issues,
+`dataset_issues` keeps each one, and a register counts as outdated when its own
+dataset's issue is below the register's newest issue. Measured on this tree: all
+87 files read datasets of a single issue, so the maximum equals every member
+today; the rule matters only when a publication is rebuilt from mixed issues. The
+issue of a dataset is the leading number of its directory (`1114-E.164D` is 1114).
+
 == Path
 
 [source]
@@ -68,8 +92,13 @@ for example `pdf/E.212B-2018/E.212B-2018-E.pdf`. It is relative, depends only on
 three manifest fields, and contains no hash, timestamp or issue number, so the
 same entry always lands in the same place and the site can link to it without
 reading anything but the manifest. The `T-SP-` prefix is dropped on purpose:
-every publication has it. `standard` and `year` are unique per publication, so no
-two entries share a path. The manifest itself is `pdf/manifest.json`.
+every publication has it. The path does not include the source file's stem:
+30 of the 87 files are named with one (`MSW` or `OAS-MSW`, for example
+`T-SP-F.1-1998-MSW-E.adoc`), but the stem names the source file, not the
+publication, and must not change where the PDF lands. Uniqueness is enforced
+instead of assumed: `(standard, year, language)` must identify exactly one file,
+and `scripts/build_pdf_coverage_matrix.rb` fails with the clashing file names when
+two files share it. The manifest itself is `pdf/manifest.json`.
 
 == status
 

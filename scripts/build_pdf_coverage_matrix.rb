@@ -14,6 +14,7 @@
 
 $LOAD_PATH.unshift(File.expand_path('../ituob/lib', __dir__))
 require 'ituob/support'
+require 'ituob/registers'
 require 'optparse'
 
 module PdfCoverageMatrix
@@ -21,22 +22,37 @@ module PdfCoverageMatrix
   DOC_DIR = /\AT-SP-(?<standard>.+)-(?<year>\d{4})\z/
   DOC_FILE = /\A(?<stem>.+)-(?<lang>[#{LANGUAGES.join}])\.adoc\z/
   DATASET_REF = %r{datasets/(?<slug>[^/,\]]+)/[\w.-]+\.ya?ml}
+  # Only a yaml2text/data2text block attribute line names datasets the render
+  # reads; the same text in a comment or in prose does not.
+  BLOCK_LINE = /\A\[\w*2text\b/
   OUT_PATH = 'docs/pdf/coverage-matrix.adoc'
 
   Row = Struct.new(
-    :standard, :year, :language, :file, :docnumber, :issue, :published,
-    :registers, :unmapped, :newest, :flag, keyword_init: true
+    :standard, :year, :language, :file, :docnumber, :issue, :datasets,
+    :published, :registers, :unmapped, :newest, :flag, keyword_init: true
   )
 
   # A register as the catalog describes it, plus the newest OB issue whose
   # change is on disk (the seed issue when there are no later changes).
-  Register = Struct.new(:slug, :seed_issue, :newest_issue, keyword_init: true)
+  Register = Struct.new(:slug, :seed_path, :seed_issue, :newest_issue, keyword_init: true)
 
   module_function
 
   def rows(root)
     registers = register_index(root)
-    publications(root).flat_map { |dir| rows_for(root, dir, registers) }
+    all = publications(root).flat_map { |dir| rows_for(root, dir, registers) }
+    reject_duplicates(all)
+    all
+  end
+
+  # The manifest identity is (standard, year, language); a second file for the
+  # same key (for example a stem variant) would make two entries share a path.
+  def reject_duplicates(rows)
+    dups = rows.group_by { |r| [r.standard, r.year, r.language] }.select { |_, v| v.size > 1 }
+    return if dups.empty?
+
+    lines = dups.map { |k, v| "#{k.join(' ')}: #{v.map(&:file).join(', ')}" }
+    raise ArgumentError, "duplicate publication x language rows:\n#{lines.join("\n")}"
   end
 
   def publications(root)
@@ -56,17 +72,19 @@ module PdfCoverageMatrix
   end
 
   def row_for(path, meta, lang, registers)
-    text = File.read(path)
+    text = File.read(path, encoding: 'UTF-8')
     head = header(text)
-    slugs = text.scan(DATASET_REF).flatten.uniq.sort
+    slugs = text.lines.grep(BLOCK_LINE).flat_map { |l| l.scan(DATASET_REF).flatten }.uniq.sort
     mapped, unmapped = slugs.partition { |s| registers.key?(s) }
     regs = mapped.map { |s| registers.fetch(s) }
-    issue = text[DATASET_REF, :slug].to_s[/\A\d+/]&.to_i
+    datasets = slugs.filter_map { |s| (n = s[/\A\d+/]) && [s, n.to_i] }
+    issue = datasets.map(&:last).max
     Row.new(
       standard: meta[:standard], year: meta[:year], language: lang,
       file: File.basename(path), docnumber: head['docnumber'], issue: issue,
+      datasets: datasets,
       published: head['published-date'], registers: regs, unmapped: unmapped,
-      newest: regs.map(&:newest_issue).max, flag: flag(issue, regs)
+      newest: regs.map(&:newest_issue).max, flag: flag(issue, regs, datasets)
     )
   end
 
@@ -78,11 +96,17 @@ module PdfCoverageMatrix
         .to_h { |m| [m[:k], m[:v]] }
   end
 
-  def flag(issue, regs)
+  # Each register is compared with the issue of the dataset the document reads
+  # for it; the as-of issue (the maximum) only decides the unknown case.
+  def flag(issue, regs, datasets)
     return 'no register' if regs.empty?
     return 'unknown (no numbered dataset)' unless issue
 
-    newer = regs.select { |r| r.newest_issue > issue }
+    read = datasets.to_h
+    newer = regs.select do |r|
+      at = read[File.basename(r.seed_path)] || issue
+      r.newest_issue > at
+    end
     return 'current' if newer.empty?
 
     "outdated: #{newer.map { |r| "#{r.slug} at #{r.newest_issue}" }.join(', ')}"
@@ -96,20 +120,19 @@ module PdfCoverageMatrix
       slug = File.basename(entry['seed_path'])
       seed = entry['seed_issue']&.to_i || 0
       index[slug] = Register.new(
-        slug: entry['slug'], seed_issue: seed,
+        slug: entry['slug'], seed_path: entry['seed_path'], seed_issue: seed,
         newest_issue: newest_issue(File.join(root, entry['seed_path']), seed)
       )
     end
   end
 
-  # Filenames under changes/ start with the OB issue. Changes before the seed
-  # issue are already embodied in the seed (DirectoryChangeSource skips them).
+  # The newest OB issue the replay would read: the loader's own file selection
+  # (.yaml/.yml with a `type`, issue from the content, nothing before the seed).
   def newest_issue(seed_dir, seed)
-    dir = File.join(seed_dir, 'changes')
-    return seed unless Dir.exist?(dir)
-
-    issues = Dir.children(dir).filter_map { |n| n[/\A(\d+)-/, 1]&.to_i }
-    ([seed] + issues.select { |i| i >= seed }).max
+    source = Ituob::Registers::DirectoryChangeSource.new(
+      register_id: File.basename(seed_dir), seed_path: seed_dir, seed_issue: seed, key_field: 'code'
+    )
+    ([seed] + source.each_sorted.filter_map(&:ob_issue_no)).max
   end
 
   def render(rows)
@@ -136,9 +159,16 @@ module PdfCoverageMatrix
     regs = row.registers.map(&:slug)
     regs += row.unmapped.map { |u| "#{u} (no register)" }
     [
-      "| #{row.standard}", row.year, row.language, row.issue.to_s,
+      row.standard, row.year, row.language, issue_cell(row),
       row.docnumber.to_s, row.published.to_s, regs.join(', '), row.flag
-    ].join(' | ').sub('| |', '|')
+    ].map { |c| c.to_s.gsub('|', '\\|') }.join(' | ').prepend('| ')
+  end
+
+  def issue_cell(row)
+    return '' unless row.issue
+    return row.issue.to_s if row.datasets.map(&:last).uniq.size == 1
+
+    "#{row.issue} (max of #{row.datasets.map { |s, i| "#{s}=#{i}" }.join(', ')})"
   end
 
   def summary(rows)
@@ -154,15 +184,16 @@ module PdfCoverageMatrix
       "* Rows by register state: #{flags.join(', ')}",
       "* Rows whose header `:docnumber:` differs from the as-of issue: #{rows.count { |r| r.docnumber.to_s != r.issue.to_s }}",
       '',
-      'The as-of OB issue is the leading number of the first dataset directory the',
-      'document reads (for example `1114-E.164D`). The header `:docnumber:` is not',
-      'used for it: it is often not an issue number or is stale.',
+      'The as-of OB issue is the highest leading number among the dataset directories',
+      'named in the document\'s `yaml2text` block (for example `1114-E.164D`); when',
+      'the datasets differ, every dataset issue is listed. The header `:docnumber:`',
+      'is not used for it: it is often not an issue number or is stale.',
       '',
-      'Register state is the newest OB issue with a change on disk under',
+      'Register state is the newest OB issue the change loader would replay from',
       '`datasets/<seed>/changes/` (or the seed issue when there is none), read',
-      'from `catalogs/registers.yaml`. A row is outdated when its as-of OB issue is',
-      'older than that. Datasets with no register in the catalog are listed as',
-      '"no register" and are not compared.'
+      'from `catalogs/registers.yaml`. A row is outdated when the issue of the dataset',
+      'it reads for a register is older than that. Datasets with no register in the',
+      'catalog are listed as "no register" and are not compared.'
     ].join("\n")
   end
 
@@ -173,6 +204,7 @@ module PdfCoverageMatrix
       o.on('--root DIR') { |v| root = File.expand_path(v) }
       o.on('--out FILE') { |v| out = v }
     end.parse!(argv)
+    File.write(out || File.join(root, OUT_PATH), render(rows(root)), encoding: 'UTF-8') if false
     File.write(out || File.join(root, OUT_PATH), render(rows(root)))
   end
 end
