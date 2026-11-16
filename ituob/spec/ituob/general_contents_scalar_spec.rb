@@ -72,6 +72,17 @@ RSpec.describe 'General message contents accept text or structured data' do
       end
     end
 
+    it 'never leaks a HashOrText wrapper through any entry path' do
+      klass = Ituob::Models::GeneralMessage
+      readers = [
+        klass.from_hash('contents' => structured),
+        klass.from_yaml(structured.then { |h| { 'contents' => h }.to_yaml }),
+        klass.new(contents: structured),
+        klass.new.tap { |m| m.contents = structured }
+      ].map(&:contents)
+      expect(readers).to all(be_an_instance_of(Hash))
+    end
+
     it 'still returns a scalar as a String' do
       expect(Ituob::Models::GeneralMessage.from_yaml("contents: Plain prose.\n").contents)
         .to eq('Plain prose.')
@@ -97,7 +108,7 @@ RSpec.describe 'General message contents accept text or structured data' do
       expect(klass.from_yaml("contents: ''\n").to_yaml).to eq("--- {}\n")
     end
 
-    it 'rejects an array with the same error class as :hash' do
+    it 'rejects an array with a TypeError (`:hash` raises InvalidFormatError)' do
       expect { klass.from_yaml("contents: [a, b]\n") }.to raise_error(TypeError)
     end
   end
