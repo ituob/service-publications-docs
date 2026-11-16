@@ -444,6 +444,19 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
         .to eq([['France', nil], ['Monaco', '(Country B – extra)']])
     end
 
+    it 'keeps two Country B rows sharing a code without a Country A row as separate entries' do
+      header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC')),
+                   cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))
+      first = row(cell(paragraph('Monaco'), paragraph('(Country B – x)')),
+                  cell(paragraph('208 01')), cell(paragraph('B1')), cell(paragraph('Op1')))
+      second = row(cell(paragraph('Andorra'), paragraph('(Country B – y)')),
+                   cell(paragraph('208 01')), cell(paragraph('B2')), cell(paragraph('Op2')))
+      entries = parse(document(table(header, first, second))).actions.flat_map(&:entries)
+
+      expect(entries.map { |e| [e.country_or_area.en, e.note.en] })
+        .to eq([['Monaco', '(Country B – x)'], ['Andorra', '(Country B – y)']])
+    end
+
     it 'keeps cells past the fourth on a Country B row' do
       header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC')),
                    cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))
