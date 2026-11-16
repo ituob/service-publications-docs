@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+# lutaml-model builds Liquid drops only for classes defined after Liquid
+# loads, as in a Metanorma run; load it before the models.
+require 'liquid'
 require 'ituob'
 
 RSpec.configure do |config|

@@ -11,10 +11,11 @@ data:
   entries:
   - country: Norway
     administration_name: Norwegian Post and Telecommunications Authority
-    manufactures_htv: 'YES'
+    manufactures_htv: true
     last_updated: 28.II.2012
     assignment_authority:
-    - terminal_type: H-Series
+    - terminal_type:
+      - H-Series
       contact_name: Anne Thomassen, Hege Johnson, Johannes M Vallesverd
       organization: Norwegian Post and Telecommunications Authority
       department: Section for telephony and number management

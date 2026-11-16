@@ -54,7 +54,7 @@ attribute :notes, :string, collection: true
       class State < WalkState
         ACTION_CLASS = F32TDIAction
 
-        attr_accessor :country, :network_roa, :network_code, :in_notes
+        attr_accessor :country, :country_note, :network_roa, :network_code, :in_notes, :in_country_heading
         attr_reader :notes
 
         def initialize
@@ -103,6 +103,9 @@ attribute :notes, :string, collection: true
         end
 
         if (p_line = text.match(/\AP\s*(\d+(?:-\d+)?)?\s+(.*)\z/))
+          state.country = state.country_note = nil
+          state.network_roa = state.network_code = nil
+          state.in_country_heading = false
           action = state.open_action
           action.position = p_line[1] ? "P #{p_line[1]}" : 'P'
           action.description = text
@@ -142,6 +145,8 @@ attribute :notes, :string, collection: true
             # Embedded numbering-plan table ("Country code / International
             # prefix / ...") carried inside the amendment for context.
             state.notes << texts.map { |cell| cell.join(' ') }.reject(&:empty?).join(' — ')
+          elsif texts.length >= 5 && texts[4].empty?
+            consume_unkeyed_row(texts, state)
           elsif country_only_row?(texts)
             # Row printing only the country column: a fr/en/es variant of
             # the current country ("EGYPTE" / "EGYPT" / "EGIPTO" across
@@ -153,6 +158,26 @@ attribute :notes, :string, collection: true
             merge_country_variant(state, texts[0])
           end
         end
+      end
+
+      # Rows without an assigned code can still introduce a country/network.
+      # Retain their other text (including office cross-references) as notes
+      # rather than creating entries with unusable keys.
+      def self.consume_unkeyed_row(texts, state)
+        unless note_paragraph?(texts[0].join(' '))
+          # A country/network heading after data starts a new country;
+          # consecutive headings can print its other language variants.
+          if !texts[0].empty? && !country_only_row?(texts)
+            state.country = state.country_note = nil unless state.in_country_heading
+            state.in_country_heading = true
+          end
+          merge_country_variant(state, texts[0])
+          update_network(texts, state)
+          texts = texts.drop(1)
+        end
+
+        note = texts.map { |cell| cell.join(' ') }.reject(&:empty?).join(' — ')
+        state.notes << note unless note.empty?
       end
 
       def self.country_header?(texts)
@@ -175,21 +200,36 @@ attribute :notes, :string, collection: true
 
       # A country-only row prints one language of the current country.
       # Fill the first empty fr/en/es slot (or open a new country).
-      def self.merge_country_variant(state, paragraphs)
-        value = paragraphs.join(' ').strip
-        return if value.empty?
-
-        if state.country.nil?
-          state.country = trilingual_country(paragraphs)
+      def self.merge_country_variant(state, paragraphs, new_country: false)
+        parts, notes = paragraphs.partition { |text| !note_paragraph?(text) }
+        parts = parts.map do |text|
+          country, separator, marker = text.rpartition(' ')
+          if !separator.empty? && marker.match?(/\A(?:\d+\)|\*)\z/)
+            notes << marker
+            country.rstrip
+          else
+            text
+          end
+        end
+        notes.concat(parts.drop(3))
+        parts = parts.first(3)
+        value = parts.join(' ').strip
+        if value.empty?
+          state.notes.concat(notes)
           return
         end
 
-        %i[en es fr].each do |lang|
-          next if state.country.public_send(lang)
-
-          state.country.public_send("#{lang}=", value) unless language_values(state.country).include?(value)
-          break
+        if state.country.nil? || parts.length == 3 ||
+            ((new_country || language_values(state.country).length == 3) &&
+              !language_values(state.country).include?(value))
+          state.country = trilingual_country(parts)
+          state.country_note = nil
+        elsif !language_values(state.country).include?(value)
+          lang = %i[en es fr].find { |language| state.country.public_send(language).nil? }
+          state.country.public_send("#{lang}=", value) if lang
         end
+
+        state.country_note = MultilingualString.new(en: notes.uniq.join(' ')) unless notes.empty?
       end
 
       def self.language_values(country)
@@ -197,22 +237,28 @@ attribute :notes, :string, collection: true
       end
 
       def self.build_entry(texts, state)
-        country = texts[0].join(' ').strip
-        state.country = trilingual_country(texts[0]) unless country.empty?
-
-        roa = texts[1].join(' ').strip
-        state.network_roa = roa unless roa.empty?
-
-        code = texts[2].join(' ').strip
-        state.network_code = code unless code.empty?
+        state.in_country_heading = false
+        # A printed country with its own network starts a country block.
+        # Rows inheriting the network can continue the heading's languages.
+        merge_country_variant(state, texts[0], new_country: texts[1..2].any?(&:any?))
+        update_network(texts, state)
 
         F32TDIEntry.new(
           country_or_area: state.country,
+          country_or_area_note: state.country_note,
           network_roa: state.network_roa,
           network_code: state.network_code,
           telegraph_office_name: MultilingualString.new(en: texts[3].join(' ').strip),
           office_code: texts[4].to_a.join(' ').strip,
         )
+      end
+
+      def self.update_network(texts, state)
+        roa = texts[1].join(' ').strip
+        state.network_roa = roa unless roa.empty?
+
+        code = texts[2].join(' ').strip
+        state.network_code = code unless code.empty?
       end
 
       # Country cells print fr/en/es as three paragraphs, one

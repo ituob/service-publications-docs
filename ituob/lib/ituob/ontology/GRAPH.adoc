@@ -18,8 +18,8 @@ site, with the gate that guards every edge.
                                    ▼
 ┌──────────────────────┐   ┌──────────────────────────────┐
 │ messages.lml         │   │ ituob gem (Ituob::Models)    │
-│ (LML ontology)       │──▶│ 44 classes COMPILED at boot  │
-│ 84 classes, all data │   │ 40 classes hand-written      │
+│ (LML ontology)       │──▶│ 51 classes COMPILED at boot  │
+│ 93 class declarations│   │ 41 Models classes hand-written│
 │ shapes; drift-guarded│   │ (parser behavior + polymorphic│
 │ by ontology_spec     │   │ anchors; shapes still guarded)│
 └──────────┬───────────┘   └──────────────┬───────────────┘
@@ -58,12 +58,30 @@ site, with the gate that guards every edge.
 [cols="1,3,1"]
 |===
 | Layer | Meaning | Status
-| Class shapes (86 + enum) | Every attribute, type, cardinality, default declared in messages.lml — including the register-patch layer (RegisterChange, Identifier, ActionType enum) | DONE — drift guard fails on divergence
+| Class shapes (93 declarations + enum) | Every attribute, type, cardinality, default declared in messages.lml — including the register-patch layer (RegisterChange, ProjectionProvenance, KeyHistoryEntry, RegisterEdition, Identifier, ActionType enum) | DONE — drift guard fails on divergence
 | Unions | IssueAuthor.name is `MultilingualString | String` (editor emits both shapes); lutaml-lml 0.2.0 has no union rule, so the union is declared at compile time (Compiled::Compiler UNION_ATTRIBUTES) | DOCUMENTED GAP — drift-guarded by construction; moves into messages.lml when lutaml-lml gains union declarations
-| Class execution | Pure data-shape classes compiled from the LML at boot (Compiled::CLASS_NAMES = 44) | DONE for all constraint-free classes; E118Action (anonymous-type constraint), DPEntry (semantic hierarchy), Change/ChangeSet/OldIssue/GeneralMessage + per-publication Amendment parsers remain hand-written by design — shapes still LML-guarded
+| Class execution | Pure data-shape classes compiled from the LML at boot (Compiled::CLASS_NAMES = 51) | DONE for all constraint-free classes; 41 other Models classes (including parser behavior and polymorphic anchors), plus behavioral Registers::Change and Identifier, remain hand-written by design — shapes still LML-guarded
 | Instance data (YAML) | ob-issues + datasets + the 9,549 register-patch objects validate through the model classes | DONE — validate_data_lml.rb, 10,532/10,532 files (CI): 983 ob-issues instances + 9,549 Registers::Change patches (editor-era structuralization converted the last fallbacks and removed empty rollover actions); dataset definitions via `ituob dataset validate` 40/40 (CI). messages/** is source-extraction material, not instance data
 | Instance syntax (LML) | .lml instance documents as an alternate serialization | PROVEN — lml_instance_round_trip_spec.rb: all 10,532 instance files round-trip YAML → class → LML instance → class identically via the Format adapter + from_hash (CI); IssueMetadata additionally via ontology-typed ModelCompiler#hydrate. The pipeline itself deliberately speaks YAML
 |===
+
+=== Projection containers (projection-types card)
+
+`ProjectionProvenance` records required `register_id` (String), required
+`as_of_issue` and `seed_issue` (Integer), and optional `last_change_issue`
+(Integer). `KeyHistoryEntry` records required `key` (String), `type`
+(`ActionType`), `ob_issue_no` (Integer), and `identifier` (ontology
+`Identifier`). `ActionType` is compiled as a model carrying its value and
+description. `RegisterEdition` contains required
+`provenance`, zero or more `items` (Hash), zero or more `lapsed_keys` and
+`deleted_keys` (String, sorted by provider), and zero or more `key_history`
+(`KeyHistoryEntry`, in replay order). These fields are decided by PM, pending
+the design note. `items` hashes await a separate hydration card; the schema
+does not define `errors`, `error_count`, or a slug.
+
+`ontology_spec.rb` proves mapped YAML/JSON round trips for all three
+containers and a replay-built edition's provenance, item order and history.
+The pipeline continues to speak YAML; item hashes await ontology hydration.
 
 == Remaining path (ordered)
 
@@ -76,6 +94,6 @@ site, with the gate that guards every edge.
   then drop the spec-local shim in lml_instance_round_trip_spec.rb. (LML string literals also lack escapes; no
   modeled value carries both quote kinds today, but modeled prose
   that ever does would need grammar escape support.)
-. If lutaml-lml gains inheritance/`isa` compilation, fold the 40
+. If lutaml-lml gains inheritance/`isa` compilation, fold the 41
   hand-written classes' shapes into compiled+behavior modules and
   retire the drift guard in favor of full compilation.
