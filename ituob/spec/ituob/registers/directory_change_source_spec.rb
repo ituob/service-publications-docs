@@ -75,7 +75,7 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
       end
     end
 
-    it 'preserves the effective date printed only in the E118 seed-issue patch' do
+    it 'keeps the E118 seed row unchanged when its same-issue patch includes an effective date' do
       entry = Ituob::Catalogs::Registers.find('E118_IIN')
       root = File.expand_path('../../../..', __dir__)
       annex_source = described_class.new(
@@ -88,11 +88,14 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
         register_id: entry.register_id, key_field: entry.key_field, source: annex_source,
       )
 
+      seed_rows = Ituob::Support::Yaml.safe_load_file(File.join(annex_source.seed_path, 'data.yaml'))
+      seed_row = seed_rows.find { |row| row.fetch(entry.key_field) == '89 264 33' }
       state = replay.at_seed
 
-      expect(state.entry_for('89 264 33').fetch('effective_date', nil)).to eq('1.VII.2018')
+      expect(seed_row).not_to be_nil
+      expect(state.entry_for('89 264 33')).to eq(seed_row)
       expect(state.history.map(&:type)).to eq(['SEED'])
-      expect(replay.current.entry_for('89 264 33').fetch('effective_date', nil)).to eq('1.VII.2018')
+      expect(replay.current.entry_for('89 264 33')).to eq(seed_row)
     end
 
     %w[E118_IIN Q708_ISPC E212_MNC].each do |register_id|
@@ -159,12 +162,17 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
 
         context 'when same-issue patches contain fields absent from the seed' do
           before do
+            File.write(File.join(seed_dir, 'data.yaml'), [
+              { 'code' => 'ABC', 'field' => 'accounts' },
+              { 'code' => 'DEF', 'field' => 'addresses', 'effective_date' => '1.I.2018' },
+            ].to_yaml)
             File.write(File.join(changes_dir, '1161-001-ADD-1161.yaml'), {
               'type' => 'ADD', 'register' => register_id, 'ob_issue_no' => 1161,
               'identifier' => { 'code' => 'ABC' },
               'data' => { 'entries' => [
                 { 'code' => 'ABC', 'field' => 'patch wording', 'effective_date' => '1.VII.2018',
                   'company_address_3' => 'patch address line', 'patch_only' => 'patch content' },
+                { 'code' => 'DEF', 'effective_date' => '1.VII.2018' },
                 { 'code' => 'GONE', 'effective_date' => '1.VII.2018' },
               ] },
             }.to_yaml)
@@ -175,19 +183,25 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
             }.to_yaml)
           end
 
-          it 'preserves only missing effective dates without replacing seed content or restoring absent entries' do
+          it 'skips patch data entirely and preserves seed rows through replay' do
             replay = Ituob::Registers::Replay.new(
               register_id: register_id, key_field: 'code', source: source,
             )
             state = replay.at_seed
 
+            seed_rows = Ituob::Support::Yaml.safe_load_file(File.join(seed_dir, 'data.yaml'))
+
+            expect(source.each_sorted.first.data).to eq(seed_rows)
             expect(state.active_keys).to eq(%w[ABC DEF])
-            expect(state.entry_for('ABC')).to eq(
-              'code' => 'ABC', 'field' => 'accounts', 'effective_date' => '1.VII.2018',
+            expect(state.entry_for('ABC')).to eq('code' => 'ABC', 'field' => 'accounts')
+            expect(state.entry_for('DEF')).to eq(
+              'code' => 'DEF', 'field' => 'addresses', 'effective_date' => '1.I.2018',
             )
             expect(state.history.map(&:type)).to eq(['SEED'])
             expect(replay.build_all_states.fetch(1161).entries).to eq(state.entries)
             expect(replay.current.entry_for('ABC')).to eq(state.entry_for('ABC'))
+            expect(replay.current.entry_for('DEF')).to eq(state.entry_for('DEF'))
+            expect(replay.current.entry_for('1162')).to eq('code' => '1162')
           end
         end
 
