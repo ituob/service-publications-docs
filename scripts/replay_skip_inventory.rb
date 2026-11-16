@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift(File.expand_path('../ituob/lib', __dir__))
+require 'ituob'
 require 'ituob/support'
 require 'ituob/registers'
 require 'ituob/catalogs'
