@@ -161,7 +161,7 @@ module PdfCoverageMatrix
     [
       row.standard, row.year, row.language, issue_cell(row),
       row.docnumber.to_s, row.published.to_s, regs.join(', '), row.flag
-    ].map { |c| c.to_s.gsub('|', '\\|') }.join(' | ').prepend('| ')
+    ].map { |c| c.to_s.gsub('|', '{vbar}') }.join(' | ').prepend('| ')
   end
 
   def issue_cell(row)

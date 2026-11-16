@@ -211,8 +211,8 @@ RSpec.describe PdfCoverageMatrix do
   it 'escapes a pipe in a cell so the table keeps its columns' do
     doc('T-SP-E.118-2018', 'S', '1161-E.118', docnumber: 'A|B')
     cells = described_class.row_cells(row_for('E.118', 'S'))
-    expect(cells).to include('A\\|B')
-    expect(cells.gsub('\\|', '').count('|')).to eq(8)
+    expect(cells).to include('A{vbar}B')
+    expect(cells.count('|')).to eq(8)
   end
 
   it 'covers every language letter' do
