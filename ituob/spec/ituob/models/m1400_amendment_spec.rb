@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'json'
 require 'ituob/models'
 require 'ituob/helpers'
 
@@ -45,6 +46,18 @@ RSpec.describe Ituob::Models::M1400Amendment do
   end
 
   describe 'country heading' do
+    it 'keeps unrelated empty-email drift out of the heading baseline update' do
+      baseline_path = File.expand_path('../../../../scripts/output/parser_baseline/M1400_ICC.json', __dir__)
+      baseline = JSON.parse(File.read(baseline_path))
+      contacts = %w[1000 1013 1015].map do |issue|
+        baseline.fetch(issue).fetch('actions').flat_map { |action| action.fetch('entries') }
+          .find { |entry| entry['contact'] == 'E-mail' }
+          .slice('contact', 'email')
+      end
+
+      expect(contacts).to eq(Array.new(3) { { 'contact' => 'E-mail' } })
+    end
+
     {
       'Germany / DEU' => ['Germany', 'DEU', nil],
       'Germany / DEU ADD' => ['Germany', 'DEU', 'ADD'],
