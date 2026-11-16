@@ -382,6 +382,37 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entries.map(&:mcc_mnc_codes)).not_to include(a_string_matching(/\AMCC\+MNC/))
     end
 
+    it 'records a Country B row as extra-territorial use on the Country A entry (OB 1348)' do
+      entries = source_entries(1348).actions.flat_map(&:entries).select { |e| e.mcc_mnc_codes == '262 74' }
+
+      expect(entries.length).to eq(1)
+      expect(entries.first.country_or_area.en).to eq('Germany')
+      expect(entries.first.note.en).to eq(
+        "(Country A)\nExtra-territorial use in Sweden (Country B – Where the MCC+MNC is to be used " \
+        'extra‑territorially): Ericsson GmbH; MSIN range 0000099100 - 0000099199'
+      )
+    end
+
+    it 'splits an inline qualifier from the country name and pairs Country B rows (OB 1108)' do
+      entries = source_entries(1108).actions.flat_map(&:entries).select { |e| e.mcc_mnc_codes.start_with?('208') }
+
+      expect(entries.map { |e| [e.mcc_mnc_codes, e.country_or_area.en] })
+        .to eq([['208 10', 'France'], ['208 20', 'France']])
+      expect(entries.map { |e| e.note.en.lines.first.chomp }).to all(eq('(Country A)'))
+      expect(entries.first.note.en).to include('Extra-territorial use in Monaco (Country B')
+    end
+
+    it 'keeps a Country B row with no matching Country A code as its own entry' do
+      header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC')),
+                   cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))
+      sweden = row(cell(paragraph('Sweden'), paragraph('(Country B – extra-territorial)')),
+                   cell(paragraph('262 74')), cell(paragraph('1 - 2')), cell(paragraph('Ericsson')))
+      doc = document(table(header, sweden))
+      entry = parse(doc).actions.flat_map(&:entries).first
+
+      expect([entry.country_or_area.en, entry.note.en]).to eq(['Sweden', '(Country B – extra-territorial)'])
+    end
+
     it 'reads left-to-right marks, word joiners and soft hyphens as blank cells' do
       ["\u200E", "\u200F", "\u2060", "\u00AD"].each do |mark|
         expect(described_class.rowspan_heading(['Denmark ADD', mark, ' ']))

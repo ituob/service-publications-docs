@@ -5,21 +5,13 @@ ob_issue_no: '1147'
 identifier:
   code: 270 77
 data:
-  _class: E212MNCAmendment
-  entries:
-  - mcc_mnc_codes: 270 77
-    country_or_area:
-      en: Luxembourg
-    networks: Tango S.A.
-    range: 000 x xxx xxx
-  - mcc_mnc_codes: 270 77
-    country_or_area:
-      en: Belgium
-    networks: Tango S.A.
-    range: 800 x xxx xxx; 801 x xxx xxx
-  notes:
-  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
-    para el servicio móvil"
-  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
-    servicio móvil'
+  mcc_mnc_codes: 270 77
+  country_or_area:
+    en: Luxembourg
+  networks: Tango S.A.
+  note:
+    en: |-
+      (Country A)
+      Extra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Tango S.A.; MSIN range 800 x xxx xxx; 801 x xxx xxx
+  range: 000 x xxx xxx
 reference: OB-1147

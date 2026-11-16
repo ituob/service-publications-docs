@@ -112,6 +112,28 @@ attribute :country, :string
         row.map { |cell| Ituob::Helpers.normalize_whitespace(Array(cell).join(' ')) }
       end
 
+      # A country cell is the name plus an optional "(Country A)" or
+      # "(Country B – ...)" qualifier, either as its own paragraph or
+      # inline after the name. Returns [name, qualifier-or-nil].
+      def self.split_country_cell(paragraphs)
+        first = paragraphs.first.to_s
+        return [first, paragraphs.drop(1).join(' ')] if paragraphs.length > 1
+
+        open = first.index('(Country')
+        return [first, nil] unless open&.positive?
+
+        [first[0...open].rstrip, first[open..]]
+      end
+
+      # The register is keyed by MCC+MNC: a Country B row is the same
+      # allocation as its Country A row, used abroad, so it is recorded on
+      # the home entry rather than as a second entry for the code.
+      def self.record_extra_territorial_use(home, country, qualifier, cells)
+        use = "Extra-territorial use in #{country} #{qualifier}: #{cells[3]}; MSIN range #{cells[2]}"
+        text = [home.note&.en, use].compact.join("\n")
+        home.note = MultilingualString.new(en: text)
+      end
+
       def self.parse(hash, position_on: nil, dataset_code: nil)
         amendment = new
 
@@ -331,8 +353,16 @@ attribute :country, :string
                 # hold several paragraphs, and the country cell may add a
                 # qualifier such as "(Country A)" after the name.
                 cells = row_cells(row)
+                name, qualifier = split_country_cell(Array(row[0]).map { |p| Ituob::Helpers.normalize_whitespace(p) })
+                if qualifier&.start_with?('(Country B') &&
+                   (home = action.entries.reverse.find { |e| e.mcc_mnc_codes == cells[1] })
+                  record_extra_territorial_use(home, name, qualifier, cells)
+                  next
+                end
+
                 entry = E212MNCEntry.new
-                entry.country_or_area = MultilingualString.new(en: Array(row[0]).first.to_s) unless cells[0].empty?
+                entry.country_or_area = MultilingualString.new(en: name) unless name.empty?
+                entry.note = MultilingualString.new(en: qualifier) if qualifier
                 entry.mcc_mnc_codes = cells[1]
                 entry.range = cells[2]
                 entry.networks = cells[3]

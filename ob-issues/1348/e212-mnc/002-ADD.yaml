@@ -16,12 +16,11 @@ data:
     country_or_area:
       en: Germany
     networks: Ericsson GmbH
+    note:
+      en: |-
+        (Country A)
+        Extra-territorial use in Sweden (Country B – Where the MCC+MNC is to be used extra‑territorially): Ericsson GmbH; MSIN range 0000099100 - 0000099199
     range: '0000099000 - 0000099099'
-  - mcc_mnc_codes: 262 74
-    country_or_area:
-      en: Sweden
-    networks: Ericsson GmbH
-    range: '0000099100 - 0000099199'
   notes:
   - "*            MCC:     Mobile Country Code"
   - 'MNC:    Mobile Network Code'
