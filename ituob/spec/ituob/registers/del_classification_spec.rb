@@ -44,6 +44,12 @@ RSpec.describe 'Printed deletion classification' do
       end
       expect(action).not_to be_nil
       expect(action.action_type).to eq('SUP')
+      expect(action.entries.map(&:networks)).to eq(['Mundio Mobile Norway Ltd'])
+      replacement = amendment.actions.find do |candidate|
+        candidate.entries.any? { |entry| entry.networks == 'Com4 AS' }
+      end
+      expect(replacement.action_type).to eq('ADD')
+      expect(replacement.entries.map(&:mcc_mnc_codes)).to eq(['242 09'])
     end
   end
 

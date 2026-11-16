@@ -996,8 +996,18 @@ for this document. No parser, replay, source-data or corpus mutations are part o
 this audit; parser regression and preservation checks belong to the accompanying
 G8 specification. The c7 rebuild and its regenerated patches remain outstanding.
 
-The accompanying `del_classification_spec.rb` runs three examples against this
-revision: the independent DEL replay passes, while the OB 1335 printed DEL and
-OB 999 printed SUP preservation examples fail (both parse as ADD). Making those
-regressions pass requires changes to the Q.708 and E.212 parsers, outside this
-card's two-file scope. No corpus DEL count is asserted.
+The accompanying `del_classification_spec.rb` checks the OB 1335 printed DEL,
+the OB 999 printed SUP and subsequent ADD, and independent DEL replay. Both
+printed classifications failed against the audited revision (both parsed as
+ADD). The accompanying parser fixes recognize the Q.708 DEL heading and keep
+E.212 paragraph actions separate, including SUP with explanatory `(delete)`
+wording. These changes to `q708ispc_amendment.rb` and `e212mnc_amendment.rb` are
+outside the original two-file list and were approved by the maintainer. The
+corpus inventory above still describes the stored patches awaiting c7 rebuild.
+No corpus DEL count is asserted.
+
+Focused verification of `del_classification_spec.rb`,
+`e212mnc_amendment_spec.rb` and `q708ispc_amendment_spec.rb` passes:
+14 examples, 0 failures. Run these with `bundle exec rspec --options /dev/null
+-I ituob/spec` followed by the three paths under `ituob/spec/ituob/` so the
+repository's default broad spec pattern does not expand this focused run.

@@ -92,9 +92,23 @@ attribute :country, :string
               basestr = c.join('')
               segs = Ituob::Helpers.split_str(basestr)
 
+              # Printed paragraph headings start independent actions. A
+              # SUP heading may include "(delete)", obscuring the action
+              # keyword from the trailing-token fallback below.
+              fixed_segs = Ituob::Helpers.split_str_normal(fixed_str)
+              paragraph_action = fixed_segs.find { |s| s.match?(/\A(?:ADD|SUP|LIR|REP)\z/) }
+              if first_elem.match?(/^P/) && paragraph_action &&
+                  (action.action_type || action.note || action.entries.any?)
+                action = E212MNCAction.new
+                action.entries = []
+                amendment.actions << action
+              end
+
               action.note = segs[1]
               action.position = segs[0..1].join(" ")
-              if m = basestr.match(/[A-Z]{3}\*?$/)
+              if paragraph_action
+                action.action_type = paragraph_action
+              elsif m = basestr.match(/[A-Z]{3}\*?$/)
                 action.action_type = m[0].to_s
               elsif m = basestr.match(/[A-Z]{3}$/)
                 action.action_type = m[0].to_s
@@ -107,7 +121,6 @@ attribute :country, :string
               # Paragraph-based entries: some E212_MNC amendments have
               # space-aligned text (no tables). Extract entries from
               # the paragraph text. Format: "P xx Country ACTION MCC MCC Network..."
-              fixed_segs = Ituob::Helpers.split_str_normal(fixed_str)
               action_idx = fixed_segs.index { |s| s.match?(/^(ADD|SUP|LIR|REP)$/) }
               if action_idx
                 # The printed country (between position and action
