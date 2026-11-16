@@ -3,6 +3,7 @@
 require 'spec_helper'
 require 'csv'
 require 'tmpdir'
+require 'open3'
 require_relative '../../../scripts/replay_skip_inventory'
 
 RSpec.describe ReplaySkipInventory do
@@ -222,6 +223,19 @@ RSpec.describe ReplaySkipInventory do
         bad[2] = "datasets/p#{character}q.yaml"
         expect { described_class.tsv([bad]) }.to raise_error(/TAB, CR or LF/)
       end
+    end
+  end
+
+  describe 'as a standalone script' do
+    # The documented command runs the script without spec_helper, so the
+    # script itself must load what the register catalog needs.
+    it 'resolves the register catalog without the spec bootstrap' do
+      script = File.expand_path('../../../scripts/replay_skip_inventory.rb', __dir__)
+      probe = "load #{script.dump}; puts Ituob::Catalogs::Registers.all.size"
+      out, err, status = Open3.capture3(RbConfig.ruby, '-W0', '-rliquid', '-e', probe)
+
+      expect(status).to be_success, err
+      expect(out.to_i).to be_positive
     end
   end
 end

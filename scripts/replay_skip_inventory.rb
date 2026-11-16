@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift(File.expand_path('../ituob/lib', __dir__))
+require 'ituob'
 require 'ituob/support'
 require 'ituob/registers'
 require 'ituob/catalogs'
@@ -109,8 +110,9 @@ ROOT = File.expand_path('..', __dir__)
     private
 
     def report_skip(builder, change, error)
-      super
-      @skipped_changes << change
+      skipped = super
+      @skipped_changes << change if skipped
+      skipped
     end
   end
 
