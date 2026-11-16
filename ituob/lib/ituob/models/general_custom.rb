@@ -6,7 +6,7 @@ module Ituob
   module Models
     class GeneralCustom < GeneralMessage
       attribute :ob_issue_no, :string
-      attribute :contents, :hash
+      attribute :contents, HashOrText
       attribute :text, :string
       attribute :title, :hash
       attribute :recommendation, :string

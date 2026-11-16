@@ -55,7 +55,7 @@ models Ituob {
   class GeneralMessage {
     attribute type, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   // Issue-level
@@ -707,13 +707,13 @@ models Ituob {
     attribute procedures, String
     attribute ob_issue_no, String
     attribute payload, Hash
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralCallbackProcedures {
     attribute type, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralCustom {
@@ -722,7 +722,7 @@ models Ituob {
     attribute recommendation, String
     attribute text, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralIpns {
@@ -732,7 +732,7 @@ models Ituob {
     attribute date_of_assignment, String
     attribute notes, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralIptn {
@@ -741,13 +741,13 @@ models Ituob {
     attribute notes, String
     attribute manual, Boolean
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralMid {
     attribute type, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralMiscCommunications {
@@ -761,7 +761,7 @@ models Ituob {
     attribute type, String
     attribute text, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralRunningAnnexes {
@@ -769,7 +769,7 @@ models Ituob {
     attribute extra_links, String { cardinality 0..n }
     attribute ob_issue_no, String
     attribute payload, Hash
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralServiceRestriction {
@@ -788,14 +788,14 @@ models Ituob {
     attribute items, GeneralSanc { cardinality 0..n }
     attribute notes, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralServiceRestrictions {
     attribute type, String
     attribute ob_issue_no, String
     attribute items, GeneralServiceRestriction { cardinality 0..n }
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralTelephoneSection {
@@ -808,7 +808,7 @@ models Ituob {
 
   class GeneralTelephoneCommunication {
     attribute date, DateOrText
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralTelephoneService {
@@ -822,7 +822,7 @@ models Ituob {
     attribute type, String
     attribute items, GeneralTelephoneService { cardinality 0..n }
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   // Textual fallbacks
