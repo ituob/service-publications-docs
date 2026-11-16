@@ -6,7 +6,7 @@ require "ituob/models"
 module Ituob
   module Registers
     # Reads the explicitly verified F.32 publication while retaining its context.
-    # An absent artifact keeps the old source visible as an unverified fallback.
+    # The artifact is mandatory: the unverified legacy seed is never a fallback.
     class F32DirectoryChangeSource < DirectoryChangeSource
       PUBLICATION_FILENAME = "publication.yaml"
       CONTEXT_KINDS = %w[heading network reservation telex alias continuation printed-unassigned shared-indicator network-relative-office aggregated-office-action].freeze
@@ -20,30 +20,35 @@ module Ituob
         @context_only_sources = []
         return unless @register_id == "F32_TDI"
 
-        path = File.join(seed_path, PUBLICATION_FILENAME)
-        if File.file?(path)
-          @publication = Models::F32SeedPublication.from_yaml(File.read(path))
-          validate_publication!
-        else
-          warn "F32 seed uses legacy data.yaml: independent allocation completeness has not been verified"
-        end
-      end
-
-      def legacy_seed?
-        publication.nil?
+        @publication = load_publication
+        validate_publication!
       end
 
       # Context is a first-class edition input, including context-only actions.
       # Canonical event files remain the durable source for these later records.
       def contexts_at_issue(issue = nil)
         each_sorted { |_change| nil }
-        seed_contexts = publication ? publication.contexts : []
-        (seed_contexts + @amendment_contexts).select do |context|
+        (publication.contexts + @amendment_contexts).select do |context|
           issue.nil? || context.ob_issue_no.to_i <= issue.to_i
         end
       end
 
       private
+
+      def publication_path
+        File.join(seed_path, PUBLICATION_FILENAME)
+      end
+
+      def load_publication
+        unless File.file?(publication_path)
+          raise "F32 publication #{publication_path} is missing; the unverified legacy data.yaml is not a " \
+                "fallback. Restore it or regenerate it with scripts/build_f32_seed_publication.rb"
+        end
+        Models::F32SeedPublication.from_yaml(File.read(publication_path))
+      rescue Lutaml::Model::Error => e
+        raise "F32 publication #{publication_path} is unreadable (#{e.class}); regenerate it with " \
+              "scripts/build_f32_seed_publication.rb"
+      end
 
       def load_yaml(path)
         @loaded_path = path
@@ -52,8 +57,6 @@ module Ituob
 
       def each_amendment
         return enum_for(:each_amendment) unless block_given?
-        return super unless publication
-
         @amendment_contexts = []
         @context_only_changes = []
         @context_only_sources = []
@@ -74,9 +77,17 @@ module Ituob
             yield change
             next
           end
+          printed_codes = {}
           offices = rows.each_with_index.flat_map do |row, index|
             entry = Models::F32TDIEntry.from_hash(row)
             code = entry.office_code.to_s.strip
+            if code.match?(/\A[A-Z]{4}\z/) && printed_codes[code]
+              @amendment_contexts << amendment_context(change, entry, index, Array(entry.network_codes),
+                kind: 'shared-indicator',
+                explanation: 'Another printed office served by a destination indicator already carried by this amendment.')
+              next []
+            end
+            printed_codes[code] = true
             if code.empty?
               @amendment_contexts << amendment_context(change, entry, index, [], kind: 'heading')
               next []
@@ -117,24 +128,41 @@ module Ituob
             next
           end
           normalized = data.merge('entries' => offices)
+          replaced_seed_changes(change, offices).each { |removal| yield removal }
           yield Change.from_hash(change.to_hash.merge('data' => normalized))
         end
       end
 
-      def amendment_context(change, entry, index, scope, kind: 'network-relative-office')
+      # "REP all information" replaces a network's printed list: seed offices
+      # of that network the replacement does not print no longer exist.
+      def replaced_seed_changes(change, offices)
+        return [] unless change.type == 'REP' && change.data['description'].to_s.match?(/\bREP all information\b/i)
+
+        kept = offices.map { |office| office['office_code'] }
+        networks = offices.filter_map { |office| office['network_code'].to_s[/\A[A-Z]{2}/] }.uniq
+        stale = publication.allocations.select do |seed_entry|
+          networks.include?(seed_entry.network_code.to_s[/\A[A-Z]{2}/]) && !kept.include?(seed_entry.office_code)
+        end
+        return [] if stale.empty?
+
+        [Change.new(type: 'SUP', register_id: @register_id, ob_issue_no: change.ob_issue_no,
+                    identifier: { 'code' => stale.first.office_code },
+                    data: { 'entries' => stale.map(&:to_hash) })]
+      end
+
+      def amendment_context(change, entry, index, scope, kind: 'network-relative-office',
+                            explanation: 'The printed office suffix has no uniquely asserted network prefix; retained as edition context.')
         Models::F32SeedContext.new(
           kind: kind, ob_issue_no: change.ob_issue_no, entry: entry,
           network_codes: scope, related_office_code: entry.office_code,
           source_uri: "itu-ob-data/issues/#{change.ob_issue_no}/amendments.yaml",
           source_path: File.join('datasets/980-F.32/changes', File.basename(@loaded_path)),
           source_row: index + 1,
-          explanation: 'The printed office suffix has no uniquely asserted network prefix; retained as edition context.'
+          explanation: explanation
         )
       end
 
       def seed_change
-        return super if legacy_seed?
-
         Change.new(
           type: "SEED", register_id: @register_id,
           identifier: { "code" => "__seed__" },

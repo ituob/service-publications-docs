@@ -11,6 +11,8 @@ module Ituob
     class F32PrintedList
       LANGUAGES = %i[fr en es].freeze
       OFFICE_CODE = /\A(?:[A-Z]{4}|--[A-Z]{2})\z/
+      # Some printed rows carry the office suffix at the end of the name cell.
+      INLINE_CODE = /\A(?<name>.*?)\s*(?<code>--[A-Z]{2})\z/
 
       def initialize(xml_path:, pdf_path:)
         @document = Nokogiri::XML(File.read(xml_path)) { |config| config.nonet }
@@ -108,11 +110,20 @@ module Ituob
           end
         end
         names = nodes.filter_map { |left, text, font| text if left >= 530 && left < 700 && data_font?(font) }
+        inline_codes = []
+        names = names.filter_map do |name|
+          match = name.match(INLINE_CODE)
+          next name unless match
+
+          inline_codes << match[:code]
+          match[:name] unless match[:name].empty?
+        end
         codes = nodes.filter_map do |left, text, font|
           next unless left >= 700 && data_font?(font)
           raise "Unparsed F32 office-code cell on page #{@page}: #{text}" unless text.match?(OFFICE_CODE)
           text
         end
+        codes.unshift(*inline_codes)
         if names.any? { |name| name.include?("-->") }
           context("alias", F32TDIEntry.new(_class: "F32TDIEntry", country_or_area: @country,
                                            telegraph_office_name: MultilingualString.new(en: names.join(" "))))

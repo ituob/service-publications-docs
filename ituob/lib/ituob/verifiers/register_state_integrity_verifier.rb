@@ -46,9 +46,6 @@ module Ituob
           next unless replay
 
           result.stats[:registers_checked] += 1
-          if replay.source.respond_to?(:legacy_seed?) && replay.source.legacy_seed?
-            result.errors << "F32_TDI: independent printed-source seed publication is not pinned; legacy fallback is unverified"
-          end
           # build_all_states includes replay.current under nil; check it once.
           replay.build_all_states.each_value do |state|
             result.merge!(verify_state(state, register: register))

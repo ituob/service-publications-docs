@@ -30590,7 +30590,7 @@ allocations:
   network_roa: AT&T – AT&T EasyLink Services
   network_code: UI
   telegraph_office_name:
-    en: All others --NX All destinations
+    en: All destinations
   office_code: UICX
   network_codes:
   - UD
@@ -36364,7 +36364,19 @@ allocations:
   network_roa: PHILCOM – Philippine Global Com- munications, Inc., Makati
   network_code: PH
   telegraph_office_name:
-    en: Baguio --BG Butuan City Agusan Del Norte
+    en: Baguio
+  office_code: PHBG
+  network_codes:
+  - PH
+- _class: F32TDIEntry
+  country_or_area:
+    en: PHILIPPINES
+    fr: PHILIPPINES
+    es: FILIPINAS
+  network_roa: PHILCOM – Philippine Global Com- munications, Inc., Makati
+  network_code: PH
+  telegraph_office_name:
+    en: Butuan City Agusan Del Norte
   office_code: PHBT
   network_codes:
   - PH
@@ -36388,7 +36400,19 @@ allocations:
   network_roa: PHILCOM – Philippine Global Com- munications, Inc., Makati
   network_code: PH
   telegraph_office_name:
-    en: Cebu  --CB Davao City Davao Del Sur
+    en: Cebu
+  office_code: PHCB
+  network_codes:
+  - PH
+- _class: F32TDIEntry
+  country_or_area:
+    en: PHILIPPINES
+    fr: PHILIPPINES
+    es: FILIPINAS
+  network_roa: PHILCOM – Philippine Global Com- munications, Inc., Makati
+  network_code: PH
+  telegraph_office_name:
+    en: Davao City Davao Del Sur
   office_code: PHDV
   network_codes:
   - PH
@@ -38542,7 +38566,19 @@ allocations:
   network_roa: PTC – Public Telecommunication Corporation, Sana’a YE-
   network_code: YN
   telegraph_office_name:
-    en: Sanaa --SA Taiz / Tayz
+    en: Sanaa
+  office_code: YNSA
+  network_codes:
+  - YN
+- _class: F32TDIEntry
+  country_or_area:
+    en: YEMEN
+    fr: YÉMEN
+    es: YEMEN
+  network_roa: PTC – Public Telecommunication Corporation, Sana’a YE-
+  network_code: YN
+  telegraph_office_name:
+    en: Taiz / Tayz
   office_code: YNTZ
   network_codes:
   - YN
@@ -39684,7 +39720,29 @@ contexts:
       fr: CHILI
       es: CHILE
     telegraph_office_name:
-      en: Arica  --AR Calama
+      en: Arica
+    office_code: "--AR"
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 8
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 292
+  related_office_code: "--AR"
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  explanation: Printed office suffix with multiple network codes; no single full indicator is asserted.
+- kind: network-relative-office
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: CHILE
+      fr: CHILI
+      es: CHILE
+    telegraph_office_name:
+      en: Calama
     office_code: "--CA"
   source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
   source_page: 8
@@ -39706,7 +39764,29 @@ contexts:
       fr: CHILI
       es: CHILE
     telegraph_office_name:
-      en: Chillán --CH Concepcion
+      en: Chillán
+    office_code: "--CH"
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 8
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 294
+  related_office_code: "--CH"
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  explanation: Printed office suffix with multiple network codes; no single full indicator is asserted.
+- kind: network-relative-office
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: CHILE
+      fr: CHILI
+      es: CHILE
+    telegraph_office_name:
+      en: Concepcion
     office_code: "--CN"
   source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
   source_page: 8
@@ -39772,7 +39852,51 @@ contexts:
       fr: CHILI
       es: CHILE
     telegraph_office_name:
-      en: Curico --CO Iquique --IQ La Serena
+      en: Curico
+    office_code: "--CO"
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 8
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 298
+  related_office_code: "--CO"
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  explanation: Printed office suffix with multiple network codes; no single full indicator is asserted.
+- kind: network-relative-office
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: CHILE
+      fr: CHILI
+      es: CHILE
+    telegraph_office_name:
+      en: Iquique
+    office_code: "--IQ"
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 8
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 299
+  related_office_code: "--IQ"
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  explanation: Printed office suffix with multiple network codes; no single full indicator is asserted.
+- kind: network-relative-office
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: CHILE
+      fr: CHILI
+      es: CHILE
+    telegraph_office_name:
+      en: La Serena
     office_code: "--LS"
   source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
   source_page: 8
@@ -39882,7 +40006,29 @@ contexts:
       fr: CHILI
       es: CHILE
     telegraph_office_name:
-      en: Ovalle --OV Puerto Aysen
+      en: Ovalle
+    office_code: "--OV"
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 8
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 305
+  related_office_code: "--OV"
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  explanation: Printed office suffix with multiple network codes; no single full indicator is asserted.
+- kind: network-relative-office
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: CHILE
+      fr: CHILI
+      es: CHILE
+    telegraph_office_name:
+      en: Puerto Aysen
     office_code: "--PY"
   source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
   source_page: 8
@@ -40102,7 +40248,29 @@ contexts:
       fr: CHILI
       es: CHILE
     telegraph_office_name:
-      en: Talca  --TL Talcahuano
+      en: Talca
+    office_code: "--TL"
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 8
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 316
+  related_office_code: "--TL"
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  explanation: Printed office suffix with multiple network codes; no single full indicator is asserted.
+- kind: network-relative-office
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: CHILE
+      fr: CHILI
+      es: CHILE
+    telegraph_office_name:
+      en: Talcahuano
     office_code: "--TH"
   source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
   source_page: 8
@@ -41290,6 +41458,36 @@ contexts:
   source_path: T-SP-F.32-2011-PDF-E.pdf
   source_row: 657
   related_office_code: "--WA"
+  network_codes:
+  - UD
+  - UQ
+  - US
+  - UB
+  - UC
+  - UE
+  - UF
+  - UI
+  - UJ
+  - UR
+  - UT
+  - UW
+  explanation: Printed office suffix with multiple network codes; no single full indicator is asserted.
+- kind: network-relative-office
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: UNITED STATES
+      fr: ÉTATS-UNIS
+      es: ESTADOS UNIDOS
+    telegraph_office_name:
+      en: All others
+    office_code: "--NX"
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 13
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 658
+  related_office_code: "--NX"
   network_codes:
   - UD
   - UQ
@@ -44784,7 +44982,27 @@ contexts:
       fr: ITALIE
       es: ITALIA
     telegraph_office_name:
-      en: 33052 CERVIGNANO DEL FRIULI --JJ 53042 CHIANCIANO TERME
+      en: 33052 CERVIGNANO DEL FRIULI
+    office_code: "--JJ"
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 21
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 1111
+  related_office_code: "--JJ"
+  network_codes:
+  - IG
+  - IT
+  explanation: Printed office suffix with multiple network codes; no single full indicator is asserted.
+- kind: network-relative-office
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: ITALY
+      fr: ITALIE
+      es: ITALIA
+    telegraph_office_name:
+      en: 53042 CHIANCIANO TERME
     office_code: "--JL"
   source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
   source_page: 21
@@ -51675,7 +51893,27 @@ contexts:
       fr: PORTUGAL
       es: PORTUGAL
     telegraph_office_name:
-      en: Porto  --OO All others
+      en: Porto
+    office_code: "--OO"
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 33
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 1923
+  related_office_code: "--OO"
+  network_codes:
+  - PO
+  - PC
+  explanation: Printed office suffix with multiple network codes; no single full indicator is asserted.
+- kind: network-relative-office
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: PORTUGAL
+      fr: PORTUGAL
+      es: PORTUGAL
+    telegraph_office_name:
+      en: All others
     office_code: "--LX"
   source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
   source_page: 33
