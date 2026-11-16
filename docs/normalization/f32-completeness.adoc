@@ -25,7 +25,11 @@ parsed as their own rows. The artifact is mandatory: a missing or unreadable
 `data.yaml`. OB 988 repeats an indicator across several printed offices; the first
 printed row is the register entry (as in the seed) and each further printed row is
 kept as a shared-indicator context, so all 473 printed rows are retained. That REP
-is "all information" for Egypt, so seed offices it does not print are suppressed.
+replaces the whole Egypt list, so it carries `replaces_network: true` in its change
+data. The change source withdraws every office the register holds on that network at
+that issue (seed and earlier amendments) that the REP does not print. The printed
+description does not decide this; a flagged file with no entries or no network fails
+validation naming the file.
 
 The corrected seed removes the previous false missing-seed interpretation for
 Malaysia at OB 1013 and Ukraine at OB 1148. A targeted F.32 replay has six states,

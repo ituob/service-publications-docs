@@ -60,6 +60,8 @@ module Ituob
         @amendment_contexts = []
         @context_only_changes = []
         @context_only_sources = []
+        @network_offices = seed_network_offices
+        emit = proc { |emitted| track_network_offices(emitted); yield emitted }
         super do |change|
           if change.ob_issue_no && change.ob_issue_no < seed_issue
             yield change
@@ -74,7 +76,8 @@ module Ituob
                    []
                  end
           if rows.empty?
-            yield change
+            reject_empty_network_replacement!(change)
+            emit.call(change)
             next
           end
           printed_codes = {}
@@ -128,26 +131,68 @@ module Ituob
             next
           end
           normalized = data.merge('entries' => offices)
-          replaced_seed_changes(change, offices).each { |removal| yield removal }
-          yield Change.from_hash(change.to_hash.merge('data' => normalized))
+          replaced_network_changes(change, offices).each { |removal| emit.call(removal) }
+          emit.call(Change.from_hash(change.to_hash.merge('data' => normalized)))
         end
       end
 
-      # "REP all information" replaces a network's printed list: seed offices
-      # of that network the replacement does not print no longer exist.
-      def replaced_seed_changes(change, offices)
-        return [] unless change.type == 'REP' && change.data['description'].to_s.match?(/\bREP all information\b/i)
+      # A REP carrying `replaces_network: true` replaces its network's whole
+      # printed list: every office the register holds on that network at this
+      # issue (seed and earlier amendments) that the REP does not print is
+      # withdrawn. The source tracks that state as it streams the changes.
+      def replaced_network_changes(change, offices)
+        return [] unless replaces_network?(change)
 
         kept = offices.map { |office| office['office_code'] }
-        networks = offices.filter_map { |office| office['network_code'].to_s[/\A[A-Z]{2}/] }.uniq
-        stale = publication.allocations.select do |seed_entry|
-          networks.include?(seed_entry.network_code.to_s[/\A[A-Z]{2}/]) && !kept.include?(seed_entry.office_code)
-        end
+        networks = offices.filter_map { |office| network_prefix(office) }.uniq
+        raise "F32 change #{@loaded_path} sets replaces_network but prints no network" if networks.empty?
+
+        stale = networks.flat_map { |network| @network_offices.fetch(network, {}).values }
+                        .reject { |office| kept.include?(office['office_code']) }
         return [] if stale.empty?
 
         [Change.new(type: 'SUP', register_id: @register_id, ob_issue_no: change.ob_issue_no,
-                    identifier: { 'code' => stale.first.office_code },
-                    data: { 'entries' => stale.map(&:to_hash) })]
+                    identifier: { 'code' => stale.first['office_code'] },
+                    data: { 'entries' => stale })]
+      end
+
+      def replaces_network?(change)
+        flag = change.data['replaces_network']
+        return false if flag.nil? || flag == false
+        raise "F32 change #{@loaded_path} has a non-boolean replaces_network" unless flag == true
+        raise "F32 change #{@loaded_path} sets replaces_network on a #{change.type}, not a REP" unless change.type == 'REP'
+
+        true
+      end
+
+      def reject_empty_network_replacement!(change)
+        return unless change.data.is_a?(Hash) && change.data.key?('replaces_network')
+
+        raise "F32 change #{@loaded_path} sets replaces_network but has no entries"
+      end
+
+      def seed_network_offices
+        publication.allocations.each_with_object({}) do |seed_entry, networks|
+          office = seed_entry.to_hash
+          (networks[network_prefix(office)] ||= {})[office['office_code']] = office
+        end
+      end
+
+      def track_network_offices(change)
+        entries = change.data.is_a?(Hash) ? Array(change.data['entries']) : []
+        case change.type
+        when 'ADD', 'REP'
+          entries.each do |office|
+            (@network_offices[network_prefix(office)] ||= {})[office['office_code']] = office
+          end
+        when 'SUP'
+          codes = entries.empty? ? [change.identifier.code] : entries.map { |office| office['office_code'] }
+          @network_offices.each_value { |offices| codes.each { |code| offices.delete(code) } }
+        end
+      end
+
+      def network_prefix(office)
+        office['network_code'].to_s[/\A[A-Z]{2}/]
       end
 
       def amendment_context(change, entry, index, scope, kind: 'network-relative-office',

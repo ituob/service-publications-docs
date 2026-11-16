@@ -78,6 +78,70 @@ RSpec.describe Ituob::Registers::F32DirectoryChangeSource do
       expect(state.deleted_keys).to include("UNAK", "UNPO")
     end
 
+    context "with a network replacement flag" do
+      let(:office) { ->(code) { { "office_code" => code, "network_code" => "UN--", "telegraph_office_name" => { "en" => code } } } }
+      let(:changes) { [] }
+      let(:removed) do
+        FileUtils.mkdir_p(File.join(seed_dir, "changes"))
+        FileUtils.cp(File.join(data_root, "publication.yaml"), File.join(seed_dir, "publication.yaml"))
+        changes.each_with_index do |(type, issue, data), index|
+          File.write(File.join(seed_dir, "changes", format("%04d-%04d-%s-X.yaml", issue, index, type)), {
+            "type" => type, "register" => "F32_TDI", "ob_issue_no" => issue.to_s,
+            "identifier" => { "code" => "UNAK" }, "data" => data
+          }.to_yaml)
+        end
+        source.each_sorted.select { |c| c.type == "SUP" }.flat_map { |c| c.data["entries"].map { |e| e["office_code"] } }
+      end
+      let(:seed_un) { source.publication.allocations.map(&:office_code).grep(/\AUN/) }
+      let(:replace) { ->(extra = {}) { ["REP", 982, { "description" => "P 1 REP all info", "entries" => [office.("UNAK")] }.merge(extra)] } }
+
+      it "withdraws the unprinted offices of the network when the field is set, whatever the description says" do
+        changes << replace.("replaces_network" => true, "description" => "free text")
+        expect(removed).to match_array(seed_un - ["UNAK"])
+      end
+
+      it "does not fire on 'REP all information' text without the field" do
+        changes << replace.("description" => "P 1 EGYPT REP all information by:")
+        expect(removed).to be_empty
+      end
+
+      it "also withdraws an office an earlier ADD put on the network" do
+        changes << ["ADD", 981, { "entries" => [office.("UNZZ")] }]
+        changes << replace.("replaces_network" => true)
+        expect(removed).to include("UNZZ")
+        expect(removed).to match_array(seed_un - ["UNAK"] + ["UNZZ"])
+      end
+
+      it "does not withdraw an office suppressed before the replacement" do
+        changes << ["SUP", 981, { "entries" => [office.("UNPO")] }]
+        changes << replace.("replaces_network" => true)
+        expect(removed.count("UNPO")).to eq(1)
+      end
+
+      it "fails loudly naming the file when the flag has no entries" do
+        changes << ["REP", 982, { "replaces_network" => true, "entries" => [] }]
+        expect { removed }.to raise_error(RuntimeError, /0982-0000-REP-X\.yaml sets replaces_network but has no entries/)
+      end
+
+      it "fails loudly naming the file when the entries print no network" do
+        changes << ["REP", 982, { "replaces_network" => true, "entries" => [{ "office_code" => "UNAK" }] }]
+        expect { removed }.to raise_error(RuntimeError, /0982-0000-REP-X\.yaml sets replaces_network but prints no network/)
+      end
+
+      it "fails loudly when the field is not a boolean" do
+        changes << replace.("replaces_network" => "yes")
+        expect { removed }.to raise_error(RuntimeError, /0982-0000-REP-X\.yaml has a non-boolean replaces_network/)
+      end
+    end
+
+    it "flags only the OB 988 REP; every other committed REP leaves the register untouched" do
+      flagged = Dir[File.join(data_root, "changes/*.yaml")].select do |path|
+        Ituob::Support::Yaml.safe_load_file(path).dig("data", "replaces_network")
+      end
+      expect(flagged.map { |path| File.basename(path) }).to eq(["0988-0001-REP-UNMY.yaml"])
+      expect(committed.each_sorted.select { |c| c.type == "SUP" && c.ob_issue_no == 988 }.sum { |c| c.data["entries"].length }).to eq(28)
+    end
+
     it "rejects a grouped REP loudly, naming the OB and code, before any state is produced" do
       path = File.join(seed_dir, "changes")
       FileUtils.mkdir_p(path)
