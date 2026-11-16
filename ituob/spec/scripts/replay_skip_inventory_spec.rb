@@ -187,6 +187,15 @@ RSpec.describe ReplaySkipInventory do
     let(:committed_tsv) { File.binread(File.join(docs, 'replay-skips.tsv')) }
     let(:committed_adoc) { File.binread(File.join(docs, 'replay-skips.adoc')) }
 
+    it 'omits seed-issue skips already embodied in the annexes' do
+      ledger = CSV.parse(committed_tsv, headers: true, col_sep: "\t")
+      obsolete = ledger.select do |row|
+        [%w[E118_IIN 1161], %w[Q708_ISPC 1109]].include?([row['register'], row['ob_issue']])
+      end
+
+      expect(obsolete).to be_empty
+    end
+
     it 'regenerates the committed TSV and adoc byte for byte from the real corpus' do
       generated = described_class.collect
       expect(described_class.tsv(generated).b).to eq(committed_tsv)
@@ -202,6 +211,18 @@ RSpec.describe ReplaySkipInventory do
     it 'records repo-relative patch paths' do
       patches = described_class.collect.map { |row| row[2] }
       expect(patches).to all(start_with('datasets/'))
+    end
+  end
+
+  context 'with a flagged F.32 annex seed' do
+    it 'attributes skips to their patch files rather than the seed file' do
+      register = Ituob::Catalogs::Registers.find('F32_TDI')
+      paths = described_class.rows_for(register).map { |row| row[2] }
+
+      expect(paths.tally).to eq(
+        'datasets/980-F.32/changes/1013-0001-SUP-MALAISIE.yaml' => 1,
+        'datasets/980-F.32/changes/1148-0001-SUP-UKRAINE.yaml' => 33
+      )
     end
   end
 
