@@ -40,6 +40,22 @@ RSpec.describe Ituob::Projections::RegisterLocale do
     expect(rendered).to eq(['Networks|Mobile Network Co...', 'Réseaux|Codes de réseau m...'])
   end
 
+  it 'reads the `ch` language key of a metadata.yaml as zh, in title and terms' do
+    ispc = provider.locale(register: 'q708-ispc')
+
+    expect(ispc.title.zh).to start_with('国际信令点代码')
+    expect(ispc.locale.find { |l| l.key == 'country_or_area' }.zh).to eq('国家/地理区域')
+    expect(ispc.locale.map(&:zh)).to all(be_a(String))
+  end
+
+  it 'returns an empty term list for a register whose metadata has no locale key' do
+    rr251 = provider.locale(register: 'rr251')
+
+    expect(rr251.locale).to eq([])
+    expect(rr251.locale.each { nil }).to eq([])
+    expect(rr251.title.en).to be_a(String)
+  end
+
   it 'reads a register with a separate seed dataset from its own metadata' do
     shared = provider.locale(register: 'e212-shared-mcc')
 
