@@ -1,0 +1,41 @@
+{% comment %}
+  Main E.212 MNC table from a lutaml_data `edition` (Ituob::Models::RegisterEdition,
+  provider:ituob.edition). Replaces the `data`/`metadata` section of _tables.liquid
+  for documents migrated off yaml2text (spd#89 C8, English only).
+
+  Labels are English literals until locale(register:) (spd#102) is on main.
+
+  The country cell spans a RUN of consecutive items with the same country. The
+  old section counted every item of that country in the whole list, which is only
+  right while the data is sorted by country; provider items keep replay order, so
+  a run is the correct span. Items with no country (data gap) get a blank country
+  cell and are not merged into the previous country.
+{% endcomment %}
+== Mobile Network Codes (MNC) for the international identification plan for public networks and subscriptions (According to Recommendation ITU-T E.212 (09/2016))
+
+[cols="25%,55%,20%",options="header,unnumbered"]
+|===
+| Country or Geographical Area
+| Networks
+^| MCC + MNC codes
+
+{% assign items = edition.items %}
+{% assign previous = "-" %}
+{% for item in items %}
+    {% assign current = item.country_or_area.en | default: "" %}
+    {% if forloop.first or current != previous %}
+        {% assign previous = current %}
+        {% assign span = 1 %}
+        {% assign start = forloop.index %}
+        {% for next_item in items offset: start %}
+            {% assign next_country = next_item.country_or_area.en | default: "" %}
+            {% if next_country != current %}{% break %}{% endif %}
+            {% assign span = span | plus: 1 %}
+        {% endfor %}
+        .{{ span | plus: 1 }}+| {{ current }} | |
+    {% endif %}
+    | {{ item.networks | replace: "|", "\|" }}
+    ^| {{ item.mcc_mnc_codes }}
+
+{% endfor %}
+|===
