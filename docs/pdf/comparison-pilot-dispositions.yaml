@@ -5,39 +5,47 @@
 # matches a different number, so a stale entry cannot hide a change.
 - layer: rows
   side: both
-  text: 'CA--: generated "AT&T Easylink Services, Bridgeton," vs official "AT&T Easylink Services,"'
-  disposition: layout
-  reason: >-
-    The official name wraps over three lines ("AT&T Easylink Services," /
-    "Bridgeton, Missouri" / "(United States)") and the second line shares its
-    line with the CAMX row, so the tool sees only the first fragment. Read by
-    eye, the joined text equals the generated "AT&T Easylink Services,
-    Bridgeton, Missouri (United States)".
-- layer: rows
-  side: both
-  text: 'URFS: generated "Palo Alto, California" vs official "MCI/WUI"'
+  text: 'URFS: generated "Radio/KFS Palo Alto, California Radio/KFS" vs official "MCI/WUI"'
   disposition: layout
   reason: The official layout prints the network cell (MCI/WUI) on the code's line, so pdftotext reads it as the name; the dataset name is Palo Alto, California Radio/KFS on both sides.
 - layer: rows
   side: both
-  text: 'UTFS: generated "Palo Alto, California" vs official "TRT/FTC"'
+  text: 'UTFS: generated "Radio/KFS Palo Alto, California Radio/KFS" vs official "TRT/FTC MCI/WUI"'
   disposition: layout
   reason: Network cell (TRT/FTC) printed on the code's line in the official PDF; same name as the generated row.
 - layer: rows
   side: both
-  text: 'URMO: generated "Mobile, Alabama" vs official "MCI/WUI"'
+  text: 'URMO: generated "Radio Mobile, Alabama Radio" vs official "AT&T MCI/WUI"'
   disposition: layout
   reason: Network cell (MCI/WUI) printed on the code's line in the official PDF; same name as the generated row.
 - layer: rows
   side: both
-  text: 'UJMR: generated "Mobile, Alabama" vs official "MMR"'
+  text: 'UJMR: generated "Radio Mobile, Alabama Radio" vs official "MMR"'
   disposition: layout
   reason: Network cell (MMR) printed on the code's line in the official PDF; same name as the generated row.
 - layer: rows
   side: both
-  text: 'UTMR: generated "Mobile, Alabama" vs official "TRT/FTC"'
+  text: 'UTMR: generated "Radio Mobile, Alabama Radio" vs official "TRT/FTC"'
   disposition: layout
   reason: Network cell (TRT/FTC) printed on the code's line in the official PDF; same name as the generated row.
+- layer: rows
+  side: both
+  text: 'DJXX: generated "All destinations" vs official "Diego García All destinations"'
+  disposition: layout
+  reason: >-
+    The official PDF has a code-less row above DJXX (DIEGO GARCÍA, network code
+    DG, office name "Diego García", no office code); its name cell sits in the
+    wrap lines above the DJXX row, so the tool reads it as part of the DJXX
+    name. DJXX is "All destinations" on both sides.
+- layer: rows
+  side: both
+  text: 'UNAX: generated "ALEXANDRIE ALEXANDRIE CENTRE" vs official "ALEXANDRIA CENTRE / ALEXANDRIE CENTRE"'
+  disposition: data
+  reason: >-
+    The dataset names UNAX only "ALEXANDRIE CENTRE" (en, fr and es,
+    datasets/980-F.32/data.yaml), so the generated PDF cannot print the
+    official first line "ALEXANDRIA CENTRE /". The first pilot's wrap rule
+    hid this as layout.
 - layer: rows
   side: official_only
   text: '--SX All others'

@@ -13,7 +13,9 @@
 # settles what a measurement can settle; a human disposition lives in the
 # checked-in --dispositions file (matched on the exact delta text, so a stale
 # entry is an error). Anything left over is "unreviewed". The exit status is
-# non-zero while any bug, unreviewed delta or stale disposition remains.
+# non-zero while any bug, unreviewed delta or stale disposition remains: 1 for
+# an open delta, 2 for a usage or config error (bad option, unreadable file,
+# malformed dispositions).
 require 'open3'
 require 'optparse'
 require 'set'
@@ -27,31 +29,48 @@ module OfficialPdfComparison
 
   FOOTNOTE = /\A(?:\d+|[a-z])\)\z/
   COLUMN_SLACK = 4
-  MAX_FRAGMENTS = 3
   MAX_SCAN = 6
   DISPOSITIONS = %w[data layout bug].freeze
 
-  # A table row. A name that wraps leaves fragments on the lines around the
-  # code line: pre (nearest first) and post. Which side of the code line the
-  # wrap falls on differs between the two PDFs, so a row's name has several
-  # candidate readings (variants); two rows have the same name only when one
-  # reading of each is exactly equal.
-  Row = Struct.new(:name, :code, :line, :col, :pre, :post) do
-    def to_s = "#{code} #{name}"
+  # Bad command line, unreadable input or a malformed dispositions file: exit 2.
+  class UsageError < StandardError; end
 
-    def variants
-      @variants ||= (0..(pre || []).size).flat_map do |a|
-        (0..(post || []).size).map do |b|
-          normalise_words(((pre || []).first(a).reverse + [name] + (post || []).first(b)).join(' '))
-        end
-      end.to_set
+  # The lines between two code lines (or between a code line and page
+  # furniture) that can be wrap text of one row's name. Each line carries the
+  # text it has at the upper row's name column (a) and at the lower row's (b),
+  # nil where it does not continue that column. A gap is split between its two
+  # rows: the upper row takes the first s lines, the lower row the rest, so a
+  # line belongs to exactly one row and none is dropped. valid lists the splits
+  # the columns allow.
+  Gap = Struct.new(:lines) do
+    def valid
+      @valid ||= (0..lines.size).select { |s| lines.first(s).all? { |l| l[:a] } && lines.drop(s).all? { |l| l[:b] } }
     end
 
-    def same_name?(other) = variants.intersect?(other.variants)
+    def all_text = lines.map { |l| l[:a] || l[:b] }
+  end
 
-    private
+  # A table row: the code line's name and the gaps above and below it. How a gap
+  # is split between its two rows differs between the two PDFs (and a name's
+  # first line may sit above or below the code), so a row has one reading of
+  # its name per split of its two gaps: the lines it takes above, the code-line
+  # text, the lines it takes below, joined. Which split is the right one is
+  # settled across rows, see OfficialPdfComparison.consistent_failures.
+  Row = Struct.new(:name, :code, :line, :col, :above, :below) do
+    def to_s = "#{code} #{name}"
 
-    def normalise_words(str) = OfficialPdfComparison.normalise(str)
+    # Every wrap line of the row's neighbourhood, in reading order.
+    def full_name = OfficialPdfComparison.squish((above.all_text + [name] + below.all_text).join(' '))
+
+    def reading(sa, sb)
+      OfficialPdfComparison.normalise((above.lines.drop(sa).map { |l| l[:b] } + [name] + below.lines.first(sb).map { |l| l[:a] }).join(' '))
+    end
+
+    def splits = above.valid.product(below.valid)
+
+    def readings = @readings ||= splits.map { |sa, sb| reading(sa, sb) }.to_set
+
+    def same_name?(other) = readings.intersect?(other.readings)
   end
   Delta = Struct.new(:layer, :side, :text, :disposition, :reason, :manual)
 
@@ -59,7 +78,10 @@ module OfficialPdfComparison
 
   def pdf_text(path)
     out, err, st = Open3.capture3('pdftotext', '-layout', path, '-')
-    raise "pdftotext failed for #{path}: #{err}" unless st.success?
+  rescue SystemCallError => e
+    raise UsageError, "cannot run pdftotext: #{e.message}"
+  else
+    raise UsageError, "pdftotext failed for #{path}: #{err.lines.first.to_s.strip}" unless st.success?
 
     out
   end
@@ -94,34 +116,109 @@ module OfficialPdfComparison
       name, col = m.pre_match.empty? ? cells[-2] : [m.pre_match, cells.last[1]]
       found[i] = [squish(name), m[1], col]
     end
-    found.map do |i, (name, code, col)|
-      Row.new(name, code, i + 1, col, fragments(lines, found, i, col, -1), fragments(lines, found, i, col, 1))
+    above, below = build_gaps(lines, found)
+    found.each_with_index.map do |(i, (name, code, col)), k|
+      Row.new(name, code, i + 1, col, above[k], below[k])
     end
   end
 
-  # Text in the row's name column on the lines above (dir -1) or below (dir 1),
-  # nearest first, up to the next row or page furniture. Blank lines, bare
-  # footnote marks and other columns' text are skipped (at most MAX_SCAN lines).
-  def fragments(lines, found, from, col, dir)
+  # The gap above and the gap below each row. Two rows with no page furniture or
+  # table header between them share the gap between them; a barrier splits it
+  # into a trailing gap of the upper row and a leading gap of the lower. Lines
+  # more than MAX_SCAN from the row (or rows) they continue are not wrap text.
+  def build_gaps(lines, found)
+    barriers = header_blocks(lines)
+    barrier = ->(j) { lines[j] =~ FURNITURE || barriers.include?(j) }
+    idx = found.keys
+    above = Array.new(idx.size)
+    below = Array.new(idx.size)
+    (0..idx.size).each do |k|
+      up = idx[k - 1] if k.positive?
+      low = idx[k] if k < idx.size
+      if up && low && ((up + 1)...low).none? { |j| barrier.call(j) }
+        below[k - 1] = above[k] = Gap.new(shared_lines(lines, found, up, low))
+      else
+        above[k] = Gap.new(edge_lines(lines, found, barrier, low, -1)) if low
+        below[k - 1] = Gap.new(edge_lines(lines, found, barrier, up, 1)) if up
+      end
+    end
+    [above, below]
+  end
+
+  # Lines between code lines up and low. A cell on a code line itself counts
+  # too when it sits at the other row's name column (a name line that shares its
+  # line with the next or previous row's code).
+  def shared_lines(lines, found, up, low)
+    col_up = found[up][2]
+    col_low = found[low][2]
+    out = foreign_cells(lines, up, found[up]).filter_map { |cells| gap_line(cells, nil, col_low) }
+    ((up + 1)...low).each do |j|
+      next unless j - up <= MAX_SCAN || low - j <= MAX_SCAN
+
+      out << gap_line(name_cells(lines[j]), col_up, col_low)
+    end
+    foreign = foreign_cells(lines, low, found[low]).filter_map { |cells| gap_line(cells, col_up, nil) }
+    out.compact + foreign + continuation_lines(lines, found, low, col_up, foreign.any?)
+  end
+
+  # A name that continues under the lower row's code line (the upper row's name
+  # column holds a different cell there): the following lines at that column,
+  # up to the first line that has none or is a code line.
+  def continuation_lines(lines, found, low, col, started)
     out = []
-    j = from + dir
-    while out.size < MAX_FRAGMENTS && (j - from).abs <= MAX_SCAN && j >= 0 && j < lines.size
-      break if found.key?(j) || lines[j] =~ FURNITURE
-
-      cells = cells_at(lines[j])
-      if cells.empty?
-        j += dir # a blank line inside a cell (the generated PDF leaves one)
-        next
-      end
-
-      cells = cells.reject { |t, _| t =~ FOOTNOTE }
-      unless cells.empty?
-        here = cells.select { |_, c| (c - col).abs <= COLUMN_SLACK }
-        out << squish(here.map(&:first).join(' ')) unless here.empty?
-      end
-      j += dir
+    j = low + 1
+    while started && j < lines.size && (j - low) <= MAX_SCAN && !found.key?(j) && lines[j] !~ FURNITURE
+      line = gap_line(name_cells(lines[j]), col, nil) or break
+      out << line
+      j += 1
     end
     out
+  end
+
+  # Lines on one side of a row only (up to a barrier or MAX_SCAN lines): dir 1
+  # below the row (a trailing gap), -1 above it (a leading gap).
+  def edge_lines(lines, found, barrier, row, dir)
+    col = found[row][2]
+    out = []
+    j = row + dir
+    while (j - row).abs <= MAX_SCAN && j >= 0 && j < lines.size && !barrier.call(j) && !found.key?(j)
+      out << gap_line(name_cells(lines[j]), dir == 1 ? col : nil, dir == 1 ? nil : col)
+      j += dir
+    end
+    out = out.reverse if dir == -1
+    out.compact
+  end
+
+  # {a: text at the upper row's column, b: at the lower row's}; nil when it
+  # continues neither.
+  def gap_line(cells, col_up, col_low)
+    a = col_up && column_text(cells, col_up)
+    b = col_low && column_text(cells, col_low)
+    { a: a, b: b } if a || b
+  end
+
+  # The cells of a code line other than its name and code, as one cell list
+  # per cell, so each can be tested against the neighbouring row's column.
+  def foreign_cells(lines, i, (_, _, col))
+    cells = name_cells(lines[i])
+    code_col = cells_at(lines[i]).last[1]
+    cells.reject { |_, c| c == code_col || (c - col).abs <= COLUMN_SLACK }.map { |cell| [cell] }
+  end
+
+  def header_blocks(lines)
+    lines.each_index.with_object(Set.new) do |i, set|
+      next unless lines[i] =~ TABLE_HEADER
+
+      stop = (i...[i + MAX_SCAN, lines.size].min).find { |k| lines[k] =~ /\A\s*1\s+2\s+3\s+4\s+5\s*\z/ } || i
+      set.merge(i..stop)
+    end
+  end
+
+  def name_cells(line) = cells_at(line).reject { |t, _| t =~ FOOTNOTE }
+
+  def column_text(cells, col)
+    here = cells.select { |_, c| (c - col).abs <= COLUMN_SLACK }
+    squish(here.map(&:first).join(' ')) unless here.empty?
   end
 
   def prose_words(text)
@@ -203,11 +300,55 @@ module OfficialPdfComparison
     [ops.count { |o, *| o == :eq }, deltas]
   end
 
-  # Rows that aligned but whose code-line names differ only because of wrapping.
+  # Rows that aligned (some reading of each name is equal): a bug when no single
+  # split of the shared wrap lines makes all aligned names equal at once
+  # (see consistent_failures), a layout delta when the code-line names differ
+  # only because the name wraps differently.
   def name_deltas(ops)
-    ops.filter_map do |op, gen, off|
-      pair_delta(gen, off) if op == :eq && normalise(gen.name) != normalise(off.name)
+    pairs = ops.filter_map { |op, gen, off| [gen, off] if op == :eq }
+    failed = consistent_failures(pairs)
+    pairs.filter_map do |gen, off|
+      if failed.include?([gen, off])
+        Delta.new(:rows, :both, pair_text(gen, off), :bug, 'wrap lines cannot be split between the rows so that all names match (a wrap line is dropped, doubled or borrowed)')
+      elsif normalise(gen.name) != normalise(off.name)
+        Delta.new(:rows, :both, pair_text(gen, off), :layout, 'name wrapped across lines; the joined lines are equal')
+      end
     end
+  end
+
+  # Each wrap line belongs to exactly one row, so the split of a gap chosen for
+  # the row above must be the split the row below uses. Aligned pairs are
+  # walked in order; a gap shared by two consecutive rows of a side ties their
+  # choices (a gap next to an unaligned row is free on that side). Returns the
+  # pairs for which no consistent choice exists; the walk restarts after each.
+  def consistent_failures(pairs)
+    failed = []
+    prev = nil
+    reach = nil
+    pairs.each do |gen, off|
+      tied_g = prev && prev[0].below.equal?(gen.above)
+      tied_o = prev && prev[1].below.equal?(off.above)
+      options = gen.splits.product(off.splits).select { |(ga, gb), (oa, ob)| gen.reading(ga, gb) == off.reading(oa, ob) }
+      kept = options.select { |(ga, _), (oa, _)| reach.nil? || reach_ok?(reach, ga, oa, tied_g, tied_o) }
+      if kept.empty?
+        failed << [gen, off]
+        kept = options
+      end
+      reach = kept.map { |(_, gb), (_, ob)| [gb, ob] }.uniq
+      prev = [gen, off]
+    end
+    failed
+  end
+
+  # reach holds the [gen split, official split] pairs the previous aligned pair
+  # allows for its lower gap; a tied side must continue one of them, on that
+  # same pair of choices.
+  def reach_ok?(reach, ga, oa, tied_g, tied_o)
+    reach.any? { |g, o| (!tied_g || g == ga) && (!tied_o || o == oa) }
+  end
+
+  def pair_text(gen, off)
+    "#{gen.code}: generated #{gen.full_name.inspect} vs official #{off.full_name.inspect}"
   end
 
   def classify_row_hunk(hunk, official_norm, official_rows)
@@ -282,18 +423,13 @@ module OfficialPdfComparison
     end
   end
 
-  # Same code on both sides. The names are the same text only when one reading
-  # of each is exactly equal (see Row#variants): a name that gained or lost a
-  # word is a bug, not a wrap.
+  # Same code on both sides. The delta text carries both FULL names (every wrap
+  # line), so a disposition that names it pins the whole row on both sides. The
+  # names are the same text only when the full readings are equal (see Row), so
+  # every pair that reaches here differs: a name that gained, lost or borrowed
+  # a word is a bug, not a wrap.
   def pair_delta(gen, off)
-    text = "#{gen.code}: generated #{gen.name.inspect} vs official #{off.name.inspect}"
-    if normalise(gen.name) == normalise(off.name)
-      Delta.new(:rows, :both, text, :layout, 'case/punctuation/whitespace only')
-    elsif gen.same_name?(off)
-      Delta.new(:rows, :both, text, :layout, 'name wrapped across lines; the joined lines are equal')
-    else
-      Delta.new(:rows, :both, text, :bug, 'same code, different name')
-    end
+    Delta.new(:rows, :both, pair_text(gen, off), :bug, 'same code, different name')
   end
 
   def compare_prose(generated_words, official_words)
@@ -338,6 +474,22 @@ module OfficialPdfComparison
     end
   end
 
+  # Reads and validates the dispositions file: a YAML list of mappings with the
+  # string keys layer, side, text, and an integer count if present.
+  def load_dispositions(path)
+    entries = YAML.safe_load_file(path)
+    raise UsageError, "#{path}: dispositions must be a YAML list of mappings" unless entries.is_a?(Array) && entries.all?(Hash)
+
+    entries.each_with_index do |e, i|
+      missing = %w[layer side text].reject { |k| e[k].is_a?(String) }
+      raise UsageError, "#{path}: entry #{i + 1} needs string #{missing.join(', ')}" unless missing.empty?
+      raise UsageError, "#{path}: entry #{i + 1} count must be a positive integer" unless e.fetch('count', 1).is_a?(Integer) && e.fetch('count', 1).positive?
+    end
+    entries
+  rescue Errno::ENOENT, Psych::Exception => e
+    raise UsageError, "#{path}: #{e.message.lines.first.to_s.strip}"
+  end
+
   def run(generated_pdf, official_pdf, dataset: nil, dispositions: nil)
     gen_text = pdf_text(generated_pdf)
     off_text = pdf_text(official_pdf)
@@ -348,7 +500,7 @@ module OfficialPdfComparison
     off_words = prose_words(off_text)
     words_eq, prose_deltas = compare_prose(gen_words, off_words)
     deltas = row_deltas + prose_deltas
-    problems = dispositions ? apply_dispositions(deltas, YAML.safe_load_file(dispositions)) : []
+    problems = dispositions ? apply_dispositions(deltas, load_dispositions(dispositions)) : []
     {
       texts: { generated: gen_text, official: off_text },
       counts: {
@@ -389,14 +541,18 @@ module OfficialPdfComparison
       o.on('--data FILE', 'dataset data.yaml: settles missing rows as data or bug') { |v| data = v }
       o.on('--dispositions FILE', 'checked-in human dispositions (YAML)') { |v| disp = v }
     end
-    gen, off = opts.parse(argv)
-    unless gen && off
+    gen, off, *extra = opts.parse(argv)
+    unless gen && off && extra.empty?
       warn 'usage: compare_official_pdf.rb GENERATED.pdf OFFICIAL.pdf [--out DIR] [--data data.yaml] ' \
            '[--dispositions FILE]'
       return 2
     end
 
-    result = run(gen, off, dataset: data, dispositions: disp)
+    result = begin
+      run(gen, off, dataset: data, dispositions: disp)
+    rescue Errno::ENOENT, Psych::Exception => e
+      raise UsageError, e.message.lines.first.to_s.strip
+    end
     if out
       Dir.mkdir(out) unless Dir.exist?(out)
       File.write(File.join(out, 'generated.txt'), result[:texts][:generated])
@@ -405,6 +561,9 @@ module OfficialPdfComparison
     end
     puts report(result)
     failures(result).empty? ? 0 : 1
+  rescue OptionParser::ParseError, UsageError => e
+    warn "compare_official_pdf: #{e.message}"
+    2
   end
 end
 

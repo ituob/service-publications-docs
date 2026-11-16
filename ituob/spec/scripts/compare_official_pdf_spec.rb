@@ -218,6 +218,153 @@ RSpec.describe OfficialPdfComparison do
       end
     end
 
+    # Round-2 breaker findings: an entry pins the whole row, a wrap line belongs
+    # to exactly one row, and a dropped line is a difference.
+    describe 'wrap lines belong to exactly one row' do
+      def wrap(text) = ["#{' ' * 40}#{text}", nil]
+
+      let(:wrapped) do
+        table(['Rio de', 'BRRJ'], wrap('Janeiro'), ['Santos', 'BRSN'], ['Recife', 'BRRE'])
+      end
+
+      it 'keeps a wrapped name equal to the unwrapped one as layout' do
+        expect(deltas_for(wrapped, official)).to contain_exactly(have_attributes(disposition: :layout, side: :both))
+      end
+
+      it 'calls a dropped wrap line a bug, above, below or at the start of a block' do
+        before = table(['Gamma', 'BBBB'], ['Republic of Foo', 'CCCC'])
+        expect(deltas_for(table(['Republic of Foo', 'CCCC']), table(wrap('Gamma'), ['Republic of Foo', 'CCCC'])))
+          .to contain_exactly(have_attributes(side: :both, disposition: :bug, text: a_string_including('"Gamma Republic of Foo"')))
+        expect(deltas_for(table(['Gamma', 'BBBB']), table(['Gamma', 'BBBB'], wrap('Island Territory'))))
+          .to contain_exactly(have_attributes(side: :both, disposition: :bug, text: a_string_including('"Gamma Island Territory"')))
+        expect(deltas_for(before, before)).to be_empty
+      end
+
+      it 'calls a wrap line used by both neighbours a bug, and so one used by neither' do
+        official_rows = table(['Alpha', 'AAAA'], wrap('Beta'), ['Gamma', 'BBBB'])
+        doubled = table(['Alpha Beta', 'AAAA'], ['Beta Gamma', 'BBBB'])
+        dropped = table(['Alpha', 'AAAA'], ['Gamma', 'BBBB'])
+        expect(deltas_for(doubled, official_rows)).to include(have_attributes(side: :both, disposition: :bug))
+        expect(deltas_for(dropped, official_rows)).to include(have_attributes(side: :both, disposition: :bug))
+      end
+
+      it 'accepts a single wrap line between two rows as either neighbour\'s when one split explains both PDFs' do
+        # Undecidable from the text: the line is equally the tail of one row or
+        # the head of the next (the real official PDF prints ALEXANDRIA / above
+        # UNAA both ways). It counts once, so this is layout, not a bug.
+        official_rows = table(['Alpha', 'AAAA'], wrap('Beta'), ['Gamma', 'BBBB'])
+        generated_rows = table(['Alpha', 'AAAA'], ['Beta Gamma', 'BBBB'])
+        expect(deltas_for(generated_rows, official_rows)).to all(have_attributes(disposition: :layout))
+      end
+
+      it 'reads a name line that shares the next row\'s code line as part of the wrapped name' do
+        head = "Note from TSB\nCountry / Network   Name   Office\n"
+        official_rows = "#{head}#{' ' * 40}Alpha,#{' ' * 40}AAAA\n" \
+                        "#{' ' * 40}Ohio, USA#{' ' * 20}Delta#{' ' * 6}BBBB\n"
+        generated = ->(name) { "#{head}#{' ' * 40}#{name}#{' ' * 20}AAAA\n#{' ' * 80}Delta#{' ' * 6}BBBB\n" }
+        expect(deltas_for(generated.call('Alpha, Ohio, USA'), official_rows)).to all(have_attributes(disposition: :layout))
+        expect(deltas_for(generated.call('Alpha, Iowa, USA'), official_rows))
+          .to include(have_attributes(side: :both, disposition: :bug, text: a_string_including('Ohio, USA')))
+      end
+    end
+
+    describe 'a disposition pins every fragment of the row, on both sides' do
+      let(:entry_for) do
+        lambda do |gen_text, off_text|
+          { 'layer' => 'rows', 'side' => 'both', 'disposition' => 'layout', 'reason' => 'checked by eye',
+            'text' => "BRRJ: generated #{gen_text.inspect} vs official #{off_text.inspect}" }
+        end
+      end
+
+      def failures_with(gen, off, entry)
+        allow(mod).to receive(:pdf_text).with('gen.pdf').and_return(gen)
+        allow(mod).to receive(:pdf_text).with('off.pdf').and_return(off)
+        Dir.mktmpdir do |dir|
+          file = File.join(dir, 'd.yaml')
+          File.write(file, [entry].to_yaml)
+          mod.failures(mod.run('gen.pdf', 'off.pdf', dispositions: file))
+        end
+      end
+
+      def wrap(text) = ["#{' ' * 40}#{text}", nil]
+
+      let(:gen) { table(['Rio de Janeiro Extra', 'BRRJ'], wrap('Second Line'), ['Santos', 'BRSN']) }
+      let(:off) { table(['Rio de Janeiro', 'BRRJ'], ['Santos', 'BRSN']) }
+      let(:entry) { entry_for.call('Rio de Janeiro Extra Second Line', 'Rio de Janeiro') }
+
+      it 'settles the row when both full texts match' do
+        expect(failures_with(gen, off, entry)).to be_empty
+      end
+
+      it 'fails when a later generated fragment changes' do
+        changed = gen.sub('Second Line', 'Other Line')
+        expect(failures_with(changed, off, entry).join("\n")).to include('stale disposition').and include('Other Line')
+      end
+
+      it 'fails when a later official fragment changes' do
+        changed_off = table(['Rio de Janeiro', 'BRRJ'], wrap('Springfield'), ['Santos', 'BRSN'])
+        expect(failures_with(gen, changed_off, entry).join("\n")).to include('stale disposition').and include('Springfield')
+      end
+    end
+
+    describe 'swapped rows with one code stay bugs' do
+      it 'reports a swap of two same-code rows' do
+        gen = table(['Beta', '--XX'], ['Alpha', '--XX'], ['Gamma', 'QQQQ'])
+        off = table(['Alpha', '--XX'], ['Beta', '--XX'], ['Gamma', 'QQQQ'])
+        expect(deltas_for(gen, off)).to include(have_attributes(side: :generated_only, disposition: :bug))
+      end
+    end
+
+    describe 'usage and config errors exit 2 with a one-line message' do
+      def main_status(*argv, dispositions: nil)
+        Dir.mktmpdir do |dir|
+          args = argv.dup
+          if dispositions
+            file = File.join(dir, 'd.yaml')
+            File.write(file, dispositions)
+            args += ['--dispositions', file]
+          end
+          status = nil
+          err = StringIO.new
+          $stderr = err
+          begin
+            status = mod.main(args)
+          ensure
+            $stderr = STDERR
+          end
+          [status, err.string]
+        end
+      end
+
+      before do
+        allow(mod).to receive(:pdf_text).and_return(official)
+      end
+
+      it 'rejects an unknown option' do
+        status, err = main_status('gen.pdf', 'off.pdf', '--bogus')
+        expect(status).to eq(2)
+        expect(err.lines.size).to eq(1)
+      end
+
+      { 'an empty file' => '', 'a scalar list' => "- 5\n", 'a mapping' => "a: 1\n",
+        'an entry without text' => "- layer: rows\n", 'invalid YAML' => "foo: [\n",
+        'a non-integer count' => "- {layer: rows, side: both, text: x, count: two}\n" }.each do |label, body|
+        it "rejects #{label} as a dispositions file" do
+          status, err = main_status('gen.pdf', 'off.pdf', dispositions: body)
+          expect(status).to eq(2)
+          expect(err.lines.size).to eq(1)
+        end
+      end
+
+      it 'rejects a missing dispositions file, dataset and PDF' do
+        expect(main_status('gen.pdf', 'off.pdf', '--dispositions', '/nonexistent/d.yaml').first).to eq(2)
+        expect(main_status('gen.pdf', 'off.pdf', '--data', '/nonexistent/data.yaml').first).to eq(2)
+        allow(mod).to receive(:pdf_text).and_call_original
+        status, err = main_status('/nonexistent/g.pdf', '/nonexistent/o.pdf')
+        expect([status, err.lines.size]).to eq([2, 1])
+      end
+    end
+
     describe 'F1: dispositions come from a checked-in file and the exit status follows them' do
       let(:gen) { table(['Rio de Janeiro Extra', 'BRRJ'], ['Santos', 'BRSN'], ['Recife', 'BRRE']) }
       let(:entry) do

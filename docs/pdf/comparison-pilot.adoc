@@ -42,10 +42,14 @@ rows:: Every layout line ending in a 4-character office code is a table row.
 Rows align on the code *and* the name, so a dropped row inside a run of repeated
 codes (26 `INNX` rows) is the row reported, not the last one. Rows that do not
 align are paired by code alone. A name wraps differently in the two PDFs, so
-each row also carries the text on the lines above and below it in its name
-column; two names are the same text only when the lines, joined, read exactly
-the same on both sides. A name that gained or lost a word is a *bug*, not a
-wrap. A row only the generated PDF has is a *bug* unless the official text
+the lines between two code lines that continue a name column are wrap lines,
+and each belongs to exactly one of the two rows (no line is dropped or used
+twice). Which one it belongs to is not readable from the text (the generated
+PDF prints the code on a name's first line, the official on its last), so
+the split is chosen per gap so that the aligned names come out equal; a name
+differs when no one split of all gaps makes them equal. A name that gained, lost
+or borrowed a word is a *bug*, not a wrap. A name line that shares the next
+row's code line counts for the row whose name column it is in. A row only the generated PDF has is a *bug* unless the official text
 carries it without it being a row there.
 prose:: The preface words from "Note from TSB" up to the first table header,
 list markers removed.
@@ -58,9 +62,9 @@ dataset" only when the code and a name match, and a row whose code and name
 occur more than once is left for hand review.
 
 `--dispositions` is the checked-in file `docs/pdf/comparison-pilot-dispositions.yaml`:
-the human dispositions, each with a reason, matched on the exact delta text. An
+the human dispositions, each with a reason, matched on the exact delta text (both full names, every wrap line). An
 entry that does not match exactly its `count` of open deltas is an error. The
-script exits non-zero while any bug, unreviewed delta or bad entry remains, so
+script exits 1 while any bug, unreviewed delta or bad entry remains, and 2 on a bad option, an unreadable file or a malformed dispositions file, so
 a passing run (`RESULT: PASS`) means every delta has a disposition and none is a bug.
 
 == Counts
@@ -77,17 +81,18 @@ The numbers are the tool's own output for this pair (`RESULT: PASS`, exit 0).
 |Rows paired on code only (name differs) |6
 |Dataset records never rendered in the generated PDF |0
 |Prose words, official / generated / matched |510 / 515 / 508
-|*Deltas listed* |*876*
-|data |823
+|*Deltas listed* |*877*
+|data |824
 |layout |53
 |bug |0
 |unreviewed |0
-|Deltas settled by the dispositions file |10
+|Deltas settled by the dispositions file |11
 |===
 
 All 676 generated rows are in the official PDF, in the same order. 670 align on
-code and name; the other 6 have the same code and a different name text, and
-are dispositioned below. All the other difference is in what the official PDF
+code and name; the other 6 have the same code and a different name text (all
+dispositioned below), and `UNAX` is aligned but its wrap lines cannot be
+reconciled (data, below). All the other difference is in what the official PDF
 has beyond the generated rows.
 
 == Dispositions
@@ -96,25 +101,28 @@ has beyond the generated rows.
 |===
 |Disposition |Count |What it is
 
-|data |823
+|data |824
 |Rows in the official PDF that are not in `980-F.32/data.yaml`: 821 settled by
 the dataset (1 inside the list, `BYXX` Belarus; 3 Italian postal-code rows such
 as `COMO`, `PISA`, `ROMA`; the rest the alphabetical tail after `ILXX` Israel,
-the last generated row, through `ZWHX` Zimbabwe), and 2 by the dispositions
+the last generated row, through `ZWHX` Zimbabwe), and 3 by the dispositions
 file: Puerto Rico and Yemen (the two `--SX All others` rows; the code recurs, so
-the dataset lookup cannot settle them, and neither country is in the dataset).
-The generated PDF cannot contain any of them. The dataset ends at ISRAEL (100
+the dataset lookup cannot settle them, and neither country is in the dataset),
+and `UNAX`, whose dataset name is only "ALEXANDRIE CENTRE" while the official
+PDF prints "ALEXANDRIA CENTRE / ALEXANDRIE CENTRE" (the first pilot's lenient
+wrap rule hid this one as layout). The generated PDF cannot contain any of them. The dataset ends at ISRAEL (100
 countries, 575 distinct codes).
 
 |layout |53
 |43 names wrapped onto a different number of lines in the two PDFs, settled by
 the tool because the joined lines are exactly equal (e.g. `BSFP` "Freeport
 Grand" / "Bahama" against "Freeport Grand Bahama"; `UIMS` "Palo Alto,
-California" / "Radio/KFS"). By the dispositions file: 1 wrapped name the tool
-cannot join (`CA--`, whose official continuation shares a line with the `CAMX`
-row); 5 rows (`URFS`, `UTFS`, `URMO`, `UJMR`, `UTMR`) where the official layout
-prints the network cell (`MCI/WUI`, `TRT/FTC`, `MMR`) on the code's line, so
-pdftotext reads it as the name. 4 prose deltas: 2 are "countries/ geographical"
+California" / "Radio/KFS"). `CA--` is among them: its official continuation shares a line with the
+`CAMX` row, and the tool now joins it. By the dispositions file: 5 rows
+(`URFS`, `UTFS`, `URMO`, `UJMR`, `UTMR`) where the official layout prints the
+network cell (`MCI/WUI`, `TRT/FTC`, `MMR`) on the code's line, so pdftotext
+reads it as the name, and `DJXX`, whose wrap lines pick up the name of the
+code-less `DIEGO GARCÍA` row above it. 4 prose deltas: 2 are "countries/ geographical"
 spacing and a trailing full stop (settled by the tool); 2 are the generated
 page 2 repeating the running title "LIST OF TELEGRAM DESTINATION INDICATORS" and
 the "1. Destination Indicators" title block before the first table (dispositions
@@ -129,12 +137,12 @@ file).
 
 == Findings that matter
 
-. *The F.32 dataset is incomplete, not the generator.* All 823 data deltas are
-rows the dataset lacks (Italy onward, plus Belarus). Fixing it is a data
+. *The F.32 dataset is incomplete, not the generator.* All 824 data deltas are
+rows or names the dataset lacks (Italy onward, plus Belarus and the `UNAX` name). Fixing it is a data
 task; no PDF fix will close it. Until then a generated F.32 PDF is 33 pages
 against the official 47.
 . *Fidelity of what is there is good.* Row order and office codes match
-for all 676 rows, and names for all of them once the 6 dispositioned layout cases are read by eye; prose matches word for word apart from markers and spacing.
+for all 676 rows, and names for all of them once the 6 dispositioned layout cases are read by eye (and `UNAX` taken as a data difference); prose matches word for word apart from markers and spacing.
 . *Out of scope here (C13).* The comparison is text and table content only. It
 does not see layout fidelity (cover, header/footer, fonts), and the generated
 cover differs visibly ("ITUPublications", "2011 edition" versus the official
@@ -143,14 +151,16 @@ cover differs visibly ("ITUPublications", "2011 edition" versus the official
 == Limits of the tool
 
 * `pdftotext -layout` row parsing, not a PDF table extractor: a wrapped name is
-joined from the lines in its column (up to three above and three below, six
-lines scanned), so a name whose continuation shares a line with another row
-(`CA--`) or a network cell read as the name (the five `U..` rows) needs a
-disposition. A changed word in a wrapped name is caught, because the joined
-text must match exactly.
+joined from the lines in its column (six lines scanned either side), so a
+network cell read as the name (the five `U..` rows) or text from a neighbouring
+code-less row (`DJXX`) needs a disposition. A changed, dropped or borrowed word
+in a wrapped name is caught, because every wrap line is used exactly once and
+the joined text must match exactly. One thing the text cannot tell: a single
+wrap line between two rows may be the tail of the upper or the head of the
+lower, so it is accepted either way as long as one split explains both PDFs.
 * English only; the country column is trilingual and is not compared.
 * The tool reports disposition `unreviewed` for anything its rules cannot
-settle; this run had 4 (and 6 name differences it called bug), all dispositioned
+settle; this run had 4 (and 7 name differences it called bug), all dispositioned
 in the checked-in file, each with a reason.
 * Scaling to other publications needs their official PDFs (blocked on C9) and
 a row definition per table shape.
