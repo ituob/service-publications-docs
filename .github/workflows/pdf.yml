@@ -1,0 +1,60 @@
+name: pdf
+
+# Pilot for ituob/service-publications-docs#89: render one service
+# publication (T-SP-PP.RES.21-2011) to PDF in English, French and Spanish
+# and upload the PDFs as a build artifact.
+#
+# This workflow only builds and uploads. It never deploys, uses no secrets
+# and restores no cache, so a pull request from a fork cannot poison
+# anything another workflow later trusts.
+on:
+  pull_request:
+    paths:
+      - 'documents/T-SP-PP.RES.21-2011/**'
+      - 'datasets/991-PP.RES.21.pp/**'
+      - '.github/workflows/pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "pdf-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    container:
+      image: metanorma/metanorma:latest
+    env:
+      DOC_DIR: documents/T-SP-PP.RES.21-2011
+      DOC_ID: T-SP-PP.RES.21-2011
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Build PDFs (E, F, S)
+        run: |
+          set -eu
+          for lang in E F S; do
+            metanorma -t itu -x pdf "$DOC_DIR/$DOC_ID-$lang.adoc"
+          done
+
+      - name: Check the PDFs exist and are not empty
+        run: |
+          set -eu
+          for lang in E F S; do
+            test -s "$DOC_DIR/$DOC_ID-$lang.pdf"
+            ls -l "$DOC_DIR/$DOC_ID-$lang.pdf"
+          done
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-pilot-T-SP-PP.RES.21-2011
+          path: documents/T-SP-PP.RES.21-2011/*.pdf
+          if-no-files-found: error
