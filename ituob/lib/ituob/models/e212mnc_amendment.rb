@@ -107,6 +107,18 @@ attribute :country, :string
         { country: country, action: suffix[:action] }
       end
 
+      CODE_CELL = /\A\d{3}\s+\d+\z/
+
+      # Row 0 is the column header, except when a single-cell title row
+      # comes first: then the header is row 1, unless that row carries a
+      # code (a data row under a title).
+      def self.header_row_index(table)
+        title, candidate = table
+        return 0 unless candidate && title.length == 1 && candidate.length > 1
+
+        row_cells(candidate).any? { |cell| cell.match?(CODE_CELL) } ? 0 : 1
+      end
+
       # One normalized string per cell of a table row.
       def self.row_cells(row)
         row.map { |cell| Ituob::Helpers.normalize_whitespace(Array(cell).join(' ')) }
@@ -288,14 +300,15 @@ attribute :country, :string
             end
 
           elsif first_elem.is_a?(Array) # table
-            header_row = row_cells(c.first)
+            header_index = header_row_index(c)
+            header_row = row_cells(c[header_index])
             c.each_with_index do |row, row_index|
               segs = row.flatten
               heading = row.length == 3 ? rowspan_heading(segs) : nil
-              # Row 0 is the column header unless it is itself a heading.
-              next if row_index.zero? && !heading
+              # The title and header rows are not data unless it is itself a heading.
+              next if row_index <= header_index && !heading
               # Long tables repeat the column header at each page break.
-              next if row_index.positive? && !heading && row_cells(row) == header_row
+              next if row_index > header_index && !heading && row_cells(row) == header_row
 
               if row.length == 1
                 # Editor layout: single-cell "«country»\u00a0\u00a0 ACTION"

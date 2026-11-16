@@ -402,6 +402,25 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entries.first.note.en).to include('Extra-territorial use in Monaco (Country B')
     end
 
+    it 'does not read the column header under a title row as an entry (OB 1108, OB 1094)' do
+      [1108, 1094].each do |issue|
+        codes = source_entries(issue).actions.flat_map(&:entries).map(&:mcc_mnc_codes)
+
+        expect(codes).not_to include(a_string_matching(/\AMCC\+MNC/))
+      end
+    end
+
+    it 'skips the column header that follows a single-cell title row' do
+      title = row(cell(paragraph('Extra-territorial use of MCC+MNC')))
+      header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC*')),
+                   cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))
+      data = row(cell(paragraph('France'), paragraph('(Country A)')),
+                 cell(paragraph('208 01')), cell(paragraph('A')), cell(paragraph('Orange')))
+      entries = parse(document(table(title, header, data))).actions.flat_map(&:entries)
+
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['208 01'])
+    end
+
     it 'keeps a Country B row with no matching Country A code as its own entry' do
       header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC')),
                    cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))
@@ -441,6 +460,22 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       ["\u200E", "\u200F", "\u2060", "\u00AD"].each do |mark|
         expect(described_class.rowspan_heading(['Denmark ADD', mark, ' ']))
           .to eq(country: 'Denmark', action: 'ADD')
+      end
+    end
+  end
+
+  describe 'E.212 baseline seed' do
+    let(:seed) do
+      path = File.expand_path('../../../../datasets/1162-E.212/data.yaml', __dir__)
+      YAML.load_file(path)
+    end
+
+    it 'holds one entry per MCC+MNC for the France/Monaco extra-territorial codes' do
+      ['208 01', '208 10', '208 20'].each do |code|
+        rows = seed.select { |row| row['mcc_mnc_codes'] == code }
+
+        expect(rows.map { |row| row['country_or_area']['en'] }).to eq(['France'])
+        expect(rows.first['note']['en']).to start_with('Extra-territorial use in Monaco')
       end
     end
   end
