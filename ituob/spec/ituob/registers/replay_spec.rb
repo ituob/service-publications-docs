@@ -290,6 +290,30 @@ RSpec.describe Ituob::Registers::Replay do
       expect(state.reflected_in_seed.size).to eq(1)
     end
 
+    it 'counts a pre-seed SUP by query as removing the key it names' do
+      write_pre_seed_add('GONE')
+      write_change('0665-001-SUP-Q.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '665',
+        'identifier' => { 'query' => { 'field' => 'code', 'value' => 'GONE', 'operator' => 'equals' } },
+      })
+      write_seed_sup('669-001-SUP-GONE.yaml', 'GONE')
+      state = nil
+      expect { state = replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      expect(state.reflected_in_seed).to be_empty
+    end
+
+    it 'accepts nothing when a pre-seed SUP by query cannot be resolved to a key' do
+      write_pre_seed_add('GONE')
+      write_change('0665-001-SUP-Q.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '665',
+        'identifier' => { 'query' => { 'field' => 'name', 'value' => 'Gone Ltd', 'operator' => 'equals' } },
+      })
+      write_seed_sup('669-001-SUP-GONE.yaml', 'GONE')
+      state = nil
+      expect { state = replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      expect(state.reflected_in_seed).to be_empty
+    end
+
     it 'judges each row of a multi-entry seed-issue SUP on its own' do
       write_pre_seed_add('OLD')
       write_seed_sup('669-001-SUP-MULTI.yaml', 'ABC', entries: %w[ABC OLD GONE])

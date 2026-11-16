@@ -135,24 +135,40 @@ module Ituob
         return false unless builder.history.any?(&:seed?)
         return false if (builder.key_history[key.to_s] || []).any? { |c| c.ob_issue_no.to_i >= seed }
 
-        pre_seed_keys.include?(key.to_s)
+        builder.pre_seed_keys ||= pre_seed_keys || :unknown
+        builder.pre_seed_keys != :unknown && builder.pre_seed_keys.include?(key.to_s)
       end
 
       # Keys still held after the changes published before the seed issue:
       # an ADD/REP/LIR/MOD row adds its key, a SUP/DEL row removes it, in
       # issue order. A change's direct identifier counts only when its rows
       # name no key (a table-position label such as "P 19" is not a key).
-      # Not memoized: the source is re-read so a reused Replay agrees with
-      # a fresh one.
+      # A SUP/DEL by query counts when it is "key_field equals value";
+      # any other removal we cannot resolve returns nil, so no seed-issue
+      # SUP is accepted on that evidence. Computed once per replay pass
+      # (cached on the builder), so a reused Replay agrees with a fresh one.
       def pre_seed_keys
         ordered = source.pre_seed_changes.each_with_index.sort_by { |c, i| [c.ob_issue_no.to_i, i] }.map(&:first)
         ordered.each_with_object(Set.new) do |c, keys|
-          named = Strategies::Base.rows_for(c, @key_field, @fallback_key_fields).map do |row|
-            Strategies::Base.entry_key(row, @key_field, @fallback_key_fields)
-          end.compact.map(&:to_s).reject(&:empty?)
-          named = [c.identifier.code.to_s] if named.empty? && c.identifier.direct?
-          c.sup? || c.del? ? keys.subtract(named) : keys.merge(named)
+          named = keys_named_by(c)
+          removal = c.sup? || c.del?
+          return nil if named.nil? && removal
+
+          removal ? keys.subtract(named || []) : keys.merge(named || [])
         end
+      end
+
+      def keys_named_by(change)
+        named = Strategies::Base.rows_for(change, @key_field, @fallback_key_fields).map do |row|
+          Strategies::Base.entry_key(row, @key_field, @fallback_key_fields)
+        end.compact.map(&:to_s).reject(&:empty?)
+        return named unless named.empty?
+        return [change.identifier.code.to_s] if change.identifier.direct?
+
+        query = change.identifier.query || {}
+        return [query['value'].to_s] if query['field'].to_s == @key_field.to_s && query['operator'].to_s == 'equals'
+
+        nil
       end
 
       # Returns true when the change was recorded as a skip, false when it

@@ -83,6 +83,10 @@ module Ituob
         @reflected_in_seed << "#{change.type} #{key.inspect} at OB #{change.ob_issue_no}: already absent from the seed"
       end
 
+      # Keys held at the end of the pre-seed editions, computed once per
+      # replay pass by Replay (nil until then, :unknown when unresolvable).
+      attr_accessor :pre_seed_keys
+
       def reflected?(key)
         @reflected_keys.include?(key.to_s)
       end
