@@ -136,10 +136,10 @@ attribute :country, :string
         home.note = MultilingualString.new(en: text)
       end
 
-      # Only an entry printed with its own "(Country ..." qualifier can
-      # take a Country B row; a plain row sharing the code is unrelated.
+      # Only an entry printed as "(Country A)" can take a Country B row; a
+      # plain row or another Country B row sharing the code is unrelated.
       def self.country_paired?(entry, code)
-        entry.mcc_mnc_codes == code && entry.note&.en.to_s.start_with?('(Country')
+        entry.mcc_mnc_codes == code && entry.note&.en.to_s.lines.first.to_s.strip == '(Country A)'
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
