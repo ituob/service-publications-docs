@@ -80,6 +80,8 @@ module Ituob
         Q708SANCEntry
         RR251Action
         RR251Entry
+        RegisterActions
+        RegisterChange
         RegisterEdition
         RegisterKeyHistory
         T35AssignmentAuthority
@@ -219,7 +221,8 @@ module Ituob
         # Deserialization assigns missing fields after initialize;
         # projection collections need attribute defaults as well.
         def projection_options(klass_def, options)
-          return options unless %w[RegisterEdition RegisterKeyHistory].include?(klass_def.name.to_s) && options[:collection]
+          return options unless options[:collection]
+          return options unless %w[RegisterEdition RegisterKeyHistory RegisterActions].include?(klass_def.name.to_s)
 
           options.merge(default: -> { [] })
         end

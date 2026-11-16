@@ -948,4 +948,9 @@ models Ituob {
     attribute membership, String { cardinality 1 }
     attribute entries, KeyHistoryEntry { cardinality 0..n }
   }
+
+  class RegisterActions {
+    attribute provenance, ProjectionProvenance { cardinality 1 }
+    attribute changes, RegisterChange { cardinality 0..n }
+  }
 }
