@@ -130,8 +130,16 @@ attribute :country, :string
       # the home entry rather than as a second entry for the code.
       def self.record_extra_territorial_use(home, country, qualifier, cells)
         use = "Extra-territorial use in #{country} #{qualifier}: #{cells[3]}; MSIN range #{cells[2]}"
+        extra = cells.drop(4).reject(&:empty?)
+        use = "#{use}; #{extra.join('; ')}" unless extra.empty?
         text = [home.note&.en, use].compact.join("\n")
         home.note = MultilingualString.new(en: text)
+      end
+
+      # Only an entry printed with its own "(Country ..." qualifier can
+      # take a Country B row; a plain row sharing the code is unrelated.
+      def self.country_paired?(entry, code)
+        entry.mcc_mnc_codes == code && entry.note&.en.to_s.start_with?('(Country')
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
@@ -355,7 +363,7 @@ attribute :country, :string
                 cells = row_cells(row)
                 name, qualifier = split_country_cell(Array(row[0]).map { |p| Ituob::Helpers.normalize_whitespace(p) })
                 if qualifier&.start_with?('(Country B') &&
-                   (home = action.entries.reverse.find { |e| e.mcc_mnc_codes == cells[1] })
+                   (home = action.entries.reverse.find { |e| country_paired?(e, cells[1]) })
                   record_extra_territorial_use(home, name, qualifier, cells)
                   next
                 end

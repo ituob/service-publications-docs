@@ -413,6 +413,30 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect([entry.country_or_area.en, entry.note.en]).to eq(['Sweden', '(Country B – extra-territorial)'])
     end
 
+    it 'does not attach a Country B row to a plain row that shares its code' do
+      header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC')),
+                   cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))
+      plain = row(cell(paragraph('France')), cell(paragraph('208 01')), cell(paragraph('A')), cell(paragraph('Plain Op')))
+      monaco = row(cell(paragraph('Monaco'), paragraph('(Country B – extra)')),
+                   cell(paragraph('208 01')), cell(paragraph('B')), cell(paragraph('OpB')))
+      entries = parse(document(table(header, plain, monaco))).actions.flat_map(&:entries)
+
+      expect(entries.map { |e| [e.country_or_area.en, e.note&.en] })
+        .to eq([['France', nil], ['Monaco', '(Country B – extra)']])
+    end
+
+    it 'keeps cells past the fourth on a Country B row' do
+      header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC')),
+                   cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))
+      france = row(cell(paragraph('France'), paragraph('(Country A)')),
+                   cell(paragraph('208 01')), cell(paragraph('A')), cell(paragraph('OpA')))
+      monaco = row(cell(paragraph('Monaco'), paragraph('(Country B – x)')),
+                   cell(paragraph('208 01')), cell(paragraph('B')), cell(paragraph('OpB')), cell(paragraph('EXTRA5')))
+      entry = parse(document(table(header, france, monaco))).actions.flat_map(&:entries).first
+
+      expect(entry.note.en).to end_with('Monaco (Country B – x): OpB; MSIN range B; EXTRA5')
+    end
+
     it 'reads left-to-right marks, word joiners and soft hyphens as blank cells' do
       ["\u200E", "\u200F", "\u2060", "\u00AD"].each do |mark|
         expect(described_class.rowspan_heading(['Denmark ADD', mark, ' ']))
