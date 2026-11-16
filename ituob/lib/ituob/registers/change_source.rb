@@ -21,6 +21,13 @@ module Ituob
         nil
       end
 
+      # Changes published BEFORE the seed issue, which each_sorted does
+      # not replay because the seed supersedes them. Evidence only: it
+      # tells which keys the register held in earlier editions.
+      def pre_seed_changes
+        []
+      end
+
       # Yield each Change in canonical order (seed first, then
       # subsequent amendments by ob_issue ascending).
       def each_until(ob_issue_limit = nil)
