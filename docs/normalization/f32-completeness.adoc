@@ -1,0 +1,69 @@
+= F.32 completeness: printed-source search (G11)
+
+== Result
+
+No consolidated printed F.32 list was found in the searched `itu-ob-data`
+checkout. The references identify the _List of Telegram Destination Indicators_,
+in accordance with ITU-T Recommendation F.32 (10/1995), published with OB 980,
+position on 15 May 2011. They do not contain its country and office rows.
+
+The recovered 1,214-row list described in the task has therefore not been
+independently checked against that printed edition. Matching, missing and extra
+row counts are *undetermined*, not zero. This search does not establish that the
+recovered list is complete.
+
+== Search scope and evidence
+
+The repository-only search was performed on 16 November 2026, with an
+eight-minute limit for each parallel search of lists and annex records; all
+three requested locations were exhausted within the bounded search.
+The `service-publications-docs` revision was
+`e712c74aeb3fb07ff1c09a697cf57d8da37c68b4`; its clean `itu-ob-data` submodule
+was at `e17484be9f11d6a44d2f5c2ffc3d3e0813ffe62f`.
+
+[cols="2,1,5",options="header"]
+|===
+|Location |Files inspected |Finding
+
+|`itu-ob-data/lists/`
+|40
+|The only F.32 candidate is `lists/F32_TDI/meta.yaml`. It supplies the list
+identifier, title and recommendation version (`1995-10`); there is no list body
+in that directory. F.1 telegram code groups and TELEX network identification
+codes describe different publications.
+
+|`itu-ob-data/issues/*/annexes.yaml`
+|279
+|The only F.32 match is `issues/980/annexes.yaml`. It contains `F32_TDI` and
+`position_on: 2011-05-15T00:00:00.000Z`, with no country or office rows.
+
+|`itu-ob-data/reference-docs/`
+|12 DOCX files
+|These are the English OB 1163 through OB 1174 documents (2019). Each document
+has one F.32 reference, in its publication index, naming OB 980 and the position
+date above. None contains the consolidated F.32 table or an embedded document.
+|===
+
+The lists and annex searches covered filenames and case-insensitive text
+matches for F.32/F32, destination indicator, telegraph, consolidated and printed.
+The complete file inventories were checked so that a differently named source
+file would not be excluded solely by its name.
+
+For the DOCX files, Python's `zipfile` and `xml.etree.ElementTree` were used to
+read the text of every `word/*.xml` member, including nested members. Paragraph
+text was joined across Word runs before searching for F.32/F32, telegram,
+telegraph and destination indicator. The ZIP member lists were also checked
+for `word/embeddings/`; none was present. The other telegram reference in each
+document identifies the F.1 five-letter code groups (OB 669), a different list.
+
+== Remaining evidence needed
+
+An independent copy of the consolidated OB 980 F.32 annex, position on
+15 May 2011, is needed before country-by-country and row-by-row counts can be
+reported. The recovered seed and replay output cannot provide that independent
+evidence. The negative result is limited to the three locations and revision
+above; it does not assert that the printed edition is unavailable elsewhere.
+
+Following the task's no-source stopping condition, no comparison script or
+two-country diff spec was created. No seed, corpus snapshot or baseline was
+changed.
