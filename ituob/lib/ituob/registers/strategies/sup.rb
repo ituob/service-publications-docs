@@ -15,8 +15,9 @@ module Ituob
         def self.validate!(builder, change, key, _row = nil)
           return if builder.entries.key?(key)
 
-          raise StrategyError,
-                "SUP conflict: key #{key.inspect} not present in register #{change.register_id}"
+          raise StrategyError.new(
+            "SUP conflict: key #{key.inspect} not present in register #{change.register_id}", key: key,
+          )
         end
 
         def self.apply(builder, change, key_field, key, _fallbacks = [])

@@ -29,6 +29,7 @@ attribute :country, :string
       # "Belarus    SUP": a country line carrying its action, with no
       # position column.
       COUNTRY_ACTION_SUFFIX = /\s(?<action>ADD|SUP|LIR|REP)\*?\z/
+      TABLE_ACTION_TYPES = %w[ADD SUP REP LIR MOD DEL].freeze
       # "Sweden  (extra-territorial use of MCC/MNC, ...)": the heading of a
       # table that repeats codes with the MSIN ranges they may use abroad.
       # Found by string search, not a regex: a lazy run before `\s*\(`
@@ -102,7 +103,6 @@ attribute :country, :string
         end
 
         last_country = nil
-        editor_country = nil
 
         simplified_doc.each_with_index do |c, ci|
           next if c.nil?
@@ -222,31 +222,42 @@ attribute :country, :string
           elsif first_elem.is_a?(Array) # table
             c[1..].each do |row|
               segs = row.flatten
+              heading = Ituob::Helpers.replace_legacy_space(Array(row[0]).join(' ')).strip
+              # Split the suffix instead of matching an arbitrary country
+              # followed by whitespace: that regex backtracks on long spaces.
+              heading_country, _, heading_action = heading.delete_suffix('*').rstrip.rpartition(' ')
 
-              if row.length == 1
-                # Editor layout: single-cell "«country»\u00a0\u00a0 ACTION"
-                # rows carry the action for the entry rows that follow;
-                # other single-cell rows are titles — skip.
-                text = segs[0].to_s
-                if (m = text.match(/\A(.*?)[\u00a0 ]+(ADD|SUP|REP|LIR|MOD|DEL)\z/)) && !m[1].strip.empty?
-                  action = E212MNCAction.new
-                  action.action_type = m[2]
-                  action.entries = []
-                  amendment.actions << action
-                  editor_country = Ituob::Helpers.replace_legacy_space(m[1]).strip
-                end
-              elsif row.length == 3
+              if row.drop(1).flatten.all? { |text| Ituob::Helpers.replace_legacy_space(text.to_s).strip.empty? } &&
+                  !heading_country.strip.empty? && TABLE_ACTION_TYPES.include?(heading_action)
+                action = next_action(amendment, action)
+                # A table's country SUP block replaces the listed codes
+                # with the rows printed below it.
+                action.action_type = heading_action == 'SUP' ? 'REP' : heading_action
+                last_country = heading_country.strip
+                next
+              end
+
+              # Other single-cell rows are titles, not entries.
+              next if row.length == 1
+
+              country = heading.empty? ? last_country : heading
+              if row.length == 3
+                last_country = heading unless heading.empty?
                 if row[1].count > 1
                   row[1].zip(row[2]).each do |r|
+                    next if Ituob::Helpers.replace_legacy_space(r[0].to_s).strip.empty?
+
                     entry = E212MNCEntry.new
-                    entry.country_or_area = MultilingualString.new(en: row[0])
+                    entry.country_or_area = MultilingualString.new(en: country) if country
                     entry.mcc_mnc_codes = r[0]
                     entry.networks  = r[1]
                     action.entries << entry
                   end
                 else
+                  next if Ituob::Helpers.replace_legacy_space(segs[1].to_s).strip.empty?
+
                   entry = E212MNCEntry.new
-                  entry.country_or_area = MultilingualString.new(en: segs[0])
+                  entry.country_or_area = MultilingualString.new(en: country) if country
                   entry.mcc_mnc_codes = segs[1]
                   entry.networks = segs[2]
                   action.entries << entry
@@ -257,7 +268,7 @@ attribute :country, :string
                 next unless segs[0].to_s.match?(/\A\d{3}(?:[\u00a0 ]+\d+)?\z/)
 
                 entry = E212MNCEntry.new
-                entry.country_or_area = MultilingualString.new(en: editor_country) if editor_country && !editor_country.empty?
+                entry.country_or_area = MultilingualString.new(en: last_country) if last_country
                 entry.mcc_mnc_codes = segs[0]
                 entry.networks = segs[1]
                 action.entries << entry
@@ -275,8 +286,11 @@ attribute :country, :string
               elsif row.length >= 4
                 # 4+ column rows: country/code/range/networks or
                 # code/dec/range/networks. Map first 4 cells.
+                last_country = heading unless heading.empty?
+                next if Ituob::Helpers.replace_legacy_space(segs[1].to_s).strip.empty?
+
                 entry = E212MNCEntry.new
-                entry.country_or_area = MultilingualString.new(en: segs[0]) unless segs[0].to_s.strip.empty?
+                entry.country_or_area = MultilingualString.new(en: country) if country
                 entry.mcc_mnc_codes = segs[1]
                 entry.range = segs[2]
                 entry.networks = segs[3]

@@ -15,16 +15,18 @@ module Ituob
         )
       end
 
-      def initialize(register:, state:, items:)
+      def initialize(register:, state:, items:, source_contexts: [])
         @register = register
         @state = state
         @items = items
+        @source_contexts = source_contexts
       end
 
       def to_model
         Models::RegisterEdition.new(
           provenance: self.class.provenance(@register, @state),
           items: @items,
+          source_contexts: @source_contexts,
           lapsed_keys: @state.lapsed_keys.to_a.sort,
           deleted_keys: @state.deleted_keys.to_a.sort,
           key_history: key_history
