@@ -96,6 +96,85 @@ RSpec.describe Ituob::Models::M1400Amendment do
       expect([entry.country_or_area.en, entry.iso_code, action.action_type]).to eq(['Germany', 'DEU', 'ADD'])
     end
 
+    {
+      'Luxembourg / LUX REP all information by:' => ['Luxembourg', 'LUX', 'all information by:'],
+      'Bosnia and Herzegovina / BIH REP all information by' =>
+        ['Bosnia and Herzegovina', 'BIH', 'all information by'],
+      'Luxembourg / LUX REP replace ADD' => ['Luxembourg', 'LUX', 'replace ADD']
+    }.each do |heading, expected|
+      ['paragraph', 'single-nonempty-cell table'].each do |shape|
+        it "parses annotated #{shape} heading #{heading.inspect}" do
+          nodes = if shape == 'paragraph'
+                    [paragraph('Germany / DEU ADD'), paragraph(heading), table(company_row('Email: a@b.net'))]
+                  else
+                    [paragraph('Germany / DEU ADD'),
+                     table(row(cell(paragraph(heading)), cell(paragraph("\u00a0")), cell),
+                           company_row('Email: a@b.net'))]
+                  end
+          amendment = described_class.parse(doc(*nodes))
+          action = amendment.actions.find { |candidate| candidate.entries.any? }
+          entry = action.entries.first
+
+          expect([entry.country_or_area.en, entry.iso_code, action.action_type, action.note]).to eq(
+            [expected[0], expected[1], 'REP', expected[2]]
+          )
+        end
+      end
+    end
+
+    ['paragraph', 'single-nonempty-cell table'].each do |shape|
+      it "accepts a starred annotated action in a #{shape}" do
+        nodes = if shape == 'paragraph'
+                  [paragraph('Germany / DEU ADD'), paragraph('Luxembourg / LUX REP* all information by:'),
+                   table(company_row('Email: a@b.net'))]
+                else
+                  [paragraph('Germany / DEU ADD'),
+                   table(row(cell(paragraph('Luxembourg / LUX REP* all information by:')), cell, cell),
+                         company_row('Email: a@b.net'))]
+                end
+        amendment = described_class.parse(doc(*nodes))
+        action = amendment.actions.find { |candidate| candidate.entries.any? }
+        entry = action.entries.first
+
+        expect([entry.country_or_area.en, entry.iso_code, action.action_type, action.note])
+          .to eq(['Luxembourg', 'LUX', 'REP*', 'all information by:'])
+      end
+    end
+
+    ['Luxembourg / LUX XYZ all information by:', 'Luxembourg / LU9 REP all information by:',
+     ' / LUX REP all information by:'].each do |heading|
+      ['paragraph', 'single-nonempty-cell table'].each do |shape|
+        it "preserves Germany after malformed annotated #{shape} heading #{heading.inspect}" do
+          nodes = if shape == 'paragraph'
+                    [paragraph('Germany / DEU ADD'), paragraph(heading), table(company_row('Email: a@b.net'))]
+                  else
+                    [paragraph('Germany / DEU ADD'),
+                     table(row(cell(paragraph(heading)), cell, cell), company_row('Email: a@b.net'))]
+                  end
+          amendment = described_class.parse(doc(*nodes))
+          entries = amendment.actions.flat_map(&:entries)
+          company_entry = entries.find { |entry| entry.company_name == 'Timo Jung Streamworx' }
+
+          expect([company_entry.country_or_area.en, company_entry.iso_code, amendment.actions.first.action_type])
+            .to eq(['Germany', 'DEU', 'ADD'])
+          expect(entries.map(&:company_name)).to include('Timo Jung Streamworx')
+          expect(entries.map(&:company_name)).to include(heading.strip) if shape == 'single-nonempty-cell table'
+        end
+      end
+    end
+
+    it 'keeps a multi-column row that resembles an annotated heading as company data' do
+      amendment = described_class.parse(
+        doc(paragraph('Germany / DEU ADD'),
+            table(row(cell(paragraph('Luxembourg / ')), cell(paragraph('LUX REP ')),
+                      cell(paragraph('all information by:')))))
+      )
+      entry = amendment.actions.flat_map(&:entries).first
+
+      expect([entry.country_or_area.en, entry.iso_code, entry.company_name, entry.carrier_code, entry.contact])
+        .to eq(['Germany', 'DEU', 'Luxembourg /', 'LUX REP', 'all information by:'])
+    end
+
     ['paragraph', 'single-cell table'].each do |shape|
       it "accepts a starred action in a #{shape}" do
         nodes = if shape == 'paragraph'

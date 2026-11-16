@@ -48,6 +48,17 @@ attribute :notes, :string, collection: true
         [text, country, iso, action_type]
       end
 
+      def self.heading_with_annotation(text)
+        country, mark, remainder = text.rpartition(HEADING_MARK)
+        return if mark.empty? || country.empty?
+
+        iso, action_type, note = remainder.split(' ', 3)
+        return unless iso&.match?(/\A[A-Z]{3}\z/) &&
+          Ituob::Catalogs::ActionTypes.valid?(action_type) && note && !note.empty?
+
+        [text, country, iso, action_type, note]
+      end
+
       # True when some line has a "/" followed, later on that line, by a
       # three-capital action or ISO code at its end. Same as the old
       # /^.*\/.*[A-Z]{3}$/ without its polynomial backtracking (CodeQL).
@@ -110,6 +121,13 @@ attribute :notes, :string, collection: true
             if first_elem.length < 3 
               next
             else
+              if heading = heading_with_annotation(fixed_str)
+                country, country_code = heading[1..2]
+                action.action_type = heading[3]
+                action.note = heading[4]
+                action.position = "#{country} / #{country_code}"
+                next
+              end
               if heading = heading_without_slash(fixed_str)
                 country, country_code = heading[1..2]
                 action.action_type = heading[3]
@@ -159,8 +177,10 @@ attribute :notes, :string, collection: true
                 country, country_code = rf.split(' / ')
                 next
               end
-              m = heading_with_action(rf)
-              if !m && row.count { |cell| !Ituob::Helpers.normalize_whitespace(cell.flatten.join).empty? } == 1
+              single_cell = row.count { |cell| !Ituob::Helpers.normalize_whitespace(cell.flatten.join).empty? } == 1
+              m = single_cell ? heading_with_annotation(rf) : nil
+              m ||= heading_with_action(rf)
+              if !m && single_cell
                 m = heading_without_slash(rf)
               end
               if m
@@ -168,6 +188,7 @@ attribute :notes, :string, collection: true
                 action = M1400Action.new
                 action.entries = []
                 action.action_type = m[3]
+                action.note = m[4] if m[4]
                 country = m[1]
                 country_code = m[2]
                 amendment.actions << action
