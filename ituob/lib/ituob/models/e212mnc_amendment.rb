@@ -242,6 +242,7 @@ attribute :country, :string
 
               country = heading.empty? ? last_country : heading
               if row.length == 3
+                last_country = heading unless heading.empty?
                 if row[1].count > 1
                   row[1].zip(row[2]).each do |r|
                     next if Ituob::Helpers.replace_legacy_space(r[0].to_s).strip.empty?
@@ -285,6 +286,7 @@ attribute :country, :string
               elsif row.length >= 4
                 # 4+ column rows: country/code/range/networks or
                 # code/dec/range/networks. Map first 4 cells.
+                last_country = heading unless heading.empty?
                 next if Ituob::Helpers.replace_legacy_space(segs[1].to_s).strip.empty?
 
                 entry = E212MNCEntry.new

@@ -201,6 +201,52 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     end
   end
 
+  it 'carries a printed rowspan country onto its two-cell continuation rows' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+        row(cell(paragraph('Hungary ADD'))),
+        row(cell(paragraph('216 04')), cell(paragraph('Hungarian network'))),
+        row(cell(paragraph('Belgium')).merge('attrs' => { 'rowspan' => 2 }),
+            cell(paragraph('206 01')), cell(paragraph('Proximus'))),
+        row(cell(paragraph('206 02')), cell(paragraph('Belgian continuation'))),
+        row(cell(paragraph('Netherlands')).merge('attrs' => { 'rowspan' => 2 }),
+            cell(paragraph('204 01'), paragraph('204 02')),
+            cell(paragraph('First Dutch network'), paragraph('Second Dutch network'))),
+        row(cell(paragraph('204 03')), cell(paragraph('Dutch continuation'))),
+      ),
+    )
+    actions = parse(doc).actions
+    entries = actions.flat_map(&:entries)
+
+    expect(actions.map(&:action_type)).to eq(['ADD'])
+    expect(entries.map(&:mcc_mnc_codes)).to eq(['216 04', '206 01', '206 02', '204 01', '204 02', '204 03'])
+    expect(entries.map { |entry| entry.country_or_area.en }).to eq(
+      %w[Hungary Belgium Belgium Netherlands Netherlands Netherlands],
+    )
+    expect(entries.values_at(2, 5).map(&:networks)).to eq(['Belgian continuation', 'Dutch continuation'])
+  end
+
+  it 'carries a four-column row country into a later two-column table' do
+    doc = document(
+      paragraph('Hungary ADD'),
+      table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Range')), cell(paragraph('Network'))),
+        row(cell(paragraph('Belgium')), cell(paragraph('206 01')), cell(paragraph('1-9')), cell(paragraph('Proximus'))),
+      ),
+      table(
+        row(cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+        row(cell(paragraph('206 02')), cell(paragraph('Belgian continuation'))),
+        row(cell(paragraph('206 03')), cell(paragraph('Another Belgian continuation'))),
+      ),
+    )
+    entries = parse(doc).actions.flat_map(&:entries)
+
+    expect(entries.map(&:mcc_mnc_codes)).to eq(['206 01', '206 02', '206 03'])
+    expect(entries.map { |entry| entry.country_or_area.en }).to eq(%w[Belgium Belgium Belgium])
+    expect(entries.first.range).to eq('1-9')
+  end
+
   it 'recognizes multi-cell country headings with parentheses' do
     doc = document(
       table(
