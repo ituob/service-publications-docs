@@ -23,19 +23,21 @@ data:
       Mailbox
       X.400 - IPM
     helpdesk:
-      x400: BusinessMail
+      x400: |-
+        S= helpdesk
+        A=viat
+        C=de
+    autoanswer:
+      x400: |-
+        S=autoanswer
+        A=viat
+        C=de
     contact_address:
       address_lines:
-      - S= helpdesk
-      - S=autoanswer
       - 'Ralf Knecht / Torsten Moeller Telekom Deutschland GmbH Service Lifecycle
         Management Produktmanagement BusinessMail X.400 O2, 1-10 Am Paradeplatz 68161
         MANNHEIM Germany   Email: ralf.knecht@telekom.de Tel: +49 6212947422   Email:
         torsten.moeller@telekom.de Tel: +49 6212941509 Helpdesk: helpdesk.businessmailx400@telekom.de'
-      - A=viat
-      - A=viat
-      - C=de
-      - C=de
   - country_or_area:
       en: Germany
       fr: Allemagne
@@ -51,19 +53,21 @@ data:
       Mailbox
       X.400 - IPM
     helpdesk:
-      x400: BusinessMail
+      x400: |-
+        S=helpdesk
+        A=viat
+        C=de
+    autoanswer:
+      x400: |-
+        S=autoanswer
+        A=viat
+        C=de
     contact_address:
       address_lines:
-      - S=helpdesk
-      - S=autoanswer
       - 'Ralf Knecht / Torsten Moeller Telekom Deutschland GmbH Service Lifecycle
         Management Produktmanagement BusinessMail X.400 O2, 1-10 Am Paradeplatz 68161
         MANNHEIM Germany   Email: ralf.knecht@telekom.de Tel: +49 6212947422   Email:
         torsten.moeller@telekom.de Tel: +49 6212941509 Helpdesk: helpdesk.businessmailx400@telekom.de'
-      - A=viat
-      - A=viat
-      - C=de
-      - C=de
   - country_or_area:
       en: Germany
       fr: Allemagne
@@ -79,18 +83,20 @@ data:
       Mailbox
       X.400 - IPM
     helpdesk:
-      x400: BusinessMail
+      x400: |-
+        S=helpdesk
+        A=viat
+        C=de
+    autoanswer:
+      x400: |-
+        S=autoanswer
+        A=viat
+        C=de
     contact_address:
       address_lines:
-      - S=helpdesk
-      - S=autoanswer
       - 'Ralf Knecht / Torsten Moeller Telekom Deutschland GmbH Service Lifecycle
         Management Produktmanagement BusinessMail X.400 O2, 1-10 Am Paradeplatz 68161
         MANNHEIM Germany   Email: ralf.knecht@telekom.de Tel: +49 6212947422   Email:
         torsten.moeller@telekom.de Tel: +49 6212941509 Helpdesk: helpdesk.businessmailx400@telekom.de'
-      - A=viat
-      - A=viat
-      - C=de
-      - C=de
   notes: []
 reference: OB-1092

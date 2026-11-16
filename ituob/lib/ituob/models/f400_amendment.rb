@@ -65,11 +65,10 @@ attribute :notes, :string, collection: true
           elsif first_elem.is_a?(Array) # table
             # Group rows by country entry. The first row of a country
             # entry has all 9 cells populated; subsequent rows are
-            # continuation (FR/EN/ES translations + multi-line address)
+            # continuation (EN/ES country names + further lines of each column)
             # — recognized by an empty ADMD-name and country-code cell.
             current_entry = nil
-            address_lines = []
-            services = Hash.new { |h, k| h[k] = [] }
+            stacks = Hash.new { |h, k| h[k] = [] }
             country_names = { fr: nil, en: nil, es: nil }
             lang_idx = 0
 
@@ -101,26 +100,21 @@ attribute :notes, :string, collection: true
               if !continuation && flat[0] && !flat[0].empty?
                 # New country entry — flush previous.
                 if current_entry
-                  current_entry.contact_address = { address_lines: address_lines.reject(&:empty?) }
-                  assign_services(current_entry, services)
+                  assign_columns(current_entry, stacks)
                   current_entry.country_or_area = MultilingualString.new(
                     fr: country_names[:fr], en: country_names[:en], es: country_names[:es]
                   )
                   action.entries << current_entry
                 end
                 current_entry = F400Entry.new
-                address_lines = []
-                services = Hash.new { |h, k| h[k] = [] }
+                stacks = Hash.new { |h, k| h[k] = [] }
                 country_names = { fr: nil, en: nil, es: nil }
                 lang_idx = 0
 
                 country_names[:fr] = flat[0]
                 current_entry.admd_name = flat[1]
                 current_entry.country_code = flat[2]
-                current_entry.helpdesk = { x400: flat[4] } if flat[4] && !flat[4].empty?
-                current_entry.autoanswer = { x400: flat[5] } if flat[5] && !flat[5].empty?
-                SERVICE_COLUMNS.each { |key, i| services[key] << flat[i] if flat[i] && !flat[i].empty? }
-                (6..8).each { |i| address_lines << flat[i] if flat[i] && !flat[i].empty? }
+                stack_columns(stacks, flat)
               elsif current_entry
                 # Continuation row.
                 lang_idx += 1
@@ -130,16 +124,13 @@ attribute :notes, :string, collection: true
                   when 2 then country_names[:es] = flat[0]
                   end
                 end
-                (6..8).each { |i| address_lines << flat[i] if flat[i] && !flat[i].empty? }
-                # Cells 3-5 continue the stacked service-name columns
-                # (OB 1092 en/es rows); they never belong in the address.
-                SERVICE_COLUMNS.each { |key, i| services[key] << flat[i] if flat[i] && !flat[i].empty? }
+                # Cells 3-8 continue the entry's stacked columns.
+                stack_columns(stacks, flat)
               end
             end
             # Flush the last entry.
             if current_entry
-              current_entry.contact_address = { address_lines: address_lines.reject(&:empty?) }
-              assign_services(current_entry, services)
+              assign_columns(current_entry, stacks)
               current_entry.country_or_area = MultilingualString.new(
                 fr: country_names[:fr], en: country_names[:en], es: country_names[:es]
               )
@@ -158,14 +149,26 @@ attribute :notes, :string, collection: true
       # one leading blank). Blank holes or a trailing blank do not
       # disqualify it; a continuation row with a few numeric cells does not
       # qualify.
-      SERVICE_COLUMNS = { mt: 3, ipm: 4, other: 5 }.freeze
+      # Printed F.400 columns 4-9 (cells 3-8): service names MT, IPM and
+      # other, then HELPDESK and AUTOANSWER O/R addresses, then the contact
+      # address. Each prints one line per row of the entry (fr/en/es rows
+      # and further continuation rows), so each is stacked across rows.
+      STACKED_COLUMNS = { mt: 3, ipm: 4, other: 5, helpdesk: 6, autoanswer: 7, contact: 8 }.freeze
 
-      # Stacked service names (first row plus fr/en/es continuation rows),
-      # one per line, under the MT/IPM/other column they were printed in.
-      def self.assign_services(entry, services)
-        services.each { |key, lines| entry.public_send("#{key}=", lines.join("\n")) unless lines.empty? }
+      def self.stack_columns(stacks, flat)
+        STACKED_COLUMNS.each { |key, i| stacks[key] << flat[i] if flat[i] && !flat[i].empty? }
       end
-      private_class_method :assign_services
+      private_class_method :stack_columns
+
+      def self.assign_columns(entry, stacks)
+        %i[mt ipm other].each do |key|
+          entry.public_send("#{key}=", stacks[key].join("\n")) unless stacks[key].empty?
+        end
+        entry.helpdesk = { x400: stacks[:helpdesk].join("\n") } unless stacks[:helpdesk].empty?
+        entry.autoanswer = { x400: stacks[:autoanswer].join("\n") } unless stacks[:autoanswer].empty?
+        entry.contact_address = { address_lines: stacks[:contact].dup }
+      end
+      private_class_method :assign_columns
 
       def self.numbered_layout_row?(flat)
         cells = flat.each_with_index.reject { |x, _| x.empty? }

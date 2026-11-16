@@ -9,11 +9,11 @@ RSpec.describe Ituob::Models::F400Amendment do
     context "with a #{blank.inspect} separator row" do
       let(:rows) do
         [
-          ['France', 'ADMD-FR', 'FR', 'MT', 'help-fr', 'auto-fr', 'Paris', 'Street 1', 'Contact FR'],
+          ['France', 'ADMD-FR', 'FR', 'MT-fr', 'IPM-fr', '', 'help-fr', 'auto-fr', 'Contact FR'],
           Array.new(9, blank),
-          ['France EN', '', '', '', '', '', 'Address continued', '', ''],
+          ['France EN', '', '', '', '', '', '', '', 'Address continued'],
           ['Francia', '', '', '', '', '', '', '', ''],
-          ['Allemagne', 'ADMD-DE', 'DE', 'MT', 'help-de', 'auto-de', 'Berlin', 'Street 2', 'Contact DE']
+          ['Allemagne', 'ADMD-DE', 'DE', 'MT-de', 'IPM-de', '', 'help-de', 'auto-de', 'Contact DE']
         ]
       end
       let(:document) do
@@ -44,9 +44,11 @@ RSpec.describe Ituob::Models::F400Amendment do
         expect(entries.map { |entry| entry.helpdesk[:x400] }).to eq(['help-fr', 'help-de'])
         expect(entries.map { |entry| entry.autoanswer[:x400] }).to eq(['auto-fr', 'auto-de'])
         expect(entries.map { |entry| entry.contact_address[:address_lines] }).to eq([
-          ['Paris', 'Street 1', 'Contact FR', 'Address continued'],
-          ['Berlin', 'Street 2', 'Contact DE']
+          ['Contact FR', 'Address continued'],
+          ['Contact DE']
         ])
+        expect(entries.map(&:mt)).to eq(['MT-fr', 'MT-de'])
+        expect(entries.map(&:ipm)).to eq(['IPM-fr', 'IPM-de'])
       end
 
       it 'preserves Spanish when the blank row separates English and Spanish continuations' do
@@ -98,7 +100,9 @@ RSpec.describe Ituob::Models::F400Amendment do
       expect(entry.country_or_area.fr).to eq('Espagne')
       expect(entry.country_or_area.en).to eq('Spain')
       expect(entry.country_or_area.es).to eq('España')
-      expect(entry.helpdesk[:x400]).to eq('SPAIRAL-IPM')
+      expect(entry.mt).to eq('SPAIRAL-MT')
+      expect(entry.ipm).to eq('SPAIRAL-IPM')
+      expect(entry.helpdesk).to be_nil
       expect(entry.contact_address[:address_lines]).to eq(['SPAIRAL COMMERCE S.L. Logrono'])
       expect(entries.map(&:admd_name).join).not_to match(/\A\s*\z|\A\d+\z/)
     end
@@ -159,7 +163,9 @@ RSpec.describe Ituob::Models::F400Amendment do
 
       it 'keeps them as continuation data' do
         expect(entries.length).to eq(1)
-        expect(entries.first.contact_address[:address_lines]).to include('6', '7')
+        expect(entries.first.helpdesk[:x400]).to eq('6')
+        expect(entries.first.autoanswer[:x400]).to eq('7')
+        expect(entries.first.contact_address[:address_lines]).to eq(['Addr'])
       end
     end
 
@@ -217,10 +223,21 @@ RSpec.describe Ituob::Models::F400Amendment do
         .to eq([%w[Allemagne Germany Alemania]])
     end
 
-    it 'keeps the fr-row helpdesk and drops the translated service labels from the address' do
-      expect(entries.map { |e| e.helpdesk[:x400] }).to eq(%w[BusinessMail BusinessMail])
-      expect(entries.first.contact_address[:address_lines])
-        .to eq(['S= helpdesk', 'S=autoanswer', 'Ralf Knecht', 'A=viat', 'A=viat', 'C=de', 'C=de'])
+    it 'stacks the HELPDESK, AUTOANSWER and contact columns across the fr/en/es rows' do
+      expect(entries.first.helpdesk[:x400]).to eq("S= helpdesk\nA=viat\nC=de")
+      expect(entries.first.autoanswer[:x400]).to eq("S=autoanswer\nA=viat\nC=de")
+      expect(entries.first.contact_address[:address_lines]).to eq(['Ralf Knecht'])
+    end
+
+    it 'keeps every printed non-empty data cell somewhere in its entry' do
+      survivors = entries.flat_map do |e|
+        [e.admd_name, e.country_code, e.country_or_area.fr, e.country_or_area.en, e.country_or_area.es,
+         e.mt, e.ipm, e.other, e.helpdesk&.dig(:x400), e.autoanswer&.dig(:x400),
+         *e.contact_address[:address_lines]].compact.flat_map { |v| v.split("\n") }
+      end
+      printed = rows.drop(4).flatten.reject { |c| c.strip.empty? || c == nb }
+
+      expect(printed - survivors).to be_empty
     end
 
     it 'keeps the stacked fr/en/es service names under their MT and IPM columns' do
