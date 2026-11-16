@@ -5,6 +5,7 @@ require 'fileutils'
 require 'open3'
 require 'rbconfig'
 require 'tmpdir'
+require 'yaml'
 
 RSpec.describe 'scripts/check_ob_issues_drift.rb' do # rubocop:disable Metrics/BlockLength -- Integration examples share an isolated fixture tree.
   let(:repo_root) { File.expand_path('../../..', __dir__) }
@@ -110,5 +111,36 @@ RSpec.describe 'scripts/check_ob_issues_drift.rb' do # rubocop:disable Metrics/B
     _stdout, stderr, status = result
     expect(status.success?).to be(false)
     expect(stderr).to include('Regeneration failed', 'FAIL 10:')
+  end
+end
+
+RSpec.describe 'documented itu-ob-data caller contract' do
+  let(:documentation) do
+    File.read(File.expand_path('../../../docs/normalization/source-of-truth.adoc', __dir__))
+  end
+  let(:caller_job) do
+    example = documentation.match(/\[source,yaml\]\n----\n(jobs:.*?)\n----/m)[1]
+    YAML.safe_load(example).fetch('jobs').fetch('validate')
+  end
+
+  it 'calls the agreed reusable workflow on main' do
+    expect(caller_job.fetch('uses')).to eq(
+      'ituob/service-publications-docs/.github/workflows/validate-itu-ob-data.yml@main'
+    )
+  end
+
+  it 'passes exactly the four agreed inputs with the documented defaults' do
+    expect(caller_job.fetch('with')).to eq(
+      'itu_ob_data_ref' => '${{ github.event.pull_request.head.sha }}',
+      'itu_ob_data_repository' => 'ituob/itu-ob-data',
+      'issue_ids' => '',
+      'base_ref' => 'main'
+    )
+  end
+
+  it 'shows how to pass the optional private-checkout token' do
+    expect(caller_job.fetch('secrets', {})).to eq(
+      'ITU_OB_DATA_TOKEN' => '${{ secrets.ITU_OB_DATA_TOKEN }}'
+    )
   end
 end

@@ -85,30 +85,25 @@ The agreed caller line is:
 uses: ituob/service-publications-docs/.github/workflows/validate-itu-ob-data.yml@main
 ----
 
-The following table records the target interface, not the current implementation
-in #74. At revision `72dda91a701ecdfd443161be2b664953535eccf0`, #74 accepts
-`data_repository` (default `ituob/itu-ob-data`), required `data_ref`, required
-`base_ref`, and required `service_ref`. The last three must be full lowercase
-commit SHAs; `service_ref` must match the trusted service workflow pin.
-It does not yet accept `issue_ids` or `ITU_OB_DATA_TOKEN`.
-
-A caller using that implementation must use its existing names and trust pin:
+The separate `itu-ob-data` caller must use the agreed interface below. #74 must
+provide this interface on `main` before this example can be used:
 
 [source,yaml]
 ----
 jobs:
   validate:
-    uses: ituob/service-publications-docs/.github/workflows/validate-itu-ob-data.yml@<full-service-commit-sha>
+    uses: ituob/service-publications-docs/.github/workflows/validate-itu-ob-data.yml@main
     with:
-      data_repository: ituob/itu-ob-data
-      data_ref: ${{ github.event.pull_request.head.sha }}
-      base_ref: ${{ github.event.pull_request.base.sha }}
-      service_ref: '<same-full-service-commit-sha>'
+      itu_ob_data_ref: ${{ github.event.pull_request.head.sha }}
+      itu_ob_data_repository: ituob/itu-ob-data
+      issue_ids: ''
+      base_ref: main
+    secrets:
+      ITU_OB_DATA_TOKEN: ${{ secrets.ITU_OB_DATA_TOKEN }}
 ----
 
-Replace both service SHA placeholders with the same trusted commit containing
-#74's workflow and the drift checker. This example belongs in the separate
-`itu-ob-data` caller; this card does not create a caller or modify #74's workflow.
+Omit the `secrets` mapping when private checkout credentials are unnecessary.
+This card does not create the separate caller or modify #74's workflow.
 
 [cols="1,1,1,3",options="header"]
 |===
@@ -126,14 +121,16 @@ detection, scoped `build_ob_issues.rb` regeneration, the RSpec suite,
 `verify_parser_equivalence.rb --verify`. Mapping the workflow inputs to checkout
 and `ISSUE_IDS`, and workflow-dispatch verification, belong to #74.
 
-#74's inspected revision does not yet invoke the drift checker. The required
-integration is recorded in the drift-check PR body for the workflow owner.
+At inspected revision `72dda91a701ecdfd443161be2b664953535eccf0`, #74 has an
+incompatible input interface and does not yet invoke the drift checker. These
+are integration requirements for the workflow owner, not an alternative caller
+contract. The workflow must expose the agreed interface and invoke the checker
+before the documented caller can supply this gate.
 The invocation must set `ITU_OB_DATA_ROOT` to the checkout root, not its
 `issues/` directory, and compare the generated legacy copy against matching
 source before authored patches are overlaid. Running a legacy regeneration over
 authored patches would incorrectly classify their distinct source format as
-drift. The agreed target interface above also remains an integration requirement;
-the caller example reflects the provider's current interface.
+drift.
 
 Cross-repository reusable workflow calls require this repository to be public
 or its Actions access setting to allow calls from `itu-ob-data`. This document
