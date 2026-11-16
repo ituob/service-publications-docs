@@ -116,17 +116,164 @@ RSpec.describe OfficialPdfComparison do
       expect(result[:counts]).to include(prose_words_generated: 10, prose_words_matched: 10)
     end
 
-    it 'leaves a changed word and an unrelated name for a human (unreviewed)' do
+    it 'leaves a changed word for a human (unreviewed) and calls an unrelated name a bug' do
       changed = official_text.sub('the old one', 'the older list').sub('Nassau Bahamas', 'Hamilton')
       allow(mod).to receive(:pdf_text).with('off.pdf').and_return(changed)
       deltas = result[:deltas]
       expect(deltas.select { |d| d.layer == :prose }).to all(have_attributes(disposition: :unreviewed))
       expect(deltas.select { |d| d.layer == :prose }).not_to be_empty
-      expect(deltas.find { |d| d.text.start_with?('BSNU') }).to have_attributes(disposition: :unreviewed)
+      expect(deltas.find { |d| d.text.start_with?('BSNU') }).to have_attributes(disposition: :bug)
     end
 
     it 'prints a summary line with counts by disposition' do
       expect(mod.report(result)).to match(/deltas: 3 \{bug: 1, data: 1, layout: 1\}/)
+    end
+  end
+
+  # The four ways the first pilot over-called "layout" or hid a bug (breaker
+  # findings F1-F4 on spd#89). Rows are built the way pdftotext -layout prints
+  # them: name cell, then the code.
+  describe 'name, row and alignment rules' do
+    def table(*pairs)
+      rows = pairs.map do |name, code|
+        next name if code.nil? # a continuation line, as is
+
+        (' ' * 40) + name.to_s + (' ' * [24 - name.to_s.size, 2].max) + code.to_s
+      end
+      "Note from TSB\nCountry / Network   Name   Office\n#{rows.join("\n")}\n"
+    end
+
+    def deltas_for(generated, official, dataset: nil)
+      allow(mod).to receive(:pdf_text).with('gen.pdf').and_return(generated)
+      allow(mod).to receive(:pdf_text).with('off.pdf').and_return(official)
+      mod.run('gen.pdf', 'off.pdf', dataset: dataset)[:deltas].select { |d| d.layer == :rows }
+    end
+
+    let(:official) { table(['Rio de Janeiro', 'BRRJ'], ['Santos', 'BRSN'], ['Recife', 'BRRE']) }
+
+    describe 'F2: a name that gained or lost a word is not a wrap' do
+      it 'calls an extended name a bug' do
+        gen = table(['Rio de Janeiro Extra Wrong Tail', 'BRRJ'], ['Santos', 'BRSN'], ['Recife', 'BRRE'])
+        expect(deltas_for(gen, official)).to contain_exactly(
+          have_attributes(side: :both, disposition: :bug, text: a_string_starting_with('BRRJ'))
+        )
+      end
+
+      it 'calls a truncated name with no continuation line a bug' do
+        gen = table(['Rio', 'BRRJ'], ['Santos', 'BRSN'], ['Recife', 'BRRE'])
+        expect(deltas_for(gen, official)).to contain_exactly(have_attributes(side: :both, disposition: :bug))
+      end
+
+      it 'keeps a real wrap (joined lines equal the other side) as layout' do
+        gen = table(['Rio de', 'BRRJ'], ["#{' ' * 40}Janeiro"], ['Santos', 'BRSN'], ['Recife', 'BRRE'])
+        off = table(['Rio de Janeiro', 'BRRJ'], ['Santos', 'BRSN'], ['Recife', 'BRRE'])
+        expect(deltas_for(gen, off)).to contain_exactly(have_attributes(side: :both, disposition: :layout))
+      end
+
+      it 'does not let a wrapped continuation excuse a different word' do
+        gen = table(['Rio de', 'BRRJ'], ["#{' ' * 40}Sampa"], ['Santos', 'BRSN'], ['Recife', 'BRRE'])
+        expect(deltas_for(gen, official)).to contain_exactly(have_attributes(disposition: :bug))
+      end
+    end
+
+    describe 'F3: a generated-only row' do
+      it 'is a bug when the official text does not contain it' do
+        gen = table(['Rio de Janeiro', 'BRRJ'], ['Bogus Place', 'QQQQ'], ['Santos', 'BRSN'], ['Recife', 'BRRE'])
+        expect(deltas_for(gen, official)).to contain_exactly(
+          have_attributes(side: :generated_only, disposition: :bug, text: 'QQQQ Bogus Place')
+        )
+      end
+
+      it 'is a bug when the official has the row elsewhere (duplicated or out of order)' do
+        gen = table(['Rio de Janeiro', 'BRRJ'], ['Santos', 'BRSN'], ['Santos', 'BRSN'], ['Recife', 'BRRE'])
+        expect(deltas_for(gen, official)).to contain_exactly(
+          have_attributes(side: :generated_only, disposition: :bug)
+        )
+      end
+
+      it 'is layout only when the official text carries it without it being a table row' do
+        gen = table(['Rio de Janeiro', 'BRRJ'], ['Santos', 'BRSN'], ['Recife', 'BRRE'], ['Total in', 'FOUR'])
+        off = "#{official}Total in\nFOUR\n"
+        expect(deltas_for(gen, off)).to contain_exactly(
+          have_attributes(side: :generated_only, disposition: :layout)
+        )
+      end
+    end
+
+    describe 'F4: repeated codes align on code and name' do
+      let(:run_of_rows) { %w[Agra Aligarh Allahabad Amritsar Bhopal].map { |n| [n, 'INNX'] } }
+
+      it 'reports the dropped row, not the last one, and nothing else' do
+        gen = table(*run_of_rows.reject { |n, _| n == 'Allahabad' })
+        deltas = deltas_for(gen, table(*run_of_rows))
+        expect(deltas).to contain_exactly(have_attributes(side: :official_only, text: 'INNX Allahabad'))
+        expect(mod.run('gen.pdf', 'off.pdf')[:counts]).to include(rows_matched: 4)
+      end
+
+      it 'pairs a renamed row in the run by code instead of cascading' do
+        gen = table(*run_of_rows.map { |n, c| [n == 'Allahabad' ? 'Prayagraj' : n, c] })
+        expect(deltas_for(gen, table(*run_of_rows))).to contain_exactly(
+          have_attributes(side: :both, disposition: :bug, text: a_string_including('Prayagraj'))
+        )
+      end
+    end
+
+    describe 'F1: dispositions come from a checked-in file and the exit status follows them' do
+      let(:gen) { table(['Rio de Janeiro Extra', 'BRRJ'], ['Santos', 'BRSN'], ['Recife', 'BRRE']) }
+      let(:entry) do
+        { 'layer' => 'rows', 'side' => 'both', 'disposition' => 'layout', 'reason' => 'checked by eye',
+          'text' => 'BRRJ: generated "Rio de Janeiro Extra" vs official "Rio de Janeiro"' }
+      end
+
+      def run_with(entries)
+        allow(mod).to receive(:pdf_text).with('gen.pdf').and_return(gen)
+        allow(mod).to receive(:pdf_text).with('off.pdf').and_return(official)
+        Dir.mktmpdir do |dir|
+          file = File.join(dir, 'dispositions.yaml')
+          File.write(file, entries.to_yaml)
+          mod.run('gen.pdf', 'off.pdf', dispositions: file)
+        end
+      end
+
+      it 'fails (non-zero) with an open bug and no dispositions' do
+        result = run_with([])
+        expect(mod.failures(result).size).to eq(1)
+        expect(mod.report(result)).to end_with('RESULT: FAIL (1 open)')
+      end
+
+      it 'passes when an entry settles it, and counts it in the tool output' do
+        result = run_with([entry])
+        expect(mod.failures(result)).to be_empty
+        expect(result[:deltas]).to contain_exactly(have_attributes(disposition: :layout, manual: true))
+        expect(mod.report(result)).to include('{layout: 1} (1 settled by the dispositions file)').and end_with('RESULT: PASS')
+      end
+
+      it 'fails on a stale entry, a reasonless entry and a wrong count' do
+        stale = entry.merge('text' => 'BRRJ: generated "other" vs official "Rio de Janeiro"')
+        expect(mod.failures(run_with([entry, stale])).join).to include('stale disposition')
+        expect(mod.failures(run_with([entry.merge('reason' => ' ')])).join).to include('needs a reason')
+        expect(mod.failures(run_with([entry.merge('count' => 2)])).join).to include('expected 2')
+      end
+
+      it 'exits 1 from main while a bug remains and 0 once it is dispositioned' do
+        allow(mod).to receive(:pdf_text).with('gen.pdf').and_return(gen)
+        allow(mod).to receive(:pdf_text).with('off.pdf').and_return(official)
+        Dir.mktmpdir do |dir|
+          file = File.join(dir, 'd.yaml')
+          File.write(file, [entry].to_yaml)
+          expect { expect(mod.main(%w[gen.pdf off.pdf])).to eq(1) }.to output(/RESULT: FAIL/).to_stdout
+          expect { expect(mod.main(['gen.pdf', 'off.pdf', '--dispositions', file])).to eq(0) }
+            .to output(/RESULT: PASS/).to_stdout
+        end
+      end
+
+      it 'ships a pilot doc with one Dispositions section and a dispositions file with reasons' do
+        root = File.expand_path('../../..', __dir__)
+        doc = File.read(File.join(root, 'docs/pdf/comparison-pilot.adoc'))
+        expect(doc.scan(/^== Dispositions$/).size).to eq(1)
+        entries = YAML.safe_load_file(File.join(root, 'docs/pdf/comparison-pilot-dispositions.yaml'))
+        expect(entries).to all(include('reason' => a_string_matching(/\S/)))
+      end
     end
   end
 end

@@ -1,0 +1,59 @@
+# Human dispositions for scripts/compare_official_pdf.rb on the F.32 2011 pilot
+# (docs/pdf/comparison-pilot.adoc). Each entry settles the open (bug or
+# unreviewed) deltas whose layer, side and exact text it names; `count` is how
+# many such deltas it must match (default 1). The tool fails on an entry that
+# matches a different number, so a stale entry cannot hide a change.
+- layer: rows
+  side: both
+  text: 'CA--: generated "AT&T Easylink Services, Bridgeton," vs official "AT&T Easylink Services,"'
+  disposition: layout
+  reason: >-
+    The official name wraps over three lines ("AT&T Easylink Services," /
+    "Bridgeton, Missouri" / "(United States)") and the second line shares its
+    line with the CAMX row, so the tool sees only the first fragment. Read by
+    eye, the joined text equals the generated "AT&T Easylink Services,
+    Bridgeton, Missouri (United States)".
+- layer: rows
+  side: both
+  text: 'URFS: generated "Palo Alto, California" vs official "MCI/WUI"'
+  disposition: layout
+  reason: The official layout prints the network cell (MCI/WUI) on the code's line, so pdftotext reads it as the name; the dataset name is Palo Alto, California Radio/KFS on both sides.
+- layer: rows
+  side: both
+  text: 'UTFS: generated "Palo Alto, California" vs official "TRT/FTC"'
+  disposition: layout
+  reason: Network cell (TRT/FTC) printed on the code's line in the official PDF; same name as the generated row.
+- layer: rows
+  side: both
+  text: 'URMO: generated "Mobile, Alabama" vs official "MCI/WUI"'
+  disposition: layout
+  reason: Network cell (MCI/WUI) printed on the code's line in the official PDF; same name as the generated row.
+- layer: rows
+  side: both
+  text: 'UJMR: generated "Mobile, Alabama" vs official "MMR"'
+  disposition: layout
+  reason: Network cell (MMR) printed on the code's line in the official PDF; same name as the generated row.
+- layer: rows
+  side: both
+  text: 'UTMR: generated "Mobile, Alabama" vs official "TRT/FTC"'
+  disposition: layout
+  reason: Network cell (TRT/FTC) printed on the code's line in the official PDF; same name as the generated row.
+- layer: rows
+  side: official_only
+  text: '--SX All others'
+  count: 2
+  disposition: data
+  reason: >-
+    Puerto Rico and Yemen. The code --SX is reused, so the dataset lookup
+    cannot settle it; neither country is in datasets/980-F.32/data.yaml (it
+    ends at Israel), so the generated PDF cannot contain either row.
+- layer: prose
+  side: both
+  text: 'generated "LIST OF TELEGRAM" vs official ""'
+  disposition: layout
+  reason: The generated page 2 repeats the running title "LIST OF TELEGRAM DESTINATION INDICATORS" (page furniture, not preface text).
+- layer: prose
+  side: both
+  text: 'generated "Destination Indicators" vs official ""'
+  disposition: layout
+  reason: The generated page 2 repeats the "1. Destination Indicators" title block before the first table; the official PDF has it on a different page.

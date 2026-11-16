@@ -31,16 +31,22 @@ not a PDF. Nothing was downloaded.
 ----
 metanorma -t itu -x pdf T-SP-F.32-2011-E.adoc        # in documents/T-SP-F.32-2011
 ruby scripts/compare_official_pdf.rb GENERATED.pdf OFFICIAL.pdf \
-  --data datasets/980-F.32/data.yaml --out OUTDIR
+  --data datasets/980-F.32/data.yaml \
+  --dispositions docs/pdf/comparison-pilot-dispositions.yaml --out OUTDIR
 ----
 
 Both PDFs go through `pdftotext -layout`; whitespace, curly quotes and case are
 normalised. Two layers are diffed with a longest-common-subsequence diff:
 
-rows:: Every layout line ending in a 4-character office code is a table row,
-keyed on that code. Names wrap differently in the two PDFs, so a name is only
-cross-checked leniently (equal after normalisation, one a prefix of the other,
-or both fragments of one dataset name).
+rows:: Every layout line ending in a 4-character office code is a table row.
+Rows align on the code *and* the name, so a dropped row inside a run of repeated
+codes (26 `INNX` rows) is the row reported, not the last one. Rows that do not
+align are paired by code alone. A name wraps differently in the two PDFs, so
+each row also carries the text on the lines above and below it in its name
+column; two names are the same text only when the lines, joined, read exactly
+the same on both sides. A name that gained or lost a word is a *bug*, not a
+wrap. A row only the generated PDF has is a *bug* unless the official text
+carries it without it being a row there.
 prose:: The preface words from "Note from TSB" up to the first table header,
 list markers removed.
 
@@ -51,7 +57,15 @@ are not unique (the `--XX` codes are reused), so such a row counts as "in the
 dataset" only when the code and a name match, and a row whose code and name
 occur more than once is left for hand review.
 
+`--dispositions` is the checked-in file `docs/pdf/comparison-pilot-dispositions.yaml`:
+the human dispositions, each with a reason, matched on the exact delta text. An
+entry that does not match exactly its `count` of open deltas is an error. The
+script exits non-zero while any bug, unreviewed delta or bad entry remains, so
+a passing run (`RESULT: PASS`) means every delta has a disposition and none is a bug.
+
 == Counts
+
+The numbers are the tool's own output for this pair (`RESULT: PASS`, exit 0).
 
 [cols="2,1",options="header"]
 |===
@@ -59,17 +73,22 @@ occur more than once is left for hand review.
 
 |Table rows, official |1499
 |Table rows, generated |676
-|Rows matched on code, in order |676
+|Rows aligned on code and name |670
+|Rows paired on code only (name differs) |6
 |Dataset records never rendered in the generated PDF |0
 |Prose words, official / generated / matched |510 / 515 / 508
 |*Deltas listed* |*876*
 |data |823
 |layout |53
 |bug |0
+|unreviewed |0
+|Deltas settled by the dispositions file |10
 |===
 
-Every one of the 676 generated rows is in the official PDF, in the same order.
-All the difference is in what the official PDF has beyond them.
+All 676 generated rows are in the official PDF, in the same order. 670 align on
+code and name; the other 6 have the same code and a different name text, and
+are dispositioned below. All the other difference is in what the official PDF
+has beyond the generated rows.
 
 == Dispositions
 
@@ -78,51 +97,34 @@ All the difference is in what the official PDF has beyond them.
 |Disposition |Count |What it is
 
 |data |823
-|Rows in the official PDF that are not in `980-F.32/data.yaml`. 1 is inside the
-list (`BYXX` Belarus). The other 822 follow `ILXX` (Israel), the last generated
-row: Italy, Jamaica, Japan ... through `ZWHX` Zimbabwe. Of those, Puerto Rico
-and Yemen (the two `--SX All others` rows) were dispositioned by hand because
-the code recurs; neither country is in the dataset. The generated PDF cannot
-contain any of them. The dataset ends at ISRAEL (100 countries, 575 distinct
-codes).
+|Rows in the official PDF that are not in `980-F.32/data.yaml`: 821 settled by
+the dataset (1 inside the list, `BYXX` Belarus; 3 Italian postal-code rows such
+as `COMO`, `PISA`, `ROMA`; the rest the alphabetical tail after `ILXX` Israel,
+the last generated row, through `ZWHX` Zimbabwe), and 2 by the dispositions
+file: Puerto Rico and Yemen (the two `--SX All others` rows; the code recurs, so
+the dataset lookup cannot settle them, and neither country is in the dataset).
+The generated PDF cannot contain any of them. The dataset ends at ISRAEL (100
+countries, 575 distinct codes).
 
 |layout |53
-|bug |0
-|===
-
-Every one of the 676 generated rows is in the official PDF, in the same order.
-All the difference is in what the official PDF has beyond them.
-
-== Dispositions
-
-[cols="1,1,4",options="header"]
-|===
-|Disposition |Count |What it is
-
-|data |823
-|Rows in the official PDF that are not in `980-F.32/data.yaml`. 1 is inside the
-list (`BYXX` Belarus); 3 are Italian postal-code rows (`COMO`, `PISA`, `ROMA`
-and the rest of the `--XX` Italian rows); the other 819 are the whole
-alphabetical tail after Israel (`ILXX`, the last generated row) through
-`ZWHX` Zimbabwe, from Italy and Jamaica to Zimbabwe, plus Puerto Rico and Yemen
-(the two `--SX All others` rows, reviewed by hand: neither country is in the
-dataset). The generated PDF cannot contain them; the
-dataset ends at ISRAEL (100 countries, 575 distinct codes).
-
-|layout |53
-|44 names wrapped onto a different number of lines in the two PDFs (37 where one
-side holds a prefix of the other, 7 where both halves are fragments of one
-dataset name, e.g. `UIMS` "Palo Alto, California" / "Radio/KFS"). 5 rows
-(`URFS`, `UTFS`, `URMO`, `UJMR`, `UTMR`) where the official layout prints the
-network cell (`MCI/WUI`, `TRT/FTC`, `MMR`) on the code's line, so pdftotext
-reads it as the name; the dataset names are the same. 4 prose deltas: list
-markers are not an issue (stripped), but "countries/ geographical" spacing,
-a trailing full stop, and the generated page 2 repeating the running title
-"LIST OF TELEGRAM DESTINATION INDICATORS" and the "1. Destination Indicators"
-title block before the first table.
+|43 names wrapped onto a different number of lines in the two PDFs, settled by
+the tool because the joined lines are exactly equal (e.g. `BSFP` "Freeport
+Grand" / "Bahama" against "Freeport Grand Bahama"; `UIMS` "Palo Alto,
+California" / "Radio/KFS"). By the dispositions file: 1 wrapped name the tool
+cannot join (`CA--`, whose official continuation shares a line with the `CAMX`
+row); 5 rows (`URFS`, `UTFS`, `URMO`, `UJMR`, `UTMR`) where the official layout
+prints the network cell (`MCI/WUI`, `TRT/FTC`, `MMR`) on the code's line, so
+pdftotext reads it as the name. 4 prose deltas: 2 are "countries/ geographical"
+spacing and a trailing full stop (settled by the tool); 2 are the generated
+page 2 repeating the running title "LIST OF TELEGRAM DESTINATION INDICATORS" and
+the "1. Destination Indicators" title block before the first table (dispositions
+file).
 
 |bug |0
 |None found by this comparison.
+
+|unreviewed |0
+|None left.
 |===
 
 == Findings that matter
@@ -131,8 +133,8 @@ title block before the first table.
 rows the dataset lacks (Italy onward, plus Belarus). Fixing it is a data
 task; no PDF fix will close it. Until then a generated F.32 PDF is 33 pages
 against the official 47.
-. *Fidelity of what is there is good.* Row order, office codes and names match
-for all 676 rows; prose matches word for word apart from markers and spacing.
+. *Fidelity of what is there is good.* Row order and office codes match
+for all 676 rows, and names for all of them once the 6 dispositioned layout cases are read by eye; prose matches word for word apart from markers and spacing.
 . *Out of scope here (C13).* The comparison is text and table content only. It
 does not see layout fidelity (cover, header/footer, fonts), and the generated
 cover differs visibly ("ITUPublications", "2011 edition" versus the official
@@ -140,11 +142,15 @@ cover differs visibly ("ITUPublications", "2011 edition" versus the official
 
 == Limits of the tool
 
-* `pdftotext -layout` row parsing, not a PDF table extractor: a name wrapped over
-several lines is matched leniently, so a changed word in the middle of a
-wrapped name is not caught unless a code differs.
+* `pdftotext -layout` row parsing, not a PDF table extractor: a wrapped name is
+joined from the lines in its column (up to three above and three below, six
+lines scanned), so a name whose continuation shares a line with another row
+(`CA--`) or a network cell read as the name (the five `U..` rows) needs a
+disposition. A changed word in a wrapped name is caught, because the joined
+text must match exactly.
 * English only; the country column is trilingual and is not compared.
 * The tool reports disposition `unreviewed` for anything its rules cannot
-settle; this run had 9, all dispositioned above by hand.
+settle; this run had 4 (and 6 name differences it called bug), all dispositioned
+in the checked-in file, each with a reason.
 * Scaling to other publications needs their official PDFs (blocked on C9) and
 a row definition per table shape.
