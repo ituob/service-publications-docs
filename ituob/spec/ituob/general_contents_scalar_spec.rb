@@ -51,4 +51,54 @@ RSpec.describe 'General message contents accept text or structured data' do
     out = Ituob::Models::GeneralTelephoneCommunication.from_hash(communication).to_hash
     expect(out['contents']).to eq(communication['contents'])
   end
+
+  describe 'a mapping loads as a plain Hash, as `:hash` did' do
+    let(:msg) { Ituob::Models::GeneralMessage.from_hash('contents' => structured) }
+
+    it 'returns a Hash from the reader' do
+      expect(msg.contents).to be_a(Hash)
+      expect(msg.contents['en']).to eq(structured['en'])
+    end
+
+    it 'compares and hashes equal messages as equal' do
+      other = Ituob::Models::GeneralMessage.from_hash('contents' => structured)
+      expect(msg).to eq(other)
+      expect(msg.hash).to eq(other.hash)
+    end
+
+    it 'returns a Hash for GeneralMiscCommunications and the nested telephone class' do
+      %w[GeneralMiscCommunications GeneralTelephoneCommunication].each do |name|
+        expect(Ituob::Models.const_get(name).from_hash('contents' => structured).contents).to be_a(Hash)
+      end
+    end
+
+    it 'still returns a scalar as a String' do
+      expect(Ituob::Models::GeneralMessage.from_yaml("contents: Plain prose.\n").contents)
+        .to eq('Plain prose.')
+    end
+
+    it 'renders through Liquid dot access' do
+      require 'liquid'
+      model = Ituob::Models::GeneralMiscCommunications.from_hash('contents' => { 'en' => 'hi' })
+      out = Liquid::Template.parse('{{ m.contents.en }}')
+                            .render({ 'm' => model.to_liquid }, exception_renderer: ->(e) { raise e })
+      expect(out).to eq('hi')
+    end
+  end
+
+  describe 'empty and invalid contents behave as with `:hash`' do
+    let(:klass) { Ituob::Models::GeneralMessage }
+
+    it 'serializes an empty mapping the way :hash did (key omitted)' do
+      expect(klass.from_yaml("contents: {}\n").to_yaml).to eq("--- {}\n")
+    end
+
+    it 'serializes an empty string the way :hash did (key omitted)' do
+      expect(klass.from_yaml("contents: ''\n").to_yaml).to eq("--- {}\n")
+    end
+
+    it 'rejects an array with the same error class as :hash' do
+      expect { klass.from_yaml("contents: [a, b]\n") }.to raise_error(TypeError)
+    end
+  end
 end
