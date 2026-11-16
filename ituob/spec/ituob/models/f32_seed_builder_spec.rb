@@ -107,8 +107,28 @@ RSpec.describe Ituob::Models::F32SeedBuilder do
       expect(names.grep(/--[A-Z]{2}/).reject { |name| name.include?("-->") }).to be_empty
     end
 
+    it "splits a 4-letter code the extraction joined to the end of a name cell into its own office" do
+      expect(allocations).to include("ABBR" => "Berat", "ABMT" => "Burrel", "ABDR" => "Durres", "ABKO" => "Korce",
+                                     "ABKR" => "Kruje", "ABKU" => "Kukes", "ABLU" => "Lushnje",
+                                     "DZOR" => "Oran", "CLAD" => "Acund", "CLAG" => "Angol", "WBBN" => "Barbados / Barbade")
+      expect(allocations["DZAX"]).to eq("All others")
+      expect(allocations["CLLD"]).to eq("Andes (Los)")
+    end
+
+    it "keeps no other printed office code inside any name" do
+      codes = complete.allocations.map(&:office_code).to_set
+      embedded = complete.allocations.select do |entry|
+        entry.telegraph_office_name.en.to_s.scan(/\b[A-Z]{4}\b/).any? { |word| codes.include?(word) && word != entry.office_code }
+      end
+      expect(embedded.map { |entry| [entry.office_code, entry.telegraph_office_name.en] }).to be_empty
+    end
+
+    it "leaves uppercase 4-letter names alone when the country has no such code prefix" do
+      expect(allocations.values).to include("WIEN", "GIZA", "PORT SAID C", "BELBEIS")
+    end
+
     it "accounts for every printed office row" do
-      expect(complete.allocations.length).to eq(956)
+      expect(complete.allocations.length).to eq(1092)
     end
   end
 end

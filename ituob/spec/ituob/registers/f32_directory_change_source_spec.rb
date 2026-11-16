@@ -156,7 +156,9 @@ RSpec.describe Ituob::Registers::F32DirectoryChangeSource do
         Ituob::Support::Yaml.safe_load_file(path).dig("data", "replaces_network")
       end
       expect(flagged.map { |path| File.basename(path) }).to eq(["0988-0001-REP-UNMY.yaml"])
-      expect(committed.each_sorted.select { |c| c.type == "SUP" && c.ob_issue_no == 988 }.sum { |c| c.data["entries"].length }).to eq(28)
+      # 31 = the 28 unprinted seed UN offices plus UNBI, UNES and UNKO, which OB 980 prints
+      # (BEILA, ESNA, KOUS) but which no longer hide inside a neighbouring name.
+      expect(committed.each_sorted.select { |c| c.type == "SUP" && c.ob_issue_no == 988 }.sum { |c| c.data["entries"].length }).to eq(31)
     end
 
     it "rejects a grouped REP loudly, naming the OB and code, before any state is produced" do

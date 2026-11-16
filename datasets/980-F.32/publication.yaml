@@ -25906,7 +25906,31 @@ allocations:
   network_roa: GOVT – Electronic and Postal Communications Authority, Tirana
   network_code: AB
   telegraph_office_name:
-    en: Berat  ABBR Burrel ABMT Durres
+    en: Berat
+  office_code: ABBR
+  network_codes:
+  - AB
+- _class: F32TDIEntry
+  country_or_area:
+    en: ALBANIA
+    fr: ALBANIE
+    es: ALBANIA
+  network_roa: GOVT – Electronic and Postal Communications Authority, Tirana
+  network_code: AB
+  telegraph_office_name:
+    en: Burrel
+  office_code: ABMT
+  network_codes:
+  - AB
+- _class: F32TDIEntry
+  country_or_area:
+    en: ALBANIA
+    fr: ALBANIE
+    es: ALBANIA
+  network_roa: GOVT – Electronic and Postal Communications Authority, Tirana
+  network_code: AB
+  telegraph_office_name:
+    en: Durres
   office_code: ABDR
   network_codes:
   - AB
@@ -25930,7 +25954,19 @@ allocations:
   network_roa: GOVT – Electronic and Postal Communications Authority, Tirana
   network_code: AB
   telegraph_office_name:
-    en: Fier  ABFR Gjirokaster
+    en: Fier
+  office_code: ABFR
+  network_codes:
+  - AB
+- _class: F32TDIEntry
+  country_or_area:
+    en: ALBANIA
+    fr: ALBANIE
+    es: ALBANIA
+  network_roa: GOVT – Electronic and Postal Communications Authority, Tirana
+  network_code: AB
+  telegraph_office_name:
+    en: Gjirokaster
   office_code: ABGJ
   network_codes:
   - AB
@@ -25942,7 +25978,43 @@ allocations:
   network_roa: GOVT – Electronic and Postal Communications Authority, Tirana
   network_code: AB
   telegraph_office_name:
-    en: Korce ABKO Kruje ABKR Kukes ABKU Lushnje
+    en: Korce
+  office_code: ABKO
+  network_codes:
+  - AB
+- _class: F32TDIEntry
+  country_or_area:
+    en: ALBANIA
+    fr: ALBANIE
+    es: ALBANIA
+  network_roa: GOVT – Electronic and Postal Communications Authority, Tirana
+  network_code: AB
+  telegraph_office_name:
+    en: Kruje
+  office_code: ABKR
+  network_codes:
+  - AB
+- _class: F32TDIEntry
+  country_or_area:
+    en: ALBANIA
+    fr: ALBANIE
+    es: ALBANIA
+  network_roa: GOVT – Electronic and Postal Communications Authority, Tirana
+  network_code: AB
+  telegraph_office_name:
+    en: Kukes
+  office_code: ABKU
+  network_codes:
+  - AB
+- _class: F32TDIEntry
+  country_or_area:
+    en: ALBANIA
+    fr: ALBANIE
+    es: ALBANIA
+  network_roa: GOVT – Electronic and Postal Communications Authority, Tirana
+  network_code: AB
+  telegraph_office_name:
+    en: Lushnje
   office_code: ABLU
   network_codes:
   - AB
@@ -26002,7 +26074,19 @@ allocations:
   network_roa: GOVT – Electronic and Postal Communications Authority, Tirana
   network_code: AB
   telegraph_office_name:
-    en: Vlore  ABVL All others
+    en: Vlore
+  office_code: ABVL
+  network_codes:
+  - AB
+- _class: F32TDIEntry
+  country_or_area:
+    en: ALBANIA
+    fr: ALBANIE
+    es: ALBANIA
+  network_roa: GOVT – Electronic and Postal Communications Authority, Tirana
+  network_code: AB
+  telegraph_office_name:
+    en: All others
   office_code: ABTX
   network_codes:
   - AB
@@ -26038,7 +26122,19 @@ allocations:
   network_roa: GOVT – Ministère de la poste et des technologies de l’information et de la communication, Alger
   network_code: DZ
   telegraph_office_name:
-    en: Oran  DZOR All others
+    en: Oran
+  office_code: DZOR
+  network_codes:
+  - DZ
+- _class: F32TDIEntry
+  country_or_area:
+    en: ALGERIA
+    fr: ALGÉRIE
+    es: ARGELIA
+  network_roa: GOVT – Ministère de la poste et des technologies de l’information et de la communication, Alger
+  network_code: DZ
+  telegraph_office_name:
+    en: All others
   office_code: DZAX
   network_codes:
   - DZ
@@ -26559,10 +26655,26 @@ allocations:
     en: BARBADOS
     fr: BARBADE
     es: BARBADOS
+  notes:
+    en: The destination indicator “WBBN” is valid for Bridgetown and for all localities in the Island of Barbados.
+    fr: L'indicateur de destination «WBBN» est valable pour Bridgetown ainsi que pour toutes les localités situées sur l'île de la Barbade.
+    es: El indicador de destino «WBBN» es válido para Bridgetown y para todas las localidades situadas en la isla de Barbados.
   network_roa: C&W BET Ltd – Cable & Wireless BET Ltd, Bridgetown
   network_code: WB
   telegraph_office_name:
-    en: Barbados / Barbade WBBN Barbados Radio
+    en: Barbados / Barbade
+  office_code: WBBN
+  network_codes:
+  - WB
+- _class: F32TDIEntry
+  country_or_area:
+    en: BARBADOS
+    fr: BARBADE
+    es: BARBADOS
+  network_roa: C&W BET Ltd – Cable & Wireless BET Ltd, Bridgetown
+  network_code: WB
+  telegraph_office_name:
+    en: Barbados Radio
   office_code: WBBR
   network_codes:
   - WB
@@ -26622,7 +26734,19 @@ allocations:
   network_roa: Belgacom – Société anonyme de droit public, Bruxelles
   network_code: BE
   telegraph_office_name:
-    en: Oostende Radio / Ostende Radio BEOS All others
+    en: Oostende Radio / Ostende Radio
+  office_code: BEOS
+  network_codes:
+  - BE
+- _class: F32TDIEntry
+  country_or_area:
+    en: BELGIUM
+    fr: BELGIQUE
+    es: BÉLGICA
+  network_roa: Belgacom – Société anonyme de droit public, Bruxelles
+  network_code: BE
+  telegraph_office_name:
+    en: All others
   office_code: BEBX
   network_codes:
   - BE
@@ -27502,7 +27626,19 @@ allocations:
   network_roa: JTB – Jabatan Telekom Brunei, Berakas
   network_code: BU
   telegraph_office_name:
-    en: Seria BUSE All others
+    en: Seria
+  office_code: BUSE
+  network_codes:
+  - BU
+- _class: F32TDIEntry
+  country_or_area:
+    en: BRUNEI DARUSSALAM
+    fr: BRUNÉI DARUSSALAM
+    es: BRUNEI DARUSSALAM
+  network_roa: JTB – Jabatan Telekom Brunei, Berakas
+  network_code: BU
+  telegraph_office_name:
+    en: All others
   office_code: BUSX
   network_codes:
   - BU
@@ -27526,7 +27662,19 @@ allocations:
   network_roa: Onatel – Office national des télé- communications du Burkina Faso, Ouagadougou
   network_code: BF
   telegraph_office_name:
-    en: Ouagadougou BFOU All others
+    en: Ouagadougou
+  office_code: BFOU
+  network_codes:
+  - BF
+- _class: F32TDIEntry
+  country_or_area:
+    en: BURKINA FASO
+    fr: BURKINA FASO
+    es: BURKINA FASO
+  network_roa: Onatel – Office national des télé- communications du Burkina Faso, Ouagadougou
+  network_code: BF
+  telegraph_office_name:
+    en: All others
   office_code: BFOX
   network_codes:
   - BF
@@ -27540,6 +27688,18 @@ allocations:
   telegraph_office_name:
     en: Bujumbura
   office_code: UUJU
+  network_codes:
+  - UU
+- _class: F32TDIEntry
+  country_or_area:
+    en: BURUNDI
+    fr: BURUNDI
+    es: BURUNDI
+  network_roa: OnateL – Office national des télé-ommunications du Burundi, Bujumbura
+  network_code: UU
+  telegraph_office_name:
+    en: All others
+  office_code: UUSX
   network_codes:
   - UU
 - _class: F32TDIEntry
@@ -27670,7 +27830,26 @@ allocations:
   network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
   network_code: CL
   telegraph_office_name:
-    en: Acund CLAD Andes (Los)
+    en: Acund
+  office_code: CLAD
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  subarea:
+    en: Network II
+    fr: Réseau II
+    es: Red II
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHILE
+    fr: CHILI
+    es: CHILE
+  network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
+  network_code: CL
+  telegraph_office_name:
+    en: Andes (Los)
   office_code: CLLD
   network_codes:
   - CK
@@ -27708,7 +27887,26 @@ allocations:
   network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
   network_code: CL
   telegraph_office_name:
-    en: Angol CLAG Antofagasta
+    en: Angol
+  office_code: CLAG
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  subarea:
+    en: Network II
+    fr: Réseau II
+    es: Red II
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHILE
+    fr: CHILI
+    es: CHILE
+  network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
+  network_code: CL
+  telegraph_office_name:
+    en: Antofagasta
   office_code: CLAF
   network_codes:
   - CK
@@ -27727,7 +27925,26 @@ allocations:
   network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
   network_code: CL
   telegraph_office_name:
-    en: Arica  CLAR Arturo Merino Benítez
+    en: Arica
+  office_code: CLAR
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  subarea:
+    en: Network II
+    fr: Réseau II
+    es: Red II
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHILE
+    fr: CHILI
+    es: CHILE
+  network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
+  network_code: CL
+  telegraph_office_name:
+    en: Arturo Merino Benítez
   office_code: CLAM
   network_codes:
   - CK
@@ -27765,7 +27982,26 @@ allocations:
   network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
   network_code: CL
   telegraph_office_name:
-    en: Castro CLCS Cauquenes
+    en: Castro
+  office_code: CLCS
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  subarea:
+    en: Network II
+    fr: Réseau II
+    es: Red II
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHILE
+    fr: CHILI
+    es: CHILE
+  network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
+  network_code: CL
+  telegraph_office_name:
+    en: Cauquenes
   office_code: CLCU
   network_codes:
   - CK
@@ -27917,7 +28153,26 @@ allocations:
   network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
   network_code: CL
   telegraph_office_name:
-    en: Curico CLCO Estación Alameda
+    en: Curico
+  office_code: CLCO
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  subarea:
+    en: Network II
+    fr: Réseau II
+    es: Red II
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHILE
+    fr: CHILI
+    es: CHILE
+  network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
+  network_code: CL
+  telegraph_office_name:
+    en: Estación Alameda
   office_code: CLEA
   network_codes:
   - CK
@@ -28069,7 +28324,45 @@ allocations:
   network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
   network_code: CL
   telegraph_office_name:
-    en: Lota  CLLT Matta CLMA Nueva Imperial
+    en: Lota
+  office_code: CLLT
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  subarea:
+    en: Network II
+    fr: Réseau II
+    es: Red II
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHILE
+    fr: CHILI
+    es: CHILE
+  network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
+  network_code: CL
+  telegraph_office_name:
+    en: Matta
+  office_code: CLMA
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  subarea:
+    en: Network II
+    fr: Réseau II
+    es: Red II
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHILE
+    fr: CHILI
+    es: CHILE
+  network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
+  network_code: CL
+  telegraph_office_name:
+    en: Nueva Imperial
   office_code: CLNI
   network_codes:
   - CK
@@ -28126,7 +28419,26 @@ allocations:
   network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
   network_code: CL
   telegraph_office_name:
-    en: Ovalle CLOV Plaza de Armas
+    en: Ovalle
+  office_code: CLOV
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  subarea:
+    en: Network II
+    fr: Réseau II
+    es: Red II
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHILE
+    fr: CHILI
+    es: CHILE
+  network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
+  network_code: CL
+  telegraph_office_name:
+    en: Plaza de Armas
   office_code: CLPZ
   network_codes:
   - CK
@@ -28449,7 +28761,26 @@ allocations:
   network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
   network_code: CL
   telegraph_office_name:
-    en: Talca CLTL Talcahuano
+    en: Talca
+  office_code: CLTL
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  subarea:
+    en: Network II
+    fr: Réseau II
+    es: Red II
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHILE
+    fr: CHILI
+    es: CHILE
+  network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
+  network_code: CL
+  telegraph_office_name:
+    en: Talcahuano
   office_code: CLTH
   network_codes:
   - CK
@@ -28506,7 +28837,26 @@ allocations:
   network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
   network_code: CL
   telegraph_office_name:
-    en: Tomé CLTE Tropezon
+    en: Tomé
+  office_code: CLTE
+  network_codes:
+  - CK
+  - CL
+  - CZ
+  - CT
+  subarea:
+    en: Network II
+    fr: Réseau II
+    es: Red II
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHILE
+    fr: CHILI
+    es: CHILE
+  network_roa: Telex Chile – Telex Chile S.A., Santiago de Chile
+  network_code: CL
+  telegraph_office_name:
+    en: Tropezon
   office_code: CLTZ
   network_codes:
   - CK
@@ -28687,7 +29037,19 @@ allocations:
   network_roa: China Telecom, Beijing
   network_code: CN
   telegraph_office_name:
-    en: Guilin CNGL Hangzhou
+    en: Guilin
+  office_code: CNGL
+  network_codes:
+  - CN
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHINA
+    fr: CHINE
+    es: CHINA
+  network_roa: China Telecom, Beijing
+  network_code: CN
+  telegraph_office_name:
+    en: Hangzhou
   office_code: CNHZ
   network_codes:
   - CN
@@ -28819,7 +29181,31 @@ allocations:
   network_roa: China Telecom, Beijing
   network_code: CN
   telegraph_office_name:
-    en: Taipei CNTP Tianjin CNTJ Xiamen
+    en: Taipei
+  office_code: CNTP
+  network_codes:
+  - CN
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHINA
+    fr: CHINE
+    es: CHINA
+  network_roa: China Telecom, Beijing
+  network_code: CN
+  telegraph_office_name:
+    en: Tianjin
+  office_code: CNTJ
+  network_codes:
+  - CN
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHINA
+    fr: CHINE
+    es: CHINA
+  network_roa: China Telecom, Beijing
+  network_code: CN
+  telegraph_office_name:
+    en: Xiamen
   office_code: CNXM
   network_codes:
   - CN
@@ -28831,7 +29217,19 @@ allocations:
   network_roa: China Telecom, Beijing
   network_code: CN
   telegraph_office_name:
-    en: Xian  CNXA Zhanjiang
+    en: Xian
+  office_code: CNXA
+  network_codes:
+  - CN
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHINA
+    fr: CHINE
+    es: CHINA
+  network_roa: China Telecom, Beijing
+  network_code: CN
+  telegraph_office_name:
+    en: Zhanjiang
   office_code: CNZJ
   network_codes:
   - CN
@@ -28861,9 +29259,22 @@ allocations:
     en: CYPRUS
     fr: CHYPRE
     es: CHIPRE
+  notes:
+    en: The name of office appears in more than one form and any form is accepted.
+    fr: Le nom du bureau apparaît sous plusieurs dénominations et chacune des dénominations est admise.
+    es: El nombre de la oficina figura con varias denominaciones y se admiten todas las denominaciones.
   network_code: CY
   telegraph_office_name:
-    en: NICOSIA / NICOSIE / LEFKOSIA CYNC All others
+    en: NICOSIA / NICOSIE / LEFKOSIA
+  office_code: CYNC
+- _class: F32TDIEntry
+  country_or_area:
+    en: CYPRUS
+    fr: CHYPRE
+    es: CHIPRE
+  network_code: CY
+  telegraph_office_name:
+    en: All others
   office_code: CYNX
 - _class: F32TDIEntry
   country_or_area:
@@ -28909,7 +29320,19 @@ allocations:
   network_roa: Telecom – Empresa Nacional de Telecomunicaciones, Santa Fe de Bogotá
   network_code: CO
   telegraph_office_name:
-    en: Cali  COCL Cúcuta
+    en: Cali
+  office_code: COCL
+  network_codes:
+  - CO
+- _class: F32TDIEntry
+  country_or_area:
+    en: COLOMBIA
+    fr: COLOMBIE
+    es: COLOMBIA
+  network_roa: Telecom – Empresa Nacional de Telecomunicaciones, Santa Fe de Bogotá
+  network_code: CO
+  telegraph_office_name:
+    en: Cúcuta
   office_code: COCU
   network_codes:
   - CO
@@ -28970,6 +29393,15 @@ allocations:
   telegraph_office_name:
     en: Brazzaville
   office_code: KGBE
+- _class: F32TDIEntry
+  country_or_area:
+    en: CONGO (REP. OF THE)
+    fr: CONGO (RÉP. DU)
+    es: CONGO (REP.DEL)
+  network_code: KG
+  telegraph_office_name:
+    en: All others
+  office_code: KGBX
 - _class: F32TDIEntry
   country_or_area:
     en: COOK ISLANDS
@@ -29230,7 +29662,31 @@ allocations:
   network_roa: Telecom Egypt, Cairo
   network_code: UN
   telegraph_office_name:
-    en: BEBA UNBA BEILA UNBI BELBEIS
+    en: BEBA
+  office_code: UNBA
+  network_codes:
+  - UN
+- _class: F32TDIEntry
+  country_or_area:
+    en: EGYPT
+    fr: ÉGYPTE
+    es: EGIPTO
+  network_roa: Telecom Egypt, Cairo
+  network_code: UN
+  telegraph_office_name:
+    en: BEILA
+  office_code: UNBI
+  network_codes:
+  - UN
+- _class: F32TDIEntry
+  country_or_area:
+    en: EGYPT
+    fr: ÉGYPTE
+    es: EGIPTO
+  network_roa: Telecom Egypt, Cairo
+  network_code: UN
+  telegraph_office_name:
+    en: BELBEIS
   office_code: UNBE
   network_codes:
   - UN
@@ -29422,7 +29878,19 @@ allocations:
   network_roa: Telecom Egypt, Cairo
   network_code: UN
   telegraph_office_name:
-    en: ESNA UNES ETAI ELBAROUD
+    en: ESNA
+  office_code: UNES
+  network_codes:
+  - UN
+- _class: F32TDIEntry
+  country_or_area:
+    en: EGYPT
+    fr: ÉGYPTE
+    es: EGIPTO
+  network_roa: Telecom Egypt, Cairo
+  network_code: UN
+  telegraph_office_name:
+    en: ETAI ELBAROUD
   office_code: UNBR
   network_codes:
   - UN
@@ -29566,7 +30034,19 @@ allocations:
   network_roa: Telecom Egypt, Cairo
   network_code: UN
   telegraph_office_name:
-    en: KENA UNQN KHARGA
+    en: KENA
+  office_code: UNQN
+  network_codes:
+  - UN
+- _class: F32TDIEntry
+  country_or_area:
+    en: EGYPT
+    fr: ÉGYPTE
+    es: EGIPTO
+  network_roa: Telecom Egypt, Cairo
+  network_code: UN
+  telegraph_office_name:
+    en: KHARGA
   office_code: UNKR
   network_codes:
   - UN
@@ -29602,7 +30082,19 @@ allocations:
   network_roa: Telecom Egypt, Cairo
   network_code: UN
   telegraph_office_name:
-    en: KOUS UNKO LUXOR
+    en: KOUS
+  office_code: UNKO
+  network_codes:
+  - UN
+- _class: F32TDIEntry
+  country_or_area:
+    en: EGYPT
+    fr: ÉGYPTE
+    es: EGIPTO
+  network_roa: Telecom Egypt, Cairo
+  network_code: UN
+  telegraph_office_name:
+    en: LUXOR
   office_code: UNLO
   network_codes:
   - UN
@@ -29722,7 +30214,19 @@ allocations:
   network_roa: Telecom Egypt, Cairo
   network_code: UN
   telegraph_office_name:
-    en: MINIA UNMN MIT GHAMR
+    en: MINIA
+  office_code: UNMN
+  network_codes:
+  - UN
+- _class: F32TDIEntry
+  country_or_area:
+    en: EGYPT
+    fr: ÉGYPTE
+    es: EGIPTO
+  network_roa: Telecom Egypt, Cairo
+  network_code: UN
+  telegraph_office_name:
+    en: MIT GHAMR
   office_code: UNMG
   network_codes:
   - UN
@@ -29878,7 +30382,19 @@ allocations:
   network_roa: Telecom Egypt, Cairo
   network_code: UN
   telegraph_office_name:
-    en: SUEZ UNSU SUEZ C
+    en: SUEZ
+  office_code: UNSU
+  network_codes:
+  - UN
+- _class: F32TDIEntry
+  country_or_area:
+    en: EGYPT
+    fr: ÉGYPTE
+    es: EGIPTO
+  network_roa: Telecom Egypt, Cairo
+  network_code: UN
+  telegraph_office_name:
+    en: SUEZ C
   office_code: UNSS
   network_codes:
   - UN
@@ -29902,7 +30418,19 @@ allocations:
   network_roa: Telecom Egypt, Cairo
   network_code: UN
   telegraph_office_name:
-    en: TALA UNTL TANTA
+    en: TALA
+  office_code: UNTL
+  network_codes:
+  - UN
+- _class: F32TDIEntry
+  country_or_area:
+    en: EGYPT
+    fr: ÉGYPTE
+    es: EGIPTO
+  network_roa: Telecom Egypt, Cairo
+  network_code: UN
+  telegraph_office_name:
+    en: TANTA
   office_code: UNTT
   network_codes:
   - UN
@@ -29914,7 +30442,19 @@ allocations:
   network_roa: Telecom Egypt, Cairo
   network_code: UN
   telegraph_office_name:
-    en: TEMA UNTM WASTA
+    en: TEMA
+  office_code: UNTM
+  network_codes:
+  - UN
+- _class: F32TDIEntry
+  country_or_area:
+    en: EGYPT
+    fr: ÉGYPTE
+    es: EGIPTO
+  network_roa: Telecom Egypt, Cairo
+  network_code: UN
+  telegraph_office_name:
+    en: WASTA
   office_code: UNWS
   network_codes:
   - UN
@@ -30205,7 +30745,32 @@ allocations:
   network_roa: Etisalat – The Emirates Telecom- munications Corporation Ltd, Abu Dhabi
   network_code: EM
   telegraph_office_name:
-    en: Kalba EMKA Khor Fakkan
+    en: Kalba
+  office_code: EMKA
+  network_codes:
+  - EM
+  subarea:
+    en: |-
+      Abu Dhabi, Ajman, Dubai,
+        Fujairah, Ras Al Khaimah,
+        Sharjah, Umm Al Quwain
+    fr: |-
+      Abu Dhabi, Ajman, Dubai,
+        Fujairah, Ras Al Khaimah,
+        Sharjah, Umm Al Quwain
+    es: |-
+      Abu Dhabi, Ajman, Dubai,
+        Fujairah, Ras Al Khaimah,
+        Sharjah, Umm Al Quwain
+- _class: F32TDIEntry
+  country_or_area:
+    en: UNITED ARAB EMIRATES
+    fr: ÉMIRATS ARABES UNIS
+    es: EMIRATOS ÁRABES UNIDOS
+  network_roa: Etisalat – The Emirates Telecom- munications Corporation Ltd, Abu Dhabi
+  network_code: EM
+  telegraph_office_name:
+    en: Khor Fakkan
   office_code: EMKI
   network_codes:
   - EM
@@ -30461,7 +31026,19 @@ allocations:
   network_roa: Emetel S.A. – Ecuador, Quito
   network_code: ED
   telegraph_office_name:
-    en: Quito EDQO Riobamba Ecuador
+    en: Quito
+  office_code: EDQO
+  network_codes:
+  - ED
+- _class: F32TDIEntry
+  country_or_area:
+    en: ECUADOR
+    fr: EQUATEUR
+    es: ECUADOR
+  network_roa: Emetel S.A. – Ecuador, Quito
+  network_code: ED
+  telegraph_office_name:
+    en: Riobamba Ecuador
   office_code: EDHR
   network_codes:
   - ED
@@ -30723,7 +31300,34 @@ allocations:
   network_roa: MCI/WUI – MCI International/WUI,
   network_code: UR
   telegraph_office_name:
-    en: Chatham, Massachusetts Radio URCH S. Francisco, California Radio/KPH
+    en: Chatham, Massachusetts Radio
+  office_code: URCH
+  network_codes:
+  - UD
+  - UQ
+  - US
+  - UB
+  - UC
+  - UE
+  - UF
+  - UI
+  - UJ
+  - UR
+  - UT
+  - UW
+  subarea:
+    en: Coast Stations c) operated by MCI/WUI
+    fr: Stations côtières c) exploitées par MCI/WUI
+    es: Estaciones costeras c) explotadas por MCI/WUI
+- _class: F32TDIEntry
+  country_or_area:
+    en: UNITED STATES
+    fr: ÉTATS-UNIS
+    es: ESTADOS UNIDOS
+  network_roa: MCI/WUI – MCI International/WUI,
+  network_code: UR
+  telegraph_office_name:
+    en: S. Francisco, California Radio/KPH
   office_code: URPH
   network_codes:
   - UD
@@ -31032,7 +31636,23 @@ allocations:
   network_roa: Rostelecom – Rostelecom, Moscow
   network_code: RU
   telegraph_office_name:
-    en: Abakan  RUAB Anadyr
+    en: Abakan
+  office_code: RUAB
+  network_codes:
+  - RU
+- _class: F32TDIEntry
+  country_or_area:
+    en: RUSSIAN FEDERATION
+    fr: FÉDÉRATION DE RUSSIE
+    es: FEDERACIÓN DE RUSIA
+  country_or_area_note:
+    en: The destination indicator “SUMX” (All others) may still be used for other offices not mentioned in the list and located in certain countries which emerged from the former USSR.
+    fr: L'indicateur de destination «SUMX» (Tous les autres) peut encore être utilisé pour d'autres bureaux non mentionnés dans la liste et situés dans certains pays issus de l'ex-URSS.
+    es: El indicador de destino «SUMX» (Todos los otros) se puede utilizar todavía para otras oficinas no mencionadas en la lista y situadas en ciertos países de la antigua URSS.
+  network_roa: Rostelecom – Rostelecom, Moscow
+  network_code: RU
+  telegraph_office_name:
+    en: Anadyr
   office_code: RUAD
   network_codes:
   - RU
@@ -31176,7 +31796,23 @@ allocations:
   network_roa: Rostelecom – Rostelecom, Moscow
   network_code: RU
   telegraph_office_name:
-    en: Elista RUEL Gorno-Altaisk
+    en: Elista
+  office_code: RUEL
+  network_codes:
+  - RU
+- _class: F32TDIEntry
+  country_or_area:
+    en: RUSSIAN FEDERATION
+    fr: FÉDÉRATION DE RUSSIE
+    es: FEDERACIÓN DE RUSIA
+  country_or_area_note:
+    en: The destination indicator “SUMX” (All others) may still be used for other offices not mentioned in the list and located in certain countries which emerged from the former USSR.
+    fr: L'indicateur de destination «SUMX» (Tous les autres) peut encore être utilisé pour d'autres bureaux non mentionnés dans la liste et situés dans certains pays issus de l'ex-URSS.
+    es: El indicador de destino «SUMX» (Todos los otros) se puede utilizar todavía para otras oficinas no mencionadas en la lista y situadas en ciertos países de la antigua URSS.
+  network_roa: Rostelecom – Rostelecom, Moscow
+  network_code: RU
+  telegraph_office_name:
+    en: Gorno-Altaisk
   office_code: RUGA
   network_codes:
   - RU
@@ -31240,7 +31876,23 @@ allocations:
   network_roa: Rostelecom – Rostelecom, Moscow
   network_code: RU
   telegraph_office_name:
-    en: Ijevsk RUIK Ioshkar-Ola
+    en: Ijevsk
+  office_code: RUIK
+  network_codes:
+  - RU
+- _class: F32TDIEntry
+  country_or_area:
+    en: RUSSIAN FEDERATION
+    fr: FÉDÉRATION DE RUSSIE
+    es: FEDERACIÓN DE RUSIA
+  country_or_area_note:
+    en: The destination indicator “SUMX” (All others) may still be used for other offices not mentioned in the list and located in certain countries which emerged from the former USSR.
+    fr: L'indicateur de destination «SUMX» (Tous les autres) peut encore être utilisé pour d'autres bureaux non mentionnés dans la liste et situés dans certains pays issus de l'ex-URSS.
+    es: El indicador de destino «SUMX» (Todos los otros) se puede utilizar todavía para otras oficinas no mencionadas en la lista y situadas en ciertos países de la antigua URSS.
+  network_roa: Rostelecom – Rostelecom, Moscow
+  network_code: RU
+  telegraph_office_name:
+    en: Ioshkar-Ola
   office_code: RUIO
   network_codes:
   - RU
@@ -31256,7 +31908,23 @@ allocations:
   network_roa: Rostelecom – Rostelecom, Moscow
   network_code: RU
   telegraph_office_name:
-    en: Irkutsk RUIR Iujno-Sakhalinsk
+    en: Irkutsk
+  office_code: RUIR
+  network_codes:
+  - RU
+- _class: F32TDIEntry
+  country_or_area:
+    en: RUSSIAN FEDERATION
+    fr: FÉDÉRATION DE RUSSIE
+    es: FEDERACIÓN DE RUSIA
+  country_or_area_note:
+    en: The destination indicator “SUMX” (All others) may still be used for other offices not mentioned in the list and located in certain countries which emerged from the former USSR.
+    fr: L'indicateur de destination «SUMX» (Tous les autres) peut encore être utilisé pour d'autres bureaux non mentionnés dans la liste et situés dans certains pays issus de l'ex-URSS.
+    es: El indicador de destino «SUMX» (Todos los otros) se puede utilizar todavía para otras oficinas no mencionadas en la lista y situadas en ciertos países de la antigua URSS.
+  network_roa: Rostelecom – Rostelecom, Moscow
+  network_code: RU
+  telegraph_office_name:
+    en: Iujno-Sakhalinsk
   office_code: RUSH
   network_codes:
   - RU
@@ -31320,7 +31988,23 @@ allocations:
   network_roa: Rostelecom – Rostelecom, Moscow
   network_code: RU
   telegraph_office_name:
-    en: Kazan RUKN Kemerovo
+    en: Kazan
+  office_code: RUKN
+  network_codes:
+  - RU
+- _class: F32TDIEntry
+  country_or_area:
+    en: RUSSIAN FEDERATION
+    fr: FÉDÉRATION DE RUSSIE
+    es: FEDERACIÓN DE RUSIA
+  country_or_area_note:
+    en: The destination indicator “SUMX” (All others) may still be used for other offices not mentioned in the list and located in certain countries which emerged from the former USSR.
+    fr: L'indicateur de destination «SUMX» (Tous les autres) peut encore être utilisé pour d'autres bureaux non mentionnés dans la liste et situés dans certains pays issus de l'ex-URSS.
+    es: El indicador de destino «SUMX» (Todos los otros) se puede utilizar todavía para otras oficinas no mencionadas en la lista y situadas en ciertos países de la antigua URSS.
+  network_roa: Rostelecom – Rostelecom, Moscow
+  network_code: RU
+  telegraph_office_name:
+    en: Kemerovo
   office_code: RUKM
   network_codes:
   - RU
@@ -31368,7 +32052,23 @@ allocations:
   network_roa: Rostelecom – Rostelecom, Moscow
   network_code: RU
   telegraph_office_name:
-    en: Kirov RUKF Kostroma
+    en: Kirov
+  office_code: RUKF
+  network_codes:
+  - RU
+- _class: F32TDIEntry
+  country_or_area:
+    en: RUSSIAN FEDERATION
+    fr: FÉDÉRATION DE RUSSIE
+    es: FEDERACIÓN DE RUSIA
+  country_or_area_note:
+    en: The destination indicator “SUMX” (All others) may still be used for other offices not mentioned in the list and located in certain countries which emerged from the former USSR.
+    fr: L'indicateur de destination «SUMX» (Tous les autres) peut encore être utilisé pour d'autres bureaux non mentionnés dans la liste et situés dans certains pays issus de l'ex-URSS.
+    es: El indicador de destino «SUMX» (Todos los otros) se puede utilizar todavía para otras oficinas no mencionadas en la lista y situadas en ciertos países de la antigua URSS.
+  network_roa: Rostelecom – Rostelecom, Moscow
+  network_code: RU
+  telegraph_office_name:
+    en: Kostroma
   office_code: RUKS
   network_codes:
   - RU
@@ -31432,7 +32132,39 @@ allocations:
   network_roa: Rostelecom – Rostelecom, Moscow
   network_code: RU
   telegraph_office_name:
-    en: Kursk RUKK Kyzyl RUKZ Lipetsk
+    en: Kursk
+  office_code: RUKK
+  network_codes:
+  - RU
+- _class: F32TDIEntry
+  country_or_area:
+    en: RUSSIAN FEDERATION
+    fr: FÉDÉRATION DE RUSSIE
+    es: FEDERACIÓN DE RUSIA
+  country_or_area_note:
+    en: The destination indicator “SUMX” (All others) may still be used for other offices not mentioned in the list and located in certain countries which emerged from the former USSR.
+    fr: L'indicateur de destination «SUMX» (Tous les autres) peut encore être utilisé pour d'autres bureaux non mentionnés dans la liste et situés dans certains pays issus de l'ex-URSS.
+    es: El indicador de destino «SUMX» (Todos los otros) se puede utilizar todavía para otras oficinas no mencionadas en la lista y situadas en ciertos países de la antigua URSS.
+  network_roa: Rostelecom – Rostelecom, Moscow
+  network_code: RU
+  telegraph_office_name:
+    en: Kyzyl
+  office_code: RUKZ
+  network_codes:
+  - RU
+- _class: F32TDIEntry
+  country_or_area:
+    en: RUSSIAN FEDERATION
+    fr: FÉDÉRATION DE RUSSIE
+    es: FEDERACIÓN DE RUSIA
+  country_or_area_note:
+    en: The destination indicator “SUMX” (All others) may still be used for other offices not mentioned in the list and located in certain countries which emerged from the former USSR.
+    fr: L'indicateur de destination «SUMX» (Tous les autres) peut encore être utilisé pour d'autres bureaux non mentionnés dans la liste et situés dans certains pays issus de l'ex-URSS.
+    es: El indicador de destino «SUMX» (Todos los otros) se puede utilizar todavía para otras oficinas no mencionadas en la lista y situadas en ciertos países de la antigua URSS.
+  network_roa: Rostelecom – Rostelecom, Moscow
+  network_code: RU
+  telegraph_office_name:
+    en: Lipetsk
   office_code: RULP
   network_codes:
   - RU
@@ -31656,7 +32388,39 @@ allocations:
   network_roa: Rostelecom – Rostelecom, Moscow
   network_code: RU
   telegraph_office_name:
-    en: Penza RUPN Perm RUPM Petropavlovsk Kamtchatskii
+    en: Penza
+  office_code: RUPN
+  network_codes:
+  - RU
+- _class: F32TDIEntry
+  country_or_area:
+    en: RUSSIAN FEDERATION
+    fr: FÉDÉRATION DE RUSSIE
+    es: FEDERACIÓN DE RUSIA
+  country_or_area_note:
+    en: The destination indicator “SUMX” (All others) may still be used for other offices not mentioned in the list and located in certain countries which emerged from the former USSR.
+    fr: L'indicateur de destination «SUMX» (Tous les autres) peut encore être utilisé pour d'autres bureaux non mentionnés dans la liste et situés dans certains pays issus de l'ex-URSS.
+    es: El indicador de destino «SUMX» (Todos los otros) se puede utilizar todavía para otras oficinas no mencionadas en la lista y situadas en ciertos países de la antigua URSS.
+  network_roa: Rostelecom – Rostelecom, Moscow
+  network_code: RU
+  telegraph_office_name:
+    en: Perm
+  office_code: RUPM
+  network_codes:
+  - RU
+- _class: F32TDIEntry
+  country_or_area:
+    en: RUSSIAN FEDERATION
+    fr: FÉDÉRATION DE RUSSIE
+    es: FEDERACIÓN DE RUSIA
+  country_or_area_note:
+    en: The destination indicator “SUMX” (All others) may still be used for other offices not mentioned in the list and located in certain countries which emerged from the former USSR.
+    fr: L'indicateur de destination «SUMX» (Tous les autres) peut encore être utilisé pour d'autres bureaux non mentionnés dans la liste et situés dans certains pays issus de l'ex-URSS.
+    es: El indicador de destino «SUMX» (Todos los otros) se puede utilizar todavía para otras oficinas no mencionadas en la lista y situadas en ciertos países de la antigua URSS.
+  network_roa: Rostelecom – Rostelecom, Moscow
+  network_code: RU
+  telegraph_office_name:
+    en: Petropavlovsk Kamtchatskii
   office_code: RUPK
   network_codes:
   - RU
@@ -31688,7 +32452,23 @@ allocations:
   network_roa: Rostelecom – Rostelecom, Moscow
   network_code: RU
   telegraph_office_name:
-    en: Pskov RUPS Riazan
+    en: Pskov
+  office_code: RUPS
+  network_codes:
+  - RU
+- _class: F32TDIEntry
+  country_or_area:
+    en: RUSSIAN FEDERATION
+    fr: FÉDÉRATION DE RUSSIE
+    es: FEDERACIÓN DE RUSIA
+  country_or_area_note:
+    en: The destination indicator “SUMX” (All others) may still be used for other offices not mentioned in the list and located in certain countries which emerged from the former USSR.
+    fr: L'indicateur de destination «SUMX» (Tous les autres) peut encore être utilisé pour d'autres bureaux non mentionnés dans la liste et situés dans certains pays issus de l'ex-URSS.
+    es: El indicador de destino «SUMX» (Todos los otros) se puede utilizar todavía para otras oficinas no mencionadas en la lista y situadas en ciertos países de la antigua URSS.
+  network_roa: Rostelecom – Rostelecom, Moscow
+  network_code: RU
+  telegraph_office_name:
+    en: Riazan
   office_code: RURZ
   network_codes:
   - RU
@@ -31960,6 +32740,22 @@ allocations:
   network_roa: Rostelecom – Rostelecom, Moscow
   network_code: RU
   telegraph_office_name:
+    en: Tver
+  office_code: RUTE
+  network_codes:
+  - RU
+- _class: F32TDIEntry
+  country_or_area:
+    en: RUSSIAN FEDERATION
+    fr: FÉDÉRATION DE RUSSIE
+    es: FEDERACIÓN DE RUSIA
+  country_or_area_note:
+    en: The destination indicator “SUMX” (All others) may still be used for other offices not mentioned in the list and located in certain countries which emerged from the former USSR.
+    fr: L'indicateur de destination «SUMX» (Tous les autres) peut encore être utilisé pour d'autres bureaux non mentionnés dans la liste et situés dans certains pays issus de l'ex-URSS.
+    es: El indicador de destino «SUMX» (Todos los otros) se puede utilizar todavía para otras oficinas no mencionadas en la lista y situadas en ciertos países de la antigua URSS.
+  network_roa: Rostelecom – Rostelecom, Moscow
+  network_code: RU
+  telegraph_office_name:
     en: Ufa
   office_code: RUUF
   network_codes:
@@ -32147,7 +32943,19 @@ allocations:
   network_roa: Gabonaise des Télécommunications Libreville
   network_code: GO
   telegraph_office_name:
-    en: Libreville GOLE Port Gentil
+    en: Libreville
+  office_code: GOLE
+  network_codes:
+  - GO
+- _class: F32TDIEntry
+  country_or_area:
+    en: GABON
+    fr: GABON
+    es: GABÓN
+  network_roa: Gabonaise des Télécommunications Libreville
+  network_code: GO
+  telegraph_office_name:
+    en: Port Gentil
   office_code: GOGE
   network_codes:
   - GO
@@ -32411,6 +33219,18 @@ allocations:
   - GU
 - _class: F32TDIEntry
   country_or_area:
+    en: GUATEMALA
+    fr: GUATEMALA
+    es: GUATEMALA
+  network_roa: GUATEL – Empresa Guatemalteca de Telecomunicaciones, Ciudad de Guatemala
+  network_code: GU
+  telegraph_office_name:
+    en: All others
+  office_code: GUGX
+  network_codes:
+  - GU
+- _class: F32TDIEntry
+  country_or_area:
     en: GUINEA
     fr: GUINÉE
     es: GUINEA
@@ -32419,6 +33239,18 @@ allocations:
   telegraph_office_name:
     en: Conakry
   office_code: GECY
+  network_codes:
+  - GE
+- _class: F32TDIEntry
+  country_or_area:
+    en: GUINEA
+    fr: GUINÉE
+    es: GUINEA
+  network_roa: SOTELGUI S.A.. – Société des télécommunications de Guinée, Conakry
+  network_code: GE
+  telegraph_office_name:
+    en: All others
+  office_code: GECX
   network_codes:
   - GE
 - _class: F32TDIEntry
@@ -32573,7 +33405,19 @@ allocations:
   network_roa: HONDUTEL – Empresa Hondureña de Telecomunicaciones, Tegucigalpa
   network_code: HO
   telegraph_office_name:
-    en: Tela  HOTE All others
+    en: Tela
+  office_code: HOTE
+  network_codes:
+  - HO
+- _class: F32TDIEntry
+  country_or_area:
+    en: HONDURAS
+    fr: HONDURAS
+    es: HONDURAS
+  network_roa: HONDUTEL – Empresa Hondureña de Telecomunicaciones, Tegucigalpa
+  network_code: HO
+  telegraph_office_name:
+    en: All others
   office_code: HOTX
   network_codes:
   - HO
@@ -32649,7 +33493,7 @@ allocations:
   network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
   network_code: IN
   telegraph_office_name:
-    en: Sindri INCX MADRAS
+    en: MADRAS
   office_code: INMS
   network_codes:
   - IN
@@ -32697,7 +33541,7 @@ allocations:
   network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
   network_code: IN
   telegraph_office_name:
-    en: Agra  INNX Aligarh
+    en: Agra
   office_code: INNX
   network_codes:
   - IN
@@ -32801,7 +33645,43 @@ allocations:
   network_roa: TCI (GOVT) – Telecommunication Company of Iran, Tehran
   network_code: IR
   telegraph_office_name:
-    en: Recht IRRT Shiraz IRSZ Tabriz IRTZ Teheran
+    en: Recht
+  office_code: IRRT
+  network_codes:
+  - IR
+- _class: F32TDIEntry
+  country_or_area:
+    en: IRAN (ISLAMIC REPUBLIC OF)
+    fr: IRAN (RÉPUBLIQUE ISLAMIQUE D')
+    es: IRÁN (REPÚBLICA ISLÁMICA DEL)
+  network_roa: TCI (GOVT) – Telecommunication Company of Iran, Tehran
+  network_code: IR
+  telegraph_office_name:
+    en: Shiraz
+  office_code: IRSZ
+  network_codes:
+  - IR
+- _class: F32TDIEntry
+  country_or_area:
+    en: IRAN (ISLAMIC REPUBLIC OF)
+    fr: IRAN (RÉPUBLIQUE ISLAMIQUE D')
+    es: IRÁN (REPÚBLICA ISLÁMICA DEL)
+  network_roa: TCI (GOVT) – Telecommunication Company of Iran, Tehran
+  network_code: IR
+  telegraph_office_name:
+    en: Tabriz
+  office_code: IRTZ
+  network_codes:
+  - IR
+- _class: F32TDIEntry
+  country_or_area:
+    en: IRAN (ISLAMIC REPUBLIC OF)
+    fr: IRAN (RÉPUBLIQUE ISLAMIQUE D')
+    es: IRÁN (REPÚBLICA ISLÁMICA DEL)
+  network_roa: TCI (GOVT) – Telecommunication Company of Iran, Tehran
+  network_code: IR
+  telegraph_office_name:
+    en: Teheran
   office_code: IRTN
   network_codes:
   - IR
@@ -33024,7 +33904,34 @@ allocations:
     es: JAPÓN
   network_code: JP
   telegraph_office_name:
-    en: Naha JPNH Osaka JPOS Tokyo JPTK Yokohama
+    en: Naha
+  office_code: JPNH
+- _class: F32TDIEntry
+  country_or_area:
+    en: JAPAN
+    fr: JAPON
+    es: JAPÓN
+  network_code: JP
+  telegraph_office_name:
+    en: Osaka
+  office_code: JPOS
+- _class: F32TDIEntry
+  country_or_area:
+    en: JAPAN
+    fr: JAPON
+    es: JAPÓN
+  network_code: JP
+  telegraph_office_name:
+    en: Tokyo
+  office_code: JPTK
+- _class: F32TDIEntry
+  country_or_area:
+    en: JAPAN
+    fr: JAPON
+    es: JAPÓN
+  network_code: JP
+  telegraph_office_name:
+    en: Yokohama
   office_code: JPYH
 - _class: F32TDIEntry
   country_or_area:
@@ -33175,7 +34082,19 @@ allocations:
   network_roa: TSKL – Telecom Services Kiribati Limited, Bairiki Tarawa
   network_code: KI
   telegraph_office_name:
-    en: Betio  KIBO All others
+    en: Betio
+  office_code: KIBO
+  network_codes:
+  - KI
+- _class: F32TDIEntry
+  country_or_area:
+    en: KIRIBATI
+    fr: KIRIBATI
+    es: KIRIBATI
+  network_roa: TSKL – Telecom Services Kiribati Limited, Bairiki Tarawa
+  network_code: KI
+  telegraph_office_name:
+    en: All others
   office_code: KIBX
   network_codes:
   - KI
@@ -33367,7 +34286,19 @@ allocations:
   network_roa: GOVT – Ministry of Communications, Safat
   network_code: KT
   telegraph_office_name:
-    en: Wafra KTWA All others
+    en: Wafra
+  office_code: KTWA
+  network_codes:
+  - KT
+- _class: F32TDIEntry
+  country_or_area:
+    en: KUWAIT
+    fr: KOWEÏT
+    es: KUWAIT
+  network_roa: GOVT – Ministry of Communications, Safat
+  network_code: KT
+  telegraph_office_name:
+    en: All others
   office_code: KTKX
   network_codes:
   - KT
@@ -34015,6 +34946,18 @@ allocations:
   - MQ
 - _class: F32TDIEntry
   country_or_area:
+    en: MAURITANIA
+    fr: MAURITANIE
+    es: MAURITANIA
+  network_roa: Mauritel – Société Mauritanienne des Télécommunications, Nouakchott
+  network_code: MQ
+  telegraph_office_name:
+    en: All others
+  office_code: MQSX
+  network_codes:
+  - MQ
+- _class: F32TDIEntry
+  country_or_area:
     en: MAYOTTE
     fr: MAYOTTE
     es: MAYOTTE
@@ -34165,7 +35108,31 @@ allocations:
   network_roa: FSM – FSM Telecommunication Corporation, Pohnpei State
   network_code: FM
   telegraph_office_name:
-    en: Truk  FMTK Yap  FMYA All others
+    en: Truk
+  office_code: FMTK
+  network_codes:
+  - FM
+- _class: F32TDIEntry
+  country_or_area:
+    en: MICRONESIA
+    fr: MICRONÉSIE
+    es: MICRONESIA
+  network_roa: FSM – FSM Telecommunication Corporation, Pohnpei State
+  network_code: FM
+  telegraph_office_name:
+    en: Yap
+  office_code: FMYA
+  network_codes:
+  - FM
+- _class: F32TDIEntry
+  country_or_area:
+    en: MICRONESIA
+    fr: MICRONÉSIE
+    es: MICRONESIA
+  network_roa: FSM – FSM Telecommunication Corporation, Pohnpei State
+  network_code: FM
+  telegraph_office_name:
+    en: All others
   office_code: FMYX
   network_codes:
   - FM
@@ -34345,7 +35312,19 @@ allocations:
   network_roa: ENTM – Empresa Nacional de Telecomunicações de Moçambique, Maputo
   network_code: MO
   telegraph_office_name:
-    en: Tete  MOTT Xai xai
+    en: Tete
+  office_code: MOTT
+  network_codes:
+  - MO
+- _class: F32TDIEntry
+  country_or_area:
+    en: MOZAMBIQUE
+    fr: MOZAMBIQUE
+    es: MOZAMBIQUE
+  network_roa: ENTM – Empresa Nacional de Telecomunicações de Moçambique, Maputo
+  network_code: MO
+  telegraph_office_name:
+    en: Xai xai
   office_code: MOGZ
   network_codes:
   - MO
@@ -34419,6 +35398,18 @@ allocations:
   telegraph_office_name:
     en: Kathmandu
   office_code: NPKA
+  network_codes:
+  - NP
+- _class: F32TDIEntry
+  country_or_area:
+    en: NEPAL
+    fr: NÉPAL
+    es: NEPAL
+  network_roa: Nepal Telecom – Nepal Telecommunications Corporation, Kathmandu
+  network_code: NP
+  telegraph_office_name:
+    en: All others
+  office_code: NPKX
   network_codes:
   - NP
 - _class: F32TDIEntry
@@ -34549,7 +35540,43 @@ allocations:
   network_roa: NITEL – Nigerian Telecommunications plc, Lagos
   network_code: NG
   telegraph_office_name:
-    en: Agbor NGGG Akure NGAK Apapa NGAP Bauchi
+    en: Agbor
+  office_code: NGGG
+  network_codes:
+  - NG
+- _class: F32TDIEntry
+  country_or_area:
+    en: NIGERIA
+    fr: NIGÉRIA
+    es: NIGERIA
+  network_roa: NITEL – Nigerian Telecommunications plc, Lagos
+  network_code: NG
+  telegraph_office_name:
+    en: Akure
+  office_code: NGAK
+  network_codes:
+  - NG
+- _class: F32TDIEntry
+  country_or_area:
+    en: NIGERIA
+    fr: NIGÉRIA
+    es: NIGERIA
+  network_roa: NITEL – Nigerian Telecommunications plc, Lagos
+  network_code: NG
+  telegraph_office_name:
+    en: Apapa
+  office_code: NGAP
+  network_codes:
+  - NG
+- _class: F32TDIEntry
+  country_or_area:
+    en: NIGERIA
+    fr: NIGÉRIA
+    es: NIGERIA
+  network_roa: NITEL – Nigerian Telecommunications plc, Lagos
+  network_code: NG
+  telegraph_office_name:
+    en: Bauchi
   office_code: NGBH
   network_codes:
   - NG
@@ -34669,7 +35696,31 @@ allocations:
   network_roa: NITEL – Nigerian Telecommunications plc, Lagos
   network_code: NG
   telegraph_office_name:
-    en: Ilorin  NGRN Jos  NGJS KADUNA
+    en: Ilorin
+  office_code: NGRN
+  network_codes:
+  - NG
+- _class: F32TDIEntry
+  country_or_area:
+    en: NIGERIA
+    fr: NIGÉRIA
+    es: NIGERIA
+  network_roa: NITEL – Nigerian Telecommunications plc, Lagos
+  network_code: NG
+  telegraph_office_name:
+    en: Jos
+  office_code: NGJS
+  network_codes:
+  - NG
+- _class: F32TDIEntry
+  country_or_area:
+    en: NIGERIA
+    fr: NIGÉRIA
+    es: NIGERIA
+  network_roa: NITEL – Nigerian Telecommunications plc, Lagos
+  network_code: NG
+  telegraph_office_name:
+    en: KADUNA
   office_code: NGKD
   network_codes:
   - NG
@@ -34681,7 +35732,19 @@ allocations:
   network_roa: NITEL – Nigerian Telecommunications plc, Lagos
   network_code: NG
   telegraph_office_name:
-    en: KANO NGKN Katsina
+    en: KANO
+  office_code: NGKN
+  network_codes:
+  - NG
+- _class: F32TDIEntry
+  country_or_area:
+    en: NIGERIA
+    fr: NIGÉRIA
+    es: NIGERIA
+  network_roa: NITEL – Nigerian Telecommunications plc, Lagos
+  network_code: NG
+  telegraph_office_name:
+    en: Katsina
   office_code: NGKS
   network_codes:
   - NG
@@ -34705,7 +35768,19 @@ allocations:
   network_roa: NITEL – Nigerian Telecommunications plc, Lagos
   network_code: NG
   telegraph_office_name:
-    en: Lokoja NGLA Maiduguri
+    en: Lokoja
+  office_code: NGLA
+  network_codes:
+  - NG
+- _class: F32TDIEntry
+  country_or_area:
+    en: NIGERIA
+    fr: NIGÉRIA
+    es: NIGERIA
+  network_roa: NITEL – Nigerian Telecommunications plc, Lagos
+  network_code: NG
+  telegraph_office_name:
+    en: Maiduguri
   office_code: NGMG
   network_codes:
   - NG
@@ -34729,7 +35804,19 @@ allocations:
   network_roa: NITEL – Nigerian Telecommunications plc, Lagos
   network_code: NG
   telegraph_office_name:
-    en: Minna NGMA Onitsha
+    en: Minna
+  office_code: NGMA
+  network_codes:
+  - NG
+- _class: F32TDIEntry
+  country_or_area:
+    en: NIGERIA
+    fr: NIGÉRIA
+    es: NIGERIA
+  network_roa: NITEL – Nigerian Telecommunications plc, Lagos
+  network_code: NG
+  telegraph_office_name:
+    en: Onitsha
   office_code: NGON
   network_codes:
   - NG
@@ -34813,7 +35900,55 @@ allocations:
   network_roa: NITEL – Nigerian Telecommunications plc, Lagos
   network_code: NG
   telegraph_office_name:
-    en: Uyo  NGUY Warri NGWA Yola  NGYL Zaria NGZA All others
+    en: Uyo
+  office_code: NGUY
+  network_codes:
+  - NG
+- _class: F32TDIEntry
+  country_or_area:
+    en: NIGERIA
+    fr: NIGÉRIA
+    es: NIGERIA
+  network_roa: NITEL – Nigerian Telecommunications plc, Lagos
+  network_code: NG
+  telegraph_office_name:
+    en: Warri
+  office_code: NGWA
+  network_codes:
+  - NG
+- _class: F32TDIEntry
+  country_or_area:
+    en: NIGERIA
+    fr: NIGÉRIA
+    es: NIGERIA
+  network_roa: NITEL – Nigerian Telecommunications plc, Lagos
+  network_code: NG
+  telegraph_office_name:
+    en: Yola
+  office_code: NGYL
+  network_codes:
+  - NG
+- _class: F32TDIEntry
+  country_or_area:
+    en: NIGERIA
+    fr: NIGÉRIA
+    es: NIGERIA
+  network_roa: NITEL – Nigerian Telecommunications plc, Lagos
+  network_code: NG
+  telegraph_office_name:
+    en: Zaria
+  office_code: NGZA
+  network_codes:
+  - NG
+- _class: F32TDIEntry
+  country_or_area:
+    en: NIGERIA
+    fr: NIGÉRIA
+    es: NIGERIA
+  network_roa: NITEL – Nigerian Telecommunications plc, Lagos
+  network_code: NG
+  telegraph_office_name:
+    en: All others
   office_code: NGLX
   network_codes:
   - NG
@@ -34966,7 +36101,19 @@ allocations:
   network_roa: Oman-Tel – Oman Telecommunications Company S.A.O.C., Muscat
   network_code: 'ON'
   telegraph_office_name:
-    en: Nizwa ONNZ Rustag
+    en: Nizwa
+  office_code: ONNZ
+  network_codes:
+  - 'ON'
+- _class: F32TDIEntry
+  country_or_area:
+    en: OMAN
+    fr: OMAN
+    es: OMÁN
+  network_roa: Oman-Tel – Oman Telecommunications Company S.A.O.C., Muscat
+  network_code: 'ON'
+  telegraph_office_name:
+    en: Rustag
   office_code: ONRQ
   network_codes:
   - 'ON'
@@ -34990,7 +36137,19 @@ allocations:
   network_roa: Oman-Tel – Oman Telecommunications Company S.A.O.C., Muscat
   network_code: 'ON'
   telegraph_office_name:
-    en: Seeb ONSB Shinas
+    en: Seeb
+  office_code: ONSB
+  network_codes:
+  - 'ON'
+- _class: F32TDIEntry
+  country_or_area:
+    en: OMAN
+    fr: OMAN
+    es: OMÁN
+  network_roa: Oman-Tel – Oman Telecommunications Company S.A.O.C., Muscat
+  network_code: 'ON'
+  telegraph_office_name:
+    en: Shinas
   office_code: ONSN
   network_codes:
   - 'ON'
@@ -35002,7 +36161,19 @@ allocations:
   network_roa: Oman-Tel – Oman Telecommunications Company S.A.O.C., Muscat
   network_code: 'ON'
   telegraph_office_name:
-    en: Sohar ONSR Sumail
+    en: Sohar
+  office_code: ONSR
+  network_codes:
+  - 'ON'
+- _class: F32TDIEntry
+  country_or_area:
+    en: OMAN
+    fr: OMAN
+    es: OMÁN
+  network_roa: Oman-Tel – Oman Telecommunications Company S.A.O.C., Muscat
+  network_code: 'ON'
+  telegraph_office_name:
+    en: Sumail
   office_code: ONSM
   network_codes:
   - 'ON'
@@ -35074,7 +36245,19 @@ allocations:
   network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
   network_code: UG
   telegraph_office_name:
-    en: Busia UGBU Entebbe
+    en: Busia
+  office_code: UGBU
+  network_codes:
+  - UG
+- _class: F32TDIEntry
+  country_or_area:
+    en: UGANDA
+    fr: OUGANDA
+    es: UGANDA
+  network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
+  network_code: UG
+  telegraph_office_name:
+    en: Entebbe
   office_code: UGEN
   network_codes:
   - UG
@@ -35098,7 +36281,19 @@ allocations:
   network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
   network_code: UG
   telegraph_office_name:
-    en: Gulu  UGGU Hoima
+    en: Gulu
+  office_code: UGGU
+  network_codes:
+  - UG
+- _class: F32TDIEntry
+  country_or_area:
+    en: UGANDA
+    fr: OUGANDA
+    es: UGANDA
+  network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
+  network_code: UG
+  telegraph_office_name:
+    en: Hoima
   office_code: UGHO
   network_codes:
   - UG
@@ -35110,7 +36305,31 @@ allocations:
   network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
   network_code: UG
   telegraph_office_name:
-    en: Ibanda UGIB Jinja  UGJA Kabale
+    en: Ibanda
+  office_code: UGIB
+  network_codes:
+  - UG
+- _class: F32TDIEntry
+  country_or_area:
+    en: UGANDA
+    fr: OUGANDA
+    es: UGANDA
+  network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
+  network_code: UG
+  telegraph_office_name:
+    en: Jinja
+  office_code: UGJA
+  network_codes:
+  - UG
+- _class: F32TDIEntry
+  country_or_area:
+    en: UGANDA
+    fr: OUGANDA
+    es: UGANDA
+  network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
+  network_code: UG
+  telegraph_office_name:
+    en: Kabale
   office_code: UGKB
   network_codes:
   - UG
@@ -35158,7 +36377,31 @@ allocations:
   network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
   network_code: UG
   telegraph_office_name:
-    en: Lira  UGLI Lugazi UGLZ Malaba
+    en: Lira
+  office_code: UGLI
+  network_codes:
+  - UG
+- _class: F32TDIEntry
+  country_or_area:
+    en: UGANDA
+    fr: OUGANDA
+    es: UGANDA
+  network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
+  network_code: UG
+  telegraph_office_name:
+    en: Lugazi
+  office_code: UGLZ
+  network_codes:
+  - UG
+- _class: F32TDIEntry
+  country_or_area:
+    en: UGANDA
+    fr: OUGANDA
+    es: UGANDA
+  network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
+  network_code: UG
+  telegraph_office_name:
+    en: Malaba
   office_code: UGML
   network_codes:
   - UG
@@ -35194,7 +36437,19 @@ allocations:
   network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
   network_code: UG
   telegraph_office_name:
-    en: Mbale UGMB Mbarara
+    en: Mbale
+  office_code: UGMB
+  network_codes:
+  - UG
+- _class: F32TDIEntry
+  country_or_area:
+    en: UGANDA
+    fr: OUGANDA
+    es: UGANDA
+  network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
+  network_code: UG
+  telegraph_office_name:
+    en: Mbarara
   office_code: UGMR
   network_codes:
   - UG
@@ -35230,7 +36485,19 @@ allocations:
   network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
   network_code: UG
   telegraph_office_name:
-    en: Nebbi UGNE Pakwach
+    en: Nebbi
+  office_code: UGNE
+  network_codes:
+  - UG
+- _class: F32TDIEntry
+  country_or_area:
+    en: UGANDA
+    fr: OUGANDA
+    es: UGANDA
+  network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
+  network_code: UG
+  telegraph_office_name:
+    en: Pakwach
   office_code: UGPA
   network_codes:
   - UG
@@ -35254,7 +36521,19 @@ allocations:
   network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
   network_code: UG
   telegraph_office_name:
-    en: Soroti UGSI Tororo
+    en: Soroti
+  office_code: UGSI
+  network_codes:
+  - UG
+- _class: F32TDIEntry
+  country_or_area:
+    en: UGANDA
+    fr: OUGANDA
+    es: UGANDA
+  network_roa: UPTC – Uganda Post and Telecom- munications Corporation, Kampala
+  network_code: UG
+  telegraph_office_name:
+    en: Tororo
   office_code: UGTO
   network_codes:
   - UG
@@ -35608,7 +36887,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Ayaviri PEAF Azangaro
+    en: Ayaviri
+  office_code: PEAF
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Azangaro
   office_code: PEAZ
   network_codes:
   - PE
@@ -35692,7 +36983,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Callao PECO Camané
+    en: Callao
+  office_code: PECO
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Camané
   office_code: PECM
   network_codes:
   - PE
@@ -35716,7 +37019,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Caraz PERZ Casma
+    en: Caraz
+  office_code: PERZ
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Casma
   office_code: PEAA
   network_codes:
   - PE
@@ -35752,7 +37067,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Chala PEUP Chancay
+    en: Chala
+  office_code: PEUP
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Chancay
   office_code: PEHH
   network_codes:
   - PE
@@ -35836,7 +37163,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Chota PECT Chulucanas
+    en: Chota
+  office_code: PECT
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Chulucanas
   office_code: PECH
   network_codes:
   - PE
@@ -35896,7 +37235,31 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Cuzco PECZ Fiori  PEFI Huacho
+    en: Cuzco
+  office_code: PECZ
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Fiori
+  office_code: PEFI
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Huacho
   office_code: PEHA
   network_codes:
   - PE
@@ -35956,7 +37319,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Huaral PEHL Huaraz
+    en: Huaral
+  office_code: PEHL
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Huaraz
   office_code: PEHZ
   network_codes:
   - PE
@@ -36004,7 +37379,43 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Iquitos PEIT Jaén  PEJE Jauja PEJU Juanjui
+    en: Iquitos
+  office_code: PEIT
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Jaén
+  office_code: PEJE
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Jauja
+  office_code: PEJU
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Juanjui
   office_code: PEJR
   network_codes:
   - PE
@@ -36064,7 +37475,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Lima  PELA Lima Aeropuerto Internacional Jorge Chávez
+    en: Lima
+  office_code: PELA
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Lima Aeropuerto Internacional Jorge Chávez
   office_code: PEAI
   network_codes:
   - PE
@@ -36076,7 +37499,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Lince PETC Marcona
+    en: Lince
+  office_code: PETC
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Marcona
   office_code: PESM
   network_codes:
   - PE
@@ -36148,6 +37583,18 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
+    en: Nazca
+  office_code: PENA
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
     en: Pacasmayo
   office_code: PEPM
   network_codes:
@@ -36160,7 +37607,43 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Paita  PEPI Pisco PEPC Piura PEPR Pucallpa
+    en: Paita
+  office_code: PEPI
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Pisco
+  office_code: PEPC
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Piura
+  office_code: PEPR
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Pucallpa
   office_code: PELF
   network_codes:
   - PE
@@ -36196,7 +37679,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Puno PEPG Quillabamba
+    en: Puno
+  office_code: PEPG
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Quillabamba
   office_code: PEQB
   network_codes:
   - PE
@@ -36208,7 +37703,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Rioja  PERA S Borja
+    en: Rioja
+  office_code: PERA
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: S Borja
   office_code: PESB
   network_codes:
   - PE
@@ -36280,7 +37787,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Talara PETA Tarapoto
+    en: Talara
+  office_code: PETA
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Tarapoto
   office_code: PETP
   network_codes:
   - PE
@@ -36292,7 +37811,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Tarma PETF Tingo María
+    en: Tarma
+  office_code: PETF
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Tingo María
   office_code: PETM
   network_codes:
   - PE
@@ -36304,7 +37835,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Trujillo PETO Tumbes
+    en: Trujillo
+  office_code: PETO
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Tumbes
   office_code: PETS
   network_codes:
   - PE
@@ -36316,7 +37859,19 @@ allocations:
   network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
   network_code: PE
   telegraph_office_name:
-    en: Vitor  PEVT Yurimaguas
+    en: Vitor
+  office_code: PEVT
+  network_codes:
+  - PE
+- _class: F32TDIEntry
+  country_or_area:
+    en: PERU
+    fr: PÉROU
+    es: PERÚ
+  network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
+  network_code: PE
+  telegraph_office_name:
+    en: Yurimaguas
   office_code: PEYU
   network_codes:
   - PE
@@ -36586,6 +38141,18 @@ allocations:
   - PH
 - _class: F32TDIEntry
   country_or_area:
+    en: PITCAIRN
+    fr: PITCAIRN
+    es: PITCAIRN
+  network_roa: GOVT – Pitcairn Island Govt. Administration
+  network_code: TK
+  telegraph_office_name:
+    en: All destinations
+  office_code: TKXX
+  network_codes:
+  - TK
+- _class: F32TDIEntry
+  country_or_area:
     en: FRENCH POLYNESIA
     fr: POLYNÉSIE FRANÇAISE
     es: POLINESIA FRANCESA
@@ -36697,7 +38264,43 @@ allocations:
   network_roa: STE – Syrian Telecommunications Establishment, Damascus
   network_code: SY
   telegraph_office_name:
-    en: Deraa SYDR Edlib  SYED Hama SYHA Hassakeh
+    en: Deraa
+  office_code: SYDR
+  network_codes:
+  - SY
+- _class: F32TDIEntry
+  country_or_area:
+    en: SYRIAN ARAB REPUBLIC
+    fr: RÉPUBLIQUE ARABE SYRIENNE
+    es: REPÚBLICA ÁRABE SIRIA
+  network_roa: STE – Syrian Telecommunications Establishment, Damascus
+  network_code: SY
+  telegraph_office_name:
+    en: Edlib
+  office_code: SYED
+  network_codes:
+  - SY
+- _class: F32TDIEntry
+  country_or_area:
+    en: SYRIAN ARAB REPUBLIC
+    fr: RÉPUBLIQUE ARABE SYRIENNE
+    es: REPÚBLICA ÁRABE SIRIA
+  network_roa: STE – Syrian Telecommunications Establishment, Damascus
+  network_code: SY
+  telegraph_office_name:
+    en: Hama
+  office_code: SYHA
+  network_codes:
+  - SY
+- _class: F32TDIEntry
+  country_or_area:
+    en: SYRIAN ARAB REPUBLIC
+    fr: RÉPUBLIQUE ARABE SYRIENNE
+    es: REPÚBLICA ÁRABE SIRIA
+  network_roa: STE – Syrian Telecommunications Establishment, Damascus
+  network_code: SY
+  telegraph_office_name:
+    en: Hassakeh
   office_code: SYHK
   network_codes:
   - SY
@@ -36733,7 +38336,19 @@ allocations:
   network_roa: STE – Syrian Telecommunications Establishment, Damascus
   network_code: SY
   telegraph_office_name:
-    en: Jebla SYJB Kamichly
+    en: Jebla
+  office_code: SYJB
+  network_codes:
+  - SY
+- _class: F32TDIEntry
+  country_or_area:
+    en: SYRIAN ARAB REPUBLIC
+    fr: RÉPUBLIQUE ARABE SYRIENNE
+    es: REPÚBLICA ÁRABE SIRIA
+  network_roa: STE – Syrian Telecommunications Establishment, Damascus
+  network_code: SY
+  telegraph_office_name:
+    en: Kamichly
   office_code: SYKM
   network_codes:
   - SY
@@ -36759,6 +38374,18 @@ allocations:
   telegraph_office_name:
     en: Lattaquieh
   office_code: SYLD
+  network_codes:
+  - SY
+- _class: F32TDIEntry
+  country_or_area:
+    en: SYRIAN ARAB REPUBLIC
+    fr: RÉPUBLIQUE ARABE SYRIENNE
+    es: REPÚBLICA ÁRABE SIRIA
+  network_roa: STE – Syrian Telecommunications Establishment, Damascus
+  network_code: SY
+  telegraph_office_name:
+    en: Matar
+  office_code: SYMR
   network_codes:
   - SY
 - _class: F32TDIEntry
@@ -36817,7 +38444,19 @@ allocations:
   network_roa: STE – Syrian Telecommunications Establishment, Damascus
   network_code: SY
   telegraph_office_name:
-    en: Safita SYSA Salamie
+    en: Safita
+  office_code: SYSA
+  network_codes:
+  - SY
+- _class: F32TDIEntry
+  country_or_area:
+    en: SYRIAN ARAB REPUBLIC
+    fr: RÉPUBLIQUE ARABE SYRIENNE
+    es: REPÚBLICA ÁRABE SIRIA
+  network_roa: STE – Syrian Telecommunications Establishment, Damascus
+  network_code: SY
+  telegraph_office_name:
+    en: Salamie
   office_code: SYLM
   network_codes:
   - SY
@@ -37042,7 +38681,19 @@ allocations:
   network_roa: Rwandatel S.A., Kigali
   network_code: RW
   telegraph_office_name:
-    en: Kigali RWKI Ruhengeri
+    en: Kigali
+  office_code: RWKI
+  network_codes:
+  - RW
+- _class: F32TDIEntry
+  country_or_area:
+    en: RWANDA
+    fr: RWANDA
+    es: RWANDA
+  network_roa: Rwandatel S.A., Kigali
+  network_code: RW
+  telegraph_office_name:
+    en: Ruhengeri
   office_code: RWRU
   network_codes:
   - RW
@@ -37176,7 +38827,19 @@ allocations:
   network_roa: France Télécom (FTRSI) – France Télécom Réseaux et Services Internationaux
   network_code: QN
   telegraph_office_name:
-    en: S Pierre Îles Saint-Pierre-et-Miquelon QNSP All others
+    en: S Pierre Îles Saint-Pierre-et-Miquelon
+  office_code: QNSP
+  network_codes:
+  - QN
+- _class: F32TDIEntry
+  country_or_area:
+    en: SAINT PIERRE AND MIQUELON
+    fr: SAINT-PIERRE-ET- MIQUELON
+    es: SAN PEDRO Y MIQUELÓN
+  network_roa: France Télécom (FTRSI) – France Télécom Réseaux et Services Internationaux
+  network_code: QN
+  telegraph_office_name:
+    en: All others
   office_code: QNSX
   network_codes:
   - QN
@@ -37236,7 +38899,20 @@ allocations:
   network_roa: Samoa Communications Limited, Apia
   network_code: SX
   telegraph_office_name:
-    en: Apia SXAP All others
+    en: Apia
+  office_code: SXAP
+  network_codes:
+  - SB
+  - SX
+- _class: F32TDIEntry
+  country_or_area:
+    en: SAMOA
+    fr: SAMOA
+    es: SAMOA
+  network_roa: Samoa Communications Limited, Apia
+  network_code: SX
+  telegraph_office_name:
+    en: All others
   office_code: SXAX
   network_codes:
   - SB
@@ -37533,7 +39209,16 @@ allocations:
     es: SUIZA
   network_code: CH
   telegraph_office_name:
-    en: ZURICH TELEX CHZR All others
+    en: ZURICH TELEX
+  office_code: CHZR
+- _class: F32TDIEntry
+  country_or_area:
+    en: SWITZERLAND
+    fr: SUISSE
+    es: SUIZA
+  network_code: CH
+  telegraph_office_name:
+    en: All others
   office_code: CHBX
 - _class: F32TDIEntry
   country_or_area:
@@ -37545,6 +39230,18 @@ allocations:
   telegraph_office_name:
     en: Mbabane
   office_code: WDMB
+  network_codes:
+  - WD
+- _class: F32TDIEntry
+  country_or_area:
+    en: SWAZILAND
+    fr: SWAZILAND
+    es: SWAZILANDIA
+  network_roa: SPTC – Swaziland Posts and Telecommunications Corporation, Mbabane
+  network_code: WD
+  telegraph_office_name:
+    en: All others
+  office_code: WDMX
   network_codes:
   - WD
 - _class: F32TDIEntry
@@ -37629,6 +39326,18 @@ allocations:
   telegraph_office_name:
     en: N’Djamena
   office_code: KDFL
+  network_codes:
+  - KD
+- _class: F32TDIEntry
+  country_or_area:
+    en: CHAD
+    fr: TCHAD
+    es: CHAD
+  network_roa: TIT – Société des télécommunica- tions internationales du Tchad, N’Djamena
+  network_code: KD
+  telegraph_office_name:
+    en: All others
+  office_code: KDFX
   network_codes:
   - KD
 - _class: F32TDIEntry
@@ -37748,7 +39457,19 @@ allocations:
   network_roa: TUNISIE TELECOM – Tunisie Telecom, Tunis
   network_code: TN
   telegraph_office_name:
-    en: Tunis TNTS All others
+    en: Tunis
+  office_code: TNTS
+  network_codes:
+  - TN
+- _class: F32TDIEntry
+  country_or_area:
+    en: TUNISIA
+    fr: TUNISIE
+    es: TÚNEZ
+  network_roa: TUNISIE TELECOM – Tunisie Telecom, Tunis
+  network_code: TN
+  telegraph_office_name:
+    en: All others
   office_code: TNTX
   network_codes:
   - TN
@@ -37796,7 +39517,19 @@ allocations:
   network_roa: Türk Telekomunikasyon – Türk Telekomünikasyon A.S., Ankara
   network_code: TR
   telegraph_office_name:
-    en: Ankara TRAN Istanbul
+    en: Ankara
+  office_code: TRAN
+  network_codes:
+  - TR
+- _class: F32TDIEntry
+  country_or_area:
+    en: TURKEY
+    fr: TURQUIE
+    es: TURQUÍA
+  network_roa: Türk Telekomunikasyon – Türk Telekomünikasyon A.S., Ankara
+  network_code: TR
+  telegraph_office_name:
+    en: Istanbul
   office_code: TRIS
   network_codes:
   - TR
@@ -37808,7 +39541,19 @@ allocations:
   network_roa: Türk Telekomunikasyon – Türk Telekomünikasyon A.S., Ankara
   network_code: TR
   telegraph_office_name:
-    en: Izmir  TRIR All others
+    en: Izmir
+  office_code: TRIR
+  network_codes:
+  - TR
+- _class: F32TDIEntry
+  country_or_area:
+    en: TURKEY
+    fr: TURQUIE
+    es: TURQUÍA
+  network_roa: Türk Telekomunikasyon – Türk Telekomünikasyon A.S., Ankara
+  network_code: TR
+  telegraph_office_name:
+    en: All others
   office_code: TRAX
   network_codes:
   - TR
@@ -37822,6 +39567,18 @@ allocations:
   telegraph_office_name:
     en: Funafuti
   office_code: TVFU
+  network_codes:
+  - TV
+- _class: F32TDIEntry
+  country_or_area:
+    en: TUVALU
+    fr: TUVALU
+    es: TUVALU
+  network_roa: GOVT – Ministry of Works, Communications and Energy, Funafuti
+  network_code: TV
+  telegraph_office_name:
+    en: All others
+  office_code: TVFX
   network_codes:
   - TV
 - _class: F32TDIEntry
@@ -38689,7 +40446,19 @@ allocations:
   network_roa: Zamtel – Zambia Telecommunica- tions Company Ltd, Ndola
   network_code: ZA
   telegraph_office_name:
-    en: Ndola ZAND All others
+    en: Ndola
+  office_code: ZAND
+  network_codes:
+  - ZA
+- _class: F32TDIEntry
+  country_or_area:
+    en: ZAMBIA
+    fr: ZAMBIE
+    es: ZAMBIA
+  network_roa: Zamtel – Zambia Telecommunica- tions Company Ltd, Ndola
+  network_code: ZA
+  telegraph_office_name:
+    en: All others
   office_code: ZALX
   network_codes:
   - ZA
@@ -39465,23 +41234,6 @@ contexts:
   network_codes:
   - UU
   explanation: Printed country/geographical-area heading.
-- kind: printed-unassigned
-  ob_issue_no: 980
-  entry:
-    _class: F32TDIEntry
-    country_or_area:
-      en: BURUNDI
-      fr: BURUNDI
-      es: BURUNDI
-    telegraph_office_name:
-      en: All others  UUSX
-  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
-  source_page: 7
-  source_path: T-SP-F.32-2011-PDF-E.pdf
-  source_row: 255
-  network_codes:
-  - UU
-  explanation: Printed name without an assigned office-code cell.
 - kind: heading
   ob_issue_no: 980
   entry:
@@ -40766,21 +42518,6 @@ contexts:
   source_path: T-SP-F.32-2011-PDF-E.pdf
   source_row: 438
   explanation: Printed country/geographical-area heading.
-- kind: printed-unassigned
-  ob_issue_no: 980
-  entry:
-    _class: F32TDIEntry
-    country_or_area:
-      en: CONGO (REP. OF THE)
-      fr: CONGO (RÉP. DU)
-      es: CONGO (REP.DEL)
-    telegraph_office_name:
-      en: All others  KGBX
-  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
-  source_page: 10
-  source_path: T-SP-F.32-2011-PDF-E.pdf
-  source_row: 439
-  explanation: Printed name without an assigned office-code cell.
 - kind: heading
   ob_issue_no: 980
   entry:
@@ -41685,23 +43422,6 @@ contexts:
   network_codes:
   - RU
   explanation: Printed country/geographical-area heading.
-- kind: printed-unassigned
-  ob_issue_no: 980
-  entry:
-    _class: F32TDIEntry
-    country_or_area:
-      en: RUSSIAN FEDERATION
-      fr: FÉDÉRATION DE RUSSIE
-      es: FEDERACIÓN DE RUSIA
-    telegraph_office_name:
-      en: Tver  RUTE
-  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
-  source_page: 15
-  source_path: T-SP-F.32-2011-PDF-E.pdf
-  source_row: 777
-  network_codes:
-  - RU
-  explanation: Printed name without an assigned office-code cell.
 - kind: heading
   ob_issue_no: 980
   entry:
@@ -41975,23 +43695,6 @@ contexts:
   network_codes:
   - GU
   explanation: Printed country/geographical-area heading.
-- kind: printed-unassigned
-  ob_issue_no: 980
-  entry:
-    _class: F32TDIEntry
-    country_or_area:
-      en: GUATEMALA
-      fr: GUATEMALA
-      es: GUATEMALA
-    telegraph_office_name:
-      en: All others  GUGX
-  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
-  source_page: 17
-  source_path: T-SP-F.32-2011-PDF-E.pdf
-  source_row: 866
-  network_codes:
-  - GU
-  explanation: Printed name without an assigned office-code cell.
 - kind: heading
   ob_issue_no: 980
   entry:
@@ -42007,23 +43710,6 @@ contexts:
   network_codes:
   - GE
   explanation: Printed country/geographical-area heading.
-- kind: printed-unassigned
-  ob_issue_no: 980
-  entry:
-    _class: F32TDIEntry
-    country_or_area:
-      en: GUINEA
-      fr: GUINÉE
-      es: GUINEA
-    telegraph_office_name:
-      en: All others GECX
-  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
-  source_page: 17
-  source_path: T-SP-F.32-2011-PDF-E.pdf
-  source_row: 869
-  network_codes:
-  - GE
-  explanation: Printed name without an assigned office-code cell.
 - kind: heading
   ob_issue_no: 980
   entry:
@@ -42187,7 +43873,53 @@ contexts:
     network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
     network_code: IN
     telegraph_office_name:
-      en: Bhilai  INBX Bhopal INBX Hyderabad
+      en: Bhilai
+    office_code: INBX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 912
+  related_office_code: INBX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Bhopal
+    office_code: INBX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 913
+  related_office_code: INBX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Hyderabad
     office_code: INBX
     network_codes:
     - IN
@@ -42210,7 +43942,30 @@ contexts:
     network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
     network_code: IN
     telegraph_office_name:
-      en: Indore INBX Jabalpur
+      en: Indore
+    office_code: INBX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 915
+  related_office_code: INBX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Jabalpur
     office_code: INBX
     network_codes:
     - IN
@@ -42233,7 +43988,30 @@ contexts:
     network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
     network_code: IN
     telegraph_office_name:
-      en: Jaipur INBX Jamnagar
+      en: Jaipur
+    office_code: INBX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 917
+  related_office_code: INBX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Jamnagar
     office_code: INBX
     network_codes:
     - IN
@@ -42256,7 +44034,30 @@ contexts:
     network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
     network_code: IN
     telegraph_office_name:
-      en: Kota  INBX Marmugao
+      en: Kota
+    office_code: INBX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 919
+  related_office_code: INBX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Marmugao
     office_code: INBX
     network_codes:
     - IN
@@ -42302,7 +44103,99 @@ contexts:
     network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
     network_code: IN
     telegraph_office_name:
-      en: Nasik INBX Panaji INBX Poona INBX Rajkot INBX Ratnagiri
+      en: Nasik
+    office_code: INBX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 922
+  related_office_code: INBX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Panaji
+    office_code: INBX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 923
+  related_office_code: INBX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Poona
+    office_code: INBX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 924
+  related_office_code: INBX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Rajkot
+    office_code: INBX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 925
+  related_office_code: INBX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Ratnagiri
     office_code: INBX
     network_codes:
     - IN
@@ -42348,7 +44241,30 @@ contexts:
     network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
     network_code: IN
     telegraph_office_name:
-      en: Surat  INBX Thana Maharashtra
+      en: Surat
+    office_code: INBX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 928
+  related_office_code: INBX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Thana Maharashtra
     office_code: INBX
     network_codes:
     - IN
@@ -42509,7 +44425,30 @@ contexts:
     network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
     network_code: IN
     telegraph_office_name:
-      en: Giridih INCX Howrah India
+      en: Giridih
+    office_code: INCX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 938
+  related_office_code: INCX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Howrah India
     office_code: INCX
     network_codes:
     - IN
@@ -42601,7 +44540,30 @@ contexts:
     network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
     network_code: IN
     telegraph_office_name:
-      en: Patna INCX Ranchi
+      en: Patna
+    office_code: INCX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 943
+  related_office_code: INCX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Ranchi
     office_code: INCX
     network_codes:
     - IN
@@ -42655,6 +44617,29 @@ contexts:
   source_page: 18
   source_path: T-SP-F.32-2011-PDF-E.pdf
   source_row: 946
+  related_office_code: INCX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Sindri
+    office_code: INCX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 947
   related_office_code: INCX
   network_codes:
   - IN
@@ -42785,7 +44770,30 @@ contexts:
     network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
     network_code: IN
     telegraph_office_name:
-      en: Guntur INMX Kakinada
+      en: Guntur
+    office_code: INMX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 955
+  related_office_code: INMX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Kakinada
     office_code: INMS
     network_codes:
     - IN
@@ -42992,7 +45000,30 @@ contexts:
     network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
     network_code: IN
     telegraph_office_name:
-      en: Quilon INMX Tiruchirapalli
+      en: Quilon
+    office_code: INMX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 18
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 965
+  related_office_code: INMX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Tiruchirapalli
     office_code: INMS
     network_codes:
     - IN
@@ -43093,6 +45124,29 @@ contexts:
   source_path: T-SP-F.32-2011-PDF-E.pdf
   source_row: 970
   related_office_code: INMX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Aligarh
+    office_code: INNX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 19
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 973
+  related_office_code: INNX
   network_codes:
   - IN
   explanation: Another office served by this printed destination indicator.
@@ -43475,7 +45529,30 @@ contexts:
     network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
     network_code: IN
     telegraph_office_name:
-      en: Patiala INNX Phagwara
+      en: Patiala
+    office_code: INNX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 19
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 990
+  related_office_code: INNX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Phagwara
     office_code: INNX
     network_codes:
     - IN
@@ -43544,7 +45621,30 @@ contexts:
     network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
     network_code: IN
     telegraph_office_name:
-      en: Simla INNX Srinagar
+      en: Simla
+    office_code: INNX
+    network_codes:
+    - IN
+  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+  source_page: 19
+  source_path: T-SP-F.32-2011-PDF-E.pdf
+  source_row: 994
+  related_office_code: INNX
+  network_codes:
+  - IN
+  explanation: Another office served by this printed destination indicator.
+- kind: shared-indicator
+  ob_issue_no: 980
+  entry:
+    _class: F32TDIEntry
+    country_or_area:
+      en: INDIA
+      fr: INDE
+      es: INDIA
+    network_roa: VSN – Videsh Sanchar Nigam Limited, Mumbai (ex-Bombay)
+    network_code: IN
+    telegraph_office_name:
+      en: Srinagar
     office_code: INNX
     network_codes:
     - IN
@@ -50548,23 +52648,6 @@ contexts:
   network_codes:
   - MQ
   explanation: Printed country/geographical-area heading.
-- kind: printed-unassigned
-  ob_issue_no: 980
-  entry:
-    _class: F32TDIEntry
-    country_or_area:
-      en: MAURITANIA
-      fr: MAURITANIE
-      es: MAURITANIA
-    telegraph_office_name:
-      en: All others  MQSX
-  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
-  source_page: 27
-  source_path: T-SP-F.32-2011-PDF-E.pdf
-  source_row: 1558
-  network_codes:
-  - MQ
-  explanation: Printed name without an assigned office-code cell.
 - kind: network
   ob_issue_no: 980
   entry:
@@ -50999,23 +53082,6 @@ contexts:
   network_codes:
   - NP
   explanation: Printed country/geographical-area heading.
-- kind: printed-unassigned
-  ob_issue_no: 980
-  entry:
-    _class: F32TDIEntry
-    country_or_area:
-      en: NEPAL
-      fr: NÉPAL
-      es: NEPAL
-    telegraph_office_name:
-      en: All others  NPKX
-  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
-  source_page: 29
-  source_path: T-SP-F.32-2011-PDF-E.pdf
-  source_row: 1618
-  network_codes:
-  - NP
-  explanation: Printed name without an assigned office-code cell.
 - kind: network
   ob_issue_no: 980
   entry:
@@ -51553,7 +53619,7 @@ contexts:
     network_roa: GOVT – Dirección General de Telecomunicaciones, Ministerio de Transportes y Comunicaciones, Lima
     network_code: PE
     telegraph_office_name:
-      en: Nazca PENA Oroya (La)
+      en: Oroya (La)
     office_code: PEOY
     network_codes:
     - PE
@@ -51627,23 +53693,6 @@ contexts:
   network_codes:
   - TK
   explanation: Printed country/geographical-area heading.
-- kind: printed-unassigned
-  ob_issue_no: 980
-  entry:
-    _class: F32TDIEntry
-    country_or_area:
-      en: PITCAIRN
-      fr: PITCAIRN
-      es: PITCAIRN
-    telegraph_office_name:
-      en: All destinations TKXX
-  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
-  source_page: 33
-  source_path: T-SP-F.32-2011-PDF-E.pdf
-  source_row: 1901
-  network_codes:
-  - TK
-  explanation: Printed name without an assigned office-code cell.
 - kind: heading
   ob_issue_no: 980
   entry:
@@ -52157,23 +54206,6 @@ contexts:
   network_codes:
   - SY
   explanation: Printed country/geographical-area heading.
-- kind: printed-unassigned
-  ob_issue_no: 980
-  entry:
-    _class: F32TDIEntry
-    country_or_area:
-      en: SYRIAN ARAB REPUBLIC
-      fr: RÉPUBLIQUE ARABE SYRIENNE
-      es: REPÚBLICA ÁRABE SIRIA
-    telegraph_office_name:
-      en: Matar SYMR
-  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
-  source_page: 34
-  source_path: T-SP-F.32-2011-PDF-E.pdf
-  source_row: 1959
-  network_codes:
-  - SY
-  explanation: Printed name without an assigned office-code cell.
 - kind: heading
   ob_issue_no: 980
   entry:
@@ -53185,23 +55217,6 @@ contexts:
   network_codes:
   - WD
   explanation: Printed country/geographical-area heading.
-- kind: printed-unassigned
-  ob_issue_no: 980
-  entry:
-    _class: F32TDIEntry
-    country_or_area:
-      en: SWAZILAND
-      fr: SWAZILAND
-      es: SWAZILANDIA
-    telegraph_office_name:
-      en: All others WDMX
-  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
-  source_page: 37
-  source_path: T-SP-F.32-2011-PDF-E.pdf
-  source_row: 2134
-  network_codes:
-  - WD
-  explanation: Printed name without an assigned office-code cell.
 - kind: network
   ob_issue_no: 980
   entry:
@@ -53295,23 +55310,6 @@ contexts:
   network_codes:
   - KD
   explanation: Printed country/geographical-area heading.
-- kind: printed-unassigned
-  ob_issue_no: 980
-  entry:
-    _class: F32TDIEntry
-    country_or_area:
-      en: CHAD
-      fr: TCHAD
-      es: CHAD
-    telegraph_office_name:
-      en: All others  KDFX
-  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
-  source_page: 37
-  source_path: T-SP-F.32-2011-PDF-E.pdf
-  source_row: 2148
-  network_codes:
-  - KD
-  explanation: Printed name without an assigned office-code cell.
 - kind: heading
   ob_issue_no: 980
   entry:
@@ -53645,23 +55643,6 @@ contexts:
   network_codes:
   - TV
   explanation: Printed country/geographical-area heading.
-- kind: printed-unassigned
-  ob_issue_no: 980
-  entry:
-    _class: F32TDIEntry
-    country_or_area:
-      en: TUVALU
-      fr: TUVALU
-      es: TUVALU
-    telegraph_office_name:
-      en: All others TVFX
-  source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
-  source_page: 38
-  source_path: T-SP-F.32-2011-PDF-E.pdf
-  source_row: 2208
-  network_codes:
-  - TV
-  explanation: Printed name without an assigned office-code cell.
 - kind: network
   ob_issue_no: 980
   entry:

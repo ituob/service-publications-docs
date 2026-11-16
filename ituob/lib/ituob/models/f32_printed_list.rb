@@ -13,6 +13,11 @@ module Ituob
       OFFICE_CODE = /\A(?:[A-Z]{4}|--[A-Z]{2})\z/
       # Some printed rows carry the office suffix at the end of the name cell.
       INLINE_CODE = /\A(?<name>.*?)\s*(?<code>--[A-Z]{2})\z/
+      # Poppler also joins a name cell with the 4-letter office code that follows it
+      # ("Berat  ABBR"). It is a code only when it begins with a prefix the country
+      # already uses (a printed network code or an office code printed earlier in
+      # the country); a name such as "ALBA" or "KAFR EL DAWAR" is not.
+      TRAILING_CODE = /\A(?:(?<name>.*?)\s+)?(?<code>[A-Z]{4})\z/
 
       def initialize(xml_path:, pdf_path:)
         @document = Nokogiri::XML(File.read(xml_path)) { |config| config.nonet }
@@ -34,6 +39,7 @@ module Ituob
         @networks = []
         @network_names = {}
         @current_network = nil
+        @office_prefixes = []
         @pending_names = []
         @seen = {}
         @printed_office_rows = 0
@@ -118,6 +124,13 @@ module Ituob
           inline_codes << match[:code]
           match[:name] unless match[:name].empty?
         end
+        names = names.filter_map do |name|
+          match = name.match(TRAILING_CODE)
+          next name unless match && printed_network_prefix?(match[:code])
+
+          inline_codes << match[:code]
+          match[:name] unless match[:name].to_s.empty?
+        end
         codes = nodes.filter_map do |left, text, font|
           next unless left >= 700 && data_font?(font)
           raise "Unparsed F32 office-code cell on page #{@page}: #{text}" unless text.match?(OFFICE_CODE)
@@ -133,6 +146,10 @@ module Ituob
         codes.each { |code| consume_office(code) }
       end
 
+      def printed_network_prefix?(code)
+        (@networks + @office_prefixes).include?(code[0, 2])
+      end
+
       def consume_country(heading)
         if @country_parts.empty?
           flush_unassigned
@@ -141,6 +158,7 @@ module Ituob
             @networks = []
             @network_names = {}
             @current_network = nil
+            @office_prefixes = []
           end
           @country = MultilingualString.new
           layout = @rules.fetch("country_layouts").find { |rule| rule.fetch("first") == heading }
@@ -175,6 +193,7 @@ module Ituob
           end
         end
         entry.network_code = entry.office_code[0, 2]
+        @office_prefixes << entry.network_code unless @office_prefixes.include?(entry.network_code)
         entry.network_roa = @network_names[entry.network_code]
         entry.network_codes = @networks.dup
         if @seen[entry.office_code]
