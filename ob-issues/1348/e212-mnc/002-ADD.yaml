@@ -12,16 +12,16 @@ data:
     country_or_area:
       en: Costa Rica
     networks: COOPERATIVA DE ELECTRIFICACIÓN RURAL DE GUANACASTE R.L.
-  - mcc_mnc_codes: "(Country A)"
+  - mcc_mnc_codes: 262 74
     country_or_area:
       en: Germany
-    networks: '0000099000 - 0000099099'
-    range: 262 74
-  - mcc_mnc_codes: "(Country B – Where the MCC+MNC is to be used extra‑territorially)"
+    networks: Ericsson GmbH
+    range: '0000099000 - 0000099099'
+  - mcc_mnc_codes: 262 74
     country_or_area:
       en: Sweden
-    networks: '0000099100 - 0000099199'
-    range: 262 74
+    networks: Ericsson GmbH
+    range: '0000099100 - 0000099199'
   notes:
   - "*            MCC:     Mobile Country Code"
   - 'MNC:    Mobile Network Code'

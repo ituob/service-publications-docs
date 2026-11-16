@@ -59,7 +59,7 @@ attribute :country, :string
         line[0...open].strip
       end
 
-      BLANK_CELL = /\A[\p{Space}\u200B-\u200D\uFEFF]*\z/
+      BLANK_CELL = /\A[\p{Space}\u00AD\u200B-\u200F\u2060\uFEFF]*\z/
 
       # A heading opens its own action; one that follows a heading with
       # no rows yet replaces it rather than leaving an empty action.
@@ -88,6 +88,10 @@ attribute :country, :string
         { country: country, action: suffix[:action] } unless country.empty?
       end
 
+      # Long enough for "French Departments and Territories in the Indian
+      # Ocean" (58); a bound still keeps running prose out.
+      MAX_COUNTRY_LENGTH = 64
+
       # Extract the fixed-size suffix before checking the country, so
       # country whitespace never competes with an action separator.
       def self.country_action_line(line)
@@ -97,10 +101,15 @@ attribute :country, :string
         return unless suffix
 
         country = line[0...suffix.begin(0)].rstrip
-        return unless country.length.between?(1, 50)
+        return unless country.length.between?(1, MAX_COUNTRY_LENGTH)
         return unless country.match?(/\A\p{Lu}[^\d:]*\z/)
 
         { country: country, action: suffix[:action] }
+      end
+
+      # One normalized string per cell of a table row.
+      def self.row_cells(row)
+        row.map { |cell| Ituob::Helpers.normalize_whitespace(Array(cell).join(' ')) }
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
@@ -249,11 +258,14 @@ attribute :country, :string
             end
 
           elsif first_elem.is_a?(Array) # table
+            header_row = row_cells(c.first)
             c.each_with_index do |row, row_index|
               segs = row.flatten
               heading = row.length == 3 ? rowspan_heading(segs) : nil
               # Row 0 is the column header unless it is itself a heading.
               next if row_index.zero? && !heading
+              # Long tables repeat the column header at each page break.
+              next if row_index.positive? && !heading && row_cells(row) == header_row
 
               if row.length == 1
                 # Editor layout: single-cell "«country»\u00a0\u00a0 ACTION"
@@ -315,12 +327,15 @@ attribute :country, :string
                 action.entries << entry
               elsif row.length >= 4
                 # 4+ column rows: country/code/range/networks or
-                # code/dec/range/networks. Map first 4 cells.
+                # code/dec/range/networks. Map first 4 cells; a cell may
+                # hold several paragraphs, and the country cell may add a
+                # qualifier such as "(Country A)" after the name.
+                cells = row_cells(row)
                 entry = E212MNCEntry.new
-                entry.country_or_area = MultilingualString.new(en: segs[0]) unless segs[0].to_s.strip.empty?
-                entry.mcc_mnc_codes = segs[1]
-                entry.range = segs[2]
-                entry.networks = segs[3]
+                entry.country_or_area = MultilingualString.new(en: Array(row[0]).first.to_s) unless cells[0].empty?
+                entry.mcc_mnc_codes = cells[1]
+                entry.range = cells[2]
+                entry.networks = cells[3]
                 action.entries << entry
               end
             end

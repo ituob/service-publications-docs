@@ -6142,25 +6142,35 @@
               "en": "France"
             },
             "networks": "Orange"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "647 02",
             "country_or_area": {
-              "en": "France"
+              "en": "French Departments and Territories in the Indian Ocean"
             },
             "networks": "Outremer Telecom"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "647 01",
             "country_or_area": {
-              "en": "France"
+              "en": "French Departments and Territories in the Indian Ocean"
             },
             "networks": "BJT Partners"
           },
           {
             "mcc_mnc_codes": "647 02",
             "country_or_area": {
-              "en": "France"
+              "en": "French Departments and Territories in the Indian Ocean"
             },
             "networks": "Telco OI"
           }
@@ -7606,20 +7616,20 @@
             "range": "MSIN** range to be used"
           },
           {
-            "mcc_mnc_codes": "(Country A)",
+            "mcc_mnc_codes": "208 01",
             "country_or_area": {
               "en": "France"
             },
-            "networks": "0000000000 - 0099999999; 0200000000 - 9999999999",
-            "range": "208 01"
+            "networks": "Orange",
+            "range": "0000000000 - 0099999999; 0200000000 - 9999999999"
           },
           {
-            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra-territorially)",
+            "mcc_mnc_codes": "208 01",
             "country_or_area": {
               "en": "Monaco"
             },
-            "networks": "0100000000 - 0199999999",
-            "range": "208 01"
+            "networks": "Orange/Monaco Télécom",
+            "range": "0100000000 - 0199999999"
           }
         ]
       }
@@ -9272,13 +9282,6 @@
               "en": "United States"
             },
             "networks": "Voyager Mobility LLC"
-          },
-          {
-            "mcc_mnc_codes": "MCC+MNC *",
-            "country_or_area": {
-              "en": "Country/Geographical area"
-            },
-            "networks": "Operator/Network"
           }
         ]
       },
@@ -9538,13 +9541,6 @@
             "networks": "Great Plains Communications, Inc"
           },
           {
-            "mcc_mnc_codes": "MCC+MNC *",
-            "country_or_area": {
-              "en": "Country/Geographical area"
-            },
-            "networks": "Operator/Network"
-          },
-          {
             "mcc_mnc_codes": "312 570",
             "country_or_area": {
               "en": " "
@@ -9788,13 +9784,6 @@
               "en": " "
             },
             "networks": "Webformix"
-          },
-          {
-            "mcc_mnc_codes": "MCC+MNC *",
-            "country_or_area": {
-              "en": "Country/Geographical area"
-            },
-            "networks": "Operator/Network"
           },
           {
             "mcc_mnc_codes": "312 950",
@@ -10054,13 +10043,6 @@
             "networks": "Transactions Network Services (TNS)"
           },
           {
-            "mcc_mnc_codes": "MCC+MNC *",
-            "country_or_area": {
-              "en": "Country/Geographical area"
-            },
-            "networks": "Operator/Network"
-          },
-          {
             "mcc_mnc_codes": "310 530",
             "country_or_area": {
               "en": " "
@@ -10318,13 +10300,6 @@
               "en": " "
             },
             "networks": "Sprint"
-          },
-          {
-            "mcc_mnc_codes": "MCC+MNC *",
-            "country_or_area": {
-              "en": "Country/Geographical area"
-            },
-            "networks": "Operator/Network"
           },
           {
             "mcc_mnc_codes": "311 890",
@@ -12970,20 +12945,20 @@
             "networks": "OneWeb"
           },
           {
-            "mcc_mnc_codes": "(Country A)",
+            "mcc_mnc_codes": "270 77",
             "country_or_area": {
               "en": "Luxembourg"
             },
-            "networks": "000 x xxx xxx",
-            "range": "270 77"
+            "networks": "Tango S.A.",
+            "range": "000 x xxx xxx"
           },
           {
-            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra-territorially)",
+            "mcc_mnc_codes": "270 77",
             "country_or_area": {
               "en": "Belgium"
             },
-            "networks": "800 x xxx xxx; 801 x xxx xxx",
-            "range": "270 77"
+            "networks": "Tango S.A.",
+            "range": "800 x xxx xxx; 801 x xxx xxx"
           }
         ]
       }
@@ -17149,20 +17124,20 @@
             "networks": "LIR"
           },
           {
-            "mcc_mnc_codes": "(Country A)",
+            "mcc_mnc_codes": "270 77",
             "country_or_area": {
               "en": "Luxembourg"
             },
-            "networks": "000 x xxx xxx",
-            "range": "270 77"
+            "networks": "Proximus Luxembourg S.A.",
+            "range": "000 x xxx xxx"
           },
           {
-            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra-territorially)",
+            "mcc_mnc_codes": "270 77",
             "country_or_area": {
               "en": "Belgium"
             },
-            "networks": "800 x xxx xxx; 801 x xxx xxx",
-            "range": "270 77"
+            "networks": "Proximus Luxembourg S.A.",
+            "range": "800 x xxx xxx; 801 x xxx xxx"
           }
         ]
       }
@@ -17204,20 +17179,20 @@
             "networks": "Melita Ltd"
           },
           {
-            "mcc_mnc_codes": "(Country A)",
+            "mcc_mnc_codes": "270 99",
             "country_or_area": {
               "en": "Luxembourg"
             },
-            "networks": "270 99 000 x xxx xxx",
-            "range": "270 99"
+            "networks": "Orange Communications Luxembourg S.A.",
+            "range": "270 99 000 x xxx xxx"
           },
           {
-            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra-territorially)",
+            "mcc_mnc_codes": "270 99",
             "country_or_area": {
               "en": "Belgium"
             },
-            "networks": "270 99 860 x xxx xxx",
-            "range": "270 99"
+            "networks": "Orange Communications Luxembourg S.A..",
+            "range": "270 99 860 x xxx xxx"
           }
         ]
       }
@@ -22925,20 +22900,20 @@
             "networks": "iWay AG"
           },
           {
-            "mcc_mnc_codes": "(Country A)",
+            "mcc_mnc_codes": "270 07",
             "country_or_area": {
               "en": "Luxembourg"
             },
-            "networks": "270 07 00 0X XX XX XX",
-            "range": "270 07"
+            "networks": "Bouygues Telecom S.A.",
+            "range": "270 07 00 0X XX XX XX"
           },
           {
-            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra-territorially)",
+            "mcc_mnc_codes": "270 07",
             "country_or_area": {
               "en": "France"
             },
-            "networks": "270 07 60 XX XX XX XX",
-            "range": "270 07"
+            "networks": "Bouygues Telecom S.A.",
+            "range": "270 07 60 XX XX XX XX"
           }
         ]
       }
@@ -27060,20 +27035,20 @@
             "networks": "COOPERATIVA DE ELECTRIFICACIÓN RURAL DE GUANACASTE R.L."
           },
           {
-            "mcc_mnc_codes": "(Country A)",
+            "mcc_mnc_codes": "262 74",
             "country_or_area": {
               "en": "Germany"
             },
-            "networks": "0000099000 - 0000099099",
-            "range": "262 74"
+            "networks": "Ericsson GmbH",
+            "range": "0000099000 - 0000099099"
           },
           {
-            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra‑territorially)",
+            "mcc_mnc_codes": "262 74",
             "country_or_area": {
               "en": "Sweden"
             },
-            "networks": "0000099100 - 0000099199",
-            "range": "262 74"
+            "networks": "Ericsson GmbH",
+            "range": "0000099100 - 0000099199"
           }
         ]
       }

@@ -252,13 +252,13 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       end
     end
 
-    it 'preserves the country guards and the 50-character limit' do
-      ['germany', 'Germany 2', 'Germany:', 'P 35 Germany', 'A' * 51, ''].each do |country|
+    it 'preserves the country guards and the 64-character limit' do
+      ['germany', 'Germany 2', 'Germany:', 'P 35 Germany', 'A' * 65, ''].each do |country|
         expect(described_class.country_action_line("#{country} ADD")).to be_nil
       end
 
-      expect(described_class.country_action_line("#{'A' * 50} ADD")).to eq(
-        country: 'A' * 50, action: 'ADD',
+      expect(described_class.country_action_line("#{'A' * 64} ADD")).to eq(
+        country: 'A' * 64, action: 'ADD',
       )
       expect(described_class.country_action_line('GermanyADD')).to be_nil
       expect(described_class.country_action_line('Germany MOD')).to be_nil
@@ -330,6 +330,63 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entry.networks).to eq('Tele 2 Sverige AB')
       expect(entry.country_or_area.en).to eq('Sweden')
       expect(entry.range).to include('6680000000').and include('6689999999')
+    end
+  end
+
+  describe 'E.212 print shapes found in the corpus' do
+    def heading(text)
+      row(cell(paragraph(text)), cell(paragraph(' ')), cell(paragraph(' ')))
+    end
+
+    def pair(code, network)
+      row(cell(paragraph(code)), cell(paragraph(network)))
+    end
+
+    def source_entries(issue, position_on: nil)
+      path = File.expand_path("../../../../itu-ob-data/issues/#{issue}/amendments.yaml", __dir__)
+      skip 'itu-ob-data submodule not checked out' unless File.exist?(path)
+
+      data = YAML.load_file(path, permitted_classes: [Date, Time])
+      msgs = data['messages'].select { |m| m['target']['publication'] == 'E212_MNC' }
+      parse(msgs.first['contents']['en'])
+    end
+
+    it 'recognises the 58-character French Indian Ocean country lines (OB 1087)' do
+      expect(described_class.country_action_line(
+        'French Departments and Territories in the Indian Ocean SUP',
+      )).to eq(country: 'French Departments and Territories in the Indian Ocean', action: 'SUP')
+
+      actions = source_entries(1087).actions
+      by_type = actions.select { |a| a.entries.any? { |e| e.mcc_mnc_codes.start_with?('647') } }
+      expect(by_type.map { |a| [a.action_type, a.entries.map(&:mcc_mnc_codes)] })
+        .to eq([['SUP', ['647 02']], ['ADD', ['647 01', '647 02']]])
+    end
+
+    it 'skips a column header repeated inside a table' do
+      header = row(cell(paragraph('Country/Geographical area')), cell(paragraph('MCC+MNC *')),
+                   cell(paragraph('Operator/Network')))
+      doc = document(table(header, heading('Denmark SUP'), pair('238 96', 'Telia'), header,
+                           pair('238 97', 'Tele2')))
+      entries = parse(doc).actions.flat_map(&:entries)
+
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['238 96', '238 97'])
+    end
+
+    it 'keeps the operator and range of a country cell with a (Country A) qualifier (OB 1348)' do
+      entries = source_entries(1348).actions.flat_map(&:entries)
+      germany = entries.find { |e| e.country_or_area.en == 'Germany' }
+
+      expect([germany.mcc_mnc_codes, germany.range, germany.networks])
+        .to eq(['262 74', '0000099000 - 0000099099', 'Ericsson GmbH'])
+      expect(entries.map(&:mcc_mnc_codes)).not_to include(a_string_starting_with('('))
+      expect(entries.map(&:mcc_mnc_codes)).not_to include(a_string_matching(/\AMCC\+MNC/))
+    end
+
+    it 'reads left-to-right marks, word joiners and soft hyphens as blank cells' do
+      ["\u200E", "\u200F", "\u2060", "\u00AD"].each do |mark|
+        expect(described_class.rowspan_heading(['Denmark ADD', mark, ' ']))
+          .to eq(country: 'Denmark', action: 'ADD')
+      end
     end
   end
 end
