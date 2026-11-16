@@ -27,6 +27,13 @@ module Ituob
         replay.at_issue(issue)
       end
 
+      def source_contexts_at(issue)
+        source = change_source
+        return [] unless source.respond_to?(:contexts_at_issue)
+
+        source.contexts_at_issue(issue)
+      end
+
       # Entry instances for the active rows of +state+, in replay key
       # order. Each carries its concrete class name as the `_class`
       # discriminator so a RegisterEdition restores the same classes.
@@ -58,7 +65,7 @@ module Ituob
       end
 
       def change_source
-        Registers::DirectoryChangeSource.new(
+        @change_source ||= Registers::DirectoryChangeSource.for_register(
           register_id: @register.register_id,
           seed_path: File.expand_path(@register.seed_path, DataRoot.path),
           seed_issue: @register.seed_issue,

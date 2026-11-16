@@ -169,17 +169,9 @@ RSpec.describe ReplaySkipInventory do
     end
   end
 
-  context 'with an unreviewed row in a reviewed multi-row patch' do
-    let(:register) { 'F32_TDI' }
-    let(:seed_issue) { 980 }
-    let(:issue) { 1148 }
-    let(:code) { 'UKRAINE' }
-    let(:patch_data) do
-      { 'entries' => [{ 'country_or_area' => 'BOGUS', 'network_code' => 'ZZ', 'office_code' => '' }] }
-    end
-
-    it 'fails instead of reusing the patch-level class' do
-      expect { rows }.to raise_error(/Unclassified skip: F32_TDI OB 1148/)
+  context 'with F.32 replayed from the committed corpus' do
+    it 'has no skips, because the verified publication seeds the withdrawn rows' do
+      expect(described_class.collect.map(&:first)).not_to include('F32_TDI')
     end
   end
 

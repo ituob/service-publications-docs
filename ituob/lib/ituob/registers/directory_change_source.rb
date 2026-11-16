@@ -18,6 +18,11 @@ module Ituob
       SEED_FILENAME = 'data.yaml'
       CHANGES_SUBDIR = 'changes'
 
+      def self.for_register(register_id:, **options)
+        source_class = register_id == 'F32_TDI' ? F32DirectoryChangeSource : self
+        source_class.new(register_id: register_id, **options)
+      end
+
       attr_reader :seed_path, :seed_issue
 
       def initialize(register_id:, seed_path:, seed_issue:, key_field:)

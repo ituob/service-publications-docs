@@ -22,6 +22,7 @@ module Ituob
     autoload :StateDiff, 'ituob/registers/state_diff'
     autoload :ChangeSource, 'ituob/registers/change_source'
     autoload :DirectoryChangeSource, 'ituob/registers/directory_change_source'
+    autoload :F32DirectoryChangeSource, 'ituob/registers/f32_directory_change_source'
     autoload :InlineChangeSource, 'ituob/registers/inline_change_source'
     autoload :Replay, 'ituob/registers/replay'
     autoload :SnapshotWriter, 'ituob/registers/snapshot_writer'
