@@ -1,0 +1,105 @@
+= Operational Bulletin source of truth
+
+== Authority and evidence
+
+`ituob/itu-ob-data` is the authoritative repository for Operational Bulletin
+issue source data. `itu-ob-data/issues/{id}/` contains the source metadata,
+general messages and amendments. The submodule commit pins the source revision
+used by this repository.
+
+`scripts/build_ob_issues.rb` reads those issue directories and uses the local
+`ituob` parsers to generate `ob-issues/{id}/`. Its `process_issue` method deletes
+and recreates each selected issue directory before writing the normalized
+files. `ob-issues/` is therefore a checked, generated copy; corrections belong
+in the source data or parser, followed by regeneration.
+
+The existing `.github/workflows/validate-ob-issues.yml` runs dataset validation,
+reference validation, parser equivalence and LML instance validation here.
+`.github/workflows/test.yml` runs the gem specs. Those workflows alone do not
+gate a pull request in `itu-ob-data`. The reusable workflow owned by
+service-publications-docs#74 exposes the gates to that repository; the caller
+workflow belongs in `itu-ob-data` and is maintained separately.
+
+== Regeneration and drift detection
+
+The flow is source commit -> pinned `itu-ob-data` checkout -> local parsers ->
+generated `ob-issues/` -> validation gates. A source PR must be checked using its
+head SHA, so validation exercises the proposed data rather than a moving branch.
+
+Run the drift check from this repository with the gem bundle:
+
+[source,sh]
+----
+BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/check_ob_issues_drift.rb
+----
+
+The checker invokes the real `scripts/build_ob_issues.rb` into a temporary
+directory and compares file bytes. It exits zero for a clean tree and nonzero
+for drift or regeneration failure. Each drift diagnostic names a relative path
+and says `changed`, `missing` (expected generated file absent from the checked
+copy), or `extra` (checked file absent from regeneration). It never repairs the
+checked tree.
+
+Environment variables:
+
+* `ITU_OB_DATA_ROOT`: source checkout root, containing `issues/`; defaults to
+  this repository's `itu-ob-data` submodule.
+* `OB_ISSUES_OUT_PATH`: checked generated tree to compare; defaults to this
+  repository's `ob-issues/`.
+* `ISSUE_IDS`: optional comma-separated numeric IDs. Unset or empty checks the
+  union of source and checked numeric issue directories, including obsolete
+  checked issues whose source has been removed. A nonempty value limits both
+  regeneration and comparison to those issues.
+
+The checker clears inherited `ISSUE_SAMPLE` and `CUTOVER_EDITION` limits so they
+cannot hide drift. It always uses the builder's partial-build mode to avoid
+writing `scripts/output/parser-coverage-report.yaml` or the volatile root
+`manifest.yaml`. Only files inside numeric issue directories are compared;
+the root manifest contains generation timestamps and absolute paths rather
+than issue content. Temporary output is removed on success or failure.
+
+For example, regenerate an intentional source or parser correction, then check it:
+
+[source,sh]
+----
+ISSUE_IDS=1173 BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/build_ob_issues.rb
+ISSUE_IDS=1173 BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/check_ob_issues_drift.rb
+----
+
+Review and commit the generated copy with its pinned source revision. A drift
+comparison requires the checked copy and source checkout to represent the same
+revision; a proposed source change naturally differs from an older generated
+copy until regeneration. The reusable workflow owns checkout, ordering and
+issue selection for cross-repository validation.
+
+== Cross-repository gate interface
+
+The reusable workflow path is `.github/workflows/validate-itu-ob-data.yml`,
+owned by #74. Its agreed triggers are `workflow_call` and `workflow_dispatch`.
+The caller line is:
+
+[source,yaml]
+----
+uses: ituob/service-publications-docs/.github/workflows/validate-itu-ob-data.yml@main
+----
+
+[cols="1,1,1,3",options="header"]
+|===
+|Input |Type |Default |Meaning
+|`itu_ob_data_ref` |string |required |PR head SHA to check out as the source submodule
+|`itu_ob_data_repository` |string |`ituob/itu-ob-data` |Source repository
+|`issue_ids` |string |empty |Comma-separated IDs; empty means issues changed between `base_ref` and `itu_ob_data_ref`
+|`base_ref` |string |`main` |Base revision for changed-issue selection
+|===
+
+The optional secret `ITU_OB_DATA_TOKEN` permits private source checkout. There
+are no outputs: the job status is the result. The agreed gates are drift
+detection, scoped `build_ob_issues.rb` regeneration, the RSpec suite,
+`validate_data_lml.rb --all`, `ituob dataset validate`, and
+`verify_parser_equivalence.rb --verify`. Mapping the workflow inputs to checkout
+and `ISSUE_IDS`, and workflow-dispatch verification, belong to #74.
+
+Cross-repository reusable workflow calls require this repository to be public
+or its Actions access setting to allow calls from `itu-ob-data`. This document
+records the agreed interface; implementation and live-run status are owned by
+the workflow card.
