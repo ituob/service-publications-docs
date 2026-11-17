@@ -129,6 +129,304 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     expect(lir.entries.map(&:mcc_mnc_codes)).to eq(['302 490', '302 491'])
   end
 
+  describe 'rowspan heading layout (OB 1176)' do
+    # "«country» ACTION" sits in a rowspan cell beside blank code and
+    # network cells; the code/network rows below it have two cells.
+    def heading(text)
+      row(cell(paragraph(text)), cell(paragraph(" ")), cell(paragraph(" ")))
+    end
+
+    def pair(code, network)
+      row(cell(paragraph(code)), cell(paragraph(network)))
+    end
+
+    let(:amendment) do
+      parse(document(table(
+        row(cell(paragraph('Country/Geographical area')), cell(paragraph('MCC+MNC *')),
+            cell(paragraph('Operator/Network'))),
+        heading('Denmark ADD'), pair('238 96', 'Telia Danmark'),
+        heading('South Africa SUP'), pair('655 04', 'Sasol (Pty) Ltd'), pair('655 11', 'SAPS Gauteng'),
+        heading('International Mobile, shared code LIR *'), pair('901 53', 'Tele2 Sverige AB')
+      )))
+    end
+
+    it 'opens one typed action per heading instead of a blank-key entry' do
+      expect(amendment.actions.map(&:action_type)).to eq(%w[ADD REP LIR])
+      codes = amendment.actions.flat_map(&:entries).map(&:mcc_mnc_codes)
+      expect(codes).to eq(['238 96', '655 04', '655 11', '901 53'])
+    end
+
+    it 'carries the heading country to every printed row under it' do
+      countries = amendment.actions.map { |action| action.entries.map { |e| e.country_or_area.en }.uniq }
+      expect(countries).to eq([['Denmark'], ['South Africa'], ['International Mobile, shared code']])
+    end
+
+    it 'reads a heading that is the first row of a later table' do
+      first = table(heading('Kosovo* ADD'), pair('221 01', 'Tel'))
+      second = table(heading('Spain SUP'), pair('214 10', 'Opera'))
+      actions = parse(document(first, second)).actions
+
+      expect(actions.map(&:action_type)).to eq(%w[ADD REP])
+      expect(actions.last.entries.map { |e| e.country_or_area.en }).to eq(['Spain'])
+      expect(actions.last.entries.map(&:mcc_mnc_codes)).to eq(['214 10'])
+    end
+
+    it 'still skips a first row that is a column header' do
+      header = row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Operator')))
+      amendment = parse(document(table(header, heading('Denmark ADD'), pair('238 96', 'Telia'))))
+
+      expect(amendment.actions.flat_map(&:entries).map(&:mcc_mnc_codes)).to eq(['238 96'])
+    end
+
+    it 'reads ideographic and zero-width blank cells as a heading row' do
+      expect(described_class.rowspan_heading(['Denmark ADD', "\u3000", "\u200B"]))
+        .to eq(country: 'Denmark', action: 'ADD')
+    end
+
+    it 'never turns a heading-like row with no code into a blank-key entry' do
+      doc = document(table(heading('Denmark add'), pair('238 96', 'Telia')))
+      codes = parse(doc).actions.flat_map(&:entries).map(&:mcc_mnc_codes)
+
+      expect(codes).to eq(['238 96'])
+    end
+
+    it 'leaves no empty action behind two consecutive headings' do
+      amendment = parse(document(table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Operator'))),
+        heading('Denmark ADD'), heading('Norway SUP'), pair('578 01', 'N')
+      )))
+
+      expect(amendment.actions.map(&:action_type)).to eq(%w[REP])
+    end
+
+    it 'returns nil for an empty segment list' do
+      expect(described_class.rowspan_heading([])).to be_nil
+    end
+
+    it 'still reads a three-cell row with a code as an entry' do
+      doc = document(table(heading('Denmark ADD'),
+                           row(cell(paragraph('Denmark')), cell(paragraph('238 97')), cell(paragraph('Net')))))
+      entries = parse(doc).actions.flat_map(&:entries)
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['238 97'])
+    end
+  end
+
+  it 'carries table headings through consecutive rows and switches at the next heading' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+        row(cell(paragraph('Hungary SUP')), cell(paragraph("\u00a0")), cell(paragraph(' '))),
+        row(cell(paragraph('')), cell(paragraph('216 04')), cell(paragraph('First network'))),
+        row(cell(paragraph('')), cell(paragraph('216 05')), cell(paragraph('Second network'))),
+        row(cell(paragraph('Kenya ADD'))),
+        row(cell(paragraph('639 08')), cell(paragraph('Third network'))),
+      ),
+    )
+    actions = parse(doc).actions
+
+    expect(actions.map(&:action_type)).to eq(%w[REP ADD])
+    expect(actions.map { |action| action.entries.map { |entry| entry.country_or_area.en } }).to eq(
+      [%w[Hungary Hungary], ['Kenya']],
+    )
+    expect(actions.flat_map(&:entries).map(&:mcc_mnc_codes)).to eq(['216 04', '216 05', '639 08'])
+  end
+
+  it 'skips normalized blank keys in multi-line and four-column rows' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+        row(cell(paragraph('Hungary SUP'))),
+        row(cell(paragraph('')), cell(paragraph("\u00a0"), paragraph('216 04')),
+            cell(paragraph(''), paragraph('Invitech ICT Services Ltd.'))),
+        row(cell(paragraph('')), cell(paragraph(" \u00a0 ")), cell(paragraph('')), cell(paragraph(''))),
+        row(cell(paragraph('')), cell(paragraph('216 05')), cell(paragraph('1-9')), cell(paragraph('Another network'))),
+      ),
+    )
+    amendment = parse(doc)
+    entries = amendment.actions.flat_map(&:entries)
+
+    expect(amendment.actions.map(&:action_type)).to eq(['REP'])
+    expect(entries.map(&:mcc_mnc_codes)).to eq(['216 04', '216 05'])
+    expect(entries.map { |entry| entry.country_or_area.en }).to eq(%w[Hungary Hungary])
+    expect(entries.map(&:networks)).to eq(['Invitech ICT Services Ltd.', 'Another network'])
+    expect(entries.last.range).to eq('1-9')
+  end
+
+  %w[paragraph table].each do |layout|
+    it "prefers printed row countries after a #{layout} country heading" do
+      heading = if layout == 'paragraph'
+                  paragraph('Hungary ADD')
+                else
+                  table(
+                    row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+                    row(cell(paragraph('Hungary ADD'))),
+                    row(cell(paragraph('216 04')), cell(paragraph('Hungarian network'))),
+                  )
+                end
+      doc = document(
+        heading,
+        table(
+          row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+          row(cell(paragraph('Belgium')), cell(paragraph('206 01')), cell(paragraph('Proximus'))),
+          row(cell(paragraph('Belgium')), cell(paragraph('206 02'), paragraph('206 03')),
+              cell(paragraph('Second network'), paragraph('Third network'))),
+        ),
+        table(
+          row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Range')), cell(paragraph('Network'))),
+          row(cell(paragraph('Belgium')), cell(paragraph('206 04')), cell(paragraph('1-9')), cell(paragraph('Fourth network'))),
+        ),
+      )
+      entries = parse(doc).actions.flat_map(&:entries).select { |entry| entry.mcc_mnc_codes.start_with?('206') }
+
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['206 01', '206 02', '206 03', '206 04'])
+      expect(entries.map { |entry| entry.country_or_area.en }).to eq(Array.new(4, 'Belgium'))
+    end
+  end
+
+  it 'carries a printed rowspan country onto its two-cell continuation rows' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+        row(cell(paragraph('Hungary ADD'))),
+        row(cell(paragraph('216 04')), cell(paragraph('Hungarian network'))),
+        row(cell(paragraph('Belgium')).merge('attrs' => { 'rowspan' => 2 }),
+            cell(paragraph('206 01')), cell(paragraph('Proximus'))),
+        row(cell(paragraph('206 02')), cell(paragraph('Belgian continuation'))),
+        row(cell(paragraph('Netherlands')).merge('attrs' => { 'rowspan' => 2 }),
+            cell(paragraph('204 01'), paragraph('204 02')),
+            cell(paragraph('First Dutch network'), paragraph('Second Dutch network'))),
+        row(cell(paragraph('204 03')), cell(paragraph('Dutch continuation'))),
+      ),
+    )
+    actions = parse(doc).actions
+    entries = actions.flat_map(&:entries)
+
+    expect(actions.map(&:action_type)).to eq(['ADD'])
+    expect(entries.map(&:mcc_mnc_codes)).to eq(['216 04', '206 01', '206 02', '204 01', '204 02', '204 03'])
+    expect(entries.map { |entry| entry.country_or_area.en }).to eq(
+      %w[Hungary Belgium Belgium Netherlands Netherlands Netherlands],
+    )
+    expect(entries.values_at(2, 5).map(&:networks)).to eq(['Belgian continuation', 'Dutch continuation'])
+  end
+
+  it 'carries a four-column row country into a later two-column table' do
+    doc = document(
+      paragraph('Hungary ADD'),
+      table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Range')), cell(paragraph('Network'))),
+        row(cell(paragraph('Belgium')), cell(paragraph('206 01')), cell(paragraph('1-9')), cell(paragraph('Proximus'))),
+      ),
+      table(
+        row(cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+        row(cell(paragraph('206 02')), cell(paragraph('Belgian continuation'))),
+        row(cell(paragraph('206 03')), cell(paragraph('Another Belgian continuation'))),
+      ),
+    )
+    entries = parse(doc).actions.flat_map(&:entries)
+
+    expect(entries.map(&:mcc_mnc_codes)).to eq(['206 01', '206 02', '206 03'])
+    expect(entries.map { |entry| entry.country_or_area.en }).to eq(%w[Belgium Belgium Belgium])
+    expect(entries.first.range).to eq('1-9')
+  end
+
+  it 'recognizes multi-cell country headings with parentheses' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+        row(cell(paragraph('Hungary ADD')), cell(paragraph('')), cell(paragraph(''))),
+        row(cell(paragraph('216 04')), cell(paragraph('Hungarian network'))),
+        row(cell(paragraph('Iran (Islamic Republic of) SUP')), cell(paragraph("\u00a0")), cell(paragraph(' '))),
+        row(cell(paragraph('432 11')), cell(paragraph('Iranian network'))),
+        row(cell(paragraph("\u00a0")), cell(paragraph('432 12')), cell(paragraph('Another Iranian network'))),
+      ),
+    )
+    actions = parse(doc).actions
+
+    expect(actions.map(&:action_type)).to eq(%w[ADD REP])
+    expect(actions.map { |action| action.entries.map(&:mcc_mnc_codes) }).to eq([['216 04'], ['432 11', '432 12']])
+    expect(actions.last.entries.map { |entry| entry.country_or_area.en }).to eq(
+      ['Iran (Islamic Republic of)', 'Iran (Islamic Republic of)'],
+    )
+    expect(actions.last.entries.map(&:networks)).to eq(['Iranian network', 'Another Iranian network'])
+  end
+
+  it 'classifies single-cell editor SUP headings as replacement blocks' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country / Geographical area'))),
+        row(cell(paragraph('MCC + MNC')), cell(paragraph('Operator / Network'))),
+        row(cell(paragraph("Iran (Islamic Republic of)\u00a0 SUP"))),
+        row(cell(paragraph('432 11')), cell(paragraph('Iranian network'))),
+      ),
+    )
+    actions = parse(doc).actions
+
+    expect(actions.map(&:action_type)).to eq(['REP'])
+    expect(actions.first.entries.map(&:mcc_mnc_codes)).to eq(['432 11'])
+    expect(actions.first.entries.first.country_or_area.en).to eq('Iran (Islamic Republic of)')
+  end
+
+  it 'preserves starred actions in multi-cell country headings' do
+    doc = document(
+      table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+        row(cell(paragraph('Hungary SUP*')), cell(paragraph('')), cell(paragraph(''))),
+        row(cell(paragraph('216 04')), cell(paragraph('Hungarian network'))),
+      ),
+    )
+    actions = parse(doc).actions
+
+    expect(actions.map(&:action_type)).to eq(['REP'])
+    expect(actions.first.entries.map(&:mcc_mnc_codes)).to eq(['216 04'])
+    expect(actions.first.entries.first.country_or_area.en).to eq('Hungary')
+  end
+
+  [' ', "\u00a0"].each do |separator|
+    it "opens a separate country block when #{separator.inspect} separates the action from its star" do
+      doc = document(
+        table(
+          row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Network'))),
+          row(cell(paragraph('Sweden LIR')), cell(paragraph(' ')), cell(paragraph(' '))),
+          row(cell(paragraph('')), cell(paragraph('240 14')), cell(paragraph('Tele2'))),
+          row(cell(paragraph("International Mobile, shared code LIR#{separator}*")),
+              cell(paragraph(' ')), cell(paragraph(' '))),
+          row(cell(paragraph('')), cell(paragraph('901 53')), cell(paragraph('Inmarsat'))),
+        ),
+      )
+      actions = parse(doc).actions
+
+      expect(actions.map do |action|
+        [action.action_type, action.entries.map do |entry|
+          [entry.country_or_area.en, entry.mcc_mnc_codes, entry.networks]
+        end]
+      end).to eq([
+        ['LIR', [['Sweden', '240 14', 'Tele2']]],
+        ['LIR', [['International Mobile, shared code', '901 53', 'Inmarsat']]],
+      ])
+    end
+  end
+
+  context 'OB 1170 table announcements' do
+    let(:amendment) do
+      parse(YAML.safe_load_file(File.expand_path('../../fixtures/e212mnc/ob1170.yaml', __dir__)))
+    end
+    let(:entries) { amendment.actions.flat_map(&:entries) }
+
+    it 'drops the blank heading keys and preserves the printed entries' do
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['216 04', '639 08'])
+      expect(entries.map(&:networks)).to eq(['Invitech ICT Services Ltd.', 'Sema Mobile Services Limited'])
+    end
+
+    it 'stamps each entry with its block country' do
+      expect(entries.map { |entry| entry.country_or_area&.en }).to eq(['Hungary', 'Kenya'])
+    end
+
+    it 'replaces the listed codes in country SUP blocks' do
+      expect(amendment.actions.map(&:action_type)).to eq(%w[REP REP])
+      expect(amendment.actions.map { |action| action.entries.map(&:mcc_mnc_codes) }).to eq([['216 04'], ['639 08']])
+    end
+  end
+
   describe 'country-first paragraph layout (no position column)' do
     it 'opens an action with the full parenthesised country heading' do
       doc = document(

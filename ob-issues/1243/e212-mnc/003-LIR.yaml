@@ -1,0 +1,47 @@
+type: LIR
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1243'
+reference: OB-1243
+identifier:
+  code: 1243-003
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 208 19
+    country_or_area:
+      en: France
+    networks: Haute-Garonne numérique
+  - mcc_mnc_codes: 208 26
+    country_or_area:
+      en: France
+    networks: Bouygues Telecom Business - Distribution
+  - mcc_mnc_codes: 208 28
+    country_or_area:
+      en: France
+    networks: Airmob Infra Full
+  - mcc_mnc_codes: 208 30
+    country_or_area:
+      en: France
+    networks: Syma
+  - mcc_mnc_codes: 208 33
+    country_or_area:
+      en: France
+    networks: Syndicat mixte La Fibre64
+  - mcc_mnc_codes: 208 87
+    country_or_area:
+      en: France
+    networks: Airbus defence and space SAS
+  - mcc_mnc_codes: 208 89
+    country_or_area:
+      en: France
+    networks: Hub One
+  - mcc_mnc_codes: 208 96
+    country_or_area:
+      en: France
+    networks: Région Bourgogne-Franche-Comté
+  notes:
+  - "*       MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

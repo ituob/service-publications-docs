@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift(File.expand_path('../ituob/lib', __dir__))
+require 'ituob'
 require 'ituob/support'
 require 'ituob/registers'
 require 'ituob/catalogs'
@@ -40,26 +41,6 @@ Rule = Struct.new(:register, :issue, :type, :code, :category, :refs, keyword_ini
   end
 end
 
-UKRAINE_REFS = {
-  'UKRAINE | UX- - | ' => 944, 'UKRAINE | UX- - | UXCK' => 1018,
-  'UCRANIA | UX- - | UXCG' => 1072, 'UCRANIA | UX- - | UXCV' => 1126,
-  'UCRANIA | UX- - | UXDP' => 1180, 'UCRANIA | UX- - | UXDC' => 1234,
-  'UCRANIA | UX- - | UXGR' => 1288, 'UCRANIA | UX- - | UXIF' => 1342,
-  'UCRANIA | UX- - | UXHR' => 1396, 'UCRANIA | UX- - | UXHS' => 1450,
-  'UCRANIA | UX- - | UXHM' => 1504, 'UCRANIA | UX- - | UXKG' => 1558,
-  'UCRANIA | UX- - | UXKM' => 1612, 'UCRANIA | UX- - | UXKR' => 1666,
-  'UCRANIA | UX- - | UXKV' => 1720, 'UCRANIA | UX- - | UXLK' => 1774,
-  'UCRANIA | UX- - | UXLC' => 1828, 'UCRANIA | UX- - | UXLV' => 1882,
-  'UCRANIA | UX- - | UXMR' => 1936, 'UCRANIA | UX- - | UXMK' => 1990,
-  'UCRANIA | UX- - | UXOD' => 2044, 'UCRANIA | UX- - | UXPL' => 2098,
-  'UCRANIA | UX- - | UXRV' => 2152, 'UCRANIA | UX- - | UXSV' => 2206,
-  'UCRANIA | UX- - | UXSF' => 2260, 'UCRANIA | UX- - | UXSU' => 2314,
-  'UCRANIA | UX- - | UXTR' => 2368, 'UCRANIA | UX- - | UXUG' => 2422,
-  'UCRANIA | UX- - | UXVC' => 2476, 'UCRANIA | UX- - | UXYL' => 2530,
-  'UCRANIA | UX- - | UXZP' => 2584, 'UCRANIA | UX- - | UXZT' => 2638,
-  'UCRANIA | UX- - | UXKX' => 2692
-}.freeze
-
 EVIDENCE = [
   Rule.new(register: 'E118_IIN', issue: 1161, type: 'SUP', code: '89 420 06', category: 'E',
            refs: { '89 420 06' => 573 }),
@@ -68,6 +49,12 @@ EVIDENCE = [
                    '5-245-6' => 753, '5-251-0' => 795, '6-237-4' => 837 }),
   Rule.new(register: 'Q708_ISPC', issue: 1109, type: 'SUP', code: '4-082-6', category: 'E',
            refs: { '4-082-6' => 1189, '4-086-0' => 1231, '4-086-1' => 1273 }),
+  Rule.new(register: 'E212_MNC', issue: 1162, type: 'SUP', code: '268 02', category: 'E',
+           refs: { '268 02' => 1809, '268 07' => 1831 }),
+  Rule.new(register: 'E212_MNC', issue: 1197, type: 'SUP', code: '640 01', category: 'G',
+           refs: { '640 01' => 154 }),
+  Rule.new(register: 'E212_MNC', issue: 1243, type: 'SUP', code: '340 04', category: 'G',
+           refs: { '340 04' => 1392 }),
   Rule.new(register: 'F32_TDI', issue: 1004, type: 'LIR', code: '1004-0001', category: 'D',
            refs: '213-330'),
   Rule.new(register: 'Q708_ISPC', issue: 1167, type: 'SUP',
@@ -75,10 +62,6 @@ EVIDENCE = [
            refs: { 'Genza SA Rue de Lausanne 37 1201 GENEVE' => 3166 }),
   Rule.new(register: 'E164_CC', issue: 1217, type: 'LIR', code: '1217-0002', category: 'G',
            refs: '148-156'),
-  Rule.new(register: 'F32_TDI', issue: 1013, type: 'SUP', code: 'MALAISIE', category: 'G',
-           refs: { 'MALAISIE | MA- | MAAS MAIP MAJB MAKU MAKO MAKB MAKL MATG MAKN MAKG MAMC MAPK MAPG MAPJ MASR MATP MAMX' => 1082 }),
-  Rule.new(register: 'F32_TDI', issue: 1148, type: 'SUP', code: 'UKRAINE', category: 'G',
-           refs: UKRAINE_REFS),
   Rule.new(register: 'X121_DNIC', issue: 1081, type: 'SUP', code: '206 1', category: 'G',
            refs: { '206 1' => 8845 })
 ].freeze
@@ -87,7 +70,7 @@ ROOT = File.expand_path('..', __dir__)
 
   # Keep the DirectoryChangeSource loader and ordering; only retain provenance
   # while it yields the already-loaded Change to Replay.
-  class Source < Ituob::Registers::DirectoryChangeSource
+  module Provenance
     def each_sorted
       return enum_for(:each_sorted) unless block_given?
 
@@ -110,6 +93,16 @@ ROOT = File.expand_path('..', __dir__)
     end
   end
 
+  class Source < Ituob::Registers::DirectoryChangeSource
+    include Provenance
+  end
+
+  # F.32 replays through its verified-publication source, exactly as
+  # DirectoryChangeSource.for_register selects it for production reads.
+  class F32Source < Ituob::Registers::F32DirectoryChangeSource
+    include Provenance
+  end
+
   # report_skip remains the sole producer of skip messages and counts. Retain
   # the associated Change so identical row errors can still name their file.
   class Replay < Ituob::Registers::Replay
@@ -123,8 +116,9 @@ ROOT = File.expand_path('..', __dir__)
     private
 
     def report_skip(builder, change, error)
-      super
-      @skipped_changes << change
+      skipped = super
+      @skipped_changes << change if skipped
+      skipped
     end
   end
 
@@ -146,7 +140,8 @@ def self.source_for(entry)
     raise "Missing seed directory or #{Source::SEED_FILENAME} for #{entry.register_id}: #{entry.seed_path}"
   end
 
-  Source.new(
+  source_class = entry.register_id == 'F32_TDI' ? F32Source : Source
+  source_class.new(
     register_id: entry.register_id, seed_path: seed_dir,
     seed_issue: entry.seed_issue, key_field: entry.key_field
   )
@@ -251,12 +246,16 @@ end
         patches through OB 1080. The printed OB 977 seed table is unavailable in
         repository text. Other rows in that patch apply independently; their successful
         withdrawals are not skips.
-      * F.32: the OB 980 seed ends at ISRAEL, omitting MALAYSIA and UKRAINE.
-        Withdrawals are printed in `itu-ob-data/issues/1013/amendments.yaml:767-1082`
-        and `itu-ob-data/issues/1148/amendments.yaml:680-2692`. The first patch also
-        aggregates office codes; the second contains individual rows and an empty
-        office-code heading. Each reported row remains a separate skip. The ledger
-        records these extraction/source gaps without changing the seed or patch data.
+      * F.32: the legacy OB 980 `data.yaml` seed ends at ISRAEL. Replay reads F.32
+        through the verified source-complete `publication.yaml`, which restores the
+        omitted MALAYSIA and UKRAINE rows and expands the grouped OB 1013 withdrawal
+        into its office codes. The OB 1013 and OB 1148 withdrawals therefore apply
+        and the register has no replay skips.
+      * E.212 640 01 and 340 04: the withdrawals at OB 1197 and OB 1243
+        (`itu-ob-data/issues/1197/amendments.yaml:154`, `1243/amendments.yaml:1392`)
+        are the only printed mentions of those codes. The corresponding additions
+        appear in no seed, dataset patch or print in this corpus, so there is no
+        key to withdraw.
       * Seed-issue suppressions (E) target keys already absent from the post-amendment
         annex. Mis-filed patches (D) carry a different register's printed columns.
         These classes describe the evidence; the inventory does not change replay.

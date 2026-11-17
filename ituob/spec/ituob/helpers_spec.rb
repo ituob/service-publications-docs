@@ -32,6 +32,7 @@ RSpec.describe Ituob::Helpers do
     it 'returns nil when no line matches and for nil input' do
       expect(described_class.isolate_key(['Nothing here'], 'Tel')).to be_nil
       expect(described_class.isolate_key(nil, 'Tel')).to be_nil
+      expect(described_class.isolate_key(['E-mail:   '], 'E-mail')).to be_nil
     end
   end
 

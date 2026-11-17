@@ -166,10 +166,10 @@ attribute :country, :string
                 action.action_type = pm[1]
                 amendment.actions << action
 
-              # "Netherlands LIR" or "Costa Rica ADD" or "Belgium ADD"
+              # "Netherlands LIR", "Costa Rica ADD" or "Sweden DEL"
               # (matched on the whitespace-normalized form — printed
               # rows carry trailing padding spaces)
-              elsif match = single_space_str.match(/^(.+) (ADD|LIR|SUP)\*?$/)
+              elsif match = single_space_str.match(/^(.+) (ADD|LIR|SUP|DEL)\*?$/)
                 action = Q708ISPCAction.new 
                 action.entries = []
                 # action.position = match[1].strip # no position supplied

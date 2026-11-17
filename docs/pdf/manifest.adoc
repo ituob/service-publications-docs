@@ -1,0 +1,179 @@
+= PDF publication manifest: design note
+:toc:
+
+Part of spd#89 (tasks 4, 7, 8) and the input to ituob.github.io#112. This is a
+design note: no manifest class exists yet (next card: a lutaml-model class, so
+serialization goes through lutaml-model and nothing is hand-rolled). The
+publication inventory it covers is link:coverage-matrix.adoc[the generated
+coverage matrix].
+
+== Unit
+
+One manifest entry per rendered PDF, that is one per publication x language.
+`documents/` holds 22 publications and 87 language files, so a full render
+yields at most 87 entries. A publication is a `documents/T-SP-<standard>-<year>/`
+directory. Its `standard` is the directory token, not the bare Recommendation:
+`E.212A` and `E.212B`, `E.164B`/`C`/`D`, `Q.708A`/`B`, `X.121A`/`B` and `T.35B` are
+distinct publications that share a Recommendation.
+
+== Fields
+
+[cols="2,2,4",options="header"]
+|===
+| Field | Type | Source and rule
+
+| `standard` | string | Directory token, for example `E.212B`.
+| `recommendation` | string | The Recommendation the publication belongs to, for grouping
+  (ituob.github.io#112: "grouped by Recommendation, then edition"). Derived from
+  `standard` by dropping one trailing uppercase letter that follows a digit:
+  `E.164B` -> `E.164`, `X.121A` -> `X.121`, `T.35B` -> `T.35`; `E.118`, `M.1400`,
+  `RR.25.1`, `PP.RES.21`, `SR.1` stay as they are. Checked against all 22 directory
+  tokens. It is not read from `catalogs/registers.yaml`, because 21 matrix rows
+  (E.180, E.212A, F.68, PP.RES.21, SR.1, X.121A) have no register.
+| `edition_year` | integer | Directory year, for example `2018`.
+| `language` | enum `A C E F R S` | Last token of the `.adoc` file name, after any
+  stem (see Path).
+| `title` | string | The document title in that language: `metadata.title[<code>]` of the
+  first dataset the document reads, where `<code>` is the metadata language key for
+  the letter: `E`=`en`, `F`=`fr`, `S`=`es`, `R`=`ru`, `C`=`zh`, `A`=`ar`. Measured:
+  all 87 rows resolve to a non-empty title with this mapping. (Q.708B metadata uses
+  `ch` for Chinese; Q.708B has no `C` file, so nothing breaks today.) The `.adoc`
+  `=` title line is the fallback.
+| `registers` | list of string | Register slugs from `catalogs/registers.yaml`,
+  resolved through the datasets the document reads. May be empty (see coverage matrix).
+| `as_of_issue` | integer | The OB issue the rendered data represents: the highest
+  of the issues of every dataset the document reads. It is the provider's
+  `edition.provenance.as_of_issue` for the data the render used, never the build
+  date or the header `:docnumber:`. See below.
+| `dataset_issues` | map string to integer | Per-dataset issue for each numbered
+  dataset the document reads, for example `{1161-E.118: 1161}`. Recorded so a
+  consumer can see when a publication reads datasets from different issues.
+| `checksum_sha256` | string | SHA-256 of the PDF bytes, hex.
+| `status` | enum `candidate`, `itu-adopted` | See below.
+| `path` | string | Deterministic, relative: see below.
+|===
+
+An entry exists only if the render succeeded and the file was checksummed.
+Failed renders are written to a log and are absent from the manifest
+(ituob.github.io#112, task 2).
+
+== as_of_issue
+
+The wall clock must not appear in the manifest or the PDF's identity, or a rerun
+on the same data would change the checksum for no reason. `as_of_issue` is the
+provider's as-of (`Ituob::Projections::RegisterEdition.provenance`, field
+`as_of_issue`), so it is a property of the data and the same data renders to the
+same value.
+
+Measured on origin/main e712c74a: the document headers cannot supply it. The
+header `:docnumber:` differs from the dataset's issue number in 42 of 87 files
+(`E.212`, `Q.708`, `PP-2006`, or a stale `976` on E.164D, and `1199` on Q.708B).
+The coverage matrix therefore derives the edition's issue from the dataset
+directory. Until the provider is the render's data path (spd#89 task 3), the
+manifest emitter takes `as_of_issue` from the dataset directory number; after
+it, from the provider.
+
+A document may read several datasets (`E.164D` reads four). The matrix generator
+reduces them like this: `as_of_issue` is the maximum of the dataset issues,
+`dataset_issues` keeps each one, and a register counts as outdated when its own
+dataset's issue is below the register's newest issue. Measured on this tree: all
+87 files read datasets of a single issue, so the maximum equals every member
+today; the rule matters only when a publication is rebuilt from mixed issues. The
+issue of a dataset is the leading number of its directory (`1114-E.164D` is 1114).
+
+== Path
+
+[source]
+----
+pdf/<standard>-<year>/<standard>-<year>-<L>.pdf
+----
+
+for example `pdf/E.212B-2018/E.212B-2018-E.pdf`. It is relative, depends only on
+three manifest fields, and contains no hash, timestamp or issue number, so the
+same entry always lands in the same place and the site can link to it without
+reading anything but the manifest. The `T-SP-` prefix is dropped on purpose:
+every publication has it. The path does not include the source file's stem:
+30 of the 87 files are named with one (`MSW` or `OAS-MSW`, for example
+`T-SP-F.1-1998-MSW-E.adoc`), but the stem names the source file, not the
+publication, and must not change where the PDF lands. Uniqueness is enforced
+instead of assumed: `(standard, year, language)` must identify exactly one file,
+and `scripts/build_pdf_coverage_matrix.rb` fails with the clashing file names when
+two files share it. The manifest itself is `pdf/manifest.json`.
+
+== status
+
+`candidate` is the default: the PDF is generated from the patch log and awaits
+ITU adoption. `itu-adopted` means ITU has adopted that publication and the site
+presents it as official. The manifest emitter reads the value; it never computes
+it. A missing value means `candidate`.
+
+The adoption decision is ITU's (spd#89 task 7), so the value must change only by
+a reviewed commit and must not depend on rendering.
+
+=== Where status lives
+
+Recommendation, pending Hassan: one file per publication next to its documents,
+`documents/T-SP-<standard>-<year>/publication-status.yaml`, containing a single
+`status:` line, absent while the publication is a candidate.
+
+* Reason: adoption is decided per publication, not per language, and the file
+  sits beside what it governs. Flipping a publication is a reviewed PR that touches
+  exactly one path, which also makes a path-based review rule possible.
+* Cost: up to 22 small files.
+
+Alternative: a single `documents/publication-status.yaml` mapping
+`<standard>-<year>` to a status. One file to read, one place to see everything
+adopted. The cost is that every adoption edits the same file, so concurrent
+adoptions conflict, and path-based review rules cannot separate publications.
+Both options give a one-line reviewed change; the choice is about review
+ownership, not capability. This note was tested against that claim and neither
+option fails it.
+
+Not an option: storing `status` in the manifest itself or in the `.adoc` header.
+The manifest is generated, so a hand edit would be overwritten, and the header is
+rendered content.
+
+== Example
+
+[source,yaml]
+----
+- standard: E.212B
+  edition_year: 2018
+  language: E
+  title: Mobile Network Codes (MNC) for the international identification plan ...
+  registers: [e212-mnc, e212-shared-mcc]
+  as_of_issue: 1162
+  checksum_sha256: "<64 hex characters>"
+  status: candidate
+  path: pdf/E.212B-2018/E.212B-2018-E.pdf
+----
+
+This example illustrates shape only. The emitter, and a lutaml-model class that
+serializes it, are later cards.
+
+== Open
+
+* Status location above: Hassan decides.
+* Which source supplies `as_of_issue` before the provider is the render path: the
+  dataset directory number is the interim choice above.
+* `registers` is empty or partial for 21 matrix rows whose datasets have no
+  register in the catalog. The site must render an entry with no register link.
+
+== Emitted shape (scripts/render_publications.rb)
+
+The emitter writes `pdf/manifest.json` as `{ "publications": [...] }` through
+`Ituob::Models::PublicationManifest`. The consumer
+(ituob.github.io `src/lib/publications.ts`) fixes some names, which win over the
+field table above where they differ:
+
+* `sha256` (not `checksum_sha256`) and `register_slugs` (not `registers`);
+  `register_slugs` is always an array, empty when there is no register.
+* `language` is the lowercase code (`en fr es ru zh ar`), not the file letter;
+  the letter stays in `path`.
+* `standard` stays the directory token (`E.212B`) because the site rejects two
+  entries with the same standard, year and language (`T.35` and `T.35B` 2012
+  would clash); `recommendation` carries the grouping key and is ignored by the
+  site.
+* `dataset_issues` is not emitted yet.
+* `status` is read from `documents/<dir>/publication-status.yaml` (the
+  recommended option above, still pending Hassan), else `candidate`.

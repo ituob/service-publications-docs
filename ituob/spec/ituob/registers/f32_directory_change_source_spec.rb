@@ -1,0 +1,177 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "tmpdir"
+require "fileutils"
+require "ituob/models"
+require "ituob/registers"
+
+RSpec.describe Ituob::Registers::F32DirectoryChangeSource do
+  let(:seed_dir) { Dir.mktmpdir("f32-source") }
+  let(:legacy_seed) { File.expand_path("../../../../datasets/980-F.32/data.yaml", __dir__) }
+  let(:publication) { Ituob::Models::F32SeedBuilder.new(seed_path: File.join(seed_dir, "data.yaml")).build }
+  let(:source) do
+    described_class.new(register_id: "F32_TDI", seed_path: seed_dir, seed_issue: 980,
+                        key_field: %w[country_or_area network_code office_code])
+  end
+  before { FileUtils.cp(legacy_seed, File.join(seed_dir, "data.yaml")) }
+  after { FileUtils.remove_entry(seed_dir) }
+
+  it "fails closed when the verified publication is absent instead of falling back to the legacy seed" do
+    expect { source }.to raise_error(RuntimeError, /publication\.yaml is missing.*not a fallback.*build_f32_seed_publication/m)
+  end
+
+  it "fails closed with an actionable error when the publication file is empty" do
+    File.write(File.join(seed_dir, "publication.yaml"), "")
+    expect { source }.to raise_error(RuntimeError, /unreadable.*build_f32_seed_publication/m)
+  end
+
+  it "rejects an artifact whose completeness has not been independently verified" do
+    File.write(File.join(seed_dir, "publication.yaml"), publication.to_yaml)
+    expect { source }.to raise_error(/independent allocation completeness/)
+  end
+
+  it "keeps a verified publication's context available while replaying only office allocations" do
+    fixtures = File.expand_path("../../fixtures/f32", __dir__)
+    complete = Ituob::Models::F32SeedBuilder.new(seed_path: File.join(seed_dir, "data.yaml")).build_complete(
+      xml_path: File.join(fixtures, "official-2011.xml"), pdf_path: File.join(fixtures, "official-2011.pdf")
+    )
+    File.write(File.join(seed_dir, "publication.yaml"), complete.to_yaml)
+    expect(source.publication.contexts.map(&:to_yaml)).to eq(complete.contexts.map(&:to_yaml))
+    expect(source.each_sorted.first.data.map { |entry| entry.fetch("office_code") }).to all(match(/\S/))
+    expect(File.binread(File.join(seed_dir, "data.yaml"))).to eq(File.binread(legacy_seed))
+    register = Ituob::Catalogs::Registers.find("F32_TDI")
+    replay = Ituob::Registers::Replay.new(register_id: "F32_TDI", key_field: register.key_field, source: source)
+    result = Ituob::Verifiers::RegisterStateIntegrityVerifier.new.verify_state(replay.at_seed, register: register)
+    expect(result.errors).to be_empty
+  end
+  context "with the committed publication and amendments" do
+    let(:data_root) { File.expand_path("../../../../datasets/980-F.32", __dir__) }
+    let(:committed) do
+      described_class.new(register_id: "F32_TDI", seed_path: data_root, seed_issue: 980, key_field: "office_code")
+    end
+    let(:rep_rows) do
+      Ituob::Support::Yaml.safe_load_file(File.join(data_root, "changes/0988-0001-REP-UNMY.yaml")).dig("data", "entries")
+    end
+
+    def replay_at(issue)
+      Ituob::Registers::Replay.new(register_id: "F32_TDI", key_field: "office_code", source: committed).at_issue(issue)
+    end
+
+    it "accounts for all 473 printed OB 988 rows: one entry per indicator plus a shared-indicator context per extra row" do
+      shared = committed.contexts_at_issue(988).select { |c| c.ob_issue_no == 988 && c.kind == "shared-indicator" }
+      entries = committed.each_sorted.select { |c| c.ob_issue_no == 988 && c.type == "REP" }.flat_map { |c| c.data["entries"] }
+      expect(rep_rows.length).to eq(473)
+      expect(entries.length + shared.length).to eq(473)
+      expect(entries.map { |e| e["office_code"] }).to eq(rep_rows.map { |e| e["office_code"] }.uniq)
+      unae = shared.select { |c| c.related_office_code == "UNAE" }
+      expect(unae.map { |c| c.entry.telegraph_office_name.en }).to eq(["ABASIA EGYPT /B", "PHON ASIOUT 1", "PHON ASIOUT 2"])
+      expect(unae.map(&:source_row)).to eq(unae.map(&:source_row).sort)
+    end
+
+    it "keeps the first printed row of a shared indicator, as the seed does, and replaces the unprinted seed UN offices" do
+      state = replay_at(988)
+      unae = state.entries.fetch("UNAE")
+      expect(unae.dig("telegraph_office_name", "en")).to eq("ABASIA EGYPT")
+      expect(state.entries.keys.grep(/\AUN/)).to match_array(rep_rows.map { |e| e["office_code"] }.uniq.select { |c| c.start_with?("UN") })
+      expect(state.entries.keys).not_to include("UNAK", "UNPO")
+      expect(state.deleted_keys).to include("UNAK", "UNPO")
+    end
+
+    context "with a network replacement flag" do
+      let(:office) { ->(code) { { "office_code" => code, "network_code" => "UN--", "telegraph_office_name" => { "en" => code } } } }
+      let(:changes) { [] }
+      let(:removed) do
+        FileUtils.mkdir_p(File.join(seed_dir, "changes"))
+        FileUtils.cp(File.join(data_root, "publication.yaml"), File.join(seed_dir, "publication.yaml"))
+        changes.each_with_index do |(type, issue, data), index|
+          File.write(File.join(seed_dir, "changes", format("%04d-%04d-%s-X.yaml", issue, index, type)), {
+            "type" => type, "register" => "F32_TDI", "ob_issue_no" => issue.to_s,
+            "identifier" => { "code" => "UNAK" }, "data" => data
+          }.to_yaml)
+        end
+        source.each_sorted.select { |c| c.type == "SUP" }.flat_map { |c| c.data["entries"].map { |e| e["office_code"] } }
+      end
+      let(:seed_un) { source.publication.allocations.map(&:office_code).grep(/\AUN/) }
+      let(:replace) { ->(extra = {}) { ["REP", 982, { "description" => "P 1 REP all info", "entries" => [office.("UNAK")] }.merge(extra)] } }
+
+      it "withdraws the unprinted offices of the network when the field is set, whatever the description says" do
+        changes << replace.("replaces_network" => true, "description" => "free text")
+        expect(removed).to match_array(seed_un - ["UNAK"])
+      end
+
+      it "does not fire on 'REP all information' text without the field" do
+        changes << replace.("description" => "P 1 EGYPT REP all information by:")
+        expect(removed).to be_empty
+      end
+
+      it "also withdraws an office an earlier ADD put on the network" do
+        changes << ["ADD", 981, { "entries" => [office.("UNZZ")] }]
+        changes << replace.("replaces_network" => true)
+        expect(removed).to include("UNZZ")
+        expect(removed).to match_array(seed_un - ["UNAK"] + ["UNZZ"])
+      end
+
+      it "does not withdraw an office suppressed before the replacement" do
+        changes << ["SUP", 981, { "entries" => [office.("UNPO")] }]
+        changes << replace.("replaces_network" => true)
+        expect(removed.count("UNPO")).to eq(1)
+      end
+
+      it "does not withdraw an office an earlier REP moved to another network" do
+        changes << ["REP", 981, { "entries" => [office.("UNTG").merge("network_code" => "XY--")] }]
+        changes << replace.("replaces_network" => true)
+        expect(removed).to match_array(seed_un - %w[UNAK UNTG])
+      end
+
+      it "does not withdraw an office deleted before the replacement" do
+        changes << ["DEL", 981, { "entries" => [office.("UNTG")] }]
+        changes << replace.("replaces_network" => true)
+        expect(removed).to match_array(seed_un - %w[UNAK UNTG])
+      end
+
+      it "fails loudly when the flagged entries are only headings" do
+        changes << ["REP", 982, { "replaces_network" => true, "entries" => [office.("").merge("network_code" => nil)] }]
+        expect { removed }.to raise_error(RuntimeError, /0982-0000-REP-X\.yaml sets replaces_network but has no entries/)
+      end
+
+      it "fails loudly naming the file when the flag has no entries" do
+        changes << ["REP", 982, { "replaces_network" => true, "entries" => [] }]
+        expect { removed }.to raise_error(RuntimeError, /0982-0000-REP-X\.yaml sets replaces_network but has no entries/)
+      end
+
+      it "fails loudly naming the file when the entries print no network" do
+        changes << ["REP", 982, { "replaces_network" => true, "entries" => [{ "office_code" => "UNAK" }] }]
+        expect { removed }.to raise_error(RuntimeError, /0982-0000-REP-X\.yaml sets replaces_network but prints no network/)
+      end
+
+      it "fails loudly when the field is not a boolean" do
+        changes << replace.("replaces_network" => "yes")
+        expect { removed }.to raise_error(RuntimeError, /0982-0000-REP-X\.yaml has a non-boolean replaces_network/)
+      end
+    end
+
+    it "flags only the OB 988 REP; every other committed REP leaves the register untouched" do
+      flagged = Dir[File.join(data_root, "changes/*.yaml")].select do |path|
+        Ituob::Support::Yaml.safe_load_file(path).dig("data", "replaces_network")
+      end
+      expect(flagged.map { |path| File.basename(path) }).to eq(["0988-0001-REP-UNMY.yaml"])
+      # 31 = the 28 unprinted seed UN offices plus UNBI, UNES and UNKO, which OB 980 prints
+      # (BEILA, ESNA, KOUS) but which no longer hide inside a neighbouring name.
+      expect(committed.each_sorted.select { |c| c.type == "SUP" && c.ob_issue_no == 988 }.sum { |c| c.data["entries"].length }).to eq(31)
+    end
+
+    it "rejects a grouped REP loudly, naming the OB and code, before any state is produced" do
+      path = File.join(seed_dir, "changes")
+      FileUtils.mkdir_p(path)
+      FileUtils.cp(File.join(data_root, "publication.yaml"), File.join(seed_dir, "publication.yaml"))
+      FileUtils.cp(File.join(data_root, "metadata.yaml"), File.join(seed_dir, "metadata.yaml")) if File.exist?(File.join(data_root, "metadata.yaml"))
+      File.write(File.join(path, "1200-0001-REP-X.yaml"), {
+        "type" => "REP", "register" => "F32_TDI", "ob_issue_no" => "1200", "identifier" => { "code" => "MAAS" },
+        "data" => { "entries" => [{ "office_code" => "MAAS MAIP" }] }
+      }.to_yaml)
+      replay = Ituob::Registers::Replay.new(register_id: "F32_TDI", key_field: "office_code", source: source)
+      expect { replay.current }.to raise_error(RuntimeError, /only supported for SUP: OB 1200 "MAAS MAIP"/)
+    end
+  end
+end
