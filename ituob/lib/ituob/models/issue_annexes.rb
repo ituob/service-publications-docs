@@ -38,6 +38,7 @@ module Ituob
       end
 
       def self.from_yaml(yaml, *_args, **options)
+        yaml = yaml.read if yaml.respond_to?(:read)
         # Psych uses YAML 1.1 booleans, while the site's YAML 1.2 reader
         # treats yes/no/on/off as strings. Retag only publication keys,
         # before the Hash constructor can collapse their identities.

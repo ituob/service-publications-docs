@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'stringio'
 
 # annexes.yaml is the write path of the annex form: a stored file must come
 # back exactly as stored. Comparison is strict (key order, nil, and the
@@ -105,6 +106,13 @@ RSpec.describe Ituob::Models::IssueAnnexes do
       reloaded = described_class.from_yaml(annexes.to_yaml)
       expect(reloaded.position_for('PUB').position_on).to eq(Date.new(2019, 12, 15))
       expect(reloaded.position_for('PUB').datasets).to eq('en' => 'edited')
+    end
+
+    it 'preserves YAML bytes when loading an IO' do
+      source = "# original formatting\nPUB: {position_on: 2018-12-15}\n"
+      annexes = described_class.from_yaml(StringIO.new(source))
+      expect(annexes.to_yaml).to eq(source)
+      expect(annexes.position_for('PUB').position_on).to eq(Date.new(2018, 12, 15))
     end
 
     it 'reads a timestamp, a date and an unspecified position' do
