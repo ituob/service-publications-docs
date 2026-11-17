@@ -103,6 +103,8 @@ data payload. Serialized as `ob-issues/{issue}/{slug}/NNN-{ACTION}.yaml`.
 One of `ADD`, `SUP`, `REP`, `LIR`, `MOD`, `DEL`. `LIR` means a last-issue
 repetition: the printed table repeats entries unchanged from the previous
 edition, so replay treats it as a no-op that refreshes the stored rows.
+For `E212_MNC`, country names merge by language: printed translations refresh
+the stored values, while translations absent from the repetition are retained.
 
 == Source data layers
 

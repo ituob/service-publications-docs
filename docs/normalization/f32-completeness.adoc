@@ -38,6 +38,36 @@ The Malaysia and Ukraine withdrawals apply without replay errors. The separate
 context-only action remains recorded with its source context; it is not counted as
 an allocation.
 
+== OB 988 Egypt replacement and the 212 asserted-add findings
+
+The register-state integrity gate (spd #115) reports 212 F32_TDI `asserted-add`
+findings, all of them REP rows of `datasets/980-F.32/changes/0988-0001-REP-UNMY.yaml`
+whose key is not in the register. They were checked against the printed OB 980 seed
+and are not missing seed rows:
+
+[cols="3,1"]
+|===
+|Class |Offices
+
+|Printed in the OB 988 Egypt REP, absent from the OB 980 printed seed (a later printed addition)
+|212
+|In both the seed and the OB 988 REP (kept)
+|49
+|In the seed but not printed again by the REP (withdrawn by `replaces_network`)
+|31
+|Missing seed rows, parse errors
+|0
+|===
+
+The seed holds 80 distinct Egyptian offices (`UN- -`); the OB 988 REP prints 261
+distinct offices in 473 rows. The REP's description is "P 11-12 EGYPT REP all
+information by:", so it replaces the whole list. The 212 offices occur in the corpus
+in `itu-ob-data/issues/988/amendments.yaml` and nowhere in the OB 980 PDF, so no seed
+row can be added from the printed list for them. They stay in the integrity
+allowlist as expected findings. One printed code, `URRG` (REASA EL GONHORIA), does
+not start with `UN`; it is kept as OB 988 prints it, not corrected. The classification
+is pinned by `ituob/spec/ituob/registers/f32_ob988_replacement_spec.rb`.
+
 == Reproduction and limits
 
 Run `BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/build_f32_seed_publication.rb`

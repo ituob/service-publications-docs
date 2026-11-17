@@ -145,16 +145,16 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
       expect(tok.of_print('P  24  Gibraltar')).to include('p', '24')
     end
 
-    it 'excludes page-marker headings that carry only a page, a name and an action' do
-      ['P  9  Georgia   LIR', 'P 29 to 30  Spain REP all information by:', 'P  26  Norway  SUP (delete)',
-       'ADD  P  31  Tuvalu', 'P  17  International Mobile, shared code   ADD1', 'Cyprus     REP',
-       'P  64 to P 65   Latvia    LIR'].each do |text|
+    it 'excludes page-marker headings that carry only page and action directives' do
+      ['P 9 LIR', 'P 29 to 30 REP all information by:', 'P 26 SUP (delete)',
+       'ADD P 31', 'P 64 to P 65 LIR'].each do |text|
         expect(rule_ids.call(text)).to include('page_action_heading'), text
       end
     end
 
     it 'keeps a heading that also prints register values unmapped' do
-      ['P  34    Netherlands    89 31 02  (INMO B.V.)    LIR', 'Malta     ADD     278 11   YOM',
+      ['P 9 Georgia LIR', 'Cyprus REP', 'P 17 International Mobile, shared code ADD1',
+       'P  34    Netherlands    89 31 02  (INMO B.V.)    LIR', 'Malta     ADD     278 11   YOM',
        'P 18   Note q)   +883 5140   SUP*'].each do |text|
         expect(rule_ids.call(text)).not_to include('page_action_heading'), text
       end
@@ -175,7 +175,15 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
         .to include('list_viii_questionnaire_label')
       expect(rule_ids.call('(Annex to ITU Operational Bulletin No. 1161 – 1.XII.2018)'))
         .to include('bulletin_reference_banner')
+      expect(rule_ids.call('1 | 2 | 3 | 4 | 5')).to include('column_header')
+      expect(rule_ids.call('Country | Country code | 7')).to be_empty
       expect(rule_ids.call('1.      Name of the station')).to be_empty
+      expect(rule_ids.call('(According to Recommendation ITU-T Q.708 (03/1999))'))
+        .to include('bulletin_reference_banner')
+      expect(rule_ids.call('Associated with shared country code 882, the following two-digit identification code reservations or assignments have been made for the international networks of:'))
+        .to include('shared_mcc_intro')
+      expect(rule_ids.call('*** As defined in Annex E to Recommendation ITU-T E.212, extra-territorial use of an MCC+MNC is the term used to describe the'))
+        .to include('extra_territorial_footnote')
     end
   end
 
@@ -188,5 +196,103 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
     _o, err, st = run_script(@env)
     expect(st.success?).to be(true), err
     expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |r| r['text'] }).not_to include('Example Oy Tel: +358 40 866 8582')
+  end
+
+  it 'keeps shared-country-code network assignments unmapped without patches' do
+    lines = [
+      'e            Associated with shared country code 878 for Universal personal telecommunications (UPT), the identification code 10 has been assigned to the network of VISIONng, +878 10.',
+      'Associated with shared country code 883, identification code 5140 has been assigned to the network of Example Telecom, +883 5140.'
+    ]
+    msgs = message('E164_CC', para(*lines))
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'), "messages:\n#{msgs}")
+
+    _out, err, status = run_script(@env)
+    expect(status.success?).to be(true), err
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }).to include(*lines)
+  end
+
+  it 'requires full normalized telephone equality while preserving regrouped numbers' do
+    lines = ['Example Oy Tel: +358 40 866 85829', 'Example Oy Tel: +999 358 40 866 8582', 'Example Oy Tel: +358 40 866 8582']
+    msgs = message('E118_IIN', para(*lines))
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'), "messages:\n#{msgs}")
+    write(File.join(@dir, 'ob/701/e118-iin/001-ADD.yaml'), "type: ADD\ndata:\n  company_name: Example Oy\n  tel: '+358 40 8668582'\n")
+
+    _out, err, status = run_script(@env)
+    expect(status.success?).to be(true), err
+    unmapped = tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }
+    expect(unmapped).to include(*lines.first(2))
+    expect(unmapped).not_to include(lines.last)
+    expect(tsv(File.join(@out, '100-05-excluded-lines.tsv')).map { |row| row['text'] }).not_to include(lines.last)
+  end
+
+  it 'keeps questionnaire answers unmapped until a patch carries the answer without its label' do
+    line = '2. Geographical coordinates: 46 N 6 E'
+    msgs = message('R_SP_LN.VIII', para(line))
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'), "messages:\n#{msgs}")
+
+    _out, err, status = run_script(@env)
+    expect(status.success?).to be(true), err
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }).to include(line)
+
+    write(File.join(@dir, 'ob/701/list-viii/001-ADD.yaml'), "type: ADD\ndata:\n  coordinates: 46 6 E\n")
+    _out, err, status = run_script(@env)
+    expect(status.success?).to be(true), err
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }).to include(line)
+
+    write(File.join(@dir, 'ob/701/list-viii/001-ADD.yaml'), "type: ADD\ndata:\n  coordinates: 46 N 6 E\n")
+    _out, err, status = run_script(@env)
+    expect(status.success?).to be(true), err
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }).not_to include(line)
+    expect(tsv(File.join(@out, '100-05-excluded-lines.tsv')).map { |row| row['text'] }).not_to include(line)
+  end
+
+  it 'keeps extra-territorial assignment rows unmapped without patches' do
+    line = 'Sweden | 240 99 | Example operator assigned extra-territorial use'
+    msgs = message('E212_MNC', table_row('Sweden', '240 99', 'Example operator assigned extra-territorial use'))
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'), "messages:\n#{msgs}")
+
+    _out, err, status = run_script(@env)
+    expect(status.success?).to be(true), err
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }).to include(line)
+  end
+
+  it 'requires page-heading register values to map while preserving mapped country headings' do
+    line = 'P 17 Sweden ADD Example Telecom (carrier code EXAMPLE)'
+    heading = 'P 17 Sweden ADD'
+    msgs = message('M1400_ICC', para(line, heading))
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'), "messages:\n#{msgs}")
+    write(File.join(@dir, 'ob/701/m1400-icc/001-ADD.yaml'), "type: ADD\ndata:\n  country: Sweden\n")
+
+    _out, err, status = run_script(@env)
+    expect(status.success?).to be(true), err
+    unmapped = tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }
+    expect(unmapped).to include(line)
+    expect(unmapped).not_to include(heading)
+    expect(tsv(File.join(@out, '100-05-excluded-lines.tsv')).map { |row| row['text'] }).not_to include(heading)
+  end
+
+  it 'keeps country-code value rows unmapped without patches' do
+    msgs = message('E164_CC', table_row('Country code', '7'))
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'), "messages:\n#{msgs}")
+
+    _out, err, status = run_script(@env)
+    expect(status.success?).to be(true), err
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }).to include('Country code | 7')
+
+    write(File.join(@dir, 'ob/701/e164-cc/001-ADD.yaml'), "type: ADD\ndata:\n  country_code: '7'\n")
+    _out, err, status = run_script(@env)
+    expect(status.success?).to be(true), err
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }).not_to include('Country code | 7')
+    expect(tsv(File.join(@out, '100-05-excluded-lines.tsv')).map { |row| row['text'] }).not_to include('Country code | 7')
+  end
+
+  it 'keeps recommendation references with ISPC assignments unmapped without patches' do
+    line = '(According to Recommendation ITU-T Q.708, assign ISPC 2-001-0 to Example Telecom)'
+    msgs = message('Q708_ISPC', para(line))
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'), "messages:\n#{msgs}")
+
+    _out, err, status = run_script(@env)
+    expect(status.success?).to be(true), err
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }).to include(line)
   end
 end

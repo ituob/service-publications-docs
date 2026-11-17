@@ -177,5 +177,20 @@ RSpec.describe 'generated TypeScript validators' do
       expect(results['dot-str']).to eq([])
       expect(results['dot-num'].map { |i| i['code'] }).to eq(['type'])
     end
+
+    it 'preserves scalar kinds for annex publication ids' do
+      types, validators = generate(out_dir, 'annex-publication-id')
+      expect(File.read(types)).to include('publication_id?: string | number | boolean | null;')
+      cases = [1092, '1092', true, nil, { 'nested' => 'value' }].map.with_index do |id, index|
+        { 'id' => "publication-id-#{index}", 'class' => 'AnnexedPosition', 'value' => { 'publication_id' => id } }
+      end
+
+      results = run_cases(validators, cases, out_dir)
+      %w[publication-id-0 publication-id-1 publication-id-2 publication-id-3].each do |id|
+        expect(results.fetch(id)).to eq([]), id
+      end
+      expect(results.fetch('publication-id-4').map { |issue| [issue['code'], issue['path']] })
+        .to eq([%w[type publication_id]])
+    end
   end
 end
