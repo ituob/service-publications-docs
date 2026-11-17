@@ -91,50 +91,75 @@ module PrintToPatchCoverage
     'country geographical area network administration roa'
   ]).freeze
 
-  HEADER_NOUNS = %w[country area name address contact code date number operator network applicant company
-                    pays zone nom reseau operateur pais zona assignee msin range].freeze
-  HEADER_VOCABULARY = Set.new(HEADER_NOUNS + %w[
-    geographical geographique geografica or ou o of de and a b is to be in the on aera iso mcc mnc cc di roa
-    carrier issuer identifier identification effective registration withdrawal usage cancellation assignment
-    assigment reclamation trial global service s administration destination indicator first letters telegram
-    telegraph third fourth office assigned used extra territorially where countries mobile subscription
-    admd helpdesk autoanswer auto answer note numerical numeric alphabetical order not
+  ADDITIONAL_HEADER_CELLS = Set.new([
+    'applicant network', 'auto answer', 'company name address carrier code', 'contact name',
+    'country b where the mcc mnc is to be used extra territorially',
+    'country code and trial identification code', 'country geographical area global network',
+    'country geographical area mcc mnc', 'country geographical code', 'country name address',
+    'country or area iso code company code', 'country or area iso code company name address',
+    'date of assigment', 'date of registration', 'date of usage', 'date of withdrawal',
+    'di assigned to telegraph office third and fourth letters office code',
+    'effective date of assignment', 'effective date of registration', 'effective date of withdrawal',
+    'issuer identification number', 'mobile subscription identification number', 'msin',
+    'msin range to be used', 'msin range to be used in country a', 'msin range to be used in country b',
+    'name of assignee', 'name of operator s countries a and b', 'network administration roa',
+    'nom de reseau operateur', 'pais o zona geografica', 'pays ou zone geographique',
+    'pays zone geographique', 'reclamation date'
+  ]).freeze
+  NUMBERED_COUNTRY_CODE_HEADER = /\Acountry \| admd name \| country code 1 \| service name s \| helpdesk \| (?:auto ?answer \| )?contact address\z/
+
+  NUMBERED_HEADER_ROWS = Set.new([
+    '1 | 2 | 3 | 4 | 5', '1 | 2 | 3 | 4 | 5 | 6',
+    '1 | 2 | 3 | 4 | 5a | 5b | 6', '1 | 2 | 3 | 4 | 5a | 5b | 6 | 7',
+    '1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9'
   ]).freeze
 
   LIST_VIII_ITEMS = {
     2 => 'Geographical coordinates', 3 => 'Hours of service', 4 => 'Information on antennas in use',
     5 => 'Range of azimuth and elevation angles',
-    6 => 'Maximum attainable accuracy in determining orbital positions', 7 => 'Information on system polarization',
-    8 => 'System noise temperature', 9 => 'Ranges of frequencies with the maximum attainable accuracy',
-    10 => 'Ranges of frequencies in which field strength', 11 => 'Minimum value of measurable field strength',
-    12 => 'Information available for bandwidth', 13 => 'Information available for spectrum occupancy',
-    14 => 'Information available for orbit occupancy'
+    6 => 'Maximum attainable accuracy in determining orbital positions(?: of space stations)?', 7 => 'Information on system polarization',
+    8 => 'System noise temperature', 9 => 'Ranges of frequencies with the maximum attainable accuracy(?: of frequency measurement for each frequency range)?',
+    10 => 'Ranges of frequencies in which field strength(?: or power flux-density measurements can be performed)?', 11 => 'Minimum value of measurable field strength(?: or power flux-density with indication of attainable accuracy of measurement)?',
+    12 => 'Information available for bandwidth(?: measurements)?', 13 => 'Information available for spectrum occupancy(?: measurements)?',
+    14 => 'Information available for orbit occupancy(?: measurements)?'
   }.freeze
   LIST_VIII_LABEL = Regexp.new(
-    '\A[[:space:]]*(?:' + LIST_VIII_ITEMS.map { |n, t| "#{n}\\.[[:space:]]+#{Regexp.escape(t)}" }.join('|') + ')'
+    '\A[[:space:]]*(?:' + LIST_VIII_ITEMS.map { |n, t| "#{n}\\.[[:space:]]+#{t}" }.join('|') + ')(?=[[:space:]:]|\z)'
   )
+  LIST_VIII_LABEL_ONLY = Regexp.new(LIST_VIII_LABEL.source + '[[:space:]]*:?[[:space:]]*\z')
 
-  # "P 17 Sweden ADD", "ADD P 31 Tuvalu", "P 29 to 30 Spain REP all information by:", "Cyprus REP".
+  # Remove only fixed layout/directive text; names and codes still need patches.
   module PageHeading
-    ACTION = /\b(?:ADD|SUP|LIR|REP)\d?\b/
+    ACTION = /\b(?:ADD|SUP|LIR|REP)(?:1\)?)?\b/
     module_function
 
-    def match?(text)
-      t = text.tr('|', ' ').gsub(/[[:space:]]+/, ' ').strip
-      return false unless t.match?(ACTION)
+    def values(text)
+      return text unless text.match?(ACTION)
 
-      t = t.gsub(/\((?:[^()]|\([^()]*\))*\)/, ' ')                       # (delete) (read) (Republic of) (http://...)
-      t = t.gsub(/\ball information(?:s)? by[[:space:]]*:?/i, ' ')
-      t = t.gsub(/\bby (?:alphabetical|numerical) order\b/i, ' ')
-      t = t.gsub(/\b(?:Numeric(?:al)?|Alphabetical) order\b/i, ' ')
-      t = t.gsub(/\bcountry code [[:space:]]*\d+/i, ' ')
-      t = t.gsub(/\bnotes? [a-z](?: and [a-z])?\b/, ' ')
-      t = t.gsub(/(?<![[:alnum:]])P[[:space:]]*\d+(?:[[:space:]]*(?:,|and|to)[[:space:]]*(?:P[[:space:]]*)?\d+)*/, ' ')
-      t = t.gsub(ACTION, ' ').gsub(/[*\d]\)?[[:space:]]*\z/, ' ').delete('*')
-      t = t.gsub(%r{[/,.]}, ' ').gsub(/\b[A-Z]{3}\b/, ' ').strip
-      t.match?(/\A[\p{L}' ’-]*\z/) && t.split.size <= 9
+      text.gsub(/\((?:delete|read)\)/i, ' ')
+          .gsub(/\ball information(?:s)? by[[:space:]]*:?/i, ' ')
+          .gsub(/\b(?:by )?(?:Numeric(?:al)?|Alphabetical) order\b/i, ' ')
+          .gsub(/(?<![[:alnum:]])P[[:space:]]*\d+(?:[[:space:]]*(?:,|and|to)[[:space:]]*(?:P[[:space:]]*)?\d+)*/, ' ')
+          .gsub(ACTION, ' ')
+    end
+
+    def match?(text)
+      text.match?(ACTION) && values(text).match?(/\A[[:space:]|*]*\z/)
     end
   end
+
+  EXTRA_TERRITORIAL_DEFINITION = 'As defined in Annex E to Recommendation ITU-T E.212, ' \
+    'extra-territorial use of an MCC+MNC is the term used to describe the'.freeze
+  EXTRA_TERRITORIAL_SITUATION = 'situation where an MCC+MNC that has been assigned to an operator in one ' \
+    'country, Country A, is used in another country, Country B, through a base station established in Country B.'.freeze
+  EXTRA_TERRITORIAL_LABELS = Set.new([
+    EXTRA_TERRITORIAL_DEFINITION, EXTRA_TERRITORIAL_SITUATION,
+    "#{EXTRA_TERRITORIAL_DEFINITION} #{EXTRA_TERRITORIAL_SITUATION}",
+    'Extra-territorial use*** of MCC/MNC, Annex E to Recommendation ITU-T E.212',
+    "MSIN: Mobile Subscription Identification Number / numéro d'identification d'abonnement mobile /",
+    "MSIN: Mobile Subscription Identification Number / numéro d'identification d'abonnement mobile / número de",
+    "MSIN: Mobile Subscription Identification Number / numéro d'identification d'abonnement mobile / número de identificación de suscripción al servicio móvil"
+  ]).freeze
 
   # Named exclusion rules, consulted only for lines that did not map.
   # Each: id, reason, matcher(normalized_text, tokens). Filled from the
@@ -147,18 +172,17 @@ module PrintToPatchCoverage
       reason: 'table column titles ("Country/ geographical area | Company Name/Address ..."): labels of the ' \
               'register fields, repeated on every printed table; the field names live in the register schema',
       match: lambda { |_text, _tokens, cells|
-        cells.any? && cells.all? { |c| c.empty? || HEADER_CELLS.include?(c) || (cells.size >= 3 && c.match?(/\A\d{1,2}[a-z]?\z/)) }
+        NUMBERED_HEADER_ROWS.include?(cells.join(' | ')) ||
+          (cells.any? && cells.all? { |c| c.empty? || HEADER_CELLS.include?(c) })
       }
     ),
     Rule.new(
       id: 'column_header_vocabulary',
-      reason: 'table column titles in a wording the exact-title list does not carry (French/Spanish captions, ' \
-              '"(carrier code)" sub-titles, long captions of the extra-territorial-use and telegraph tables): every ' \
-              'word is column-title vocabulary and at least two header nouns appear, so the line holds no register value',
-      match: lambda { |_text, tokens, cells|
-        words = cells.flat_map(&:split)
-        words.size >= 2 && words.all? { |w| HEADER_VOCABULARY.include?(w) || w.match?(/\A\d\z/) } &&
-          (words & HEADER_NOUNS).size >= 2 && tokens.size >= 2
+      reason: 'complete fixed table captions in French/Spanish or longer wording; numeric footnote markers ' \
+              'are allowed only in the full known heading shape',
+      match: lambda { |_text, _tokens, cells|
+        cells.join(' | ').match?(NUMBERED_COUNTRY_CODE_HEADER) ||
+          (cells.any? && cells.all? { |c| c.empty? || HEADER_CELLS.include?(c) || ADDITIONAL_HEADER_CELLS.include?(c) })
       }
     ),
     Rule.new(
@@ -169,10 +193,8 @@ module PrintToPatchCoverage
     ),
     Rule.new(
       id: 'page_action_heading',
-      reason: 'printed amendment heading "P 17 Sweden ADD" / "Cyprus REP all information by:": page marker, country ' \
-              'or section name and the action (ADD/SUP/LIR/REP) with a directive such as "(delete)"; the action is ' \
-              "the patch's type, the country the register key, and the page marker a layout reference; no value of " \
-              'the register is printed on the line',
+      reason: 'page markers and fixed action/order directives only; country names, operator names and codes ' \
+              'must still map to a patch',
       match: ->(text, _tokens, _cells) { PageHeading.match?(text) }
     ),
     Rule.new(
@@ -180,10 +202,9 @@ module PrintToPatchCoverage
       reason: 'definition footnote of the extra-territorial-use tables ("*** As defined in Annex E to Recommendation ' \
               'ITU-T E.212, extra-territorial use of an MCC+MNC ..."), boilerplate repeated on every such table; the ' \
               'extra-territorial use itself is carried by the patch rows',
-      match: lambda { |_text, tokens, _cells|
-        tokens.include?('territorial') && (tokens.include?('annex') || tokens.include?('assigned')) ||
-          tokens.include?('situation') && tokens.include?('operator') && tokens.include?('assigned') ||
-          tokens.include?('msin') && tokens.include?('subscription') && tokens.include?('identification')
+      match: lambda { |text, _tokens, _cells|
+        label = text.gsub(/[[:space:]]+/, ' ').strip.sub(/\A\*+[ ]*/, '')
+        EXTRA_TERRITORIAL_LABELS.include?(label)
       }
     ),
     Rule.new(
@@ -191,14 +212,14 @@ module PrintToPatchCoverage
       reason: 'parenthesised pointer to another Operational Bulletin or Recommendation ("(Annex to ITU Operational ' \
               'Bulletin No. 1161 - 1.XII.2018)", "(According to Recommendation ITU-T Q.708 (03/1999))"); a ' \
               'cross-reference, not register content',
-      match: ->(text, _tokens, _cells) { text.match?(/\A[[:space:]]*\((Annex to ITU Operational Bulletin|According to Recommendation)[^\n]*\)[[:space:]]*\z/i) }
+      match: ->(text, _tokens, _cells) { text.match?(/\A[[:space:]]*\((?:Annex to ITU Operational Bulletin No\. \d+ [–-] \d{1,2}\.[IVX]+\.\d{4}|According to Recommendation ITU-T Q\.708 \(\d{2}\/\d{4}\))\)[[:space:]]*\z/i) }
     ),
     Rule.new(
       id: 'list_viii_questionnaire_label',
       reason: 'numbered item label of the fixed List VIII Part III monitoring-station questionnaire ("2. Geographical ' \
               'coordinates", "9. Ranges of frequencies ..."): the same fourteen headings precede every station ' \
               'entry; the station values that follow them are what the patch stores',
-      match: ->(text, _tokens, _cells) { text.match?(LIST_VIII_LABEL) }
+      match: ->(text, _tokens, _cells) { text.match?(LIST_VIII_LABEL_ONLY) }
     ),
     Rule.new(
       id: 'glossary_legend',
@@ -225,9 +246,13 @@ module PrintToPatchCoverage
     ),
     Rule.new(
       id: 'shared_mcc_intro',
-      reason: 'introductory sentence of the shared-country-code (882/883) identification-code table; the table ' \
+      reason: 'introductory sentence of the shared-country-code (881/882/883) identification-code table; the table ' \
               'rows carry the data',
-      match: ->(_text, tokens, _cells) { tokens.include?('shared') && tokens.include?('associated') && (tokens.include?('networks') || tokens.include?('network')) }
+      match: lambda { |text, _tokens, _cells|
+        text.gsub(/[[:space:]]+/, ' ').strip.match?(
+          /\A(?:[nopq] )?Associated with shared country code (?:881|882|883), the following (?:one|two|three|four)-digit identification(?: code)?(?: reservations? or assignments?| reservations?| assignments?| withdrawal)? (?:have been made for|has been made for|has been withdrawn from|have been withdrawn (?:from|for)|has been assigned for) the (?:international|GMSS) networks? of:\z/
+        )
+      }
     )
   ].freeze
 
@@ -608,7 +633,7 @@ module PrintToPatchCoverage
       covered = Set.new
       line.text.scan(PHONE_RUN) do |run|
         digits = run.gsub(/\D/, '')
-        next if digits.size < 6 || numbers.none? { |n| n.include?(digits) || digits.include?(n) }
+        next unless digits.size >= 6 && numbers.include?(digits)
 
         covered.merge(Tok.with_unpadded(Tok.words(run)))
       end
@@ -616,7 +641,10 @@ module PrintToPatchCoverage
     end
 
     def strip_labels(line)
-      text = line.text.sub(/(?<![[:alnum:]])[A-Z][[:space:]]+(?=\d)/, '')
+      text = PageHeading.values(line.text)
+      text = text.sub(LIST_VIII_LABEL, '') if line.slug == 'list-viii'
+      text = text.sub(/\A[[:space:]]*Country code(?: \(CC\))?[[:space:]]*\|/i, '')
+      text = text.sub(/\A[[:space:]]*P[[:space:]]+(?=\d)/, '')
       text = text.gsub(/(?<![[:alnum:]])(?:Cell|Mobile|Telephone|Tel\.)[[:space:]]*:/i, ' ') # "Mobile:" contact label
       text = text.sub(/\A[^|]*:[[:space:]]*\|/, '')            # "Label: | value" form row
       text = text.sub(/\A[^|?]*\?[[:space:]]+(?=\S+\z)/, '')  # "Label? YES" form row
