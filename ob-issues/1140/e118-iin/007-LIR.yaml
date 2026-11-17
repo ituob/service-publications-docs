@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Sweden
     company_name: GlobeTouch AB
-    company_address_1: Box 5126
-    company_address_2: SE-102 43 STOCKHOLM
+    company_address:
+    - Box 5126
+    - SE-102 43 STOCKHOLM
     contact: James Snyder
-    contact_address_1: GlobeTouch Inc
-    contact_address_2: '555 12th Street #910'
-    contact_address_3: OAKLAND CA 94607
-    contact_address_4: USA
+    contact_address:
+    - GlobeTouch Inc
+    - '555 12th Street #910'
+    - OAKLAND CA 94607
+    - USA
     tel:
     - "+1 408-474-0991"
     email:

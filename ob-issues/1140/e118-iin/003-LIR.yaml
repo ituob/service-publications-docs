@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Mauritius
     company_name: Mauritius Telecom Ltd
-    company_address_1: 18th Floor, Telecom Tower
-    company_address_2: Edith Cavell Street
-    company_address_3: PORT LOUIS
+    company_address:
+    - 18th Floor, Telecom Tower
+    - Edith Cavell Street
+    - PORT LOUIS
     contact: Manvendra Singh
-    contact_address_1: 18th Floor, Telecom Tower
-    contact_address_2: Edith Cavell Street
-    contact_address_3: PORT LOUIS
+    contact_address:
+    - 18th Floor, Telecom Tower
+    - Edith Cavell Street
+    - PORT LOUIS
     tel:
     - "+230 2037000"
     fax:

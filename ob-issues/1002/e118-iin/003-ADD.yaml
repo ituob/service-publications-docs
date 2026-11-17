@@ -12,13 +12,15 @@ data:
   - country_or_area:
       en: Netherlands
     company_name: Ziggo BV
-    company_address_1: Atoomweg 100
-    company_address_2: 3542 AB UTRECHT
-    company_address_3: The Netherlands
+    company_address:
+    - Atoomweg 100
+    - 3542 AB UTRECHT
+    - The Netherlands
     contact: Mr Tom Lenos
-    contact_address_1: Atoomweg 100
-    contact_address_2: 3542 AB UTRECHT
-    contact_address_3: The Netherlands
+    contact_address:
+    - Atoomweg 100
+    - 3542 AB UTRECHT
+    - The Netherlands
     tel:
     - "+31 88 717 0000"
     email:

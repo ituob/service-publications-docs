@@ -8,15 +8,18 @@ data:
   country_or_area:
     en: Japan
   company_name: GRAPE ONE LTD.
-  company_address_1: Hakusei Building 4F,
-  company_address_2: 1-3-9, Iwamotocho,
-  company_address_3: Chiyoda-Ward,
+  company_address:
+  - Hakusei Building 4F,
+  - 1-3-9, Iwamotocho,
+  - Chiyoda-Ward,
+  - TOKYO
   contact: Kazuyuki Endo,
-  contact_address_1: Planning Department
-  contact_address_2: Hakusei Building 4F,
-  contact_address_3: 1-3-9, Iwamotocho,
-  contact_address_4: Chiyoda-Ward,
-  contact_address_5: TOKYO
+  contact_address:
+  - Planning Department
+  - Hakusei Building 4F,
+  - 1-3-9, Iwamotocho,
+  - Chiyoda-Ward,
+  - TOKYO
   tel:
   - "+81 3 6240 9638"
   fax:

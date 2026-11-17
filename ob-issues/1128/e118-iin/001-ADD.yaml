@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: United States
     company_name: Qualcomm
-    company_address_1: 5775 Morehouse Drive
-    company_address_2: SAN DIEGO, CA 92121
+    company_address:
+    - 5775 Morehouse Drive
+    - SAN DIEGO, CA 92121
     contact: Mr Alfredo Ruvalcaba
-    contact_address_1: 5775 Morehouse Drive
-    contact_address_2: SAN DIEGO, CA 92121
+    contact_address:
+    - 5775 Morehouse Drive
+    - SAN DIEGO, CA 92121
     tel:
     - "+1 858 651 1598"
     email:

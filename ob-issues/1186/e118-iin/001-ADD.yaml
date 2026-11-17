@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Bulgaria
     company_name: CONCORD SMART INFRASTRUCTURE
-    company_address_1: AD PIC 205612035
-    company_address_2: 90 Tzarigradsko shoee blvd
-    company_address_3: SOFIA
+    company_address:
+    - AD PIC 205612035
+    - 90 Tzarigradsko shoee blvd
+    - SOFIA
     contact: Kiril Gueorguiev
-    contact_address_1: 90 Tzarigradsko shose blvd
-    contact_address_2: SOFIA
+    contact_address:
+    - 90 Tzarigradsko shose blvd
+    - SOFIA
     tel:
-    - "       +359 882 413 822"
+    - "+359 882 413 822"
     email:
     - kiril.gueorguiev@gmail.com
     issue_id_number: 89 359 23

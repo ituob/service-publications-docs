@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Hong Kong, China
     company_name: TAI TUNG MOBILE PHONE COMPANY LIMITED
-    company_address_1: Room 405 Tung Ning Building 249-253 des Voeux Road Central
-    company_address_2: HONG KONG
+    company_address:
+    - Room 405 Tung Ning Building 249-253 des Voeux Road Central
+    - HONG KONG
     contact: Mr Kam Ping HAU
-    contact_address_1: Tai Tung Mobile Phone Company Limited
-    contact_address_2: Room 405 Tung Ning Building
-    contact_address_3: 249-253 des Voeux Road Central
-    contact_address_4: HONG KONG
+    contact_address:
+    - Tai Tung Mobile Phone Company Limited
+    - Room 405 Tung Ning Building
+    - 249-253 des Voeux Road Central
+    - HONG KONG
     tel:
     - "+852 98628530"
     email:

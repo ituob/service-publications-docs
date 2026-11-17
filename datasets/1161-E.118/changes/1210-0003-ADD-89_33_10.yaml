@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: France
   company_name: Société Française du Radiotéléphone
-  company_address_1: 19 rue du Général Alain de Boissieu
-  company_address_2: 75015 PARIS
+  company_address:
+  - 19 rue du Général Alain de Boissieu
+  - 75015 PARIS
   contact: SFR, Direction carte SIM
-  contact_address_1: 19 rue du Général Alain de Boissieu
-  contact_address_2: 75015 PARIS
+  contact_address:
+  - 19 rue du Général Alain de Boissieu
+  - 75015 PARIS
   email:
   - UIT-E118-IIN@sfr.com
   issue_id_number: 89 33 10

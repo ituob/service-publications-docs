@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Singapore
     company_name: Singapore Telecommunications Ltd (SingTel)
-    company_address_1: 31 Exeter Road
-    company_address_2: 05-00 Comcentre
-    company_address_3: SINGAPORE 239732
+    company_address:
+    - 31 Exeter Road
+    - 05-00 Comcentre
+    - SINGAPORE 239732
     contact: Chong Chin Hong
-    contact_address_1: Singtel Mobile Singapore Pte Ltd
-    contact_address_2: 31 Exeter Road
-    contact_address_3: 05-00 Comcentre
-    contact_address_4: SINGAPORE 239732
+    contact_address:
+    - Singtel Mobile Singapore Pte Ltd
+    - 31 Exeter Road
+    - 05-00 Comcentre
+    - SINGAPORE 239732
     tel:
     - "+65 9651 6499"
     email:

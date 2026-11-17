@@ -12,15 +12,17 @@ data:
   - country_or_area:
       en: Colombia
     company_name: Telefónica Móviles Colombia SA
-    company_address_1: Calle 100 No 7-33 Piso 15
-    company_address_2: BOGOTA DC
-    company_address_3: Colombia
+    company_address:
+    - Calle 100 No 7-33 Piso 15
+    - BOGOTA DC
+    - Colombia
     contact: Sra.  Martha Elena Ruiz
-    contact_address_1: Diaz-Granados
-    contact_address_2: Telefónica Móviles Colombia SA
-    contact_address_3: Calle 100 No 7-33 Piso 15
-    contact_address_4: BOGOTA DC
-    contact_address_5: Colombia
+    contact_address:
+    - Diaz-Granados
+    - Telefónica Móviles Colombia SA
+    - Calle 100 No 7-33 Piso 15
+    - BOGOTA DC
+    - Colombia
     tel:
     - "+57 1 592 2357"
     fax:

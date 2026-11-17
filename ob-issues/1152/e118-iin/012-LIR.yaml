@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Seychelles
     company_name: Cable and wireless (Seychelles) Ltd
-    company_address_1: P.O. Box 4
-    company_address_2: VICTORIA, MAHÉ
+    company_address:
+    - P.O. Box 4
+    - VICTORIA, MAHÉ
     contact: Mr Martin Laurence
-    contact_address_1: P.O. Box 4
-    contact_address_2: VICTORIA, MAHÉ
+    contact_address:
+    - P.O. Box 4
+    - VICTORIA, MAHÉ
     tel:
     - "+248 4284104"
     fax:

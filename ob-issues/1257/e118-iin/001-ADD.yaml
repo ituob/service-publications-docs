@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Spain
     company_name: TELEFÓNICA IOT & BIG DATA TECH, S.A. UNIPERSONAL
-    company_address_1: Ronda de la Comunicación - Edificio Oeste 1
-    company_address_2: C.P. 28050 - MADRID
+    company_address:
+    - Ronda de la Comunicación - Edificio Oeste 1
+    - C.P. 28050 - MADRID
     contact: Head of Legal,
-    contact_address_1: TELEFÓNICA IOT & BIG DATA TECH, S.A. UNIPERSONAL
-    contact_address_2: Ronda de la Comunicación - Edificio Oeste 1
-    contact_address_3: C.P. 28050 - MADRID
+    contact_address:
+    - TELEFÓNICA IOT & BIG DATA TECH, S.A. UNIPERSONAL
+    - Ronda de la Comunicación - Edificio Oeste 1
+    - C.P. 28050 - MADRID
     tel:
     - "+34 609182493"
     email:

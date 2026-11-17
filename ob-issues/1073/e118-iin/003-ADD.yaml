@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: United States
     company_name: Gila Electronics of Arizona LLC
-    company_address_1: 2481 East Palo Verde
-    company_address_2: YUMA, AZ 85365
+    company_address:
+    - 2481 East Palo Verde
+    - YUMA, AZ 85365
     contact: Mr. Paul Emmons
-    contact_address_1: 530 E McDowell Road
-    contact_address_2: Suite 107.605
-    contact_address_3: PHOENIX AZ 85004
+    contact_address:
+    - 530 E McDowell Road
+    - Suite 107.605
+    - PHOENIX AZ 85004
     tel:
     - "+1 480 265 2500"
     fax:

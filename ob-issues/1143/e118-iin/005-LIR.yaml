@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Belgium
     company_name: Telenet BVBA
-    company_address_1: Liersesteenweg 4
-    company_address_2: B-2800 MECHELEN
+    company_address:
+    - Liersesteenweg 4
+    - B-2800 MECHELEN
     contact: Mr Philippe Ronsse
-    contact_address_1: Liersesteenweg 4
-    contact_address_2: B-2800 MECHELEN
+    contact_address:
+    - Liersesteenweg 4
+    - B-2800 MECHELEN
     tel:
     - "+32 15 33 35 61"
     fax:

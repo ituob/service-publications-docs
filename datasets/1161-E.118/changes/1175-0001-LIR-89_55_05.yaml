@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Brazil
   company_name: Claro S/A
-  company_address_1: Rua Henri Dunant, 780
-  company_address_2: 'SÃO PAULO, SP / CEP: 04709-110'
+  company_address:
+  - Rua Henri Dunant, 780
+  - 'SÃO PAULO, SP / CEP: 04709-110'
   contact: Luiz Otavio V. Prates
-  contact_address_1: Av. Pres. Vargas 1012 – 6th floor
-  contact_address_2: Rio de Janeiro – RJ – CEP 20071-910
+  contact_address:
+  - Av. Pres. Vargas 1012 – 6th floor
+  - Rio de Janeiro – RJ – CEP 20071-910
   tel:
   - "+55 21 21219300"
   fax:

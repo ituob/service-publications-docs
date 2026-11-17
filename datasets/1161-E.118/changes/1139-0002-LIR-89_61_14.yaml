@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Australia
   company_name: AAPT Ltd
-  company_address_1: 30 Ross street
-  company_address_2: GLEBE, NSW 2037
+  company_address:
+  - 30 Ross street
+  - GLEBE, NSW 2037
   contact: Mr Brad Stoltenberg
-  contact_address_1: AAPT Ltd
-  contact_address_2: 30 Ross street
-  contact_address_3: GLEBE, NSW 2037
+  contact_address:
+  - AAPT Ltd
+  - 30 Ross street
+  - GLEBE, NSW 2037
   tel:
   - "+61 2 9162 6219"
   email:

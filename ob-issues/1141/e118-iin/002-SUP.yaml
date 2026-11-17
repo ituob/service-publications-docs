@@ -11,10 +11,12 @@ data:
   - country_or_area:
       en: Russian Federation
     company_name: Telecom XXI
-    company_address_1: 6 Proletarskoy Diktatury Square
-    company_address_2: 193124 ST. PETERSBURG
+    company_address:
+    - 6 Proletarskoy Diktatury Square
+    - 193124 ST. PETERSBURG
     contact: Yuri B. Vymorkov
-    contact_address_1: ST. PETERSBURG
+    contact_address:
+    - ST. PETERSBURG
     tel:
     - "+7 812 329 7447"
     fax:

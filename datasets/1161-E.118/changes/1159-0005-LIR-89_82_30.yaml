@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Korea (Rep. of)
   company_name: KT Corporation
-  company_address_1: 90 Buljeong-ro, Bundang-gu,
-  company_address_2: Seongnam-si, Gyeonggi-do, 13606
+  company_address:
+  - 90 Buljeong-ro, Bundang-gu,
+  - Seongnam-si, Gyeonggi-do, 13606
   contact: JongJin Yun
-  contact_address_1: 178, Sejong-daero, Jomgno-gu,
-  contact_address_2: SEOUL, 03154
+  contact_address:
+  - 178, Sejong-daero, Jomgno-gu,
+  - SEOUL, 03154
   tel:
   - "+82 10 6750 6705"
   fax:

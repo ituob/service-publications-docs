@@ -329,19 +329,9 @@
         "collection": false,
         "default": "nil"
       },
-      "company_address_1": {
+      "company_address": {
         "type": "String",
-        "collection": false,
-        "default": "nil"
-      },
-      "company_address_2": {
-        "type": "String",
-        "collection": false,
-        "default": "nil"
-      },
-      "company_address_3": {
-        "type": "String",
-        "collection": false,
+        "collection": true,
         "default": "nil"
       },
       "contact": {
@@ -349,34 +339,9 @@
         "collection": false,
         "default": "nil"
       },
-      "contact_address_1": {
+      "contact_address": {
         "type": "String",
-        "collection": false,
-        "default": "nil"
-      },
-      "contact_address_2": {
-        "type": "String",
-        "collection": false,
-        "default": "nil"
-      },
-      "contact_address_3": {
-        "type": "String",
-        "collection": false,
-        "default": "nil"
-      },
-      "contact_address_4": {
-        "type": "String",
-        "collection": false,
-        "default": "nil"
-      },
-      "contact_address_5": {
-        "type": "String",
-        "collection": false,
-        "default": "nil"
-      },
-      "contact_address_6": {
-        "type": "String",
-        "collection": false,
+        "collection": true,
         "default": "nil"
       },
       "tel": {
@@ -406,30 +371,14 @@
       }
     },
     "behavior": [
-      "assign_company_address",
-      "assign_contact_address",
-      "company_address_1",
-      "company_address_1=",
-      "company_address_2",
-      "company_address_2=",
-      "company_address_3",
-      "company_address_3=",
+      "company_address",
+      "company_address=",
       "company_name",
       "company_name=",
       "contact",
       "contact=",
-      "contact_address_1",
-      "contact_address_1=",
-      "contact_address_2",
-      "contact_address_2=",
-      "contact_address_3",
-      "contact_address_3=",
-      "contact_address_4",
-      "contact_address_4=",
-      "contact_address_5",
-      "contact_address_5=",
-      "contact_address_6",
-      "contact_address_6=",
+      "contact_address",
+      "contact_address=",
       "country_or_area",
       "country_or_area=",
       "effective_date",
@@ -440,7 +389,6 @@
       "fax=",
       "issue_id_number",
       "issue_id_number=",
-      "read_contact_address",
       "tel",
       "tel=",
       "self.parse"

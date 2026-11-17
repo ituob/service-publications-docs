@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Czech Rep.
     company_name: Travel Telekommunikation s.r.o.
-    company_address_1: Delnicka 213/12
-    company_address_2: PRAHA 7
+    company_address:
+    - Delnicka 213/12
+    - PRAHA 7
     contact: Mr Sergii Kostenko
-    contact_address_1: Travel Telekommunikation s.r.o.
-    contact_address_2: Delnicka 213/12
-    contact_address_3: PRAHA 7
+    contact_address:
+    - Travel Telekommunikation s.r.o.
+    - Delnicka 213/12
+    - PRAHA 7
     tel:
     - "+420 266 793 595"
     fax:

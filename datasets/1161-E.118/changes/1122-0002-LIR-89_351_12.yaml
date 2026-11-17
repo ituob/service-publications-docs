@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Portugal
   company_name: Infraestruturas de Portugal SA
-  company_address_1: Praça de Portagem
-  company_address_2: 2809-013 ALMADA
+  company_address:
+  - Praça de Portagem
+  - 2809-013 ALMADA
   contact: Mr Pedro Gouveia e Melo
-  contact_address_1: Infraestruturas de Portugal SA
-  contact_address_2: Rua Passeio do Báltico 4
-  contact_address_3: 1990-036 LISBOA
+  contact_address:
+  - Infraestruturas de Portugal SA
+  - Rua Passeio do Báltico 4
+  - 1990-036 LISBOA
   tel:
   - "+351 21 102 4053"
   fax:

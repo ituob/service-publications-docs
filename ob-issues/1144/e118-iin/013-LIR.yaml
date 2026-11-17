@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Liberia
     company_name: Novafone Inc.
-    company_address_1: LBDI Building, Tubman Boulevard
-    company_address_2: Congotown, MONROVIA
+    company_address:
+    - LBDI Building, Tubman Boulevard
+    - Congotown, MONROVIA
     contact: Ms Laureine Guilao
-    contact_address_1: LBDI Building, Tubman Boulevard
-    contact_address_2: Congotown, MONROVIA
+    contact_address:
+    - LBDI Building, Tubman Boulevard
+    - Congotown, MONROVIA
     tel:
     - "+231 886 501 095"
     email:

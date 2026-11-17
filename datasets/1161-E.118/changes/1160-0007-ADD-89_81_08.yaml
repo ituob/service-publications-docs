@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Japan
   company_name: Marubeni Wireless Communications Inc.
-  company_address_1: 1-17-18, Shinkawa,
-  company_address_2: Chuo-ku, TOKYO 1040033
+  company_address:
+  - 1-17-18, Shinkawa,
+  - Chuo-ku, TOKYO 1040033
   contact: Koichi Nogami
-  contact_address_1: 1-17-18, Shinkawa, Chuo-ku,
-  contact_address_2: TOKYO 1040033
+  contact_address:
+  - 1-17-18, Shinkawa, Chuo-ku,
+  - TOKYO 1040033
   tel:
   - "+81 3 5117 2031"
   fax:

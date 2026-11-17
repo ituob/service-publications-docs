@@ -11,8 +11,9 @@ data:
   - country_or_area:
       en: Bahrain
     company_name: Zain Bahrain
-    company_address_1: PO Box 266
-    company_address_2: MANAMA
+    company_address:
+    - PO Box 266
+    - MANAMA
     contact: Regulatory
     tel:
     - "+973 36031000"

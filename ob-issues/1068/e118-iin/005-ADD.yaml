@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: British Telecommunications PLC
-    company_address_1: 81 Newgate Street,
-    company_address_2: EC1A 7AJ London
+    company_address:
+    - 81 Newgate Street,
+    - EC1A 7AJ London
     contact: Mr Rastislav Chynoransky
-    contact_address_1: British Telecommunications PLC
-    contact_address_2: PP 1041 Baynard House
-    contact_address_3: 135 Queen Victoria Street,
-    contact_address_4: London EC4V 4AA
+    contact_address:
+    - British Telecommunications PLC
+    - PP 1041 Baynard House
+    - 135 Queen Victoria Street,
+    - London EC4V 4AA
     tel:
     - "+44 2087261402"
     email:

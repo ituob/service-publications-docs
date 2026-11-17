@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Germany
   company_name: Trasna Solutions GmbH
-  company_address_1: Konrad-Zuse-Platz 5
-  company_address_2: 81829 MUNCHEN
+  company_address:
+  - Konrad-Zuse-Platz 5
+  - 81829 MUNCHEN
   contact: Benedikt Leisten
-  contact_address_1: Konrad-Zuse-Platz 5
-  contact_address_2: 81829 MUNCHEN
+  contact_address:
+  - Konrad-Zuse-Platz 5
+  - 81829 MUNCHEN
   tel:
   - "+49 89 3090977 0"
   fax:

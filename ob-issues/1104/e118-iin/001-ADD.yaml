@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Switzerland
     company_name: Beeone Communications SA
-    company_address_1: route des Jeunes 6
-    company_address_2: 1227 CAROUGE
+    company_address:
+    - route des Jeunes 6
+    - 1227 CAROUGE
     contact: Mr Olivier Schreier
-    contact_address_1: route des Jeunes 6
-    contact_address_2: 1227 CAROUGE
+    contact_address:
+    - route des Jeunes 6
+    - 1227 CAROUGE
     tel:
     - "+41 22 300 59 03"
     fax:

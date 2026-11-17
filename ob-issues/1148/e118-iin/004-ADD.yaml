@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Guam
     company_name: Docomo Pacific, Inc.
-    company_address_1: 890 S. Marine Corps Dr.
-    company_address_2: TAMUNING
-    company_address_3: GU USA 96913
+    company_address:
+    - 890 S. Marine Corps Dr.
+    - TAMUNING
+    - GU USA 96913
     contact: Mr James W. Hofman
-    contact_address_1: Docomo Pacific, Inc.
-    contact_address_2: 890 S. Marine Corps Dr.
-    contact_address_3: TAMUNING
-    contact_address_4: GU USA 96913
+    contact_address:
+    - Docomo Pacific, Inc.
+    - 890 S. Marine Corps Dr.
+    - TAMUNING
+    - GU USA 96913
     tel:
     - "+1 671 688 2355"
     fax:

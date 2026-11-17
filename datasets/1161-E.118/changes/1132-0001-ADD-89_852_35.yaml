@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: Hong Kong, China
   company_name: Webbing Hong Kong Ltd.
-  company_address_1: 17/F., Yue Hing Building
-  company_address_2: 103 Hennessy Road
-  company_address_3: WANCHAI
+  company_address:
+  - 17/F., Yue Hing Building
+  - 103 Hennessy Road
+  - WANCHAI
   contact: Noam Lando
-  contact_address_1: Webbing Hong Kong Ltd.
-  contact_address_2: 17/F., Yue Hing Building
-  contact_address_3: 103 Hennessy Road
-  contact_address_4: WANCHAI
+  contact_address:
+  - Webbing Hong Kong Ltd.
+  - 17/F., Yue Hing Building
+  - 103 Hennessy Road
+  - WANCHAI
   tel:
   - "+1 650 338 7457"
   fax:

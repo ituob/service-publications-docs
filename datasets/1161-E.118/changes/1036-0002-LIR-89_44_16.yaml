@@ -8,9 +8,11 @@ data:
   country_or_area:
     en: United Kingdom
   company_name: Mobile By Sainsbury's Limited
-  company_address_1: 33 Holborn
-  company_address_2: London
-  company_address_3: EC1N 2HT
+  company_address:
+  - 33 Holborn
+  - London
+  - EC1N 2HT
+  - United Kingdom
   contact: Mr. Adrian Digby
   tel:
   - By Sainsbury's Limited

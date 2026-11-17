@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Italy
   company_name: Blu S.p.A.
-  company_address_1: Vía Cintia, Svincolo Fuorigrotta
-  company_address_2: I-80126 NAPOLI
+  company_address:
+  - Vía Cintia, Svincolo Fuorigrotta
+  - I-80126 NAPOLI
   contact: A. Tagliaferro
-  contact_address_1: Via A. Nibby 10
-  contact_address_2: I-00161 ROMA
+  contact_address:
+  - Via A. Nibby 10
+  - I-00161 ROMA
   tel:
   - "+39 06 8521 6207"
   fax:

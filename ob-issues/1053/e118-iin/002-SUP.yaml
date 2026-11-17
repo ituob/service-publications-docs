@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Somalia
     company_name: Onkod Telecom Ltd.
-    company_address_1: Blya Kulele Building,
-    company_address_2: Bosaaso
-    company_address_3: PUNTLAND
+    company_address:
+    - Blya Kulele Building,
+    - Bosaaso
+    - PUNTLAND
     contact: Abdisalam Osman
-    contact_address_1: Blya Kulele Building, Bosaaso.
-    contact_address_2: PUNTLAND
+    contact_address:
+    - Blya Kulele Building, Bosaaso.
+    - PUNTLAND
     tel:
     - "+252 7022 3055"
     email:

@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Sweden
   company_name: MYINDIAN AB
-  company_address_1: Box 5126
-  company_address_2: 102 43 Stockholm
+  company_address:
+  - Box 5126
+  - 102 43 Stockholm
   contact: Mr.Nils Windahl
-  contact_address_1: MYINDIAN AB
-  contact_address_2: Box 5126
-  contact_address_3: 102 43 STOCKHOLM
-  contact_address_4: Sweden
+  contact_address:
+  - MYINDIAN AB
+  - Box 5126
+  - 102 43 STOCKHOLM
+  - Sweden
   tel:
   - "+46 760 00 33 20"
   email:

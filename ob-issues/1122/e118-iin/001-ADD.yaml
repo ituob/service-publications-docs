@@ -11,15 +11,18 @@ data:
   - country_or_area:
       en: Hong Kong, China
     company_name: CHINA MOBILE INTERNATIONAL LIMITED
-    company_address_1: Level 30, Tower I,
-    company_address_2: Kowloon Commerce Centre,
-    company_address_3: 51 Kwai Cheong Road,
+    company_address:
+    - Level 30, Tower I,
+    - Kowloon Commerce Centre,
+    - 51 Kwai Cheong Road,
+    - HONG KONG
     contact: Mr Chan Chun Ming
-    contact_address_1: China Mobile International Limited
-    contact_address_2: Level 30, Tower I, Kowloon Commerce Centre,
-    contact_address_3: 51 Kwai Cheong Road,
-    contact_address_4: KWAI CHUNG, NEW TERRITORIES,
-    contact_address_5: HONG KONG
+    contact_address:
+    - China Mobile International Limited
+    - Level 30, Tower I, Kowloon Commerce Centre,
+    - 51 Kwai Cheong Road,
+    - KWAI CHUNG, NEW TERRITORIES,
+    - HONG KONG
     tel:
     - "+852 31556986"
     fax:

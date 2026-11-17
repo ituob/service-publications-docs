@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Germany
   company_name: Voiceworks GmbH
-  company_address_1: Düsseldorfer Strasse 16
-  company_address_2: 40699 ERKRATH
+  company_address:
+  - Düsseldorfer Strasse 16
+  - 40699 ERKRATH
   contact: Mr. Christian Bichbäumer
-  contact_address_1: Voiceworks GmbH
-  contact_address_2: Düsseldorfer Strasse 16
-  contact_address_3: 40699 ERKRATH
+  contact_address:
+  - Voiceworks GmbH
+  - Düsseldorfer Strasse 16
+  - 40699 ERKRATH
   tel:
   - "+49 157 75405030"
   email:

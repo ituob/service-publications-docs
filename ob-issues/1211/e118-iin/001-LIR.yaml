@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Malta
     company_name: EPIC COMMUNICATIONS LIMITED
-    company_address_1: Level 6, Skyparks Business Centre,
-    company_address_2: Malta International Airport
-    company_address_3: LUQA, LQA 4000
+    company_address:
+    - Level 6, Skyparks Business Centre,
+    - Malta International Airport
+    - LUQA, LQA 4000
     contact: Dr Nicholas Borg
-    contact_address_1: Level 6, Skyparks Business Centre,
-    contact_address_2: Malta International Airport
-    contact_address_3: LUQA, LQA 4000
+    contact_address:
+    - Level 6, Skyparks Business Centre,
+    - Malta International Airport
+    - LUQA, LQA 4000
     tel:
     - "+356 9999 0927 / +356 9909 2121"
     email:

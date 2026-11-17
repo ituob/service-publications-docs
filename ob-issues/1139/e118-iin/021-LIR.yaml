@@ -11,10 +11,12 @@ data:
   - country_or_area:
       en: Lithuania
     company_name: UAB “Bitė Lietuva” Žemaitės g. 15
-    company_address_1: LT-03504 VILNIUS
+    company_address:
+    - LT-03504 VILNIUS
     contact: Vitalijus Kirvaitis
-    contact_address_1: Žemaitės g. 15
-    contact_address_2: LT-03504 VILNIUS
+    contact_address:
+    - Žemaitės g. 15
+    - LT-03504 VILNIUS
     tel:
     - "+370 656 00 656"
     fax:

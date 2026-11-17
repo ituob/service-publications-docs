@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: United States
     company_name: Pilot Thomas Logistics
-    company_address_1: 1051 Mustang Drive
-    company_address_2: GRAPEVINE, TX 76051
+    company_address:
+    - 1051 Mustang Drive
+    - GRAPEVINE, TX 76051
     contact: Joey Huerta
-    contact_address_1: Pilot Thomas Logistics,
-    contact_address_2: P.O. Box 2136
-    contact_address_3: GRAPEVINE, TX 76099
+    contact_address:
+    - Pilot Thomas Logistics,
+    - P.O. Box 2136
+    - GRAPEVINE, TX 76099
     tel:
     - "+1 432 638 8251"
     fax:

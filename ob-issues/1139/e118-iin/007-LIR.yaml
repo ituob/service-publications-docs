@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Finland
     company_name: Elisa Corporation
-    company_address_1: P.O. Box 1
-    company_address_2: 00061 ELISA
+    company_address:
+    - P.O. Box 1
+    - 00061 ELISA
     contact: Jari Jokela
-    contact_address_1: Elisa Corporation
-    contact_address_2: P.O. Box 1
-    contact_address_3: 00061 ELISA
+    contact_address:
+    - Elisa Corporation
+    - P.O. Box 1
+    - 00061 ELISA
     tel:
     - "+358 102 6000/+358 50 506 6070"
     fax:

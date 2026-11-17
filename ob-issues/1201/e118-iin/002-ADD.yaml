@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: France
     company_name: FREE MOBILE
-    company_address_1: 16 rue de la Ville l’Evêque
-    company_address_2: 75008 PARIS
+    company_address:
+    - 16 rue de la Ville l’Evêque
+    - 75008 PARIS
     contact: Pascal MAYEUX
-    contact_address_1: 16 rue de la Ville l’Evêque
-    contact_address_2: 75008 PARIS
+    contact_address:
+    - 16 rue de la Ville l’Evêque
+    - 75008 PARIS
     tel:
     - "+33 173502495"
     email:

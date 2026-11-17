@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Japan
   company_name: Fujitsu Limited
-  company_address_1: 4-1-1 Kamikodanaka, Nakahara-ku,
-  company_address_2: KAWASAKI 211-8588
+  company_address:
+  - 4-1-1 Kamikodanaka, Nakahara-ku,
+  - KAWASAKI 211-8588
   contact: Yoshinori Yuki
-  contact_address_1: Fujitsu Limited
-  contact_address_2: ShinKawasaki Technology Square,
-  contact_address_3: 1-1 Shin-ogura, Saiwai-ku
-  contact_address_4: KAWASAKI 212-8510
+  contact_address:
+  - Fujitsu Limited
+  - ShinKawasaki Technology Square,
+  - 1-1 Shin-ogura, Saiwai-ku
+  - KAWASAKI 212-8510
   tel:
   - "+81 44 280 9862"
   email:

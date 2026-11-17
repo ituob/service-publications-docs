@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: New Caledonia
     company_name: Office des Postes et des Télécommunications (OPT)
-    company_address_1: 2 Rue Paul Monchovet
-    company_address_2: Port Plaisance
-    company_address_3: 98841 NOUMEA CEDEX
+    company_address:
+    - 2 Rue Paul Monchovet
+    - Port Plaisance
+    - 98841 NOUMEA CEDEX
     contact: Olivier Amat
-    contact_address_1: 2, rue Monchovet
-    contact_address_2: 98841 NOUMEA Cedex
+    contact_address:
+    - 2, rue Monchovet
+    - 98841 NOUMEA Cedex
     tel:
     - "+687 268282"
     fax:

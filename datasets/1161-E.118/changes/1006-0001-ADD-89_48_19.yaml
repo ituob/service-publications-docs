@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Poland
   company_name: Teleena Poland Ltd
-  company_address_1: Al. JanaPawla II 26/1019
-  company_address_2: PL – 00-133 WARSZAWA
+  company_address:
+  - Al. JanaPawla II 26/1019
+  - PL – 00-133 WARSZAWA
   contact: Mr Timo Smit
-  contact_address_1: Teleena Holding BV
-  contact_address_2: Krijtwal 29
-  contact_address_3: 3432ZT NIEUWEGEIN
-  contact_address_4: The Netherlands
+  contact_address:
+  - Teleena Holding BV
+  - Krijtwal 29
+  - 3432ZT NIEUWEGEIN
+  - The Netherlands
   tel:
   - "+31 63 818 1818"
   email:

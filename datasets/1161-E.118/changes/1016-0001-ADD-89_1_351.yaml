@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: Bermuda
   company_name: Bermuda Digital Communications Limited
-  company_address_1: 22 Reid Street, Suite 3
-  company_address_2: HAMILTON HM 11
-  company_address_3: Bermuda
+  company_address:
+  - 22 Reid Street, Suite 3
+  - HAMILTON HM 11
+  - Bermuda
   contact: Mr Liam McKittrick
-  contact_address_1: Bermuda Digital Communications Limited
-  contact_address_2: 22 Reid Street, Suite 3
-  contact_address_3: HAMILTON HM 11
-  contact_address_4: Bermuda
+  contact_address:
+  - Bermuda Digital Communications Limited
+  - 22 Reid Street, Suite 3
+  - HAMILTON HM 11
+  - Bermuda
   tel:
   - "+1 441 777 0701"
   fax:

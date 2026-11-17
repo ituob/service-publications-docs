@@ -11,9 +11,11 @@ data:
   - country_or_area:
       en: Romania
     company_name: Orange Romania
-    company_address_1: Bd. Lascar Catargiu nr. 47-53, Sector 1, Bucharest
+    company_address:
+    - Bd. Lascar Catargiu nr. 47-53, Sector 1, Bucharest
     contact: Andreea Albina
-    contact_address_1: Bd. Lascar Catargiu nr. 47-53, Sector 1, Bucharest
+    contact_address:
+    - Bd. Lascar Catargiu nr. 47-53, Sector 1, Bucharest
     tel:
     - "+40 37 444 30 51"
     email:

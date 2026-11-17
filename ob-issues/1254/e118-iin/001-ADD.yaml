@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Bermuda
     company_name: Paradise Mobile Ltd.
-    company_address_1: 3rd Floor, Sofia House
-    company_address_2: 48 Church Street
-    company_address_3: HAMILTON HM12
+    company_address:
+    - 3rd Floor, Sofia House
+    - 48 Church Street
+    - HAMILTON HM12
     contact: Cesar Cabarcos
-    contact_address_1: 3rd Floor, Sofia House
-    contact_address_2: 48 Church Street
-    contact_address_3: HAMILTON HM12
+    contact_address:
+    - 3rd Floor, Sofia House
+    - 48 Church Street
+    - HAMILTON HM12
     tel:
     - "+1 844 740 0200"
     email:

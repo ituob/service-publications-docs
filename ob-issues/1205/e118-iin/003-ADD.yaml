@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: JT (Jersey) Limited
-    company_address_1: No 1 The Forum, Grenville Street
-    company_address_2: ST. HELIER, JERSEY JE4 8PB
+    company_address:
+    - No 1 The Forum, Grenville Street
+    - ST. HELIER, JERSEY JE4 8PB
     contact: Head of Regulatory & Carrier Services, Data Protection Officer
-    contact_address_1: No 1 The Forum, Grenville Street
-    contact_address_2: ST. HELIER, JERSEY JE4 8PB
+    contact_address:
+    - No 1 The Forum, Grenville Street
+    - ST. HELIER, JERSEY JE4 8PB
     tel:
-    - "          +44 1534882328"
+    - "+44 1534882328"
     email:
     - dpo@jtglobal.com
     issue_id_number: 89 44 50
