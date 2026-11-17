@@ -48,8 +48,9 @@ jobs:
       - name: Install the manifest gems
         run: |
           set -eu
-          cd ituob
-          bundle install --jobs 4
+          # The metanorma image exports BUNDLE_GEMFILE=/setup/Gemfile, which
+          # would make a bare `bundle install` install that Gemfile instead.
+          BUNDLE_GEMFILE="$PWD/ituob/Gemfile" bundle install --jobs 4
 
       # Renders with `metanorma -t itu -x pdf --agree-to-terms` per language,
       # copies each PDF to build/pdf/<standard>-<year>/ and writes
