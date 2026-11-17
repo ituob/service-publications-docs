@@ -33,10 +33,18 @@ E-mail: tsbtson@itu.int
 
 . The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of ITU concerning the legal status of any country or geographical area, or of its authorities.
 
+// The main MNC table comes from the ituob provider (spd#89 C8 pilot): the
+// register's state as of OB 1162, the issue this annex is published with
+// (also the E.212 seed issue). The other three tables stay on yaml2text.
+[lutaml_data,provider:ituob.edition,edition,options={"arguments":{"register":"e212-mnc","as_of":1162}}]
+----
+{% render "tables_edition", edition: edition %}
+----
+
 [yaml2text,data=../../datasets/1162-E.212/data.yaml,metadata=../../datasets/1162-E.212/metadata.yaml,data_shared_mcc=../../datasets/1162-E.212-Shared-MCC/data.yaml,metadata_shared_mcc=../../datasets/1162-E.212-Shared-MCC/metadata.yaml,data_shared_mcc_others=../../datasets/1162-E.212-MCC-Others/data.yaml,metadata_shared_mcc_others=../../datasets/1162-E.212-MCC-Others/metadata.yaml,data_et=../../datasets/1162-E.212-ET/data.yaml,metadata_et=../../datasets/1162-E.212-ET/metadata.yaml]
 ----
 {% assign lang = "en" %}
-{% render "tables", data: data, metadata: metadata, data_shared_mcc: data_shared_mcc, metadata_shared_mcc: metadata_shared_mcc, data_shared_mcc_others: data_shared_mcc_others, metadata_shared_mcc_others: metadata_shared_mcc_others, data_et: data_et, metadata_et: metadata_et, lang: lang %}
+{% render "tables", skip_main: true, data: data, metadata: metadata, data_shared_mcc: data_shared_mcc, metadata_shared_mcc: metadata_shared_mcc, data_shared_mcc_others: data_shared_mcc_others, metadata_shared_mcc_others: metadata_shared_mcc_others, data_et: data_et, metadata_et: metadata_et, lang: lang %}
 ----
 
 == {blank}
