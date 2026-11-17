@@ -38,6 +38,9 @@ module Ituob
 
     # F.32
     autoload :F32TDIAmendment, 'ituob/models/f32tdi_amendment'
+    autoload :F32SeedBuilder, 'ituob/models/f32_seed_builder'
+    autoload :F32PrintedList, 'ituob/models/f32_printed_list'
+    autoload :F32CompletenessChecker, 'ituob/models/f32_completeness_checker'
 
     # F.400
     autoload :F400Amendment, 'ituob/models/f400_amendment'
@@ -83,9 +86,15 @@ module Ituob
     autoload :GeneralServiceRestrictions, 'ituob/models/general_service_restrictions'
     autoload :GeneralTelephoneServices, 'ituob/models/general_telephone_service'
 
+    # PDF publication manifest (spd#89)
+    autoload :PublicationManifestEntry, 'ituob/models/publication_manifest_entry'
+    autoload :PublicationManifest, 'ituob/models/publication_manifest'
+
     # Value types for corpus fields that must be kept as stored
     autoload :DateOrText, 'ituob/models/date_or_text'
     autoload :HashOrText, 'ituob/models/hash_or_text'
+    autoload :HashOrList, 'ituob/models/hash_or_list'
+    autoload :RegisterChangeMapping, 'ituob/models/register_change_mapping'
 
     # Data-shape classes compiled from the LML ontology; loaded
     # eagerly because sibling leaf files reference these constants at

@@ -13,13 +13,16 @@
             },
             "admd_name": "TESI 400",
             "country_code": "IT",
+            "mt": "TESI 400",
+            "ipm": "TESI 400",
             "helpdesk": {
-              "x400": "TESI 400"
+              "x400": "NO"
+            },
+            "autoanswer": {
+              "x400": "NO"
             },
             "contact_address": {
               "address_lines": [
-                "NO",
-                "NO",
                 "Tesi S.p.A",
                 "Via Savigliano, 48",
                 "12060 – Loc. Roreto di Cherasco (CN), Italy",
@@ -46,20 +49,19 @@
             },
             "admd_name": "DK400",
             "country_code": "DK",
+            "mt": "Data POST 400",
+            "ipm": "Data POST 400",
+            "other": "Data POST 400",
             "helpdesk": {
-              "x400": "Data POST 400"
+              "x400": "S=helpdesk\nA=dk400\nC=dk"
             },
             "autoanswer": {
-              "x400": "Data POST 400"
+              "x400": "NO"
             },
             "contact_address": {
               "address_lines": [
-                "S=helpdesk",
-                "NO",
                 "MACH APS",
-                "A=dk400",
                 "Blokken 9",
-                "C=dk",
                 "DK-3460 BIRKERØD, Denmark",
                 "X.400: S=helpdesk; A=dk400; C=dk;"
               ]
@@ -79,20 +81,19 @@
             },
             "admd_name": "DK400",
             "country_code": "DK",
+            "mt": "DATA POST 400",
+            "ipm": "DATA POST 400",
+            "other": "DATA POST 400",
             "helpdesk": {
-              "x400": "DATA POST 400"
+              "x400": "S=helpdesk\nA=dk400\nC=dk"
             },
             "autoanswer": {
-              "x400": "DATA POST 400"
+              "x400": "NO"
             },
             "contact_address": {
               "address_lines": [
-                "S=helpdesk",
-                "NO",
                 "Evenex ApS",
-                "A=dk400",
                 "Blokken 9",
-                "C=dk",
                 "DK-3460 BIRKERØD, Denmark",
                 "X.400:        S=helpdesk; A=dk400; C=dk;"
               ]
@@ -111,148 +112,67 @@
         "entries": [
           {
             "country_or_area": {
-              "fr": "Allemagne"
+              "en": "Germany",
+              "fr": "Allemagne",
+              "es": "Alemania"
             },
             "admd_name": "DBP",
             "country_code": "DE",
+            "mt": "BusinessMail\nMailGate\nX.400 MT",
+            "ipm": "BusinessMail\nMailbox\nX.400 - IPM",
             "helpdesk": {
-              "x400": "BusinessMail"
+              "x400": "S= helpdesk\nA=viat\nC=de"
+            },
+            "autoanswer": {
+              "x400": "S=autoanswer\nA=viat\nC=de"
             },
             "contact_address": {
               "address_lines": [
-                "S= helpdesk",
-                "S=autoanswer",
                 "Ralf Knecht / Torsten Moeller Telekom Deutschland GmbH Service Lifecycle Management Produktmanagement BusinessMail X.400 O2, 1-10 Am Paradeplatz 68161 MANNHEIM Germany   Email: ralf.knecht@telekom.de Tel: +49 6212947422   Email: torsten.moeller@telekom.de Tel: +49 6212941509 Helpdesk: helpdesk.businessmailx400@telekom.de"
               ]
             }
           },
           {
             "country_or_area": {
-              "fr": "Germany"
-            },
-            "admd_name": "",
-            "country_code": "",
-            "helpdesk": {
-              "x400": "Mailbox"
-            },
-            "contact_address": {
-              "address_lines": [
-                "A=viat",
-                "A=viat"
-              ]
-            }
-          },
-          {
-            "country_or_area": {
-              "fr": "Alemania"
-            },
-            "admd_name": "",
-            "country_code": "",
-            "helpdesk": {
-              "x400": "X.400 - IPM"
-            },
-            "contact_address": {
-              "address_lines": [
-                "C=de",
-                "C=de"
-              ]
-            }
-          },
-          {
-            "country_or_area": {
-              "fr": "Allemagne"
+              "en": "Germany",
+              "fr": "Allemagne",
+              "es": "Alemania"
             },
             "admd_name": "VIAT",
             "country_code": "DE",
+            "mt": "BusinessMail\nMailGate\nX.400 - MT",
+            "ipm": "BusinessMail\nMailbox\nX.400 - IPM",
             "helpdesk": {
-              "x400": "BusinessMail"
+              "x400": "S=helpdesk\nA=viat\nC=de"
+            },
+            "autoanswer": {
+              "x400": "S=autoanswer\nA=viat\nC=de"
             },
             "contact_address": {
               "address_lines": [
-                "S=helpdesk",
-                "S=autoanswer",
                 "Ralf Knecht / Torsten Moeller Telekom Deutschland GmbH Service Lifecycle Management Produktmanagement BusinessMail X.400 O2, 1-10 Am Paradeplatz 68161 MANNHEIM Germany   Email: ralf.knecht@telekom.de Tel: +49 6212947422   Email: torsten.moeller@telekom.de Tel: +49 6212941509 Helpdesk: helpdesk.businessmailx400@telekom.de"
               ]
             }
           },
           {
             "country_or_area": {
-              "fr": "Germany"
-            },
-            "admd_name": "",
-            "country_code": "",
-            "helpdesk": {
-              "x400": "Mailbox"
-            },
-            "contact_address": {
-              "address_lines": [
-                "A=viat",
-                "A=viat"
-              ]
-            }
-          },
-          {
-            "country_or_area": {
-              "fr": "Alemania"
-            },
-            "admd_name": "",
-            "country_code": "",
-            "helpdesk": {
-              "x400": "X.400 - IPM"
-            },
-            "contact_address": {
-              "address_lines": [
-                "C=de",
-                "C=de"
-              ]
-            }
-          },
-          {
-            "country_or_area": {
-              "fr": "Allemagne"
+              "en": "Germany",
+              "fr": "Allemagne",
+              "es": "Alemania"
             },
             "admd_name": "VIAT-AS2",
             "country_code": "DE",
+            "mt": "BusinessMail\nMailGate\nX.400 - MT",
+            "ipm": "BusinessMail\nMailbox\nX.400 - IPM",
             "helpdesk": {
-              "x400": "BusinessMail"
+              "x400": "S=helpdesk\nA=viat\nC=de"
+            },
+            "autoanswer": {
+              "x400": "S=autoanswer\nA=viat\nC=de"
             },
             "contact_address": {
               "address_lines": [
-                "S=helpdesk",
-                "S=autoanswer",
                 "Ralf Knecht / Torsten Moeller Telekom Deutschland GmbH Service Lifecycle Management Produktmanagement BusinessMail X.400 O2, 1-10 Am Paradeplatz 68161 MANNHEIM Germany   Email: ralf.knecht@telekom.de Tel: +49 6212947422   Email: torsten.moeller@telekom.de Tel: +49 6212941509 Helpdesk: helpdesk.businessmailx400@telekom.de"
-              ]
-            }
-          },
-          {
-            "country_or_area": {
-              "fr": "Germany"
-            },
-            "admd_name": "",
-            "country_code": "",
-            "helpdesk": {
-              "x400": "Mailbox"
-            },
-            "contact_address": {
-              "address_lines": [
-                "A=viat",
-                "A=viat"
-              ]
-            }
-          },
-          {
-            "country_or_area": {
-              "fr": "Alemania"
-            },
-            "admd_name": "",
-            "country_code": "",
-            "helpdesk": {
-              "x400": "X.400 - IPM"
-            },
-            "contact_address": {
-              "address_lines": [
-                "C=de",
-                "C=de"
               ]
             }
           }
@@ -275,9 +195,14 @@
             },
             "admd_name": "INTEGRATIONCLOUD",
             "country_code": "BE",
+            "helpdesk": {
+              "x400": "YES"
+            },
+            "autoanswer": {
+              "x400": "NO"
+            },
             "contact_address": {
               "address_lines": [
-                "true",
                 "Codit Skaldenstraat 7b 9042 GHENT Belgium Email: support@codit.eu"
               ]
             }
@@ -301,8 +226,13 @@
             },
             "admd_name": "BROOT",
             "country_code": "JP",
+            "mt": "b-root",
+            "ipm": "b-root",
             "helpdesk": {
-              "x400": "b-root"
+              "x400": "NO"
+            },
+            "autoanswer": {
+              "x400": "NO"
             },
             "contact_address": {
               "address_lines": [
@@ -329,9 +259,15 @@
             },
             "admd_name": "ECGRID",
             "country_code": "FR",
+            "mt": "ECGrid by Loren Data Corp.",
+            "helpdesk": {
+              "x400": "YES"
+            },
+            "autoanswer": {
+              "x400": "NO"
+            },
             "contact_address": {
               "address_lines": [
-                "true",
                 "ECGrid Opérations Techniques Loren Data Corp 345, rue Lavoisier 38330 Montbonnot Saint Martin, France X.400: c=fr; a=ecgrid; s=techops E-mail: techops@ecgrid.com"
               ]
             }
@@ -355,8 +291,13 @@
             },
             "admd_name": "SPAIRAL",
             "country_code": "ES",
+            "mt": "SPAIRAL-MT",
+            "ipm": "SPAIRAL-IPM",
             "helpdesk": {
-              "x400": "SPAIRAL-IPM"
+              "x400": "NO"
+            },
+            "autoanswer": {
+              "x400": "NO"
             },
             "contact_address": {
               "address_lines": [
@@ -381,13 +322,16 @@
             },
             "admd_name": "ISODE",
             "country_code": "GB",
+            "mt": "ISODE 400-MT",
+            "ipm": "ISODE 400-IPM",
             "helpdesk": {
-              "x400": "ISODE 400-IPM"
+              "x400": "S=support O=isode A=isode C=gb"
+            },
+            "autoanswer": {
+              "x400": "CN=autoanswer O=isode A=isode C=gb"
             },
             "contact_address": {
               "address_lines": [
-                "S=support O=isode A=isode C=gb",
-                "CN=autoanswer O=isode A=isode C=gb",
                 "5 Castle Business Village 36 Station Road HAMPTON Middlesex TW12 2BX X.400: S=enquiries; O= isode; A=isode; C=gb; E-mail: enquiries@isode.com"
               ]
             }
@@ -409,10 +353,14 @@
             },
             "admd_name": "SEEBURGER",
             "country_code": "DE",
+            "helpdesk": {
+              "x400": "S=helpdesk A=seeburger C=de"
+            },
+            "autoanswer": {
+              "x400": "S=autoanswer A=seeburger C=de"
+            },
             "contact_address": {
               "address_lines": [
-                "S=helpdesk A=seeburger C=de",
-                "S=autoanswer A=seeburger C=de",
                 "StefanTheurer Seeburger AG Edisonstrasse 1 D – 75015 BRETTEN X.400: G=stefan; S= theurer; O=seeburger ag; A=seeburger; C=de E-mail: s.theurer@seeburger.de Tf:    +49 7252 960 Fax:  +49 7252 962222"
               ]
             }
@@ -436,18 +384,16 @@
             },
             "admd_name": "EDIVAN 400",
             "country_code": "CZ",
-            "helpdesk": {
-              "x400": "EDIVAN 400"
+            "mt": "EDIVAN 400",
+            "ipm": "EDIVAN 400",
+            "autoanswer": {
+              "x400": "S=Autoanswer/ Autoreply\nP=EDI\nA=EDIVAN400\nC=CZ"
             },
             "contact_address": {
               "address_lines": [
-                "S=Autoanswer/ Autoreply",
                 "EDITEL CZ s.r.o.",
-                "P=EDI",
                 "V Parku 2309/6",
-                "A=EDIVAN400",
                 "148 00  Praha 4 – Chodov, Czech Republic",
-                "C=CZ",
                 "e-mail: Ales.svoboda@editel.cz / cc@editel.cz"
               ]
             }
@@ -460,19 +406,18 @@
             },
             "admd_name": "SPT400",
             "country_code": "CZ",
+            "mt": "CZMAIL ‑ MT",
+            "ipm": "CZMAIL ‑ IPM",
             "helpdesk": {
-              "x400": "CZMAIL ‑ IPM"
+              "x400": "S=helpdesk\nA=spt 400\nC=cz"
+            },
+            "autoanswer": {
+              "x400": "P=autoanswer\nA=spt 400\nC=cz"
             },
             "contact_address": {
               "address_lines": [
-                "S=helpdesk",
-                "P=autoanswer",
                 "Ingrid Ledererova",
-                "A=spt 400",
-                "A=spt 400",
                 "Technical director",
-                "C=cz",
-                "C=cz",
                 "Dial Telecom, a.s.",
                 "Krizikova 36a/237, Corso Karlin",
                 "186 00  Praha 8, Czech Republic",

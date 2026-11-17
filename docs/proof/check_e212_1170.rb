@@ -10,7 +10,11 @@
 # EXPECTED_COUNT overrides the pinned count (used for the negative control).
 
 require "liquid" # must load before the ituob models
+require "json"
 require "nokogiri"
+require "open3"
+require "tmpdir"
+require "fileutils"
 require "metanorma-standoc"
 require "metanorma/plugin/lutaml"
 require "ituob"
@@ -74,11 +78,68 @@ check "rendered row count == provider items.size", rows.size == items.size,
 check "rendered row count == asserted #{expected_count}", rows.size == expected_count,
       "rendered #{rows.size}"
 check "rendered MCC+MNC column == provider replay order (all rows)",
-      rows.map(&:first) == items.map { |i| i.mcc_mnc_codes.to_s.strip.gsub(/\s+/, " ") }
+      rows.map { |r| r[1] } == items.map { |i| i.mcc_mnc_codes.to_s.strip.gsub(/\s+/, " ") }
 check "rendered first #{FIRST_N} rows == pinned replay order",
-      rows.first(FIRST_N).map(&:first) == PINNED_FIRST, rows.first(FIRST_N).map(&:first).inspect
-net_ok = rows.zip(items).first(50).all? { |r, i| r[1] == i.networks.to_s.strip.gsub(/\s+/, " ") }
-check "rendered Network column matches provider for first 50 rows", net_ok
+      rows.first(FIRST_N).map { |r| r[1] } == PINNED_FIRST, rows.first(FIRST_N).map { |r| r[1] }.inspect
+
+# --- Site parity ------------------------------------------------------------
+# Snapshot the site reads, generated from the same checkout.
+REPO_ROOT = File.expand_path("../..", __dir__)
+snap_dir = Dir.mktmpdir("e212-snap")
+snap_out, = Open3.capture2e(
+  { "SNAPSHOTS_OUT" => snap_dir }, RbConfig.ruby, "-rliquid", "-rituob",
+  File.join(REPO_ROOT, "scripts", "generate_register_snapshots.rb"), "E212_MNC"
+)
+check "site snapshot generated (scripts/generate_register_snapshots.rb E212_MNC)",
+      # the script's exit status also reflects other registers' missing manifests
+      snap_out.include?(", 0 errors") && File.exist?(File.join(snap_dir, REGISTER, "at-#{AS_OF}.json")),
+      snap_out.lines.last.to_s.strip
+snap = JSON.parse(File.read(File.join(snap_dir, REGISTER, "at-#{AS_OF}.json")))
+site_rows = snap.fetch("active_entries")
+
+# Same cell text as the site's formatCellValue (RegisterTable.astro): strings
+# as is, multilingual values as every populated language in fr en es zh ru ar order.
+LANGS = %w[fr en es zh ru ar].freeze
+def site_cell(value)
+  value = value.values_at(*LANGS).compact.reject(&:empty?).join(" ") if value.is_a?(Hash)
+  fold(value.to_s)
+end
+
+# standoc's smart-quote / dash typography is applied to the converted XML, so
+# both sides are folded to plain quotes and " - " before the comparison. Letters,
+# digits and every other character must still match exactly.
+def fold(text)
+  text.tr("\u201C\u201D", '""').tr("\u2018\u2019", "''")
+      .gsub(/[[:space:]]*[\u2014\u2013][[:space:]]*|[[:space:]]+-[[:space:]]+/, " - ")
+      .strip.gsub(/[[:space:]]+/, " ")
+end
+# RegisterTable shows the sorted union of field keys; the proof table has the same columns.
+SITE_COLUMNS = %w[country_or_area mcc_mnc_codes networks note].freeze
+check "site snapshot columns == proof table columns",
+      site_rows.flat_map(&:keys).uniq.sort == SITE_COLUMNS, site_rows.flat_map(&:keys).uniq.sort.inspect
+header = doc.xpath("//table//thead//th | //table//tr[1]/th").map { |th| th.text.strip }
+check "proof table header == site columns", header == SITE_COLUMNS.map { |c| c.tr("_", " ") }, header.inspect
+
+check "site snapshot at_ob_issue and entry_count",
+      snap["at_ob_issue"] == AS_OF && snap["entry_count"] == site_rows.size,
+      "at #{snap['at_ob_issue']}, entry_count #{snap['entry_count']}, active #{site_rows.size}"
+site_line = "State as of OB No. #{snap['at_ob_issue']} \u00B7 #{snap['entry_count']} active entries"
+check "output provenance line == site line #{site_line.inspect}",
+      text.lines.map(&:strip).include?(site_line), text[/State as of[^\n]*/].inspect
+
+check "rendered row count == site snapshot active entries", rows.size == site_rows.size,
+      "rendered #{rows.size}, site #{site_rows.size}"
+check "rendered keys and order == site snapshot (all rows)",
+      rows.map { |r| fold(r[1]) } == site_rows.map { |r| site_cell(r["mcc_mnc_codes"]) }
+mismatch = rows.zip(site_rows).each_with_index.reject do |(r, s), _i|
+  s && r.map { |c| fold(c) } == SITE_COLUMNS.map { |c| site_cell(s[c]) }
+end
+check "every rendered cell (country or area, mcc mnc codes, networks, note) == site snapshot",
+      mismatch.empty?,
+      mismatch.first(3).map { |(r, s), i| "row #{i} #{s['mcc_mnc_codes'].inspect}: #{r.inspect}" }.join(" | ")
+check "provider items == site snapshot keys in order",
+      items.map { |i| i.mcc_mnc_codes.to_s } == site_rows.map { |r| r["mcc_mnc_codes"].to_s }
+FileUtils.rm_rf(snap_dir)
 
 puts "output: #{OUT}"
 if $failures.empty?

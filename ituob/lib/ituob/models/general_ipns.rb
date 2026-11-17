@@ -11,7 +11,7 @@ module Ituob
       attribute :date_of_assignment, :string
       attribute :notes, :string
 attribute :ob_issue_no, :string
-attribute :contents, :hash
+attribute :contents, HashOrText
 
       key_value do
         map 'type', to: :type

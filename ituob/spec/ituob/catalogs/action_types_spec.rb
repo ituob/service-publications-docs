@@ -15,6 +15,26 @@ RSpec.describe Ituob::Catalogs::ActionTypes do
       expect(described_class.valid?('SUP**')).to be(true)
     end
 
+    it 'accepts a long trailing marker run after a valid action' do
+      value = " add#{'*' * 20_000} "
+
+      expect(described_class.valid?(value)).to be(true)
+    end
+
+    it 'rejects a long marker run followed by another character' do
+      value = "ADD#{'*' * 20_000}X"
+
+      expect(described_class.valid?(value)).to be(false)
+    end
+
+    it 'rejects a string made entirely of markers' do
+      expect(described_class.valid?('*' * 20_000)).to be(false)
+    end
+
+    it 'does not treat internal asterisks as trailing markers' do
+      expect(described_class.valid?('AD*D')).to be(false)
+    end
+
     it 'returns false for non-canonical strings' do
       %w[INSERT REMOVE DELETE_BY HOW by: te) ***].each do |t|
         expect(described_class.valid?(t)).to be(false), "expected #{t.inspect} to be invalid"
@@ -32,6 +52,14 @@ RSpec.describe Ituob::Catalogs::ActionTypes do
       expect(described_class.normalize('add')).to eq('ADD')
       expect(described_class.normalize('Add*')).to eq('ADD')
       expect(described_class.normalize(' SUP ')).to eq('SUP')
+      expect(described_class.normalize('sup' + ('*' * 20_000))).to eq('SUP')
+      expect(described_class.normalize('LIR**')).to eq('LIR')
+    end
+
+    it 'returns nil for long marker runs that do not end in a valid action' do
+      expect(described_class.normalize('DEL' + ('*' * 20_000) + 'X')).to be_nil
+      expect(described_class.normalize('*' * 20_000)).to be_nil
+      expect(described_class.normalize('AD*D')).to be_nil
     end
 
     it 'returns nil for non-canonical values' do
