@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'prosereflect'
+require 'ituob/catalogs'
+require 'ituob/support'
 
 module Ituob
   module Models
@@ -27,6 +29,35 @@ attribute :notes, :string, collection: true
       end
 
       HEADING_MARK = ' / '
+
+      def self.normalize_heading(text)
+        Ituob::Helpers.normalize_whitespace(text).split('/', 2).map(&:strip).join(HEADING_MARK)
+      end
+
+      # Split from the end so country names take linear time, even on long lines.
+      def self.heading_without_slash(text)
+        return if text.include?('/')
+
+        heading, _, action_type = text.rpartition(' ')
+        return unless action_type.match?(/\A[A-Z]{3}\*?\z/) &&
+          Ituob::Catalogs::ActionTypes.valid?(action_type)
+
+        country, _, iso = heading.rpartition(' ')
+        return if country.empty? || !iso.match?(/\A[A-Z]{3}\z/)
+
+        [text, country, iso, action_type]
+      end
+
+      def self.heading_with_annotation(text)
+        country, mark, remainder = text.partition(HEADING_MARK)
+        return if mark.empty? || country.empty?
+
+        iso, action_type, note = remainder.split(' ', 3)
+        return unless iso&.match?(/\A[A-Z]{3}\z/) &&
+          Ituob::Catalogs::ActionTypes.valid?(action_type) && note && !note.empty?
+
+        [text, country, iso, action_type, note]
+      end
 
       # True when some line has a "/" followed, later on that line, by a
       # three-capital action or ISO code at its end. Same as the old
@@ -84,27 +115,51 @@ attribute :notes, :string, collection: true
           first_elem = c[0] 
           if first_elem.is_a?(String)
             fixed_str = Ituob::Helpers.replace_legacy_space(c.join(' '))
+            segs = Ituob::Helpers.split_str(fixed_str)
+            fixed_str = normalize_heading(fixed_str)
+            page_heading = fixed_str.match(/\A(P \d+)(?: to P \d+)? /)
+            heading_text = page_heading ? fixed_str[page_heading.end(0)..] : fixed_str
 
             if first_elem.length < 3 
               next
             else
+              next if heading_text.match?(/\ACountry or area \//i)
+
+              if heading = heading_with_annotation(heading_text)
+                country, country_code = heading[1..2]
+                action.action_type = heading[3]
+                action.note = heading[4]
+                action.position = page_heading ? page_heading[1] : "#{country} / #{country_code}"
+                next
+              end
+              if heading = heading_without_slash(heading_text)
+                country, country_code = heading[1..2]
+                action.action_type = heading[3]
+                action.note = nil
+                action.position = page_heading ? page_heading[1] : "#{country} / #{country_code}"
+                next
+              end
               next unless slash_heading?(fixed_str)
-              segs = Ituob::Helpers.split_str(fixed_str)
+
+              heading = fixed_str.sub(%r{(/[[:space:]]*[A-Z]{3})[[:space:]]+[A-Z]{3}\*?\z}, '\\1').squeeze(' ').strip
+              heading_country, heading_iso = heading.sub(/\AP \S+ (?:to P \S+ )?/, '').split(' / ', 2)
+              next unless heading_country && !heading_country.empty? && heading_iso&.match?(/\A[A-Z]{3}\z/)
 
               action.note = segs[1]
-              if m = fixed_str.match(/[A-Z]{3}\*$/)
-                action.action_type = m[0].to_s
-              elsif m = fixed_str.match(/[A-Z]{3}$/)
-                action.action_type = m[0].to_s
+              action.action_type = nil
+              if Ituob::Catalogs::ActionTypes.valid?(fixed_str.split.last)
+                if m = fixed_str.match(/[A-Z]{3}\*$/)
+                  action.action_type = m[0].to_s
+                elsif m = fixed_str.match(/[A-Z]{3}$/)
+                  action.action_type = m[0].to_s
+                end
               end
-              heading = fixed_str.sub(%r{(/[[:space:]]*[A-Z]{3})[[:space:]]+[A-Z]{3}\*?\z}, '\\1').squeeze(' ').strip
               if fixed_str.match(/^P /)
                 action.position = segs[0..1].join(" ")
-                country, country_code = heading.sub(/\AP \S+ (?:to P \S+ )?/, '').split(' / ', 2)
               else
                 action.position = heading
-                country, country_code = heading.split(' / ', 2)
               end
+              country, country_code = heading_country, heading_iso
             end
 
           elsif first_elem.is_a?(Array) # table
@@ -123,18 +178,35 @@ attribute :notes, :string, collection: true
             # table with no header at all).
             c.each do |row|
               rf = Ituob::Helpers.replace_legacy_space(row.flatten.join('')).strip
+              single_cell = row.count { |cell| !Ituob::Helpers.normalize_whitespace(cell.flatten.join).empty? } == 1
+              # Blank-padded ISO-only rows were emitted as entries on main.
+              # Do not broaden that shape while recovering compact slashes.
+              if single_cell && (!rf.match?(%r{ / {2,}[A-Z]{3}\z}) || rf.match?(/\AP \d+ /))
+                rf = normalize_heading(rf).sub(/\AP \d+ (?:to P \d+ )?/, '')
+              end
               next if rf.match(/^Country/)
               next if rf.match(/Company.Name/)
               if rf.match?(/ \/ [A-Z]{3}$/)
-                country, country_code = rf.split(' / ')
+                heading_country, heading_iso = rf.split(' / ')
+                if heading_iso != country_code
+                  action = M1400Action.new
+                  action.entries = []
+                  amendment.actions << action
+                end
+                country, country_code = heading_country, heading_iso
                 next
               end
-              m = heading_with_action(rf)
+              m = single_cell ? heading_with_annotation(rf) : nil
+              m ||= heading_with_action(rf)
+              if !m && single_cell
+                m = heading_without_slash(rf)
+              end
               if m
                 # This seems to actually trigger a new action
                 action = M1400Action.new
                 action.entries = []
                 action.action_type = m[3]
+                action.note = m[4] if m[4]
                 country = m[1]
                 country_code = m[2]
                 amendment.actions << action

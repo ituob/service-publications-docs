@@ -8,7 +8,7 @@ module Ituob
     class GeneralTelephoneServices < GeneralMessage
       attribute :items, GeneralTelephoneService, collection: true
 attribute :ob_issue_no, :string
-attribute :contents, :hash
+attribute :contents, HashOrText
 
       key_value do
         map 'items', to: :items

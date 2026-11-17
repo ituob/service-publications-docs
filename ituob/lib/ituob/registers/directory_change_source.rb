@@ -18,6 +18,11 @@ module Ituob
       SEED_FILENAME = 'data.yaml'
       CHANGES_SUBDIR = 'changes'
 
+      def self.for_register(register_id:, **options)
+        source_class = register_id == 'F32_TDI' ? F32DirectoryChangeSource : self
+        source_class.new(register_id: register_id, **options)
+      end
+
       attr_reader :seed_path, :seed_issue
 
       def initialize(register_id:, seed_path:, seed_issue:, key_field:)
@@ -25,6 +30,14 @@ module Ituob
         @seed_path = seed_path.to_s
         @seed_issue = seed_issue&.to_i
         @key_field = key_field.to_s
+      end
+
+      # The amendment files dated before the seed issue: skipped by
+      # +each_sorted+ because the seed supersedes them.
+      def pre_seed_changes
+        return [] unless @seed_issue
+
+        each_amendment.select { |c| c.ob_issue_no && c.ob_issue_no < @seed_issue }
       end
 
       def each_sorted

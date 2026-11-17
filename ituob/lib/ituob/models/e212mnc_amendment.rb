@@ -29,6 +29,7 @@ attribute :country, :string
       # "Belarus    SUP": a country line carrying its action, with no
       # position column.
       COUNTRY_ACTION_SUFFIX = /\s(?<action>ADD|SUP|LIR|REP)\*?\z/
+      TABLE_ACTION_TYPES = %w[ADD SUP REP LIR MOD DEL].freeze
       # "Sweden  (extra-territorial use of MCC/MNC, ...)": the heading of a
       # table that repeats codes with the MSIN ranges they may use abroad.
       # Found by string search, not a regex: a lazy run before `\s*\(`
@@ -69,8 +70,8 @@ attribute :country, :string
         next_action(amendment, action)
       end
 
-      # A three-cell table row holding only "«country» ACTION", with blank
-      # code and network cells, or nil when the row carries data.
+      # A table row holding only "«country» ACTION" (any other cells blank),
+      # or nil when the row carries data.
       def self.rowspan_heading(segs)
         return if segs.empty?
         return unless segs.drop(1).all? { |cell| cell.to_s.match?(BLANK_CELL) }
@@ -81,7 +82,7 @@ attribute :country, :string
         # service, shared code" start lowercase or run past 50 characters.
         line = Ituob::Helpers.normalize_whitespace(segs[0])
         # The footnote star may stand apart: "shared code LIR *".
-        suffix = line.match(/\s(?<action>ADD|SUP|LIR|REP)(?:\s?\*)?\z/)
+        suffix = line.match(/\s(?<action>#{TABLE_ACTION_TYPES.join('|')})(?:\s?\*)?\z/)
         return unless suffix
 
         country = line[0...suffix.begin(0)].rstrip
@@ -181,7 +182,6 @@ attribute :country, :string
         end
 
         last_country = nil
-        editor_country = nil
 
         simplified_doc.each_with_index do |c, ci|
           next if c.nil?
@@ -303,45 +303,47 @@ attribute :country, :string
             header_row = row_cells(c[header_index])
             c.each_with_index do |row, row_index|
               segs = row.flatten
-              heading = row.length == 3 ? rowspan_heading(segs) : nil
-              # The title and header rows are not data unless it is itself a heading.
-              next if row_index <= header_index && !heading
+              # Printed first cell: the heading text of a country block, or
+              # the printed country of an entry row.
+              printed = Ituob::Helpers.replace_legacy_space(Array(row[0]).join(' ')).strip
+              block = rowspan_heading([Array(row[0]).join(' ')] + row.drop(1).flatten)
+              # Title and column header rows are not data unless they open a country block.
+              next if row_index <= header_index && !block
               # Long tables repeat the column header at each page break.
-              next if row_index > header_index && !heading && row_cells(row) == header_row
+              next if row_index > header_index && !block && row_cells(row) == header_row
 
-              if row.length == 1
-                # Editor layout: single-cell "«country»\u00a0\u00a0 ACTION"
-                # rows carry the action for the entry rows that follow;
-                # other single-cell rows are titles — skip.
-                text = segs[0].to_s
-                if (m = text.match(/\A(.*?)[\u00a0 ]+(ADD|SUP|REP|LIR|MOD|DEL)\z/)) && !m[1].strip.empty?
-                  action = E212MNCAction.new
-                  action.action_type = m[2]
-                  action.entries = []
-                  amendment.actions << action
-                  editor_country = Ituob::Helpers.replace_legacy_space(m[1]).strip
-                end
-              elsif heading
-                # Prosemirror layout: "«country» ACTION" spans the code
-                # and network rows below it; its own code and network
-                # cells are blank. It opens an action, it is not an entry.
+              if block
+                # "«country» ACTION" opens an action for the code/network
+                # rows below it; its own code and network cells are blank.
+                # It is not an entry. A country SUP block replaces the
+                # listed codes with the rows printed below it.
                 action = open_heading_action(amendment, action)
-                action.action_type = heading[:action]
-                editor_country = heading[:country]
-              elsif row.length == 3
-                next if segs[1].to_s.match?(BLANK_CELL) && row[1].count <= 1
+                action.action_type = block[:action] == 'SUP' ? 'REP' : block[:action]
+                last_country = block[:country]
+                next
+              end
 
+              # Other single-cell rows are titles, not entries.
+              next if row.length == 1
+
+              country = printed.empty? ? last_country : printed
+              if row.length == 3
+                last_country = printed unless printed.empty?
                 if row[1].count > 1
                   row[1].zip(row[2]).each do |r|
+                    next if Ituob::Helpers.replace_legacy_space(r[0].to_s).strip.empty?
+
                     entry = E212MNCEntry.new
-                    entry.country_or_area = MultilingualString.new(en: row[0])
+                    entry.country_or_area = MultilingualString.new(en: country) if country
                     entry.mcc_mnc_codes = r[0]
                     entry.networks  = r[1]
                     action.entries << entry
                   end
                 else
+                  next if Ituob::Helpers.replace_legacy_space(segs[1].to_s).strip.empty?
+
                   entry = E212MNCEntry.new
-                  entry.country_or_area = MultilingualString.new(en: segs[0])
+                  entry.country_or_area = MultilingualString.new(en: country) if country
                   entry.mcc_mnc_codes = segs[1]
                   entry.networks = segs[2]
                   action.entries << entry
@@ -352,7 +354,7 @@ attribute :country, :string
                 next unless segs[0].to_s.match?(/\A\d{3}(?:[\u00a0 ]+\d+)?\z/)
 
                 entry = E212MNCEntry.new
-                entry.country_or_area = MultilingualString.new(en: editor_country) if editor_country && !editor_country.empty?
+                entry.country_or_area = MultilingualString.new(en: last_country) if last_country
                 entry.mcc_mnc_codes = segs[0]
                 entry.networks = segs[1]
                 action.entries << entry
@@ -373,7 +375,10 @@ attribute :country, :string
                 # hold several paragraphs, and the country cell may add a
                 # qualifier such as "(Country A)" after the name.
                 cells = row_cells(row)
+                next if Ituob::Helpers.replace_legacy_space(cells[1].to_s).strip.empty?
+
                 name, qualifier = split_country_cell(Array(row[0]).map { |p| Ituob::Helpers.normalize_whitespace(p) })
+                last_country = printed unless printed.empty?
                 if qualifier&.start_with?('(Country B') &&
                    (home = action.entries.reverse.find { |e| country_paired?(e, cells[1]) })
                   record_extra_territorial_use(home, name, qualifier, cells)
@@ -381,7 +386,8 @@ attribute :country, :string
                 end
 
                 entry = E212MNCEntry.new
-                entry.country_or_area = MultilingualString.new(en: name) unless name.empty?
+                country = name.empty? ? last_country : name
+                entry.country_or_area = MultilingualString.new(en: country) if country
                 entry.note = MultilingualString.new(en: qualifier) if qualifier
                 entry.mcc_mnc_codes = cells[1]
                 entry.range = cells[2]
