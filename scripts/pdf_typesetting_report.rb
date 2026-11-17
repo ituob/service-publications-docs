@@ -213,14 +213,20 @@ module PdfTypesettingReport
     raise MeasurementError, "invalid manifest/baseline: #{e.message}"
   end
 
+  def adoc_cell(value)
+    value.to_s.gsub(/[\\|]/) { |character| "\\#{character}" }.gsub(/\r\n?|\n/, ' ')
+  end
+
   def adoc(report)
     summary = report[:publications].group_by { |entry| entry[:language] }.sort.map do |language, entries|
-      "|#{language} |#{entries.size} |#{entries.count { |entry| entry[:failures].empty? }} |#{entries.count { |entry| !entry[:failures].empty? }}"
+      cells = [language, entries.size, entries.count { |entry| entry[:failures].empty? }, entries.count { |entry| !entry[:failures].empty? }]
+      '|' + cells.map { |cell| adoc_cell(cell) }.join(' |')
     end
     rows = report[:publications].map do |entry|
       pages = entry.dig(:pages, :count) || 'unmeasured'
       baseline = entry.dig(:page_count_baseline, :pages) || 'n/a'
-      "|#{entry[:path]} |#{entry[:language]} |#{entry[:failures].empty? ? 'PASS' : 'FAIL'} |#{pages}/#{baseline} |#{entry[:failures].join('; ').gsub('|', '\\|')}"
+      cells = [entry[:path], entry[:language], entry[:failures].empty? ? 'PASS' : 'FAIL', "#{pages}/#{baseline}", entry[:failures].join('; ')]
+      '|' + cells.map { |cell| adoc_cell(cell) }.join(' |')
     end
     [ '= PDF typesetting measurements', '', report[:scope], '', "Result: #{report[:passed] ? 'PASS' : 'FAIL'}", '',
       '[cols="1,1,1,1",options="header"]', '|===', '|Language |PDFs |Pass |Fail', *summary, '|===', '',

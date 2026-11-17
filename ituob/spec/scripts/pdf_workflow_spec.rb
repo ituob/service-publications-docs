@@ -78,7 +78,10 @@ RSpec.describe "PDF workflow catalog isolation" do
     steps = workflow.fetch("jobs").fetch("render").fetch("steps")
     install = steps.find { |step| step["name"] == "Install the Chinese and Arabic fonts" }
     expect(install.fetch("run")).to include(
-      'fontist install "Noto Sans SC" --format ttf --no-prefer-variable --accept-all-licenses',
+      'for weight in Regular Bold',
+      'https://raw.githubusercontent.com/notofonts/noto-cjk/Sans2.004/Sans/SubsetOTF/SC/NotoSansSC-$weight.otf',
+      'Fontist::Manifest.from_hash({"Noto Sans SC" => ["Regular", "Bold"]}, locations: true)',
+      'abort "Chinese static fonts not registered"',
       'fontist install "Noto Naskh Arabic" --accept-all-licenses'
     )
     sources = Dir[File.expand_path("../../../documents/T-SP-*/*-C.adoc", __dir__)]

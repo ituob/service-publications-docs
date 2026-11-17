@@ -69,9 +69,43 @@ cell to an official edition. Those require visual and official-PDF review.
 Candidate status remains separate from ITU staff adoption; see
 link:refresh-cadence.adoc[refresh cadence].
 
+== Failure causes and targeted changes
+
+* All seven Chinese PDFs lose the source title. E.118, E.212A, E.218,
+  M.1400 and Q.708A have no Han text at all; E.164D and E.212B retain some
+  Han in other content but lose the title. The initial CI font step installs
+  `/config/fonts/noto_sans_cjk/NotoSansCJK.ttc` successfully, yet `pdffonts`
+  contains no CJK font and extracted title glyphs are `#`. This is font
+  selection/availability in the render, rather than unembedded Latin fonts.
+  The first replacement attempt still selected `NotoSansSC[wght].ttf` despite
+  Fontist's static preference; E.164D in run 44112230838 remained broken.
+  The renderer explicitly excludes variable-font paths containing `wght`.
+  The final targeted change downloads standalone `Noto Sans SC` Regular and
+  Bold OTFs from the `Sans2.004` release into Fontist's font directory and
+  verifies both registered paths are OTFs before rendering. All seven sources
+  request that family.
+* Q.708B English, French and Spanish have exactly three extracted underscore
+  runs beyond the page on page 178. Each reaches x=601.016 pt; the page is
+  595.276 pt wide. These are notification-form blanks, not register rows.
+  The template generates long, unbreakable runs of underscores (82–105
+  characters); the change caps the four long blanks at 72 characters in each
+  language. The bounding-box report retains the actual words and coordinates.
+* F.32 English has 41 generated pages versus the historical official 47.
+  link:comparison-pilot.adoc[The pilot] dispositions missing source data as
+  a major reason for its earlier 33-page generated edition. The current
+  41-page difference is a measured mismatch, not proof of a font defect;
+  isolating current data and pagination deltas requires the official comparison
+  workstream. No arbitrary pagination adjustment is made to force equality.
+
+Arabic titles containing Latin abbreviations require care: Poppler omits a
+space at the Latin/Arabic bidi-run boundary (`SANCقائمة`, `MNCفيما`). The
+reporter restores that script boundary for comparison, preserving the exact
+letter sequence. Mirrored parentheses and typographic punctuation are also
+normalized. These are extraction conventions, not missing Arabic glyphs.
+
 == Initial main artifact: per-language results
 
-All 87 PDFs were measured; no missing, duplicate or unlisted files. All listed fonts are embedded and all pages are unrotated portrait A4. No literal Unicode tofu/replacement markers were extracted; the Chinese failures demonstrate that this alone is insufficient, because the renderer substitutes `#`. Overall: 74 pass, 13 fail.
+All 87 PDFs were measured; no missing, duplicate or unlisted files. All listed fonts are embedded and all pages are unrotated portrait A4. No literal Unicode tofu/replacement markers were extracted; the Chinese failures demonstrate that this alone is insufficient, because the renderer substitutes `#`. Overall: 76 pass, 11 fail.
 
 [cols="1,1,1,1",options="header"]
 |===
@@ -81,7 +115,7 @@ All 87 PDFs were measured; no missing, duplicate or unlisted files. All listed f
 |es |22 |21 |1
 |ru |7 |7 |0
 |zh |7 |0 |7
-|ar |7 |5 |2
+|ar |7 |7 |0
 |===
 
 == Every PDF in the initial artifact
@@ -116,7 +150,7 @@ All 87 PDFs were measured; no missing, duplicate or unlisted files. All listed f
 |pdf/E.212A-2017/E.212A-2017-F.pdf |fr |PASS |19 / n/a |None
 |pdf/E.212A-2017/E.212A-2017-R.pdf |ru |PASS |19 / n/a |None
 |pdf/E.212A-2017/E.212A-2017-C.pdf |zh |FAIL |19 / n/a |register title did not round-trip: "移动国家或地理区域代码列表"; no zh script in extracted text
-|pdf/E.212B-2018/E.212B-2018-A.pdf |ar |FAIL |67 / n/a |register title did not round-trip: "الرموز الدليلية للشبكات المتنقلة (MNC) فيما يتعلق بالخطة الدولية لتعرّف هوية الشبكات العمومية والاشتراكات )وفقاً للتوصية ITU-T E.212 (2016/09) )"
+|pdf/E.212B-2018/E.212B-2018-A.pdf |ar |PASS |67 / n/a |None
 |pdf/E.212B-2018/E.212B-2018-E.pdf |en |PASS |67 / n/a |None
 |pdf/E.212B-2018/E.212B-2018-S.pdf |es |PASS |67 / n/a |None
 |pdf/E.212B-2018/E.212B-2018-F.pdf |fr |PASS |67 / n/a |None
@@ -149,7 +183,7 @@ All 87 PDFs were measured; no missing, duplicate or unlisted files. All listed f
 |pdf/PP.RES.21-2011/PP.RES.21-2011-E.pdf |en |PASS |6 / n/a |None
 |pdf/PP.RES.21-2011/PP.RES.21-2011-S.pdf |es |PASS |6 / n/a |None
 |pdf/PP.RES.21-2011/PP.RES.21-2011-F.pdf |fr |PASS |6 / n/a |None
-|pdf/Q.708A-2017/Q.708A-2017-A.pdf |ar |FAIL |58 / n/a |register title did not round-trip: "(SANC) قائمة بالرموز الدليلية لمناطق/شبكات التشوير"
+|pdf/Q.708A-2017/Q.708A-2017-A.pdf |ar |PASS |58 / n/a |None
 |pdf/Q.708A-2017/Q.708A-2017-E.pdf |en |PASS |58 / n/a |None
 |pdf/Q.708A-2017/Q.708A-2017-S.pdf |es |PASS |58 / n/a |None
 |pdf/Q.708A-2017/Q.708A-2017-F.pdf |fr |PASS |58 / n/a |None

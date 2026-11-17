@@ -194,6 +194,17 @@ RSpec.describe PdfTypesettingReport do
     expect(report[:failures].join).to include('duplicate manifest path', 'unsafe or missing manifest path')
   end
 
+  it 'escapes literal backslashes and pipes and flattens line breaks in every AsciiDoc table cell' do
+    raw = "dir" + "\\" + "|\r\nnext\rline\nend"
+    escaped = "dir" + ("\\" * 3) + "| next line end"
+    expect(described_class.adoc_cell(raw)).to eq(escaped)
+    result = { publications: [{ path: raw, language: raw, failures: [raw] }], passed: false, scope: 'Measurements', failures: [] }
+    output = described_class.adoc(result)
+    expect(output.lines.map(&:chomp)).to include("|#{escaped} |1 |0 |1", "|#{escaped} |#{escaped} |FAIL |unmeasured/n/a |#{escaped}")
+    expect(output).not_to include("\r")
+    expect(output.lines.count { |line| line.start_with?('|dir') }).to eq(2)
+  end
+
   it 'returns zero under --verify for a passing artifact' do
     write_typesetting_pdf(pdf)
     expect(described_class.main(['--pdf-dir', artifact_dir, '--out-dir', File.join(artifact_dir, 'report'), '--verify'])).to eq(0)

@@ -136,9 +136,23 @@ jobs:
         run: |
           set -eu
           if ls "documents/$DOC_ID"/*-C.adoc >/dev/null 2>&1; then
-            # Use standalone static fonts; the SuperOTC collection installs
-            # successfully but produces missing Chinese glyphs in the PDF.
-            fontist install "Noto Sans SC" --format ttf --no-prefer-variable --accept-all-licenses
+            # The fontist formula can select NotoSansSC[wght].ttf even when
+            # static fonts are requested; mn2pdf explicitly skips that file.
+            # Register the release's standalone Regular and Bold OTFs instead.
+            font_dir="${FONTIST_PATH:?}/fonts/noto_sans_sc_static"
+            mkdir -p "$font_dir"
+            for weight in Regular Bold; do
+              curl --fail --location --retry 3 \
+                "https://raw.githubusercontent.com/notofonts/noto-cjk/Sans2.004/Sans/SubsetOTF/SC/NotoSansSC-$weight.otf" \
+                --output "$font_dir/NotoSansSC-$weight.otf"
+            done
+            ruby -rfontist -e '
+              Fontist::Indexes::FontistIndex.instance.rebuild
+              fonts = Fontist::Manifest.from_hash({"Noto Sans SC" => ["Regular", "Bold"]}, locations: true).to_hash
+              paths = fonts.fetch("Noto Sans SC").values.flat_map { |style| style.fetch("paths") }
+              abort "Chinese static fonts not registered" unless paths.size >= 2 && paths.all? { |path| path.end_with?(".otf") }
+              puts paths
+            '
           fi
           if ls "documents/$DOC_ID"/*-A.adoc >/dev/null 2>&1; then
             fontist install "Noto Naskh Arabic" --accept-all-licenses
