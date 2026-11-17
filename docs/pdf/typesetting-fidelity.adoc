@@ -3,6 +3,52 @@
 
 Part of ituob/service-publications-docs#89, item 6.
 
+== Full hosted result after the fixes
+
+Run link:https://github.com/ituob/service-publications-docs/actions/runs/44122451030[44122451030]
+at `a228774f0fd45a585ce8dc57b333598b7886deb7` successfully renders and merges
+all 87 PDFs, then runs the reporter in CI. The `typesetting-report` artifact
+contains `report.json` and `report.adoc`. The advisory `--verify` exits 1:
+86 PDFs pass and F.32 English fails its official page-count comparison.
+The workflow remains green because this initial report step is non-blocking.
+
+[cols="1,1,1,1,1,1",options="header"]
+|===
+|Language |PDFs |Before pass |Before fail |After pass |After fail
+|en |22 |20 |2 |21 |1
+|fr |22 |21 |1 |22 |0
+|es |22 |21 |1 |22 |0
+|ru |7 |7 |0 |7 |0
+|zh |7 |0 |7 |7 |0
+|ar |7 |7 |0 |7 |0
+|===
+
+All 87 PDFs have embedded fonts, portrait A4 pages without rotation, localized
+reference strings that round-trip, and zero extracted word boxes beyond the
+page. All seven Chinese PDFs now embed `NotoSansSC` fonts. All three Q.708B
+form variants have zero overflow words, versus three each before the fix.
+There are no missing, duplicate or unlisted PDFs. These are machine checks;
+the official-baseline and visual-review limitations below still apply.
+
+The one remaining failure is F.32 English: 41 generated pages versus 47 official.
+The link:https://github.com/ituob/service-publications-docs/blob/main/ituob/spec/fixtures/f32/official-2011.pdf[official reference now in main]
+was independently checked with `pdfinfo`: 47 unrotated A4 pages, SHA-256
+`7ef59fbbfcddd5690dd4f5e2de87a618e31898c8943ca1335c6c4e2a4556c3d9`.
+This matches the existing comparison pilot's reference. Its known data/content
+gap is not repaired by forcing pagination; the comparison workstream remains open.
+
+Observed page-count changes without official baselines: E.118 Chinese 96 -> 97,
+M.1400 Chinese 90 -> 92, and E.212B Arabic 67 -> 66. All pass the other checks.
+The initial main artifact and branch have different source revisions as well
+as the font changes, so these counts alone do not isolate a cause or certify
+equivalence. All other PDF page counts are unchanged.
+
+[source,shell]
+----
+gh run download 44122451030 -R ituob/service-publications-docs \
+  -n typesetting-report -D /tmp/typesetting-after
+----
+
 == Scope and reproduction
 
 The initial measurement uses the latest successful `pdf.yml` run on `main`
@@ -71,27 +117,24 @@ link:refresh-cadence.adoc[refresh cadence].
 
 == Failure causes and targeted changes
 
-* All seven Chinese PDFs lose the source title. E.118, E.212A, E.218,
-  M.1400 and Q.708A have no Han text at all; E.164D and E.212B retain some
-  Han in other content but lose the title. The initial CI font step installs
-  `/config/fonts/noto_sans_cjk/NotoSansCJK.ttc` successfully, yet `pdffonts`
-  contains no CJK font and extracted title glyphs are `#`. This is font
-  selection/availability in the render, rather than unembedded Latin fonts.
-  The first replacement attempt still selected `NotoSansSC[wght].ttf` despite
-  Fontist's static preference; E.164D in run 44112230838 remained broken.
-  The renderer explicitly excludes variable-font paths containing `wght`.
-  The final targeted change downloads standalone `Noto Sans SC` Regular and
-  Bold OTFs from the `Sans2.004` release into Fontist's font directory and
-  verifies both registered paths are OTFs before rendering. All seven sources
-  request that family. Registration alone still leaves Chinese broken:
-  metanorma-itu 2.9.4 hardcodes Arial on service-publication page sequences
-  and Calibri on table containers, overriding the root `:fonts:` fallback.
-  `scripts/patch_itu_cjk_font_fallback.rb` adds `Noto Sans SC` to those
-  constant Arial/Calibri stacks in the installed CI stylesheet, retaining
-  the original primary fonts, dynamic expressions, weight/style and unrelated
-  stacks. It checks the expected page-sequence overrides before changing
-  anything and logs the before/after stacks. This is a bounded renderer
-  workaround; an incompatible future stylesheet fails the guard for review.
+* All seven Chinese PDFs initially lose the source title. E.118, E.212A,
+  E.218, M.1400 and Q.708A have no Han text at all; E.164D and E.212B retain
+  some Han elsewhere but lose the title. The initial CI font step installs
+  `NotoSansCJK.ttc`, yet `pdffonts` has no CJK font and titles extract as `#`.
+  Fontist can also select `NotoSansSC[wght].ttf` despite a static preference;
+  the renderer excludes variable-font paths containing `wght`. The fix
+  downloads pinned `Noto Sans SC` Regular and Bold OTFs from `Sans2.004`,
+  rebuilds Fontist's index, verifies the registered paths, and requests the
+  family in all seven Chinese sources.
+  Installation alone is insufficient: metanorma-itu 2.9.4 hardcodes Arial
+  on service-publication page sequences and Calibri on table containers,
+  overriding the inherited `:fonts:` fallback.
+  `scripts/patch_itu_cjk_font_fallback.rb` adds SC to these constant stacks
+  in the installed CI stylesheet. It preserves primary fonts, computed
+  expressions, weight/style and unrelated stacks, guards the expected
+  page-sequence overrides, and logs before/after values. An incompatible
+  future stylesheet fails the guard for review. The full hosted result above
+  confirms embedded SC fonts and successful title round-trips in all seven.
 * Q.708B English, French and Spanish have exactly three extracted underscore
   runs beyond the page on page 178. Each reaches x=601.016 pt; the page is
   595.276 pt wide. These are notification-form blanks, not register rows.
@@ -110,48 +153,6 @@ space at the Latin/Arabic bidi-run boundary (`SANCقائمة`, `MNCفيما`). T
 reporter restores that script boundary for comparison, preserving the exact
 letter sequence. Mirrored parentheses and typographic punctuation are also
 normalized. These are extraction conventions, not missing Arabic glyphs.
-
-== Hosted before/after evidence
-
-Run link:https://github.com/ituob/service-publications-docs/actions/runs/44114125455[44114125455]
-at `4a9094004bac5168cc8dd4dddc3df3180d5109af` renders the restricted
-E.164D and Q.708B subset. The shard artifacts were downloaded and checked
-with the same reporter and `--verify`.
-
-* Q.708B: all three PDFs pass. English, French and Spanish each had three
-  out-of-page underscore words in the initial main artifact; each now has
-  zero. They have 179 English, 180 French and 179 Spanish pages, embedded
-  fonts, portrait A4 pages and their localized title round-trip. This confirms
-  the form-line correction; page 178 was the offending form page, not the
-  document's total page count.
-* E.164D: five languages pass, but Chinese still fails its title round-trip.
-  The static-font registration assertion passed before rendering, yet the
-  PDF still has no CJK font in `pdffonts` and its title remains `#` substitutions.
-  Installing and registering the fonts alone is therefore insufficient;
-  this attempt is not evidence of a resolved Chinese rendering defect.
-
-Run link:https://github.com/ituob/service-publications-docs/actions/runs/44118456856[44118456856]
-at `bba3933416528a129b2b4240438e870a87d0d841` then renders E.212A with
-the guarded Arial/Calibri fallback adjustment. All six downloaded PDFs pass
-`--verify`, with 19 pages each (unchanged from the initial main artifact),
-embedded fonts, no overflow, and successful title/script round-trips.
-The Chinese PDF now embeds `NotoSansSC-Regular` and `NotoSansSC-Bold`
-(`emb yes`, `sub yes`, `uni yes`). Its previously missing title
-`移动国家或地理区域代码列表`, cover branding `ITU出版物`, and Chinese body text
-extract correctly; the other five PDFs do not gain a CJK font.
-
-That run's render shard succeeded, but an added diagnostic XML upload changed
-the artifact root and broke manifest merging. The diagnostic path was removed;
-a workflow regression now asserts that every shard upload path stays beneath
-`build`, preserving `pdf/manifest.json` at the artifact root. The PDF evidence
-above comes directly from the successful render shard and is independent of
-that packaging failure.
-
-These are targeted before/after measurements, not a completed post-fix
-87-PDF matrix. The remaining six Chinese publication variants still need a
-full hosted rerender; the initial report above deliberately retains their
-observed failures rather than predicting passes. F.32's 41/47 page mismatch
-also remains unresolved.
 
 == Initial main artifact: per-language results
 

@@ -58,7 +58,7 @@ successful catalog artifact selected by the site.
 
 == From candidate to adopted
 
-Every producer render is a candidate generated from the patch log. A changed
+Producer renders remain candidate editions of their pinned source data. A changed
 PDF has a different checksum, so adoption of the previous bytes does not
 transfer to it. Adoption is a separate site action pinned to standard,
 edition, language and SHA-256; the site presents an edition as official only
@@ -71,8 +71,8 @@ official just because CI rendered it or the site catalog fetched it.
 
 == Who triggers and what the site selects
 
-For routine updates, the author of the data, template or code change merges
-that change to this repository's `main`; GitHub Actions starts the full render
+For routine updates, a repository maintainer merges a reviewed data, template
+or code change to this repository's `main`; GitHub Actions starts the full render
 when its path filter matches. A maintainer may also run `pdf.yml` manually,
 either for all publications or a restricted check. The site does not fetch
 from a pull request or fork.
