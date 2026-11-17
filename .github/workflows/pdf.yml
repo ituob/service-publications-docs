@@ -102,6 +102,21 @@ jobs:
           env -u RUBYOPT -u BUNDLE_GEMFILE gem install --no-document json-schema colorize prosereflect
           env -u RUBYOPT -u BUNDLE_GEMFILE ruby -I ituob/lib -e 'require "ituob"; require "ituob/models"; puts "ituob loads"'
 
+      # The image embeds only Noto Sans/Serif and Arial, so Chinese prints as `#`
+      # and Arabic loses glyphs. The A and C sources name their font in a
+      # `:fonts:` header attribute (itu.service-publication.xsl adds it to the
+      # font stack); install it here so the render can find it. A failed
+      # install fails the shard rather than rendering `#` silently.
+      - name: Install the Chinese and Arabic fonts
+        run: |
+          set -eu
+          if ls "documents/$DOC_ID"/*-C.adoc >/dev/null 2>&1; then
+            fontist install "Noto Sans CJK SC" --accept-all-licenses
+          fi
+          if ls "documents/$DOC_ID"/*-A.adoc >/dev/null 2>&1; then
+            fontist install "Noto Naskh Arabic" --accept-all-licenses
+          fi
+
       # Renders with `metanorma -t itu -x pdf --agree-to-terms` per language,
       # copies each PDF to build/pdf/<standard>-<year>/ and writes
       # build/pdf/manifest.json. The PDFs also stay beside their sources for
