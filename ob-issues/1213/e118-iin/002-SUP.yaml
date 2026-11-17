@@ -11,9 +11,10 @@ data:
   - country_or_area:
       en: Netherlands
     company_name: GLOBETOUCH (Netherlands) B.V. [formerly
-    company_address_1: Roamware (Netherlands) B.V.]
-    company_address_2: Beech Avenue 54-80, 12Campus10
-    company_address_3: SCHIPOL-RIJK, 1119PW
+    company_address:
+    - Roamware (Netherlands) B.V.]
+    - Beech Avenue 54-80, 12Campus10
+    - SCHIPOL-RIJK, 1119PW
     contact: "-"
     issue_id_number: 89 31 68
     effective_date: 16.II.2018

@@ -8,14 +8,17 @@ data:
   country_or_area:
     en: Netherlands
   company_name: Lebara Ltd
-  company_address_1: 2 Clove Crescent,
-  company_address_2: E India Dock
-  company_address_3: LONDON E14 2BE
+  company_address:
+  - 2 Clove Crescent,
+  - E India Dock
+  - LONDON E14 2BE
+  - "(United Kingdom)"
   contact: Lebara NL Operations
-  contact_address_1: PO box 267,
-  contact_address_2: 1110 AG DIEMEN/
-  contact_address_3: Entrada 111,
-  contact_address_4: 1114 AA AMSTERDAM-DUIVENDRECHT
+  contact_address:
+  - PO box 267,
+  - 1110 AG DIEMEN/
+  - Entrada 111,
+  - 1114 AA AMSTERDAM-DUIVENDRECHT
   tel:
   - "+31 203144201"
   email:

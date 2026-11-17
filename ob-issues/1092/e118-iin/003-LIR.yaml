@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Sweden
     company_name: GlobeTouch AB
-    company_address_1: Box 5126
-    company_address_2: SE-102 43 STOCKHOLM
+    company_address:
+    - Box 5126
+    - SE-102 43 STOCKHOLM
     contact: Mr Nils Windahl
-    contact_address_1: GlobeTouch AB
-    contact_address_2: Box 5126
-    contact_address_3: SE-102 43 STOCKHOLM
+    contact_address:
+    - GlobeTouch AB
+    - Box 5126
+    - SE-102 43 STOCKHOLM
     tel:
     - "+46 76 000 33 20"
     email:

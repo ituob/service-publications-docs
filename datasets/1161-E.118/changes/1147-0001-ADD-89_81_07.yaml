@@ -8,16 +8,18 @@ data:
   country_or_area:
     en: Japan
   company_name: Panasonic System Solutions Japan Co. Ltd
-  company_address_1: 4-1-62 Minoshima, Hakata-ku
-  company_address_2: FUKUOKA CITY 812-8531
+  company_address:
+  - 4-1-62 Minoshima, Hakata-ku
+  - FUKUOKA CITY 812-8531
   contact: Ryosuke Kimura
-  contact_address_1: Panasonic System Solutions Japan Co. Ltd
-  contact_address_2: IoT Platform Department
-  contact_address_3: Cloud Service Business Center
-  contact_address_4: 3-1-9 Shin-Yokohama, Kohoku-ku
-  contact_address_5: YOKOHAMA CITY 222-0033
+  contact_address:
+  - Panasonic System Solutions Japan Co. Ltd
+  - IoT Platform Department
+  - Cloud Service Business Center
+  - 3-1-9 Shin-Yokohama, Kohoku-ku
+  - YOKOHAMA CITY 222-0033
   tel:
-  - "           +81 45 478 6343"
+  - "+81 45 478 6343"
   email:
   - kimura.ryosuke-@jp.panasonic.com;
   - telecom_op@ml.jp.panasonic.com

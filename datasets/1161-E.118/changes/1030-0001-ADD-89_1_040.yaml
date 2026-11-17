@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: United States
   company_name: North Dakota Network Company
-  company_address_1: 3615 North Broadway
-  company_address_2: Minot, ND 58703
-  company_address_3: United States
+  company_address:
+  - 3615 North Broadway
+  - Minot, ND 58703
+  - United States
   contact: Mr Shawn Grosz
-  contact_address_1: North Dakota Network Company
-  contact_address_2: 3615 North Broadway
-  contact_address_3: Minot, ND 58703
-  contact_address_4: United States
+  contact_address:
+  - North Dakota Network Company
+  - 3615 North Broadway
+  - Minot, ND 58703
+  - United States
   tel:
   - "+ 701 858 1400"
   fax:

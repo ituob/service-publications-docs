@@ -8,15 +8,18 @@ data:
   country_or_area:
     en: Gibraltar
   company_name: Eazi Telecom Ltd
-  company_address_1: P.O. Box 1108
-  company_address_2: Ground Floor,Block 6,
-  company_address_3: Watergardens
+  company_address:
+  - P.O. Box 1108
+  - Ground Floor,Block 6,
+  - Watergardens
+  - Gibraltar
   contact: Ms Kristle Krawlinson
-  contact_address_1: Eazi Telecom Ltd
-  contact_address_2: P.O. Box 1108
-  contact_address_3: Ground Floor,Block 6,
-  contact_address_4: Watergardens
-  contact_address_5: Gibraltar
+  contact_address:
+  - Eazi Telecom Ltd
+  - P.O. Box 1108
+  - Ground Floor,Block 6,
+  - Watergardens
+  - Gibraltar
   tel:
   - "+350 2006 6400"
   email:

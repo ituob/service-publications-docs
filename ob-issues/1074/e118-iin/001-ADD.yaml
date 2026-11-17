@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Malta
     company_name: Yom Ltd.
-    company_address_1: 60, G Cali street, Suite 6,
-    company_address_2: Ta’ Xbiex, XBX 1424
+    company_address:
+    - 60, G Cali street, Suite 6,
+    - Ta’ Xbiex, XBX 1424
     contact: Mr Antoine Bartolo
-    contact_address_1: Yom Ltd.
-    contact_address_2: 12/M1 Tigne Place, Tigne street,
-    contact_address_3: Sliema SLM 3173
+    contact_address:
+    - Yom Ltd.
+    - 12/M1 Tigne Place, Tigne street,
+    - Sliema SLM 3173
     tel:
     - "+356 2704 1264"
     email:

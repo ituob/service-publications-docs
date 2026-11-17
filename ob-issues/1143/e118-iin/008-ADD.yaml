@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Belgium
     company_name: Belgacom International Carrier Services S.A. (BICS SA)
-    company_address_1: 4 Rue Lebeau
-    company_address_2: B-1000 BRUSSELS
+    company_address:
+    - 4 Rue Lebeau
+    - B-1000 BRUSSELS
     contact: Kathelijne Winderickx
-    contact_address_1: 4 Rue Lebeau
-    contact_address_2: B-1000 BRUSSELS
+    contact_address:
+    - 4 Rue Lebeau
+    - B-1000 BRUSSELS
     tel:
     - "+32 2 547 53 81"
     fax:

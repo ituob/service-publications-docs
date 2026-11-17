@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Luxembourg
     company_name: e-LUX Mobile Telecommunication Services S.A.
-    company_address_1: 21, Avenue Monterey
-    company_address_2: L-2163 Luxembourg
+    company_address:
+    - 21, Avenue Monterey
+    - L-2163 Luxembourg
     contact: Mr Ibrahim Tolga Sönmezalp
-    contact_address_1: Mr Hassane Diabate
-    contact_address_2: e-LUX Mobile Telecommunication
-    contact_address_3: Services S.A.
-    contact_address_4: 21, Avenue Monterey
-    contact_address_5: L-2163 Luxembourg
+    contact_address:
+    - Mr Hassane Diabate
+    - e-LUX Mobile Telecommunication
+    - Services S.A.
+    - 21, Avenue Monterey
+    - L-2163 Luxembourg
     tel:
     - "+90 5337745491/+352 26201543"
     fax:

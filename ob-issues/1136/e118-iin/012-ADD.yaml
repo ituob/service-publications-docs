@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Germany
     company_name: Drillisch Online AG
-    company_address_1: Wilhelm-Roentgen-Str. 1 - 5
-    company_address_2: 63477 MAINTAL
+    company_address:
+    - Wilhelm-Roentgen-Str. 1 - 5
+    - 63477 MAINTAL
     contact: Mr. Marc Schütze
-    contact_address_1: Drillisch Online AG
-    contact_address_2: Wilhelm-Roentgen-Str. 1 - 5
-    contact_address_3: 63477 MAINTAL
+    contact_address:
+    - Drillisch Online AG
+    - Wilhelm-Roentgen-Str. 1 - 5
+    - 63477 MAINTAL
     tel:
     - "+49 211 2479 4880"
     email:

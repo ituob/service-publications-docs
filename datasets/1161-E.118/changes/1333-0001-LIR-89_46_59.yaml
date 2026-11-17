@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Sweden
   company_name: Myndigheten för civilt försvar (MCF)
-  company_address_1: 651 81 Karlstad
+  company_address:
+  - 651 81 Karlstad
   contact: MCF Switchboard
-  contact_address_1: 651 81 Karlstad
-  contact_address_2: Sweden
+  contact_address:
+  - 651 81 Karlstad
+  - Sweden
   tel:
-  - "          +46 771 240 240"
+  - "+46 771 240 240"
   email:
   - registrator@mcf.se
   issue_id_number: 89 46 59

@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Spain
     company_name: Valid Soluciones Tecnológicas S.A.U.
-    company_address_1: Avda Fuente de la Mora, 3-5-7
-    company_address_2: Ed. A, 1, 28050 MADRID
+    company_address:
+    - Avda Fuente de la Mora, 3-5-7
+    - Ed. A, 1, 28050 MADRID
     contact: Sr. Alfonso Crespo Gonzalez
-    contact_address_1: Valid Soluciones Tecnológicas S.A.U.
-    contact_address_2: Avda Fuente de la Mora, 3-5-7
-    contact_address_3: Ed. A, 1 , 28050 MADRID
+    contact_address:
+    - Valid Soluciones Tecnológicas S.A.U.
+    - Avda Fuente de la Mora, 3-5-7
+    - Ed. A, 1 , 28050 MADRID
     tel:
     - "+34 911254001"
     fax:

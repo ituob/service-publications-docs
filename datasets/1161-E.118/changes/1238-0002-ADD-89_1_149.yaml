@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: United States
   company_name: OptimERA Inc.
-  company_address_1: 132 Loop Road
-  company_address_2: UNALASKA, AK 99685
+  company_address:
+  - 132 Loop Road
+  - UNALASKA, AK 99685
   contact: Jester Purtteman
-  contact_address_1: OptimERA Inc.
-  contact_address_2: PO Box 921134
-  contact_address_3: DUTCH HARBOR, AK 99692
+  contact_address:
+  - OptimERA Inc.
+  - PO Box 921134
+  - DUTCH HARBOR, AK 99692
   tel:
   - "+1 907 581 4983"
   email:

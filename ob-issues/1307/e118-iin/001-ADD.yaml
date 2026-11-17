@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Mexico
     company_name: PANTERA MOBILE SOLUTIONS,
-    company_address_1: S.A.P.I. DE C.V.
-    company_address_2: Lomas de Tecamachalco
-    company_address_3: 53950 NAUCALPAN, EDO. MEX.
+    company_address:
+    - S.A.P.I. DE C.V.
+    - Lomas de Tecamachalco
+    - 53950 NAUCALPAN, EDO. MEX.
     contact: Alejandro Martínez Zorrilla Fernández
-    contact_address_1: 1A CDA. Fuente de Leones 129-A,
-    contact_address_2: Lomas de Tecamachalco,
-    contact_address_3: 53950, NAUCALPAN DE JUAREZ,
-    contact_address_4: Estado de México
+    contact_address:
+    - 1A CDA. Fuente de Leones 129-A,
+    - Lomas de Tecamachalco,
+    - 53950, NAUCALPAN DE JUAREZ,
+    - Estado de México
     tel:
     - "+52 5559258059"
     email:

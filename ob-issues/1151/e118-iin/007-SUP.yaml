@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Suriname
     company_name: International Communication Management & Services Ltd.
-    company_address_1: Brokopondolaan No. 9
-    company_address_2: PO Box 12667
-    company_address_3: PARAMARIBO
+    company_address:
+    - Brokopondolaan No. 9
+    - PO Box 12667
+    - PARAMARIBO
     contact: Ms Susan Patterson
-    contact_address_1: Brokopondolaan No. 9
-    contact_address_2: PO Box 12667
-    contact_address_3: PARAMARIBO
+    contact_address:
+    - Brokopondolaan No. 9
+    - PO Box 12667
+    - PARAMARIBO
     tel:
     - "+597 490271"
     fax:

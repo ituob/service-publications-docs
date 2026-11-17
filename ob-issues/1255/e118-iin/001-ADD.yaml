@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Ireland
     company_name: Sky Ireland Limited
-    company_address_1: 5th floor, Burlington Plaza
-    company_address_2: Burlington Road
-    company_address_3: DUBLIN 4
+    company_address:
+    - 5th floor, Burlington Plaza
+    - Burlington Road
+    - DUBLIN 4
     contact: Mark Carpenter
-    contact_address_1: 5th floor, Burlington Plaza
-    contact_address_2: Burlington Road
-    contact_address_3: DUBLIN 4
+    contact_address:
+    - 5th floor, Burlington Plaza
+    - Burlington Road
+    - DUBLIN 4
     tel:
     - "+353 1 660 2125"
     email:

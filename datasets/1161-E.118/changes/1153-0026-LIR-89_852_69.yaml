@@ -8,13 +8,16 @@ data:
   country_or_area:
     en: Hong Kong, China
   company_name: HKBN Enterprise Solutions Limited
-  company_address_1: 12/F, Trans Asia Centre,
-  company_address_2: 18 Kin Hong Street,
-  company_address_3: Kwai Chung, New Territories,
+  company_address:
+  - 12/F, Trans Asia Centre,
+  - 18 Kin Hong Street,
+  - Kwai Chung, New Territories,
+  - Hong Kong
   contact: Mr Kenneth Ng
-  contact_address_1: 12/F, Trans Asia Centre, 18 Kin Hong Street,
-  contact_address_2: Kwai Chung, New Territories,
-  contact_address_3: Hong Kong
+  contact_address:
+  - 12/F, Trans Asia Centre, 18 Kin Hong Street,
+  - Kwai Chung, New Territories,
+  - Hong Kong
   tel:
   - "+852 3999 1222"
   fax:

@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Cloud9 Mobile Communications Limited
-    company_address_1: Horizon, Honey Lane
-    company_address_2: HURLEY, SL6 6RJ
+    company_address:
+    - Horizon, Honey Lane
+    - HURLEY, SL6 6RJ
     contact: Mr Ken Sutherland
-    contact_address_1: Cloud9 Mobile Communications Limited
-    contact_address_2: Horizon, Honey Lane
-    contact_address_3: HURLEY, SL6 6RJ
+    contact_address:
+    - Cloud9 Mobile Communications Limited
+    - Horizon, Honey Lane
+    - HURLEY, SL6 6RJ
     tel:
     - "+44 7700 012570"
     fax:

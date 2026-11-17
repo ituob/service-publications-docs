@@ -12,15 +12,20 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Cable and Wireless
-    company_address_1: Isle of Man LTD
-    company_address_2: PO Box 166
-    company_address_3: 4th Floor, One Circular Road,
+    company_address:
+    - Isle of Man LTD
+    - PO Box 166
+    - 4th Floor, One Circular Road,
+    - Douglas
+    - Isle of Man, IM99 3NZ
+    - United Kingdom
     contact: Mr.Ashley Holmes
-    contact_address_1: PO Box 3
-    contact_address_2: Upland Road
-    contact_address_3: St Peter Port
-    contact_address_4: Guernsey, GY3 3AD
-    contact_address_5: United Kingdom
+    contact_address:
+    - PO Box 3
+    - Upland Road
+    - St Peter Port
+    - Guernsey, GY3 3AD
+    - United Kingdom
     fax:
     - "+44 14 8175 7524"
     email:

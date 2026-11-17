@@ -11,13 +11,16 @@ data:
   - country_or_area:
       en: Zambia
     company_name: Zambia Telecommunications Company Ltd (ZAMTEL)
-    company_address_1: Zamtel House
-    company_address_2: Corner of Church/Chilubi Roads
-    company_address_3: PO Box 37000
+    company_address:
+    - Zamtel House
+    - Corner of Church/Chilubi Roads
+    - PO Box 37000
+    - LUSAKA
     contact: Cassandra Chakanika
-    contact_address_1: PO Box 37000
-    contact_address_2: LUSAKA
-    contact_address_3: Zambia
+    contact_address:
+    - PO Box 37000
+    - LUSAKA
+    - Zambia
     tel:
     - "+260 950 003 605"
     email:

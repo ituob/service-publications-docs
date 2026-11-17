@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Finland
     company_name: Ålands Telekommunikation Ab
-    company_address_1: P.O. Box 233
-    company_address_2: 22100 MARIEHAMN
+    company_address:
+    - P.O. Box 233
+    - 22100 MARIEHAMN
     contact: Mr Thomas Lax
-    contact_address_1: Ålands Telekommunikation Ab
-    contact_address_2: P.O. Box 233
-    contact_address_3: 22100 MARIEHAMN
+    contact_address:
+    - Ålands Telekommunikation Ab
+    - P.O. Box 233
+    - 22100 MARIEHAMN
     tel:
     - "+358 18 23 500"
     email:

@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: South Africa
     company_name: Rain Networks (Pty) Ltd
-    company_address_1: Block D, The Main Straight Office Park,
-    company_address_2: 392 Main Road,
-    company_address_3: BRYANSTON, 2191
+    company_address:
+    - Block D, The Main Straight Office Park,
+    - 392 Main Road,
+    - BRYANSTON, 2191
     contact: Mlindi J. Kgamedi
-    contact_address_1: Block D, The Main Straight Office Park
-    contact_address_2: 392 Main Road,
-    contact_address_3: BRYANSTON, 2191
+    contact_address:
+    - Block D, The Main Straight Office Park
+    - 392 Main Road,
+    - BRYANSTON, 2191
     tel:
     - "+27 87 727 6000"
     fax:

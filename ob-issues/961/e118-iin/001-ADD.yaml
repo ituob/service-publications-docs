@@ -12,12 +12,14 @@ data:
   - country_or_area:
       en: Netherlands
     company_name: Teleena Nederland B.V.
-    company_address_1: Kritjwal 29
-    company_address_2: NIEUWEGEIN
+    company_address:
+    - Kritjwal 29
+    - NIEUWEGEIN
     contact: Mr. Timo Smit
-    contact_address_1: Teleena Nederland B.V.
-    contact_address_2: Kritjwal 29
-    contact_address_3: NIEUWEGEIN
+    contact_address:
+    - Teleena Nederland B.V.
+    - Kritjwal 29
+    - NIEUWEGEIN
     tel:
     - "+31 638 181818"
     email:

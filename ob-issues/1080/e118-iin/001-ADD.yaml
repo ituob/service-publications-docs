@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Azerbaijan
     company_name: "“Nakhtel” LLC"
-    company_address_1: 1, Ataturk str.,
-    company_address_2: NAKHCHIVAN
-    company_address_3: Az7000
+    company_address:
+    - 1, Ataturk str.,
+    - NAKHCHIVAN
+    - Az7000
     contact: Mr Nazim Jafarly
-    contact_address_1: "“Nakhtel” LLC"
-    contact_address_2: 1, Ataturk str.,
-    contact_address_3: NAKHCHIVAN
-    contact_address_4: Az7000
+    contact_address:
+    - "“Nakhtel” LLC"
+    - 1, Ataturk str.,
+    - NAKHCHIVAN
+    - Az7000
     tel:
     - "+994 36 5452024"
     fax:

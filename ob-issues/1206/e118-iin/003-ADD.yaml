@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Guadeloupe
     company_name: Dauphin Telecom
-    company_address_1: 12 Rue de la République
-    company_address_2: Marigot,
-    company_address_3: 97150 SAINT MARTIN
+    company_address:
+    - 12 Rue de la République
+    - Marigot,
+    - 97150 SAINT MARTIN
     contact: Directrice Générale
-    contact_address_1: Dauphin Telecom
-    contact_address_2: 12 Rue de la République
-    contact_address_3: Marigot, 97150 SAINT MARTIN
+    contact_address:
+    - Dauphin Telecom
+    - 12 Rue de la République
+    - Marigot, 97150 SAINT MARTIN
     email:
     - info@dauphintelecom.com
     issue_id_number: 89 590 08

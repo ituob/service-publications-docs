@@ -12,13 +12,15 @@ data:
   - country_or_area:
       en: Gibraltar
     company_name: CTS (Gibraltar) Ltd
-    company_address_1: Royal Ocean Plaza
-    company_address_2: GIBRALTAR
+    company_address:
+    - Royal Ocean Plaza
+    - GIBRALTAR
     contact: Mr.Steve Lambourne
-    contact_address_1: Royal Ocean Plaza
-    contact_address_2: GIBRALTAR
+    contact_address:
+    - Royal Ocean Plaza
+    - GIBRALTAR
     tel:
-    - "+350 2165 1500 "
+    - "+350 2165 1500"
     fax:
     - "+350 2165 1502"
     email:

@@ -8,11 +8,17 @@ data:
   country_or_area:
     en: France
   company_name: Netcom Group
-  company_address_1: 41, rue Delizy
-  company_address_2: 93500 PANTIN
+  company_address:
+  - 41, rue Delizy
+  - 93500 PANTIN
   contact: Farid ZOUHRI
-  contact_address_1: 41, rue Delizy
-  contact_address_2: 93500 PANTIN
+  contact_address:
+  - 41, rue Delizy
+  - 93500 PANTIN
+  tel:
+  - "+33 666384016"
+  email:
+  - f.zouhri@netcom-group.fr
   issue_id_number: 89 33 04
   effective_date: 18.IV.2023
 reference: OB-1268

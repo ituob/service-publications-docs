@@ -8,14 +8,17 @@ data:
   country_or_area:
     en: Mexico
   company_name: AT&T COMUNICACIONES DIGITALES, S. DE R.L. DE C.V.
-  company_address_1: Rio Lerma No. 232, piso 20,
-  company_address_2: Col. Cuauhtémoc,
-  company_address_3: Del. Cuauhtémoc,
+  company_address:
+  - Rio Lerma No. 232, piso 20,
+  - Col. Cuauhtémoc,
+  - Del. Cuauhtémoc,
+  - C.P. 06500, CIUDAD DE MEXICO
   contact: Antonio Diaz Hernández, Regulatory AVP
-  contact_address_1: Rio Lerma No. 232, piso 20,
-  contact_address_2: Col. Cuauhtémoc,
-  contact_address_3: Del. Cuauhtémoc,
-  contact_address_4: C.P. 06500, CIUDAD DE MEXICO
+  contact_address:
+  - Rio Lerma No. 232, piso 20,
+  - Col. Cuauhtémoc,
+  - Del. Cuauhtémoc,
+  - C.P. 06500, CIUDAD DE MEXICO
   tel:
   - "+52 5541154000"
   email:

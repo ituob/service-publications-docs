@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Estonia
     company_name: Vivex OU
-    company_address_1: Liimi 1
-    company_address_2: 10621 TALLINN
-    company_address_3: Estonia
+    company_address:
+    - Liimi 1
+    - 10621 TALLINN
+    - Estonia
     contact: Vivex OU
-    contact_address_1: Liimi 1
-    contact_address_2: 10621 TALLINN
-    contact_address_3: Estonia
+    contact_address:
+    - Liimi 1
+    - 10621 TALLINN
+    - Estonia
     tel:
     - "+372 6990157"
     fax:

@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Cyprus
   company_name: MTX Connect Ltd
-  company_address_1: Georgiou Gennadiou
-  company_address_2: '10 Agathangelos Court #403'
-  company_address_3: LIMASSOL 3041
+  company_address:
+  - Georgiou Gennadiou
+  - '10 Agathangelos Court #403'
+  - LIMASSOL 3041
   contact: Mr Ilya Balashov
-  contact_address_1: Georgiou Gennadiou
-  contact_address_2: '10 Agathangelos Court #403'
-  contact_address_3: LIMASSOL 3041
+  contact_address:
+  - Georgiou Gennadiou
+  - '10 Agathangelos Court #403'
+  - LIMASSOL 3041
   tel:
   - "+357 22 030 076"
   email:

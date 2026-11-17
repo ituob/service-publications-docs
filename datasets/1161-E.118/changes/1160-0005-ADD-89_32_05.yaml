@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Belgium
   company_name: NETHYS
-  company_address_1: Rue de Louvrex 5
-  company_address_2: 4000 LIEGE
+  company_address:
+  - Rue de Louvrex 5
+  - 4000 LIEGE
   contact: France Vandermeulen
-  contact_address_1: Avenue Ariane 5
-  contact_address_2: 1200 BRUXELLES
+  contact_address:
+  - Avenue Ariane 5
+  - 1200 BRUXELLES
   tel:
   - "+32 496 59 82 82"
   email:

@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Malaysia
   company_name: webe digital sdn bhd
-  company_address_1: 159 Jalan Templer
-  company_address_2: 46050 PETALING JAYA, SELANGOR
+  company_address:
+  - 159 Jalan Templer
+  - 46050 PETALING JAYA, SELANGOR
   contact: Muhamad Hafiz Bin Senin
-  contact_address_1: Regulatory Department, Level 8,
-  contact_address_2: 159 Jalan Templer
-  contact_address_3: 46050 PETALING JAYA, SELANGOR
+  contact_address:
+  - Regulatory Department, Level 8,
+  - 159 Jalan Templer
+  - 46050 PETALING JAYA, SELANGOR
   tel:
   - "+60 11 1000 2000"
   email:

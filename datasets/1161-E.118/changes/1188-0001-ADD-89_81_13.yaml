@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Japan
   company_name: BB Backbone Corp.
-  company_address_1: 1-9-1, Higashi-Shimbashi, Minato-ku,
-  company_address_2: TOKYO 105-7304
+  company_address:
+  - 1-9-1, Higashi-Shimbashi, Minato-ku,
+  - TOKYO 105-7304
   contact: Hoshito Ueyama
-  contact_address_1: Business Planning Department,
-  contact_address_2: Product Planning Section 1
-  contact_address_3: 1-9-1, Higashi-Shimbashi, Minato-ku,
-  contact_address_4: TOKYO 105-7304
+  contact_address:
+  - Business Planning Department,
+  - Product Planning Section 1
+  - 1-9-1, Higashi-Shimbashi, Minato-ku,
+  - TOKYO 105-7304
   tel:
   - "+81 3 6889 1255"
   fax:

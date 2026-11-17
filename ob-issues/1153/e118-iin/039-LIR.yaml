@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Trinidad and Tobago
     company_name: Telecommunications Services of Trinidad and Tobago Ltd. (TSTT)
-    company_address_1: PO Box 917, 54 Frederick St.
-    company_address_2: PORT OF SPAIN
+    company_address:
+    - PO Box 917, 54 Frederick St.
+    - PORT OF SPAIN
     contact: Martin Young
-    contact_address_1: 1 Edward St.
-    contact_address_2: PORT OF SPAIN
+    contact_address:
+    - 1 Edward St.
+    - PORT OF SPAIN
     tel:
     - "+1 868 623 2837"
     fax:

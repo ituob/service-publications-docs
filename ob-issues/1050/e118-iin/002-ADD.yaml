@@ -11,15 +11,18 @@ data:
   - country_or_area:
       en: Rwanda
     company_name: OLLEH RWANDA NETWORKS(ORN)
-    company_address_1: Kigali Olleh Campus (KOC),
-    company_address_2: KG 9 Ave 17,
-    company_address_3: Nyarutarama, PO BOX
+    company_address:
+    - Kigali Olleh Campus (KOC),
+    - KG 9 Ave 17,
+    - Nyarutarama, PO BOX
+    - 5440 KIGALI
     contact: Mr Jun Ho Jeong
-    contact_address_1: OLLEH RWANDA NETWORKS(ORN)
-    contact_address_2: Kigali Olleh Campus (KOC),
-    contact_address_3: KG 9 Ave 17,
-    contact_address_4: Nyarutarama, PO BOX
-    contact_address_5: 5440 KIGALI
+    contact_address:
+    - OLLEH RWANDA NETWORKS(ORN)
+    - Kigali Olleh Campus (KOC),
+    - KG 9 Ave 17,
+    - Nyarutarama, PO BOX
+    - 5440 KIGALI
     tel:
     - "+250 783-026-091"
     email:

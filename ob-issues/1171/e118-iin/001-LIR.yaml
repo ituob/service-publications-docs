@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Brazil
     company_name: Telefônica Brasil S/A
-    company_address_1: Avenida Eng. Luís Carlos Berrini,
-    company_address_2: nº1.376
-    company_address_3: SÃO PAULO – SP
+    company_address:
+    - Avenida Eng. Luís Carlos Berrini,
+    - nº1.376
+    - SÃO PAULO – SP
     contact: Katia Regina Do Nascimento Moreira
-    contact_address_1: Avenida Eng. Luís Carlos Berrini,
-    contact_address_2: nº1.376, 23º Andar
-    contact_address_3: SÃO PAULO – SP
+    contact_address:
+    - Avenida Eng. Luís Carlos Berrini,
+    - nº1.376, 23º Andar
+    - SÃO PAULO – SP
     tel:
     - "+55 11 98543 3511"
     email:

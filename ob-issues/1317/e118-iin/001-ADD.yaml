@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Sierra Leone
     company_name: Smart Telecom Limited
-    company_address_1: 37a Wilkinson Road
-    company_address_2: FREETOWN
+    company_address:
+    - 37a Wilkinson Road
+    - FREETOWN
     contact: Raymond Geno
-    contact_address_1: 37a Wilkinson Road
-    contact_address_2: FREETOWN
+    contact_address:
+    - 37a Wilkinson Road
+    - FREETOWN
     tel:
     - "+232 78 759173"
     email:

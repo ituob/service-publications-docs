@@ -8,14 +8,18 @@ data:
   country_or_area:
     en: Malta
   company_name: YOM Ltd.
-  company_address_1: 2nd Floor Bonnici House
-  company_address_2: Triq Is-Sardin
-  company_address_3: Burmarrad
+  company_address:
+  - 2nd Floor Bonnici House
+  - Triq Is-Sardin
+  - Burmarrad
+  - SAN PAWL IL-BAĦAR,
+  - SPB 6073
   contact: Vadym Gurzhos
-  contact_address_1: 2nd Floor Bonnici House
-  contact_address_2: Triq Is-Sardin
-  contact_address_3: Burmarrad
-  contact_address_4: SAN PAWL IL-BAĦAR, SPB 6073
+  contact_address:
+  - 2nd Floor Bonnici House
+  - Triq Is-Sardin
+  - Burmarrad
+  - SAN PAWL IL-BAĦAR, SPB 6073
   tel:
   - "+356 2743 5048"
   email:

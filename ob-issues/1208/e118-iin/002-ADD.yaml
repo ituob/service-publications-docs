@@ -11,15 +11,19 @@ data:
   - country_or_area:
       en: Guadeloupe
     company_name: Free Caraïbe
-    company_address_1: MBE 262 Mangot Vulcin
-    company_address_2: 97232 LE LAMENTIN
-    company_address_3: France
+    company_address:
+    - MBE 262 Mangot Vulcin
+    - 97232 LE LAMENTIN
+    - France
     contact: Pascal Mayeux
-    contact_address_1: 16 rue de la Ville l’Evêque
-    contact_address_2: 75008 PARIS
-    contact_address_3: France
+    contact_address:
+    - 16 rue de la Ville l’Evêque
+    - 75008 PARIS
+    - France
     tel:
     - "+33 173502495"
+    email:
+    - pmayeux@free-mobile.fr
     issue_id_number: 89 590 09
     effective_date: 1.VII.2020
   notes: []

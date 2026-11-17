@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Italy
     company_name: Vodafone Omnitel S.p.A.
-    company_address_1: Via Jervis 13
-    company_address_2: IVREA (TO)
+    company_address:
+    - Via Jervis 13
+    - IVREA (TO)
     contact: Vodafone Omnitel S.p.A.
-    contact_address_1: Via Jervis 13
-    contact_address_2: IVREA (TO)
+    contact_address:
+    - Via Jervis 13
+    - IVREA (TO)
     tel:
     - "+39 06 5092 2512"
     fax:

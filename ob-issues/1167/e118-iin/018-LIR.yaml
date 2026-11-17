@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Switzerland
     company_name: Die Schweizerische Post AG Information Technology Services
-    company_address_1: Webergutstrasse 12
-    company_address_2: CH-3030 Bern (Zollikofen)
+    company_address:
+    - Webergutstrasse 12
+    - CH-3030 Bern (Zollikofen)
     contact: Weber Marco
-    contact_address_1: Webergutstrasse 12
-    contact_address_2: CH-3030 Bern (Zollikofen)
+    contact_address:
+    - Webergutstrasse 12
+    - CH-3030 Bern (Zollikofen)
     tel:
-    - "         +41 31 338 0953"
+    - "+41 31 338 0953"
     fax:
     - "+41 31 338 6654"
     email:

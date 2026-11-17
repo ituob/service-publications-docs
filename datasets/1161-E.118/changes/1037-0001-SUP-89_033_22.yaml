@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: France
   company_name: TRANSATEL
-  company_address_1: Tour Les Saisons 4 Place des Saisons
-  company_address_2: 92036 Paris La Défense
-  company_address_3: France
+  company_address:
+  - Tour Les Saisons 4 Place des Saisons
+  - 92036 Paris La Défense
+  - France
   contact: Mr Romain Durand
-  contact_address_1: TRANSATEL
-  contact_address_2: Tour Les Saisons 4 Place des Saisons
-  contact_address_3: 92036 Paris La Défense
-  contact_address_4: France
+  contact_address:
+  - TRANSATEL
+  - Tour Les Saisons 4 Place des Saisons
+  - 92036 Paris La Défense
+  - France
   tel:
   - "+33 1 74 95 74 64"
   fax:

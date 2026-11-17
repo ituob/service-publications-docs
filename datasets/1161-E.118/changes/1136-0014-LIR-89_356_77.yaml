@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: Malta
   company_name: Melita Ltd.
-  company_address_1: Gasan Centre,
-  company_address_2: Mriehel Bypass
-  company_address_3: MRIEHEL BKR 3000
+  company_address:
+  - Gasan Centre,
+  - Mriehel Bypass
+  - MRIEHEL BKR 3000
   contact: Mr Alistair Castillo
-  contact_address_1: Melita Ltd.
-  contact_address_2: Gasan Centre,
-  contact_address_3: Mriehel Bypass
-  contact_address_4: MRIEHEL BKR 3000
+  contact_address:
+  - Melita Ltd.
+  - Gasan Centre,
+  - Mriehel Bypass
+  - MRIEHEL BKR 3000
   tel:
   - "+356 2727 3502"
   email:

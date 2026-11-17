@@ -8,15 +8,17 @@ data:
   country_or_area:
     en: Bulgaria
   company_name: GPS Bulgaria AD
-  company_address_1: 64 Christopher Columbus Blvd.
-  company_address_2: Ent. B3, fl. 2
-  company_address_3: SOFIA
+  company_address:
+  - 64 Christopher Columbus Blvd.
+  - Ent. B3, fl. 2
+  - SOFIA
   contact: Angelina Todorova
-  contact_address_1: 64 Hristofor Kolumb blvd.
-  contact_address_2: Ent. B3, floor 2
-  contact_address_3: SOFIA
+  contact_address:
+  - 64 Hristofor Kolumb blvd.
+  - Ent. B3, floor 2
+  - SOFIA
   tel:
-  - "        +359 882226864"
+  - "+359 882226864"
   email:
   - marketing@gps.bg
   issue_id_number: 89 359 22

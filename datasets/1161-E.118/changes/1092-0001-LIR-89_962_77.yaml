@@ -8,17 +8,19 @@ data:
   country_or_area:
     en: Jordan
   company_name: Petra Jordanian Mobile Telecommunications Company - Orange
-  company_address_1: PO Box 1689, Jabal Amman
-  company_address_2: 11118-AMMAN
+  company_address:
+  - PO Box 1689, Jabal Amman
+  - 11118-AMMAN
   contact: Dr. Ibrahim Harb
-  contact_address_1: Petra Jordanian Mobile Telecommunications Company - Orange
-  contact_address_2: PO Box 1689, Jabal Amman
-  contact_address_3: 11118-AMMAN
+  contact_address:
+  - Petra Jordanian Mobile Telecommunications Company - Orange
+  - PO Box 1689, Jabal Amman
+  - 11118-AMMAN
   tel:
   - "+962 6 460 64 44"
   fax:
   - "+962 6 460 63 30"
   email:
-  - 'E-Mail:      ibrahim.nasser@orange.com'
+  - ibrahim.nasser@orange.com
   issue_id_number: 89 962 77
 reference: OB-1092

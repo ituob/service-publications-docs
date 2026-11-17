@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Estonia
     company_name: VIVEX OÜ
-    company_address_1: Liimi 1
-    company_address_2: 10621 TALLINN
+    company_address:
+    - Liimi 1
+    - 10621 TALLINN
     contact: Mr Evgeny Kirichenko
-    contact_address_1: Liimi 1
-    contact_address_2: 10621 TALLINN
+    contact_address:
+    - Liimi 1
+    - 10621 TALLINN
     tel:
     - "+372 524 8098"
     fax:

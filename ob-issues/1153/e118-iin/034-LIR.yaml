@@ -11,14 +11,17 @@ data:
   - country_or_area:
       en: Malaysia
     company_name: Maxis Broadband Sdn Bhd
-    company_address_1: Level 21, Menara Maxis,
-    company_address_2: Kuala Lumpur City Centre,
-    company_address_3: Off Jalan Ampang,
+    company_address:
+    - Level 21, Menara Maxis,
+    - Kuala Lumpur City Centre,
+    - Off Jalan Ampang,
+    - 50088 KUALA LUMPUR
     contact: Abdul Karim Fakir Bin Ali
-    contact_address_1: Level 21, Menara Maxis,
-    contact_address_2: Kuala Lumpur City Centre,
-    contact_address_3: Off Jalan Ampang,
-    contact_address_4: 50088 KUALA LUMPUR
+    contact_address:
+    - Level 21, Menara Maxis,
+    - Kuala Lumpur City Centre,
+    - Off Jalan Ampang,
+    - 50088 KUALA LUMPUR
     tel:
     - "+60 3 2330 7000"
     fax:

@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: Switzerland
   company_name: STMicroelectronics International NV
-  company_address_1: Succursale de Plan-les-Ouates
-  company_address_2: Chemin du Champ-des-Filles 39
-  company_address_3: CH-1228 Plan-les-Ouates
+  company_address:
+  - Succursale de Plan-les-Ouates
+  - Chemin du Champ-des-Filles 39
+  - CH-1228 Plan-les-Ouates
   contact: Salvatore Acunto
-  contact_address_1: Chemin du Champ-des-Filles 39
-  contact_address_2: CH-1228 Plan-les-Ouates
+  contact_address:
+  - Chemin du Champ-des-Filles 39
+  - CH-1228 Plan-les-Ouates
   tel:
-  - "         +41 78 744 7909"
+  - "+41 78 744 7909"
   fax:
   - "+41 22 929 2988"
   email:

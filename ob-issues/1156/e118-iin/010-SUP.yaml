@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Televoice UK Ltd
-    company_address_1: 14 Hanover Square
-    company_address_2: LONDON W1SIHP
+    company_address:
+    - 14 Hanover Square
+    - LONDON W1SIHP
     contact: P.M. Errington
-    contact_address_1: 213 Penn Road
-    contact_address_2: BEACONFIELD, BUCKS HP9 2PD
+    contact_address:
+    - 213 Penn Road
+    - BEACONFIELD, BUCKS HP9 2PD
     tel:
     - "+44 870 750 7080"
     fax:

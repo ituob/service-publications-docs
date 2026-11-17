@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Finland
   company_name: Ukkoverkot Oy.
-  company_address_1: Munkkiniemen Puistotie 25
-  company_address_2: FI - 00330 HELSINKI
-  company_address_3: Finland
+  company_address:
+  - Munkkiniemen Puistotie 25
+  - FI - 00330 HELSINKI
+  - Finland
   contact: Kari Lehtinen
-  contact_address_1: Munkkiniemen Puistotie 25
-  contact_address_2: FI- 00330 HELSINKI
-  contact_address_3: Finland
+  contact_address:
+  - Munkkiniemen Puistotie 25
+  - FI- 00330 HELSINKI
+  - Finland
   tel:
   - "+358 440 777 553"
   email:

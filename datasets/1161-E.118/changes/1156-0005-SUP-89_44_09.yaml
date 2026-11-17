@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: United Kingdom
   company_name: OnePhone (UK) Ltd
-  company_address_1: 11 Murray Street
-  company_address_2: LONDON NW1 9RE
+  company_address:
+  - 11 Murray Street
+  - LONDON NW1 9RE
   contact: Magnus Kelly
-  contact_address_1: Langbaurgh Hall, Great Ayton
-  contact_address_2: NORTH YORKSHIRE TS9 6QQ
+  contact_address:
+  - Langbaurgh Hall, Great Ayton
+  - NORTH YORKSHIRE TS9 6QQ
   tel:
   - "+44 77 1159 0311"
   email:

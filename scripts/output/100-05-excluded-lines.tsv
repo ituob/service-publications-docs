@@ -1267,6 +1267,7 @@ issue	source	register	rule	text
 1093	issues/1093/amendments.yaml:3597	q708-ispc	column_header	ISPC | DEC
 1093	issues/1093/amendments.yaml:4775	nnp	column_header	Country | Country Code (CC)
 1094	issues/1094/amendments.yaml:65	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
+1094	issues/1094/amendments.yaml:234	e212-mnc	column_header	Country or geographical area | MCC+MNC * | Name of Operator/Network
 1094	issues/1094/amendments.yaml:1539	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
 1094	issues/1094/amendments.yaml:1579	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
 1094	issues/1094/amendments.yaml:1755	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
@@ -1396,6 +1397,12 @@ issue	source	register	rule	text
 1111	issues/1111/amendments.yaml:1036	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1111	issues/1111/amendments.yaml:1074	q708-ispc	column_header	ISPC | DEC
 1111	issues/1111/amendments.yaml:1360	nnp	column_header	Country | Country Code (CC)
+1112	issues/1112/amendments.yaml:702	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
+1112	issues/1112/amendments.yaml:1496	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
+1112	issues/1112/amendments.yaml:2721	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
+1112	issues/1112/amendments.yaml:3884	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
+1112	issues/1112/amendments.yaml:4993	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
+1112	issues/1112/amendments.yaml:5998	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
 1112	issues/1112/amendments.yaml:6208	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
 1112	issues/1112/amendments.yaml:6248	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
 1112	issues/1112/amendments.yaml:6384	q708-sanc	ordering_directive	Numerical order     ADD

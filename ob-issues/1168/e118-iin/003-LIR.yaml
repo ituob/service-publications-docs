@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: epay Limited
-    company_address_1: Ground Floor Kingfisher House,
-    company_address_2: 2 Woodbrook Crescent
-    company_address_3: BILLERICAY, CM12 0EQ
+    company_address:
+    - Ground Floor Kingfisher House,
+    - 2 Woodbrook Crescent
+    - BILLERICAY, CM12 0EQ
     contact: Jonathan Fricker
-    contact_address_1: Ground Floor Kingfisher House,
-    contact_address_2: 2 Woodbrook Crescent,
-    contact_address_3: BILLERICAY, CM12 0EQ
+    contact_address:
+    - Ground Floor Kingfisher House,
+    - 2 Woodbrook Crescent,
+    - BILLERICAY, CM12 0EQ
     tel:
     - "+44 126 824 2222"
     email:

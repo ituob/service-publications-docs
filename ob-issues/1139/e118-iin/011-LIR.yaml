@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Finland
     company_name: Telia Finland Oyj
-    company_address_1: P.O. Box 106
-    company_address_2: 00051 TELIA
+    company_address:
+    - P.O. Box 106
+    - 00051 TELIA
     contact: Meeri Puttonen
-    contact_address_1: Telia Finland Oyj
-    contact_address_2: P.O. Box 106
-    contact_address_3: 00051 TELIA
+    contact_address:
+    - Telia Finland Oyj
+    - P.O. Box 106
+    - 00051 TELIA
     tel:
     - "+358 20401/+358 400 673231"
     email:

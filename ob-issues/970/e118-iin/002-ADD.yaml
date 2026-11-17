@@ -12,13 +12,16 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Marathon Telecom Limited
-    company_address_1: 28 Halkett Place
-    company_address_2: St Hellier
-    company_address_3: JERSEY
+    company_address:
+    - 28 Halkett Place
+    - St Hellier
+    - JERSEY
+    - Channel Islands JE2 4WG
     contact: Mr Jerry Rabaste
-    contact_address_1: 2 Grainville Court, St Saviour
-    contact_address_2: JERSEY
-    contact_address_3: Channel Islands JE2 7GA
+    contact_address:
+    - 2 Grainville Court, St Saviour
+    - JERSEY
+    - Channel Islands JE2 7GA
     tel:
     - "+44 7797 711 090"
     fax:

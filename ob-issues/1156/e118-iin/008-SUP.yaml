@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Stanhope Communications Plc
-    company_address_1: Aerofone, Mantone Lane
-    company_address_2: BEDFORD MK41 7TL
+    company_address:
+    - Aerofone, Mantone Lane
+    - BEDFORD MK41 7TL
     contact: Ken Prenty
-    contact_address_1: Aerofone, Manton Lane
-    contact_address_2: BEDFORD MK41 7TL
+    contact_address:
+    - Aerofone, Manton Lane
+    - BEDFORD MK41 7TL
     tel:
     - "+44 845 330 5704"
     fax:

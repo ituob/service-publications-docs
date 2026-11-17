@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Japan
   company_name: Marubeni Network Solutions Inc.
-  company_address_1: Igarashi Bldg, 2-11-5,
-  company_address_2: Shibaura, Minato-ku
-  company_address_3: TOKYO 1080023
+  company_address:
+  - Igarashi Bldg, 2-11-5,
+  - Shibaura, Minato-ku
+  - TOKYO 1080023
   contact: Takashi Tsukamoto
-  contact_address_1: Igarashi Bldg, 2-11-5, Shibaura, Minato-ku
-  contact_address_2: TOKYO 1080023
-  contact_address_3: Japan
+  contact_address:
+  - Igarashi Bldg, 2-11-5, Shibaura, Minato-ku
+  - TOKYO 1080023
+  - Japan
   tel:
   - "+81 3 5439 6527"
   fax:

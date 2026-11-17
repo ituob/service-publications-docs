@@ -12,14 +12,16 @@ data:
   - country_or_area:
       en: United States
     company_name: Greenfly LLC
-    company_address_1: 731 East 38th street
-    company_address_2: SCOTTSBULFF, NE 69361
-    company_address_3: United States
+    company_address:
+    - 731 East 38th street
+    - SCOTTSBULFF, NE 69361
+    - United States
     contact: Mr Michael Tracy
-    contact_address_1: Greenfly LLC
-    contact_address_2: 731 east 38th street
-    contact_address_3: SCOTTSBULFF, N 69361
-    contact_address_4: United States
+    contact_address:
+    - Greenfly LLC
+    - 731 east 38th street
+    - SCOTTSBULFF, N 69361
+    - United States
     tel:
     - "+1 308 225 2222"
     fax:

@@ -8,11 +8,17 @@ data:
   country_or_area:
     en: Ireland
   company_name: Card Centric Ltd
-  company_address_1: 32 Clanmawr, Shankill
-  company_address_2: D18Y5W0, DUBLIN 18
+  company_address:
+  - 32 Clanmawr, Shankill
+  - D18Y5W0, DUBLIN 18
   contact: Card Centric Public Relations
-  contact_address_1: 32 Clanmawr, Shankill
-  contact_address_2: D18Y5W0, DUBLIN 18
+  contact_address:
+  - 32 Clanmawr, Shankill
+  - D18Y5W0, DUBLIN 18
+  tel:
+  - "+353 1 442 8656"
+  email:
+  - PR@cardcentric.com
   issue_id_number: 89 353 09
   effective_date: 1.IX.2023
 reference: OB-1278

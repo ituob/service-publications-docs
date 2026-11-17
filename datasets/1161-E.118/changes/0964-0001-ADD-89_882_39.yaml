@@ -8,13 +8,16 @@ data:
   country_or_area:
     en: E.164 shared country code +882
   company_name: Vodafone Group Services Ltd
-  company_address_1: Vodafone HQ,
-  company_address_2: The Connection
-  company_address_3: NEWBURY
+  company_address:
+  - Vodafone HQ,
+  - The Connection
+  - NEWBURY
+  - Berkshire RG14 2FN
   contact: Mr Richard Gumbrell
-  contact_address_1: Senior Delivery Manager – Machine-to-Machine
-  contact_address_2: The Connection
-  contact_address_3: NEWBURY, Berkshire RG14 2FN
+  contact_address:
+  - Senior Delivery Manager – Machine-to-Machine
+  - The Connection
+  - NEWBURY, Berkshire RG14 2FN
   tel:
   - "+44 7748 776 552"
   email:

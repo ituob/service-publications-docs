@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: United States
     company_name: TRACFONE WIRELESS, INC
-    company_address_1: 9700 112th Avenue
-    company_address_2: MEDLEY, FL 33178
+    company_address:
+    - 9700 112th Avenue
+    - MEDLEY, FL 33178
     contact: Maria Pena
-    contact_address_1: 9700 112th Avenue
-    contact_address_2: MEDLEY, FL 33178
+    contact_address:
+    - 9700 112th Avenue
+    - MEDLEY, FL 33178
     tel:
     - "+1 305 715 6500"
     email:
