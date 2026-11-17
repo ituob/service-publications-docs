@@ -6,8 +6,10 @@ on:
       - 'datasets/**'
       - 'catalogs/**'
       - 'ob-issues/**'
+      - 'datasets.yaml'
       - 'ituob/**'
       - 'scripts/check_register_state_integrity.rb'
+      - 'scripts/register_state_integrity_allowlist.jsonl'
       - '.github/workflows/register-state-integrity.yml'
   push:
     branches: [ main ]
@@ -15,8 +17,10 @@ on:
       - 'datasets/**'
       - 'catalogs/**'
       - 'ob-issues/**'
+      - 'datasets.yaml'
       - 'ituob/**'
       - 'scripts/check_register_state_integrity.rb'
+      - 'scripts/register_state_integrity_allowlist.jsonl'
       - '.github/workflows/register-state-integrity.yml'
 
 permissions:

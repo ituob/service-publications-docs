@@ -15,10 +15,36 @@ module Ituob
 
       DEFAULT_ROOT = File.expand_path('../../../..', __dir__).freeze
 
-      def initialize(registers_catalog: Ituob::Catalogs::Registers, root: DEFAULT_ROOT)
+      # +allowlist+ is the reviewed set of replay findings that exist on main
+      # today, each { register:, ob_issue:, file:, kind:, detail: }. Any
+      # replay finding outside it fails the gate.
+      def initialize(registers_catalog: Ituob::Catalogs::Registers, root: DEFAULT_ROOT, allowlist: [])
         super()
         @registers_catalog = registers_catalog
         @root = root
+        @allowlist = allowlist.map { |item| self.class.finding_key(item) }
+      end
+
+      FINDING_FIELDS = %i[register ob_issue file kind detail].freeze
+
+      def self.finding_key(item)
+        FINDING_FIELDS.map { |field| (item[field] || item[field.to_s]).to_s }
+      end
+
+      # Every replay finding of one register: lenient replay behaviour, skipped
+      # and failed changes (from the current state, which accumulates all of
+      # them) and the source-level problems that stop a file becoming a change.
+      def self.replay_findings(replay, state)
+        from_state = state.issues.map do |issue|
+          change = issue[:change]
+          { register: replay.register_id, ob_issue: change.ob_issue_no, file: replay.source.path_for(change),
+            kind: issue[:kind], detail: issue[:detail] }
+        end
+        from_source = replay.source.issues.map do |issue|
+          { register: replay.register_id, ob_issue: issue[:ob_issue], file: issue[:file],
+            kind: issue[:kind], detail: issue[:detail] }
+        end
+        (from_state + from_source).sort_by { |finding| finding_key(finding) }
       end
 
       # Shared with snapshot generation so the gate checks the same replay.
@@ -47,9 +73,33 @@ module Ituob
 
           result.stats[:registers_checked] += 1
           # build_all_states includes replay.current under nil; check it once.
-          replay.build_all_states.each_value do |state|
+          states = replay.build_all_states
+          states.each_value do |state|
             result.merge!(verify_state(state, register: register))
           end
+          result.merge!(verify_findings(self.class.replay_findings(replay, states.fetch(nil)), register))
+        end
+        result
+      end
+
+      # Fails every finding that is not in the allowlist (one allowlist entry
+      # covers one occurrence). Allowlist entries that no longer occur are
+      # warnings: the data was fixed, so the entry should be pruned.
+      def verify_findings(findings, register)
+        result = Result.new(name: name, stats: { replay_findings: findings.length, replay_findings_allowed: 0 })
+        remaining = @allowlist.select { |key| key.first == register.register_id }.tally
+        findings.each do |finding|
+          key = self.class.finding_key(finding)
+          if remaining[key].to_i.positive?
+            remaining[key] -= 1
+            result.stats[:replay_findings_allowed] += 1
+          else
+            result.errors << "#{register.register_id}: OB #{finding[:ob_issue] || '-'} #{finding[:file] || '-'}: " \
+                             "replay #{finding[:kind]}: #{finding[:detail]} (not in the reviewed allowlist)"
+          end
+        end
+        remaining.each do |key, count|
+          result.warnings << "#{register.register_id}: allowlist entry no longer occurs (x#{count}): #{key.inspect}" if count.positive?
         end
         result
       end
