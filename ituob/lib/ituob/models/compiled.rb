@@ -264,8 +264,10 @@ module Ituob
       # These registers distinguish a printed blank from a missing field.
       # Explicit mappings retain that distinction when Entry objects are
       # serialized, while still omitting absent/nil values.
+      # MultilingualString: GeneralCustom titles are stored blank (`en: ''`)
+      # when the legacy editor saved no title; that is not an absent title.
       def self.preserve_empty_strings(name, klass)
-        return unless %w[F400Entry NumberingPlanEntry].include?(name)
+        return unless %w[F400Entry NumberingPlanEntry MultilingualString].include?(name)
 
         attributes = klass.attributes
         klass.key_value do

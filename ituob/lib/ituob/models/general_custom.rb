@@ -8,7 +8,7 @@ module Ituob
       attribute :ob_issue_no, :string
       attribute :contents, HashOrText
       attribute :text, :string
-      attribute :title, :hash
+      attribute :title, MultilingualString
       attribute :recommendation, :string
 
       key_value do

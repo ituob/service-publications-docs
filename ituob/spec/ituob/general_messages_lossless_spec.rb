@@ -56,6 +56,23 @@ RSpec.describe 'General messages are lossless against the stored corpus' do
       expect(out).to include('title' => { 'en' => 'Telegram Service' }, 'recommendation' => 'F.1')
     end
 
+    it 'types GeneralCustom title as a MultilingualString, not an opaque Hash' do
+      expect(Ituob::Models::GeneralCustom.attributes[:title].type).to eq(Ituob::Models::MultilingualString)
+      msg = Ituob::Models::GeneralCustom.from_hash('title' => { 'en' => 'Telegram Service', 'fr' => 'Service télégraphique' })
+      expect(msg.title).to be_a(Ituob::Models::MultilingualString)
+      expect(msg.to_hash['title']).to eq('en' => 'Telegram Service', 'fr' => 'Service télégraphique')
+    end
+
+    it 'resolves sanc files to GeneralSancs, the class the issue loader dispatches to' do
+      expect(Ituob::Support::CorpusTree.class_name_for('sanc/001.yaml')).to eq('GeneralSancs')
+    end
+
+    it 'keeps GeneralSancs notes, items and prose contents' do
+      stored = { 'type' => 'sanc', 'notes' => 'Note', 'contents' => { 'en' => { 'type' => 'doc' } },
+                 'items' => [{ 'country' => 'Sweden', 'sanc' => '2-100' }] }
+      expect(reload(Ituob::Models::GeneralSancs, stored.to_yaml)).to eq(stored)
+    end
+
     it 'keeps IssueMetadata languages as booleans and dates as stored' do
       out = reload(Ituob::Models::IssueMetadata,
                    "id: 1000\nlanguages:\n  en: true\npublication_date: 2012-03-15T14:49:49.000Z\ncutoff_date: 2012-03-01\n")
