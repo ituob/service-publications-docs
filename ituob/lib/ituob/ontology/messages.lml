@@ -1005,6 +1005,25 @@ models Ituob {
     attribute key_history, KeyHistoryEntry { cardinality 0..n }
   }
 
+  // One localized term of a register's dataset metadata (column headers,
+  // labels); key names the term and each language carries its text.
+  class LocaleLabel {
+    attribute key, String { cardinality 1 }
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute zh, String
+    attribute ru, String
+    attribute ar, String
+  }
+
+  // The per-language title and terms of a register's dataset, as read
+  // from its metadata.yaml. Not versioned by OB issue.
+  class RegisterLocale {
+    attribute title, MultilingualString { cardinality 0..1 }
+    attribute locale, LocaleLabel { cardinality 0..n }
+  }
+
   // One key's touched-change history as of an issue. membership is one of
   // active, lapsed, deleted or absent (touched but not currently listed).
   class RegisterKeyHistory {

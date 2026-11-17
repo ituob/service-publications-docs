@@ -2,12 +2,27 @@ name: Metanorma proof
 
 # Renders the E.212 register as of OB issue 1170 through Metanorma
 # (standoc + metanorma-plugin-lutaml) and the real Ituob::Provider, then
-# asserts row count, row order and provenance. See docs/proof/.
+# asserts row count, row order, provenance and every cell against the site snapshot. See docs/proof/.
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/proof/**'
+      - 'ituob/**'
+      - 'datasets/**'
+      - 'messages/**'
+      - 'scripts/**'
+      - 'itu-ob-data/**'
+      - 'ob-issues/**'
+      - 'catalogs/**'
+      - '.github/workflows/metanorma-proof.yml'
   pull_request:
     paths:
       - 'docs/proof/**'
       - 'ituob/**'
+      - 'datasets/**'
+      - 'messages/**'
+      - 'scripts/**'
       - 'itu-ob-data/**'
       - 'ob-issues/**'
       - 'catalogs/**'

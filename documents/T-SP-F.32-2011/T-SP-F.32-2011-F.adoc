@@ -72,10 +72,10 @@ n’impliquent, de la part de l’UIT, aucune prise de position quant au statut 
 zones géographiques, ou de leurs autorités.
 
 
-[yaml2text,data=../../datasets/980-F.32/data.yaml,metadata=../../datasets/980-F.32/metadata.yaml]
+[lutaml_data,provider:ituob.edition,edition,options={"arguments":{"register":"f32-tdi","as_of":980},"include_path":"."}]
 ----
 {% assign lang = "fr" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, lang: lang %}
 ----
 
 
