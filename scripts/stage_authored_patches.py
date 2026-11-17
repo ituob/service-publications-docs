@@ -10,6 +10,9 @@ import re
 import subprocess
 import sys
 
+MAX_AUTHORED_FILE_BYTES = 1024 * 1024
+MAX_YAML_ALIASES = 100
+
 PATCH = re.compile(r"ob-issues/([1-9][0-9]*)/([a-z][a-z0-9-]*)/([0-9]{3})-(ADD|SUP|REP|LIR|MOD|DEL|SEED)\.yaml\Z")
 META = re.compile(r"ob-issues/([1-9][0-9]*)/meta\.yaml\Z")
 GENERAL = re.compile(r"ob-issues/([1-9][0-9]*)/(?:general/(?:running_annexes|approved_recommendations)|[a-z][a-z0-9_]*/[0-9]{3})\.yaml\Z")
@@ -64,11 +67,21 @@ def digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def authored_diff(data_root, base, head):
+    tokens = git(data_root, "diff", "--name-status", "--no-renames", "-z", f"{base}...{head}", "--").split(b"\0")
+    return list(zip(tokens[0:-1:2], tokens[1:-1:2]))
+
+
 def stage(data_root, service_root, base, head, manifest_path):
     base = commit(data_root, base)
     head = commit(data_root, head)
     if git(data_root, "rev-parse", "HEAD").decode().strip() != head:
         raise ValueError("data checkout HEAD does not match data_ref")
+
+    ancestry = subprocess.run(["git", "merge-base", "--is-ancestor", base, head], cwd=data_root)
+    if ancestry.returncode == 1:
+        raise ValueError("base_ref must be an ancestor of data_ref")
+    ancestry.check_returncode()
 
     tree = {}
     for entry in git(data_root, "ls-tree", "-rz", head).split(b"\0"):
@@ -81,8 +94,7 @@ def stage(data_root, service_root, base, head, manifest_path):
             raise ValueError(f"symlink/submodule/nonregular data entry: {path}")
         tree[path] = (mode, oid)
 
-    tokens = git(data_root, "diff", "--name-status", "--no-renames", "-z", base, head, "--").split(b"\0")
-    changes = list(zip(tokens[0:-1:2], tokens[1:-1:2]))
+    changes = authored_diff(data_root, base, head)
     source_changed = False
     changed_paths = []
     for raw_status, raw_path in changes:
@@ -110,6 +122,8 @@ def stage(data_root, service_root, base, head, manifest_path):
         source_path = safe_path(data_root, path)
         if mode != "100644":
             raise ValueError(f"patch must be a nonexecutable regular file: {path}")
+        if int(git(data_root, "cat-file", "-s", oid)) > MAX_AUTHORED_FILE_BYTES:
+            raise ValueError(f"authored file exceeds {MAX_AUTHORED_FILE_BYTES} bytes: {path}")
         payload = git(data_root, "cat-file", "blob", oid)
         if not source_path.is_file() or source_path.read_bytes() != payload:
             raise ValueError(f"data checkout differs from head blob: {path}")
@@ -146,7 +160,10 @@ def check(data_root, service_root, manifest_path):
             path = entry["path"]
             if authored_kind(path) != kind:
                 raise ValueError(f"invalid manifest {kind} path: {path}")
-            blob = git(data_root, "show", f'{manifest["data_ref"]}:{path}')
+            blob_ref = f'{manifest["data_ref"]}:{path}'
+            if int(git(data_root, "cat-file", "-s", blob_ref)) > MAX_AUTHORED_FILE_BYTES:
+                raise ValueError(f"authored file exceeds {MAX_AUTHORED_FILE_BYTES} bytes: {path}")
+            blob = git(data_root, "show", blob_ref)
             if digest(blob) != entry["sha256"]:
                 raise ValueError(f"manifest differs from exact head blob: {path}")
             for root in (data_root, service_root):
@@ -159,6 +176,47 @@ def check(data_root, service_root, manifest_path):
 # Attribute and nested-model contracts come from the trusted ontology classes;
 # the opaque Hash/HashOrText fields retain their existing lossless semantics.
 MESSAGE_MODEL_GATE = r"""
+# Bound aliases while parsing events, before safe_load constructs shared objects.
+class BoundedYamlTree < Psych::TreeBuilder
+  def initialize(path, max_aliases)
+    super()
+    @path = path
+    @max_aliases = max_aliases
+    @aliases = 0
+  end
+
+  def alias(anchor)
+    @aliases += 1
+    raise "#{@path}: YAML alias count exceeds #{@max_aliases}" if @aliases > @max_aliases
+    super
+  end
+end
+
+def checked_yaml(bytes, path, max_aliases)
+  handler = BoundedYamlTree.new(path, max_aliases)
+  Psych::Parser.new(handler).parse(bytes, path)
+  scanner = Psych::ScalarScanner.new(Psych::ClassLoader::Restricted.new([], []))
+  nodes = [handler.root]
+  until nodes.empty?
+    node = nodes.pop
+    if node.is_a?(Psych::Nodes::Mapping)
+      keys = {}
+      node.children.each_slice(2) do |key, _value|
+        # Composite/alias keys and merges can conceal collisions; fail closed.
+        unless key.is_a?(Psych::Nodes::Scalar) &&
+            [nil, 'tag:yaml.org,2002:str'].include?(key.tag) && key.value != '<<' &&
+            (key.tag == 'tag:yaml.org,2002:str' || !key.plain || scanner.tokenize(key.value).is_a?(String))
+          raise "#{path}: YAML mapping keys must be scalar strings without merges"
+        end
+        raise "#{path}: duplicate YAML mapping key #{key.value.inspect}" if keys.key?(key.value)
+        keys[key.value] = true
+      end
+    end
+    nodes.concat(node.children || [])
+  end
+  YAML.safe_load(bytes, permitted_classes: [Date, Time], aliases: true, filename: path)
+end
+
 def strict_model(klass, value, path)
   raise "#{path}: expected mapping" unless value.is_a?(Hash)
   if value.key?('_class') && ![klass.name, klass.name.split('::').last].include?(value['_class'])
@@ -181,13 +239,17 @@ end
 
 manifest = JSON.parse(File.read(ARGV.fetch(0)))
 root = ARGV.fetch(1)
+max_bytes = Integer(ARGV.fetch(2))
+max_aliases = Integer(ARGV.fetch(3))
 manifest.fetch('messages', []).each do |record|
   path = record.fetch('path')
   issue, family, filename = path.split('/').drop(1)
   relative = "#{family}/#{filename}"
   name = Ituob::Support::CorpusTree.class_name_for(relative)
   raise "#{path}: unrecognized modeled general path" unless name&.start_with?('General')
-  data = YAML.safe_load_file(File.join(root, path), permitted_classes: [Date, Time], aliases: true)
+  bytes = File.binread(File.join(root, path), max_bytes + 1)
+  raise "#{path}: authored file exceeds #{max_bytes} bytes" if bytes.bytesize > max_bytes
+  data = checked_yaml(bytes, path, max_aliases)
   klass = Ituob::Models.const_get(name)
   expected_type = family == 'general' ? filename.delete_suffix('.yaml') : family
   raise "#{path}: canonical message type mismatch" unless data.is_a?(Hash) && data['type'] == expected_type
@@ -206,7 +268,8 @@ def validate_messages(data_root, service_root, manifest_path):
         environment = dict(os.environ, BUNDLE_GEMFILE=str(service_root / "ituob/Gemfile"))
         subprocess.run(["bundle", "exec", "ruby", "-I" + str(service_root / "ituob/lib"),
                         "-rituob", "-rjson", "-ryaml", "-rdate", "-e", MESSAGE_MODEL_GATE,
-                        str(manifest_path), str(service_root)],
+                        str(manifest_path), str(service_root),
+                        str(MAX_AUTHORED_FILE_BYTES), str(MAX_YAML_ALIASES)],
                        cwd=service_root, env=environment, check=True)
     check(data_root, service_root, manifest_path)
     return manifest

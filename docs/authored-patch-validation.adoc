@@ -12,7 +12,7 @@ uses the data repository's `github.sha` to select executable service code.
 The staging gate reads blobs from the exact head commit, checks the checkout
 matches that commit, rejects symlinks, unsafe paths and generated-state writes,
 and overlays the cumulative authored head byte for byte onto the existing service
-corpus. The exact base-to-head diff governs append-only policy; the manifest
+corpus. The three-dot merge-base-to-head diff governs append-only policy; the manifest
 records changed paths separately from all staged paths. This preserves earlier
 data PRs even when their patches are absent from the legacy service baseline.
 Existing different bytes at the same historical path fail with that path.
@@ -49,7 +49,12 @@ publication is outside this workflow; snapshots provide local replay evidence.
 
 The caller pins `uses: ituob/service-publications-docs/.github/workflows/validate-itu-ob-data.yml@<service SHA>`
 and passes that same 40-character commit SHA as `service_ref`, the data PR head
-SHA as `data_ref`, and the PR base SHA as `base_ref`. `data_repository` defaults
+SHA as `data_ref`, and the PR base SHA as `base_ref`. The workflow resolves the
+base tip and head to their merge-base before invoking staging, so additions made
+only on an advanced base branch are excluded. Unrelated histories fail closed.
+The staging CLI requires its explicit `--base-ref` to be an ancestor of
+`--data-ref` (`git merge-base --is-ancestor`); direct callers must supply the
+merge-base SHA when branches have diverged. `data_repository` defaults
 to, and is restricted to, `ituob/itu-ob-data`. No repository secrets are required.
 The job has read-only repository permissions and never executes data checkout
 scripts or workflow files. The reusable workflow is callable only; it has no
@@ -82,6 +87,20 @@ runs even after a failed gate. `authored-patch-proof` retains the digest manifes
 and generated snapshots in hosted CI. No source or baseline normalization is
 performed and no parser baseline is recaptured.
 
+Each authored YAML file (patch, issue metadata or general message) is limited to
+1 MiB (1,048,576 bytes), inclusive. `MAX_AUTHORED_FILE_BYTES` in
+`scripts/stage_authored_patches.py` defines the limit. Staging checks Git blob
+sizes before reading or overlaying bytes, and subsequent byte checks enforce the
+same cap. General-message validation also bounds its file read before parsing.
+
+General-message YAML permits at most 100 alias references per file, defined by
+`MAX_YAML_ALIASES` in the staging script. A Psych event handler stops parsing at
+the first excess alias, before loading objects or running the model round-trip.
+Duplicate mapping keys are rejected at every nesting level before loading;
+composite, alias, non-string and merge mapping keys fail closed. Ordinary scalar
+value aliases within the cap remain permitted. These checks preserve exact input
+bytes; authoring tools must split oversized records or reduce alias fan-out.
+
 == Focused verification
 
 Run the Git/byte boundary regressions with the Python standard library:
@@ -100,6 +119,9 @@ keys, class substitution and a history-only ADD without an active snapshot row):
 AUTHORED_PATCH_RUBY_TESTS=1 BUNDLE_GEMFILE=ituob/Gemfile \
   python3 -m unittest discover -s scripts/tests -q
 ----
+
+The `Test` workflow runs all three Python test modules with the Ruby opt-in
+enabled and the trusted service bundle installed.
 
 The workflow deliberately fails closed when an otherwise modeled action cannot
 be projected and replayed by the current adapters. In particular, declaring a

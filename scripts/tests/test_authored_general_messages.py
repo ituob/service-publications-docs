@@ -66,6 +66,38 @@ class GeneralMessageModelBoundaryTest(unittest.TestCase):
         self.assertFalse(manifest['patches'])
         self.assertEqual(MISC, manifest['messages'][0]['path'])
 
+    def test_duplicate_yaml_mapping_keys_rejected_before_round_trip(self):
+        result = self.run_gate(NOTICE + "contents: silently replaced\n")
+        self.assertNotEqual(0, result.returncode)
+        self.assertIn('duplicate YAML mapping key', result.stderr)
+        self.assertNotIn('typed model round-trip valid', result.stdout)
+
+    def test_nested_duplicate_yaml_mapping_keys_rejected(self):
+        result = self.run_gate(NOTICE.replace('A readable authored notice.',
+                                              '{en: first, "en": second}'))
+        self.assertNotEqual(0, result.returncode)
+        self.assertIn('duplicate YAML mapping key', result.stderr)
+
+    def test_implicit_nonstring_mapping_key_collisions_fail_closed(self):
+        result = self.run_gate(NOTICE.replace('A readable authored notice.',
+                                              '{true: first, TRUE: second}'))
+        self.assertNotEqual(0, result.returncode)
+        self.assertIn('YAML mapping keys must be scalar strings', result.stderr)
+
+    def test_alias_fanout_rejected_before_model_round_trip(self):
+        payload = ("type: approved_recommendations\nob_issue_no: '1351'\nitems:\n"
+                   "- &a {recommendation: X.123, approved_date: 2026-11-01}\n"
+                   + "- *a\n" * 101)
+        result = self.run_gate(payload, 'ob-issues/1351/general/approved_recommendations.yaml')
+        self.assertNotEqual(0, result.returncode)
+        self.assertIn('YAML alias count exceeds 100', result.stderr)
+        self.assertNotIn('typed model round-trip valid', result.stdout)
+
+    def test_benign_scalar_alias_preserves_message_values(self):
+        result = self.run_gate(NOTICE.replace('A readable authored notice.',
+                                              '{en: &a hello, fr: *a}'))
+        self.assertEqual(0, result.returncode, result.stderr)
+
     def test_running_annexes_singleton_model(self):
         result = self.run_gate("type: running_annexes\nob_issue_no: '1351'\nextra_links: [M1400_ICC, BUREAUFAX]\n",
                                'ob-issues/1351/general/running_annexes.yaml')

@@ -2,6 +2,7 @@
 
 import importlib.util
 import json
+import os
 from pathlib import Path
 import subprocess
 import tempfile
@@ -20,7 +21,7 @@ class StageAuthoredPatchesTest(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
-        self.data = self.root / "data"
+        self.data = self.root / "itu-ob-data"
         self.service = self.root / "service"
         self.data.mkdir()
         self.service.mkdir()
@@ -62,6 +63,66 @@ class StageAuthoredPatchesTest(unittest.TestCase):
         self.assertEqual(historical, (self.service / "ob-issues/1350/meta.yaml").read_bytes())
         self.assertEqual(gate.digest(PAYLOAD), manifest["patches"][0]["sha256"])
         self.assertEqual(manifest, gate.check(self.data, self.service, self.manifest))
+
+    def test_unrelated_base_cannot_hide_authored_history_edit(self):
+        self.write(self.data, PATCH, PAYLOAD)
+        historical = self.commit()
+        self.git("checkout", "--orphan", "unrelated")
+        self.git("rm", "-rf", ".")
+        self.write(self.data, "README.md", b"unrelated history")
+        unrelated = self.commit()
+        self.git("checkout", "--detach", historical)
+        self.write(self.data, PATCH, b"rewritten history")
+        head = self.commit()
+        with self.assertRaisesRegex(ValueError, "base_ref must be an ancestor"):
+            gate.stage(self.data, self.service, unrelated, head, self.manifest)
+        self.assertFalse(self.manifest.exists())
+        self.assertFalse((self.service / PATCH).exists())
+
+    def test_three_dot_diff_excludes_files_added_only_on_base(self):
+        common = self.base
+        self.write(self.data, PATCH, PAYLOAD)
+        head = self.commit()
+        self.git("checkout", "--detach", common)
+        self.write(self.data, "ob-issues/1351/e212-mnc/002-ADD.yaml", b"base branch addition")
+        base_tip = self.commit()
+        self.git("checkout", "--detach", head)
+        self.assertEqual([(b"A", PATCH.encode())], gate.authored_diff(self.data, base_tip, head))
+
+    def test_workflow_resolves_diverged_base_before_strict_staging(self):
+        common = self.base
+        self.write(self.data, PATCH, PAYLOAD)
+        head = self.commit()
+        self.git("checkout", "--detach", common)
+        self.write(self.data, "ob-issues/1351/e212-mnc/002-ADD.yaml", b"base branch addition")
+        base_tip = self.commit()
+        self.git("checkout", "--detach", head)
+        with self.assertRaisesRegex(ValueError, "base_ref must be an ancestor"):
+            gate.stage(self.data, self.service, base_tip, head, self.manifest)
+        workflow = (Path(__file__).resolve().parents[2] / ".github/workflows/validate-itu-ob-data.yml").read_text()
+        self.assertIn("BASE_REF=$(", workflow)
+        # Execute the workflow's actual base-resolution command against this fork.
+        resolution = next(line.strip() for line in workflow.splitlines() if line.strip().startswith("BASE_REF=$("))
+        result = subprocess.check_output(["bash", "-eu", "-c", resolution + '\nprintf %s "$BASE_REF"'],
+                                         env=dict(os.environ, BASE_REF=base_tip, DATA_REF=head,
+                                                  GITHUB_WORKSPACE=str(self.root)))
+        self.assertEqual(common, result.decode())
+        manifest = gate.stage(self.data, self.service, result.decode(), head, self.manifest)
+        self.assertEqual([PATCH], manifest["changed_paths"])
+        self.assertFalse((self.service / "ob-issues/1351/e212-mnc/002-ADD.yaml").exists())
+
+    def test_authored_file_size_limit_before_blob_read_or_overlay(self):
+        self.write(self.data, PATCH, b"x" * (1024 * 1024 + 1))
+        with self.assertRaisesRegex(ValueError, "authored file exceeds.*1048576"):
+            self.stage()
+        self.assertFalse(self.manifest.exists())
+        self.assertFalse((self.service / PATCH).exists())
+
+    def test_authored_file_at_size_limit_preserves_exact_bytes(self):
+        payload = b"x" * (1024 * 1024)
+        self.write(self.data, PATCH, payload)
+        self.stage()
+        self.assertEqual(payload, (self.service / PATCH).read_bytes())
 
     def test_data_checkout_must_be_exact_head(self):
         self.write(self.data, PATCH, PAYLOAD)

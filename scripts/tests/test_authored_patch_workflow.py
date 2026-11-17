@@ -104,5 +104,19 @@ class WorkflowModelBoundaryTest(unittest.TestCase):
         self.assert_rejected(VALID, 'authored patch ignored by migration/replay', block=1)
 
 
+class WorkflowCiConfigurationTest(unittest.TestCase):
+    def test_ci_runs_all_authored_python_and_ruby_tests(self):
+        workflow = (ROOT / '.github/workflows/test.yml').read_text()
+        self.assertIn('  authored-patch-tests:', workflow)
+        job = workflow.split('  authored-patch-tests:', 1)[1].split('\n  rspec:', 1)[0]
+
+        self.assertIn("'scripts/**'", workflow)
+        self.assertIn("'.github/workflows/**'", workflow)
+        self.assertIn('ruby/setup-ruby@v1', job)
+        self.assertIn('BUNDLE_GEMFILE: ${{ github.workspace }}/ituob/Gemfile', job)
+        self.assertIn("AUTHORED_PATCH_RUBY_TESTS: '1'", job)
+        self.assertIn("python3 -m unittest discover -s scripts/tests -p 'test_*.py'", job)
+
+
 if __name__ == '__main__':
     unittest.main()

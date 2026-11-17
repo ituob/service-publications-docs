@@ -69,6 +69,9 @@ jobs:
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$SERVICE_REF"
+          # PR base tips may have advanced since this branch forked. Stage
+          # against their shared ancestor; unrelated histories fail closed.
+          BASE_REF=$(cd "$GITHUB_WORKSPACE/itu-ob-data" && git merge-base "$BASE_REF" "$DATA_REF")
           python3 scripts/stage_authored_patches.py stage \
             --data-root "$GITHUB_WORKSPACE/itu-ob-data" \
             --service-root "$GITHUB_WORKSPACE" \
