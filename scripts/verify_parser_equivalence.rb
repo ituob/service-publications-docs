@@ -42,7 +42,7 @@ def parse_corpus
 
   Dir.glob(File.join(SOURCE_ROOT, '*', 'amendments.yaml')).sort.each do |path|
     issue = File.basename(File.dirname(path))
-    data = YAML.load_file(path, permitted_classes: [Date, Time])
+    data = Ituob::Support::Yaml.load_source_file(path)
     messages = data.is_a?(Hash) ? data['messages'] : nil
     next unless messages.is_a?(Array)
 

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'lutaml/model'
+require 'ituob/support'
 
 # Check if DEBUG mode is enabled
 DEBUG = ENV['DEBUG'] == 'true'
@@ -62,7 +63,7 @@ module Ituob
 
       def self.load_file_general(path)
         file_path = File.join(path, 'general.yaml')
-        data = YAML.load_file(file_path, permitted_classes: [Date, Time])
+        data = Ituob::Support::Yaml.load_source_file(file_path)
         return unless data.is_a?(Hash) && data['messages'].is_a?(Array)
 
         parse_generals(data['messages'])
@@ -75,7 +76,7 @@ module Ituob
 
       def self.load_file_amendment(path)
         file_path = File.join(path, 'amendments.yaml')
-        data = YAML.load_file(file_path, permitted_classes: [Date, Time])
+        data = Ituob::Support::Yaml.load_source_file(file_path)
         return unless data.is_a?(Hash) && data['messages'].is_a?(Array)
 
         messages = data['messages']
