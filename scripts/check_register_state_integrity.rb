@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Usage: check_register_state_integrity.rb [--generate-allowlist]
+# Usage: check_register_state_integrity.rb [--generate-allowlist | --snapshots-root PATH]
 #
 # Replays every register and fails on a bad row key or on any replay finding
 # (skipped or failed change, lenient replay behaviour, unreadable or
@@ -16,6 +16,11 @@ require 'json'
 
 ALLOWLIST_PATH = File.expand_path('register_state_integrity_allowlist.jsonl', __dir__)
 verifier_class = Ituob::Verifiers::RegisterStateIntegrityVerifier
+
+unless ARGV.empty? || ARGV == ['--generate-allowlist'] ||
+       (ARGV.length == 2 && ARGV.first == '--snapshots-root')
+  abort 'Usage: check_register_state_integrity.rb [--generate-allowlist | --snapshots-root PATH]'
+end
 
 if ARGV.first == '--generate-allowlist'
   findings = []
@@ -36,7 +41,8 @@ abort "#{ALLOWLIST_PATH} is missing" unless File.file?(ALLOWLIST_PATH)
 allowlist = File.readlines(ALLOWLIST_PATH, chomp: true).reject(&:empty?).map do |line|
   verifier_class::FINDING_FIELDS.zip(JSON.parse(line)).to_h
 end
-result = verifier_class.new(allowlist: allowlist).verify
+snapshots_root = ARGV.first == '--snapshots-root' ? ARGV.last : nil
+result = verifier_class.new(allowlist: allowlist, snapshots_root: snapshots_root).verify
 result.details.group_by { |detail| detail[:register_id] }.each do |register_id, states|
   current = states.find { |detail| detail[:ob_issue] == 'current' }
   historical = states.reject { |detail| detail[:ob_issue] == 'current' }

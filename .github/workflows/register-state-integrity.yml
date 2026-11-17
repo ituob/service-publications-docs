@@ -9,6 +9,7 @@ on:
       - 'datasets.yaml'
       - 'ituob/**'
       - 'scripts/check_register_state_integrity.rb'
+      - 'scripts/generate_register_snapshots.rb'
       - 'scripts/register_state_integrity_allowlist.jsonl'
       - '.github/workflows/register-state-integrity.yml'
   push:
@@ -20,6 +21,7 @@ on:
       - 'datasets.yaml'
       - 'ituob/**'
       - 'scripts/check_register_state_integrity.rb'
+      - 'scripts/generate_register_snapshots.rb'
       - 'scripts/register_state_integrity_allowlist.jsonl'
       - '.github/workflows/register-state-integrity.yml'
 
@@ -44,7 +46,13 @@ jobs:
 
     # Reads catalogs/, datasets/ and ob-issues/ from this checkout
     # (Ituob::DataRoot); the itu-ob-data submodule is not needed.
+    - name: Generate register snapshots
+      env:
+        BUNDLE_GEMFILE: ituob/Gemfile
+        SNAPSHOTS_OUT: ${{ runner.temp }}/register-snapshots
+      run: bundle exec ruby scripts/generate_register_snapshots.rb
+
     - name: Check register state integrity
       env:
         BUNDLE_GEMFILE: ituob/Gemfile
-      run: bundle exec ruby scripts/check_register_state_integrity.rb
+      run: bundle exec ruby scripts/check_register_state_integrity.rb --snapshots-root "${{ runner.temp }}/register-snapshots"

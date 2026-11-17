@@ -3,6 +3,7 @@
 require 'ituob/support'
 require 'ituob/registers'
 require 'ituob/catalogs'
+require 'json'
 
 module Ituob
   module Verifiers
@@ -18,10 +19,11 @@ module Ituob
       # +allowlist+ is the reviewed set of replay findings that exist on main
       # today, each { register:, ob_issue:, file:, kind:, detail: }. Any
       # replay finding outside it fails the gate.
-      def initialize(registers_catalog: Ituob::Catalogs::Registers, root: DEFAULT_ROOT, allowlist: [])
+      def initialize(registers_catalog: Ituob::Catalogs::Registers, root: DEFAULT_ROOT, allowlist: [], snapshots_root: nil)
         super()
         @registers_catalog = registers_catalog
         @root = root
+        @snapshots_root = snapshots_root
         @allowlist = allowlist.map { |item| self.class.finding_key(item) }
       end
 
@@ -77,6 +79,7 @@ module Ituob
           states = replay.build_all_states
           states.each_value do |state|
             result.merge!(verify_state(state, register: register))
+            verify_snapshot(state, register, result) if @snapshots_root
           end
           result.merge!(verify_findings(self.class.replay_findings(replay, states.fetch(nil)), register))
         end
@@ -135,6 +138,18 @@ module Ituob
       end
 
       private
+
+      def verify_snapshot(state, register, result)
+        edition = state.at_ob_issue || 'current'
+        filename = state.at_ob_issue ? "at-#{state.at_ob_issue}.json" : 'current.json'
+        path = File.join(@snapshots_root, register.slug, filename)
+        snapshot = JSON.parse(File.read(path))
+        return if snapshot == state.to_snapshot(slug: register.slug)
+
+        result.errors << "#{register.register_id}: OB #{edition} #{path}: snapshot does not match replayed state"
+      rescue SystemCallError, JSON::ParserError => e
+        result.errors << "#{register.register_id}: OB #{edition} #{path}: snapshot unreadable: #{e.message}"
+      end
 
       def entry_key(row, fields, fallbacks = [])
         Ituob::Registers::Strategies::Base.entry_key(row, fields, fallbacks)

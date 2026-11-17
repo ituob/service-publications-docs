@@ -7,11 +7,13 @@ require 'yaml'
 require 'ituob/catalogs'
 require 'ituob/registers'
 require 'ituob/verifiers'
+require_relative '../../support/register_integrity_findings'
 
 # The gate replays real change files, so every corruption below is written as
 # a change file on disk, exactly as a contributor would add it. A replay
 # finding that is not in the reviewed allowlist must fail the gate.
 RSpec.describe Ituob::Verifiers::RegisterStateIntegrityVerifier, 'replay findings' do
+  include RegisterIntegrityFindings
   let(:root) { Dir.mktmpdir('register-state-integrity-findings') }
   let(:dataset) { File.join(root, 'datasets', '1000-Test') }
   let(:changes_dir) { File.join(dataset, 'changes') }
@@ -38,19 +40,6 @@ RSpec.describe Ituob::Verifiers::RegisterStateIntegrityVerifier, 'replay finding
     allow_any_instance_of(Ituob::Registers::DirectoryChangeSource).to receive(:warn)
   end
   after { FileUtils.rm_rf(root) }
-
-  def write_change(name, hash)
-    File.write(File.join(changes_dir, name), hash.to_yaml)
-  end
-
-  def change(type, code, data: nil, ob: 1001)
-    { 'type' => type, 'register' => 'TEST', 'ob_issue_no' => ob, 'identifier' => { 'code' => code },
-      'data' => data }.compact
-  end
-
-  def finding_errors
-    result.errors.grep(/replay /)
-  end
 
   it 'passes a clean register with no findings' do
     write_change('1001-0001-ADD-CCC.yaml', change('ADD', 'CCC', data: { 'code' => 'CCC', 'country' => 'iso-3166:cc' }))
@@ -171,6 +160,20 @@ RSpec.describe Ituob::Verifiers::RegisterStateIntegrityVerifier, 'replay finding
 
   describe 'the workflow path filter' do
     let(:workflow) { YAML.load_file(File.expand_path('../../../../.github/workflows/register-state-integrity.yml', __dir__)) }
+
+    it 'generates snapshots before checking them and propagates failures' do
+      steps = workflow.fetch('jobs').fetch('integrity').fetch('steps')
+      generation = steps.index { |step| step['name'] == 'Generate register snapshots' }
+      gate = steps.index { |step| step['name'] == 'Check register state integrity' }
+
+      expect(generation).to be < gate
+      expect(steps[generation].fetch('env').fetch('SNAPSHOTS_OUT')).to eq('${{ runner.temp }}/register-snapshots')
+      expect(steps[gate].fetch('run')).to eq(
+        'bundle exec ruby scripts/check_register_state_integrity.rb --snapshots-root "${{ runner.temp }}/register-snapshots"'
+      )
+      expect(steps[gate].fetch('env').fetch('BUNDLE_GEMFILE')).to eq('ituob/Gemfile')
+      expect(steps[gate]['continue-on-error']).to be_nil
+    end
 
     it 'runs for a datasets.yaml or allowlist change on pull requests and pushes' do
       triggers = workflow.fetch(true) { workflow.fetch('on') }
