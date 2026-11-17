@@ -65,11 +65,11 @@ attribute :notes, :string, collection: true
           elsif first_elem.is_a?(Array) # table
             # Group rows by country entry. The first row of a country
             # entry has all 9 cells populated; subsequent rows are
-            # continuation (FR/EN/ES translations + multi-line address)
-            # — recognized by having most middle cells empty.
+            # continuation (EN/ES country names + further lines of each column)
+            # — recognized by an empty ADMD-name and country-code cell.
             current_entry = nil
-            address_lines = []
-            country_names = { fr: nil, en: nil, es: nil }
+            stacks = Hash.new { |h, k| h[k] = [] }
+            country_names = { fr: nil, en: nil, es: nil, extra: [] }
             lang_idx = 0
 
             c.each do |row|
@@ -92,50 +92,49 @@ attribute :notes, :string, collection: true
               # text, is a continuation row's data.
               next if service_subheader?(flat)
 
-              # Detect continuation rows: cells 1-5 are mostly empty.
-              middle_empty = flat[1, 5].all? { |x| x.nil? || x.strip.empty? }
+              # Detect continuation rows: no ADMD name and no country code.
+              # Cells 3-5 may still hold translated service/helpdesk labels
+              # (OB 1092 en/es rows), so they must not decide this.
+              continuation = flat[1, 2].all?(&:empty?)
 
-              if !middle_empty && flat[0] && !flat[0].empty?
+              if !continuation && (!flat[0].empty? || !stray_numbers?(flat))
                 # New country entry — flush previous.
-                if current_entry
-                  current_entry.contact_address = { address_lines: address_lines.reject(&:empty?) }
-                  current_entry.country_or_area = MultilingualString.new(
-                    fr: country_names[:fr], en: country_names[:en], es: country_names[:es]
-                  )
-                  action.entries << current_entry
-                end
+                action.entries << finish_entry(current_entry, stacks, country_names) if current_entry
                 current_entry = F400Entry.new
-                address_lines = []
-                country_names = { fr: nil, en: nil, es: nil }
+                stacks = Hash.new { |h, k| h[k] = [] }
+                country_names = { fr: nil, en: nil, es: nil, extra: [] }
                 lang_idx = 0
 
-                country_names[:fr] = flat[0]
-                current_entry.admd_name = flat[1]
-                current_entry.country_code = flat[2]
-                current_entry.helpdesk = { x400: flat[4] } if flat[4] && !flat[4].empty?
-                current_entry.autoanswer = { x400: flat[5] } if flat[5] && !flat[5].empty?
-                (6..8).each { |i| address_lines << flat[i] if flat[i] && !flat[i].empty? }
-              elsif current_entry
-                # Continuation row.
+                current_entry.admd_name = presence(flat[1])
+                current_entry.country_code = presence(flat[2])
+                country_names[:fr] = presence(flat[0])
+                stack_columns(stacks, flat)
+              else
+                # Continuation row. A table that opens with one still gets an
+                # entry, so no printed cell is discarded.
+                unless current_entry
+                  current_entry = F400Entry.new
+                  stacks = Hash.new { |h, k| h[k] = [] }
+                  country_names = { fr: nil, en: nil, es: nil, extra: [] }
+                  lang_idx = 0
+                end
+                # Stray digits in the ADMD/code cells have no field of their
+                # own; keep them with the note rather than drop them.
+                flat[1, 2].each { |cell| country_names[:extra] << cell unless cell.empty? }
                 lang_idx += 1
                 if flat[0] && !flat[0].empty?
                   case lang_idx
                   when 1 then country_names[:en] = flat[0]
                   when 2 then country_names[:es] = flat[0]
+                  else country_names[:extra] << flat[0]
                   end
                 end
-                (6..8).each { |i| address_lines << flat[i] if flat[i] && !flat[i].empty? }
-                (1..5).each { |i| address_lines << flat[i] if flat[i] && !flat[i].empty? }
+                # Cells 3-8 continue the entry's stacked columns.
+                stack_columns(stacks, flat)
               end
             end
             # Flush the last entry.
-            if current_entry
-              current_entry.contact_address = { address_lines: address_lines.reject(&:empty?) }
-              current_entry.country_or_area = MultilingualString.new(
-                fr: country_names[:fr], en: country_names[:en], es: country_names[:es]
-              )
-              action.entries << current_entry
-            end
+            action.entries << finish_entry(current_entry, stacks, country_names) if current_entry
           else
             next if first_elem.nil?
             raise "Unexpected non-string/array elem in c[0]"
@@ -149,6 +148,51 @@ attribute :notes, :string, collection: true
       # one leading blank). Blank holes or a trailing blank do not
       # disqualify it; a continuation row with a few numeric cells does not
       # qualify.
+      # Printed F.400 columns 4-9 (cells 3-8): service names MT, IPM and
+      # other, then HELPDESK and AUTOANSWER O/R addresses, then the contact
+      # address. Each prints one line per row of the entry (fr/en/es rows
+      # and further continuation rows), so each is stacked across rows.
+      STACKED_COLUMNS = { mt: 3, ipm: 4, other: 5, helpdesk: 6, autoanswer: 7, contact: 8 }.freeze
+
+      def self.stack_columns(stacks, flat)
+        STACKED_COLUMNS.each { |key, i| stacks[key] << flat[i] if flat[i] && !flat[i].empty? }
+        # The printed table has nine columns; anything beyond is kept with the contact lines.
+        flat.drop(STACKED_COLUMNS[:contact] + 1).each { |cell| stacks[:contact] << cell unless cell.empty? }
+      end
+      private_class_method :stack_columns
+
+      # A row without a country name that carries only digits in the ADMD
+      # and code cells is a stray column number, not a new entry.
+      def self.stray_numbers?(flat)
+        flat[1, 2].all? { |cell| cell.match?(/\A\d*\z/) }
+      end
+      private_class_method :stray_numbers?
+
+      def self.presence(text)
+        text.to_s.empty? ? nil : text
+      end
+      private_class_method :presence
+
+      # MultilingualString holds one name per language; names past the
+      # third continuation row have no language slot, so they go to note.
+      def self.finish_entry(entry, stacks, names)
+        assign_columns(entry, stacks)
+        entry.country_or_area = MultilingualString.new(fr: names[:fr], en: names[:en], es: names[:es])
+        entry.note = names[:extra].join("\n") unless names[:extra].empty?
+        entry
+      end
+      private_class_method :finish_entry
+
+      def self.assign_columns(entry, stacks)
+        %i[mt ipm other].each do |key|
+          entry.public_send("#{key}=", stacks[key].join("\n")) unless stacks[key].empty?
+        end
+        entry.helpdesk = { x400: stacks[:helpdesk].join("\n") } unless stacks[:helpdesk].empty?
+        entry.autoanswer = { x400: stacks[:autoanswer].join("\n") } unless stacks[:autoanswer].empty?
+        entry.contact_address = { address_lines: stacks[:contact].dup }
+      end
+      private_class_method :assign_columns
+
       def self.numbered_layout_row?(flat)
         cells = flat.each_with_index.reject { |x, _| x.empty? }
         return false if cells.length < 5 || cells.first.first != '1'

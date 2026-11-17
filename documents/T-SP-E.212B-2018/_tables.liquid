@@ -1,4 +1,5 @@
 
+{% unless skip_main %}
 == {{ metadata.title[lang] }}
 
 [cols="25%,55%,20%",options="header,unnumbered"]
@@ -22,6 +23,7 @@
 
 {% endfor %}
 |===
+{% endunless %}
 
 == {{ metadata_shared_mcc.title[lang] }}
 

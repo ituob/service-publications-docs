@@ -1,0 +1,55 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1146'
+identifier:
+  code: 208 19
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 208 19
+    country_or_area:
+      en: France
+    networks: Altitude Infrastructure
+  - mcc_mnc_codes: 208 32
+    country_or_area:
+      en: France
+    networks: Orange
+  - mcc_mnc_codes: 208 86
+    country_or_area:
+      en: France
+    networks: Nomotech
+  - mcc_mnc_codes: 208 87
+    country_or_area:
+      en: France
+    networks: Régie Autonome des Transports Parisiens
+  - mcc_mnc_codes: 208 89
+    country_or_area:
+      en: France
+    networks: Fondation b-com
+  - mcc_mnc_codes: 208 93
+    country_or_area:
+      en: France
+    networks: Thales communications & Security
+  - mcc_mnc_codes: 208 95
+    country_or_area:
+      en: France
+    networks: Orange
+  - mcc_mnc_codes: 208 96
+    country_or_area:
+      en: France
+    networks: Axione
+  - mcc_mnc_codes: 208 97
+    country_or_area:
+      en: France
+    networks: Thales communications & Security
+  - mcc_mnc_codes: 208 98
+    country_or_area:
+      en: France
+    networks: Société Air France
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"
+reference: OB-1146

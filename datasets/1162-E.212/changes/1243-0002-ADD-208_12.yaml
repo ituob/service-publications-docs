@@ -1,0 +1,108 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1243'
+identifier:
+  code: 208 12
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 208 12
+    country_or_area:
+      en: France
+    networks: Truphone France
+  - mcc_mnc_codes: 208 34
+    country_or_area:
+      en: France
+    networks: Cellhire (France)
+  - mcc_mnc_codes: 208 35
+    country_or_area:
+      en: France
+    networks: Free mobile
+  - mcc_mnc_codes: 208 36
+    country_or_area:
+      en: France
+    networks: Free mobile
+  - mcc_mnc_codes: 208 37
+    country_or_area:
+      en: France
+    networks: IP Directions
+  - mcc_mnc_codes: 208 38
+    country_or_area:
+      en: France
+    networks: Lebara France Limited
+  - mcc_mnc_codes: 208 39
+    country_or_area:
+      en: France
+    networks: Netwo
+  - mcc_mnc_codes: 208 501
+    country_or_area:
+      en: France
+    networks: Butachimie
+  - mcc_mnc_codes: 208 502
+    country_or_area:
+      en: France
+    networks: EDF
+  - mcc_mnc_codes: 208 701
+    country_or_area:
+      en: France
+    networks: GIP Vendée numérique
+  - mcc_mnc_codes: 208 702
+    country_or_area:
+      en: France
+    networks: 17-Numerique
+  - mcc_mnc_codes: 208 703
+    country_or_area:
+      en: France
+    networks: Nivertel
+  - mcc_mnc_codes: 208 704
+    country_or_area:
+      en: France
+    networks: Axione Limousin
+  - mcc_mnc_codes: 208 705
+    country_or_area:
+      en: France
+    networks: Hautes-Pyrénées Numérique
+  - mcc_mnc_codes: 208 706
+    country_or_area:
+      en: France
+    networks: Tours Métropole Numérique
+  - mcc_mnc_codes: 208 707
+    country_or_area:
+      en: France
+    networks: Sartel THD
+  - mcc_mnc_codes: 208 708
+    country_or_area:
+      en: France
+    networks: Melis@ territoires ruraux
+  - mcc_mnc_codes: 208 709
+    country_or_area:
+      en: France
+    networks: Quimper communauté télécom
+  - mcc_mnc_codes: 208 710
+    country_or_area:
+      en: France
+    networks: Losange
+  - mcc_mnc_codes: 208 711
+    country_or_area:
+      en: France
+    networks: Nomotech
+  - mcc_mnc_codes: 208 712
+    country_or_area:
+      en: France
+    networks: Syndicat Audois d'énergies et du Numérique
+  - mcc_mnc_codes: 208 713
+    country_or_area:
+      en: France
+    networks: SD NUM SAS
+  - mcc_mnc_codes: 208 714
+    country_or_area:
+      en: France
+    networks: Département de l'Isère
+  notes:
+  - "*       MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'
+reference: OB-1243
+date_active: 2018-11-14 23:00:00.000000000 Z

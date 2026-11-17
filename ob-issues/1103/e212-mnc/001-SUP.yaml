@@ -1,0 +1,31 @@
+type: SUP
+date_requested:
+date_active:
+ob_issue_no: '1103'
+reference: OB-1103
+identifier:
+  code: 1103-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 262 13
+    country_or_area:
+      en: Germany
+    networks: Mobilcom Multimedia GmbH
+  - mcc_mnc_codes: 262 14
+    country_or_area:
+      en: Germany
+    networks: Quam GmbH
+  - mcc_mnc_codes: 262 41
+    country_or_area:
+      en: Germany
+    networks: First Telecom GmbH
+  - mcc_mnc_codes: 262 79
+    country_or_area:
+      en: Germany
+    networks: ng4T GmbH
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

@@ -1,0 +1,28 @@
+type: SUP
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1320'
+identifier:
+  code: 240 19
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 240 19
+    country_or_area:
+      en: Sweden
+    networks: Vecton Mobile (Sweden) Ltd
+  - mcc_mnc_codes: 240 39
+    country_or_area:
+      en: Sweden
+    networks: Primlight AB
+  - mcc_mnc_codes: 240 63
+    country_or_area:
+      en: Sweden
+    networks: Fink Telecom Services
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'
+reference: OB-1320
+date_active: 2023-10-14 22:00:00.000000000 Z

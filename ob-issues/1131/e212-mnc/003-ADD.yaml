@@ -1,0 +1,23 @@
+type: ADD
+date_requested:
+date_active:
+ob_issue_no: '1131'
+reference: OB-1131
+identifier:
+  code: 1131-003
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 255 02
+    country_or_area:
+      en: Ukraine
+    networks: PRIVATE JOINT STOCK COMPANY KYIVSTAR (JSC KYIVSTAR)
+  - mcc_mnc_codes: 255 07
+    country_or_area:
+      en: Ukraine
+    networks: LIMITED LIABILITY COMPANY "TRYMOB" (LLC "TRYMOB")
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"

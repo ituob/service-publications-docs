@@ -158,3 +158,22 @@ serializes it, are later cards.
   dataset directory number is the interim choice above.
 * `registers` is empty or partial for 21 matrix rows whose datasets have no
   register in the catalog. The site must render an entry with no register link.
+
+== Emitted shape (scripts/render_publications.rb)
+
+The emitter writes `pdf/manifest.json` as `{ "publications": [...] }` through
+`Ituob::Models::PublicationManifest`. The consumer
+(ituob.github.io `src/lib/publications.ts`) fixes some names, which win over the
+field table above where they differ:
+
+* `sha256` (not `checksum_sha256`) and `register_slugs` (not `registers`);
+  `register_slugs` is always an array, empty when there is no register.
+* `language` is the lowercase code (`en fr es ru zh ar`), not the file letter;
+  the letter stays in `path`.
+* `standard` stays the directory token (`E.212B`) because the site rejects two
+  entries with the same standard, year and language (`T.35` and `T.35B` 2012
+  would clash); `recommendation` carries the grouping key and is ignored by the
+  site.
+* `dataset_issues` is not emitted yet.
+* `status` is read from `documents/<dir>/publication-status.yaml` (the
+  recommended option above, still pending Hassan), else `candidate`.

@@ -1,0 +1,23 @@
+type: SUP
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1324'
+reference: OB-1324
+identifier:
+  code: 1324-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 505 14
+    country_or_area:
+      en: Australia
+    networks: AAPT Ltd
+  - mcc_mnc_codes: 505 15
+    country_or_area:
+      en: Australia
+    networks: 3GIS Pty Ltd. (Telstra & Hutchison 3G)
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

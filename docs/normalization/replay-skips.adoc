@@ -12,13 +12,14 @@ Unclassified skips or unexpected replay errors fail generation instead of being
 silently assigned a source-gap class. Print references identify the transcribed
 wording in `itu-ob-data`, not a PDF page or a reconstructed seed.
 
-Total skips: *3*.
+Total skips: *5*.
 
 == Totals per register
 
 [cols="1,1",options="header"]
 |===
 |Register |Skips
+|E212_MNC |2
 |Q708_ISPC |2
 |X121_DNIC |1
 |===
@@ -35,7 +36,7 @@ pre-#66 counts are historical baselines; they are not expected totals here.
 |E |Engine rule (including seed-issue amendments already embodied) |1
 |T |Correct the action type from print |0
 |D |Mis-filed patch |1
-|G |Documented source or extraction gap |1
+|G |Documented source or extraction gap |3
 |===
 
 == Source gaps and interpretation
@@ -58,6 +59,11 @@ pre-#66 counts are historical baselines; they are not expected totals here.
   omitted MALAYSIA and UKRAINE rows and expands the grouped OB 1013 withdrawal
   into its office codes. The OB 1013 and OB 1148 withdrawals therefore apply
   and the register has no replay skips.
+* E.212 640 01 and 340 04: the withdrawals at OB 1197 and OB 1243
+  (`itu-ob-data/issues/1197/amendments.yaml:154`, `1243/amendments.yaml:1392`)
+  are the only printed mentions of those codes. The corresponding additions
+  appear in no seed, dataset patch or print in this corpus, so there is no
+  key to withdraw.
 * Seed-issue suppressions (E) target keys already absent from the post-amendment
   annex. Mis-filed patches (D) carry a different register's printed columns.
   These classes describe the evidence; the inventory does not change replay.

@@ -8,26 +8,14 @@ identifier:
 data:
   _class: E212MNCAmendment
   entries:
-  - mcc_mnc_codes: " "
-    country_or_area:
-      en: Belgium     ADD
-    networks: " "
   - mcc_mnc_codes: 206 04
+    country_or_area:
+      en: Belgium
     networks: MWINGZ (Proximus/Orange Belgium)
   - mcc_mnc_codes: 206 34
+    country_or_area:
+      en: Belgium
     networks: ONOFFAPP
-  - mcc_mnc_codes: " "
-    country_or_area:
-      en: New Zealand     SUP
-    networks: " "
-  - mcc_mnc_codes: 530 07
-    networks: Bluereach Limited
-  - mcc_mnc_codes: " "
-    country_or_area:
-      en: New Zealand     ADD
-    networks: " "
-  - mcc_mnc_codes: 530 07
-    networks: Dense Air New Zealand Ltd
   notes:
   - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
     para el servicio móvil'
