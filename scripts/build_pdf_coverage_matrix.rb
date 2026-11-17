@@ -13,8 +13,7 @@
 # on the same tree is byte-identical. Never edit the output by hand.
 
 $LOAD_PATH.unshift(File.expand_path('../ituob/lib', __dir__))
-require 'ituob/support'
-require 'ituob/registers'
+require 'ituob'
 require 'optparse'
 
 module PdfCoverageMatrix

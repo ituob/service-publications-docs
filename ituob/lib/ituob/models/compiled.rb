@@ -106,7 +106,7 @@ module Ituob
       def self.compiler
         @compiler ||= begin
           c = Compiler.new
-          c.compile(File.open(ONTOLOGY_PATH))
+          c.compile(File.open(ONTOLOGY_PATH, encoding: 'UTF-8'))
           c
         end
       end
