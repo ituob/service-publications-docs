@@ -19,7 +19,9 @@ on:
       - 'metanorma.yml'
       - 'scripts/render_publications.rb'
       - 'scripts/build_pdf_coverage_matrix.rb'
-      - 'ituob/lib/ituob/models/publication_manifest*.rb'
+      - 'ituob/lib/**'
+      - 'ituob/ituob.gemspec'
+      - 'scripts/prepare_metanorma_provider.rb'
       - '.github/workflows/pdf.yml'
     # The site fetches only push/workflow_dispatch runs on main, so the PDFs
     # reach ituob.org only from this trigger.
@@ -31,7 +33,9 @@ on:
       - 'metanorma.yml'
       - 'scripts/render_publications.rb'
       - 'scripts/build_pdf_coverage_matrix.rb'
-      - 'ituob/lib/ituob/models/publication_manifest*.rb'
+      - 'ituob/lib/**'
+      - 'ituob/ituob.gemspec'
+      - 'scripts/prepare_metanorma_provider.rb'
       - '.github/workflows/pdf.yml'
   workflow_dispatch:
     inputs:
@@ -93,27 +97,10 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install the manifest gems
+      - name: Prepare Metanorma data provider
         run: |
-          set -eu
-          # The image has no working C compiler out of the box and already ships current
-          # builds of every native gem ituob needs (nokogiri, json,
-          # bigdecimal, ffi, parsanol) plus lutaml-model, lutaml-lml, thor,
-          # rubyzip and liquid. Installing ituob/Gemfile.lock instead would
-          # compile older pinned native gems and fail. Add only the
-          # pure-Ruby gems the image lacks, with the image's RUBYOPT and
-          # BUNDLE_GEMFILE (-rbundler/setup of /setup/Gemfile) removed so
-          # plain rubygems can resolve them.
-          env -u RUBYOPT -u BUNDLE_GEMFILE gem install --no-document json-schema colorize prosereflect
-          # Provider projections load these gems inside the image's bundle too.
-          cat >> "$BUNDLE_GEMFILE" <<'GEMS'
-
-          gem "json-schema"
-          gem "colorize"
-          gem "prosereflect"
-          GEMS
-          bundle install --local
-          env -u RUBYOPT -u BUNDLE_GEMFILE ruby -I ituob/lib -e 'require "ituob"; require "ituob/models"; puts "ituob loads"'
+          METANORMA_GEMFILE="${BUNDLE_GEMFILE:-/setup/Gemfile}" \
+          env -u RUBYOPT -u BUNDLE_GEMFILE ruby scripts/prepare_metanorma_provider.rb
 
       # Renders with `metanorma -t itu -x pdf --agree-to-terms` per language,
       # copies each PDF to build/pdf/<standard>-<year>/ and writes
