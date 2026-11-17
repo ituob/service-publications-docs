@@ -50,8 +50,11 @@ module PdfFidelity
   end
 
   def pages(path)
-    out, = Open3.capture2('pdfinfo', path)
-    out[/^Pages:\s+(\d+)/, 1].to_i
+    out, err, status = Open3.capture3('pdfinfo', path)
+    count = out[/^Pages:\s+(\d+)/, 1].to_i
+    raise "pdfinfo failed on #{path}: #{err}" unless status.success? && count.positive?
+
+    count
   end
 
   def lines(raw)
@@ -133,7 +136,7 @@ module PdfFidelity
   end
 
   def pairs(generated_dir, official_dir)
-    Dir[File.join(generated_dir, '*', '*-[A-Z].pdf')].sort.filter_map do |gen|
+    Dir[File.join(generated_dir, '*', '*-[A-Z].pdf')].filter_map do |gen|
       stem = File.basename(gen, '.pdf')
       lang = stem[-1]
       off = File.join(official_dir, "T-SP-#{stem[0..-3]}-#{lang}.pdf")

@@ -1,0 +1,88 @@
+= Official PDF regression gate
+:!sectnums:
+
+The `pdf` workflow compares every selected publication x language after rendering.
+The `official-comparison` job downloads the render shards and runs
+`scripts/check_official_pdfs.rb`. Its job summary and `official-pdf-comparison`
+artifact contain a per-row Markdown table, machine-readable scores, and a
+candidate baseline. Reports are uploaded even when the comparison fails.
+The source inventory determines the rows, so a failed render cannot disappear
+from the report by being absent from the render manifest.
+
+== Official references and coverage
+
+The repository currently contains one official PDF:
+`ituob/spec/fixtures/f32/official-2011.pdf`, for F.32 2011 English.
+`docs/pdf/official-pdfs.json` maps its publication/year/language identity to this
+existing fixture. All other source rows are explicitly listed as
+`no official PDF`. Missing official PDFs remain a coverage gap in issue #89.
+
+To add a reference, commit the official ITU PDF under
+`docs/pdf/official/T-SP-<standard>-<year>-<L>.pdf`, where `L` is one of
+`A C E F R S`. It will be discovered automatically. Alternatively, add its
+repository-relative path to `official-pdfs.json` under key
+`<standard>-<year>-<L>`. Use the directory's publication identity, including for
+source filenames containing `MSW` or `OAS-MSW`. A duplicate reference is an error.
+A reference or render that cannot be read is an error, as is removing a reference
+for a row that already has a baseline.
+
+== Scores and regression policy
+
+Both PDFs pass through Poppler's `pdftotext -layout` and `pdfinfo`.
+The gate reuses `scripts/pdf_fidelity_report.rb`:
+
+* Word recall is the multiset overlap of normalized words divided by the official
+  word count. Repeated words count by occurrence; Han characters count individually.
+* Rows are layout lines containing at least two cells; row recall counts matching
+  normalized row text against the official row count.
+* Cell recall counts matching normalized cell values against the official cell count,
+  independent of column position. Rows and cells are `n/a` when their official
+  denominator is zero.
+* Pages are shown as official/generated counts. Page drift is the absolute
+  difference between those counts.
+
+`docs/pdf/official-baseline.json` pins each compared row's reference SHA-256 and
+unrounded scores. A decline in word, row, or cell recall (tolerance `1e-9`), an
+increase in page drift, a changed reference, or a paired row without a baseline
+fails the job. Missing renders and extraction errors also fail. A manually
+restricted workflow run checks only the selected publications against the same
+baseline. It does not require unrelated baseline rows to be rendered.
+
+This is a regression floor on measured content and structure. Current gaps in
+data, text extraction and typesetting remain visible in the scores; a passing
+baseline does not certify equivalence or disposition every delta. The F.32
+disposition comparator in `comparison-pilot.adoc` remains available for that
+closer investigation. The broader certification in issue #89 remains partial.
+
+== Updating the baseline
+
+Run the workflow on the branch, leaving `docs` empty for the complete inventory:
+
+[source,sh]
+----
+gh workflow run pdf.yml --ref YOUR_BRANCH
+gh run list --workflow pdf --branch YOUR_BRANCH
+gh run view RUN_ID
+gh run download RUN_ID -n official-pdf-comparison -D /tmp/official-pdf-scores
+----
+
+Inspect `scores.md`, `scores.json` and the rendered PDFs from the same run.
+Investigate every regression and any newly added reference before accepting its
+scores. The job intentionally fails for a new reference until its baseline is
+committed. After review of a complete, error-free comparison, copy
+`candidate-baseline.json` to `docs/pdf/official-baseline.json`, review the diff,
+commit it, push, and run the workflow again. If the run selected only some
+publications, merge only those keys into the committed baseline; do not replace
+the full baseline with a partial candidate. Never accept a candidate missing
+rows because of render or extraction errors.
+
+For a local check of PDFs already downloaded from CI (no rendering required):
+
+[source,sh]
+----
+ruby scripts/check_official_pdfs.rb --generated /tmp/render-shards --out /tmp/official-pdf-scores
+----
+
+Poppler must be installed. The initial F.32 baseline uses the successful #113
+render at `a7fdc72b15874131ea4240fe4ca8606a055132cc`, workflow run `44077681663`;
+subsequent branch runs verify that floor in CI.
