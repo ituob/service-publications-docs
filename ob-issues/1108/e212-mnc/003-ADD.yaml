@@ -16,19 +16,15 @@ data:
     country_or_area:
       en: South Africa
     networks: Wireless Business Solutions (Pty) Ltd
-  - mcc_mnc_codes: MCC+MNC*
-    country_or_area:
-      en: Country or Geographical Area
-    networks: Operators Name
-    range: MSIN** range to be used
   - mcc_mnc_codes: 208 10
     country_or_area:
       en: France
     networks: Société Française du Radiotéléphone
     note:
-      en: |-
-        (Country A)
-        Extra-territorial use in Monaco (Country B – Where the MCC+MNC is to be used extra-territorially): Société Française du Radiotéléphone; MSIN range 2654100000 - 2654199999; 2654300000 - 2654399999; 2754100000 - 2754199999; 2754300000 - 2754399999
+      en: 'Extra-territorial use in Monaco (Country B – Where the MCC+MNC is to be
+        used extra-territorially): Société Française du Radiotéléphone; MSIN range
+        2654100000 - 2654199999; 2654300000 - 2654399999; 2754100000 - 2754199999;
+        2754300000 - 2754399999'
     range: 0000000000 - 2654099999; 2654200000 - 2654299999; 2654400000 - 2754099999;
       2754200000 - 2754299999; 2754400000 - 9999999999
   - mcc_mnc_codes: 208 20
@@ -36,9 +32,9 @@ data:
       en: France
     networks: Bouygues Telecom
     note:
-      en: |-
-        (Country A)
-        Extra-territorial use in Monaco (Country B – Where the MCC+MNC is to be used extra-territorially): Bouygues Telecom; MSIN range 0055500000 - 0055599999; 2007200000 - 2007299999
+      en: 'Extra-territorial use in Monaco (Country B – Where the MCC+MNC is to be
+        used extra-territorially): Bouygues Telecom; MSIN range 0055500000 - 0055599999;
+        2007200000 - 2007299999'
     range: 0000000000 - 0055499999; 0055600000 - 2007199999; 2007300000 - 9999999999
   notes:
   - "*        MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo

@@ -12,17 +12,6 @@ data:
     country_or_area:
       en: Sweden
     networks: Twilio Ireland Ltd.
-  - mcc_mnc_codes: 270 77
-    networks: LIR
-  - mcc_mnc_codes: 270 77
-    country_or_area:
-      en: Luxembourg
-    networks: Proximus Luxembourg S.A.
-    note:
-      en: |-
-        (Country A)
-        Extra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Proximus Luxembourg S.A.; MSIN range 800 x xxx xxx; 801 x xxx xxx
-    range: 000 x xxx xxx
   notes:
   - "*              MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"

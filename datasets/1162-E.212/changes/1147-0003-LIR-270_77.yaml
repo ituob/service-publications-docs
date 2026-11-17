@@ -1,4 +1,4 @@
-type: ADD
+type: LIR
 register: E212_MNC
 recommendation: E.212
 ob_issue_no: '1147'
@@ -10,8 +10,7 @@ data:
     en: Luxembourg
   networks: Tango S.A.
   note:
-    en: |-
-      (Country A)
-      Extra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Tango S.A.; MSIN range 800 x xxx xxx; 801 x xxx xxx
+    en: 'Extra-territorial use in Belgium (Country B – Where the MCC+MNC is to be
+      used extra-territorially): Tango S.A.; MSIN range 800 x xxx xxx; 801 x xxx xxx'
   range: 000 x xxx xxx
 reference: OB-1147
