@@ -124,4 +124,69 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
     require script
     expect(PrintToPatchCoverage::SLUG_BY_PUBLICATION).to eq(build_map)
   end
+
+  describe 'printed-line matching' do
+    before { require script }
+
+    let(:tok) { PrintToPatchCoverage::Tok }
+    let(:rule_ids) do
+      lambda do |text|
+        cells = (text.include?(' | ') ? text.split(' | ') : text.split(/[[:space:]]{2,}/)).map { |c| tok.words(c).join(' ') }
+        PrintToPatchCoverage::EXCLUSION_RULES.select { |r| r.match.call(text, tok.of_print(text), cells) }.map(&:id)
+      end
+    end
+
+    it 'meets a detached ordinal or unit digit on either spelling, but never the page marker' do
+      expect(tok.of('12920 SE 38th Street')).to include('38th')
+      expect(tok.of_print('SE 38 th Street')).to include('38th')
+      expect(tok.of_print('SE 38 th Street')).not_to include('38', 'th')
+      expect(tok.of('-140 dBW/m 2')).to include('m2')
+      expect(tok.of_print('-140 dBW/m2')).to include('m2')
+      expect(tok.of_print('P  24  Gibraltar')).to include('p', '24')
+    end
+
+    it 'excludes page-marker headings that carry only a page, a name and an action' do
+      ['P  9  Georgia   LIR', 'P 29 to 30  Spain REP all information by:', 'P  26  Norway  SUP (delete)',
+       'ADD  P  31  Tuvalu', 'P  17  International Mobile, shared code   ADD1', 'Cyprus     REP',
+       'P  64 to P 65   Latvia    LIR'].each do |text|
+        expect(rule_ids.call(text)).to include('page_action_heading'), text
+      end
+    end
+
+    it 'keeps a heading that also prints register values unmapped' do
+      ['P  34    Netherlands    89 31 02  (INMO B.V.)    LIR', 'Malta     ADD     278 11   YOM',
+       'P 18   Note q)   +883 5140   SUP*'].each do |text|
+        expect(rule_ids.call(text)).not_to include('page_action_heading'), text
+      end
+    end
+
+    it 'excludes column titles in other wordings but not a data row made of ordinary words' do
+      expect(rule_ids.call('Pays/zone géographique | MCC + MNC* | Nom de Réseau/Opérateur'))
+        .to include('column_header_vocabulary')
+      expect(rule_ids.call('Country | ADMD Name | Country code 1 | Service Name(s) | HELPDESK | Contact Address'))
+        .to include('column_header_vocabulary')
+      expect(rule_ids.call('Mobile Pay Limited | Operator of the network')).not_to include('column_header_vocabulary')
+      expect(rule_ids.call('Luxembourg (Country A) | 270 77 | 000 x xxx xxx | Tango S.A.')).to be_empty
+    end
+
+    it 'excludes the fixed List VIII questionnaire labels and bulletin cross-references only' do
+      expect(rule_ids.call(' 2.      Geographical coordinates')).to include('list_viii_questionnaire_label')
+      expect(rule_ids.call('12.     Information available for bandwidth measurements'))
+        .to include('list_viii_questionnaire_label')
+      expect(rule_ids.call('(Annex to ITU Operational Bulletin No. 1161 – 1.XII.2018)'))
+        .to include('bulletin_reference_banner')
+      expect(rule_ids.call('1.      Name of the station')).to be_empty
+    end
+  end
+
+  it 'maps a printed telephone number the patch stores with other grouping' do
+    msgs = message('E118_IIN', para('Example Oy Tel: +358 40 866 8582'))
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'), "messages:\n#{msgs}")
+    write(File.join(@dir, 'ob/701/e118-iin/001-ADD.yaml'), "type: ADD\ndata:\n  entries:\n  - company_name: Example Oy\n    tel:\n    - \"+358 40 8668582\"\n")
+    File.write(File.join(@dir, 'catalog.yaml'), "#{File.read(File.join(@dir, 'catalog.yaml'))}" \
+      "- register_id: E118_IIN\n  slug: e118-iin\n  seed_path: datasets/1161-E.118\n")
+    _o, err, st = run_script(@env)
+    expect(st.success?).to be(true), err
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |r| r['text'] }).not_to include('Example Oy Tel: +358 40 866 8582')
+  end
 end

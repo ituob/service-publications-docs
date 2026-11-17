@@ -68,7 +68,7 @@ module PrintToPatchCoverage
 
   Line = Struct.new(:issue, :msg_index, :publication, :slug, :text, :source_line,
                     :tokens, keyword_init: true)
-  Patch = Struct.new(:path, :layer, :kind, :tokens, keyword_init: true)
+  Patch = Struct.new(:path, :layer, :kind, :tokens, :numbers, keyword_init: true)
 
   # Normalized (folded, tokens joined by one space) titles of table columns.
   HEADER_CELLS = Set.new([
@@ -91,6 +91,51 @@ module PrintToPatchCoverage
     'country geographical area network administration roa'
   ]).freeze
 
+  HEADER_NOUNS = %w[country area name address contact code date number operator network applicant company
+                    pays zone nom reseau operateur pais zona assignee msin range].freeze
+  HEADER_VOCABULARY = Set.new(HEADER_NOUNS + %w[
+    geographical geographique geografica or ou o of de and a b is to be in the on aera iso mcc mnc cc di roa
+    carrier issuer identifier identification effective registration withdrawal usage cancellation assignment
+    assigment reclamation trial global service s administration destination indicator first letters telegram
+    telegraph third fourth office assigned used extra territorially where countries mobile subscription
+    admd helpdesk autoanswer auto answer note numerical numeric alphabetical order not
+  ]).freeze
+
+  LIST_VIII_ITEMS = {
+    2 => 'Geographical coordinates', 3 => 'Hours of service', 4 => 'Information on antennas in use',
+    5 => 'Range of azimuth and elevation angles',
+    6 => 'Maximum attainable accuracy in determining orbital positions', 7 => 'Information on system polarization',
+    8 => 'System noise temperature', 9 => 'Ranges of frequencies with the maximum attainable accuracy',
+    10 => 'Ranges of frequencies in which field strength', 11 => 'Minimum value of measurable field strength',
+    12 => 'Information available for bandwidth', 13 => 'Information available for spectrum occupancy',
+    14 => 'Information available for orbit occupancy'
+  }.freeze
+  LIST_VIII_LABEL = Regexp.new(
+    '\A[[:space:]]*(?:' + LIST_VIII_ITEMS.map { |n, t| "#{n}\\.[[:space:]]+#{Regexp.escape(t)}" }.join('|') + ')'
+  )
+
+  # "P 17 Sweden ADD", "ADD P 31 Tuvalu", "P 29 to 30 Spain REP all information by:", "Cyprus REP".
+  module PageHeading
+    ACTION = /\b(?:ADD|SUP|LIR|REP)\d?\b/
+    module_function
+
+    def match?(text)
+      t = text.tr('|', ' ').gsub(/[[:space:]]+/, ' ').strip
+      return false unless t.match?(ACTION)
+
+      t = t.gsub(/\((?:[^()]|\([^()]*\))*\)/, ' ')                       # (delete) (read) (Republic of) (http://...)
+      t = t.gsub(/\ball information(?:s)? by[[:space:]]*:?/i, ' ')
+      t = t.gsub(/\bby (?:alphabetical|numerical) order\b/i, ' ')
+      t = t.gsub(/\b(?:Numeric(?:al)?|Alphabetical) order\b/i, ' ')
+      t = t.gsub(/\bcountry code [[:space:]]*\d+/i, ' ')
+      t = t.gsub(/\bnotes? [a-z](?: and [a-z])?\b/, ' ')
+      t = t.gsub(/(?<![[:alnum:]])P[[:space:]]*\d+(?:[[:space:]]*(?:,|and|to)[[:space:]]*(?:P[[:space:]]*)?\d+)*/, ' ')
+      t = t.gsub(ACTION, ' ').gsub(/[*\d]\)?[[:space:]]*\z/, ' ').delete('*')
+      t = t.gsub(%r{[/,.]}, ' ').gsub(/\b[A-Z]{3}\b/, ' ').strip
+      t.match?(/\A[\p{L}' ’-]*\z/) && t.split.size <= 9
+    end
+  end
+
   # Named exclusion rules, consulted only for lines that did not map.
   # Each: id, reason, matcher(normalized_text, tokens). Filled from the
   # measured unmapped population; see EXCLUSION_RULES below.
@@ -106,10 +151,54 @@ module PrintToPatchCoverage
       }
     ),
     Rule.new(
+      id: 'column_header_vocabulary',
+      reason: 'table column titles in a wording the exact-title list does not carry (French/Spanish captions, ' \
+              '"(carrier code)" sub-titles, long captions of the extra-territorial-use and telegraph tables): every ' \
+              'word is column-title vocabulary and at least two header nouns appear, so the line holds no register value',
+      match: lambda { |_text, tokens, cells|
+        words = cells.flat_map(&:split)
+        words.size >= 2 && words.all? { |w| HEADER_VOCABULARY.include?(w) || w.match?(/\A\d\z/) } &&
+          (words & HEADER_NOUNS).size >= 2 && tokens.size >= 2
+      }
+    ),
+    Rule.new(
       id: 'ordering_directive',
       reason: 'printed insertion-order heading ("Numerical order ADD", "Alphabetical order ADD"); registers are ' \
               'keyed, not ordered, so the directive has no field in a patch',
-      match: ->(_text, tokens, _cells) { tokens.to_a.sort.join(' ').match?(/\A(add|alphabetical|numerical|order)( (add|alphabetical|numerical|order))*\z/) && tokens.size <= 3 }
+      match: ->(_text, tokens, _cells) { tokens.to_a.sort.join(' ').match?(/\A(add|alphabetical|numeric|numerical|order)( (add|alphabetical|numeric|numerical|order))*\z/) && tokens.size <= 3 }
+    ),
+    Rule.new(
+      id: 'page_action_heading',
+      reason: 'printed amendment heading "P 17 Sweden ADD" / "Cyprus REP all information by:": page marker, country ' \
+              'or section name and the action (ADD/SUP/LIR/REP) with a directive such as "(delete)"; the action is ' \
+              "the patch's type, the country the register key, and the page marker a layout reference; no value of " \
+              'the register is printed on the line',
+      match: ->(text, _tokens, _cells) { PageHeading.match?(text) }
+    ),
+    Rule.new(
+      id: 'extra_territorial_footnote',
+      reason: 'definition footnote of the extra-territorial-use tables ("*** As defined in Annex E to Recommendation ' \
+              'ITU-T E.212, extra-territorial use of an MCC+MNC ..."), boilerplate repeated on every such table; the ' \
+              'extra-territorial use itself is carried by the patch rows',
+      match: lambda { |_text, tokens, _cells|
+        tokens.include?('territorial') && (tokens.include?('annex') || tokens.include?('assigned')) ||
+          tokens.include?('situation') && tokens.include?('operator') && tokens.include?('assigned') ||
+          tokens.include?('msin') && tokens.include?('subscription') && tokens.include?('identification')
+      }
+    ),
+    Rule.new(
+      id: 'bulletin_reference_banner',
+      reason: 'parenthesised pointer to another Operational Bulletin or Recommendation ("(Annex to ITU Operational ' \
+              'Bulletin No. 1161 - 1.XII.2018)", "(According to Recommendation ITU-T Q.708 (03/1999))"); a ' \
+              'cross-reference, not register content',
+      match: ->(text, _tokens, _cells) { text.match?(/\A[[:space:]]*\((Annex to ITU Operational Bulletin|According to Recommendation)[^\n]*\)[[:space:]]*\z/i) }
+    ),
+    Rule.new(
+      id: 'list_viii_questionnaire_label',
+      reason: 'numbered item label of the fixed List VIII Part III monitoring-station questionnaire ("2. Geographical ' \
+              'coordinates", "9. Ranges of frequencies ..."): the same fourteen headings precede every station ' \
+              'entry; the station values that follow them are what the patch stores',
+      match: ->(text, _tokens, _cells) { text.match?(LIST_VIII_LABEL) }
     ),
     Rule.new(
       id: 'glossary_legend',
@@ -138,7 +227,7 @@ module PrintToPatchCoverage
       id: 'shared_mcc_intro',
       reason: 'introductory sentence of the shared-country-code (882/883) identification-code table; the table ' \
               'rows carry the data',
-      match: ->(_text, tokens, _cells) { tokens.include?('shared') && tokens.include?('associated') && tokens.include?('networks') }
+      match: ->(_text, tokens, _cells) { tokens.include?('shared') && tokens.include?('associated') && (tokens.include?('networks') || tokens.include?('network')) }
     )
   ].freeze
 
@@ -151,8 +240,28 @@ module PrintToPatchCoverage
       str.to_s.unicode_normalize(:nfkd).gsub(/\p{M}/, '').downcase
     end
 
-    def of(str)
+    # A word and its detached suffix: "38 th" (ordinal), "m 2" / "T 0" (one
+    # letter with a superscript or subscript digit; never "P 24", the page
+    # marker). Printed text and patch values disagree on the space.
+    JOINABLE = /(?<![[:alnum:]])(\d+(?=[[:space:]]+(?:st|nd|rd|th)(?![[:alnum:]]))|[a-oq-z](?=[[:space:]]+\d(?![[:alnum:]])))[[:space:]]+(st|nd|rd|th|\d)(?![[:alnum:]])/
+
+    def words(str)
       fold(str).scan(/[[:alnum:]]+/)
+    end
+
+    # Patch side: the separate words plus the joined form (a superset).
+    def of(str)
+      folded = fold(str)
+      toks = folded.scan(/[[:alnum:]]+/)
+      folded.scan(JOINABLE) { |a, b| toks << (a + b) }
+      toks
+    end
+
+    # Printed side: the joined form replaces its two words, so a patch holding
+    # either spelling ("38th" or "38 th") carries it.
+    def of_print(str)
+      folded = fold(str)
+      folded.gsub(JOINABLE) { "#{Regexp.last_match(1)}#{Regexp.last_match(2)}" }.scan(/[[:alnum:]]+/)
     end
 
     # Add the unpadded form of a numeric token so "03" meets "3".
@@ -362,36 +471,47 @@ module PrintToPatchCoverage
 
     def ob_issue_patch(path)
       kind = File.basename(path) == 'text.yaml' ? :text : :structured
-      Patch.new(path: path, layer: :ob_issues, kind: kind, tokens: tokens_of_file(path))
+      tokens, numbers = tokens_of_file(path)
+      Patch.new(path: path, layer: :ob_issues, kind: kind, tokens: tokens, numbers: numbers)
     end
 
     def change_patch(path)
-      Patch.new(path: path, layer: :changes, kind: :structured, tokens: tokens_of_file(path))
+      tokens, numbers = tokens_of_file(path)
+      Patch.new(path: path, layer: :changes, kind: :structured, tokens: tokens, numbers: numbers)
     end
 
     def tokens_of_file(path)
       data = YAML.safe_load(File.read(path), aliases: true,
                                               permitted_classes: [Date, Time, DateTime, Symbol])
       set = Set.new
+      numbers = Set.new
       if File.basename(path) == 'text.yaml' && data.is_a?(Hash) && data['contents'].is_a?(Hash)
         # Verbatim ProseMirror: tokenise per printed line, the way the source
         # is, so "CS" + "3" in two text nodes is the token "cs3" on both sides.
         Extract.lines(data['contents']).each { |text, _| set.merge(Tok.with_unpadded(Tok.of(text))) }
       end
-      collect(data, set)
-      set
+      collect(data, set, numbers)
+      [set, numbers]
     rescue StandardError => e
       warn "coverage: cannot read #{path}: #{e.class}: #{e.message}"
-      Set.new
+      [Set.new, Set.new]
     end
 
-    def collect(node, set)
+    # A patch value that is only a telephone-style number ("+358 40 8668582"):
+    # its digits with the grouping removed, so a printed regrouping
+    # ("+358 40 866 8582") still meets it.
+    PHONE_VALUE = /\A[+\d][\d +().\/-]*\d\z/
+
+    def collect(node, set, numbers)
       case node
-      when Hash then node.each_value { |v| collect(v, set) }
-      when Array then node.each { |v| collect(v, set) }
+      when Hash then node.each_value { |v| collect(v, set, numbers) }
+      when Array then node.each { |v| collect(v, set, numbers) }
       when Date, Time
         set.merge(Tok.date_tokens(node.year, node.month, node.day))
-      when String then set.merge(Tok.of_patch_value(node))
+      when String
+        set.merge(Tok.of_patch_value(node))
+        digits = node.gsub(/\D/, '')
+        numbers << digits if node.match?(PHONE_VALUE) && digits.size >= 6
       when Integer, Float then set.merge(Tok.of_patch_value(node.to_s))
       end
     end
@@ -429,7 +549,7 @@ module PrintToPatchCoverage
                           detail: by_slug.key(by_slug.values.find { |a| a.include?(hit) }))
       end
 
-      stripped = strip_labels(line)
+      stripped = strip_labels(line) - regrouped_numbers(line, structured)
       if stripped.size < tokens.size && !stripped.empty?
         hit = pick(structured, stripped) ||
               (union_covers?(structured, stripped) ? structured.first : nil)
@@ -437,7 +557,7 @@ module PrintToPatchCoverage
       end
 
       cells = (line.text.include?(' | ') ? line.text.split(' | ') : line.text.split(/[[:space:]]{2,}/))
-              .map { |c| Tok.of(c).join(' ') }
+              .map { |c| Tok.words(c).join(' ') }
       if (rule = EXCLUSION_RULES.find { |r| r.match.call(line.text, tokens, cells) })
         return Result.new(line: line, status: :excluded, detail: rule.id)
       end
@@ -476,11 +596,31 @@ module PrintToPatchCoverage
     # leading page marker ("P 24 Gibraltar SUP": P = the Bulletin page letter).
     LABEL_TOKENS = Set.new(%w[tel fax mail email]).freeze
 
+    PHONE_RUN = /\+?\d[\d ().\/-]*\d/
+
+    # Tokens of printed telephone numbers whose digits, grouping ignored, are
+    # a patch's number: the patch keeps "+358 40 8668582", the print wraps it
+    # "+358 40 866 8582".
+    def regrouped_numbers(line, structured)
+      numbers = structured.flat_map { |p| p.numbers.to_a }
+      return Set.new if numbers.empty?
+
+      covered = Set.new
+      line.text.scan(PHONE_RUN) do |run|
+        digits = run.gsub(/\D/, '')
+        next if digits.size < 6 || numbers.none? { |n| n.include?(digits) || digits.include?(n) }
+
+        covered.merge(Tok.with_unpadded(Tok.words(run)))
+      end
+      covered
+    end
+
     def strip_labels(line)
       text = line.text.sub(/(?<![[:alnum:]])[A-Z][[:space:]]+(?=\d)/, '')
+      text = text.gsub(/(?<![[:alnum:]])(?:Cell|Mobile|Telephone|Tel\.)[[:space:]]*:/i, ' ') # "Mobile:" contact label
       text = text.sub(/\A[^|]*:[[:space:]]*\|/, '')            # "Label: | value" form row
       text = text.sub(/\A[^|?]*\?[[:space:]]+(?=\S+\z)/, '')  # "Label? YES" form row
-      toks = Tok.with_unpadded(Tok.of(text))
+      toks = Tok.with_unpadded(Tok.of_print(text))
       drop_e = toks.include?('mail')
       Set.new(toks.reject { |t| LABEL_TOKENS.include?(t) || (drop_e && t == 'e') })
     end
@@ -551,7 +691,7 @@ module PrintToPatchCoverage
           next
         end
         Extract.lines(contents).each do |text, src_line|
-          tokens = Set.new(Tok.with_unpadded(Tok.of(text)))
+          tokens = Set.new(Tok.with_unpadded(Tok.of_print(text)))
           line = Line.new(issue: issue, msg_index: idx + 1, publication: pub, slug: slug,
                           text: text, source_line: src_line, tokens: tokens)
           @results << @classifier.classify(line, collision: per_slug[slug] > 1)
