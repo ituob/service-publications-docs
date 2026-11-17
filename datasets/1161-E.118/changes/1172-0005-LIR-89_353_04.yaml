@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Ireland
   company_name: IDT Card Services Ireland Ltd
-  company_address_1: 5-7 Westland Square
-  company_address_2: DUBLIN 2
+  company_address:
+  - 5-7 Westland Square
+  - DUBLIN 2
   contact: Kerry Kent
-  contact_address_1: 5-7 Westland Square
-  contact_address_2: DUBLIN 2
+  contact_address:
+  - 5-7 Westland Square
+  - DUBLIN 2
   tel:
   - "+353 1 653 4706"
   email:

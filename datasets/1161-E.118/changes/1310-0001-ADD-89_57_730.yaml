@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Colombia
   company_name: LOV TELECOMUNICACIONES SAS
-  company_address_1: 'Calle 97 # 23-60 Of. 306'
-  company_address_2: BOGOTÁ
+  company_address:
+  - 'Calle 97 # 23-60 Of. 306'
+  - BOGOTÁ
   contact: LOV IIN,
-  contact_address_1: LOV TELECOMUNICACIONES SAS
-  contact_address_2: 'Calle 97 # 23-60 Of. 306'
-  contact_address_3: BOGOTÁ
+  contact_address:
+  - LOV TELECOMUNICACIONES SAS
+  - 'Calle 97 # 23-60 Of. 306'
+  - BOGOTÁ
   tel:
   - "+57 1 7042284"
   email:

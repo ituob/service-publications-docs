@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Iceland
     company_name: Fjarskipti hf
-    company_address_1: Sudurlandsbraut 8
-    company_address_2: IS-108 REYKJAVIK
+    company_address:
+    - Sudurlandsbraut 8
+    - IS-108 REYKJAVIK
     contact: Johannes Gudmundsson
-    contact_address_1: Sudurlandsbraut 8
-    contact_address_2: IS-108 REYKJAVIK
+    contact_address:
+    - Sudurlandsbraut 8
+    - IS-108 REYKJAVIK
     tel:
     - "+354 5999818"
     email:

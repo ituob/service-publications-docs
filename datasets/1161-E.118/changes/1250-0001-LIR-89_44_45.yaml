@@ -8,14 +8,18 @@ data:
   country_or_area:
     en: United Kingdom
   company_name: Kigen UK Limited
-  company_address_1: Merlin Place
-  company_address_2: Milton Road
-  company_address_3: Cambridge CB4 0DP
+  company_address:
+  - Merlin Place
+  - Milton Road
+  - Cambridge CB4 0DP
+  - Cambridgeshire
+  - United Kingdom
   contact: Patrick Biget
-  contact_address_1: Kigen
-  contact_address_2: 930 Route des Dolines
-  contact_address_3: 06560 Valbonne
-  contact_address_4: France
+  contact_address:
+  - Kigen
+  - 930 Route des Dolines
+  - 06560 Valbonne
+  - France
   tel:
   - "+33 6 62 51 55 01"
   email:

@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Australia
   company_name: EZI Phonecard Pty. Ltd.
-  company_address_1: 106-108 Quary Street
-  company_address_2: ULTIMO NSW 2007
+  company_address:
+  - 106-108 Quary Street
+  - ULTIMO NSW 2007
   contact: Mal Sharpe
-  contact_address_1: 106-108 Quarry Street
-  contact_address_2: ULTIMO NSW 2007
+  contact_address:
+  - 106-108 Quarry Street
+  - ULTIMO NSW 2007
   tel:
   - "+61 2 9518 7903"
   fax:

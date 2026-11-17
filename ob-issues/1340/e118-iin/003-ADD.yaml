@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Spain
     company_name: 1GLOBAL Ops (Spain) S.L.U.
-    company_address_1: Calle Maria Tubau, 3, 1a Planta
-    company_address_2: 28050 MADRID
+    company_address:
+    - Calle Maria Tubau, 3, 1a Planta
+    - 28050 MADRID
     contact: Giulia Garofoli
-    contact_address_1: Beethovenstraat 505,
-    contact_address_2: 1083HK, AMSTERDAM,
-    contact_address_3: The Netherlands
+    contact_address:
+    - Beethovenstraat 505,
+    - 1083HK, AMSTERDAM,
+    - The Netherlands
     tel:
     - "+31 689 911 122"
     email:

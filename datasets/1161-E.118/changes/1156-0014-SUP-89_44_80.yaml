@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: United Kingdom
   company_name: BLYK Limited
-  company_address_1: Amadeus House, Floral Street
-  company_address_2: LONDON WC26 9DP
+  company_address:
+  - Amadeus House, Floral Street
+  - LONDON WC26 9DP
   contact: David Wilkinson
-  contact_address_1: Amadeus House, Floral Street
-  contact_address_2: LONDON WC26 9DP
+  contact_address:
+  - Amadeus House, Floral Street
+  - LONDON WC26 9DP
   tel:
   - "+44 207 812 7146"
   fax:

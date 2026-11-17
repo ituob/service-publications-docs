@@ -11,14 +11,17 @@ data:
   - country_or_area:
       en: Kenya
     company_name: Econet Wireless Kenya Limited
-    company_address_1: P.O. Box 45742-00100
-    company_address_2: Essar House, Brookside Drive
-    company_address_3: Westlands
+    company_address:
+    - P.O. Box 45742-00100
+    - Essar House, Brookside Drive
+    - Westlands
+    - 00100 NAIROBI
     contact: Shailendra Khare
-    contact_address_1: P.O. Box 45742-00100
-    contact_address_2: Essar House, Brookside Drive
-    contact_address_3: Westlands
-    contact_address_4: 00100 NAIROBI
+    contact_address:
+    - P.O. Box 45742-00100
+    - Essar House, Brookside Drive
+    - Westlands
+    - 00100 NAIROBI
     tel:
     - "+254 20 444 1602"
     fax:

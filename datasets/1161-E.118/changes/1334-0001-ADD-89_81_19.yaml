@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Japan
   company_name: Common Creation Co., Ltd.
-  company_address_1: 2-6-11 Daimyo, Chuo-ku,
-  company_address_2: Fukuoka City, Fukuoka Prefecture,
-  company_address_3: Fukuoka Growth Next SO-10
+  company_address:
+  - 2-6-11 Daimyo, Chuo-ku,
+  - Fukuoka City, Fukuoka Prefecture,
+  - Fukuoka Growth Next SO-10
   contact: Masaki Yamamoto
-  contact_address_1: 2-6-11 Daimyo, Chuo-ku,
-  contact_address_2: Fukuoka City, Fukuoka Prefecture,
-  contact_address_3: Fukuoka Growth Next SO-10
+  contact_address:
+  - 2-6-11 Daimyo, Chuo-ku,
+  - Fukuoka City, Fukuoka Prefecture,
+  - Fukuoka Growth Next SO-10
   tel:
   - "+81 80 3946 3029"
   email:

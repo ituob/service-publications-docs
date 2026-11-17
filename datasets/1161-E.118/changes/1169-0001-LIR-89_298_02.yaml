@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Faroe Islands
   company_name: P/F Hey
-  company_address_1: Smyrilsvegur 5, PO Box 109
-  company_address_2: FO-110 TORSHAVN
+  company_address:
+  - Smyrilsvegur 5, PO Box 109
+  - FO-110 TORSHAVN
   contact: Erland Simonsen
-  contact_address_1: Smyrilsvegur 5, PO Box 109
-  contact_address_2: FO-110 TORSHAVN
+  contact_address:
+  - Smyrilsvegur 5, PO Box 109
+  - FO-110 TORSHAVN
   tel:
   - "+298 202020"
   fax:

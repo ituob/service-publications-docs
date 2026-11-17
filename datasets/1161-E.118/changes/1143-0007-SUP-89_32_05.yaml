@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Belgium
   company_name: Elephant Talk Communication Schweiz GmbH
-  company_address_1: Barrerstrasse 135
-  company_address_2: CH-6301 ZUG
-  company_address_3: "(Switzerland)"
+  company_address:
+  - Barrerstrasse 135
+  - CH-6301 ZUG
+  - "(Switzerland)"
   contact: Robert Bodemann
-  contact_address_1: Schipol Boulevard 249
-  contact_address_2: 1118 BY SCHIPOL
-  contact_address_3: "(Netherlands)"
+  contact_address:
+  - Schipol Boulevard 249
+  - 1118 BY SCHIPOL
+  - "(Netherlands)"
   tel:
   - "+31 206 535 916"
   fax:

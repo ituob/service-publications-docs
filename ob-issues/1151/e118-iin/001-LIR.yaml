@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Estonia
     company_name: Telia Eesti AS
-    company_address_1: Mustamäe tee 3
-    company_address_2: 15033 TALLINN
+    company_address:
+    - Mustamäe tee 3
+    - 15033 TALLINN
     contact: Mr Dan Olov Strömberg
-    contact_address_1: Mustamäe tee 3
-    contact_address_2: 15033 TALLINN
+    contact_address:
+    - Mustamäe tee 3
+    - 15033 TALLINN
     tel:
     - "+372 639 7130"
     fax:

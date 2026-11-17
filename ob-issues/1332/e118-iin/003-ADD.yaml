@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Sweden
     company_name: Västra Götalandsregionen
-    company_address_1: Regionenshus
-    company_address_2: SE 462 80 VÄNERSBORG
+    company_address:
+    - Regionenshus
+    - SE 462 80 VÄNERSBORG
     contact: Mr Viktor Bergström
-    contact_address_1: Regionenshus
-    contact_address_2: SE 462 80 VÄNERSBORG
+    contact_address:
+    - Regionenshus
+    - SE 462 80 VÄNERSBORG
     tel:
     - "+46720840391"
     email:

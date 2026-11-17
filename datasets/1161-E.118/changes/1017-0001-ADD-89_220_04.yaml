@@ -8,14 +8,17 @@ data:
   country_or_area:
     en: Gambia
   company_name: QCELL Limited
-  company_address_1: Kairaba Avenue
-  company_address_2: Quantummet House
-  company_address_3: SERREKUNDA
+  company_address:
+  - Kairaba Avenue
+  - Quantummet House
+  - SERREKUNDA
+  - Gambia
   contact: QCELL Limited
-  contact_address_1: Kairaba Avenue
-  contact_address_2: Quantummet House
-  contact_address_3: SERREKUNDA
-  contact_address_4: Gambia
+  contact_address:
+  - Kairaba Avenue
+  - Quantummet House
+  - SERREKUNDA
+  - Gambia
   tel:
   - "+220 333 3111"
   email:

@@ -9,13 +9,15 @@ data:
     en: Hong Kong, China
   company_name: PCCW-HKT Telephone Limited and Hong Kong Telecommunications (HKT)
     Limited
-  company_address_1: 39/F., PCCW Tower, Taikoo Place,
-  company_address_2: 979 King's Road, Quarry Bay,
-  company_address_3: Hong Kong
+  company_address:
+  - 39/F., PCCW Tower, Taikoo Place,
+  - 979 King's Road, Quarry Bay,
+  - Hong Kong
   contact: Mr Philip Ho,
-  contact_address_1: 17/F, PCCW Tower, Taikoo Place,
-  contact_address_2: 979 King's Road, Quarry Bay,
-  contact_address_3: Hong Kong
+  contact_address:
+  - 17/F, PCCW Tower, Taikoo Place,
+  - 979 King's Road, Quarry Bay,
+  - Hong Kong
   tel:
   - "+852 2888 2836"
   fax:

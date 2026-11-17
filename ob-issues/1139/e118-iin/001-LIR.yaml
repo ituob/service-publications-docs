@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Australian External Territories
     company_name: Norfolk Telecom
-    company_address_1: P.O. Box 469,
-    company_address_2: New Cascade Road
-    company_address_3: NORFOLK ISLAND 2899
+    company_address:
+    - P.O. Box 469,
+    - New Cascade Road
+    - NORFOLK ISLAND 2899
     contact: Mr Michael Donohoe
-    contact_address_1: Norfolk Telecom
-    contact_address_2: P.O. Box 95
-    contact_address_3: 9 New Cascade Road
-    contact_address_4: NORFOLK ISLAND 2899
+    contact_address:
+    - Norfolk Telecom
+    - P.O. Box 95
+    - 9 New Cascade Road
+    - NORFOLK ISLAND 2899
     tel:
     - "+672 3 22468"
     fax:

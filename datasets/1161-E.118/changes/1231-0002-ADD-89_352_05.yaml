@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Luxembourg
   company_name: Luxembourg Online S.A.
-  company_address_1: 14, avenue du X Septembre
-  company_address_2: L-2550 LUXEMBOURG
+  company_address:
+  - 14, avenue du X Septembre
+  - L-2550 LUXEMBOURG
   contact: Luxembourg Online NOC
-  contact_address_1: 14, avenue du X Septembre
-  contact_address_2: L-2550 LUXEMBOURG
+  contact_address:
+  - 14, avenue du X Septembre
+  - L-2550 LUXEMBOURG
   tel:
   - "+352 4525641"
   fax:

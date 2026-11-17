@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Cyprus
   company_name: Lemontel Ltd
-  company_address_1: 24 Stasikratous Street, 3rd Floor
-  company_address_2: NICOSIA
+  company_address:
+  - 24 Stasikratous Street, 3rd Floor
+  - NICOSIA
   contact: Mr. Yiannos Michaelides
-  contact_address_1: Lemontel Ltd
-  contact_address_2: P.O. Box 22106
-  contact_address_3: NICOSIA 1011
+  contact_address:
+  - Lemontel Ltd
+  - P.O. Box 22106
+  - NICOSIA 1011
   tel:
   - "+357 2266 9933"
   fax:

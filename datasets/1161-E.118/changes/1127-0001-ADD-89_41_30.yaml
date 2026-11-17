@@ -8,13 +8,16 @@ data:
   country_or_area:
     en: Switzerland
   company_name: STMicroelectronics International NV
-  company_address_1: 39 Chemin du
-  company_address_2: Champ-des-Filles
-  company_address_3: Plan-les Ouates
+  company_address:
+  - 39 Chemin du
+  - Champ-des-Filles
+  - Plan-les Ouates
+  - 1228 GENEVE
   contact: Mr. Salvatore Acunto
-  contact_address_1: 39 Chemin du Champ-des-Filles
-  contact_address_2: Plan-les Ouates
-  contact_address_3: 1228 GENEVE
+  contact_address:
+  - 39 Chemin du Champ-des-Filles
+  - Plan-les Ouates
+  - 1228 GENEVE
   tel:
   - "+41 78 744 7909"
   fax:

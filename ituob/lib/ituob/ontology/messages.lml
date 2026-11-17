@@ -129,16 +129,9 @@ models Ituob {
     attribute _class, String { default: "E118Entry" }
     attribute country_or_area, MultilingualString
     attribute company_name, String
-    attribute company_address_1, String
-    attribute company_address_2, String
-    attribute company_address_3, String
+    attribute company_address, String { cardinality 0..n }
     attribute contact, String
-    attribute contact_address_1, String
-    attribute contact_address_2, String
-    attribute contact_address_3, String
-    attribute contact_address_4, String
-    attribute contact_address_5, String
-    attribute contact_address_6, String
+    attribute contact_address, String { cardinality 0..n }
     attribute tel, String { cardinality 0..n }
     attribute fax, String { cardinality 0..n }
     attribute email, String { cardinality 0..n }

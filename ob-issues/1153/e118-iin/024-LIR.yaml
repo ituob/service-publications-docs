@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Hong Kong, China
     company_name: Tink Labs Limited
-    company_address_1: 1st Floor, Sing Pao Building,
-    company_address_2: 101 King’s Road, North Point,
-    company_address_3: Hong Kong
+    company_address:
+    - 1st Floor, Sing Pao Building,
+    - 101 King’s Road, North Point,
+    - Hong Kong
     contact: Mr Lau Kin Sang
-    contact_address_1: 1st Floor, Sing Pao Building,
-    contact_address_2: 101 King’s Road, North Point,
-    contact_address_3: Hong Kong
+    contact_address:
+    - 1st Floor, Sing Pao Building,
+    - 101 King’s Road, North Point,
+    - Hong Kong
     tel:
     - "+852 9138 1033"
     fax:

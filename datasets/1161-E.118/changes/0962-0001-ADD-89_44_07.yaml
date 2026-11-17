@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: United Kingdom
   company_name: Teleena UK Limited
-  company_address_1: 80 Sidney Street
-  company_address_2: FOLKESTONE
-  company_address_3: CT 19 6HQ Kent
+  company_address:
+  - 80 Sidney Street
+  - FOLKESTONE
+  - CT 19 6HQ Kent
   contact: Mr. Timo Smit
-  contact_address_1: Teleena Nederland B.V.
-  contact_address_2: Kritjwal 29
-  contact_address_3: NIEUWEGEIN
+  contact_address:
+  - Teleena Nederland B.V.
+  - Kritjwal 29
+  - NIEUWEGEIN
   tel:
   - "+31 638 181818"
   email:

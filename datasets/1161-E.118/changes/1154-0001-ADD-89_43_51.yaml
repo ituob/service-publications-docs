@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Austria
   company_name: NXP Semiconductors Austria GmbH
-  company_address_1: Mikronweg 1
-  company_address_2: 8101 GRATKORN
+  company_address:
+  - Mikronweg 1
+  - 8101 GRATKORN
   contact: Clemens Orthacker
-  contact_address_1: Mikronweg 1
-  contact_address_2: 8101 GRATKORN
+  contact_address:
+  - Mikronweg 1
+  - 8101 GRATKORN
   tel:
   - "+43 664 9634729"
   fax:

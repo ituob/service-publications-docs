@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: United States
     company_name: Puloli, Inc.
-    company_address_1: 649 Mission Street
-    company_address_2: San Francisco, CA 94105
+    company_address:
+    - 649 Mission Street
+    - San Francisco, CA 94105
     contact: CEO,
-    contact_address_1: Puloli, Inc.
-    contact_address_2: 649 Mission Street
-    contact_address_3: San Francisco, CA 94105
+    contact_address:
+    - Puloli, Inc.
+    - 649 Mission Street
+    - San Francisco, CA 94105
     tel:
     - "+1 415 926 2000"
     email:

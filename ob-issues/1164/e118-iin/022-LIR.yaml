@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Spain
     company_name: Vodafone España S.A.
-    company_address_1: Avenida de América 115
-    company_address_2: 28042 MADRID
+    company_address:
+    - Avenida de América 115
+    - 28042 MADRID
     contact: Luisa Belda Cuesta
-    contact_address_1: Avenida de América 115
-    contact_address_2: 28042 MADRID
+    contact_address:
+    - Avenida de América 115
+    - 28042 MADRID
     tel:
     - "+34 91 587 6385"
     fax:

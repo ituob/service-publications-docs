@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Colombia
   company_name: Edatel S.A.
-  company_address_1: Calle 41 No 52 – 28 Piso 18
-  company_address_2: MEDELLIN
+  company_address:
+  - Calle 41 No 52 – 28 Piso 18
+  - MEDELLIN
   contact: Sr. Diego Andrés Salazar Montealegre
-  contact_address_1: Representante Legal
-  contact_address_2: Edatel S.A.
-  contact_address_3: Calle 41 No 52 – 28 Piso 18
-  contact_address_4: MEDELLIN
+  contact_address:
+  - Representante Legal
+  - Edatel S.A.
+  - Calle 41 No 52 – 28 Piso 18
+  - MEDELLIN
   tel:
   - "+57 4 384 6341"
   fax:

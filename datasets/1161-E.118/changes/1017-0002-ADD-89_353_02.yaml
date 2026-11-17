@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: Ireland
   company_name: Telefonica Ireland Limited
-  company_address_1: 28-29 Sir John Rogerson’s Quay
-  company_address_2: DUBLIN 2
-  company_address_3: Ireland
+  company_address:
+  - 28-29 Sir John Rogerson’s Quay
+  - DUBLIN 2
+  - Ireland
   contact: Mr Ciaran Melia
-  contact_address_1: Telefonica Ireland Limited
-  contact_address_2: 28-29 Sir John Rogerson’s Quay
-  contact_address_3: DUBLIN 2
-  contact_address_4: Ireland
+  contact_address:
+  - Telefonica Ireland Limited
+  - 28-29 Sir John Rogerson’s Quay
+  - DUBLIN 2
+  - Ireland
   tel:
   - "+353 1 609 5000"
   fax:

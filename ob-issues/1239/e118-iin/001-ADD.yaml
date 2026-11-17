@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Australia
     company_name: OptiTel Pty Ltd
-    company_address_1: 5/6 Kent Ct,
-    company_address_2: Stuart Park NT 0820
+    company_address:
+    - 5/6 Kent Ct,
+    - Stuart Park NT 0820
     contact: David Bock
-    contact_address_1: OptiTel Pty Ltd,
-    contact_address_2: PO Box 583,
-    contact_address_3: Kununurra WA 6743
+    contact_address:
+    - OptiTel Pty Ltd,
+    - PO Box 583,
+    - Kununurra WA 6743
     tel:
     - "+61 8 9168 1551"
     email:

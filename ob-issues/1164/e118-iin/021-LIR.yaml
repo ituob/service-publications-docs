@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Spain
     company_name: Telefónica de España S.A.
-    company_address_1: Gran Vía 28
-    company_address_2: 28013 MADRID
+    company_address:
+    - Gran Vía 28
+    - 28013 MADRID
     contact: Alberto Moreno Rebollo
-    contact_address_1: Distrito C, Edificio Sur 3, Planta 2
-    contact_address_2: 28050 MADRID
+    contact_address:
+    - Distrito C, Edificio Sur 3, Planta 2
+    - 28050 MADRID
     tel:
     - "+34 91 584 1808"
     fax:

@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Austria
     company_name: AICALL Telekommunikations-Dienstleistungs GmbH
-    company_address_1: Burggasse 15
-    company_address_2: 8750 JUDENBURG
+    company_address:
+    - Burggasse 15
+    - 8750 JUDENBURG
     contact: Guenther Frattner
-    contact_address_1: AICALL Telekommunikations-Dienstleistungs GmbH
-    contact_address_2: Burggasse 15
-    contact_address_3: 8750 JUDENBURG
+    contact_address:
+    - AICALL Telekommunikations-Dienstleistungs GmbH
+    - Burggasse 15
+    - 8750 JUDENBURG
     tel:
     - "+43 (0) 50/30 50 300"
     fax:

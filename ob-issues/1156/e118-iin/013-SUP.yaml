@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Disney Mobile UK Ltd
-    company_address_1: 3 Queen Caroline Street, Hammersmith
-    company_address_2: LONDON W6 9PE
+    company_address:
+    - 3 Queen Caroline Street, Hammersmith
+    - LONDON W6 9PE
     contact: Daniel Lerner-Ellis
-    contact_address_1: 3 Queen Caroline Street, Hammersmith
-    contact_address_2: LONDON W6 9PE
+    contact_address:
+    - 3 Queen Caroline Street, Hammersmith
+    - LONDON W6 9PE
     tel:
     - "+44 208 222 1537"
     fax:

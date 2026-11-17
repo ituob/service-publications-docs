@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Germany
     company_name: Giesecke & Devrient GmbH
-    company_address_1: Prinzregentenstrasse 159
-    company_address_2: 81607 MUNICH
+    company_address:
+    - Prinzregentenstrasse 159
+    - 81607 MUNICH
     contact: Mr Nikola Mamuzic
-    contact_address_1: Prinzregentenstrasse 159
-    contact_address_2: 81607 MUNICH
+    contact_address:
+    - Prinzregentenstrasse 159
+    - 81607 MUNICH
     tel:
     - "+49 89 41192468"
     fax:

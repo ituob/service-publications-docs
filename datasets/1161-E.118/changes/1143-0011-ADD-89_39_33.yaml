@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Italy
   company_name: PosteMobile SpA
-  company_address_1: Viale Europa 190
-  company_address_2: 00144 ROMA
+  company_address:
+  - Viale Europa 190
+  - 00144 ROMA
   contact: Mr Alberto De Luca
-  contact_address_1: Viale Europa 190
-  contact_address_2: 00144 ROMA
+  contact_address:
+  - Viale Europa 190
+  - 00144 ROMA
   tel:
   - "+39 377 1000068"
   fax:

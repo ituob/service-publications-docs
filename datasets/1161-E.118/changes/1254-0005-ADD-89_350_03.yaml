@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Gibraltar
   company_name: GIBFIBRE Ltd
-  company_address_1: Burns House
-  company_address_2: Town Range No. 19
-  company_address_3: GIBRALTAR GX11 1AA
+  company_address:
+  - Burns House
+  - Town Range No. 19
+  - GIBRALTAR GX11 1AA
   contact: GIBFIBRE Ltd
-  contact_address_1: Suite 14 Watergardens 5
-  contact_address_2: Waterford Road
-  contact_address_3: Gibraltar GX11 1AA
+  contact_address:
+  - Suite 14 Watergardens 5
+  - Waterford Road
+  - Gibraltar GX11 1AA
   tel:
   - "+350 225 00000"
   email:

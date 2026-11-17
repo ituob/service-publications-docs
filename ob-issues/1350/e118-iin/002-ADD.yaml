@@ -11,16 +11,18 @@ data:
   - country_or_area:
       en: United States
     company_name: Exelon Corporation
-    company_address_1: 401 Eagle Run Road, Mail Stop 79NC26
-    company_address_2: Newark, DE 19701
+    company_address:
+    - 401 Eagle Run Road, Mail Stop 79NC26
+    - Newark, DE 19701
     contact: Russell A. Ehrlich / Jeff Tisa
-    contact_address_1: 401 Eagle Run Road, Mail Stop 79NC26
-    contact_address_2: Newark, DE 19701
+    contact_address:
+    - 401 Eagle Run Road, Mail Stop 79NC26
+    - Newark, DE 19701
     tel:
     - "+1 302 547 6843 / +1 302 547 7224"
     email:
     - Russ.ehrlich@pepcoholdings.com;
-    - "                  Jeffrey.Tisa@delmarva.com"
+    - Jeffrey.Tisa@delmarva.com
     issue_id_number: 89 1 074
     effective_date: 10.IX.2026
   notes: []

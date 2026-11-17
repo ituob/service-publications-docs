@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Curaçao
   company_name: ANTELECOM N.V.
-  company_address_1: Berg Arrarat 1
-  company_address_2: P.O. Box 3177
-  company_address_3: WILLEMSTAD
+  company_address:
+  - Berg Arrarat 1
+  - P.O. Box 3177
+  - WILLEMSTAD
   contact: Sandro Every
-  contact_address_1: Berg Arrarat 1
-  contact_address_2: P.O. Box 3177
-  contact_address_3: WILLEMSTAD
+  contact_address:
+  - Berg Arrarat 1
+  - P.O. Box 3177
+  - WILLEMSTAD
   tel:
   - "+599 9 777 1508"
   fax:

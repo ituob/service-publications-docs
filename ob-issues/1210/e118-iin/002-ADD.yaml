@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: France
     company_name: Lebara France Limited
-    company_address_1: 78 rue Championnet
-    company_address_2: 75018 PARIS
+    company_address:
+    - 78 rue Championnet
+    - 75018 PARIS
     contact: Enquiries, Lebara France Limited
-    contact_address_1: 78 rue Championnet
-    contact_address_2: 75018 PARIS
+    contact_address:
+    - 78 rue Championnet
+    - 75018 PARIS
     fax:
     - "+33 1 73 04 73 44"
     email:

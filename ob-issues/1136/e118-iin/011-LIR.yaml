@@ -11,14 +11,17 @@ data:
   - country_or_area:
       en: Gambia
     company_name: Qcell Limited,
-    company_address_1: Qcell House
-    company_address_2: Kairaba Avenue
-    company_address_3: PO Box 3469
+    company_address:
+    - Qcell House
+    - Kairaba Avenue
+    - PO Box 3469
+    - SEREKUNDA
     contact: Qcell Limited,
-    contact_address_1: Qcell House
-    contact_address_2: Kairaba Avenue
-    contact_address_3: PO Box 3469
-    contact_address_4: SEREKUNDA
+    contact_address:
+    - Qcell House
+    - Kairaba Avenue
+    - PO Box 3469
+    - SEREKUNDA
     tel:
     - 220 333 3111
     email:

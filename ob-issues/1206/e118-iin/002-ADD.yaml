@@ -11,15 +11,17 @@ data:
   - country_or_area:
       en: France
     company_name: Vectone Mobile SAS
-    company_address_1: 58 Avenue de Wagram
-    company_address_2: 75017 PARIS
+    company_address:
+    - 58 Avenue de Wagram
+    - 75017 PARIS
     contact: Channa Kurera
-    contact_address_1: Vectone Mobile,
-    contact_address_2: 54 Marsh Wall
-    contact_address_3: LONDON, E14 9TP
-    contact_address_4: "(United Kingdom)"
+    contact_address:
+    - Vectone Mobile,
+    - 54 Marsh Wall
+    - LONDON, E14 9TP
+    - "(United Kingdom)"
     tel:
-    - "        +44 7939 560057"
+    - "+44 7939 560057"
     email:
     - legal@vectone.com
     issue_id_number: 89 33 31

@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: United Kingdom
   company_name: Spitfire Network Services Ltd
-  company_address_1: 239 Regents Park Road
-  company_address_2: LONDON N3 3LF
+  company_address:
+  - 239 Regents Park Road
+  - LONDON N3 3LF
   contact: Harry Bowlby
-  contact_address_1: Spitfire Network Services Ltd
-  contact_address_2: The Printworks
-  contact_address_3: 139 Clapham Road
-  contact_address_4: LONDON SW9 0HP
+  contact_address:
+  - Spitfire Network Services Ltd
+  - The Printworks
+  - 139 Clapham Road
+  - LONDON SW9 0HP
   tel:
   - "+44 207 501 3055"
   email:

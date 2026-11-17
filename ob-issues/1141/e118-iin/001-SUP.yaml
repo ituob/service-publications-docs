@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Denmark
     company_name: Telia Sonera A/S
-    company_address_1: Ejby Industrivej 135
-    company_address_2: DK-2600 GLOSTRUP
+    company_address:
+    - Ejby Industrivej 135
+    - DK-2600 GLOSTRUP
     contact: Kim Philip
-    contact_address_1: Ejby Industrivej 135
-    contact_address_2: DK-2600 GLOSTRUP
+    contact_address:
+    - Ejby Industrivej 135
+    - DK-2600 GLOSTRUP
     tel:
     - "+45 35 279200"
     fax:

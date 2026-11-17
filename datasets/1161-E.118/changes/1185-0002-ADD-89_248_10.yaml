@@ -8,15 +8,17 @@ data:
   country_or_area:
     en: Seychelles
   company_name: Airtel Seychelles Ltd
-  company_address_1: P.O. Box 1358
-  company_address_2: Providence
-  company_address_3: MAHE
+  company_address:
+  - P.O. Box 1358
+  - Providence
+  - MAHE
   contact: M.D. Office
-  contact_address_1: P.O. Box 1358
-  contact_address_2: Providence
-  contact_address_3: MAHE
+  contact_address:
+  - P.O. Box 1358
+  - Providence
+  - MAHE
   tel:
-  - "      +248 4 600630"
+  - "+248 4 600630"
   email:
   - papus.lukalangindu@sc.airtel.com
   issue_id_number: 89 248 10

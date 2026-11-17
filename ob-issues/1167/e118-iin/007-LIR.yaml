@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Israel
     company_name: Pelephone Communications Ltd
-    company_address_1: 33 Yitzhak Rabin Road
-    company_address_2: GIVATAIM 61620
+    company_address:
+    - 33 Yitzhak Rabin Road
+    - GIVATAIM 61620
     contact: Ido Rosenberg
-    contact_address_1: 33 Yitzhak Rabin Road
-    contact_address_2: GIVATAIM 61620
+    contact_address:
+    - 33 Yitzhak Rabin Road
+    - GIVATAIM 61620
     tel:
     - "+972 50 7078912"
     email:

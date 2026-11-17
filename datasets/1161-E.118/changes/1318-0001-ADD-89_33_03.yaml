@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: France
   company_name: ONOFF TELECOM
-  company_address_1: 26 Boulevard de Bonne Nouvelle
-  company_address_2: 75010 PARIS
+  company_address:
+  - 26 Boulevard de Bonne Nouvelle
+  - 75010 PARIS
   contact: Benoit de Longeaux
-  contact_address_1: 26 Boulevard de Bonne Nouvelle
-  contact_address_2: 75010 PARIS
+  contact_address:
+  - 26 Boulevard de Bonne Nouvelle
+  - 75010 PARIS
   tel:
   - "+33 7 56 80 88 80"
   email:

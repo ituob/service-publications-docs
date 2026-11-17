@@ -12,11 +12,13 @@ data:
   - country_or_area:
       en: Switzerland
     company_name: MOBEE AG
-    company_address_1: Schützengasse 23
-    company_address_2: CH-2081 ZURICH
+    company_address:
+    - Schützengasse 23
+    - CH-2081 ZURICH
     contact: M Alois Widmann, COO
-    contact_address_1: Schützengasse 23
-    contact_address_2: CH-2081 ZURICH
+    contact_address:
+    - Schützengasse 23
+    - CH-2081 ZURICH
     tel:
     - "+41 43 344 6240"
     fax:

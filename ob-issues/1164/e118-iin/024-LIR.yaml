@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Turkey
     company_name: Turkcell İletişim Hizmetleri AŞ
-    company_address_1: Aydınevler Mahallesi İnönü Caddesi No:20
-    company_address_2: Maltepe ISTANBUL
+    company_address:
+    - Aydınevler Mahallesi İnönü Caddesi No:20
+    - Maltepe ISTANBUL
     contact: Semi Enis Morkoyun
-    contact_address_1: Aydınevler Mahallesi İnönü Caddesi No:20
-    contact_address_2: Maltepe ISTANBUL
+    contact_address:
+    - Aydınevler Mahallesi İnönü Caddesi No:20
+    - Maltepe ISTANBUL
     tel:
     - "+90 532 210 48 45"
     email:

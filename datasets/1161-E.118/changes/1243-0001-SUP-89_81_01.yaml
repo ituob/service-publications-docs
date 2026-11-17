@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Japan
   company_name: KDDI Corporation
-  company_address_1: 2-3-2, Nishi-Shinjuku
-  company_address_2: Shinjuku-ku,
-  company_address_3: TOKYO 163-8003
+  company_address:
+  - 2-3-2, Nishi-Shinjuku
+  - Shinjuku-ku,
+  - TOKYO 163-8003
   contact: Engineering Department
-  contact_address_1: 2-3-2, Nishi-Shinjuku
-  contact_address_2: Shinjuku-ku, TOKYO 163-8003
+  contact_address:
+  - 2-3-2, Nishi-Shinjuku
+  - Shinjuku-ku, TOKYO 163-8003
   tel:
   - "+81 80 5062 9181"
   email:

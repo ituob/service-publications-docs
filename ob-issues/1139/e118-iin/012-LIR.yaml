@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Finland
     company_name: Suomen Virveverkko Oy
-    company_address_1: P.O. Box 357
-    company_address_2: 02151 ESPOO
+    company_address:
+    - P.O. Box 357
+    - 02151 ESPOO
     contact: Antti Kauppinen
-    contact_address_1: Suomen Virveverkko Oy
-    contact_address_2: P.O. Box 357
-    contact_address_3: 02151 ESPOO
+    contact_address:
+    - Suomen Virveverkko Oy
+    - P.O. Box 357
+    - 02151 ESPOO
     tel:
     - "+358 294 440 500/ +358 40 8668 582"
     fax:

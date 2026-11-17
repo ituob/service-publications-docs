@@ -11,11 +11,19 @@ data:
   - country_or_area:
       en: France
     company_name: Legos - Local Exchange Global Operation Services
-    company_address_1: 40 rue d’Oradour Sur Glane
-    company_address_2: 75015 PARIS
+    company_address:
+    - 40 rue d’Oradour Sur Glane
+    - 75015 PARIS
     contact: Pascal Prot
-    contact_address_1: 40 rue d’Oradour Sur Glane
-    contact_address_2: 75015 PARIS
+    contact_address:
+    - 40 rue d’Oradour Sur Glane
+    - 75015 PARIS
+    tel:
+    - "+33 1 75 85 00 00"
+    fax:
+    - "+33 1 75 85 00 01"
+    email:
+    - numerotation@legos.io
     issue_id_number: 89 33 17
     effective_date: 25.VI.2020
   notes: []

@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Sweden
   company_name: Com4 Sweden AB
-  company_address_1: c/o Adv. firman Lindberg & Saxon AB
-  company_address_2: Cardellgatan 1
-  company_address_3: SE-114 36 STOCKHOLM
+  company_address:
+  - c/o Adv. firman Lindberg & Saxon AB
+  - Cardellgatan 1
+  - SE-114 36 STOCKHOLM
   contact: Henning Solberg
-  contact_address_1: c/o Adv. firman Lindberg & Saxon AB
-  contact_address_2: Cardellgatan 1
-  contact_address_3: SE-114 36 STOCKHOLM
+  contact_address:
+  - c/o Adv. firman Lindberg & Saxon AB
+  - Cardellgatan 1
+  - SE-114 36 STOCKHOLM
   tel:
   - "+47 94049404"
   fax:

@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Switzerland
     company_name: Comfone AG
-    company_address_1: Nussbaumstrasse 25
-    company_address_2: 3000 BERN 22
+    company_address:
+    - Nussbaumstrasse 25
+    - 3000 BERN 22
     contact: Comfone Regulatory
-    contact_address_1: Nussbaumstrasse 25
-    contact_address_2: 3000 BERN 22
+    contact_address:
+    - Nussbaumstrasse 25
+    - 3000 BERN 22
     tel:
     - "+41 31 341 11 92"
     email:

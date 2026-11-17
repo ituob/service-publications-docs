@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Armenia
     company_name: "“VEON Armenia” CJSC"
-    company_address_1: 2 Aharonyan street, 0014
-    company_address_2: YEREVAN
+    company_address:
+    - 2 Aharonyan street, 0014
+    - YEREVAN
     contact: Mrs Karine Yeghiazaryan
-    contact_address_1: 2 Aharonyan street
-    contact_address_2: YEREVAN
-    contact_address_3: Armenia
+    contact_address:
+    - 2 Aharonyan street
+    - YEREVAN
+    - Armenia
     tel:
     - "+37410290109"
     email:

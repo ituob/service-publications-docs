@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Germany
   company_name: EMnify GmbH
-  company_address_1: Friedrich-Bergius-Ring 15
-  company_address_2: 97076 WUERZBURG
+  company_address:
+  - Friedrich-Bergius-Ring 15
+  - 97076 WUERZBURG
   contact: Mr Alexander Schebler
-  contact_address_1: EMnify GmbH
-  contact_address_2: Friedrich-Bergius-Ring 15
-  contact_address_3: 97076 WUERZBURG
+  contact_address:
+  - EMnify GmbH
+  - Friedrich-Bergius-Ring 15
+  - 97076 WUERZBURG
   tel:
   - "+49 931 4973 9270"
   email:

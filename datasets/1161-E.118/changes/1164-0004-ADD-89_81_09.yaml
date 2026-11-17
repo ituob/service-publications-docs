@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Japan
   company_name: Rakuten Mobile Network, Inc.
-  company_address_1: 1-14-1, Tamagawa,
-  company_address_2: Setagaya-ku, TOKYO
+  company_address:
+  - 1-14-1, Tamagawa,
+  - Setagaya-ku, TOKYO
   contact: Shigehiro Miyashita
-  contact_address_1: 1-14-1, Tamagawa, Setagaya-ku
-  contact_address_2: TOKYO
+  contact_address:
+  - 1-14-1, Tamagawa, Setagaya-ku
+  - TOKYO
   tel:
   - "+81 50 5817 1360"
   fax:
