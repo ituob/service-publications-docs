@@ -59,11 +59,60 @@ RSpec.describe Ituob::Models::E118Entry do
     end
   end
 
-  ['E-mail: contact@example.com', 'E-mail : contact@example.com', 'E-mail:contact@example.com'].each do |email_line|
+  ['E-mail: contact@example.com', 'E-mail : contact@example.com', 'E-mail:contact@example.com',
+   'E-Mail: contact@example.com'].each do |email_line|
     context "with printed labels #{email_line.inspect}" do
       let(:contact_details) { ['Tel : +41 22 123', 'Fax : +41 22 456', email_line] }
 
       include_examples 'a complete contact'
+    end
+  end
+
+  context 'with nonbreaking spaces before contact label colons' do
+    let(:contact_details) do
+      ['Tel: +41 22 123', "Fax\u00a0: +41 22 456", "E-mail\u00a0: contact@example.com"]
+    end
+
+    it 'removes labels while retaining the fax and e-mail values' do
+      expect(entry.tel).to eq(['+41 22 123'])
+      expect(entry.fax).to eq(['+41 22 456'])
+      expect(entry.email).to eq(['contact@example.com'])
+      expect(entry.contact_address).to eq(['Contact Street'])
+    end
+  end
+
+  context 'with a narrow no-break space before a fax colon' do
+    let(:contact_details) do
+      ['Tel: +41 22 123', "Fax\u202f: +41 22 456", 'E-mail: contact@example.com']
+    end
+
+    it 'classifies the fax and strips its label' do
+      expect(entry.fax).to eq(['+41 22 456'])
+      expect(entry.contact_address).to eq(['Contact Street'])
+    end
+  end
+
+  context 'with a telephone label after the address on the same line' do
+    let(:paragraphs) do
+      ['Contact Person'].map do |text|
+        { 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => text }] }
+      end
+    end
+    let(:contact_details) do
+      ['Contact Street 12 Tel: +40 21 344 84 00', 'Fax: +41 22 456', 'E-mail: contact@example.com']
+    end
+
+    it 'keeps the address prefix and extracts the telephone value' do
+      expect(entry.contact_address).to eq(['Contact Street 12'])
+      expect(entry.tel).to eq(['+40 21 344 84 00'])
+    end
+  end
+
+  context 'with an uppercase value beginning with MOBILE' do
+    let(:contact_details) { ['MOBILE PAY LIMITED'] }
+
+    it 'preserves the full printed value' do
+      expect(entry.tel).to eq(['MOBILE PAY LIMITED'])
     end
   end
 
@@ -85,6 +134,54 @@ RSpec.describe Ituob::Models::E118Entry do
     end
 
     include_examples 'a complete contact'
+  end
+
+  context 'with OB1203 nested contact label cells' do
+    let(:contact_content) do
+      rows = [
+        [["Tel\u00a0:", '+33 1 75 85 00 00'], ["Fax\u00a0:", '+33 1 75 85 00 01']],
+        [["E-mail\u00a0:", 'numerotation@legos.io']]
+      ]
+      nested_tables = rows.map do |table_rows|
+        { 'type' => 'table', 'content' => table_rows.map do |values|
+          { 'type' => 'table_row', 'content' => values.map do |text|
+            { 'type' => 'table_cell', 'content' => [
+              { 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => text }] }
+            ] }
+          end }
+        end }
+      end
+      paragraphs + nested_tables
+    end
+
+    it 'classifies and strips the labels while retaining each value' do
+      expect(entry.tel).to eq(['+33 1 75 85 00 00'])
+      expect(entry.fax).to eq(['+33 1 75 85 00 01'])
+      expect(entry.email).to eq(['numerotation@legos.io'])
+      expect(entry.contact_address).to eq(['Contact Street'])
+    end
+  end
+
+  context 'with the OB1215 nested e-mail label cell' do
+    let(:paragraphs) do
+      ['Arnaud Lecoeur', '29 Rue Pierre Paul Riquet', '31000 TOULOUSE'].map do |text|
+        { 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => text }] }
+      end
+    end
+    let(:contact_content) do
+      row = ["E-mail\u00a0:", 'itu@aif-telecom.com'].map do |text|
+        { 'type' => 'table_cell', 'content' => [{ 'type' => 'paragraph', 'content' => [
+          { 'type' => 'text', 'text' => text }
+        ] }] }
+      end
+      paragraphs + [{ 'type' => 'table', 'content' => [{ 'type' => 'table_row', 'content' => row }] }]
+    end
+
+    it 'retains the printed address and strips the e-mail label' do
+      expect(entry.contact).to eq('Arnaud Lecoeur')
+      expect(entry.contact_address).to eq(['29 Rue Pierre Paul Riquet', '31000 TOULOUSE'])
+      expect(entry.email).to eq(['itu@aif-telecom.com'])
+    end
   end
 
   context 'with contact values wrapped onto the next printed line' do

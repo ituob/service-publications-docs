@@ -54,7 +54,12 @@ module Ituob
             else
               []
             end
-          end.map(&:strip).reject(&:empty?)
+          end.flat_map do |line|
+            normalized = line.gsub(/[\p{Space}\p{Zs}]/, ' ').strip
+            # Some source rows print a contact label after its address on the
+            # same line. Split at the label so the address prefix survives.
+            normalized.split(/(?<=\S) +(?=(?:Tel|Tél|Cell|Mobile|Fax|E-?mail)\s*(?:\.|:))/i)
+          end.reject(&:empty?)
           contact_lines = []
           tel_fax_email_lines = []
           contact_info_started = false
@@ -111,17 +116,17 @@ module Ituob
               last_label = :tel
 
             elsif line =~ /^Fax\s*(?:\.|:)/i
-              text = line.gsub(/^Fax\s*(?:\.|:)[[:space:]]*/, '').strip
+              text = line.gsub(/^Fax\s*(?:\.|:)[[:space:]]*/i, '').strip
               fax << text unless text.empty?
               last_label = :fax
 
             elsif line =~ /^E-?mail\s*(?:\.|:)/i || line.include?('@')
               last_label = :email
               if line.count('@') > 1
-                emails = line.sub(/^E-?mail\s*(?:\.|:)[[:space:]]*/, '').split(/\s+/).select { |e| e.include?('@') }
+                emails = line.sub(/^E-?mail\s*(?:\.|:)[[:space:]]*/i, '').split(/\s+/).select { |e| e.include?('@') }
                 email.concat(emails)
               else
-                text = line.sub(/^E-?mail\s*(?:\.|:)[[:space:]]*/, '').strip
+                text = line.sub(/^E-?mail\s*(?:\.|:)[[:space:]]*/i, '').strip
                 email << text unless text.empty?
               end
             end
@@ -132,7 +137,7 @@ module Ituob
             if addr_field =~ /^(Tel|Tél|Cell|Mobile)(?:\.|:|\s)/i || addr_field =~ /^:/
               tel << addr_field.gsub(/^(?:(Tel|Tél|Cell|Mobile)(?:\.|:|\s)?|:)[[:space:]]*/, '').strip
             elsif addr_field =~ /^Fax(?:\.|:)/i
-              fax << addr_field.gsub(/^Fax(?:\.|:)[[:space:]]*/, '').strip
+              fax << addr_field.gsub(/^Fax(?:\.|:)[[:space:]]*/i, '').strip
             elsif addr_field.include?('@')
               if addr_field.count('@') > 1
                 email.concat(addr_field.split(/\s+/).select { |e| e.include?('@') })
