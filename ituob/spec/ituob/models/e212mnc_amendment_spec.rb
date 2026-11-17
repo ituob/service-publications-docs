@@ -738,7 +738,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       end
     end
 
-    it 'preserves every Indian Ocean code and operator printed in OB 1162 page 17' do
+    it 'preserves every Indian Ocean code and operator printed in OB 1162 page 18' do
       rows = seed.select { |entry| entry['mcc_mnc_codes'].start_with?('647 ') }
 
       expect(rows.map { |entry| entry['country_or_area']['en'] }.uniq)
