@@ -4,16 +4,20 @@ date_active: *1
 ob_issue_no: '1242'
 reference: OB-1242
 identifier:
-  code: Note p)
+  code: Note p) +883 440 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 440 ADD*
   entries:
-  - applicant: Truphone Limited
+  - notes:
+    - p
+    applicant: Truphone Limited
     network: Truphone Limited
     cc_ic: "+883 440"
     status: Assigned
+    effective_date: 1.IV.2022
   notes:
+  - "* 1.IV.2022"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

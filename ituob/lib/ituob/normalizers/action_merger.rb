@@ -37,10 +37,9 @@ module Ituob
         merges_needed = groups.count { |_k, names| names.length > 1 }
         return if merges_needed.zero?
 
-        groups.each do |key, names|
+        groups.each_value do |names|
           next if names.length == 1
 
-          action_type = key.to_s.split('|', 2).first
           merged_entries = []
           sample_data = nil
           names.each do |n|
@@ -54,9 +53,8 @@ module Ituob
 
           sample_data['data']['entries'] = merged_entries
 
-          change_object_repository.clear_action_files!(issue_id, slug)
-          new_name = format('%03d', 1) + '-' + action_type + '.yaml'
-          issue_repository.write_change_object(issue_id, slug, new_name, sample_data)
+          names.drop(1).each { |name| issue_repository.delete_change_object(issue_id, slug, name) }
+          issue_repository.write_change_object(issue_id, slug, names.first, sample_data)
           result.files_modified += names.length
         end
         result.issues_affected += 1

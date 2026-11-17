@@ -1,0 +1,103 @@
+= Printed-line preservation: 82 substantive lines
+
+Part of ituob/ituob.github.io#100.
+
+The branch integrates `origin/claude-a/100-footnotes` at `d5fac821`
+with `origin/main` at `900a1f06`: the dependency already carries 38 of
+the 82 newly unmapped substantive lines reported after PR 129.
+The remaining 44 substantive lines are E.164 dates, South Sudan rows,
+and a shared-code withdrawal notice. All 82 now map to register patches;
+none is dismissed as non-register content.
+
+The six layout rows are excluded by `fixed_column_guide`: exact normalized
+three- or nine-column numbered guides, or the complete E.218 terrestrial
+trunk radio column-heading row. Only empty edge cells may be ignored.
+Altered numbers, appended values and partial headings remain unmapped in specs.
+
+`../../scripts/output/100-05-unmapped-82-resolution.tsv` records all original
+88 source locations, printed text, final classification and patch path or
+exclusion rule. The generated coverage report and its unmapped/excluded TSVs
+remain the complete corpus inventory (itu-ob-data `e17484be`).
+
+== Unmapped before and after
+
+Counts compare merged PR 129 on main with this branch, including the footnote
+dependency. Remaining unrelated unmapped lines are retained in the report.
+
+[cols="2,1,1",options="header"]
+|===
+|Register |Before |After
+|bureaufax |0 |0
+|coast-station-identification-numbers |0 |0
+|coast-stations |0 |0
+|dp |0 |0
+|e118-iin |22 |22
+|e164-acn |3 |3
+|e164-cc |112 |0
+|e212-icc |0 |0
+|e212-mnc |43 |2
+|e218-trcc |2 |0
+|f32-tdi |0 |0
+|f400-admd |2 |0
+|list-v |0 |0
+|list-viii |2 |2
+|m1400-icc |22 |22
+|nnp |0 |0
+|q708-ispc |2 |2
+|q708-sanc |0 |0
+|rr251 |0 |0
+|t35-na |3 |3
+|x121-dnic |2 |0
+|TOTAL |215 |56
+|===
+
+== Preservation behavior
+
+* Roman-numeral, compact and semicolon-separated E.164 date footnotes retain
+  their printed strings. A shared marker applies to all pending matching
+  actions; consuming a definition prevents a later reused marker overwriting it.
+* OB 1161 prints two dates in a single footnote without per-row keys. The exact
+  two-date string is retained with the marked rows and amendment notes; no
+  unprinted per-row date assignment is inferred.
+* Both numerical/alphabetical South Sudan announcements retain code 211,
+  country name and their printed action positions. The withdrawal introduction
+  remains register amendment metadata in the action patches.
+* E.212 repeated marker definitions close their preceding announcement group.
+  An explicit different marker prevents the unmarked-preceding fallback.
+  OB 983 loses only the earlier group's incorrectly attached date note;
+  its own date remains. OB 981's SUP 1 date remains with 901 25, not Australia.
+* ActionSplitter leaves already separated printed actions intact, preserving
+  metadata and notes. ActionMerger removes only the files of the group being
+  merged, preserving other action groups and their entries.
+
+== Focused evidence
+
+* Layout/header regressions: 17 examples, 4 failures before; combined coverage
+  specs: 46 examples, zero failures after, including content-preservation controls.
+* New E.164 patterns: 32 examples, 5 failures before; shared dates and both
+  normalizer losses were also reproduced before their fixes. Final parser and
+  normalizer specs: 36 examples, zero failures.
+* E.212 repeated-marker and mismatched-marker regressions failed before;
+  final E.212 specs: 82 examples, zero failures.
+* Inherited schema/ontology/patch-generation focused checks: 121 examples,
+  zero failures (including the E.212 specs before the additional scope tests).
+* Regenerated E.164: 59 issues, 104 entries; every entry scalar was checked
+  against printed source, and all entries, action types and notes survive the
+  normalization pipeline. Routed changes for all four E.164 registers refreshed.
+* E.212 parser comparison: 353 messages, only the intended OB 983 note correction
+  beyond the dependency. Affected normalized patch and routed change refreshed.
+
+NOT RUN locally: full suite, full PDF render (requested resource restriction),
+RuboCop (executable unavailable in the gem bundle). Printed-source checks use the
+corpus ProseMirror documents; they do not claim comparison against separate
+physical/PDF originals.
+
+The final parser-equivalence verifier returned `EQUIVALENT` after recapture;
+only the intended `E164_CC` and `E212_MNC` baselines differ from the starting
+main revision. Ruby syntax checks pass for all 15 changed Ruby files and
+`git diff --check` passes. The patch-generation footnote integration spec also
+passes after the normalizer fixes (one example).
+
+focused-quality: complete assigned code/spec/report diff and interactions;
+resolved shared-date association and normalizer preservation defects; no
+remaining actionable finding in the examined implementation.

@@ -59,4 +59,10 @@ items:
           type: string
           description: Note in Arabic
       description: Additional information about the country code in different languages
+    notes:
+      type: array
+      items:
+        type: string
+    effective_date:
+      type: string
 description: Schema for ITU Operational Bulletin E.164D data

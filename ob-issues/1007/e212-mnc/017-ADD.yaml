@@ -4,16 +4,18 @@ date_active:
 ob_issue_no: '1007'
 reference: OB-1007
 identifier:
-  code: P 32
+  code: P 32 Turks & Caicos Islands ADD
 data:
   _class: E212MNCAmendment
-  position: P 32
+  position: P 32 Turks & Caicos Islands ADD
   entries:
   - mcc_mnc_codes: 376 350
     country_or_area:
       en: Turks & Caicos Islands
     networks: Cable and Wireless (TCI) Limited
   notes:
+  - For North America three digits MNC have been assigned with MNC with a trailing
+    0
   - ______________
   - "*MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
     para el servicio móvil  MNC : Mobile Network Code / Code de réseau mobile / Indicativo

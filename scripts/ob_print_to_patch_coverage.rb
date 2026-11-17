@@ -94,6 +94,7 @@ module PrintToPatchCoverage
   ADDITIONAL_HEADER_CELLS = Set.new([
     'applicant network', 'auto answer', 'company name address carrier code', 'contact name',
     'country b where the mcc mnc is to be used extra territorially',
+    'country or geographical area', 'operators name',
     'country code and trial identification code', 'country geographical area global network',
     'country geographical area mcc mnc', 'country geographical code', 'country name address',
     'country or area iso code company code', 'country or area iso code company name address',
@@ -170,7 +171,22 @@ module PrintToPatchCoverage
   # measured unmapped population; see EXCLUSION_RULES below.
   Rule = Struct.new(:id, :reason, :match, keyword_init: true)
 
+  # Complete observed column guides only; never discard a row with extra values.
+  FIXED_COLUMN_GUIDES = Set.new([
+    '1 | 2 | 3',
+    '1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9',
+    'applicant network | terrestrial trunk radio mobile country code t mcc and terrestrial trunk radio mobile network code t mnc | date of assignment'
+  ]).freeze
+
   EXCLUSION_RULES = [
+    Rule.new(
+      id: 'fixed_column_guide',
+      reason: 'complete numbered three/nine-column guides or the fixed E.218 terrestrial trunk radio column titles; labels only, with optional empty edge cells',
+      match: lambda { |_text, _tokens, cells|
+        guide = cells.drop_while(&:empty?).reverse.drop_while(&:empty?).reverse
+        FIXED_COLUMN_GUIDES.include?(guide.join(' | '))
+      }
+    ),
     Rule.new(
       id: 'column_header',
       reason: 'table column titles ("Country/ geographical area | Company Name/Address ..."): labels of the ' \
@@ -660,6 +676,7 @@ module PrintToPatchCoverage
     def strip_labels(line)
       text = PageHeading.values(line.text)
       text = text.sub(LIST_VIII_LABEL, '') if line.slug == 'list-viii'
+      text = text.gsub(/\(Formerly[[:space:]]+/i, '(') if line.slug == 'e164-cc'
       text = text.sub(/\A[[:space:]]*Country code(?: \(CC\))?[[:space:]]*\|/i, '')
       text = text.sub(/\A[[:space:]]*P[[:space:]]+(?=\d)/, '')
       text = text.gsub(/(?<![[:alnum:]])(?:Cell|Mobile|Telephone|Tel\.)[[:space:]]*:/i, ' ') # "Mobile:" contact label

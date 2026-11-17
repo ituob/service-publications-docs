@@ -4,16 +4,26 @@ date_active: *1
 ob_issue_no: '1202'
 reference: OB-1202
 identifier:
-  code: Note p)
+  code: Note p) +883 340 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 340 ADD*
   entries:
-  - applicant: Podsystem Ltd.
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: Podsystem Ltd.
     network: Podsystem Ltd.
     cc_ic: "+883 340"
     status: Assigned
+    effective_date: 31.VII.2020
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
+  - "* 31.VII.2020"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

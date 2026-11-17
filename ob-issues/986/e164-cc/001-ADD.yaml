@@ -4,9 +4,12 @@ date_active:
 ob_issue_no: '986'
 reference: OB-986
 identifier:
-  code: P 13
+  code: P 3 ADD
 data:
   _class: E164CCAmendment
-  position: P 13
-  entries: []
+  position: P 3 ADD
+  entries:
+  - country_code: '211'
+    country_area_or_service:
+      en: South Sudan (Republic of)
   notes: []

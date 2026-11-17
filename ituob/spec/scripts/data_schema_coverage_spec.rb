@@ -55,4 +55,21 @@ RSpec.describe "Dataset schema generation coverage" do
       end
     end
   end
+  it "accepts printed effective dates, keyed notes and extra-territorial flags" do
+    examples = {
+      "1114-E.164D" => { "country_code" => "888", "notes" => ["k", "k Humanitarian purposes"] },
+      "1114-E.164D-Note-N" => { "cc_ic" => "+881 9", "notes" => ["n"] },
+      "1114-E.164D-Note-O" => { "cc_ic" => "+882 10", "notes" => ["o"] },
+      "1114-E.164D-Note-PQ" => { "cc_ic" => "+883 5110", "notes" => ["q"] },
+      "1162-E.212" => { "mcc_mnc_codes" => "262 74", "extra_territorial_use" => true },
+      "1162-E.212-Shared-MCC" => { "mcc_mnc_codes" => "901 99", "extra_territorial_use" => true },
+    }
+    examples.each do |slug, entry|
+      schema = YAML.load_file(File.join(repo_root, "datasets", slug, "schema-data.yaml"))
+      schema.delete("$schema")
+      row = entry.merge("effective_date" => "15 June 2012")
+      expect(JSON::Validator.fully_validate(schema, [row])).to be_empty, slug
+    end
+  end
+
 end

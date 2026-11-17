@@ -29,7 +29,22 @@ attribute :notes, :string, collection: true
       # Walk state for one document parse — the active action. Held in
       # a plain object so parse keeps no class-level state (reentrant).
       class State
-        attr_accessor :action
+        attr_accessor :action, :pending_actions
+      end
+
+      def self.apply_date_footnote(text, amendment, pending_actions)
+        printed_date = /(?:\d{1,2}\s+[A-Za-z]+\s+\d{4}|\d{1,2}\.[IVX]+\.\d{4})/
+        date = text.match(/\A(\*+)\s*(?:As from\s+)?(#{printed_date}(?:;\s*#{printed_date})*)\z/i)
+        return false unless date
+
+        amendment.notes << text
+        pending_actions.delete_if do |action|
+          next false unless action.position.to_s[/\*+\z/] == date[1]
+
+          action.entries.each { |entry| entry.effective_date = date[2] }
+          true
+        end
+        true
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
@@ -41,58 +56,90 @@ attribute :notes, :string, collection: true
         doc = Prosereflect::Parser.parse_document(hash)
 
         state = State.new
+        state.pending_actions = []
         state.action = E164CCAction.new
         state.action.entries = []
         amendment.actions << state.action
 
         simplified_doc = Ituob::Helpers.dump_doc(doc)
 
-        simplified_doc.each_with_index do |c, ci|
+        definitions = Hash.new { |hash, key| hash[key] = [] }
+        entries = []
+        simplified_doc.each_with_index do |c, index|
           next if c.nil?
           raise "Unexpected non-array item" unless c.is_a?(Array)
 
           first_elem = c[0]
           if first_elem.is_a?(String)
-            fixed_str = Ituob::Helpers.replace_legacy_space(c.join(' '))
+            fixed_str = Ituob::Helpers.normalize_whitespace(c.join(' '))
 
-            if first_elem.length < 3
+            if apply_date_footnote(fixed_str, amendment, state.pending_actions)
               next
-            elsif fixed_str.match(/^[onpq] /)
-              state.action.note = (state.action.note || "") + fixed_str
-            else
-              next if !(first_elem.match(/^P/) || first_elem.match(/Note /))
-
-              basestr = c.join('')
-              segs = Ituob::Helpers.split_str(basestr)
-
-              state.action.note = segs[1]
-              state.action.position = segs[0..1].join(" ")
-              marker = basestr.sub(/\*+\z/, '')
-              if m = marker.match(/[A-Z]{3}\z/)
-                state.action.action_type = m[0].to_s
-              elsif segs[-1].length == 3
-                state.action.action_type = segs[-1]
-              else
-                state.action.action_type = marker[-3..-1]
+            elsif fixed_str.start_with?('Associated with shared country code ')
+              amendment.notes << fixed_str
+            elsif (country_row = fixed_str.match(/\A(\d{3})\s+(\p{Lu}.*)\z/)) && state.action.action_type
+              entry = E164CCEntry.new
+              entry.country_code = country_row[1]
+              entry.country_area_or_service = MultilingualString.new(en: country_row[2])
+              state.action.entries << entry
+              entries << [index, entry]
+            elsif (definition = fixed_str.match(/\A([a-z]) (\S.*)\z/))
+              definitions[definition[1]] << [index, fixed_str]
+              amendment.notes << fixed_str
+            elsif fixed_str.match?(/\A(?:P\s*\d+|Note\s|country code\s|(?:ADD|SUP|REP|LIR)\s+notes?\s)/i)
+              amendment.notes << fixed_str if fixed_str.match?(/\A(?:ADD|SUP|REP|LIR)\s+notes?\s+[a-z]\b/i)
+              if state.action.entries.any?
+                state.pending_actions << state.action
+                state.action = E164CCAction.new
+                state.action.entries = []
+                amendment.actions << state.action
               end
+              state.action.position = fixed_str
+              state.action.note = fixed_str[/Note\s+([a-z])\)/i, 1]
+              state.action.action_type = fixed_str[/\b(ADD|SUP|REP|LIR|MOD|DEL)\b/, 1]
             end
 
           elsif first_elem.is_a?(Array) # table
+            state.pending_actions << state.action
+            trial_table = c[0].flatten.join(' ').include?('Trial Identification Code')
             c[1..].each do |row|
-              next unless row.length >= 4
               segs = row.map { |cell| cell.is_a?(Array) ? cell.join(' ').strip : cell.to_s.strip }
+              footnote = Ituob::Helpers.normalize_whitespace(segs.join(' '))
+              next if apply_date_footnote(footnote, amendment, state.pending_actions)
+              next unless row.length >= 3
               entry = E164CCEntry.new
-              entry.applicant = segs[0]
-              entry.network = segs[1]
-              entry.cc_ic = segs[2]
-              entry.status = segs[3]
-              entry.action_date = segs[4] if segs[4] && !segs[4].empty?
-              entry.reclamation_date = segs[5] if segs[5] && !segs[5].empty?
-              if entry.applicant.match(/Formerly/)
-                entry.applicant = segs[0].match(/([^(]*)/).to_s.strip
-                entry.formerly = segs[0].match(/\((.*)\)/)[1].gsub('Formerly ','').strip
+              if row.length == 3 && segs[0].match?(/\A\d{3}\z/)
+                entry.country_code = segs[0]
+                entry.country_area_or_service = MultilingualString.new(en: segs[1])
+                entry.notes = segs[2].split(/[,\p{Space}]+/).reject(&:empty?)
+              elsif row.length == 3
+                next unless segs[1].match?(/\A\+\d{3}\p{Space}*\d+\z/)
+
+                entry.network = segs[0]
+                entry.cc_ic = segs[1]
+                entry.status = segs[2]
+                entry.notes << state.action.note if state.action.note
+              elsif trial_table
+                entry.applicant = segs[0]
+                entry.cc_ic = segs[1]
+                entry.effective_date = segs[2]
+                entry.reclamation_date = segs[3]
+                entry.notes << 's'
+              else
+                entry.applicant = segs[0]
+                entry.network = segs[1]
+                entry.cc_ic = segs[2]
+                entry.status = segs[3]
+                entry.action_date = segs[4] if segs[4] && !segs[4].empty?
+                entry.reclamation_date = segs[5] if segs[5] && !segs[5].empty?
+                if entry.applicant.match(/Formerly/)
+                  entry.applicant = segs[0].match(/([^(]*)/).to_s.strip
+                  entry.formerly = segs[0].match(/\((.*)\)/)[1].gsub('Formerly ','').strip
+                end
+                entry.notes << state.action.note if state.action.note
               end
               state.action.entries << entry
+              entries << [index, entry]
             end
             state.action = E164CCAction.new
             state.action.entries = []
@@ -101,6 +148,17 @@ attribute :notes, :string, collection: true
             next if first_elem.nil?
             raise "Unexpected non-string/array elem in c[0]"
           end
+        end
+
+        entries.each do |index, entry|
+          entry.notes.concat(entry.notes.filter_map do |key|
+            candidates = definitions[key]
+            # Country rows define their letters below the table; network
+            # tables announce their letter above it, sometimes repeatedly.
+            before, after = candidates.partition { |position, _| position < index }
+            definition = entry.country_code ? (after.first || before.last) : (before.last || after.first)
+            definition&.last
+          end)
         end
 
         amendment

@@ -1,0 +1,25 @@
+type: SUP
+date_requested: &1 2016-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1232'
+reference: OB-1232
+identifier:
+  code: country code 888 SUP
+data:
+  _class: E164CCAmendment
+  position: country code 888 SUP
+  entries:
+  - country_code: '888'
+    country_area_or_service:
+      en: Humanitarian purposes
+    notes:
+    - k
+    - t
+    - k United Nations Office of the Coordinator for Humanitarian Affairs (OCHA)
+    - t Reserved pending further studies.
+  notes:
+  - SUP notes k and t
+  - k United Nations Office of the Coordinator for Humanitarian Affairs (OCHA)
+  - t Reserved pending further studies.
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes

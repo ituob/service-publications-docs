@@ -1,0 +1,22 @@
+type: LIR
+date_requested: &1 2016-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1252'
+reference: OB-1252
+identifier:
+  code: country code 970 LIR
+data:
+  _class: E164CCAmendment
+  position: country code 970 LIR
+  entries:
+  - country_code: '970'
+    country_area_or_service:
+      en: State of Palestine
+  notes:
+  - SUP note e
+  - e Associated with shared country code 878 for Universal personal telecommunications
+    (UPT), the identification code 10 has been assigned to the network of VISIONng,
+    +878 10.
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes
+  - __________

@@ -6,18 +6,30 @@ identifier:
   code: 221 01
 data:
   _class: E212MNCAmendment
+  position: Kosovo* ADD
   entries:
   - mcc_mnc_codes: 221 01
     country_or_area:
       en: Kosovo*
     networks: Telecom of Kosovo J.S.C.
+    note:
+      en: "*  This designation is without prejudice to positions on status, and is
+        in line with UNSCR 1244 and the ICJ Opinion on the Kosovo declaration of independence."
   - mcc_mnc_codes: 221 02
     country_or_area:
       en: Kosovo*
     networks: IPKO Telecommunications LLC
+    note:
+      en: "*  This designation is without prejudice to positions on status, and is
+        in line with UNSCR 1244 and the ICJ Opinion on the Kosovo declaration of independence."
   - mcc_mnc_codes: 221 06
     country_or_area:
       en: Kosovo*
     networks: Dardafon.Net LLC
-  notes: []
+    note:
+      en: "*  This designation is without prejudice to positions on status, and is
+        in line with UNSCR 1244 and the ICJ Opinion on the Kosovo declaration of independence."
+  notes:
+  - "*  This designation is without prejudice to positions on status, and is in line
+    with UNSCR 1244 and the ICJ Opinion on the Kosovo declaration of independence."
 reference: OB-1123

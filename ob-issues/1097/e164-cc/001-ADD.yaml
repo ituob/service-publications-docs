@@ -4,15 +4,21 @@ date_active:
 ob_issue_no: '1097'
 reference: OB-1097
 identifier:
-  code: Note p)
+  code: Note p) +883 190 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 190 ADD*
   entries:
-  - applicant: Communication for Devices in Sweden AB
+  - notes:
+    - p
+    applicant: Communication for Devices in Sweden AB
     network: Communication for Devices in Sweden AB
     cc_ic: "+883 190"
     status: Assigned
+    effective_date: 15 March 2016
   notes:
+  - 'Associated with shared country code 883, the following three-digit identification
+    code has been assigned for the international network of:'
+  - "* 15 March 2016"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

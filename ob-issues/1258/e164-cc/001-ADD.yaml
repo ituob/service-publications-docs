@@ -1,0 +1,30 @@
+type: ADD
+date_requested: &1 2016-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1258'
+reference: OB-1258
+identifier:
+  code: Note p) +883 450 ADD**
+data:
+  _class: E164CCAmendment
+  position: Note p) +883 450 ADD**
+  entries:
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservation or assignment has been made for the international networks
+      of:'
+    applicant: HMD Global Oy
+    network: HMD Global Oy
+    cc_ic: "+883 450"
+    status: Assigned
+    effective_date: 21.XI.2022
+  notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservation or assignment has been made for the international networks of:'
+  - "* 30.XI.2022"
+  - "** 21.XI.2022"
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes
+  - __________
+  - See page 5 of the present Operational Bulletin No. 1258 of 15.XII.2022.

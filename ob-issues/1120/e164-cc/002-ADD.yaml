@@ -4,15 +4,24 @@ date_active:
 ob_issue_no: '1120'
 reference: OB-1120
 identifier:
-  code: P 18
+  code: P 18 Note p) +883 220 ADD*
 data:
   _class: E164CCAmendment
-  position: P 18
+  position: P 18 Note p) +883 220 ADD*
   entries:
-  - applicant: Monaco Telecom
-    network: Monaco Telecom
-    cc_ic: "+882 49"
+  - notes:
+    - p
+    applicant: Beezz Communication Sol. Ltd.
+    network: Beezz Communication Sol. Ltd.
+    cc_ic: "+883 220"
     status: Assigned
+    effective_date: 7 March 2017
   notes:
+  - 'Associated with shared country code 882, the following two-digit identification
+    code assignment has been made for the international networks of:'
+  - "* 16 February 2017"
+  - 'Associated with shared country code 883, the following three-digit identification
+    code assignment has been made for the international networks of:'
+  - "* 7 March 2017"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

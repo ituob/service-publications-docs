@@ -4,15 +4,23 @@ date_active:
 ob_issue_no: '976'
 reference: OB-976
 identifier:
-  code: P 18
+  code: P 18 Note o) +882 34 (Global Networks, Inc.) LIR
 data:
   _class: E164CCAmendment
-  position: P 18
+  position: P 18 Note o) +882 34 (Global Networks, Inc.) LIR
   entries:
-  - applicant: BebbiCell AG
+  - notes:
+    - o
+    - 'o Associated with shared country code 882, the following two-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: BebbiCell AG
     network: BebbiCell AG
     cc_ic: "+882 34"
     status: Assigned
   notes:
+  - 'o Associated with shared country code 882, the following two-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

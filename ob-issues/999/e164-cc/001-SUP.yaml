@@ -4,15 +4,21 @@ date_active: *1
 ob_issue_no: '999'
 reference: OB-999
 identifier:
-  code: P 17
+  code: P 17 Note o) +882 40 SUP*
 data:
   _class: E164CCAmendment
-  position: P 17
+  position: P 17 Note o) +882 40 SUP*
   entries:
-  - applicant: Oy Cubio Communications
+  - notes:
+    - o
+    applicant: Oy Cubio Communications
     network: Oy Communications
     cc_ic: "+882 40"
     status: Withdrawn
+    effective_date: 29 February 2012
   notes:
+  - 'Associated with shared country code 882, the following two-digit identification
+    has been withdrawn from the international networks of:'
+  - "* 29 February 2012"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

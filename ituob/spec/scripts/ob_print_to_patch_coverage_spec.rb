@@ -236,6 +236,13 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
       expect(rule_ids.call('Luxembourg (Country A) | 270 77 | 000 x xxx xxx | Tango S.A.')).to be_empty
     end
 
+    it 'excludes the repeated extra-territorial column titles without excluding dated footnotes' do
+      expect(rule_ids.call('Country or Geographical Area | MCC+MNC* | MSIN** range to be used | Operators Name'))
+        .to include('column_header_vocabulary')
+      expect(rule_ids.call('1 As from 31 August 2011')).to be_empty
+      expect(rule_ids.call('* 19 September 2014')).to be_empty
+    end
+
     it 'excludes the fixed List VIII questionnaire labels and bulletin cross-references only' do
       expect(rule_ids.call(' 2.      Geographical coordinates')).to include('list_viii_questionnaire_label')
       expect(rule_ids.call('12.     Information available for bandwidth measurements'))
@@ -361,5 +368,17 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
     _out, err, status = run_script(@env)
     expect(status.success?).to be(true), err
     expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }).to include(line)
+  end
+
+  it 'maps the Formerly label only when the former name itself is carried' do
+    line = 'Tele2 Sverige Aktiebolag (Formerly Tele2 IoT) | Tele2 Sverige Aktiebolag | +883 320 | Assigned'
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'), "messages:\n#{message('E164_CC', table_row('Tele2 Sverige Aktiebolag (Formerly Tele2 IoT)', 'Tele2 Sverige Aktiebolag', '+883 320', 'Assigned'))}")
+    patch = File.join(@dir, 'ob/701/e164-cc/001-ADD.yaml')
+    write(patch, "type: ADD\ndata:\n  applicant: Tele2 Sverige Aktiebolag\n  network: Tele2 Sverige Aktiebolag\n  cc_ic: '+883 320'\n  status: Assigned\n")
+    run_script(@env)
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }).to include(line)
+    File.open(patch, 'a') { |file| file.puts('  formerly: Tele2 IoT') }
+    run_script(@env)
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }).not_to include(line)
   end
 end

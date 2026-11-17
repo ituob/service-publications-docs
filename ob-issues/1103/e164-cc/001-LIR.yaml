@@ -4,15 +4,20 @@ date_active:
 ob_issue_no: '1103'
 reference: OB-1103
 identifier:
-  code: Note o)
+  code: Note o) +882 99 LIR
 data:
   _class: E164CCAmendment
-  position: Note o)
+  position: Note o) +882 99 LIR
   entries:
-  - applicant: AeroMobile AS
+  - notes:
+    - o
+    applicant: AeroMobile AS
     network: AeroMobile AS
     cc_ic: "+882 99"
     status: Assigned
   notes:
+  - 'Associated with shared country code 882, the following two-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

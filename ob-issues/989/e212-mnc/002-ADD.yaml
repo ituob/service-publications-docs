@@ -4,16 +4,19 @@ date_active:
 ob_issue_no: '989'
 reference: OB-989
 identifier:
-  code: P 7
+  code: P 7 Chile ADD
 data:
   _class: E212MNCAmendment
-  position: P 7
+  position: P 7 Chile ADD
   entries:
   - mcc_mnc_codes: 730 11 730 12
     country_or_area:
       en: Chile
     networks: Celupago S.A. Telestar Móvil S.A.
   notes:
+  - 1       As from 31 August 2011
+  - 1)     This information cancels and replaces that published in ITU Operational
+    Bulletin No. 987 of 1.IX.2011, page 14.
   - ______________
   - "*         MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"

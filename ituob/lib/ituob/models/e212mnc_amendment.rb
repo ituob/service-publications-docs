@@ -108,6 +108,18 @@ attribute :country, :string
         { country: country, action: suffix[:action] }
       end
 
+      # Some country-first announcements print the code and network on
+      # the same paragraph as the action, rather than on a following line.
+      def self.inline_country_entry(line)
+        suffix = line.match(/\s(?<action>ADD|SUP|LIR|REP)\*?\s+(?<code>\d{3}\s+\d{2,3})(?:\s+(?<network>\S.*))?\z/)
+        return unless suffix
+
+        heading = country_action_line("#{line[0...suffix.begin(0)]} #{suffix[:action]}")
+        return unless heading
+
+        heading.merge(code: Ituob::Helpers.normalize_whitespace(suffix[:code]), network: suffix[:network])
+      end
+
       # A title can precede the column header. Recognise the code label
       # explicitly so a data row with a nonnumeric placeholder survives.
       def self.header_row_index(table)
@@ -146,6 +158,47 @@ attribute :country, :string
         use += ": #{details.join('; ')}" unless details.empty?
         text = [home.note&.en, use].compact.join("\n")
         home.note = MultilingualString.new(en: text)
+        home.extra_territorial_use = true
+      end
+
+      # Footnote markers are distinct: "*" must not match "**".
+      def self.footnote_definition(text)
+        match = text.match(/\A(?<key>\*+|\d{1,2}\)?)[\p{Space}]+(?<body>\S.*)\z/)
+        return unless match
+        return if match[:body].match?(/\A[-–]/)
+        return if match[:body].match?(/\b(?:MCC|MNC)\s*:/)
+
+        match
+      end
+
+      def self.apply_footnotes(amendment, definitions, headings)
+        previous_limits = Hash.new(0)
+        definitions.each do |definition|
+          text, key, limit = definition.values_at(:text, :key, :action_count)
+          key = key.delete_suffix(')')
+          # A marker can be reused by a later group of announcements. Its
+          # definition closes the preceding group, including shared markers.
+          candidates = amendment.actions[previous_limits[key]...limit]
+          previous_limits[key] = limit
+          preceding_action = candidates.reverse.find { |candidate| candidate.entries.any? }
+          amendment.notes << text
+          date = text.match(/\A(?:\*+|\d{1,2}\)?)\s+As from\s+(\S.*)\z/i)
+          candidates.each do |parsed_action|
+            parsed_action.entries.each do |entry|
+              reference = [headings[parsed_action], entry.country_or_area&.en,
+                           entry.mcc_mnc_codes, entry.networks].compact.join(' ')
+              markers = reference.scan(/\*+/)
+              numeric_marker = headings[parsed_action].to_s[/\b(?:ADD|SUP|LIR|REP)\s+(\d{1,2}\)?)\z/, 1]
+              markers << numeric_marker.delete_suffix(')') if numeric_marker
+              marked = markers.include?(key)
+              unmarked_preceding = markers.empty? && parsed_action.equal?(preceding_action)
+              next unless marked || (date && unmarked_preceding)
+
+              entry.note = MultilingualString.new(en: [entry.note&.en, text].compact.join("\n"))
+              entry.effective_date = date[1].strip if date
+            end
+          end
+        end
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
@@ -176,6 +229,8 @@ attribute :country, :string
         end
 
         last_country = nil
+        definitions = []
+        headings = {}.compare_by_identity
         homes = Hash.new { |h, parsed_action| h[parsed_action] = {} }.compare_by_identity
         pending_uses = Hash.new do |h, parsed_action|
           h[parsed_action] = Hash.new { |codes, code| codes[code] = [] }
@@ -190,6 +245,20 @@ attribute :country, :string
           if first_elem.is_a?(String)
             fixed_str = Ituob::Helpers.replace_legacy_space(c.join(' '))
             stripped = fixed_str.strip
+
+            if stripped.start_with?('For North America ') && stripped.include?('MNC')
+              amendment.notes << Ituob::Helpers.normalize_whitespace(stripped)
+              next
+            end
+
+            if (definition = footnote_definition(stripped))
+              definitions << { text: stripped, key: definition[:key], action_count: amendment.actions.length }
+              next
+            end
+            if definitions.any? && stripped.match?(/\A(?:Then\b|["“]\d{3}\s\d+)/)
+              definitions.last[:text] += "\n#{stripped}"
+              next
+            end
 
             # Handle continuation paragraphs: "334 010 Network..." that
             # extend the previous country's entry list. These may have
@@ -208,17 +277,35 @@ attribute :country, :string
               end
             end
 
+            if (inline = inline_country_entry(stripped))
+              action = next_action(amendment, action)
+              action.action_type = inline[:action]
+              last_country = inline[:country]
+              headings[action] = stripped
+              entry = E212MNCEntry.new
+              entry.country_or_area = MultilingualString.new(en: last_country)
+              entry.mcc_mnc_codes = inline[:code]
+              entry.networks = inline[:network]
+              action.entries << entry
+              next
+            end
+
             if (header = country_action_line(stripped))
               action = next_action(amendment, action)
               action.action_type = header[:action]
               last_country = header[:country].strip
+              headings[action] = stripped
               next
             end
 
             if (heading_country = extra_territorial_country(stripped))
               action = next_action(amendment, action)
-              action.action_type = 'LIR'
-              last_country = heading_country
+              heading_action = heading_country[/\b(ADD|SUP|LIR|REP)\s*\z/, 1]
+              action.action_type = heading_action || 'LIR'
+              last_country = heading_country.sub(/\AP\s*\d+\s+/, '')
+              last_country = last_country.delete_suffix(heading_action).rstrip if heading_action
+              last_country = last_country.strip
+              headings[action] = stripped
               next
             end
 
@@ -226,6 +313,7 @@ attribute :country, :string
               action = next_action(amendment, action)
               action.action_type = 'LIR'
               last_country = nil
+              headings[action] = stripped
               next
             end
 
@@ -246,6 +334,7 @@ attribute :country, :string
               basestr = c.join('')
               segs = Ituob::Helpers.split_str(basestr)
               action = next_action(amendment, action) if positioned
+              headings[action] = stripped
 
               action.note = segs[1]
               action.position = segs[0..1].join(" ")
@@ -312,6 +401,11 @@ attribute :country, :string
               # the printed country of an entry row.
               printed = Ituob::Helpers.replace_legacy_space(Array(row[0]).join(' ')).strip
               block = rowspan_heading([Array(row[0]).join(' ')] + row.drop(1).flatten)
+              if row.drop(1).flatten.all? { |cell| cell.to_s.match?(BLANK_CELL) } &&
+                  (definition = footnote_definition(printed))
+                definitions << { text: printed, key: definition[:key], action_count: amendment.actions.length }
+                next
+              end
               # Title and column header rows are not data unless they open a country block.
               next if row_index <= header_index && !block
               # Long tables repeat the column header at each page break.
@@ -325,6 +419,7 @@ attribute :country, :string
                 action = open_heading_action(amendment, action)
                 action.action_type = block[:action] == 'SUP' ? 'REP' : block[:action]
                 last_country = block[:country]
+                headings[action] = printed
                 next
               end
 
@@ -373,6 +468,8 @@ attribute :country, :string
                 entry.mcc_mnc_codes = cells[0]
                 entry.networks = cells[1]
                 entry.range = cells[3..].reject(&:empty?).join(' ')
+                entry.extra_territorial_use = true
+                entry.note = MultilingualString.new(en: "Extra-territorial use in #{cells[2]}") unless cells[2].empty?
                 action.entries << entry
               elsif row.length >= 4
                 # 4+ column rows: country/code/range/networks or
@@ -394,6 +491,7 @@ attribute :country, :string
                 entry = E212MNCEntry.new
                 entry.country_or_area = MultilingualString.new(en: country) if country
                 entry.note = MultilingualString.new(en: qualifier) if qualifier && qualifier != '(Country A)'
+                entry.extra_territorial_use = true if qualifier&.start_with?('(Country B')
                 entry.mcc_mnc_codes = cells[1]
                 entry.range = cells[2]
                 entry.networks = cells[3]
@@ -418,6 +516,19 @@ attribute :country, :string
         amendment.actions.each do |parsed_action|
           parsed_action.entries.reject! { |entry| paired_rows.key?(entry) }
         end
+
+        # Keep the whole printed heading: page numbers alone lose source
+        # URLs, country aliases, operator annotations and Annex references.
+        headings.each do |parsed_action, heading|
+          parsed_action.position = Ituob::Helpers.normalize_whitespace(heading)
+        end
+
+        amendment.actions.each do |parsed_action|
+          next unless headings[parsed_action].to_s.downcase.include?('extra-territorial')
+
+          parsed_action.entries.each { |entry| entry.extra_territorial_use = true }
+        end
+        apply_footnotes(amendment, definitions, headings)
 
         # The per-table action rollover leaves a typeless, noteless
         # action with no entries behind; it is not a published

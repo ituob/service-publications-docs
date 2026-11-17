@@ -26,6 +26,7 @@ module Ituob
       def split_dir(issue_id, slug, result)
         groups = Hash.new { |h, k| h[k] = [] }
         source_contents = nil
+        misplaced_entry = false
         change_object_repository.each_action_file(issue_id, slug) do |_seq, file_type, name|
           data = load(issue_id, slug, name)
           next unless data.is_a?(Hash)
@@ -36,11 +37,14 @@ module Ituob
 
           data.dig('data', 'entries')&.each do |entry|
             detected = detect_action_type(entry) || file_type
+            misplaced_entry ||= detected != file_type
             groups[detected] << clean_entry(entry, detected)
           end
         end
 
-        return if groups.length <= 1
+        # Different printed actions already have their own files. Rebuilding
+        # those files would discard their positions, dates and footnotes.
+        return unless misplaced_entry && groups.length > 1
 
         change_object_repository.clear_action_files!(issue_id, slug)
         groups.each_with_index do |(action_type, entries), idx|

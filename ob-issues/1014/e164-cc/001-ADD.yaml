@@ -4,15 +4,25 @@ date_active: *1
 ob_issue_no: '1014'
 reference: OB-1014
 identifier:
-  code: P 17
+  code: P 17 Note o) +882 47 ADD*
 data:
   _class: E164CCAmendment
-  position: P 17
+  position: P 17 Note o) +882 47 ADD*
   entries:
-  - applicant: Transatel
+  - notes:
+    - o
+    - 'o Associated with shared country code 882, the following two-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: Transatel
     network: Transatel
     cc_ic: "+882 47"
     status: Assigned
+    effective_date: 15 September 2012
   notes:
+  - 'o Associated with shared country code 882, the following two-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
+  - "* 15 September 2012"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

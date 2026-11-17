@@ -4,20 +4,28 @@ date_active:
 ob_issue_no: '983'
 reference: OB-983
 identifier:
-  code: P 17
+  code: P 17 International Mobile, shared codes ADD 1)
 data:
   _class: E212MNCAmendment
-  position: P 17
+  position: P 17 International Mobile, shared codes ADD 1)
   entries:
   - mcc_mnc_codes: 901 31
     country_or_area:
       en: International Mobile, shared code
     networks: France Telecom Orange
+    note:
+      en: 1)             As from 1 June 2011
+    effective_date: 1 June 2011
   - mcc_mnc_codes: 901 32
     country_or_area:
       en: International Mobile, shared code
     networks: MegaFon
+    note:
+      en: 1)             As from 1 June 2011
+    effective_date: 1 June 2011
   notes:
+  - 1)             As from 30 June 2011
+  - 1)             As from 1 June 2011
   - ______________
   - "*            MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"
