@@ -169,9 +169,36 @@ module Ituob
           end || candidates.first
           next unless old
 
+          carry_legacy_name(entry, old, candidates)
           annotation_fields.each do |field|
             value = old.public_send(field)
             entry.public_send("#{field}=", clone_value(value)) unless value.nil?
+          end
+        end
+      end
+
+      # The printed list is English-only text. The legacy capture is the only
+      # source of the French/Spanish names, so carry them when the legacy row
+      # prints the same English name for the code. A printed row with no name
+      # (the print leaves it blank after the previous row) takes the legacy
+      # name only when every legacy row for the code agrees on it. A translation
+      # that merely repeats the English name is not stored.
+      def carry_legacy_name(entry, old, candidates)
+        legacy_name = old.telegraph_office_name
+        return unless legacy_name
+
+        printed = entry.telegraph_office_name
+        if printed.nil? || !present?(printed.en)
+          names = candidates.filter_map { |candidate| candidate.telegraph_office_name&.en }.map { |text| normalized_name(text) }.uniq
+          entry.telegraph_office_name = clone_value(legacy_name) if names.length == 1 && present?(legacy_name.en)
+        elsif normalized_name(printed.en) == normalized_name(legacy_name.en)
+          legacy_name.class.attributes.each_key do |language|
+            next if language == :en
+
+            value = legacy_name.public_send(language)
+            next unless present?(value) && normalized_name(value) != normalized_name(legacy_name.en)
+
+            printed.public_send("#{language}=", value)
           end
         end
       end

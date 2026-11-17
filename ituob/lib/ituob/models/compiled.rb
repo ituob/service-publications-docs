@@ -70,6 +70,7 @@ module Ituob
         IssueContact
         IssueMetadata
         KeyHistoryEntry
+        LocaleLabel
         ListVIIIAction
         ListVIIICentralizingOffice
         ListVIIIMeasurement
@@ -89,6 +90,7 @@ module Ituob
         RegisterActions
         RegisterChange
         RegisterEdition
+        RegisterLocale
         RegisterKeyHistory
         T35AssignmentAuthority
         T35NAAction
@@ -104,7 +106,7 @@ module Ituob
       def self.compiler
         @compiler ||= begin
           c = Compiler.new
-          c.compile(File.open(ONTOLOGY_PATH))
+          c.compile(File.open(ONTOLOGY_PATH, encoding: 'UTF-8'))
           c
         end
       end
