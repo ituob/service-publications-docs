@@ -193,6 +193,183 @@ RSpec.describe Ituob::Registers::Replay do
       })
       expect(replay.at_issue(669).active_keys).to eq(['DEF'])
     end
+
+    def write_pre_seed_add(key)
+      write_change("0660-001-ADD-#{key}.yaml", {
+        'type' => 'ADD', 'ob_issue_no' => '660',
+        'identifier' => { 'code' => key }, 'data' => { 'code' => key },
+      })
+    end
+
+    def write_seed_sup(filename, code, entries: nil)
+      hash = { 'type' => 'SUP', 'ob_issue_no' => '669', 'identifier' => { 'code' => code } }
+      hash['data'] = { 'entries' => entries.map { |k| { 'code' => k } } } if entries
+      write_change(filename, hash)
+    end
+
+    def skip_stderr
+      /replay: skip/
+    end
+
+    it 'accepts a seed-issue SUP of a key an earlier edition held, listing it' do
+      write_pre_seed_add('GONE')
+      write_seed_sup('669-001-SUP-GONE.yaml', 'GONE')
+      state = nil
+      expect { state = replay.at_issue(669) }.not_to output(skip_stderr).to_stderr
+      expect(state.errors).to eq([])
+      expect(state.reflected_in_seed).to eq(['SUP "GONE" at OB 669: already absent from the seed'])
+      expect(state.active_keys.sort).to eq(%w[ABC DEF])
+      expect(state.deleted_keys).to be_empty
+      expect(state.history.map(&:type)).to eq(%w[SEED SUP])
+      expect(state.key_history).not_to have_key('GONE')
+    end
+
+    it 'still reports a seed-issue SUP of a typo key no earlier edition held' do
+      write_pre_seed_add('ABC')
+      write_seed_sup('669-001-SUP-ABCX.yaml', 'ABCX')
+      state = nil
+      expect { state = replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      expect(state.errors.size).to eq(1)
+      expect(state.reflected_in_seed).to be_empty
+    end
+
+    it 'still reports a seed-issue SUP whose query identifier matches nothing' do
+      write_pre_seed_add('ABC')
+      write_change('669-001-SUP-Q.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '669',
+        'identifier' => { 'query' => { 'field' => 'code', 'value' => 'ZZZ', 'operator' => 'equals' } },
+      })
+      state = nil
+      expect { state = replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      expect(state.errors.size).to eq(1)
+      expect(state.reflected_in_seed).to be_empty
+    end
+
+    it 'still reports a second seed-issue SUP of a key the first one removed' do
+      write_pre_seed_add('ABC')
+      write_seed_sup('669-001-SUP-ABC.yaml', 'ABC')
+      write_seed_sup('669-002-SUP-ABC.yaml', 'ABC')
+      state = nil
+      expect { state = replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      expect(state.errors.size).to eq(1)
+      expect(state.reflected_in_seed).to be_empty
+      expect(state.deleted_keys.to_a).to eq(['ABC'])
+    end
+
+    it 'still reports a seed-issue SUP of a key an earlier edition had already removed' do
+      write_pre_seed_add('GONE')
+      write_change('0665-001-SUP-GONE.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '665',
+        'identifier' => { 'code' => 'GONE' }, 'data' => { 'code' => 'GONE' },
+      })
+      write_seed_sup('669-001-SUP-GONE.yaml', 'GONE')
+      state = nil
+      expect { state = replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      expect(state.errors.size).to eq(1)
+      expect(state.reflected_in_seed).to be_empty
+    end
+
+    it 'does not take a table-position identifier as evidence when the rows carry keys' do
+      write_change('0660-001-ADD-P19.yaml', {
+        'type' => 'ADD', 'ob_issue_no' => '660',
+        'identifier' => { 'code' => 'P 19' }, 'data' => { 'entries' => [{ 'code' => 'REAL' }] },
+      })
+      write_seed_sup('669-001-SUP-P19.yaml', 'P 19')
+      state = nil
+      expect { state = replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      expect(state.errors.size).to eq(1)
+      expect(state.reflected_in_seed).to be_empty
+    end
+
+    it 'gives a reused Replay the same verdict as a fresh one after the source changes' do
+      write_seed_sup('669-001-SUP-GONE.yaml', 'GONE')
+      expect { replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      write_pre_seed_add('GONE')
+      state = nil
+      expect { state = replay.at_issue(669) }.not_to output(skip_stderr).to_stderr
+      expect(state.reflected_in_seed.size).to eq(1)
+    end
+
+    it 'counts a pre-seed SUP by query as removing the key it names' do
+      write_pre_seed_add('GONE')
+      write_change('0665-001-SUP-Q.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '665',
+        'identifier' => { 'query' => { 'field' => 'code', 'value' => 'GONE', 'operator' => 'equals' } },
+      })
+      write_seed_sup('669-001-SUP-GONE.yaml', 'GONE')
+      state = nil
+      expect { state = replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      expect(state.reflected_in_seed).to be_empty
+    end
+
+    it 'accepts nothing when a pre-seed SUP by query cannot be resolved to a key' do
+      write_pre_seed_add('GONE')
+      write_change('0665-001-SUP-Q.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '665',
+        'identifier' => { 'query' => { 'field' => 'name', 'value' => 'Gone Ltd', 'operator' => 'equals' } },
+      })
+      write_seed_sup('669-001-SUP-GONE.yaml', 'GONE')
+      state = nil
+      expect { state = replay.at_issue(669) }.to output(skip_stderr).to_stderr
+      expect(state.reflected_in_seed).to be_empty
+    end
+
+    it 'judges each row of a multi-entry seed-issue SUP on its own' do
+      write_pre_seed_add('OLD')
+      write_seed_sup('669-001-SUP-MULTI.yaml', 'ABC', entries: %w[ABC OLD GONE])
+      state = nil
+      expect { state = replay.at_issue(669) }.to output(/replay: skip SUP.*"GONE"/).to_stderr
+      expect(state.errors.size).to eq(1)
+      expect(state.reflected_in_seed.size).to eq(1)
+      expect(state.reflected_in_seed.first).to include('"OLD"')
+      expect(state.active_keys).to eq(['DEF'])
+    end
+
+    it 'does not accept a SUP that sorts ahead of the seed in an inline source' do
+      mk = ->(type, code, issue, data = nil) do
+        Ituob::Registers::Change.new(type: type, register_id: 'F1', identifier: { 'code' => code },
+                                     data: data, ob_issue_no: issue)
+      end
+      inline = Ituob::Registers::InlineChangeSource.new(register_id: 'F1', changes: [
+        mk.call('SEED', '__seed__', 669, [{ 'code' => 'ABC' }, { 'code' => 'DEF' }]),
+        mk.call('ADD', 'GONE', 660, { 'code' => 'GONE' }),
+        mk.call('SUP', 'GONE', 661),
+        mk.call('SUP', 'GONE', 669),
+      ])
+      inline_replay = described_class.new(register_id: 'F1', key_field: 'code', source: inline)
+      state = nil
+      expect { state = inline_replay.current }.to output(skip_stderr).to_stderr
+      expect(state.errors.size).to eq(1)
+      expect(state.reflected_in_seed).to be_empty
+    end
+
+    it 'requires the seed issue to be a positive integer' do
+      mk = ->(type, code, issue, data = nil) do
+        Ituob::Registers::Change.new(type: type, register_id: 'F1', identifier: { 'code' => code },
+                                     data: data, ob_issue_no: issue)
+      end
+      inline = Ituob::Registers::InlineChangeSource.new(register_id: 'F1', changes: [
+        mk.call('ADD', 'gone', -2, { 'code' => 'gone' }),
+        mk.call('SUP', 'gone', -1),
+        mk.call('SEED', '__seed__', 0, [{ 'code' => 'ABC' }]),
+        mk.call('SUP', 'gone', 0),
+      ])
+      inline_replay = described_class.new(register_id: 'F1', key_field: 'code', source: inline)
+      state = nil
+      expect { state = inline_replay.current }.to output(skip_stderr).to_stderr
+      expect(state.errors.size).to eq(1)
+      expect(state.reflected_in_seed).to be_empty
+    end
+
+    it 'still reports a SUP of an absent key issued after the seed issue' do
+      write_change('700-001-SUP-GONE.yaml', {
+        'type' => 'SUP', 'ob_issue_no' => '700',
+        'identifier' => { 'code' => 'GONE' },
+      })
+      state = nil
+      expect { state = replay.at_issue(700) }.to output(/replay: skip SUP.*at OB 700/).to_stderr
+      expect(state.errors.size).to eq(1)
+    end
   end
 
   describe 'returns frozen State' do

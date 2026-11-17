@@ -88,6 +88,11 @@ module Ituob
         font["size"].to_i == 12 && font["family"].end_with?("+Arial")
       end
 
+      # Some printed office names are set in bold Arial 12 ("RADIO/HPP", "ADEN").
+      def bold_name_font?(font)
+        font["size"].to_i == 12 && font["family"].end_with?("+Arial,Bold")
+      end
+
       def consume_row(nodes)
         @source_row += 1
         heading = nodes.filter_map do |left, text, font|
@@ -115,7 +120,7 @@ module Ituob
             buffer << roa
           end
         end
-        names = nodes.filter_map { |left, text, font| text if left >= 530 && left < 700 && data_font?(font) }
+        names = nodes.filter_map { |left, text, font| text if left >= 530 && left < 700 && (data_font?(font) || bold_name_font?(font)) }
         inline_codes = []
         names = names.filter_map do |name|
           match = name.match(INLINE_CODE)

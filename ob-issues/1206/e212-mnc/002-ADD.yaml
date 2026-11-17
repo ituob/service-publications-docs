@@ -1,0 +1,47 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1206'
+reference: OB-1206
+identifier:
+  code: 1206-002
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 334 100
+    country_or_area:
+      en: Mexico
+    networks: TELECOMUNICACIONES DE MÉXICO
+  - mcc_mnc_codes: 334 110
+    country_or_area:
+      en: Mexico
+    networks: MAXCOM TELECOMUNICACIONES, S.A.B. DE C.V.
+  - mcc_mnc_codes: 334 120
+    country_or_area:
+      en: Mexico
+    networks: QUICKLY PHONE, S.A. DE C.V.
+  - mcc_mnc_codes: 334 130
+    country_or_area:
+      en: Mexico
+    networks: AXTEL, S.A.B. DE C.V.
+  - mcc_mnc_codes: 334 140
+    country_or_area:
+      en: Mexico
+    networks: ALTÁN REDES, S.A.P.I. DE C.V.
+  - mcc_mnc_codes: 334 150
+    country_or_area:
+      en: Mexico
+    networks: ULTRAVISIÓN, S.A. DE C.V.
+  - mcc_mnc_codes: 334 160
+    country_or_area:
+      en: Mexico
+    networks: CABLEVISIÓN RED, S.A. DE C.V.
+  - mcc_mnc_codes: 334 170
+    country_or_area:
+      en: Mexico
+    networks: OXIO MOBILE, S.A. DE C.V.
+  notes:
+  - "*                  MCC:  Mobile Country Code / Indicatif de pays du mobile /
+    Indicativo de país para el servicio móvil"
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'

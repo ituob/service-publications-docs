@@ -1,0 +1,59 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1210'
+reference: OB-1210
+identifier:
+  code: 1210-007
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 204 00
+    country_or_area:
+      en: Netherlands
+    networks: Intovoice B.V.
+  - mcc_mnc_codes: 204 11
+    country_or_area:
+      en: Netherlands
+    networks: Greenet Netwerk B.V.
+  - mcc_mnc_codes: 204 14
+    country_or_area:
+      en: Netherlands
+    networks: Venus & Mercury Telecom
+  - mcc_mnc_codes: 204 27
+    country_or_area:
+      en: Netherlands
+    networks: L-Mobi Mobile B.V.
+  - mcc_mnc_codes: 204 29
+    country_or_area:
+      en: Netherlands
+    networks: Tismi B.V.
+  - mcc_mnc_codes: 204 30
+    country_or_area:
+      en: Netherlands
+    networks: ASpider Solutions Nederland B.V.
+  - mcc_mnc_codes: 204 32
+    country_or_area:
+      en: Netherlands
+    networks: Cubic Telecom Limited
+  - mcc_mnc_codes: 204 33
+    country_or_area:
+      en: Netherlands
+    networks: Truphone B.V.
+  - mcc_mnc_codes: 204 61
+    country_or_area:
+      en: Netherlands
+    networks: Alcadis B.V.
+  - mcc_mnc_codes: 204 63
+    country_or_area:
+      en: Netherlands
+    networks: Messagebird BV
+  - mcc_mnc_codes: 204 91
+    country_or_area:
+      en: Netherlands
+    networks: Enexis Netbeheer B.V.
+  notes:
+  - "*              MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

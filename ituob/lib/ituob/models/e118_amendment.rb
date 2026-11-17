@@ -45,7 +45,7 @@ attribute :notes, :string, collection: true
 
         paragraph_carry = nil
         table_carry = []
-        para_to_tables = {}
+        para_to_tables = {}.compare_by_identity
 
         # Process document content to build paragraph to tables mapping
         doc.content.each do |item|

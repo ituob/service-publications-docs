@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift(File.expand_path('../ituob/lib', __dir__))
+require 'ituob'
 require 'ituob/support'
 require 'ituob/registers'
 require 'ituob/catalogs'
@@ -48,6 +49,12 @@ EVIDENCE = [
                    '5-245-6' => 753, '5-251-0' => 795, '6-237-4' => 837 }),
   Rule.new(register: 'Q708_ISPC', issue: 1109, type: 'SUP', code: '4-082-6', category: 'E',
            refs: { '4-082-6' => 1189, '4-086-0' => 1231, '4-086-1' => 1273 }),
+  Rule.new(register: 'E212_MNC', issue: 1162, type: 'SUP', code: '268 02', category: 'E',
+           refs: { '268 02' => 1809, '268 07' => 1831 }),
+  Rule.new(register: 'E212_MNC', issue: 1197, type: 'SUP', code: '640 01', category: 'G',
+           refs: { '640 01' => 154 }),
+  Rule.new(register: 'E212_MNC', issue: 1243, type: 'SUP', code: '340 04', category: 'G',
+           refs: { '340 04' => 1392 }),
   Rule.new(register: 'F32_TDI', issue: 1004, type: 'LIR', code: '1004-0001', category: 'D',
            refs: '213-330'),
   Rule.new(register: 'Q708_ISPC', issue: 1167, type: 'SUP',
@@ -109,8 +116,9 @@ ROOT = File.expand_path('..', __dir__)
     private
 
     def report_skip(builder, change, error)
-      super
-      @skipped_changes << change
+      skipped = super
+      @skipped_changes << change if skipped
+      skipped
     end
   end
 
@@ -243,6 +251,11 @@ end
         omitted MALAYSIA and UKRAINE rows and expands the grouped OB 1013 withdrawal
         into its office codes. The OB 1013 and OB 1148 withdrawals therefore apply
         and the register has no replay skips.
+      * E.212 640 01 and 340 04: the withdrawals at OB 1197 and OB 1243
+        (`itu-ob-data/issues/1197/amendments.yaml:154`, `1243/amendments.yaml:1392`)
+        are the only printed mentions of those codes. The corresponding additions
+        appear in no seed, dataset patch or print in this corpus, so there is no
+        key to withdraw.
       * Seed-issue suppressions (E) target keys already absent from the post-amendment
         annex. Mis-filed patches (D) carry a different register's printed columns.
         These classes describe the evidence; the inventory does not change replay.

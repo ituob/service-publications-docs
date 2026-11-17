@@ -129,6 +129,88 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     expect(lir.entries.map(&:mcc_mnc_codes)).to eq(['302 490', '302 491'])
   end
 
+  describe 'rowspan heading layout (OB 1176)' do
+    # "«country» ACTION" sits in a rowspan cell beside blank code and
+    # network cells; the code/network rows below it have two cells.
+    def heading(text)
+      row(cell(paragraph(text)), cell(paragraph(" ")), cell(paragraph(" ")))
+    end
+
+    def pair(code, network)
+      row(cell(paragraph(code)), cell(paragraph(network)))
+    end
+
+    let(:amendment) do
+      parse(document(table(
+        row(cell(paragraph('Country/Geographical area')), cell(paragraph('MCC+MNC *')),
+            cell(paragraph('Operator/Network'))),
+        heading('Denmark ADD'), pair('238 96', 'Telia Danmark'),
+        heading('South Africa SUP'), pair('655 04', 'Sasol (Pty) Ltd'), pair('655 11', 'SAPS Gauteng'),
+        heading('International Mobile, shared code LIR *'), pair('901 53', 'Tele2 Sverige AB')
+      )))
+    end
+
+    it 'opens one typed action per heading instead of a blank-key entry' do
+      expect(amendment.actions.map(&:action_type)).to eq(%w[ADD REP LIR])
+      codes = amendment.actions.flat_map(&:entries).map(&:mcc_mnc_codes)
+      expect(codes).to eq(['238 96', '655 04', '655 11', '901 53'])
+    end
+
+    it 'carries the heading country to every printed row under it' do
+      countries = amendment.actions.map { |action| action.entries.map { |e| e.country_or_area.en }.uniq }
+      expect(countries).to eq([['Denmark'], ['South Africa'], ['International Mobile, shared code']])
+    end
+
+    it 'reads a heading that is the first row of a later table' do
+      first = table(heading('Kosovo* ADD'), pair('221 01', 'Tel'))
+      second = table(heading('Spain SUP'), pair('214 10', 'Opera'))
+      actions = parse(document(first, second)).actions
+
+      expect(actions.map(&:action_type)).to eq(%w[ADD REP])
+      expect(actions.last.entries.map { |e| e.country_or_area.en }).to eq(['Spain'])
+      expect(actions.last.entries.map(&:mcc_mnc_codes)).to eq(['214 10'])
+    end
+
+    it 'still skips a first row that is a column header' do
+      header = row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Operator')))
+      amendment = parse(document(table(header, heading('Denmark ADD'), pair('238 96', 'Telia'))))
+
+      expect(amendment.actions.flat_map(&:entries).map(&:mcc_mnc_codes)).to eq(['238 96'])
+    end
+
+    it 'reads ideographic and zero-width blank cells as a heading row' do
+      expect(described_class.rowspan_heading(['Denmark ADD', "\u3000", "\u200B"]))
+        .to eq(country: 'Denmark', action: 'ADD')
+    end
+
+    it 'never turns a heading-like row with no code into a blank-key entry' do
+      doc = document(table(heading('Denmark add'), pair('238 96', 'Telia')))
+      codes = parse(doc).actions.flat_map(&:entries).map(&:mcc_mnc_codes)
+
+      expect(codes).to eq(['238 96'])
+    end
+
+    it 'leaves no empty action behind two consecutive headings' do
+      amendment = parse(document(table(
+        row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Operator'))),
+        heading('Denmark ADD'), heading('Norway SUP'), pair('578 01', 'N')
+      )))
+
+      expect(amendment.actions.map(&:action_type)).to eq(%w[REP])
+    end
+
+    it 'returns nil for an empty segment list' do
+      expect(described_class.rowspan_heading([])).to be_nil
+    end
+
+    it 'still reads a three-cell row with a code as an entry' do
+      doc = document(table(heading('Denmark ADD'),
+                           row(cell(paragraph('Denmark')), cell(paragraph('238 97')), cell(paragraph('Net')))))
+      entries = parse(doc).actions.flat_map(&:entries)
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['238 97'])
+    end
+  end
+
   it 'carries table headings through consecutive rows and switches at the next heading' do
     doc = document(
       table(
