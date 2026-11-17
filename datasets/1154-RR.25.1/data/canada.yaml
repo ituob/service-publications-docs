@@ -30,6 +30,7 @@ groups:
   experimental:
     - name: Canada (all provinces and territories)
       regex: VX9[:upper:]{2,3}
+      description: "VX9 followed by 2 or 3 letters – Canada (all provinces and territories)"
 
 codelists:
   - name: province_or_area

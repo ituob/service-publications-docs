@@ -6,5 +6,6 @@
 groups:
   amateur: &general
   - regex: 9Y4[:upper:]{2}
+    description: "9Y4AA-9Y4ZZ"
 
   experimental: *general

@@ -6,5 +6,6 @@
 groups:
   amateur: &general
   - regex: H44[:upper:]{2}
+    description: "H44AA-H44ZZ"
 
   experimental: *general

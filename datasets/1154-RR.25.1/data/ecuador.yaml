@@ -42,6 +42,7 @@ groups:
   experimental:
     - name: Ecuador
       regex: HD9[:upper:]{3}
+      description: "HD9 followed by 3 letters"
 
 codelists:
   - name: province
