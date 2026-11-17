@@ -26,6 +26,7 @@ on:
       - 'scripts/build_pdf_coverage_matrix.rb'
       - 'scripts/merge_publication_manifests.rb'
       - 'scripts/pdf_typesetting_report.rb'
+      - 'scripts/patch_itu_cjk_font_fallback.rb'
       - 'docs/pdf/typesetting-baselines.json'
       - 'ituob/lib/**'
       - '.github/workflows/pdf.yml'
@@ -153,6 +154,9 @@ jobs:
               abort "Chinese static fonts not registered" unless paths.size >= 2 && paths.all? { |path| path.end_with?(".otf") }
               puts paths
             '
+            # The service-publication stylesheet overrides :fonts: with Arial
+            # on page sequences and tables. Add the installed Chinese fallback.
+            ruby scripts/patch_itu_cjk_font_fallback.rb
           fi
           if ls "documents/$DOC_ID"/*-A.adoc >/dev/null 2>&1; then
             fontist install "Noto Naskh Arabic" --accept-all-licenses
@@ -212,6 +216,7 @@ jobs:
           path: |
             build/pdf/
             build/render-failures.log
+            documents/${{ matrix.doc }}/*-C.presentation.xml
           if-no-files-found: error
 
   typesetting:

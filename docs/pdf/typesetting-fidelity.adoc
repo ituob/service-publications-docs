@@ -83,7 +83,15 @@ link:refresh-cadence.adoc[refresh cadence].
   The final targeted change downloads standalone `Noto Sans SC` Regular and
   Bold OTFs from the `Sans2.004` release into Fontist's font directory and
   verifies both registered paths are OTFs before rendering. All seven sources
-  request that family.
+  request that family. Registration alone still leaves Chinese broken:
+  metanorma-itu 2.9.4 hardcodes Arial on service-publication page sequences
+  and Calibri on table containers, overriding the root `:fonts:` fallback.
+  `scripts/patch_itu_cjk_font_fallback.rb` adds `Noto Sans SC` to those
+  constant Arial/Calibri stacks in the installed CI stylesheet, retaining
+  the original primary fonts, dynamic expressions, weight/style and unrelated
+  stacks. It checks the expected page-sequence overrides before changing
+  anything and logs the before/after stacks. This is a bounded renderer
+  workaround; an incompatible future stylesheet fails the guard for review.
 * Q.708B English, French and Spanish have exactly three extracted underscore
   runs beyond the page on page 178. Each reaches x=601.016 pt; the page is
   595.276 pt wide. These are notification-form blanks, not register rows.
@@ -102,6 +110,25 @@ space at the Latin/Arabic bidi-run boundary (`SANCقائمة`, `MNCفيما`). T
 reporter restores that script boundary for comparison, preserving the exact
 letter sequence. Mirrored parentheses and typographic punctuation are also
 normalized. These are extraction conventions, not missing Arabic glyphs.
+
+== Hosted before/after evidence
+
+Run link:https://github.com/ituob/service-publications-docs/actions/runs/44114125455[44114125455]
+at `4a9094004bac5168cc8dd4dddc3df3180d5109af` renders the restricted
+E.164D and Q.708B subset. The shard artifacts were downloaded and checked
+with the same reporter and `--verify`.
+
+* Q.708B: all three PDFs pass. English, French and Spanish each had three
+  out-of-page underscore words in the initial main artifact; each now has
+  zero. They have 179 English, 180 French and 179 Spanish pages, embedded
+  fonts, portrait A4 pages and their localized title round-trip. This confirms
+  the form-line correction; page 178 was the offending form page, not the
+  document's total page count.
+* E.164D: five languages pass, but Chinese still fails its title round-trip.
+  The static-font registration assertion passed before rendering, yet the
+  PDF still has no CJK font in `pdffonts` and its title remains `#` substitutions.
+  Installing and registering the fonts alone is therefore insufficient;
+  this attempt is not evidence of a resolved Chinese rendering defect.
 
 == Initial main artifact: per-language results
 
