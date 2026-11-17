@@ -1,24 +1,17 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (E164BEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
+"$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1015 E.164B
-description: ITU OB Dataset Schema for 1015 E.164B
+x-lml-model: E164BEntry
 type: array
 items:
   type: object
-  description: Represents information about mobile networks used with the E.164 country code for a country or geographical area.
-  required:
-    - country_or_area
-    - country_code
-    - mobile_telephone_numbers
+  additionalProperties: false
   properties:
     country_or_area:
       type: object
-      description: The name of the country or geographical area in different languages.
-      required:
-        - en
-        - fr
-        - es
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -29,15 +22,20 @@ items:
         es:
           type: string
           description: Spanish name.
-      additionalProperties: false
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
+      description: The name of the country or geographical area in different languages.
     country_code:
       type: string
-      description: The E.164 country code assigned to the country or geographical area.
+      description: The E.164 country code assigned to the country or geographical
+        area.
     mobile_telephone_numbers:
       type: object
-      description: Mobile telephone numbers or patterns used with the country code in different languages.
-      required:
-        - en
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -48,5 +46,16 @@ items:
         es:
           type: string
           description: Mobile telephone numbers description in Spanish.
-      additionalProperties: false
-  additionalProperties: false
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
+      description: Mobile telephone numbers or patterns used with the country code
+        in different languages.
+    remarks:
+      type: string
+  description: Represents information about mobile networks used with the E.164 country
+    code for a country or geographical area.
+description: ITU OB Dataset Schema for 1015 E.164B
