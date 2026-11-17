@@ -25,6 +25,8 @@ on:
       - 'scripts/render_publications.rb'
       - 'scripts/build_pdf_coverage_matrix.rb'
       - 'scripts/merge_publication_manifests.rb'
+      - 'scripts/pdf_typesetting_report.rb'
+      - 'docs/pdf/typesetting-baselines.json'
       - 'ituob/lib/**'
       - '.github/workflows/pdf.yml'
     # The site fetches only push/workflow_dispatch runs on main, so the PDFs
@@ -134,7 +136,9 @@ jobs:
         run: |
           set -eu
           if ls "documents/$DOC_ID"/*-C.adoc >/dev/null 2>&1; then
-            fontist install "Noto Sans CJK SC" --accept-all-licenses
+            # Use standalone static fonts; the SuperOTC collection installs
+            # successfully but produces missing Chinese glyphs in the PDF.
+            fontist install "Noto Sans SC" --format ttf --no-prefer-variable --accept-all-licenses
           fi
           if ls "documents/$DOC_ID"/*-A.adoc >/dev/null 2>&1; then
             fontist install "Noto Naskh Arabic" --accept-all-licenses
@@ -194,6 +198,42 @@ jobs:
           path: |
             build/pdf/
             build/render-failures.log
+          if-no-files-found: error
+
+  typesetting:
+    needs: [plan, publications]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BUNDLE_GEMFILE: ituob/Gemfile
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+      - name: Install report dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          bundle install
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.plan.outputs.artifact-name }}
+          path: rendered
+      # Advisory until the documented typesetting failures are resolved.
+      # Keep --verify so the step and JSON retain an honest failure verdict.
+      - name: Report typesetting fidelity
+        id: report
+        continue-on-error: true
+        run: bundle exec ruby scripts/pdf_typesetting_report.rb --pdf-dir rendered --out-dir typesetting --verify
+      - name: Upload typesetting evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: typesetting-report
+          path: typesetting/
           if-no-files-found: error
 
   publications:

@@ -1,0 +1,179 @@
+= PDF typesetting fidelity by language
+:toc:
+
+Part of ituob/service-publications-docs#89, item 6.
+
+== Scope and reproduction
+
+The initial measurement uses the latest successful `pdf.yml` run on `main`
+available when this work began:
+link:https://github.com/ituob/service-publications-docs/actions/runs/44095223507[44095223507],
+commit `a7923c54ce547c837a94d955adc7e0633faed7e4`, event `push`,
+created 2026-11-17. Its `publications` artifact contains all 87 PDFs.
+The artifact was downloaded with `gh run download`; no full local PDF render
+was performed.
+
+[source,shell]
+----
+gh run download 44095223507 -R ituob/service-publications-docs \
+  -n publications -D /tmp/publications
+BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/pdf_typesetting_report.rb \
+  --pdf-dir /tmp/publications --out-dir /tmp/typesetting --verify
+----
+
+The reporter measures every manifest PDF and rejects missing files, duplicate
+paths, and PDFs omitted from the manifest. It writes `report.json` (including
+font names, page dimensions, round-trip reference and overflow coordinates)
+and `report.adoc`. `--verify` exits nonzero if any measurement fails.
+The `typesetting` job in link:../../.github/workflows/pdf.yml[`pdf.yml`]
+downloads the merged artifact and uploads `typesetting-report`. Its report
+step initially uses `continue-on-error: true`: rendering success does not
+certify typesetting. Remove that advisory setting only once the full catalog
+passes and the remaining visual acceptance has been agreed.
+
+== What the checks establish
+
+* `pdffonts`: every listed font must be embedded; an empty font list fails.
+* `pdftotext -enc UTF-8`: no replacement character, common tofu squares or NUL;
+  a known localized register title must round-trip. The reference is the
+  publication's explicit `:title:` attribute or AsciiDoc title, falling back
+  to the manifest title when source is unavailable. Case, Unicode compatibility
+  forms, punctuation and wrapping whitespace are normalized; CJK wrapping
+  spaces are removed. An English cover in a Russian or Arabic source also
+  requires a known native-script heading to round-trip.
+* Cyrillic, Han and Arabic text must retain their script. Arabic presentation
+  forms are normalized and bidi controls removed, while logical character
+  order is preserved. A reversed Arabic title fails; this is an extraction
+  check, not certification of visual joining or mixed-direction cell layout.
+* `pdfinfo -box` on every page: portrait A4 within 3 points and zero rotation.
+* `pdftotext -bbox`: extracted word boxes must remain within the page, with
+  1 point of tolerance. JSON identifies each offending page, word and box.
+  This detects text outside the page, including table text; wholly clipped
+  text and non-text rules/images cannot be certified through extraction.
+* Page counts use link:typesetting-baselines.json[explicit official baselines].
+  The F.32 2011 English comparison documents 47 official pages in
+  link:comparison-pilot.adoc[the existing comparison pilot]. No official
+  page-count baseline exists here for the other 86 PDFs; those are `n/a`,
+  never silently counted as official equivalence. `--baseline-dir` can supply
+  further official PDFs named `T-SP-<standard>-<year>-<letter>.pdf`.
+
+Real PDF fixtures prove that a nonembedded Helvetica font and extracted tofu
+fail. Additional fixtures cover positive controls in all six languages,
+reversed Arabic, page rotation/orientation, overflow, page-count mismatch,
+missing/unlisted PDFs and artifact layouts. Fixture glyphs are schematic;
+they test measurement behavior, not visual typography.
+
+These checks do not certify the cover, ISSN, document numbering, headers,
+footers, table rules, language-specific shaping or correspondence of every
+cell to an official edition. Those require visual and official-PDF review.
+Candidate status remains separate from ITU staff adoption; see
+link:refresh-cadence.adoc[refresh cadence].
+
+== Initial main artifact: per-language results
+
+All 87 PDFs were measured; no missing, duplicate or unlisted files. All listed fonts are embedded and all pages are unrotated portrait A4. No literal Unicode tofu/replacement markers were extracted; the Chinese failures demonstrate that this alone is insufficient, because the renderer substitutes `#`. Overall: 74 pass, 13 fail.
+
+[cols="1,1,1,1",options="header"]
+|===
+|Language |PDFs |Pass |Fail
+|en |22 |20 |2
+|fr |22 |21 |1
+|es |22 |21 |1
+|ru |7 |7 |0
+|zh |7 |0 |7
+|ar |7 |5 |2
+|===
+
+== Every PDF in the initial artifact
+
+[cols="3,1,1,1,5",options="header"]
+|===
+|PDF |Language |Result |Pages / official |Measurement failures
+|pdf/E.118-2018/E.118-2018-A.pdf |ar |PASS |112 / n/a |None
+|pdf/E.118-2018/E.118-2018-E.pdf |en |PASS |97 / n/a |None
+|pdf/E.118-2018/E.118-2018-S.pdf |es |PASS |97 / n/a |None
+|pdf/E.118-2018/E.118-2018-F.pdf |fr |PASS |99 / n/a |None
+|pdf/E.118-2018/E.118-2018-R.pdf |ru |PASS |102 / n/a |None
+|pdf/E.118-2018/E.118-2018-C.pdf |zh |FAIL |96 / n/a |register title did not round-trip: "国际电信计账卡的颁发者标识号码列表 （根据ITU-T E.118建议书（05/2006）"; no zh script in extracted text
+|pdf/E.164B-2012/E.164B-2012-E.pdf |en |PASS |11 / n/a |None
+|pdf/E.164B-2012/E.164B-2012-S.pdf |es |PASS |11 / n/a |None
+|pdf/E.164B-2012/E.164B-2012-F.pdf |fr |PASS |11 / n/a |None
+|pdf/E.164C-2011/E.164C-2011-E.pdf |en |PASS |14 / n/a |None
+|pdf/E.164C-2011/E.164C-2011-S.pdf |es |PASS |14 / n/a |None
+|pdf/E.164C-2011/E.164C-2011-F.pdf |fr |PASS |14 / n/a |None
+|pdf/E.164D-2016/E.164D-2016-A.pdf |ar |PASS |24 / n/a |None
+|pdf/E.164D-2016/E.164D-2016-E.pdf |en |PASS |24 / n/a |None
+|pdf/E.164D-2016/E.164D-2016-S.pdf |es |PASS |24 / n/a |None
+|pdf/E.164D-2016/E.164D-2016-F.pdf |fr |PASS |24 / n/a |None
+|pdf/E.164D-2016/E.164D-2016-R.pdf |ru |PASS |24 / n/a |None
+|pdf/E.164D-2016/E.164D-2016-C.pdf |zh |FAIL |23 / n/a |register title did not round-trip: "ITU-T E.164建议书分配国家代码列表"
+|pdf/E.180-2010/E.180-2010-E.pdf |en |PASS |57 / n/a |None
+|pdf/E.180-2010/E.180-2010-S.pdf |es |PASS |63 / n/a |None
+|pdf/E.180-2010/E.180-2010-F.pdf |fr |PASS |71 / n/a |None
+|pdf/E.212A-2017/E.212A-2017-A.pdf |ar |PASS |19 / n/a |None
+|pdf/E.212A-2017/E.212A-2017-E.pdf |en |PASS |19 / n/a |None
+|pdf/E.212A-2017/E.212A-2017-S.pdf |es |PASS |19 / n/a |None
+|pdf/E.212A-2017/E.212A-2017-F.pdf |fr |PASS |19 / n/a |None
+|pdf/E.212A-2017/E.212A-2017-R.pdf |ru |PASS |19 / n/a |None
+|pdf/E.212A-2017/E.212A-2017-C.pdf |zh |FAIL |19 / n/a |register title did not round-trip: "移动国家或地理区域代码列表"; no zh script in extracted text
+|pdf/E.212B-2018/E.212B-2018-A.pdf |ar |FAIL |67 / n/a |register title did not round-trip: "الرموز الدليلية للشبكات المتنقلة (MNC) فيما يتعلق بالخطة الدولية لتعرّف هوية الشبكات العمومية والاشتراكات )وفقاً للتوصية ITU-T E.212 (2016/09) )"
+|pdf/E.212B-2018/E.212B-2018-E.pdf |en |PASS |67 / n/a |None
+|pdf/E.212B-2018/E.212B-2018-S.pdf |es |PASS |67 / n/a |None
+|pdf/E.212B-2018/E.212B-2018-F.pdf |fr |PASS |67 / n/a |None
+|pdf/E.212B-2018/E.212B-2018-R.pdf |ru |PASS |67 / n/a |None
+|pdf/E.212B-2018/E.212B-2018-C.pdf |zh |FAIL |66 / n/a |register title did not round-trip: "用于公众网络和订户的国际识别规划的 移动网络代码（MNC）（根据ITU-T E.212建议书（09/2016））"
+|pdf/E.218-2017/E.218-2017-A.pdf |ar |PASS |17 / n/a |None
+|pdf/E.218-2017/E.218-2017-E.pdf |en |PASS |17 / n/a |None
+|pdf/E.218-2017/E.218-2017-S.pdf |es |PASS |17 / n/a |None
+|pdf/E.218-2017/E.218-2017-F.pdf |fr |PASS |17 / n/a |None
+|pdf/E.218-2017/E.218-2017-R.pdf |ru |PASS |18 / n/a |None
+|pdf/E.218-2017/E.218-2017-C.pdf |zh |FAIL |17 / n/a |register title did not round-trip: "地面集群无线电移动国家代码列表"; no zh script in extracted text
+|pdf/F.1-1998/F.1-1998-E.pdf |en |PASS |15 / n/a |None
+|pdf/F.1-1998/F.1-1998-S.pdf |es |PASS |15 / n/a |None
+|pdf/F.1-1998/F.1-1998-F.pdf |fr |PASS |16 / n/a |None
+|pdf/F.32-2011/F.32-2011-E.pdf |en |FAIL |41 / 47 |page count 41 differs from baseline 47 (docs/pdf/comparison-pilot.adoc: official-2011.pdf (historical official baseline))
+|pdf/F.32-2011/F.32-2011-S.pdf |es |PASS |41 / n/a |None
+|pdf/F.32-2011/F.32-2011-F.pdf |fr |PASS |41 / n/a |None
+|pdf/F.400-2011/F.400-2011-E.pdf |en |PASS |39 / n/a |None
+|pdf/F.400-2011/F.400-2011-S.pdf |es |PASS |39 / n/a |None
+|pdf/F.400-2011/F.400-2011-F.pdf |fr |PASS |39 / n/a |None
+|pdf/F.68-2011/F.68-2011-E.pdf |en |PASS |18 / n/a |None
+|pdf/F.68-2011/F.68-2011-S.pdf |es |PASS |18 / n/a |None
+|pdf/F.68-2011/F.68-2011-F.pdf |fr |PASS |18 / n/a |None
+|pdf/M.1400-2014/M.1400-2014-A.pdf |ar |PASS |97 / n/a |None
+|pdf/M.1400-2014/M.1400-2014-E.pdf |en |PASS |99 / n/a |None
+|pdf/M.1400-2014/M.1400-2014-S.pdf |es |PASS |96 / n/a |None
+|pdf/M.1400-2014/M.1400-2014-F.pdf |fr |PASS |96 / n/a |None
+|pdf/M.1400-2014/M.1400-2014-R.pdf |ru |PASS |105 / n/a |None
+|pdf/M.1400-2014/M.1400-2014-C.pdf |zh |FAIL |90 / n/a |register title did not round-trip: "国际电联电信运营商代码列表 （根据ITU-T M.1400建议书 （03/2013））"; no zh script in extracted text
+|pdf/PP.RES.21-2011/PP.RES.21-2011-E.pdf |en |PASS |6 / n/a |None
+|pdf/PP.RES.21-2011/PP.RES.21-2011-S.pdf |es |PASS |6 / n/a |None
+|pdf/PP.RES.21-2011/PP.RES.21-2011-F.pdf |fr |PASS |6 / n/a |None
+|pdf/Q.708A-2017/Q.708A-2017-A.pdf |ar |FAIL |58 / n/a |register title did not round-trip: "(SANC) قائمة بالرموز الدليلية لمناطق/شبكات التشوير"
+|pdf/Q.708A-2017/Q.708A-2017-E.pdf |en |PASS |58 / n/a |None
+|pdf/Q.708A-2017/Q.708A-2017-S.pdf |es |PASS |58 / n/a |None
+|pdf/Q.708A-2017/Q.708A-2017-F.pdf |fr |PASS |58 / n/a |None
+|pdf/Q.708A-2017/Q.708A-2017-R.pdf |ru |PASS |58 / n/a |None
+|pdf/Q.708A-2017/Q.708A-2017-C.pdf |zh |FAIL |58 / n/a |register title did not round-trip: "信令区域/网络编码（SANC）列表"; no zh script in extracted text
+|pdf/Q.708B-2016/Q.708B-2016-E.pdf |en |FAIL |179 / n/a |text bounding boxes exceed page: 3 words
+|pdf/Q.708B-2016/Q.708B-2016-S.pdf |es |FAIL |179 / n/a |text bounding boxes exceed page: 3 words
+|pdf/Q.708B-2016/Q.708B-2016-F.pdf |fr |FAIL |180 / n/a |text bounding boxes exceed page: 3 words
+|pdf/RR.25.1-2018/RR.25.1-2018-E.pdf |en |PASS |40 / n/a |None
+|pdf/RR.25.1-2018/RR.25.1-2018-S.pdf |es |PASS |40 / n/a |None
+|pdf/RR.25.1-2018/RR.25.1-2018-F.pdf |fr |PASS |39 / n/a |None
+|pdf/SR.1-2012/SR.1-2012-E.pdf |en |PASS |14 / n/a |None
+|pdf/SR.1-2012/SR.1-2012-S.pdf |es |PASS |14 / n/a |None
+|pdf/SR.1-2012/SR.1-2012-F.pdf |fr |PASS |15 / n/a |None
+|pdf/T.35-2012/T.35-2012-E.pdf |en |PASS |9 / n/a |None
+|pdf/T.35-2012/T.35-2012-S.pdf |es |PASS |9 / n/a |None
+|pdf/T.35-2012/T.35-2012-F.pdf |fr |PASS |9 / n/a |None
+|pdf/T.35B-2012/T.35B-2012-E.pdf |en |PASS |12 / n/a |None
+|pdf/T.35B-2012/T.35B-2012-S.pdf |es |PASS |12 / n/a |None
+|pdf/T.35B-2012/T.35B-2012-F.pdf |fr |PASS |13 / n/a |None
+|pdf/X.121A-2011/X.121A-2011-E.pdf |en |PASS |12 / n/a |None
+|pdf/X.121A-2011/X.121A-2011-S.pdf |es |PASS |12 / n/a |None
+|pdf/X.121A-2011/X.121A-2011-F.pdf |fr |PASS |12 / n/a |None
+|pdf/X.121B-2011/X.121B-2011-E.pdf |en |PASS |20 / n/a |None
+|pdf/X.121B-2011/X.121B-2011-S.pdf |es |PASS |20 / n/a |None
+|pdf/X.121B-2011/X.121B-2011-F.pdf |fr |PASS |20 / n/a |None
+|===

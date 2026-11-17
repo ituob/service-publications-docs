@@ -52,19 +52,19 @@ E-mail: mailto:tsbtson@itu.int[]
 _Le présent formulaire doit être utilisé pour notifier au Directeur du TSB les codes ISPC qui ont été attribués ou retirés par un Etat Membre depuis la dernière notification._
 
 Pays/Zone:
-{% for i in (1..100) -%}
+{% for i in (1..72) -%}
 &#95;
 {%- endfor %} +
 Organisation de l’Etat Membre:
-{% for i in (1..89) -%}
+{% for i in (1..72) -%}
 &#95;
 {%- endfor %} +
 Personne représentant l’Etat Membre: Nom:
-{% for i in (1..82) -%}
+{% for i in (1..72) -%}
 &#95;
 {%- endfor %} +
 Adresse:
-{% for i in (1..105) -%}
+{% for i in (1..72) -%}
 &#95;
 {%- endfor %} +
 Tél:

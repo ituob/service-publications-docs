@@ -74,7 +74,10 @@ jobs:
     - name: Run the ituob gem suite
       env:
         BUNDLE_GEMFILE: ituob/Gemfile
-      run: bundle exec rspec ituob/spec/
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y poppler-utils
+        bundle exec rspec ituob/spec/
 
     # 645 examples: model/normalizer/verifier behavior, the LML
     # ontology drift guard and the compiled-class wiring.

@@ -59,4 +59,33 @@ RSpec.describe "PDF workflow catalog isolation" do
     expect(upload.fetch("uses")).to eq("actions/upload-artifact@v4")
     expect(upload.fetch("with").fetch("name")).to eq("${{ needs.plan.outputs.artifact-name }}")
   end
+
+  it "reports the merged catalog without blocking initial publication on fidelity failures" do
+    job = workflow.fetch("jobs").fetch("typesetting")
+    expect(job.fetch("needs")).to eq(%w[plan publications])
+    steps = job.fetch("steps")
+    download = steps.find { |step| step["uses"] == "actions/download-artifact@v4" }
+    expect(download.fetch("with").fetch("name")).to eq("${{ needs.plan.outputs.artifact-name }}")
+    report = steps.find { |step| step["id"] == "report" }
+    expect(report.fetch("continue-on-error")).to be(true)
+    expect(report.fetch("run")).to include("pdf_typesetting_report.rb", "--verify")
+    upload = steps.last
+    expect(upload.fetch("if")).to eq("always()")
+    expect(upload.fetch("with").fetch("name")).to eq("typesetting-report")
+  end
+
+  it "installs standalone static Chinese fonts while preserving Arabic fonts" do
+    steps = workflow.fetch("jobs").fetch("render").fetch("steps")
+    install = steps.find { |step| step["name"] == "Install the Chinese and Arabic fonts" }
+    expect(install.fetch("run")).to include(
+      'fontist install "Noto Sans SC" --format ttf --no-prefer-variable --accept-all-licenses',
+      'fontist install "Noto Naskh Arabic" --accept-all-licenses'
+    )
+    sources = Dir[File.expand_path("../../../documents/T-SP-*/*-C.adoc", __dir__)]
+    expect(sources.size).to eq(7)
+    sources.each do |source|
+      expect(File.read(source)).to include(":language: zh\n", ":fonts: Noto Sans SC\n")
+    end
+  end
+
 end

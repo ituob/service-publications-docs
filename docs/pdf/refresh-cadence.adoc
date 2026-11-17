@@ -1,0 +1,109 @@
+= PDF publication refresh cadence
+:toc:
+
+Part of spd#89 and ituob.github.io#112. This note describes the refresh events
+that follow from the current `pdf.yml` producer and the site's artifact
+selection. There is no calendar schedule: a PDF is refreshed when its source
+inputs change and the producer workflow runs on `main`.
+
+== What causes a refresh
+
+The `pdf` workflow runs for pull requests and pushes to `main` when a changed
+path matches `documents/**`, `datasets/**`, `catalogs/**`, `metanorma.yml`, the
+render, coverage-matrix, manifest-merge or typesetting-report scripts,
+`docs/pdf/typesetting-baselines.json`, `ituob/lib/**`, or the
+workflow itself. A pull-request run is validation only. The site accepts
+producer artifacts only from successful `push` or `workflow_dispatch` runs on
+the producer's `main` branch, with the producer repository as the head
+repository. Consequently, merging an input change to `main` is the normal
+refresh trigger. See the actual
+link:../../.github/workflows/pdf.yml[`on.pull_request`, `on.push` and `on.workflow_dispatch` triggers].
+
+These path filters mean changes outside that list do not automatically refresh
+PDFs. If a rendering dependency or relevant source is changed outside the
+listed paths, update the workflow paths so the next merge triggers a render.
+
+An unrestricted run renders every `documents/T-SP-*` publication and language.
+`workflow_dispatch` accepts an optional comma-separated `docs` list to render
+selected publication directories. A restricted run uploads
+`publications-subset`, deliberately distinct from the `publications` artifact
+the site selects; it is useful for checking work, but does not replace the
+site's catalog artifact. A normal manual dispatch with no `docs` restriction
+does produce `publications` and can refresh the site on its next build.
+
+== Data and template changes
+
+Publication data represents a particular Operational Bulletin issue, not the
+date when the PDF was built. When an OB issue's dataset changes, the affected
+PDFs should be refreshed by merging the dataset update to `main`. If a patch
+fixes a previously incorrect record, that correction likewise calls for a new
+render. The manifest records the source issue (`as_of_issue`); it does not
+advance merely because time passed.
+
+An update to the external `itu-ob-data` repository alone does not trigger
+this workflow: its gitlink is outside the path filters. For each new OB issue,
+the publication maintainer must review which editions advance, update the
+relevant data/provider inputs and source pin in this repository, and merge
+that change. If no filtered path changes, dispatch a full render manually.
+The workflow currently renders all editions on each eligible event; it does
+not schedule a separate run for each OB issue or automatically advance every
+edition to the latest issue.
+
+More generally, a change to a publication template, renderer, catalog or
+provider code that affects rendered output is a refresh event. Current
+`pdf.yml` runs strict rendering in a separate shard per publication, checks
+that PDFs are nonempty, merges the shard manifests, and fails the catalog job
+if any shard reports a render failure. A failed run cannot supply the
+successful catalog artifact selected by the site.
+
+== From candidate to adopted
+
+Every producer render is a candidate generated from the patch log. A changed
+PDF has a different checksum, so adoption of the previous bytes does not
+transfer to it. Adoption is a separate site action pinned to standard,
+edition, language and SHA-256; the site presents an edition as official only
+when every language file has a matching live adoption record. The site PR
+link:https://github.com/ituob/ituob.github.io/pull/119[ituob.github.io#119]
+implements the audited adoption/revocation action. Its default approver
+allowlist is ITU staff roles `itu-editor` and `itu-admin` (the site owner can
+change `ADOPTION_APPROVERS`). Thus a generated candidate does not become
+official just because CI rendered it or the site catalog fetched it.
+
+== Who triggers and what the site selects
+
+For routine updates, the author of the data, template or code change merges
+that change to this repository's `main`; GitHub Actions starts the full render
+when its path filter matches. A maintainer may also run `pdf.yml` manually,
+either for all publications or a restricted check. The site does not fetch
+from a pull request or fork.
+
+On a site build, `scripts/fetch-publications.ts` searches live artifacts named
+`publications` from `ituob/service-publications-docs` and selects the newest
+successful eligible run for workflow `pdf.yml` on `main`. It verifies each
+PDF against the manifest checksum before placing it in the site's downloads
+catalog. If no eligible live artifact exists, the current optional behavior is
+an empty listing; the site can require publications with
+`PUBLICATIONS_REQUIRED=true`. A mismatch or malformed artifact fails the site
+build. The selection contract is implemented in
+link:https://github.com/ituob/ituob.github.io/blob/main/scripts/fetch-publications.ts[`scripts/fetch-publications.ts`].
+
+The producer uploads the merged artifact with `actions/upload-artifact@v4`
+without setting `retention-days`. Its lifetime therefore follows the
+repository's GitHub Actions artifact-retention setting; only artifacts that
+remain live can be selected. The site build copies the selected files into its
+own deploy output, so a later producer artifact expiry does not remove PDFs
+already included in a deployed site. To refresh the public catalog, a new
+eligible producer artifact must exist when the site is built and deployed.
+For example, producer run
+link:https://github.com/ituob/service-publications-docs/actions/runs/44095223507[44095223507]
+created `publications` on 2026-11-17 with an API expiry of 2027-02-15 (90 days).
+This is observed retention for that run, not a fixed promise in the YAML.
+
+== Operational rule
+
+Refresh after each merged change to publication data or rendering behavior
+that affects a PDF. Use a restricted manual dispatch for focused validation;
+use an unrestricted run (normally the merge-triggered run) to publish the
+catalog artifact. Then let the site build select and verify that artifact.
+Treat adoption as a separate, staff-authorized decision for the exact rendered
+file checksum.
