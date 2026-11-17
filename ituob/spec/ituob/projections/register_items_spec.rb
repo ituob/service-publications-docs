@@ -8,7 +8,7 @@ RSpec.describe Ituob::Projections::RegisterItems, 'E212_MNC hydration' do
   let(:register) { Ituob::Catalogs::Registers.find('E212_MNC') }
   let(:replay) do
     source = Ituob::Registers::DirectoryChangeSource.for_register(
-      **register.to_h.slice(:register_id, :seed_issue, :key_field),
+      **register.to_h.slice(:register_id, :seed_issue, :seed_includes_seed_issue, :key_field),
       seed_path: File.expand_path("../../../../#{register.seed_path}", __dir__)
     )
     Ituob::Registers::Replay.new(
@@ -35,7 +35,7 @@ RSpec.shared_context 'replayed projection rows' do
   let(:items) { described_class.new(register: register).at_issue(1170) }
   let(:rows) do
     source = Ituob::Registers::DirectoryChangeSource.for_register(
-      **register.to_h.slice(:register_id, :seed_issue, :key_field),
+      **register.to_h.slice(:register_id, :seed_issue, :seed_includes_seed_issue, :key_field),
       seed_path: File.expand_path("../../../../#{register.seed_path}", __dir__)
     )
     Ituob::Registers::Replay.new(
