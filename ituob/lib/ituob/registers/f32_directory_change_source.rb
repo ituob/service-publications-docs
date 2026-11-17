@@ -50,18 +50,13 @@ module Ituob
               "scripts/build_f32_seed_publication.rb"
       end
 
-      def load_yaml(path)
-        @loaded_path = path
-        super
-      end
-
       def each_amendment
         return enum_for(:each_amendment) unless block_given?
         @amendment_contexts = []
         @context_only_changes = []
         @context_only_sources = []
         @network_offices = seed_network_offices
-        emit = proc { |emitted| track_network_offices(emitted); yield emitted }
+        emit = proc { |emitted| track_network_offices(emitted); register_path(emitted); yield emitted }
         super do |change|
           if change.ob_issue_no && change.ob_issue_no < seed_issue
             yield change
