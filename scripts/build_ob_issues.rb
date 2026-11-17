@@ -162,7 +162,7 @@ end
 def process_amendments(issue_id, src_dir, dst_dir, stats)
   path = File.join(src_dir, 'amendments.yaml')
   return unless File.file?(path)
-  data = YAML.load_file(path, permitted_classes: [Date, Time])
+  data = Ituob::Support::Yaml.load_source_file(path)
   return unless data.is_a?(Hash) && data['messages'].is_a?(Array)
 
   data['messages'].each do |msg|
@@ -295,7 +295,7 @@ end
 def process_general(issue_id, src_dir, dst_dir, stats)
   path = File.join(src_dir, 'general.yaml')
   return unless File.file?(path)
-  data = YAML.load_file(path, permitted_classes: [Date, Time])
+  data = Ituob::Support::Yaml.load_source_file(path)
   return unless data.is_a?(Hash) && data['messages'].is_a?(Array)
 
   # Always create the general/ directory, even when there are no messages.

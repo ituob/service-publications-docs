@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: 3X[:digit:][:upper:]{2}
+    description: "3X0AA-3X9ZZ"
 
   experimental:
   - regex: 3X[2-9][:upper:]{3}
+    description: "3X2AAA-3X9ZZZ"

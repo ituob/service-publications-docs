@@ -131,6 +131,34 @@ RSpec.describe 'generated TypeScript validators' do
       expect(results.fetch('control-envelope')).to eq([])
     end
 
+    it 'treats HashOrList as an object or a list of objects' do
+      types, validators = generate(out_dir, 'hash-or-list')
+      expect(File.read(types)).to include('data?: Record<string, unknown> | Record<string, unknown>[];')
+      envelope = { 'type' => 'SEED', 'identifier' => { 'code' => '1300-001' } }
+      values = {
+        'mapping' => { 'a' => 1 },
+        'list' => [{ 'a' => 1 }, { 'b' => 'text' }],
+        'empty-list' => [],
+        'string' => 'text',
+        'number' => 5,
+        'boolean' => false,
+        'mixed-list' => [{ 'a' => 1 }, 'text'],
+        'nested-list' => [[{ 'a' => 1 }]],
+        'null-row' => [nil]
+      }
+      cases = values.map do |id, value|
+        { 'id' => id, 'class' => 'RegisterChange', 'value' => envelope.merge('data' => value) }
+      end
+      results = run_cases(validators, cases, out_dir)
+
+      %w[mapping list empty-list].each do |id|
+        expect(results.fetch(id)).to eq([]), id
+      end
+      %w[string number boolean mixed-list nested-list null-row].each do |id|
+        expect(results.fetch(id).map { |i| [i['code'], i['path']] }).to eq([%w[type data]]), id
+      end
+    end
+
     it 'treats HashOrText as object-or-string, DateOrText as string, Hash as object' do
       _types, validators = generate(out_dir, 'kinds')
       cases = [

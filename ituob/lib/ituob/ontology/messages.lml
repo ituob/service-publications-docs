@@ -55,7 +55,7 @@ models Ituob {
   class GeneralMessage {
     attribute type, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   // Issue-level
@@ -331,7 +331,71 @@ models Ituob {
     attribute telegraph_office_name, MultilingualString
     attribute office_code, String
     attribute office_code_note, MultilingualString
+    attribute network_codes, String { cardinality 0..n }
     attribute subarea, MultilingualString
+  }
+
+  class F32OfficeDifference {
+    attribute country, String
+    attribute office_code, String
+    attribute expected, F32TDIEntry
+    attribute actual, F32TDIEntry
+    attribute reason, String
+  }
+
+  class F32CountryCompleteness {
+    attribute country, String
+    attribute matching, Integer
+    attribute missing, Integer
+    attribute extra, Integer
+    attribute different, Integer
+  }
+
+  class F32CompletenessReport {
+    attribute source_uri, String
+    attribute source_sha256, String
+    attribute candidate_source, String
+    attribute candidate_rows, Integer
+    attribute candidate_context_rows, Integer
+    attribute matching_keys, String { cardinality 0..n }
+    attribute missing, F32OfficeDifference { cardinality 0..n }
+    attribute extra, F32OfficeDifference { cardinality 0..n }
+    attribute different, F32OfficeDifference { cardinality 0..n }
+    attribute countries, F32CountryCompleteness { cardinality 0..n }
+  }
+
+  class F32PrintedPage {
+    attribute number, Integer
+    attribute text, String
+  }
+
+  class F32SeedContext {
+    attribute kind, String
+    attribute ob_issue_no, Integer
+    attribute entry, F32TDIEntry
+    attribute source_uri, String
+    attribute source_page, Integer
+    attribute source_path, String
+    attribute source_row, Integer
+    attribute related_office_code, String
+    attribute network_codes, String { cardinality 0..n }
+    attribute continuation_target, F32TDIEntry
+    attribute explanation, String
+  }
+
+  class F32SeedPublication {
+    attribute _class, String { default: "F32SeedPublication" }
+    attribute source_uri, String
+    attribute source_sha256, String
+    attribute source_position_on, Date
+    attribute source_path, String
+    attribute seed_sha256, String
+    attribute source_row_count, Integer
+    attribute source_complete, Boolean { default: false }
+    attribute legacy_rows, F32TDIEntry { cardinality 0..n }
+    attribute pages, F32PrintedPage { cardinality 0..n }
+    attribute allocations, F32TDIEntry { cardinality 0..n }
+    attribute contexts, F32SeedContext { cardinality 0..n }
   }
 
   // F.400
@@ -707,22 +771,22 @@ models Ituob {
     attribute procedures, String
     attribute ob_issue_no, String
     attribute payload, Hash
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralCallbackProcedures {
     attribute type, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralCustom {
     attribute type, String
-    attribute title, Hash
+    attribute title, MultilingualString
     attribute recommendation, String
     attribute text, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralIpns {
@@ -732,7 +796,7 @@ models Ituob {
     attribute date_of_assignment, String
     attribute notes, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralIptn {
@@ -741,13 +805,13 @@ models Ituob {
     attribute notes, String
     attribute manual, Boolean
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralMid {
     attribute type, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralMiscCommunications {
@@ -761,7 +825,7 @@ models Ituob {
     attribute type, String
     attribute text, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralRunningAnnexes {
@@ -769,7 +833,7 @@ models Ituob {
     attribute extra_links, String { cardinality 0..n }
     attribute ob_issue_no, String
     attribute payload, Hash
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralServiceRestriction {
@@ -788,14 +852,14 @@ models Ituob {
     attribute items, GeneralSanc { cardinality 0..n }
     attribute notes, String
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralServiceRestrictions {
     attribute type, String
     attribute ob_issue_no, String
     attribute items, GeneralServiceRestriction { cardinality 0..n }
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralTelephoneSection {
@@ -808,7 +872,7 @@ models Ituob {
 
   class GeneralTelephoneCommunication {
     attribute date, DateOrText
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   class GeneralTelephoneService {
@@ -822,7 +886,7 @@ models Ituob {
     attribute type, String
     attribute items, GeneralTelephoneService { cardinality 0..n }
     attribute ob_issue_no, String
-    attribute contents, Hash
+    attribute contents, HashOrText
   }
 
   // Textual fallbacks
@@ -901,7 +965,7 @@ models Ituob {
     attribute register_id, String
     attribute identifier, Identifier { cardinality 1 }
     attribute recommendation, String
-    attribute data, Hash
+    attribute data, HashOrList
     attribute ob_issue_no, Integer
     attribute date_active, String
     attribute date_requested, String
@@ -935,9 +999,29 @@ models Ituob {
   class RegisterEdition {
     attribute provenance, ProjectionProvenance { cardinality 1 }
     attribute items, Entry { cardinality 0..n }
+    attribute source_contexts, F32SeedContext { cardinality 0..n }
     attribute lapsed_keys, String { cardinality 0..n }
     attribute deleted_keys, String { cardinality 0..n }
     attribute key_history, KeyHistoryEntry { cardinality 0..n }
+  }
+
+  // One localized term of a register's dataset metadata (column headers,
+  // labels); key names the term and each language carries its text.
+  class LocaleLabel {
+    attribute key, String { cardinality 1 }
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute zh, String
+    attribute ru, String
+    attribute ar, String
+  }
+
+  // The per-language title and terms of a register's dataset, as read
+  // from its metadata.yaml. Not versioned by OB issue.
+  class RegisterLocale {
+    attribute title, MultilingualString { cardinality 0..1 }
+    attribute locale, LocaleLabel { cardinality 0..n }
   }
 
   // One key's touched-change history as of an issue. membership is one of
@@ -947,5 +1031,29 @@ models Ituob {
     attribute key, String { cardinality 1 }
     attribute membership, String { cardinality 1 }
     attribute entries, KeyHistoryEntry { cardinality 0..n }
+  }
+
+  class RegisterActions {
+    attribute provenance, ProjectionProvenance { cardinality 1 }
+    attribute changes, RegisterChange { cardinality 0..n }
+  }
+
+  // PDF publication manifest (pdf/manifest.json). status is one of
+  // candidate or itu-adopted; see docs/pdf/manifest.adoc.
+  class PublicationManifestEntry {
+    attribute standard, String { cardinality 1 }
+    attribute recommendation, String { cardinality 1 }
+    attribute title, String { cardinality 1 }
+    attribute edition_year, Integer { cardinality 1 }
+    attribute language, String { cardinality 1 }
+    attribute as_of_issue, Integer { cardinality 1 }
+    attribute sha256, String { cardinality 1 }
+    attribute status, String { cardinality 1 }
+    attribute register_slugs, String { cardinality 0..n }
+    attribute path, String { cardinality 1 }
+  }
+
+  class PublicationManifest {
+    attribute publications, PublicationManifestEntry { cardinality 0..n }
   }
 }

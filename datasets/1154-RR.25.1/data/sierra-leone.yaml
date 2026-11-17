@@ -15,6 +15,7 @@
 groups:
   amateur:
   - regex: 9L[:area_or_province:][:upper:]{2}
+    description: "9L followed by a digit (0-8, indicating the area or the province in which the station is situated) and by 2 letters"
     criteria:
     - segment_type: string
       key: "1"

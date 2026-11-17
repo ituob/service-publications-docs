@@ -12,17 +12,15 @@ Unclassified skips or unexpected replay errors fail generation instead of being
 silently assigned a source-gap class. Print references identify the transcribed
 wording in `itu-ob-data`, not a PDF page or a reconstructed seed.
 
-Total skips: *50*.
+Total skips: *5*.
 
 == Totals per register
 
 [cols="1,1",options="header"]
 |===
 |Register |Skips
-|E118_IIN |1
-|E212_MNC |4
-|F32_TDI |34
-|Q708_ISPC |10
+|E212_MNC |2
+|Q708_ISPC |2
 |X121_DNIC |1
 |===
 
@@ -35,10 +33,10 @@ pre-#66 counts are historical baselines; they are not expected totals here.
 |===
 |Class |Meaning |Skips
 |S |Seed or route from an existing dataset |0
-|E |Engine rule (including seed-issue amendments already embodied) |12
+|E |Engine rule (including seed-issue amendments already embodied) |1
 |T |Correct the action type from print |0
 |D |Mis-filed patch |1
-|G |Documented source or extraction gap |37
+|G |Documented source or extraction gap |3
 |===
 
 == Source gaps and interpretation
@@ -56,12 +54,11 @@ pre-#66 counts are historical baselines; they are not expected totals here.
   patches through OB 1080. The printed OB 977 seed table is unavailable in
   repository text. Other rows in that patch apply independently; their successful
   withdrawals are not skips.
-* F.32: the OB 980 seed ends at ISRAEL, omitting MALAYSIA and UKRAINE.
-  Withdrawals are printed in `itu-ob-data/issues/1013/amendments.yaml:767-1082`
-  and `itu-ob-data/issues/1148/amendments.yaml:680-2692`. The first patch also
-  aggregates office codes; the second contains individual rows and an empty
-  office-code heading. Each reported row remains a separate skip. The ledger
-  records these extraction/source gaps without changing the seed or patch data.
+* F.32: the legacy OB 980 `data.yaml` seed ends at ISRAEL. Replay reads F.32
+  through the verified source-complete `publication.yaml`, which restores the
+  omitted MALAYSIA and UKRAINE rows and expands the grouped OB 1013 withdrawal
+  into its office codes. The OB 1013 and OB 1148 withdrawals therefore apply
+  and the register has no replay skips.
 * E.212 640 01 and 340 04: the withdrawals at OB 1197 and OB 1243
   (`itu-ob-data/issues/1197/amendments.yaml:154`, `1243/amendments.yaml:1392`)
   are the only printed mentions of those codes. The corresponding additions

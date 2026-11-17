@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: 3V8[:upper:]{2}
+    description: "3V8AA-3V8ZZ"
 
   experimental:
   - regex: TS8[:upper:]{2}
+    description: "TS8AA-TS8ZZ"

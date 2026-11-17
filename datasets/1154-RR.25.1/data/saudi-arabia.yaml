@@ -6,5 +6,6 @@
 groups:
   amateur: &general
   - regex: 7Z[:digit:][:upper:]{2}
+    description: "7Z followed by a digit and 2 letters"
 
   experimental: *general

@@ -7,6 +7,7 @@
 groups:
   amateur:
   - regex: TU2[:upper:]{2}
+    description: "TU2AA-TU2ZZ"
 
   experimential:
   - regex: TU3[:upper:]{2}

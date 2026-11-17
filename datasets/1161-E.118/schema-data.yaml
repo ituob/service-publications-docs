@@ -1,36 +1,31 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (E118Entry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
+"$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1161 E.118
-description: ITU OB Dataset Schema for 1161 E.118
+x-lml-model: E118Entry
 type: array
 items:
   type: object
   additionalProperties: false
-  required:
-    - issue_id_number
-    - country_or_area
-    - company_name
-    - company_address_1
-    # - company_address_2
-    # - contact
-    # - contact_address_1
-    # - tel
   properties:
-    effective_date:
-      type: string
-      description: Date when the information becomes effective
-    issue_id_number:
-      type: string
-      description: Identifier for the record
     country_or_area:
       type: object
+      additionalProperties: false
       properties:
         en:
           type: string
           description: Country or area name in English
-      required:
-        - en
+        fr:
+          type: string
+        es:
+          type: string
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
     company_name:
       type: string
       description: Name of the telecommunications company
@@ -78,5 +73,11 @@ items:
       type: array
       items:
         type: string
-        format: email
       description: Email addresses
+    issue_id_number:
+      type: string
+      description: Identifier for the record
+    effective_date:
+      type: string
+      description: Date when the information becomes effective
+description: ITU OB Dataset Schema for 1161 E.118

@@ -112,7 +112,8 @@ orden alfabético
 | {{ metadata_mcc_mnc.locale | where: "key", "network" | map: lang | first }} | {{ metadata_mcc_mnc.locale | where: "key", "mcc_mnc" | map: lang | first }} | {{ metadata_mcc_mnc.locale | where: "key", "status" | map: lang | first }}
 
 {% for company in data_mcc_mnc %}
-<| {{ company.network }} | {{ company.mcc_mnc }} | {{ company.status }}
+{% assign status_text = metadata_mcc_mnc.locale | where: "key", company.status | map: lang | first | default: company.status %}
+<| {{ company.network }} | {{ company.mcc_mnc }} | {{ status_text }}
 {% endfor %}
 
 |===

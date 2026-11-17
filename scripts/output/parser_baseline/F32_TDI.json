@@ -17,7 +17,10 @@
             "telegraph_office_name": {
               "en": "Amman"
             },
-            "office_code": "JOAM"
+            "office_code": "JOAM",
+            "network_codes": [
+              "JO"
+            ]
           },
           {
             "country_or_area": {
@@ -30,7 +33,10 @@
             "telegraph_office_name": {
               "en": "Jerusalem Jordan"
             },
-            "office_code": "JOJM"
+            "office_code": "JOJM",
+            "network_codes": [
+              "JO"
+            ]
           },
           {
             "country_or_area": {
@@ -43,7 +49,10 @@
             "telegraph_office_name": {
               "en": "All others"
             },
-            "office_code": "JOAX"
+            "office_code": "JOAX",
+            "network_codes": [
+              "JO"
+            ]
           }
         ]
       }
@@ -82,9 +91,268 @@
             "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
             "network_code": "MA-",
             "telegraph_office_name": {
-              "en": "ALOR STAR IPOH JOHORE BAHRU Kluang KOTA BHARU KELANTAN KOTA KINABALU KUALA LUMPUR KUALA TRENGGANU KUANTAN KUCHING MALACCA Pelabuhan Kelang PENANG PETALING JAYA SEREMBAN Taiping All others"
+              "en": "ALOR STAR"
             },
-            "office_code": "MAAS MAIP MAJB MAKU MAKO MAKB MAKL MATG MAKN MAKG MAMC MAPK MAPG MAPJ MASR MATP MAMX"
+            "office_code": "MAAS",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "IPOH"
+            },
+            "office_code": "MAIP",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "JOHORE BAHRU"
+            },
+            "office_code": "MAJB",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "Kluang"
+            },
+            "office_code": "MAKU",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "KOTA BHARU KELANTAN"
+            },
+            "office_code": "MAKO",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "KOTA KINABALU"
+            },
+            "office_code": "MAKB",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "KUALA LUMPUR"
+            },
+            "office_code": "MAKL",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "KUALA TRENGGANU"
+            },
+            "office_code": "MATG",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "KUANTAN"
+            },
+            "office_code": "MAKN",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "KUCHING"
+            },
+            "office_code": "MAKG",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "MALACCA"
+            },
+            "office_code": "MAMC",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "Pelabuhan Kelang"
+            },
+            "office_code": "MAPK",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "PENANG"
+            },
+            "office_code": "MAPG",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "PETALING JAYA"
+            },
+            "office_code": "MAPJ",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "SEREMBAN"
+            },
+            "office_code": "MASR",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "Taiping"
+            },
+            "office_code": "MATP",
+            "network_codes": [
+              "MA"
+            ]
+          },
+          {
+            "country_or_area": {
+              "en": "MALAYSIA",
+              "fr": "MALAISIE",
+              "es": "MALASIA"
+            },
+            "network_roa": "TMB – Telekom Malaysia Berhad, Kuala Lumpur",
+            "network_code": "MA-",
+            "telegraph_office_name": {
+              "en": "All others"
+            },
+            "office_code": "MAMX",
+            "network_codes": [
+              "MA"
+            ]
           }
         ]
       }
@@ -114,7 +382,12 @@
             "telegraph_office_name": {
               "en": "15011 ACQUI TERME"
             },
-            "office_code": "--AC"
+            "office_code": "--AC",
+            "network_codes": [
+              "IU",
+              "IG",
+              "IT"
+            ]
           },
           {
             "country_or_area": {
@@ -130,7 +403,12 @@
             "telegraph_office_name": {
               "en": "45011 ADRIA"
             },
-            "office_code": "--AD"
+            "office_code": "--AD",
+            "network_codes": [
+              "IU",
+              "IG",
+              "IT"
+            ]
           },
           {
             "country_or_area": {
@@ -146,7 +424,12 @@
             "telegraph_office_name": {
               "en": "92100 AGRIGENTO"
             },
-            "office_code": "--AG"
+            "office_code": "--AG",
+            "network_codes": [
+              "IU",
+              "IG",
+              "IT"
+            ]
           },
           {
             "country_or_area": {
@@ -162,7 +445,12 @@
             "telegraph_office_name": {
               "en": "12051 ALBA"
             },
-            "office_code": "--AB"
+            "office_code": "--AB",
+            "network_codes": [
+              "IU",
+              "IG",
+              "IT"
+            ]
           },
           {
             "country_or_area": {
@@ -178,7 +466,12 @@
             "telegraph_office_name": {
               "en": "17031 ALBENGA"
             },
-            "office_code": "--AE"
+            "office_code": "--AE",
+            "network_codes": [
+              "IU",
+              "IG",
+              "IT"
+            ]
           },
           {
             "country_or_area": {
@@ -194,7 +487,12 @@
             "telegraph_office_name": {
               "en": "91011 ALCAMO"
             },
-            "office_code": "--AA"
+            "office_code": "--AA",
+            "network_codes": [
+              "IU",
+              "IG",
+              "IT"
+            ]
           },
           {
             "country_or_area": {
@@ -210,7 +508,12 @@
             "telegraph_office_name": {
               "en": "15100 ALESSANDRIA"
             },
-            "office_code": "--AL"
+            "office_code": "--AL",
+            "network_codes": [
+              "IU",
+              "IG",
+              "IT"
+            ]
           },
           {
             "country_or_area": {
@@ -226,7 +529,12 @@
             "telegraph_office_name": {
               "en": "60100 ANCONA"
             },
-            "office_code": "--AN"
+            "office_code": "--AN",
+            "network_codes": [
+              "IU",
+              "IG",
+              "IT"
+            ]
           },
           {
             "country_or_area": {
@@ -242,7 +550,12 @@
             "telegraph_office_name": {
               "en": "70031 ANDRIA"
             },
-            "office_code": "--AI"
+            "office_code": "--AI",
+            "network_codes": [
+              "IU",
+              "IG",
+              "IT"
+            ]
           },
           {
             "country_or_area": {
@@ -258,7 +571,12 @@
             "telegraph_office_name": {
               "en": "11100 AOSTA"
             },
-            "office_code": "--AO"
+            "office_code": "--AO",
+            "network_codes": [
+              "IU",
+              "IG",
+              "IT"
+            ]
           },
           {
             "country_or_area": {
@@ -3887,355 +4205,515 @@
         "entries": [
           {
             "country_or_area": {
-              "fr": "UKRAINE"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Telecommunications Corporation,",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Cherkasy"
             },
-            "office_code": "UXCK"
+            "office_code": "UXCK",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Chernihiv"
             },
-            "office_code": "UXCG"
+            "office_code": "UXCG",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Chernivtsi"
             },
-            "office_code": "UXCV"
+            "office_code": "UXCV",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Dnipropetrovsk"
             },
-            "office_code": "UXDP"
+            "office_code": "UXDP",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Donetsk"
             },
-            "office_code": "UXDC"
+            "office_code": "UXDC",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Horlivka"
             },
-            "office_code": "UXGR"
+            "office_code": "UXGR",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Ivano-Frankivsk"
             },
-            "office_code": "UXIF"
+            "office_code": "UXIF",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Kharkiv"
             },
-            "office_code": "UXHR"
+            "office_code": "UXHR",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Kherson"
             },
-            "office_code": "UXHS"
+            "office_code": "UXHS",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Khmelnitskyi"
             },
-            "office_code": "UXHM"
+            "office_code": "UXHM",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Kirovohrad"
             },
-            "office_code": "UXKG"
+            "office_code": "UXKG",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Kramatorsk"
             },
-            "office_code": "UXKM"
+            "office_code": "UXKM",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Kryvyi Rih"
             },
-            "office_code": "UXKR"
+            "office_code": "UXKR",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Kyiv"
             },
-            "office_code": "UXKV"
+            "office_code": "UXKV",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Luhansk"
             },
-            "office_code": "UXLK"
+            "office_code": "UXLK",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Lutsk"
             },
-            "office_code": "UXLC"
+            "office_code": "UXLC",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Lviv"
             },
-            "office_code": "UXLV"
+            "office_code": "UXLV",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Mariupol"
             },
-            "office_code": "UXMR"
+            "office_code": "UXMR",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Mykolaiv"
             },
-            "office_code": "UXMK"
+            "office_code": "UXMK",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Odesa"
             },
-            "office_code": "UXOD"
+            "office_code": "UXOD",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Poltava"
             },
-            "office_code": "UXPL"
+            "office_code": "UXPL",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Rivne"
             },
-            "office_code": "UXRV"
+            "office_code": "UXRV",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Sevastopol"
             },
-            "office_code": "UXSV"
+            "office_code": "UXSV",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Simferopol"
             },
-            "office_code": "UXSF"
+            "office_code": "UXSF",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Sumy"
             },
-            "office_code": "UXSU"
+            "office_code": "UXSU",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Ternopil"
             },
-            "office_code": "UXTR"
+            "office_code": "UXTR",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Uzhhorod"
             },
-            "office_code": "UXUG"
+            "office_code": "UXUG",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Vinnytsia"
             },
-            "office_code": "UXVC"
+            "office_code": "UXVC",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Yalta"
             },
-            "office_code": "UXYL"
+            "office_code": "UXYL",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Zaporizhia"
             },
-            "office_code": "UXZP"
+            "office_code": "UXZP",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "Zhytomyr"
             },
-            "office_code": "UXZT"
+            "office_code": "UXZT",
+            "network_codes": [
+              "UX"
+            ]
           },
           {
             "country_or_area": {
-              "fr": "UCRANIA"
+              "en": "UKRAINE",
+              "fr": "UKRAINE",
+              "es": "UCRANIA"
             },
             "network_roa": "Kyiv",
             "network_code": "UX- -",
             "telegraph_office_name": {
               "en": "All others"
             },
-            "office_code": "UXKX"
+            "office_code": "UXKX",
+            "network_codes": [
+              "UX"
+            ]
           }
         ]
       }
@@ -4263,7 +4741,10 @@
             "telegraph_office_name": {
               "en": "Toutes destinations All destinations- Todos los destinos"
             },
-            "office_code": "DPXX"
+            "office_code": "DPXX",
+            "network_codes": [
+              "DP"
+            ]
           },
           {
             "country_or_area": {
@@ -4276,7 +4757,11 @@
             "telegraph_office_name": {
               "en": "Toutes destinations All destinations- Todos los destinos"
             },
-            "office_code": "DDXX"
+            "office_code": "DDXX",
+            "network_codes": [
+              "DP",
+              "DD"
+            ]
           }
         ]
       },
@@ -4296,7 +4781,10 @@
             "telegraph_office_name": {
               "en": "Vilnius Toutes destinations All destinations- Todos los destinos"
             },
-            "office_code": "LTXX"
+            "office_code": "LTXX",
+            "network_codes": [
+              "LT"
+            ]
           }
         ]
       },
@@ -4316,7 +4804,10 @@
             "telegraph_office_name": {
               "en": "Vila / Port Vila Toutes destinations All destinations - Todos los destinos"
             },
-            "office_code": "NHVL NHVX"
+            "office_code": "NHVL NHVX",
+            "network_codes": [
+              "NH"
+            ]
           }
         ]
       }
@@ -4346,7 +4837,10 @@
             "telegraph_office_name": {
               "en": "Antananarivo Tamatave Tulear - Tous les autres"
             },
-            "office_code": "MGTE MGTA MGTR MGTX"
+            "office_code": "MGTE MGTA MGTR MGTX",
+            "network_codes": [
+              "MG"
+            ]
           }
         ]
       },
@@ -4378,7 +4872,10 @@
             "telegraph_office_name": {
               "en": "Vilnius Toutes destinations All destinations - Todos los destinos"
             },
-            "office_code": "LTXX"
+            "office_code": "LTXX",
+            "network_codes": [
+              "LT"
+            ]
           }
         ]
       }
@@ -4406,7 +4903,10 @@
             "telegraph_office_name": {
               "en": "BARCELONA MADRID Telegrams with service indication TFx Toutes destinations All destinations - Todos los destinos"
             },
-            "office_code": "ESBX ESMX ESTT 1 ESXX"
+            "office_code": "ESBX ESMX ESTT 1 ESXX",
+            "network_codes": [
+              "ES"
+            ]
           }
         ]
       }
@@ -4433,7 +4933,10 @@
             "telegraph_office_name": {
               "en": "Bahrain"
             },
-            "office_code": "BNBA"
+            "office_code": "BNBA",
+            "network_codes": [
+              "BN"
+            ]
           },
           {
             "country_or_area": {
@@ -4446,7 +4949,10 @@
             "telegraph_office_name": {
               "en": "Bahrain Radio"
             },
-            "office_code": "BNBR"
+            "office_code": "BNBR",
+            "network_codes": [
+              "BN"
+            ]
           },
           {
             "country_or_area": {
@@ -4459,7 +4965,10 @@
             "telegraph_office_name": {
               "en": "Manama"
             },
-            "office_code": "BNMA"
+            "office_code": "BNMA",
+            "network_codes": [
+              "BN"
+            ]
           },
           {
             "country_or_area": {
@@ -4472,7 +4981,10 @@
             "telegraph_office_name": {
               "en": "Manama Diplomatic Area Counter"
             },
-            "office_code": "BNDP"
+            "office_code": "BNDP",
+            "network_codes": [
+              "BN"
+            ]
           },
           {
             "country_or_area": {
@@ -4485,7 +4997,10 @@
             "telegraph_office_name": {
               "en": "Manama Shaikh Mubarrak Counter"
             },
-            "office_code": "BNSM"
+            "office_code": "BNSM",
+            "network_codes": [
+              "BN"
+            ]
           },
           {
             "country_or_area": {
@@ -4498,7 +5013,10 @@
             "telegraph_office_name": {
               "en": "Muharraq"
             },
-            "office_code": "BNMU"
+            "office_code": "BNMU",
+            "network_codes": [
+              "BN"
+            ]
           },
           {
             "country_or_area": {
@@ -4511,7 +5029,10 @@
             "telegraph_office_name": {
               "en": "Toutes destinations / All Destinations / Todos los destinos"
             },
-            "office_code": "BNBX"
+            "office_code": "BNBX",
+            "network_codes": [
+              "BN"
+            ]
           }
         ]
       }
@@ -4536,7 +5057,10 @@
             "telegraph_office_name": {
               "en": "All destinations"
             },
-            "office_code": "DHXX"
+            "office_code": "DHXX",
+            "network_codes": [
+              "DH"
+            ]
           }
         ]
       }
@@ -4563,7 +5087,10 @@
             "telegraph_office_name": {
               "en": "15 MAY CITY"
             },
-            "office_code": "UNMY"
+            "office_code": "UNMY",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4576,7 +5103,10 @@
             "telegraph_office_name": {
               "en": "6 OCTOBER CITY"
             },
-            "office_code": "UNPH"
+            "office_code": "UNPH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4589,7 +5119,10 @@
             "telegraph_office_name": {
               "en": "ABASIA CENTRAL"
             },
-            "office_code": "UNAB"
+            "office_code": "UNAB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4602,7 +5135,10 @@
             "telegraph_office_name": {
               "en": "ABASIA EGYPT"
             },
-            "office_code": "UNAE"
+            "office_code": "UNAE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4615,7 +5151,10 @@
             "telegraph_office_name": {
               "en": "ABASIA EGYPT /B"
             },
-            "office_code": "UNAE"
+            "office_code": "UNAE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4628,7 +5167,10 @@
             "telegraph_office_name": {
               "en": "ABNOUB"
             },
-            "office_code": "UNAO"
+            "office_code": "UNAO",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4641,7 +5183,10 @@
             "telegraph_office_name": {
               "en": "ABSHWAY"
             },
-            "office_code": "UNFB"
+            "office_code": "UNFB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4654,7 +5199,10 @@
             "telegraph_office_name": {
               "en": "ABU BAKER EL SDEEK"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4667,7 +5215,10 @@
             "telegraph_office_name": {
               "en": "ABU EL MATAMEER"
             },
-            "office_code": "UNRV"
+            "office_code": "UNRV",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4680,7 +5231,10 @@
             "telegraph_office_name": {
               "en": "ABU HAMMAD"
             },
-            "office_code": "UNZA"
+            "office_code": "UNZA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4693,7 +5247,10 @@
             "telegraph_office_name": {
               "en": "ABU HOMMOS"
             },
-            "office_code": "UNRB"
+            "office_code": "UNRB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4706,7 +5263,10 @@
             "telegraph_office_name": {
               "en": "ABU KEBEER"
             },
-            "office_code": "UNZE"
+            "office_code": "UNZE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4719,7 +5279,10 @@
             "telegraph_office_name": {
               "en": "ABU KERKAS"
             },
-            "office_code": "UNNK"
+            "office_code": "UNNK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4732,7 +5295,10 @@
             "telegraph_office_name": {
               "en": "ABU QUEER"
             },
-            "office_code": "UNXN"
+            "office_code": "UNXN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4745,7 +5311,10 @@
             "telegraph_office_name": {
               "en": "ABU RDEES"
             },
-            "office_code": "UNOR"
+            "office_code": "UNOR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4758,7 +5327,10 @@
             "telegraph_office_name": {
               "en": "ABU SHOSHA"
             },
-            "office_code": "UNQB"
+            "office_code": "UNQB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4771,7 +5343,10 @@
             "telegraph_office_name": {
               "en": "ABU SOMBOL SYAHY"
             },
-            "office_code": "UNWB"
+            "office_code": "UNWB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4784,7 +5359,10 @@
             "telegraph_office_name": {
               "en": "ABU TEEG"
             },
-            "office_code": "UNAG"
+            "office_code": "UNAG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4797,7 +5375,10 @@
             "telegraph_office_name": {
               "en": "ABU TESHT"
             },
-            "office_code": "UNQT"
+            "office_code": "UNQT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4810,7 +5391,10 @@
             "telegraph_office_name": {
               "en": "ADLY"
             },
-            "office_code": "UNAD"
+            "office_code": "UNAD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4823,7 +5407,10 @@
             "telegraph_office_name": {
               "en": "ADLY/B"
             },
-            "office_code": "UNAD"
+            "office_code": "UNAD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4836,7 +5423,10 @@
             "telegraph_office_name": {
               "en": "ADLY/D"
             },
-            "office_code": "UNAD"
+            "office_code": "UNAD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4849,7 +5439,10 @@
             "telegraph_office_name": {
               "en": "ADLY/G"
             },
-            "office_code": "UNAD"
+            "office_code": "UNAD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4862,7 +5455,10 @@
             "telegraph_office_name": {
               "en": "ADMINISTRATION"
             },
-            "office_code": "UNCA"
+            "office_code": "UNCA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4875,7 +5471,10 @@
             "telegraph_office_name": {
               "en": "AGA"
             },
-            "office_code": "UNMN"
+            "office_code": "UNMN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4888,7 +5487,10 @@
             "telegraph_office_name": {
               "en": "AIN SHAMS"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4901,7 +5503,10 @@
             "telegraph_office_name": {
               "en": "AIN SHAMS CENTRAL"
             },
-            "office_code": "UNAS"
+            "office_code": "UNAS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4914,7 +5519,10 @@
             "telegraph_office_name": {
               "en": "ALEXANDRIA"
             },
-            "office_code": "UNXC"
+            "office_code": "UNXC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4927,7 +5535,10 @@
             "telegraph_office_name": {
               "en": "ALEXANDRIA FIVE"
             },
-            "office_code": "UNXZ"
+            "office_code": "UNXZ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4940,7 +5551,10 @@
             "telegraph_office_name": {
               "en": "ALEXANDRIA FOUR"
             },
-            "office_code": "UNXA"
+            "office_code": "UNXA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4953,7 +5567,10 @@
             "telegraph_office_name": {
               "en": "ALEXANDRIA MARKONY"
             },
-            "office_code": "UNAA"
+            "office_code": "UNAA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4966,7 +5583,10 @@
             "telegraph_office_name": {
               "en": "ALEXANDRIA MARKONY /B"
             },
-            "office_code": "UNAA"
+            "office_code": "UNAA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4979,7 +5599,10 @@
             "telegraph_office_name": {
               "en": "ALEXANDRIA STATION"
             },
-            "office_code": "UNXE"
+            "office_code": "UNXE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -4992,7 +5615,10 @@
             "telegraph_office_name": {
               "en": "ALEXANDRIA THREE"
             },
-            "office_code": "UNXS"
+            "office_code": "UNXS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5005,7 +5631,10 @@
             "telegraph_office_name": {
               "en": "ALEXANDRIA TWO"
             },
-            "office_code": "UNXB"
+            "office_code": "UNXB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5018,7 +5647,10 @@
             "telegraph_office_name": {
               "en": "ALFY EGYPT"
             },
-            "office_code": "UNEE"
+            "office_code": "UNEE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5031,7 +5663,10 @@
             "telegraph_office_name": {
               "en": "ALFY EGYPTHREE"
             },
-            "office_code": "UNEE"
+            "office_code": "UNEE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5044,7 +5679,10 @@
             "telegraph_office_name": {
               "en": "ALFY EGYPTWO"
             },
-            "office_code": "UNEE"
+            "office_code": "UNEE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5057,7 +5695,10 @@
             "telegraph_office_name": {
               "en": "ARISH"
             },
-            "office_code": "UNVA"
+            "office_code": "UNVA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5070,7 +5711,10 @@
             "telegraph_office_name": {
               "en": "ARMANT"
             },
-            "office_code": "UNLA"
+            "office_code": "UNLA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5083,7 +5727,10 @@
             "telegraph_office_name": {
               "en": "ASHEEKH ZAYD"
             },
-            "office_code": "UNIZ"
+            "office_code": "UNIZ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5096,7 +5743,10 @@
             "telegraph_office_name": {
               "en": "ASHER RAMADAN CITY"
             },
-            "office_code": "UNZR"
+            "office_code": "UNZR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5109,7 +5759,10 @@
             "telegraph_office_name": {
               "en": "ASHMOUN"
             },
-            "office_code": "UNKM"
+            "office_code": "UNKM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5122,7 +5775,10 @@
             "telegraph_office_name": {
               "en": "ASIOUT"
             },
-            "office_code": "UNAT"
+            "office_code": "UNAT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5135,7 +5791,10 @@
             "telegraph_office_name": {
               "en": "ASIOUT FOUR"
             },
-            "office_code": "UNAT"
+            "office_code": "UNAT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5148,7 +5807,10 @@
             "telegraph_office_name": {
               "en": "ASIOUT GAMAA"
             },
-            "office_code": "UNAG"
+            "office_code": "UNAG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5161,7 +5823,10 @@
             "telegraph_office_name": {
               "en": "ASIOUT STATION"
             },
-            "office_code": "UNAS"
+            "office_code": "UNAS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5174,7 +5839,10 @@
             "telegraph_office_name": {
               "en": "ASIOUT THREE"
             },
-            "office_code": "UNAT"
+            "office_code": "UNAT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5187,7 +5855,10 @@
             "telegraph_office_name": {
               "en": "ASIOUT TOWN"
             },
-            "office_code": "UNAU"
+            "office_code": "UNAU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5200,7 +5871,10 @@
             "telegraph_office_name": {
               "en": "ASIOUT TWO"
             },
-            "office_code": "UNAT"
+            "office_code": "UNAT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5213,7 +5887,10 @@
             "telegraph_office_name": {
               "en": "ASIOUT WEST"
             },
-            "office_code": "UNAW"
+            "office_code": "UNAW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5226,7 +5903,10 @@
             "telegraph_office_name": {
               "en": "ASWAN"
             },
-            "office_code": "UNAW"
+            "office_code": "UNAW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5239,7 +5919,10 @@
             "telegraph_office_name": {
               "en": "ASWAN STATION"
             },
-            "office_code": "UNSW"
+            "office_code": "UNSW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5252,7 +5935,10 @@
             "telegraph_office_name": {
               "en": "ASWAN THREE"
             },
-            "office_code": "UNAW"
+            "office_code": "UNAW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5265,7 +5951,10 @@
             "telegraph_office_name": {
               "en": "ASWAN TWO"
             },
-            "office_code": "UNAW"
+            "office_code": "UNAW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5278,7 +5967,10 @@
             "telegraph_office_name": {
               "en": "ATSA"
             },
-            "office_code": "UNFA"
+            "office_code": "UNFA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5291,7 +5983,10 @@
             "telegraph_office_name": {
               "en": "BAB EL LOUK"
             },
-            "office_code": "UNBL"
+            "office_code": "UNBL",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5304,7 +5999,10 @@
             "telegraph_office_name": {
               "en": "BAB EL LOUK/B"
             },
-            "office_code": "UNBL"
+            "office_code": "UNBL",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5317,7 +6015,10 @@
             "telegraph_office_name": {
               "en": "BAB EL SHEARIA"
             },
-            "office_code": "UNBS"
+            "office_code": "UNBS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5330,7 +6031,10 @@
             "telegraph_office_name": {
               "en": "BAB EL SHEARIA/B"
             },
-            "office_code": "UNBS"
+            "office_code": "UNBS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5343,7 +6047,10 @@
             "telegraph_office_name": {
               "en": "BAIN EL SARAYAT"
             },
-            "office_code": "UNAH"
+            "office_code": "UNAH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5356,7 +6063,10 @@
             "telegraph_office_name": {
               "en": "BAIN EL SARAYAT/B"
             },
-            "office_code": "UNAH"
+            "office_code": "UNAH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5369,7 +6079,10 @@
             "telegraph_office_name": {
               "en": "BALIANA"
             },
-            "office_code": "UNGB"
+            "office_code": "UNGB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5382,7 +6095,10 @@
             "telegraph_office_name": {
               "en": "BALTEEM"
             },
-            "office_code": "UNST"
+            "office_code": "UNST",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5395,7 +6111,10 @@
             "telegraph_office_name": {
               "en": "BANHA"
             },
-            "office_code": "UNBB"
+            "office_code": "UNBB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5408,7 +6127,10 @@
             "telegraph_office_name": {
               "en": "BANHA CENTRAL"
             },
-            "office_code": "UNBA"
+            "office_code": "UNBA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5421,7 +6143,10 @@
             "telegraph_office_name": {
               "en": "BANHA TWO"
             },
-            "office_code": "UNBB"
+            "office_code": "UNBB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5434,7 +6159,10 @@
             "telegraph_office_name": {
               "en": "BANI MAZAR"
             },
-            "office_code": "UNNB"
+            "office_code": "UNNB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5447,7 +6175,10 @@
             "telegraph_office_name": {
               "en": "BASYOUN"
             },
-            "office_code": "UNTB"
+            "office_code": "UNTB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5460,7 +6191,10 @@
             "telegraph_office_name": {
               "en": "BEAR EL ABD"
             },
-            "office_code": "UNVB"
+            "office_code": "UNVB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5473,7 +6207,10 @@
             "telegraph_office_name": {
               "en": "BEBA"
             },
-            "office_code": "UNUB"
+            "office_code": "UNUB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5486,7 +6223,10 @@
             "telegraph_office_name": {
               "en": "BEILA"
             },
-            "office_code": "UNSB"
+            "office_code": "UNSB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5499,7 +6239,10 @@
             "telegraph_office_name": {
               "en": "BELBEES"
             },
-            "office_code": "UNZB"
+            "office_code": "UNZB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5512,7 +6255,10 @@
             "telegraph_office_name": {
               "en": "BELQAS"
             },
-            "office_code": "UNMB"
+            "office_code": "UNMB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5525,7 +6271,10 @@
             "telegraph_office_name": {
               "en": "BENI SUEF"
             },
-            "office_code": "UNSU"
+            "office_code": "UNSU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5538,7 +6287,10 @@
             "telegraph_office_name": {
               "en": "BENI SUEF STATION"
             },
-            "office_code": "UNAU"
+            "office_code": "UNAU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5551,7 +6303,10 @@
             "telegraph_office_name": {
               "en": "BENI SUEF TOWN"
             },
-            "office_code": "UNSW"
+            "office_code": "UNSW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5564,7 +6319,10 @@
             "telegraph_office_name": {
               "en": "BENI SUEF TWO"
             },
-            "office_code": "UNSU"
+            "office_code": "UNSU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5577,7 +6335,10 @@
             "telegraph_office_name": {
               "en": "BERKET EL SABAA"
             },
-            "office_code": "UNKA"
+            "office_code": "UNKA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5590,7 +6351,10 @@
             "telegraph_office_name": {
               "en": "BOLAK MISR"
             },
-            "office_code": "UNRM"
+            "office_code": "UNRM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5603,7 +6367,10 @@
             "telegraph_office_name": {
               "en": "BURG EL ARAB"
             },
-            "office_code": "UNXL"
+            "office_code": "UNXL",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5616,7 +6383,10 @@
             "telegraph_office_name": {
               "en": "BURG ELTHAGHR"
             },
-            "office_code": "UNXT"
+            "office_code": "UNXT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5629,7 +6399,10 @@
             "telegraph_office_name": {
               "en": "CAIRO"
             },
-            "office_code": "UNRM"
+            "office_code": "UNRM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5642,7 +6415,10 @@
             "telegraph_office_name": {
               "en": "CAIRO AIRPORT"
             },
-            "office_code": "UNAR"
+            "office_code": "UNAR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5655,7 +6431,10 @@
             "telegraph_office_name": {
               "en": "CAIRO AIRPORT/B"
             },
-            "office_code": "UNAR"
+            "office_code": "UNAR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5668,7 +6447,10 @@
             "telegraph_office_name": {
               "en": "CAREGY EIGHT"
             },
-            "office_code": "UNRM"
+            "office_code": "UNRM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5681,7 +6463,10 @@
             "telegraph_office_name": {
               "en": "CAREGY FIVE"
             },
-            "office_code": "UNRM"
+            "office_code": "UNRM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5694,7 +6479,10 @@
             "telegraph_office_name": {
               "en": "CAREGY FOUR"
             },
-            "office_code": "UNRM"
+            "office_code": "UNRM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5707,7 +6495,10 @@
             "telegraph_office_name": {
               "en": "CAREGY NINE"
             },
-            "office_code": "UNRM"
+            "office_code": "UNRM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5720,7 +6511,10 @@
             "telegraph_office_name": {
               "en": "CAREGY SEVEN"
             },
-            "office_code": "UNRM"
+            "office_code": "UNRM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5733,7 +6527,10 @@
             "telegraph_office_name": {
               "en": "CAREGY SIX"
             },
-            "office_code": "UNRM"
+            "office_code": "UNRM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5746,7 +6543,10 @@
             "telegraph_office_name": {
               "en": "CAREGY THREE"
             },
-            "office_code": "UNRM"
+            "office_code": "UNRM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5759,7 +6559,10 @@
             "telegraph_office_name": {
               "en": "CAREGY TWO"
             },
-            "office_code": "UNRM"
+            "office_code": "UNRM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5772,7 +6575,10 @@
             "telegraph_office_name": {
               "en": "CENTER"
             },
-            "office_code": "UNCE"
+            "office_code": "UNCE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5785,7 +6591,10 @@
             "telegraph_office_name": {
               "en": "DAMANHOUR"
             },
-            "office_code": "UNRD"
+            "office_code": "UNRD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5798,7 +6607,10 @@
             "telegraph_office_name": {
               "en": "DAMANHOUR TWO"
             },
-            "office_code": "UNRD"
+            "office_code": "UNRD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5811,7 +6623,10 @@
             "telegraph_office_name": {
               "en": "DAR EL HEKMA"
             },
-            "office_code": "UNAG"
+            "office_code": "UNAG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5824,7 +6639,10 @@
             "telegraph_office_name": {
               "en": "DAR EL SALAM"
             },
-            "office_code": "UNGR"
+            "office_code": "UNGR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5837,7 +6655,10 @@
             "telegraph_office_name": {
               "en": "DATA BASE"
             },
-            "office_code": "UNDB"
+            "office_code": "UNDB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5850,7 +6671,10 @@
             "telegraph_office_name": {
               "en": "DEER MOUAS"
             },
-            "office_code": "UNND"
+            "office_code": "UNND",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5863,7 +6687,10 @@
             "telegraph_office_name": {
               "en": "DEKERNES"
             },
-            "office_code": "UNMD"
+            "office_code": "UNMD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5876,7 +6703,10 @@
             "telegraph_office_name": {
               "en": "DEMITTA"
             },
-            "office_code": "UNDT"
+            "office_code": "UNDT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5889,7 +6719,10 @@
             "telegraph_office_name": {
               "en": "DEMITTA NEW"
             },
-            "office_code": "UNLD"
+            "office_code": "UNLD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5902,7 +6735,10 @@
             "telegraph_office_name": {
               "en": "DEMITTA SYAHY"
             },
-            "office_code": "UNDC"
+            "office_code": "UNDC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5915,7 +6751,10 @@
             "telegraph_office_name": {
               "en": "DEMITTA TWO"
             },
-            "office_code": "UNDT"
+            "office_code": "UNDT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5928,7 +6767,10 @@
             "telegraph_office_name": {
               "en": "DESHNA"
             },
-            "office_code": "UNQD"
+            "office_code": "UNQD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5941,7 +6783,10 @@
             "telegraph_office_name": {
               "en": "DESOUK"
             },
-            "office_code": "UNSD"
+            "office_code": "UNSD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5954,7 +6799,10 @@
             "telegraph_office_name": {
               "en": "DIROUT"
             },
-            "office_code": "UNAD"
+            "office_code": "UNAD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5967,7 +6815,10 @@
             "telegraph_office_name": {
               "en": "DRAW"
             },
-            "office_code": "UNWD"
+            "office_code": "UNWD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5980,7 +6831,10 @@
             "telegraph_office_name": {
               "en": "DYARB NIGM"
             },
-            "office_code": "UNZD"
+            "office_code": "UNZD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -5993,7 +6847,10 @@
             "telegraph_office_name": {
               "en": "EDFOU"
             },
-            "office_code": "UNWF"
+            "office_code": "UNWF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6006,7 +6863,10 @@
             "telegraph_office_name": {
               "en": "EDKO"
             },
-            "office_code": "UNRE"
+            "office_code": "UNRE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6019,7 +6879,10 @@
             "telegraph_office_name": {
               "en": "EHNASIA"
             },
-            "office_code": "UNUH"
+            "office_code": "UNUH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6032,7 +6895,10 @@
             "telegraph_office_name": {
               "en": "EKHMEEM"
             },
-            "office_code": "UNGE"
+            "office_code": "UNGE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6045,7 +6911,10 @@
             "telegraph_office_name": {
               "en": "EL AAMERIYA"
             },
-            "office_code": "UNXQ"
+            "office_code": "UNXQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6058,7 +6927,10 @@
             "telegraph_office_name": {
               "en": "EL AGAMY CENTRAL"
             },
-            "office_code": "UNXY"
+            "office_code": "UNXY",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6071,7 +6943,10 @@
             "telegraph_office_name": {
               "en": "EL AKADEMYA"
             },
-            "office_code": "UNXK"
+            "office_code": "UNXK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6084,7 +6959,10 @@
             "telegraph_office_name": {
               "en": "EL AMERIYA"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6097,7 +6975,10 @@
             "telegraph_office_name": {
               "en": "EL AYAT"
             },
-            "office_code": "UNAY"
+            "office_code": "UNAY",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6110,7 +6991,10 @@
             "telegraph_office_name": {
               "en": "EL BADARY"
             },
-            "office_code": "UNAB"
+            "office_code": "UNAB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6123,7 +7007,10 @@
             "telegraph_office_name": {
               "en": "EL BADRSHEEN"
             },
-            "office_code": "UNBD"
+            "office_code": "UNBD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6136,7 +7023,10 @@
             "telegraph_office_name": {
               "en": "EL BAGOUR"
             },
-            "office_code": "UNKG"
+            "office_code": "UNKG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6149,7 +7039,10 @@
             "telegraph_office_name": {
               "en": "EL DAKHLA"
             },
-            "office_code": "UNYD"
+            "office_code": "UNYD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6162,7 +7055,10 @@
             "telegraph_office_name": {
               "en": "EL DAKHLA TWO"
             },
-            "office_code": "UNYD"
+            "office_code": "UNYD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6175,7 +7071,10 @@
             "telegraph_office_name": {
               "en": "EL DELENGAT"
             },
-            "office_code": "UNRL"
+            "office_code": "UNRL",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6188,7 +7087,10 @@
             "telegraph_office_name": {
               "en": "EL DOKKI CENTRAL"
             },
-            "office_code": "UNDI"
+            "office_code": "UNDI",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6201,7 +7103,10 @@
             "telegraph_office_name": {
               "en": "EL DOKKI CENTRAL/B"
             },
-            "office_code": "UNDI"
+            "office_code": "UNDI",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6214,7 +7119,10 @@
             "telegraph_office_name": {
               "en": "EL DOKKI EGYPT"
             },
-            "office_code": "UNDK"
+            "office_code": "UNDK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6227,7 +7135,10 @@
             "telegraph_office_name": {
               "en": "EL EBRAHIMIA SHARKIA"
             },
-            "office_code": "UNZP"
+            "office_code": "UNZP",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6240,7 +7151,10 @@
             "telegraph_office_name": {
               "en": "EL EDWA"
             },
-            "office_code": "UNNE"
+            "office_code": "UNNE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6253,7 +7167,10 @@
             "telegraph_office_name": {
               "en": "EL ESLAH EL ZERAAY"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6266,7 +7183,10 @@
             "telegraph_office_name": {
               "en": "EL FARAFRA"
             },
-            "office_code": "UNYC"
+            "office_code": "UNYC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6279,7 +7199,10 @@
             "telegraph_office_name": {
               "en": "EL FASHN"
             },
-            "office_code": "UNUF"
+            "office_code": "UNUF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6292,7 +7215,10 @@
             "telegraph_office_name": {
               "en": "EL GALAA"
             },
-            "office_code": "UNGA"
+            "office_code": "UNGA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6305,7 +7231,10 @@
             "telegraph_office_name": {
               "en": "EL GEHAZ EL MARKZY"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6318,7 +7247,10 @@
             "telegraph_office_name": {
               "en": "EL GHNAYEM"
             },
-            "office_code": "UNAF"
+            "office_code": "UNAF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6331,7 +7263,10 @@
             "telegraph_office_name": {
               "en": "EL HADY ESLAMY"
             },
-            "office_code": "UNHE"
+            "office_code": "UNHE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6344,7 +7279,10 @@
             "telegraph_office_name": {
               "en": "EL HAMAM MATROUH"
             },
-            "office_code": "UNKM"
+            "office_code": "UNKM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6357,7 +7295,10 @@
             "telegraph_office_name": {
               "en": "EL HAMOUL"
             },
-            "office_code": "UNSO"
+            "office_code": "UNSO",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6370,7 +7311,10 @@
             "telegraph_office_name": {
               "en": "EL HARAM CENTRAL"
             },
-            "office_code": "UNEH"
+            "office_code": "UNEH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6383,7 +7327,10 @@
             "telegraph_office_name": {
               "en": "EL HARAMEEN"
             },
-            "office_code": "UNXO"
+            "office_code": "UNXO",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6396,7 +7343,10 @@
             "telegraph_office_name": {
               "en": "EL HARAMEEN/B"
             },
-            "office_code": "UNOX"
+            "office_code": "UNOX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6409,7 +7359,10 @@
             "telegraph_office_name": {
               "en": "EL HAWAMDIYA"
             },
-            "office_code": "UNHY"
+            "office_code": "UNHY",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6422,7 +7375,10 @@
             "telegraph_office_name": {
               "en": "EL HESANIA SHARKIA"
             },
-            "office_code": "UNZN"
+            "office_code": "UNZN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6435,7 +7391,10 @@
             "telegraph_office_name": {
               "en": "EL KABBARY"
             },
-            "office_code": "UNXK"
+            "office_code": "UNXK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6448,7 +7407,10 @@
             "telegraph_office_name": {
               "en": "EL KASER"
             },
-            "office_code": "UNYQ"
+            "office_code": "UNYQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6461,7 +7423,10 @@
             "telegraph_office_name": {
               "en": "EL KHANKA"
             },
-            "office_code": "UNKA"
+            "office_code": "UNKA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6474,7 +7439,10 @@
             "telegraph_office_name": {
               "en": "EL KHARGA"
             },
-            "office_code": "UNYK"
+            "office_code": "UNYK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6487,7 +7455,10 @@
             "telegraph_office_name": {
               "en": "EL KHARGA TWO"
             },
-            "office_code": "UNYK"
+            "office_code": "UNYK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6500,7 +7471,10 @@
             "telegraph_office_name": {
               "en": "EL KOBBA CENTRAL"
             },
-            "office_code": "UNBQ"
+            "office_code": "UNBQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6513,7 +7487,10 @@
             "telegraph_office_name": {
               "en": "EL KORBA"
             },
-            "office_code": "UNKB"
+            "office_code": "UNKB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6526,7 +7503,10 @@
             "telegraph_office_name": {
               "en": "EL MAADI"
             },
-            "office_code": "UNMA"
+            "office_code": "UNMA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6539,7 +7519,10 @@
             "telegraph_office_name": {
               "en": "EL MAHALLA KOBRA"
             },
-            "office_code": "UNTM"
+            "office_code": "UNTM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6552,7 +7535,10 @@
             "telegraph_office_name": {
               "en": "EL MAHALLA TWO"
             },
-            "office_code": "UNTM"
+            "office_code": "UNTM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6565,7 +7551,10 @@
             "telegraph_office_name": {
               "en": "EL MAHMOUDEYA"
             },
-            "office_code": "UNRY"
+            "office_code": "UNRY",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6578,7 +7567,10 @@
             "telegraph_office_name": {
               "en": "EL MANSHIA CENTRAL"
             },
-            "office_code": "UNXW"
+            "office_code": "UNXW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6591,7 +7583,10 @@
             "telegraph_office_name": {
               "en": "EL MANSHIA CENTRAL/B"
             },
-            "office_code": "UNXW"
+            "office_code": "UNXW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6604,7 +7599,10 @@
             "telegraph_office_name": {
               "en": "EL MANSOURA"
             },
-            "office_code": "UNMN"
+            "office_code": "UNMN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6617,7 +7615,10 @@
             "telegraph_office_name": {
               "en": "EL MANSOURA CENTRAL"
             },
-            "office_code": "UNMN"
+            "office_code": "UNMN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6630,7 +7631,10 @@
             "telegraph_office_name": {
               "en": "EL MANSOURA THREE"
             },
-            "office_code": "UNMN"
+            "office_code": "UNMN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6643,7 +7647,10 @@
             "telegraph_office_name": {
               "en": "EL MANSOURA TWO"
             },
-            "office_code": "UNMN"
+            "office_code": "UNMN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6656,7 +7663,10 @@
             "telegraph_office_name": {
               "en": "EL MANZALA"
             },
-            "office_code": "UNMZ"
+            "office_code": "UNMZ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6669,7 +7679,10 @@
             "telegraph_office_name": {
               "en": "EL MARG CENTRAL"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6682,7 +7695,10 @@
             "telegraph_office_name": {
               "en": "EL MARYOTIA"
             },
-            "office_code": "UNMR"
+            "office_code": "UNMR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6695,7 +7711,10 @@
             "telegraph_office_name": {
               "en": "EL MARYOTIA /B"
             },
-            "office_code": "UNMR"
+            "office_code": "UNMR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6708,7 +7727,10 @@
             "telegraph_office_name": {
               "en": "EL MATARIYA CENTRAL"
             },
-            "office_code": "UNEM"
+            "office_code": "UNEM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6721,7 +7743,10 @@
             "telegraph_office_name": {
               "en": "EL MATARIYA CENTRAL/B"
             },
-            "office_code": "UNEM"
+            "office_code": "UNEM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6734,7 +7759,10 @@
             "telegraph_office_name": {
               "en": "EL MATARIYA DKAHLIA"
             },
-            "office_code": "UNMM"
+            "office_code": "UNMM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6747,7 +7775,10 @@
             "telegraph_office_name": {
               "en": "EL MATARIYA TOWN"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6760,7 +7791,10 @@
             "telegraph_office_name": {
               "en": "EL MAX"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6773,7 +7807,10 @@
             "telegraph_office_name": {
               "en": "EL MAZA CENTRAL"
             },
-            "office_code": "UNMZ"
+            "office_code": "UNMZ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6786,7 +7823,10 @@
             "telegraph_office_name": {
               "en": "EL MAZA TWO"
             },
-            "office_code": "UNMZ"
+            "office_code": "UNMZ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6799,7 +7839,10 @@
             "telegraph_office_name": {
               "en": "EL MENSHA"
             },
-            "office_code": "UNGN"
+            "office_code": "UNGN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6812,7 +7855,10 @@
             "telegraph_office_name": {
               "en": "EL MESALLA ALEXANDRIA"
             },
-            "office_code": "UNXP"
+            "office_code": "UNXP",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6825,7 +7871,10 @@
             "telegraph_office_name": {
               "en": "EL MINIA"
             },
-            "office_code": "UNNI"
+            "office_code": "UNNI",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6838,7 +7887,10 @@
             "telegraph_office_name": {
               "en": "EL MINIA STATION"
             },
-            "office_code": "UNNI"
+            "office_code": "UNNI",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6851,7 +7903,10 @@
             "telegraph_office_name": {
               "en": "EL MINIA THREE"
             },
-            "office_code": "UNNI"
+            "office_code": "UNNI",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6864,7 +7919,10 @@
             "telegraph_office_name": {
               "en": "EL MINIA TWO"
             },
-            "office_code": "UNNI"
+            "office_code": "UNNI",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6877,7 +7935,10 @@
             "telegraph_office_name": {
               "en": "EL MOHANDSEEN INT"
             },
-            "office_code": "UNMH"
+            "office_code": "UNMH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6890,7 +7951,10 @@
             "telegraph_office_name": {
               "en": "EL MOHANDSEEN INT/B"
             },
-            "office_code": "UNMH"
+            "office_code": "UNMH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6903,7 +7967,10 @@
             "telegraph_office_name": {
               "en": "EL MOKATUM EGYPT"
             },
-            "office_code": "UNKB"
+            "office_code": "UNKB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6916,7 +7983,10 @@
             "telegraph_office_name": {
               "en": "EL MOSKY"
             },
-            "office_code": "UNSY"
+            "office_code": "UNSY",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6929,7 +7999,10 @@
             "telegraph_office_name": {
               "en": "EL MOSTAGADA SHOUHAG"
             },
-            "office_code": "UNSG"
+            "office_code": "UNSG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6942,7 +8015,10 @@
             "telegraph_office_name": {
               "en": "EL MRAGHA"
             },
-            "office_code": "UNGL"
+            "office_code": "UNGL",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6955,7 +8031,10 @@
             "telegraph_office_name": {
               "en": "EL NOZHA CENTRAL"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6968,7 +8047,10 @@
             "telegraph_office_name": {
               "en": "EL NOZHA THREE"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6981,7 +8063,10 @@
             "telegraph_office_name": {
               "en": "EL OBOOR CITY"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -6994,7 +8079,10 @@
             "telegraph_office_name": {
               "en": "EL OMRANIA WEST"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7007,7 +8095,10 @@
             "telegraph_office_name": {
               "en": "EL QALAA"
             },
-            "office_code": "UNQA"
+            "office_code": "UNQA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7020,7 +8111,10 @@
             "telegraph_office_name": {
               "en": "EL QALAA/B"
             },
-            "office_code": "UNQA"
+            "office_code": "UNQA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7033,7 +8127,10 @@
             "telegraph_office_name": {
               "en": "EL QANATER EL KHAIRYA"
             },
-            "office_code": "UNBS"
+            "office_code": "UNBS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7046,7 +8143,10 @@
             "telegraph_office_name": {
               "en": "EL QAREEN"
             },
-            "office_code": "UNZX"
+            "office_code": "UNZX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7059,7 +8159,10 @@
             "telegraph_office_name": {
               "en": "EL QENAYAT SHARKIA"
             },
-            "office_code": "UNQL"
+            "office_code": "UNQL",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7072,7 +8175,10 @@
             "telegraph_office_name": {
               "en": "EL QOESSIA"
             },
-            "office_code": "UNAQ"
+            "office_code": "UNAQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7085,7 +8191,10 @@
             "telegraph_office_name": {
               "en": "EL QUSSEER"
             },
-            "office_code": "UNJQ"
+            "office_code": "UNJQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7098,7 +8207,10 @@
             "telegraph_office_name": {
               "en": "EL QUSSEER RADIO"
             },
-            "office_code": "UNJR"
+            "office_code": "UNJR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7111,7 +8223,10 @@
             "telegraph_office_name": {
               "en": "EL QUSSEER TWO"
             },
-            "office_code": "UNQJ"
+            "office_code": "UNQJ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7124,7 +8239,10 @@
             "telegraph_office_name": {
               "en": "EL RAHMANEYA"
             },
-            "office_code": "UNRR"
+            "office_code": "UNRR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7137,7 +8255,10 @@
             "telegraph_office_name": {
               "en": "EL RAMAL GLEEM"
             },
-            "office_code": "UNXJ"
+            "office_code": "UNXJ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7150,7 +8271,10 @@
             "telegraph_office_name": {
               "en": "EL REYAD KAFR EL SHEEKH"
             },
-            "office_code": "UNSY"
+            "office_code": "UNSY",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7163,7 +8287,10 @@
             "telegraph_office_name": {
               "en": "EL RODA"
             },
-            "office_code": "UNRD"
+            "office_code": "UNRD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7176,7 +8303,10 @@
             "telegraph_office_name": {
               "en": "EL RODA/B"
             },
-            "office_code": "UNRD"
+            "office_code": "UNRD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7189,7 +8319,10 @@
             "telegraph_office_name": {
               "en": "EL SABAH CITY"
             },
-            "office_code": "UNSH"
+            "office_code": "UNSH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7202,7 +8335,10 @@
             "telegraph_office_name": {
               "en": "EL SADAT CITY"
             },
-            "office_code": "UNKB"
+            "office_code": "UNKB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7215,7 +8351,10 @@
             "telegraph_office_name": {
               "en": "EL SAFF"
             },
-            "office_code": "UNSF"
+            "office_code": "UNSF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7228,7 +8367,10 @@
             "telegraph_office_name": {
               "en": "EL SALAM"
             },
-            "office_code": "UNVS"
+            "office_code": "UNVS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7241,7 +8383,10 @@
             "telegraph_office_name": {
               "en": "EL SALAM CITY"
             },
-            "office_code": "UNSC"
+            "office_code": "UNSC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7254,7 +8399,10 @@
             "telegraph_office_name": {
               "en": "EL SALAM PORT SAID"
             },
-            "office_code": "UNPS"
+            "office_code": "UNPS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7267,7 +8415,10 @@
             "telegraph_office_name": {
               "en": "EL SALAM SUEZ"
             },
-            "office_code": "UNSY"
+            "office_code": "UNSY",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7280,7 +8431,10 @@
             "telegraph_office_name": {
               "en": "EL SALHIA SHARKIA"
             },
-            "office_code": "UNZT"
+            "office_code": "UNZT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7293,7 +8447,10 @@
             "telegraph_office_name": {
               "en": "EL SANTA"
             },
-            "office_code": "UNTS"
+            "office_code": "UNTS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7306,7 +8463,10 @@
             "telegraph_office_name": {
               "en": "EL SAYEDA ZEINB"
             },
-            "office_code": "UNSZ"
+            "office_code": "UNSZ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7319,7 +8479,10 @@
             "telegraph_office_name": {
               "en": "EL SEBAEYA WEST"
             },
-            "office_code": "UNQL"
+            "office_code": "UNQL",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7332,7 +8495,10 @@
             "telegraph_office_name": {
               "en": "EL SHARABIA"
             },
-            "office_code": "UNSB"
+            "office_code": "UNSB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7345,7 +8511,10 @@
             "telegraph_office_name": {
               "en": "EL SHARABIA /B"
             },
-            "office_code": "UNSB"
+            "office_code": "UNSB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7358,7 +8527,10 @@
             "telegraph_office_name": {
               "en": "EL SHOHADAA"
             },
-            "office_code": "UNKD"
+            "office_code": "UNKD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7371,7 +8543,10 @@
             "telegraph_office_name": {
               "en": "EL TAHREER"
             },
-            "office_code": "UNBK"
+            "office_code": "UNBK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7384,7 +8559,10 @@
             "telegraph_office_name": {
               "en": "EL TAL EL KEBEER"
             },
-            "office_code": "UNIT"
+            "office_code": "UNIT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7397,7 +8575,10 @@
             "telegraph_office_name": {
               "en": "EL TERAA BOLAKIA"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7410,7 +8591,10 @@
             "telegraph_office_name": {
               "en": "EL TOUR"
             },
-            "office_code": "UNOU"
+            "office_code": "UNOU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7423,7 +8607,10 @@
             "telegraph_office_name": {
               "en": "EL TOUR TWO"
             },
-            "office_code": "UNOU"
+            "office_code": "UNOU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7436,7 +8623,10 @@
             "telegraph_office_name": {
               "en": "EL WALEEDIAH ASIOUT"
             },
-            "office_code": "UNAN"
+            "office_code": "UNAN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7449,7 +8639,10 @@
             "telegraph_office_name": {
               "en": "EL WAQF"
             },
-            "office_code": "UNQW"
+            "office_code": "UNQW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7462,7 +8655,10 @@
             "telegraph_office_name": {
               "en": "EL WASTA"
             },
-            "office_code": "UNUW"
+            "office_code": "UNUW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7475,7 +8671,10 @@
             "telegraph_office_name": {
               "en": "EL ZAMALEK"
             },
-            "office_code": "UNZM"
+            "office_code": "UNZM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7488,7 +8687,10 @@
             "telegraph_office_name": {
               "en": "EL ZARQUA"
             },
-            "office_code": "UNDZ"
+            "office_code": "UNDZ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7501,7 +8703,10 @@
             "telegraph_office_name": {
               "en": "ELGIZA"
             },
-            "office_code": "UNGZ"
+            "office_code": "UNGZ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7514,7 +8719,10 @@
             "telegraph_office_name": {
               "en": "ELGOMHORIA ALEXANDRIA"
             },
-            "office_code": "UNXU"
+            "office_code": "UNXU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7527,7 +8735,10 @@
             "telegraph_office_name": {
               "en": "ELGOMHORIA ALEXANDRIA /B"
             },
-            "office_code": "UNXU"
+            "office_code": "UNXU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7540,7 +8751,10 @@
             "telegraph_office_name": {
               "en": "ELSHATBY ALEXANDRIA"
             },
-            "office_code": "UNXD"
+            "office_code": "UNXD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7553,7 +8767,10 @@
             "telegraph_office_name": {
               "en": "ELTABIA"
             },
-            "office_code": "UNXM"
+            "office_code": "UNXM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7566,7 +8783,10 @@
             "telegraph_office_name": {
               "en": "ELTABIA /B"
             },
-            "office_code": "UNXM"
+            "office_code": "UNXM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7579,7 +8799,10 @@
             "telegraph_office_name": {
               "en": "ELTAHREER MOGMAA"
             },
-            "office_code": "UNGO"
+            "office_code": "UNGO",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7592,7 +8815,10 @@
             "telegraph_office_name": {
               "en": "EMBABA MOSHTARK"
             },
-            "office_code": "UNEB"
+            "office_code": "UNEB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7605,7 +8831,10 @@
             "telegraph_office_name": {
               "en": "EMBABA MOSHTARK/B"
             },
-            "office_code": "UNEB"
+            "office_code": "UNEB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7618,7 +8847,10 @@
             "telegraph_office_name": {
               "en": "ESNA"
             },
-            "office_code": "UNQE"
+            "office_code": "UNQE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7631,7 +8863,10 @@
             "telegraph_office_name": {
               "en": "ETAI EL BAROUD"
             },
-            "office_code": "UNRU"
+            "office_code": "UNRU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7644,7 +8879,10 @@
             "telegraph_office_name": {
               "en": "FAISAL NAMOZAGY"
             },
-            "office_code": "UNSF"
+            "office_code": "UNSF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7657,7 +8895,10 @@
             "telegraph_office_name": {
               "en": "FAQOUS"
             },
-            "office_code": "UNZF"
+            "office_code": "UNZF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7670,7 +8911,10 @@
             "telegraph_office_name": {
               "en": "FARASKOUR"
             },
-            "office_code": "UNDF"
+            "office_code": "UNDF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7683,7 +8927,10 @@
             "telegraph_office_name": {
               "en": "FARSHOUT"
             },
-            "office_code": "UNQF"
+            "office_code": "UNQF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7696,7 +8943,10 @@
             "telegraph_office_name": {
               "en": "FAYED"
             },
-            "office_code": "UNIF"
+            "office_code": "UNIF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7709,7 +8959,10 @@
             "telegraph_office_name": {
               "en": "FOWA"
             },
-            "office_code": "UNSV"
+            "office_code": "UNSV",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7722,7 +8975,10 @@
             "telegraph_office_name": {
               "en": "GAMAA MANSOURA"
             },
-            "office_code": "UNGM"
+            "office_code": "UNGM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7735,7 +8991,10 @@
             "telegraph_office_name": {
               "en": "GAMASA"
             },
-            "office_code": "UNMG"
+            "office_code": "UNMG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7748,7 +9007,10 @@
             "telegraph_office_name": {
               "en": "GEHEINA"
             },
-            "office_code": "UNGH"
+            "office_code": "UNGH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7761,7 +9023,10 @@
             "telegraph_office_name": {
               "en": "GERGA"
             },
-            "office_code": "UNGG"
+            "office_code": "UNGG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7774,7 +9039,10 @@
             "telegraph_office_name": {
               "en": "GIZA CENTRAL"
             },
-            "office_code": "UNGC"
+            "office_code": "UNGC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7787,7 +9055,10 @@
             "telegraph_office_name": {
               "en": "GIZA CENTRAL/B"
             },
-            "office_code": "UNGC"
+            "office_code": "UNGC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7800,7 +9071,10 @@
             "telegraph_office_name": {
               "en": "GIZA MOGMAA"
             },
-            "office_code": "UNGM"
+            "office_code": "UNGM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7813,7 +9087,10 @@
             "telegraph_office_name": {
               "en": "GIZA MOGMAA / B"
             },
-            "office_code": "UNGM"
+            "office_code": "UNGM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7826,7 +9103,10 @@
             "telegraph_office_name": {
               "en": "GLEEM INT"
             },
-            "office_code": "UNXG"
+            "office_code": "UNXG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7839,7 +9119,10 @@
             "telegraph_office_name": {
               "en": "HADAYEK EL KOBBA"
             },
-            "office_code": "UNHK"
+            "office_code": "UNHK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7852,7 +9135,10 @@
             "telegraph_office_name": {
               "en": "HADAYEK EL ZATON"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7865,7 +9151,10 @@
             "telegraph_office_name": {
               "en": "HADAYEK HELWAN"
             },
-            "office_code": "UNHW"
+            "office_code": "UNHW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7878,7 +9167,10 @@
             "telegraph_office_name": {
               "en": "HADAYEK SHOUBRA"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7891,7 +9183,10 @@
             "telegraph_office_name": {
               "en": "HAMAMAT HELWAN"
             },
-            "office_code": "UNHW"
+            "office_code": "UNHW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7904,7 +9199,10 @@
             "telegraph_office_name": {
               "en": "HEHYA"
             },
-            "office_code": "UNZY"
+            "office_code": "UNZY",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7917,7 +9215,10 @@
             "telegraph_office_name": {
               "en": "HELIOPOLIS CENTRAL"
             },
-            "office_code": "UNGS"
+            "office_code": "UNGS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7930,7 +9231,10 @@
             "telegraph_office_name": {
               "en": "HELIOPOLIS CENTRAL/B"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7943,7 +9247,10 @@
             "telegraph_office_name": {
               "en": "HOST TEST"
             },
-            "office_code": "UNCX"
+            "office_code": "UNCX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7956,7 +9263,10 @@
             "telegraph_office_name": {
               "en": "HOUSH ESSA"
             },
-            "office_code": "UNRH"
+            "office_code": "UNRH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7969,7 +9279,10 @@
             "telegraph_office_name": {
               "en": "HUGAG CITY"
             },
-            "office_code": "UNTS"
+            "office_code": "UNTS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7982,7 +9295,10 @@
             "telegraph_office_name": {
               "en": "HURGHADA"
             },
-            "office_code": "UNHJ"
+            "office_code": "UNHJ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -7995,7 +9311,10 @@
             "telegraph_office_name": {
               "en": "HURGHADA TWO"
             },
-            "office_code": "UNHJ"
+            "office_code": "UNHJ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8008,7 +9327,10 @@
             "telegraph_office_name": {
               "en": "INSPECTION"
             },
-            "office_code": "UNIN"
+            "office_code": "UNIN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8021,7 +9343,10 @@
             "telegraph_office_name": {
               "en": "INT CAIRO"
             },
-            "office_code": "UNCX"
+            "office_code": "UNCX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8034,7 +9359,10 @@
             "telegraph_office_name": {
               "en": "INT CAIRO /H"
             },
-            "office_code": "UNCX"
+            "office_code": "UNCX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8047,7 +9375,10 @@
             "telegraph_office_name": {
               "en": "INT CAIRO/B"
             },
-            "office_code": "UNCX"
+            "office_code": "UNCX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8060,7 +9391,10 @@
             "telegraph_office_name": {
               "en": "INT CAIRO/D"
             },
-            "office_code": "UNCX"
+            "office_code": "UNCX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8073,7 +9407,10 @@
             "telegraph_office_name": {
               "en": "INT CAIRO/G"
             },
-            "office_code": "UNCX"
+            "office_code": "UNCX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8086,7 +9423,10 @@
             "telegraph_office_name": {
               "en": "INT CAIRO/M"
             },
-            "office_code": "UNCX"
+            "office_code": "UNCX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8099,7 +9439,10 @@
             "telegraph_office_name": {
               "en": "INT CAIRO/W"
             },
-            "office_code": "UNCX"
+            "office_code": "UNCX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8112,7 +9455,10 @@
             "telegraph_office_name": {
               "en": "INTRTLG"
             },
-            "office_code": "UNCA"
+            "office_code": "UNCA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8125,7 +9471,10 @@
             "telegraph_office_name": {
               "en": "ISMAILIA"
             },
-            "office_code": "UNIS"
+            "office_code": "UNIS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8138,7 +9487,10 @@
             "telegraph_office_name": {
               "en": "ISMAILIA TWO"
             },
-            "office_code": "UNIS"
+            "office_code": "UNIS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8151,7 +9503,10 @@
             "telegraph_office_name": {
               "en": "KAFR EL DAWAR"
             },
-            "office_code": "UNRO"
+            "office_code": "UNRO",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8164,7 +9519,10 @@
             "telegraph_office_name": {
               "en": "KAFR EL DAWAR TWO"
             },
-            "office_code": "UNRO"
+            "office_code": "UNRO",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8177,7 +9535,10 @@
             "telegraph_office_name": {
               "en": "KAFR EL SHEEKH"
             },
-            "office_code": "UNKS"
+            "office_code": "UNKS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8190,7 +9551,10 @@
             "telegraph_office_name": {
               "en": "KAFR EL SHEEKH TWO"
             },
-            "office_code": "UNKS"
+            "office_code": "UNKS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8203,7 +9567,10 @@
             "telegraph_office_name": {
               "en": "KAFR EL ZAYAT"
             },
-            "office_code": "UNTZ"
+            "office_code": "UNTZ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8216,7 +9583,10 @@
             "telegraph_office_name": {
               "en": "KAFR SAAD"
             },
-            "office_code": "UNDS"
+            "office_code": "UNDS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8229,7 +9599,10 @@
             "telegraph_office_name": {
               "en": "KAFR SAKAR"
             },
-            "office_code": "UNZK"
+            "office_code": "UNZK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8242,7 +9615,10 @@
             "telegraph_office_name": {
               "en": "KAFR SHOKR"
             },
-            "office_code": "UNBK"
+            "office_code": "UNBK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8255,7 +9631,10 @@
             "telegraph_office_name": {
               "en": "KOM HAMADA"
             },
-            "office_code": "UNRK"
+            "office_code": "UNRK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8268,7 +9647,10 @@
             "telegraph_office_name": {
               "en": "KOUM OMBU"
             },
-            "office_code": "UNWK"
+            "office_code": "UNWK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8281,7 +9663,10 @@
             "telegraph_office_name": {
               "en": "LUXOR"
             },
-            "office_code": "UNLX"
+            "office_code": "UNLX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8294,7 +9679,10 @@
             "telegraph_office_name": {
               "en": "LUXOR TWO"
             },
-            "office_code": "UNLX"
+            "office_code": "UNLX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8307,7 +9695,10 @@
             "telegraph_office_name": {
               "en": "MAADI STATION"
             },
-            "office_code": "UNMB"
+            "office_code": "UNMB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8320,7 +9711,10 @@
             "telegraph_office_name": {
               "en": "MAAMOURH BEACH"
             },
-            "office_code": "UNXF"
+            "office_code": "UNXF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8333,7 +9727,10 @@
             "telegraph_office_name": {
               "en": "MAGHAGHA"
             },
-            "office_code": "UNNG"
+            "office_code": "UNNG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8346,7 +9743,10 @@
             "telegraph_office_name": {
               "en": "MAGLS EL SHAAB"
             },
-            "office_code": "UNMS"
+            "office_code": "UNMS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8359,7 +9759,10 @@
             "telegraph_office_name": {
               "en": "MAGLS EL SHAAB/B"
             },
-            "office_code": "UNMS"
+            "office_code": "UNMS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8372,7 +9775,10 @@
             "telegraph_office_name": {
               "en": "MAGLS EL SHAAB/D"
             },
-            "office_code": "UNMS"
+            "office_code": "UNMS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8385,7 +9791,10 @@
             "telegraph_office_name": {
               "en": "MAGLS WZRAA"
             },
-            "office_code": "UNMW"
+            "office_code": "UNMW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8398,7 +9807,10 @@
             "telegraph_office_name": {
               "en": "MALLAWY"
             },
-            "office_code": "UNNW"
+            "office_code": "UNNW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8411,7 +9823,10 @@
             "telegraph_office_name": {
               "en": "MANFALOUT"
             },
-            "office_code": "UNAM"
+            "office_code": "UNAM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8424,7 +9839,10 @@
             "telegraph_office_name": {
               "en": "MANSHIA EL BAKRY"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8437,7 +9855,10 @@
             "telegraph_office_name": {
               "en": "MASAKEN EMBABA"
             },
-            "office_code": "UNDD"
+            "office_code": "UNDD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8450,7 +9871,10 @@
             "telegraph_office_name": {
               "en": "MASGED EL SHAHABAH"
             },
-            "office_code": "UNXF"
+            "office_code": "UNXF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8463,7 +9887,10 @@
             "telegraph_office_name": {
               "en": "MASHTOUL EL SOUK"
             },
-            "office_code": "UNZL"
+            "office_code": "UNZL",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8476,7 +9903,10 @@
             "telegraph_office_name": {
               "en": "MATAY"
             },
-            "office_code": "UNNY"
+            "office_code": "UNNY",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8489,7 +9919,10 @@
             "telegraph_office_name": {
               "en": "MENAA ELAIN EL SOKHNA"
             },
-            "office_code": "UNAS"
+            "office_code": "UNAS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8502,7 +9935,10 @@
             "telegraph_office_name": {
               "en": "MENAA SUEZ"
             },
-            "office_code": "UNSM"
+            "office_code": "UNSM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8515,7 +9951,10 @@
             "telegraph_office_name": {
               "en": "MENIA EL KAMH"
             },
-            "office_code": "UNZM"
+            "office_code": "UNZM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8528,7 +9967,10 @@
             "telegraph_office_name": {
               "en": "MENIA EL NASER"
             },
-            "office_code": "UNMY"
+            "office_code": "UNMY",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8541,7 +9983,10 @@
             "telegraph_office_name": {
               "en": "MENOUF"
             },
-            "office_code": "UNKN"
+            "office_code": "UNKN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8554,7 +9999,10 @@
             "telegraph_office_name": {
               "en": "MERSA MATROUH"
             },
-            "office_code": "UNMH"
+            "office_code": "UNMH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8567,7 +10015,10 @@
             "telegraph_office_name": {
               "en": "MERSA MATROUH /B"
             },
-            "office_code": "UNHD"
+            "office_code": "UNHD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8580,7 +10031,10 @@
             "telegraph_office_name": {
               "en": "MESR ASLY"
             },
-            "office_code": "UNMY"
+            "office_code": "UNMY",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8593,7 +10047,10 @@
             "telegraph_office_name": {
               "en": "MESR EL KADEMA"
             },
-            "office_code": "UNMK"
+            "office_code": "UNMK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8606,7 +10063,10 @@
             "telegraph_office_name": {
               "en": "MESR EL KADEMA/B"
             },
-            "office_code": "UNMK"
+            "office_code": "UNMK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8619,7 +10079,10 @@
             "telegraph_office_name": {
               "en": "MESR FAREY"
             },
-            "office_code": "UNMF"
+            "office_code": "UNMF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8632,7 +10095,10 @@
             "telegraph_office_name": {
               "en": "MEYAMY CENTRAL"
             },
-            "office_code": "UNXF"
+            "office_code": "UNXF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8645,7 +10111,10 @@
             "telegraph_office_name": {
               "en": "MIT GHAMER"
             },
-            "office_code": "UNMR"
+            "office_code": "UNMR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8658,7 +10127,10 @@
             "telegraph_office_name": {
               "en": "MODERIET EL TAHREER"
             },
-            "office_code": "UNRT"
+            "office_code": "UNRT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8671,7 +10143,10 @@
             "telegraph_office_name": {
               "en": "MOGAMAA BAHTEEM"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8684,7 +10159,10 @@
             "telegraph_office_name": {
               "en": "MOHAMED FAREED"
             },
-            "office_code": "UNSD"
+            "office_code": "UNSD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8697,7 +10175,10 @@
             "telegraph_office_name": {
               "en": "MOHANDSEEN"
             },
-            "office_code": "UNMO"
+            "office_code": "UNMO",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8710,7 +10191,10 @@
             "telegraph_office_name": {
               "en": "MOHARAM BEK"
             },
-            "office_code": "UNXH"
+            "office_code": "UNXH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8723,7 +10207,10 @@
             "telegraph_office_name": {
               "en": "MOZHA MASR EL GEDEDA"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8736,7 +10223,10 @@
             "telegraph_office_name": {
               "en": "NADY EL SHAMS"
             },
-            "office_code": "UNNS"
+            "office_code": "UNNS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8749,7 +10239,10 @@
             "telegraph_office_name": {
               "en": "NADY NASR CITY"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8762,7 +10255,10 @@
             "telegraph_office_name": {
               "en": "NAGAA HAMADI"
             },
-            "office_code": "UNQG"
+            "office_code": "UNQG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8775,7 +10271,10 @@
             "telegraph_office_name": {
               "en": "NAGAA HAMADI TOWN"
             },
-            "office_code": "UNQH"
+            "office_code": "UNQH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8788,7 +10287,10 @@
             "telegraph_office_name": {
               "en": "NAGAA HAMADI TWO"
             },
-            "office_code": "UNQG"
+            "office_code": "UNQG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8801,7 +10303,10 @@
             "telegraph_office_name": {
               "en": "NASER BENI SUEF"
             },
-            "office_code": "UNNU"
+            "office_code": "UNNU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8814,7 +10319,10 @@
             "telegraph_office_name": {
               "en": "NASER SHOUHAG"
             },
-            "office_code": "UNSG"
+            "office_code": "UNSG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8827,7 +10335,10 @@
             "telegraph_office_name": {
               "en": "NASR CITY CENTRAL"
             },
-            "office_code": "UNMN"
+            "office_code": "UNMN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8840,7 +10351,10 @@
             "telegraph_office_name": {
               "en": "NASR CITY CENTRAL/B"
             },
-            "office_code": "UNMN"
+            "office_code": "UNMN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8853,7 +10367,10 @@
             "telegraph_office_name": {
               "en": "NASR CITY TWO"
             },
-            "office_code": "UNAF"
+            "office_code": "UNAF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8866,7 +10383,10 @@
             "telegraph_office_name": {
               "en": "NASR KEBLY"
             },
-            "office_code": "UNWN"
+            "office_code": "UNWN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8879,7 +10399,10 @@
             "telegraph_office_name": {
               "en": "NEW EL KOBBA"
             },
-            "office_code": "UNBC"
+            "office_code": "UNBC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8892,7 +10415,10 @@
             "telegraph_office_name": {
               "en": "NEW EL KOBBA/B"
             },
-            "office_code": "UNBC"
+            "office_code": "UNBC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8905,7 +10431,10 @@
             "telegraph_office_name": {
               "en": "NQADA"
             },
-            "office_code": "UNQN"
+            "office_code": "UNQN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8918,7 +10447,10 @@
             "telegraph_office_name": {
               "en": "NWEBAA EL MENAA"
             },
-            "office_code": "UNOE"
+            "office_code": "UNOE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8931,7 +10463,10 @@
             "telegraph_office_name": {
               "en": "NWEBAA TOWN"
             },
-            "office_code": "UNOB"
+            "office_code": "UNOB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8944,7 +10479,10 @@
             "telegraph_office_name": {
               "en": "OBERA CENTRAL"
             },
-            "office_code": "UNOB"
+            "office_code": "UNOB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8957,7 +10495,10 @@
             "telegraph_office_name": {
               "en": "ORABI ISMAILIA"
             },
-            "office_code": "UNIB"
+            "office_code": "UNIB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8970,7 +10511,10 @@
             "telegraph_office_name": {
               "en": "OSEEM"
             },
-            "office_code": "UNRB"
+            "office_code": "UNRB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8983,7 +10527,10 @@
             "telegraph_office_name": {
               "en": "PARIS ELWADY"
             },
-            "office_code": "UNYP"
+            "office_code": "UNYP",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -8996,7 +10543,10 @@
             "telegraph_office_name": {
               "en": "PHON ALEXANDRIA"
             },
-            "office_code": "UNXC"
+            "office_code": "UNXC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9009,7 +10559,10 @@
             "telegraph_office_name": {
               "en": "PHON ARISH"
             },
-            "office_code": "UNVA"
+            "office_code": "UNVA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9022,7 +10575,10 @@
             "telegraph_office_name": {
               "en": "PHON ASIOUT 1"
             },
-            "office_code": "UNAE"
+            "office_code": "UNAE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9035,7 +10591,10 @@
             "telegraph_office_name": {
               "en": "PHON ASIOUT 2"
             },
-            "office_code": "UNAE"
+            "office_code": "UNAE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9048,7 +10607,10 @@
             "telegraph_office_name": {
               "en": "PHON ASWAN"
             },
-            "office_code": "UNAW"
+            "office_code": "UNAW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9061,7 +10623,10 @@
             "telegraph_office_name": {
               "en": "PHON BANHA"
             },
-            "office_code": "UNBB"
+            "office_code": "UNBB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9074,7 +10639,10 @@
             "telegraph_office_name": {
               "en": "PHON BENI SUEF"
             },
-            "office_code": "UNSU"
+            "office_code": "UNSU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9087,7 +10655,10 @@
             "telegraph_office_name": {
               "en": "PHON DAMANHOUR"
             },
-            "office_code": "UNRD"
+            "office_code": "UNRD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9100,7 +10671,10 @@
             "telegraph_office_name": {
               "en": "PHON DEMITTA"
             },
-            "office_code": "UNDP"
+            "office_code": "UNDP",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9113,7 +10687,10 @@
             "telegraph_office_name": {
               "en": "PHON EL FAYOUM"
             },
-            "office_code": "UNFM"
+            "office_code": "UNFM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9126,7 +10703,10 @@
             "telegraph_office_name": {
               "en": "PHON EL FAYOUM TWO"
             },
-            "office_code": "UNFM"
+            "office_code": "UNFM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9139,7 +10719,10 @@
             "telegraph_office_name": {
               "en": "PHON EL KHARGA"
             },
-            "office_code": "UNYK"
+            "office_code": "UNYK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9152,7 +10735,10 @@
             "telegraph_office_name": {
               "en": "PHON EL MINIA"
             },
-            "office_code": "UNNI"
+            "office_code": "UNNI",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9165,7 +10751,10 @@
             "telegraph_office_name": {
               "en": "PHON EL TOUR"
             },
-            "office_code": "UNOU"
+            "office_code": "UNOU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9178,7 +10767,10 @@
             "telegraph_office_name": {
               "en": "PHON HURGHADA"
             },
-            "office_code": "UNHJ"
+            "office_code": "UNHJ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9191,7 +10783,10 @@
             "telegraph_office_name": {
               "en": "PHON ISMAILIA"
             },
-            "office_code": "UNIS"
+            "office_code": "UNIS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9204,7 +10799,10 @@
             "telegraph_office_name": {
               "en": "PHON KAFR EL SHEEKH"
             },
-            "office_code": "UNKS"
+            "office_code": "UNKS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9217,7 +10815,10 @@
             "telegraph_office_name": {
               "en": "PHON LUXOR"
             },
-            "office_code": "UNLX"
+            "office_code": "UNLX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9230,7 +10831,10 @@
             "telegraph_office_name": {
               "en": "PHON MANSOURA 1"
             },
-            "office_code": "UNMN"
+            "office_code": "UNMN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9243,7 +10847,10 @@
             "telegraph_office_name": {
               "en": "PHON MANSOURA 2"
             },
-            "office_code": "UNMN"
+            "office_code": "UNMN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9256,7 +10863,10 @@
             "telegraph_office_name": {
               "en": "PHON MERSA MATROUH"
             },
-            "office_code": "UNMH"
+            "office_code": "UNMH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9269,7 +10879,10 @@
             "telegraph_office_name": {
               "en": "PHON PORT SAID"
             },
-            "office_code": "UNPS"
+            "office_code": "UNPS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9282,7 +10895,10 @@
             "telegraph_office_name": {
               "en": "PHON QUENA"
             },
-            "office_code": "UNQA"
+            "office_code": "UNQA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9295,7 +10911,10 @@
             "telegraph_office_name": {
               "en": "PHON SHIBEEN EL KOM"
             },
-            "office_code": "UNSK"
+            "office_code": "UNSK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9308,7 +10927,10 @@
             "telegraph_office_name": {
               "en": "PHON SHOUHAG"
             },
-            "office_code": "UNSG"
+            "office_code": "UNSG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9321,7 +10943,10 @@
             "telegraph_office_name": {
               "en": "PHON SUEZ"
             },
-            "office_code": "UNSZ"
+            "office_code": "UNSZ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9334,7 +10959,10 @@
             "telegraph_office_name": {
               "en": "PHON TANTA"
             },
-            "office_code": "UNTT"
+            "office_code": "UNTT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9347,7 +10975,10 @@
             "telegraph_office_name": {
               "en": "PHON ZAGAZIG 1"
             },
-            "office_code": "UNZE"
+            "office_code": "UNZE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9360,7 +10991,10 @@
             "telegraph_office_name": {
               "en": "PHON ZAGAZIG 2"
             },
-            "office_code": "UNZE"
+            "office_code": "UNZE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9373,7 +11007,10 @@
             "telegraph_office_name": {
               "en": "PHON ZAGAZIG 3"
             },
-            "office_code": "UNZE"
+            "office_code": "UNZE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9386,7 +11023,10 @@
             "telegraph_office_name": {
               "en": "PHONOGRAM CAIRO"
             },
-            "office_code": "UNPH"
+            "office_code": "UNPH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9399,7 +11039,10 @@
             "telegraph_office_name": {
               "en": "PHONOGRAM EGYPT 1"
             },
-            "office_code": "UNCE"
+            "office_code": "UNCE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9412,7 +11055,10 @@
             "telegraph_office_name": {
               "en": "PHONOGRAM EGYPT 2"
             },
-            "office_code": "UNCE"
+            "office_code": "UNCE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9425,7 +11071,10 @@
             "telegraph_office_name": {
               "en": "PHONOGRAM EGYPT 3"
             },
-            "office_code": "UNCE"
+            "office_code": "UNCE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9438,7 +11087,10 @@
             "telegraph_office_name": {
               "en": "PHONOGRAM EGYPT 4"
             },
-            "office_code": "UNCE"
+            "office_code": "UNCE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9451,7 +11103,10 @@
             "telegraph_office_name": {
               "en": "PHONOGRAM EGYPT 5"
             },
-            "office_code": "UNCE"
+            "office_code": "UNCE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9464,7 +11119,10 @@
             "telegraph_office_name": {
               "en": "PHONOGRAM EGYPT 6"
             },
-            "office_code": "UNCE"
+            "office_code": "UNCE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9477,7 +11135,10 @@
             "telegraph_office_name": {
               "en": "PHONOGRAM EGYPT 7"
             },
-            "office_code": "UNCE"
+            "office_code": "UNCE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9490,7 +11151,10 @@
             "telegraph_office_name": {
               "en": "PHONOGRAM EGYPT 8"
             },
-            "office_code": "UNCE"
+            "office_code": "UNCE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9503,7 +11167,10 @@
             "telegraph_office_name": {
               "en": "PHONOGRAM EGYPT 9"
             },
-            "office_code": "UNCE"
+            "office_code": "UNCE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9516,7 +11183,10 @@
             "telegraph_office_name": {
               "en": "PORT FOUAD"
             },
-            "office_code": "UNPF"
+            "office_code": "UNPF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9529,7 +11199,10 @@
             "telegraph_office_name": {
               "en": "PORT SAID"
             },
-            "office_code": "UNPC"
+            "office_code": "UNPC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9542,7 +11215,10 @@
             "telegraph_office_name": {
               "en": "PORT SAID MARKONY"
             },
-            "office_code": "UNPE"
+            "office_code": "UNPE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9555,7 +11231,10 @@
             "telegraph_office_name": {
               "en": "PORT SAID MARKONY TWO"
             },
-            "office_code": "UNPE"
+            "office_code": "UNPE",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9568,7 +11247,10 @@
             "telegraph_office_name": {
               "en": "PORT SAID TWO"
             },
-            "office_code": "UNPC"
+            "office_code": "UNPC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9581,7 +11263,10 @@
             "telegraph_office_name": {
               "en": "QALYOUB"
             },
-            "office_code": "UNBQ"
+            "office_code": "UNBQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9594,7 +11279,10 @@
             "telegraph_office_name": {
               "en": "QOUS"
             },
-            "office_code": "UNQU"
+            "office_code": "UNQU",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9607,7 +11295,10 @@
             "telegraph_office_name": {
               "en": "QUEFT"
             },
-            "office_code": "UNQQ"
+            "office_code": "UNQQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9620,7 +11311,10 @@
             "telegraph_office_name": {
               "en": "QUELEEN"
             },
-            "office_code": "UNSQ"
+            "office_code": "UNSQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9633,7 +11327,10 @@
             "telegraph_office_name": {
               "en": "QUENA"
             },
-            "office_code": "UNQA"
+            "office_code": "UNQA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9646,7 +11343,10 @@
             "telegraph_office_name": {
               "en": "QUENA MOSTAGADA"
             },
-            "office_code": "UNQS"
+            "office_code": "UNQS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9659,7 +11359,10 @@
             "telegraph_office_name": {
               "en": "QUENA TWO"
             },
-            "office_code": "UNQA"
+            "office_code": "UNQA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9672,7 +11375,10 @@
             "telegraph_office_name": {
               "en": "QUESSNA"
             },
-            "office_code": "UNKQ"
+            "office_code": "UNKQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9685,7 +11391,10 @@
             "telegraph_office_name": {
               "en": "QUNATRA WEST"
             },
-            "office_code": "UNIQ"
+            "office_code": "UNIQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9698,7 +11407,10 @@
             "telegraph_office_name": {
               "en": "QUTOUR"
             },
-            "office_code": "UNTQ"
+            "office_code": "UNTQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9711,7 +11423,10 @@
             "telegraph_office_name": {
               "en": "RABAA EL ADWIA"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9724,7 +11439,10 @@
             "telegraph_office_name": {
               "en": "RAFAH"
             },
-            "office_code": "UNVR"
+            "office_code": "UNVR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9737,7 +11455,10 @@
             "telegraph_office_name": {
               "en": "RAMSEES EGYPT"
             },
-            "office_code": "UNRP"
+            "office_code": "UNRP",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9750,7 +11471,10 @@
             "telegraph_office_name": {
               "en": "RAMSEES SYAHY"
             },
-            "office_code": "UNRS"
+            "office_code": "UNRS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9763,7 +11487,10 @@
             "telegraph_office_name": {
               "en": "RAMSYAHY THREE"
             },
-            "office_code": "UNRS"
+            "office_code": "UNRS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9776,7 +11503,10 @@
             "telegraph_office_name": {
               "en": "RAMSYAHY TWO"
             },
-            "office_code": "UNRS"
+            "office_code": "UNRS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9789,7 +11519,10 @@
             "telegraph_office_name": {
               "en": "RAS EL BAR"
             },
-            "office_code": "UNDR"
+            "office_code": "UNDR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9802,7 +11535,10 @@
             "telegraph_office_name": {
               "en": "RAS ELTEEN"
             },
-            "office_code": "UNXR"
+            "office_code": "UNXR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9815,7 +11551,10 @@
             "telegraph_office_name": {
               "en": "RAS GHAREB"
             },
-            "office_code": "UNJG"
+            "office_code": "UNJG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9828,7 +11567,10 @@
             "telegraph_office_name": {
               "en": "RAS GHAREB/B"
             },
-            "office_code": "UNJS"
+            "office_code": "UNJS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9841,7 +11583,10 @@
             "telegraph_office_name": {
               "en": "RAS SEDR"
             },
-            "office_code": "UNOD"
+            "office_code": "UNOD",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9854,7 +11599,10 @@
             "telegraph_office_name": {
               "en": "RASHEED"
             },
-            "office_code": "UNRA"
+            "office_code": "UNRA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9867,7 +11615,10 @@
             "telegraph_office_name": {
               "en": "REASA EL GONHORIA"
             },
-            "office_code": "URRG"
+            "office_code": "URRG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9880,7 +11631,10 @@
             "telegraph_office_name": {
               "en": "SAFAGA CENTRAL"
             },
-            "office_code": "UNJS"
+            "office_code": "UNJS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9893,7 +11647,10 @@
             "telegraph_office_name": {
               "en": "SAFAGA TWO"
             },
-            "office_code": "UNJB"
+            "office_code": "UNJB",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9906,7 +11663,10 @@
             "telegraph_office_name": {
               "en": "SAHEL SLEEM"
             },
-            "office_code": "UNAM"
+            "office_code": "UNAM",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9919,7 +11679,10 @@
             "telegraph_office_name": {
               "en": "SALAH EL DEEN"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9932,7 +11695,10 @@
             "telegraph_office_name": {
               "en": "SAMALOUT"
             },
-            "office_code": "UNNS"
+            "office_code": "UNNS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9945,7 +11711,10 @@
             "telegraph_office_name": {
               "en": "SAMANOUD"
             },
-            "office_code": "UNTN"
+            "office_code": "UNTN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9958,7 +11727,10 @@
             "telegraph_office_name": {
               "en": "SANNOURS"
             },
-            "office_code": "UNFS"
+            "office_code": "UNFS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9971,7 +11743,10 @@
             "telegraph_office_name": {
               "en": "SAQALTA"
             },
-            "office_code": "UNGQ"
+            "office_code": "UNGQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9984,7 +11759,10 @@
             "telegraph_office_name": {
               "en": "SEDFA"
             },
-            "office_code": "UNAS"
+            "office_code": "UNAS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -9997,7 +11775,10 @@
             "telegraph_office_name": {
               "en": "SEEWA MATROUH"
             },
-            "office_code": "UNHH"
+            "office_code": "UNHH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10010,7 +11791,10 @@
             "telegraph_office_name": {
               "en": "SEMAD ABU QUEER"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10023,7 +11807,10 @@
             "telegraph_office_name": {
               "en": "SEMOHA"
             },
-            "office_code": "UNXV"
+            "office_code": "UNXV",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10036,7 +11823,10 @@
             "telegraph_office_name": {
               "en": "SHARK EL EYOUNAT"
             },
-            "office_code": "UNYS"
+            "office_code": "UNYS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10049,7 +11839,10 @@
             "telegraph_office_name": {
               "en": "SHARM EL SHEEKH"
             },
-            "office_code": "UNOS"
+            "office_code": "UNOS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10062,7 +11855,10 @@
             "telegraph_office_name": {
               "en": "SHERBEEN"
             },
-            "office_code": "UNMS"
+            "office_code": "UNMS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10075,7 +11871,10 @@
             "telegraph_office_name": {
               "en": "SHIBEEN EL KOM"
             },
-            "office_code": "UNSK"
+            "office_code": "UNSK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10088,7 +11887,10 @@
             "telegraph_office_name": {
               "en": "SHIBEEN EL KOM CENTRAL"
             },
-            "office_code": "UNSK"
+            "office_code": "UNSK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10101,7 +11903,10 @@
             "telegraph_office_name": {
               "en": "SHIBEEN EL KOM TWO"
             },
-            "office_code": "UNSK"
+            "office_code": "UNSK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10114,7 +11919,10 @@
             "telegraph_office_name": {
               "en": "SHIBIN EL QANATER"
             },
-            "office_code": "UNBH"
+            "office_code": "UNBH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10127,7 +11935,10 @@
             "telegraph_office_name": {
               "en": "SHOUHAG"
             },
-            "office_code": "UNSG"
+            "office_code": "UNSG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10140,7 +11951,10 @@
             "telegraph_office_name": {
               "en": "SHOUHAG STATION"
             },
-            "office_code": "UNSG"
+            "office_code": "UNSG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10153,7 +11967,10 @@
             "telegraph_office_name": {
               "en": "SHOUHAG TWO"
             },
-            "office_code": "UNSG"
+            "office_code": "UNSG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10166,7 +11983,10 @@
             "telegraph_office_name": {
               "en": "SHUBRA CENTRAL"
             },
-            "office_code": "UNSH"
+            "office_code": "UNSH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10179,7 +11999,10 @@
             "telegraph_office_name": {
               "en": "SHUBRA CENTRAL / B"
             },
-            "office_code": "UNSH"
+            "office_code": "UNSH",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10192,7 +12015,10 @@
             "telegraph_office_name": {
               "en": "SHUBRA EL KHAMA CENTRAL"
             },
-            "office_code": "UNSK"
+            "office_code": "UNSK",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10205,7 +12031,10 @@
             "telegraph_office_name": {
               "en": "SHUBRA EL KHAMA TOWN"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10218,7 +12047,10 @@
             "telegraph_office_name": {
               "en": "SHUBRA EL KHAMA TOWN/B"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10231,7 +12063,10 @@
             "telegraph_office_name": {
               "en": "SHUBRA KHEET"
             },
-            "office_code": "UNRS"
+            "office_code": "UNRS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10244,7 +12079,10 @@
             "telegraph_office_name": {
               "en": "SIDI GABER"
             },
-            "office_code": "UNXI"
+            "office_code": "UNXI",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10257,7 +12095,10 @@
             "telegraph_office_name": {
               "en": "SIDI GABER STATION"
             },
-            "office_code": "UNXI"
+            "office_code": "UNXI",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10270,7 +12111,10 @@
             "telegraph_office_name": {
               "en": "SIDI SALEM"
             },
-            "office_code": "UNSS"
+            "office_code": "UNSS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10283,7 +12127,10 @@
             "telegraph_office_name": {
               "en": "SIDY ABD ELRAHEEM"
             },
-            "office_code": "UNQR"
+            "office_code": "UNQR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10296,7 +12143,10 @@
             "telegraph_office_name": {
               "en": "SINBELLAWEEN"
             },
-            "office_code": "UNML"
+            "office_code": "UNML",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10309,7 +12159,10 @@
             "telegraph_office_name": {
               "en": "SOMOSTA"
             },
-            "office_code": "UNUT"
+            "office_code": "UNUT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10322,7 +12175,10 @@
             "telegraph_office_name": {
               "en": "SOUK EL GOMLA"
             },
-            "office_code": "UNSP"
+            "office_code": "UNSP",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10335,7 +12191,10 @@
             "telegraph_office_name": {
               "en": "SUEZ"
             },
-            "office_code": "UNSC"
+            "office_code": "UNSC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10348,7 +12207,10 @@
             "telegraph_office_name": {
               "en": "SUEZ BUS STATION"
             },
-            "office_code": "UNBS"
+            "office_code": "UNBS",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10361,7 +12223,10 @@
             "telegraph_office_name": {
               "en": "SUEZ CENTRAL"
             },
-            "office_code": "UNSR"
+            "office_code": "UNSR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10374,7 +12239,10 @@
             "telegraph_office_name": {
               "en": "SUEZ MARKONY"
             },
-            "office_code": "UNSZ"
+            "office_code": "UNSZ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10387,7 +12255,10 @@
             "telegraph_office_name": {
               "en": "SUEZ MARKONY TWO"
             },
-            "office_code": "UNSZ"
+            "office_code": "UNSZ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10400,7 +12271,10 @@
             "telegraph_office_name": {
               "en": "SUEZ NAMOZAGY"
             },
-            "office_code": "UNSW"
+            "office_code": "UNSW",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10413,7 +12287,10 @@
             "telegraph_office_name": {
               "en": "SUEZ TWO"
             },
-            "office_code": "UNSC"
+            "office_code": "UNSC",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10426,7 +12303,10 @@
             "telegraph_office_name": {
               "en": "TABA"
             },
-            "office_code": "UNOT"
+            "office_code": "UNOT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10439,7 +12319,10 @@
             "telegraph_office_name": {
               "en": "TAHTA"
             },
-            "office_code": "UNGT"
+            "office_code": "UNGT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10452,7 +12335,10 @@
             "telegraph_office_name": {
               "en": "TALA"
             },
-            "office_code": "UNKT"
+            "office_code": "UNKT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10465,7 +12351,10 @@
             "telegraph_office_name": {
               "en": "TALAT HARB INT"
             },
-            "office_code": "UNHR"
+            "office_code": "UNHR",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10478,7 +12367,10 @@
             "telegraph_office_name": {
               "en": "TALKHA"
             },
-            "office_code": "UNTL"
+            "office_code": "UNTL",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10491,7 +12383,10 @@
             "telegraph_office_name": {
               "en": "TAMIA"
             },
-            "office_code": "UNFT"
+            "office_code": "UNFT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10504,7 +12399,10 @@
             "telegraph_office_name": {
               "en": "TANTA"
             },
-            "office_code": "UNTT"
+            "office_code": "UNTT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10517,7 +12415,10 @@
             "telegraph_office_name": {
               "en": "TANTA THREE"
             },
-            "office_code": "UNTT"
+            "office_code": "UNTT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10530,7 +12431,10 @@
             "telegraph_office_name": {
               "en": "TANTA TWO"
             },
-            "office_code": "UNTT"
+            "office_code": "UNTT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10543,7 +12447,10 @@
             "telegraph_office_name": {
               "en": "TARBIH ALEXANDRIA"
             },
-            "office_code": "UNXT"
+            "office_code": "UNXT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10556,7 +12463,10 @@
             "telegraph_office_name": {
               "en": "TEMA"
             },
-            "office_code": "UNGA"
+            "office_code": "UNGA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10569,7 +12479,10 @@
             "telegraph_office_name": {
               "en": "TERMINAL TEST"
             },
-            "office_code": "UNAF"
+            "office_code": "UNAF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10582,7 +12495,10 @@
             "telegraph_office_name": {
               "en": "THIRD MAADI"
             },
-            "office_code": "UNMA"
+            "office_code": "UNMA",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10595,7 +12511,10 @@
             "telegraph_office_name": {
               "en": "TOUKH"
             },
-            "office_code": "UNBT"
+            "office_code": "UNBT",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10608,7 +12527,10 @@
             "telegraph_office_name": {
               "en": "TRAINING INSTITUTE"
             },
-            "office_code": "UNXX"
+            "office_code": "UNXX",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10621,7 +12543,10 @@
             "telegraph_office_name": {
               "en": "WADY NATROUN"
             },
-            "office_code": "UNRN"
+            "office_code": "UNRN",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10634,7 +12559,10 @@
             "telegraph_office_name": {
               "en": "ZAGAZIG"
             },
-            "office_code": "UNZG"
+            "office_code": "UNZG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10647,7 +12575,10 @@
             "telegraph_office_name": {
               "en": "ZAGAZIG CENTRAL"
             },
-            "office_code": "UNZQ"
+            "office_code": "UNZQ",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10660,7 +12591,10 @@
             "telegraph_office_name": {
               "en": "ZAGAZIG THREE"
             },
-            "office_code": "UNZG"
+            "office_code": "UNZG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10673,7 +12607,10 @@
             "telegraph_office_name": {
               "en": "ZAGAZIG TWO"
             },
-            "office_code": "UNZG"
+            "office_code": "UNZG",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10686,7 +12623,10 @@
             "telegraph_office_name": {
               "en": "ZEFTA"
             },
-            "office_code": "UNTF"
+            "office_code": "UNTF",
+            "network_codes": [
+              "UN"
+            ]
           },
           {
             "country_or_area": {
@@ -10699,7 +12639,10 @@
             "telegraph_office_name": {
               "en": "ZOHOUR PORT SAID"
             },
-            "office_code": "UNPZ"
+            "office_code": "UNPZ",
+            "network_codes": [
+              "UN"
+            ]
           }
         ]
       }

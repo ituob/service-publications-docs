@@ -1,65 +1,53 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (DPEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 994-E.164C
-description: ITU OB Dataset Schema for 994-E.164C
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for E.164C (generated from LML DPEntry)
+x-lml-model: DPEntry
 type: array
 items:
   type: object
-  description: Represents the dialling procedure information for a specific country or geographical area.
+  additionalProperties: false
   properties:
     country_or_area:
-      description: The name of the country or geographical area in English, French, and Spanish.
       type: object
+      additionalProperties: false
       properties:
         en:
-          description: Country or geographical area name in English.
           type: string
         fr:
-          description: Country or geographical area name in French.
           type: string
         es:
-          description: Country or geographical area name in Spanish.
           type: string
-      required:
-        - en
-        - fr
-        - es
-      additionalProperties: false
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
     country_code:
-      description: The ITU-T E.164 country code assigned to the country or area.
       type: string
     international_prefix:
-      description: The prefix required to dial an international number from within this country or area.
       type: string
     national_prefix:
-      description: The prefix required for national (trunk) calls within this country or area. '…' indicates not applicable or not used.
       type: string
     national_sig_number:
-      description: A description of the length or format of the National (Significant) Number.
       type: string
     utc_dst:
-      description: Coordinated Universal Time (UTC) offset and Daylight Saving Time (DST) information, if applicable.
       type: string
     note:
-      description: Optional additional notes or remarks specific to this entry.
       type: object
+      additionalProperties: false
       properties:
         en:
-          description: Note in English.
           type: string
         fr:
-          description: Note in French.
           type: string
         es:
-          description: Note in Spanish.
           type: string
-  required:
-    - country_or_area
-    - country_code
-    # - international_prefix
-    # - national_prefix
-    # - national_sig_number
-    # - utc_dst
-  # 'note' is not required as it may not be present for all entries
-  additionalProperties: false
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string

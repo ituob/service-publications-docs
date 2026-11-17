@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: 3D2[:upper:]{2}
+    description: "3D2 followed by 2 letters"
 
   experimental:
   - regex: 3D3[:upper:]{2}
+    description: "3D3 followed by 2 letters"

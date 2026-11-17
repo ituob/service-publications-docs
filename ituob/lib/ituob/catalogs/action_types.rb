@@ -45,13 +45,14 @@ module Ituob
         def valid?(value)
           return false unless value.is_a?(String)
 
-          all.include?(value.strip.upcase.sub(/\*+\z/, ''))
+          # Anchoring the reversed suffix avoids retrying at every asterisk.
+          all.include?(value.strip.upcase.reverse.sub(/\A\*+/, '').reverse)
         end
 
         def normalize(value)
           return nil unless value.is_a?(String)
 
-          normalized = value.strip.upcase.sub(/\*+\z/, '')
+          normalized = value.strip.upcase.reverse.sub(/\A\*+/, '').reverse
           all.include?(normalized) ? normalized : nil
         end
 
