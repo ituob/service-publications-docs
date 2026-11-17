@@ -25,6 +25,13 @@ module Ituob
         seed&.ob_issue_no
       end
 
+      def pre_seed_changes
+        seed = seed_issue
+        return [] if seed.nil?
+
+        @changes.select { |c| c.ob_issue_no && c.ob_issue_no < seed }
+      end
+
       def each_sorted
         return enum_for(:each_sorted) unless block_given?
 

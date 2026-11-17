@@ -47,6 +47,12 @@ module Ituob
         E212MNCEntry
         E218TRCCAction
         E218TRCCEntry
+        F32CompletenessReport
+        F32CountryCompleteness
+        F32OfficeDifference
+        F32PrintedPage
+        F32SeedContext
+        F32SeedPublication
         F32TDIAction
         F32TDIEntry
         F400Action
@@ -80,6 +86,8 @@ module Ituob
         Q708SANCEntry
         RR251Action
         RR251Entry
+        RegisterActions
+        RegisterChange
         RegisterEdition
         RegisterKeyHistory
         T35AssignmentAuthority
@@ -120,10 +128,11 @@ module Ituob
         }.freeze
 
         # Ontology names for the lossless corpus value types
-        # (see DateOrText, HashOrText).
+        # (see DateOrText, HashOrText, HashOrList).
         LOSSLESS_TYPES = {
           "DateOrText" => "Ituob::Models::DateOrText",
           "HashOrText" => "Ituob::Models::HashOrText",
+          'HashOrList' => 'Ituob::Models::HashOrList'
         }.freeze
 
         # lutaml-model omits an empty value ("" or []) from the
@@ -136,6 +145,7 @@ module Ituob
         def apply_key_value_mappings
           super
           map_edition_items
+          map_register_changes
           RENDER_EMPTY_CLASSES.each do |name|
             klass = compiled_classes.fetch(name)
             names = klass.attributes.keys
@@ -143,6 +153,15 @@ module Ituob
               names.each { |attr| map attr.to_s, to: attr, render_empty: true }
             end
           end
+        end
+
+        # The LML wire rename must not hide the envelope's other fields.
+        # Its enum is a scalar in the patch log, rather than a nested model.
+        def map_register_changes
+          change = compiled_classes.fetch('RegisterChange')
+          mapping = serialization_mapping_for('RegisterChange', 'key_value')
+          renames = mapping.rules.to_h { |rule| [rule.field.to_sym, rule.wire] }
+          RegisterChangeMapping.apply(change, renames)
         end
 
         def resolve_type(type_name)
@@ -219,7 +238,8 @@ module Ituob
         # Deserialization assigns missing fields after initialize;
         # projection collections need attribute defaults as well.
         def projection_options(klass_def, options)
-          return options unless %w[RegisterEdition RegisterKeyHistory].include?(klass_def.name.to_s) && options[:collection]
+          return options unless options[:collection]
+          return options unless %w[RegisterEdition RegisterKeyHistory RegisterActions].include?(klass_def.name.to_s)
 
           options.merge(default: -> { [] })
         end
@@ -228,6 +248,9 @@ module Ituob
       def self.load!
         CLASS_NAMES.each do |name|
           klass = compiler.compiled_classes.fetch(name)
+          klass.attributes.each_value do |attribute|
+            attribute.type.configure_attribute(attribute) if attribute.type.respond_to?(:configure_attribute)
+          end
           ensure_collections_default_to_empty(klass)
           preserve_empty_strings(name, klass)
           Models.const_set(name, klass)

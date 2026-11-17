@@ -1,0 +1,1666 @@
+== Independent printed-list comparison
+
+Official printed source: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+
+Source SHA-256: `7ef59fbbfcddd5690dd4f5e2de87a618e31898c8943ca1335c6c4e2a4556c3d9`
+
+Source pages: 47; printed unique allocations: 1092; printed context rows: 959.
+
+Printed contexts by kind: alias=66; heading=245; network=240; network-relative-office=311; printed-unassigned=5; shared-indicator=92.
+
+Candidate source: `ituob/spec/fixtures/f32/recovered-1214.json`
+
+Candidate SHA-256: `2afc40eb22639405f917a10e36118e95d263c81cd0d125d7c8f8b907d2154f22`
+
+Raw recovered rows: 1214; Recovered context rows: 136 (without an office code).
+Raw rows are not deduplicated or collapsed. Every coded row is compared, including shared indicators and unresolved network-relative offices.
+Printed headings, networks, aliases and names without assigned codes remain source contexts; they are not invented office assignments.
+Assignment identity and normalized English office name are compared by F32CompletenessChecker; multilingual notes and network annotations are not compared.
+
+Matching: 567; missing: 910; extra: 493; different: 18.
+Missing means present in print only; extra means present in the recovered rows only; different means one printed and one recovered name differ for the same assignment.
+
+== Country totals
+
+[cols="3,1,1,1,1",options="header"]
+|===
+| Country (French source heading) | Matching | Missing | Extra | Different
+| AFGHANISTAN | 2 | 0 | 0 | 0
+| ALBANIE | 17 | 0 | 0 | 0
+| ALGÉRIE | 4 | 0 | 0 | 0
+| ALLEMAGNE | 2 | 0 | 0 | 0
+| ANGOLA | 1 | 0 | 0 | 0
+| ANGUILLA | 1 | 0 | 0 | 0
+| ARABIE SAOUDITE | 5 | 0 | 0 | 1
+| ARGENTINE | 2 | 0 | 0 | 0
+| ARUBA | 3 | 0 | 0 | 0
+| AUSTRALIE1) | 1 | 0 | 0 | 2
+| AUTRICHE | 2 | 0 | 0 | 0
+| AZERBAÏDJAN | 1 | 0 | 0 | 0
+| BAHAMAS | 3 | 0 | 0 | 0
+| BAHREÏN | 5 | 0 | 0 | 2
+| BANGLADESH | 2 | 0 | 0 | 0
+| BARBADE | 2 | 0 | 0 | 0
+| BELGIQUE | 4 | 0 | 0 | 1
+| BELIZE | 2 | 0 | 0 | 0
+| BERMUDES | 2 | 0 | 0 | 0
+| BHOUTAN | 1 | 0 | 0 | 0
+| BOLIVIE | 23 | 1 | 0 | 1
+| BOSNIE-HERZÉGOVINE | 1 | 0 | 0 | 0
+| BOTSWANA | 3 | 0 | 0 | 0
+| BRUNÉI DARUSSALAM | 4 | 0 | 0 | 0
+| BRÉSIL | 13 | 0 | 0 | 0
+| BURKINA FASO | 3 | 0 | 0 | 0
+| BURUNDI | 2 | 0 | 0 | 0
+| BÉLARUS | 0 | 1 | 0 | 0
+| BÉNIN | 2 | 0 | 0 | 0
+| CAMBODGE | 3 | 0 | 0 | 0
+| CAMEROUN | 3 | 0 | 0 | 0
+| CANADA | 1 | 0 | 0 | 0
+| CAP-VERT | 3 | 0 | 0 | 0
+| CAYMAN (ÎLES) | 1 | 0 | 0 | 0
+| CENTRAFRICAINE (RÉP.) | 2 | 0 | 0 | 0
+| CHILI | 94 | 11 | 0 | 0
+| CHINE | 22 | 0 | 0 | 0
+| CHYPRE | 3 | 0 | 0 | 0
+| COLOMBIE | 7 | 0 | 0 | 0
+| COMORES | 2 | 0 | 0 | 0
+| CONGO (RÉP. DU) | 2 | 0 | 0 | 0
+| COOK (ÎLES) | 1 | 0 | 0 | 0
+| CORÉE (RÉP. DE) | 2 | 0 | 0 | 0
+| COSTA RICA | 2 | 0 | 0 | 0
+| CROATIE | 2 | 0 | 0 | 0
+| CUBA | 5 | 0 | 0 | 0
+| CÔTE D'IVOIRE | 2 | 0 | 0 | 0
+| DJIBOUTI | 1 | 0 | 0 | 0
+| DOMINICAINE (RÉP.) | 2 | 0 | 0 | 0
+| DOMINIQUE | 1 | 0 | 0 | 0
+| EGIPTO | 0 | 0 | 261 | 0
+| EGYPT | 0 | 0 | 1 | 0
+| EGYPTE | 0 | 0 | 1 | 0
+| EL SALVADOR | 2 | 0 | 0 | 0
+| EQUATEUR | 17 | 0 | 0 | 0
+| ERYTHRÉE | 1 | 0 | 0 | 0
+| ESPAGNE | 2 | 0 | 0 | 2
+| ESTONIE | 2 | 0 | 0 | 0
+| FALKLAND (ÎLES) (MALVINAS | 0 | 1 | 0 | 0
+| FALKLAND (ÎLES) (MALVINAS) | 0 | 0 | 1 | 0
+| FINLANDE | 2 | 0 | 0 | 0
+| FRANCE DE L’OCÉAN INDIEN | 0 | 0 | 0 | 1
+| France | 1 | 0 | 0 | 0
+| FÉDÉRATION DE RUSSIE | 79 | 0 | 0 | 0
+| GABON | 3 | 0 | 0 | 0
+| GAMBIE | 2 | 0 | 0 | 0
+| GEORGIE | 5 | 0 | 0 | 0
+| GHANA | 5 | 0 | 0 | 0
+| GRENADE | 2 | 0 | 0 | 0
+| GRÈCE | 2 | 0 | 0 | 0
+| GUADELOUPE | 1 | 0 | 0 | 0
+| GUAM | 2 | 0 | 0 | 0
+| GUANTANAMO (BAIE) | 0 | 0 | 0 | 1
+| GUATEMALA | 2 | 0 | 0 | 0
+| GUINÉE | 2 | 0 | 0 | 0
+| GUINÉE EQUATORIALE | 3 | 0 | 0 | 0
+| GUINÉE-BISSAU | 2 | 0 | 0 | 0
+| GUYANE FRANÇAISE | 1 | 0 | 0 | 0
+| HAÏTI | 2 | 0 | 0 | 0
+| HONDURAS | 5 | 0 | 0 | 1
+| INDE | 9 | 81 | 0 | 0
+| IRAN (RÉPUBLIQUE ISLAMIQUE D') | 11 | 0 | 0 | 0
+| IRAQ | 2 | 0 | 0 | 0
+| IRLANDE | 2 | 0 | 0 | 0
+| ISLANDE | 2 | 0 | 0 | 0
+| ISRAËL | 1 | 0 | 0 | 0
+| ITALIA 1) | 0 | 0 | 219 | 0
+| ITALIE | 5 | 230 | 0 | 0
+| ITALY 1) | 0 | 0 | 7 | 0
+| JAMAHIRIYA ARABE LIBYENNE | 0 | 4 | 0 | 0
+| JAMAÏQUE | 0 | 4 | 0 | 0
+| JAPON | 0 | 7 | 0 | 0
+| JOHNSTON (ÎLE) | 0 | 1 | 0 | 0
+| JORDAN | 0 | 0 | 1 | 0
+| JORDANIA | 0 | 0 | 2 | 0
+| JORDANIE | 0 | 3 | 0 | 0
+| KAZAKHSTAN | 0 | 1 | 0 | 0
+| KIRGHIZISTAN | 0 | 1 | 0 | 0
+| KIRIBATI | 0 | 8 | 0 | 0
+| KOWEÏT | 0 | 13 | 0 | 0
+| KÉNYA | 0 | 3 | 0 | 0
+| L'EX-RÉPUBLIQUE YOUGOSLAVE DE MACÉDOINE | 0 | 2 | 0 | 0
+| LAO (R.d.p.) | 0 | 2 | 0 | 0
+| LESOTHO | 0 | 2 | 0 | 0
+| LETTONIE | 0 | 2 | 0 | 0
+| LIBAN | 0 | 3 | 0 | 0
+| LIBÉRIA | 0 | 2 | 0 | 0
+| LIECHTENSTEIN | 0 | 2 | 0 | 0
+| LITUANIE | 0 | 1 | 0 | 0
+| MACAO, Chine | 0 | 2 | 0 | 0
+| MALAISIE | 0 | 17 | 0 | 0
+| MALAWI | 0 | 2 | 0 | 0
+| MALDIVES | 0 | 2 | 0 | 0
+| MALI | 0 | 2 | 0 | 0
+| MARIANNES DU NORD | 0 | 2 | 0 | 0
+| MAROC | 0 | 4 | 0 | 0
+| MARSHALL (ÎLES) | 0 | 3 | 0 | 0
+| MARTINIQUE | 0 | 1 | 0 | 0
+| MAURICE | 0 | 4 | 0 | 0
+| MAURITANIE | 0 | 2 | 0 | 0
+| MAYOTTE | 0 | 1 | 0 | 0
+| MEXIQUE | 0 | 9 | 0 | 0
+| MICRONÉSIE | 0 | 5 | 0 | 0
+| MIDWAY (ÎLES) | 0 | 1 | 0 | 0
+| MOLDOVA | 0 | 1 | 0 | 0
+| MONACO | 0 | 3 | 0 | 0
+| MONGOLIE | 0 | 2 | 0 | 0
+| MONTSERRAT | 0 | 1 | 0 | 0
+| MONTÉNÉGRO | 0 | 1 | 0 | 0
+| MOZAMBIQUE | 0 | 8 | 0 | 0
+| MYANMAR | 0 | 2 | 0 | 0
+| NAMIBIE | 0 | 1 | 0 | 0
+| NAURU | 0 | 1 | 0 | 0
+| NICARAGUA | 0 | 4 | 0 | 0
+| NIGER | 0 | 3 | 0 | 0
+| NIGÉRIA | 0 | 38 | 0 | 0
+| NIUE (ÎLE) | 0 | 1 | 0 | 0
+| NORVEGE | 0 | 1 | 0 | 0
+| NÉPAL | 0 | 2 | 0 | 0
+| OMAN | 0 | 20 | 0 | 0
+| OUGANDA | 0 | 28 | 0 | 0
+| OUZBEKISTAN | 0 | 13 | 0 | 0
+| PALAU | 0 | 1 | 0 | 0
+| PANAMA | 0 | 4 | 0 | 0
+| PAPOUASIE-NOUVELLE- GUINÉE | 0 | 1 | 0 | 0
+| PARAGUAY | 0 | 2 | 0 | 0
+| PAYS-BAS | 0 | 1 | 0 | 0
+| PHILIPPINES | 0 | 21 | 0 | 0
+| PITCAIRN | 0 | 1 | 0 | 0
+| POLYNÉSIE FRANÇAISE | 0 | 2 | 0 | 0
+| PORTO-RICO | 0 | 2 | 0 | 0
+| PORTUGAL | 0 | 10 | 0 | 0
+| PÉROU | 0 | 92 | 0 | 0
+| QATAR | 0 | 1 | 0 | 0
+| RODRIGUES | 0 | 1 | 0 | 0
+| ROUMANIE | 0 | 1 | 0 | 0
+| ROYAUME-UNI | 0 | 1 | 0 | 0
+| RWANDA | 0 | 6 | 0 | 0
+| RÉP. DÉM. DU CONGO | 0 | 4 | 0 | 0
+| RÉP. POP. DÉM. DE CORÉE | 0 | 2 | 0 | 0
+| RÉP. TCHEQUE | 0 | 2 | 0 | 0
+| RÉPUBLIQUE ARABE SYRIENNE | 0 | 28 | 0 | 0
+| SAINT-KITTS-ET-NEVIS | 0 | 2 | 0 | 0
+| SAINT-PIERRE-ET- MIQUELON | 0 | 2 | 0 | 0
+| SAINT-VINCENT-ET-LES GRENADINES | 0 | 1 | 0 | 0
+| SAINTE-HÉLÈNE, ASCENSION ET TRISTAN DA CUNHA | 0 | 2 | 0 | 0
+| SAINTE-LUCIE | 0 | 1 | 0 | 0
+| SALOMON (ÎLES) | 0 | 2 | 0 | 0
+| SAMOA | 0 | 2 | 0 | 0
+| SAMOA AMÉRICAIN | 0 | 2 | 0 | 0
+| SAO TOMÉ-ET-PRINCIPE | 0 | 3 | 0 | 0
+| SERBIE | 0 | 7 | 0 | 0
+| SEYCHELLES | 0 | 2 | 0 | 0
+| SIERRA LEONE | 0 | 3 | 0 | 0
+| SLOVÉNIE | 0 | 1 | 0 | 0
+| SOMALIE | 0 | 2 | 0 | 0
+| SOUDAN | 0 | 3 | 0 | 0
+| SRI LANKA | 0 | 2 | 0 | 0
+| SUDAFRICAINE (RÉP.) | 0 | 1 | 0 | 0
+| SUISSE | 0 | 6 | 0 | 0
+| SUÈDE | 0 | 1 | 0 | 0
+| SWAZILAND | 0 | 2 | 0 | 0
+| SÉNÉGAL | 0 | 2 | 0 | 0
+| TADJIKISTAN | 0 | 1 | 0 | 0
+| TANZANIE | 0 | 5 | 0 | 0
+| TCHAD | 0 | 2 | 0 | 0
+| TERRES AUSTRALES ET ANTARCTIQUES FRANÇAISES | 0 | 2 | 0 | 0
+| TIMOR LESTE | 0 | 2 | 0 | 0
+| TOGO | 0 | 2 | 0 | 0
+| TOKELAU | 0 | 1 | 0 | 0
+| TUNISIE | 0 | 4 | 0 | 0
+| TURKMÉNISTAN | 0 | 1 | 0 | 0
+| TURQUES ET CAÏQUES (ÎLES) | 0 | 1 | 0 | 0
+| TURQUIE | 0 | 5 | 0 | 0
+| TUVALU | 0 | 2 | 0 | 0
+| UKRAINE | 0 | 32 | 0 | 0
+| URUGUAY | 0 | 12 | 0 | 0
+| VENEZUELA | 0 | 2 | 0 | 0
+| VIERGES AMÉRICAINES (ÎLES) | 0 | 4 | 0 | 0
+| VIERGES BRITANNIQUES (ÎLES) | 0 | 4 | 0 | 0
+| VIET NAM | 0 | 3 | 0 | 0
+| WAKE (ÎLE) | 0 | 1 | 0 | 0
+| WALLIS-ET-FUTUNA | 0 | 2 | 0 | 0
+| YÉMEN | 0 | 9 | 0 | 0
+| ZAMBIE | 0 | 4 | 0 | 0
+| ZIMBABWE | 0 | 3 | 0 | 0
+| ÉGYPTE | 79 | 1 | 0 | 1
+| ÉMIRATS ARABES UNIS | 14 | 0 | 0 | 0
+| ÉTATS-UNIS | 21 | 0 | 0 | 5
+| ÉTHIOPIE | 2 | 0 | 0 | 0
+|===
+
+== Every missing, extra or different assignment
+
+[cols="1,2,1,3,3,3",options="header"]
+|===
+| Status | Country | Office code | Printed office name | Recovered office name | Reason
+| Different | ARABIE SAOUDITE | SJRI | (al) | Riyadh (al) | Printed office name differs
+| Different | AUSTRALIE1) | AAXX | All destinations | All destinations (including Cocos-Keeling Islands – Indian Ocean) | Printed office name differs
+| Different | AUSTRALIE1) | IOXX | (including Cocos-Keeling Islands – Indian Ocean) All destinations | All destinations | Printed office name differs
+| Different | BAHREÏN | BNDP | Manama Diplomatic Area Counter | Area Counter | Printed office name differs
+| Different | BAHREÏN | BNSM | Manama Shaikh Mubarrak Counter | Counter | Printed office name differs
+| Different | BELGIQUE | BEOS | Oostende Radio / Ostende Radio | Radio | Printed office name differs
+| Different | BOLIVIE | BOBJ | BOLIVIA | BERMEJO BOLIVIA | Printed office name differs
+| Missing | BOLIVIE | BOLA | LA PAZ |  | Printed assignment absent from recovered rows
+| Missing | BÉLARUS | BYXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | CHILI | --LA | Ángeles (Los) |  | Printed assignment absent from recovered rows
+| Missing | CHILI | --LD | Andes (Los) |  | Printed assignment absent from recovered rows
+| Missing | CHILI | --LS | La Serena |  | Printed assignment absent from recovered rows
+| Missing | CHILI | --LU | La Unión Valdivia |  | Printed assignment absent from recovered rows
+| Missing | CHILI | CLLA | Ángeles (Los) |  | Printed assignment absent from recovered rows
+| Missing | CHILI | CLLC | Cisterna (La) |  | Printed assignment absent from recovered rows
+| Missing | CHILI | CLLD | Andes (Los) |  | Printed assignment absent from recovered rows
+| Missing | CHILI | CLLF | Florida Chile (La) |  | Printed assignment absent from recovered rows
+| Missing | CHILI | CLLR | La Reina Santiago |  | Printed assignment absent from recovered rows
+| Missing | CHILI | CLLS | La Serena |  | Printed assignment absent from recovered rows
+| Missing | CHILI | CLLU | La Unión Valdivia |  | Printed assignment absent from recovered rows
+| Extra | EGIPTO | UNAA |  | ALEXANDRIA MARKONY /B | Recovered assignment absent from print
+| Extra | EGIPTO | UNAB |  | EL BADARY | Recovered assignment absent from print
+| Extra | EGIPTO | UNAD |  | DIROUT | Recovered assignment absent from print
+| Extra | EGIPTO | UNAE |  | PHON ASIOUT 2 | Recovered assignment absent from print
+| Extra | EGIPTO | UNAF |  | TERMINAL TEST | Recovered assignment absent from print
+| Extra | EGIPTO | UNAG |  | DAR EL HEKMA | Recovered assignment absent from print
+| Extra | EGIPTO | UNAH |  | BAIN EL SARAYAT/B | Recovered assignment absent from print
+| Extra | EGIPTO | UNAM |  | SAHEL SLEEM | Recovered assignment absent from print
+| Extra | EGIPTO | UNAN |  | EL WALEEDIAH ASIOUT | Recovered assignment absent from print
+| Extra | EGIPTO | UNAO |  | ABNOUB | Recovered assignment absent from print
+| Extra | EGIPTO | UNAQ |  | EL QOESSIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNAR |  | CAIRO AIRPORT/B | Recovered assignment absent from print
+| Extra | EGIPTO | UNAS |  | SEDFA | Recovered assignment absent from print
+| Extra | EGIPTO | UNAT |  | ASIOUT TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNAU |  | BENI SUEF STATION | Recovered assignment absent from print
+| Extra | EGIPTO | UNAW |  | PHON ASWAN | Recovered assignment absent from print
+| Extra | EGIPTO | UNAY |  | EL AYAT | Recovered assignment absent from print
+| Extra | EGIPTO | UNBA |  | BANHA CENTRAL | Recovered assignment absent from print
+| Extra | EGIPTO | UNBB |  | PHON BANHA | Recovered assignment absent from print
+| Extra | EGIPTO | UNBC |  | NEW EL KOBBA/B | Recovered assignment absent from print
+| Extra | EGIPTO | UNBD |  | EL BADRSHEEN | Recovered assignment absent from print
+| Extra | EGIPTO | UNBH |  | SHIBIN EL QANATER | Recovered assignment absent from print
+| Extra | EGIPTO | UNBK |  | KAFR SHOKR | Recovered assignment absent from print
+| Extra | EGIPTO | UNBL |  | BAB EL LOUK/B | Recovered assignment absent from print
+| Extra | EGIPTO | UNBQ |  | QALYOUB | Recovered assignment absent from print
+| Extra | EGIPTO | UNBS |  | SUEZ BUS STATION | Recovered assignment absent from print
+| Extra | EGIPTO | UNBT |  | TOUKH | Recovered assignment absent from print
+| Extra | EGIPTO | UNCA |  | INTRTLG | Recovered assignment absent from print
+| Extra | EGIPTO | UNCE |  | PHONOGRAM EGYPT 9 | Recovered assignment absent from print
+| Extra | EGIPTO | UNCX |  | INT CAIRO/W | Recovered assignment absent from print
+| Extra | EGIPTO | UNDB |  | DATA BASE | Recovered assignment absent from print
+| Extra | EGIPTO | UNDC |  | DEMITTA SYAHY | Recovered assignment absent from print
+| Extra | EGIPTO | UNDD |  | MASAKEN EMBABA | Recovered assignment absent from print
+| Extra | EGIPTO | UNDF |  | FARASKOUR | Recovered assignment absent from print
+| Extra | EGIPTO | UNDI |  | EL DOKKI CENTRAL/B | Recovered assignment absent from print
+| Extra | EGIPTO | UNDK |  | EL DOKKI EGYPT | Recovered assignment absent from print
+| Extra | EGIPTO | UNDP |  | PHON DEMITTA | Recovered assignment absent from print
+| Extra | EGIPTO | UNDR |  | RAS EL BAR | Recovered assignment absent from print
+| Extra | EGIPTO | UNDS |  | KAFR SAAD | Recovered assignment absent from print
+| Extra | EGIPTO | UNDT |  | DEMITTA TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNDZ |  | EL ZARQUA | Recovered assignment absent from print
+| Extra | EGIPTO | UNEB |  | EMBABA MOSHTARK/B | Recovered assignment absent from print
+| Extra | EGIPTO | UNEE |  | ALFY EGYPTWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNEH |  | EL HARAM CENTRAL | Recovered assignment absent from print
+| Extra | EGIPTO | UNEM |  | EL MATARIYA CENTRAL/B | Recovered assignment absent from print
+| Extra | EGIPTO | UNFA |  | ATSA | Recovered assignment absent from print
+| Extra | EGIPTO | UNFB |  | ABSHWAY | Recovered assignment absent from print
+| Extra | EGIPTO | UNFM |  | PHON EL FAYOUM TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNFS |  | SANNOURS | Recovered assignment absent from print
+| Extra | EGIPTO | UNFT |  | TAMIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNGA |  | TEMA | Recovered assignment absent from print
+| Extra | EGIPTO | UNGB |  | BALIANA | Recovered assignment absent from print
+| Extra | EGIPTO | UNGC |  | GIZA CENTRAL/B | Recovered assignment absent from print
+| Extra | EGIPTO | UNGE |  | EKHMEEM | Recovered assignment absent from print
+| Extra | EGIPTO | UNGG |  | GERGA | Recovered assignment absent from print
+| Extra | EGIPTO | UNGH |  | GEHEINA | Recovered assignment absent from print
+| Extra | EGIPTO | UNGL |  | EL MRAGHA | Recovered assignment absent from print
+| Extra | EGIPTO | UNGM |  | GIZA MOGMAA / B | Recovered assignment absent from print
+| Extra | EGIPTO | UNGN |  | EL MENSHA | Recovered assignment absent from print
+| Extra | EGIPTO | UNGO |  | ELTAHREER MOGMAA | Recovered assignment absent from print
+| Extra | EGIPTO | UNGQ |  | SAQALTA | Recovered assignment absent from print
+| Extra | EGIPTO | UNGR |  | DAR EL SALAM | Recovered assignment absent from print
+| Extra | EGIPTO | UNGS |  | HELIOPOLIS CENTRAL | Recovered assignment absent from print
+| Extra | EGIPTO | UNGT |  | TAHTA | Recovered assignment absent from print
+| Extra | EGIPTO | UNGZ |  | ELGIZA | Recovered assignment absent from print
+| Extra | EGIPTO | UNHD |  | MERSA MATROUH /B | Recovered assignment absent from print
+| Extra | EGIPTO | UNHE |  | EL HADY ESLAMY | Recovered assignment absent from print
+| Extra | EGIPTO | UNHH |  | SEEWA MATROUH | Recovered assignment absent from print
+| Extra | EGIPTO | UNHJ |  | PHON HURGHADA | Recovered assignment absent from print
+| Extra | EGIPTO | UNHK |  | HADAYEK EL KOBBA | Recovered assignment absent from print
+| Extra | EGIPTO | UNHR |  | TALAT HARB INT | Recovered assignment absent from print
+| Extra | EGIPTO | UNHW |  | HAMAMAT HELWAN | Recovered assignment absent from print
+| Extra | EGIPTO | UNHY |  | EL HAWAMDIYA | Recovered assignment absent from print
+| Extra | EGIPTO | UNIB |  | ORABI ISMAILIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNIF |  | FAYED | Recovered assignment absent from print
+| Extra | EGIPTO | UNIN |  | INSPECTION | Recovered assignment absent from print
+| Extra | EGIPTO | UNIQ |  | QUNATRA WEST | Recovered assignment absent from print
+| Extra | EGIPTO | UNIS |  | PHON ISMAILIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNIT |  | EL TAL EL KEBEER | Recovered assignment absent from print
+| Extra | EGIPTO | UNIZ |  | ASHEEKH ZAYD | Recovered assignment absent from print
+| Extra | EGIPTO | UNJB |  | SAFAGA TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNJG |  | RAS GHAREB | Recovered assignment absent from print
+| Extra | EGIPTO | UNJQ |  | EL QUSSEER | Recovered assignment absent from print
+| Extra | EGIPTO | UNJR |  | EL QUSSEER RADIO | Recovered assignment absent from print
+| Extra | EGIPTO | UNJS |  | SAFAGA CENTRAL | Recovered assignment absent from print
+| Extra | EGIPTO | UNKA |  | EL KHANKA | Recovered assignment absent from print
+| Extra | EGIPTO | UNKB |  | EL SADAT CITY | Recovered assignment absent from print
+| Extra | EGIPTO | UNKD |  | EL SHOHADAA | Recovered assignment absent from print
+| Extra | EGIPTO | UNKG |  | EL BAGOUR | Recovered assignment absent from print
+| Extra | EGIPTO | UNKM |  | EL HAMAM MATROUH | Recovered assignment absent from print
+| Extra | EGIPTO | UNKN |  | MENOUF | Recovered assignment absent from print
+| Extra | EGIPTO | UNKQ |  | QUESSNA | Recovered assignment absent from print
+| Extra | EGIPTO | UNKS |  | PHON KAFR EL SHEEKH | Recovered assignment absent from print
+| Extra | EGIPTO | UNKT |  | TALA | Recovered assignment absent from print
+| Extra | EGIPTO | UNLA |  | ARMANT | Recovered assignment absent from print
+| Extra | EGIPTO | UNLD |  | DEMITTA NEW | Recovered assignment absent from print
+| Extra | EGIPTO | UNLX |  | PHON LUXOR | Recovered assignment absent from print
+| Extra | EGIPTO | UNMA |  | THIRD MAADI | Recovered assignment absent from print
+| Extra | EGIPTO | UNMB |  | MAADI STATION | Recovered assignment absent from print
+| Extra | EGIPTO | UNMD |  | DEKERNES | Recovered assignment absent from print
+| Extra | EGIPTO | UNMF |  | MESR FAREY | Recovered assignment absent from print
+| Extra | EGIPTO | UNMG |  | GAMASA | Recovered assignment absent from print
+| Extra | EGIPTO | UNMH |  | PHON MERSA MATROUH | Recovered assignment absent from print
+| Extra | EGIPTO | UNMK |  | MESR EL KADEMA/B | Recovered assignment absent from print
+| Extra | EGIPTO | UNML |  | SINBELLAWEEN | Recovered assignment absent from print
+| Extra | EGIPTO | UNMM |  | EL MATARIYA DKAHLIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNMN |  | PHON MANSOURA 2 | Recovered assignment absent from print
+| Extra | EGIPTO | UNMO |  | MOHANDSEEN | Recovered assignment absent from print
+| Extra | EGIPTO | UNMR |  | MIT GHAMER | Recovered assignment absent from print
+| Extra | EGIPTO | UNMS |  | SHERBEEN | Recovered assignment absent from print
+| Extra | EGIPTO | UNMW |  | MAGLS WZRAA | Recovered assignment absent from print
+| Extra | EGIPTO | UNMY |  | MESR ASLY | Recovered assignment absent from print
+| Extra | EGIPTO | UNMZ |  | EL MAZA TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNNB |  | BANI MAZAR | Recovered assignment absent from print
+| Extra | EGIPTO | UNND |  | DEER MOUAS | Recovered assignment absent from print
+| Extra | EGIPTO | UNNE |  | EL EDWA | Recovered assignment absent from print
+| Extra | EGIPTO | UNNG |  | MAGHAGHA | Recovered assignment absent from print
+| Extra | EGIPTO | UNNI |  | PHON EL MINIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNNK |  | ABU KERKAS | Recovered assignment absent from print
+| Extra | EGIPTO | UNNS |  | SAMALOUT | Recovered assignment absent from print
+| Extra | EGIPTO | UNNU |  | NASER BENI SUEF | Recovered assignment absent from print
+| Extra | EGIPTO | UNNW |  | MALLAWY | Recovered assignment absent from print
+| Extra | EGIPTO | UNNY |  | MATAY | Recovered assignment absent from print
+| Extra | EGIPTO | UNOB |  | OBERA CENTRAL | Recovered assignment absent from print
+| Extra | EGIPTO | UNOD |  | RAS SEDR | Recovered assignment absent from print
+| Extra | EGIPTO | UNOE |  | NWEBAA EL MENAA | Recovered assignment absent from print
+| Extra | EGIPTO | UNOR |  | ABU RDEES | Recovered assignment absent from print
+| Extra | EGIPTO | UNOS |  | SHARM EL SHEEKH | Recovered assignment absent from print
+| Extra | EGIPTO | UNOT |  | TABA | Recovered assignment absent from print
+| Extra | EGIPTO | UNOU |  | PHON EL TOUR | Recovered assignment absent from print
+| Extra | EGIPTO | UNOX |  | EL HARAMEEN/B | Recovered assignment absent from print
+| Extra | EGIPTO | UNPC |  | PORT SAID TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNPE |  | PORT SAID MARKONY TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNPF |  | PORT FOUAD | Recovered assignment absent from print
+| Extra | EGIPTO | UNPH |  | PHONOGRAM CAIRO | Recovered assignment absent from print
+| Extra | EGIPTO | UNPS |  | PHON PORT SAID | Recovered assignment absent from print
+| Extra | EGIPTO | UNPZ |  | ZOHOUR PORT SAID | Recovered assignment absent from print
+| Extra | EGIPTO | UNQA |  | QUENA TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNQB |  | ABU SHOSHA | Recovered assignment absent from print
+| Extra | EGIPTO | UNQD |  | DESHNA | Recovered assignment absent from print
+| Extra | EGIPTO | UNQE |  | ESNA | Recovered assignment absent from print
+| Extra | EGIPTO | UNQF |  | FARSHOUT | Recovered assignment absent from print
+| Extra | EGIPTO | UNQG |  | NAGAA HAMADI TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNQH |  | NAGAA HAMADI TOWN | Recovered assignment absent from print
+| Extra | EGIPTO | UNQJ |  | EL QUSSEER TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNQL |  | EL SEBAEYA WEST | Recovered assignment absent from print
+| Extra | EGIPTO | UNQN |  | NQADA | Recovered assignment absent from print
+| Extra | EGIPTO | UNQQ |  | QUEFT | Recovered assignment absent from print
+| Extra | EGIPTO | UNQR |  | SIDY ABD ELRAHEEM | Recovered assignment absent from print
+| Extra | EGIPTO | UNQS |  | QUENA MOSTAGADA | Recovered assignment absent from print
+| Extra | EGIPTO | UNQT |  | ABU TESHT | Recovered assignment absent from print
+| Extra | EGIPTO | UNQU |  | QOUS | Recovered assignment absent from print
+| Extra | EGIPTO | UNQW |  | EL WAQF | Recovered assignment absent from print
+| Extra | EGIPTO | UNRA |  | RASHEED | Recovered assignment absent from print
+| Extra | EGIPTO | UNRB |  | OSEEM | Recovered assignment absent from print
+| Extra | EGIPTO | UNRD |  | PHON DAMANHOUR | Recovered assignment absent from print
+| Extra | EGIPTO | UNRE |  | EDKO | Recovered assignment absent from print
+| Extra | EGIPTO | UNRH |  | HOUSH ESSA | Recovered assignment absent from print
+| Extra | EGIPTO | UNRK |  | KOM HAMADA | Recovered assignment absent from print
+| Extra | EGIPTO | UNRL |  | EL DELENGAT | Recovered assignment absent from print
+| Extra | EGIPTO | UNRM |  | CAREGY TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNRN |  | WADY NATROUN | Recovered assignment absent from print
+| Extra | EGIPTO | UNRO |  | KAFR EL DAWAR TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNRP |  | RAMSEES EGYPT | Recovered assignment absent from print
+| Extra | EGIPTO | UNRR |  | EL RAHMANEYA | Recovered assignment absent from print
+| Extra | EGIPTO | UNRS |  | SHUBRA KHEET | Recovered assignment absent from print
+| Extra | EGIPTO | UNRT |  | MODERIET EL TAHREER | Recovered assignment absent from print
+| Extra | EGIPTO | UNRU |  | ETAI EL BAROUD | Recovered assignment absent from print
+| Extra | EGIPTO | UNRV |  | ABU EL MATAMEER | Recovered assignment absent from print
+| Extra | EGIPTO | UNRY |  | EL MAHMOUDEYA | Recovered assignment absent from print
+| Extra | EGIPTO | UNSB |  | EL SHARABIA /B | Recovered assignment absent from print
+| Extra | EGIPTO | UNSC |  | SUEZ TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNSD |  | MOHAMED FAREED | Recovered assignment absent from print
+| Extra | EGIPTO | UNSF |  | FAISAL NAMOZAGY | Recovered assignment absent from print
+| Extra | EGIPTO | UNSG |  | SHOUHAG TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNSH |  | SHUBRA CENTRAL / B | Recovered assignment absent from print
+| Extra | EGIPTO | UNSK |  | SHUBRA EL KHAMA CENTRAL | Recovered assignment absent from print
+| Extra | EGIPTO | UNSM |  | MENAA SUEZ | Recovered assignment absent from print
+| Extra | EGIPTO | UNSO |  | EL HAMOUL | Recovered assignment absent from print
+| Extra | EGIPTO | UNSP |  | SOUK EL GOMLA | Recovered assignment absent from print
+| Extra | EGIPTO | UNSQ |  | QUELEEN | Recovered assignment absent from print
+| Extra | EGIPTO | UNSR |  | SUEZ CENTRAL | Recovered assignment absent from print
+| Extra | EGIPTO | UNSS |  | SIDI SALEM | Recovered assignment absent from print
+| Extra | EGIPTO | UNST |  | BALTEEM | Recovered assignment absent from print
+| Extra | EGIPTO | UNSU |  | PHON BENI SUEF | Recovered assignment absent from print
+| Extra | EGIPTO | UNSV |  | FOWA | Recovered assignment absent from print
+| Extra | EGIPTO | UNSW |  | SUEZ NAMOZAGY | Recovered assignment absent from print
+| Extra | EGIPTO | UNSY |  | EL SALAM SUEZ | Recovered assignment absent from print
+| Extra | EGIPTO | UNSZ |  | SUEZ MARKONY TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNTB |  | BASYOUN | Recovered assignment absent from print
+| Extra | EGIPTO | UNTF |  | ZEFTA | Recovered assignment absent from print
+| Extra | EGIPTO | UNTL |  | TALKHA | Recovered assignment absent from print
+| Extra | EGIPTO | UNTM |  | EL MAHALLA TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNTN |  | SAMANOUD | Recovered assignment absent from print
+| Extra | EGIPTO | UNTQ |  | QUTOUR | Recovered assignment absent from print
+| Extra | EGIPTO | UNTS |  | HUGAG CITY | Recovered assignment absent from print
+| Extra | EGIPTO | UNTT |  | TANTA TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNTZ |  | KAFR EL ZAYAT | Recovered assignment absent from print
+| Extra | EGIPTO | UNUB |  | BEBA | Recovered assignment absent from print
+| Extra | EGIPTO | UNUF |  | EL FASHN | Recovered assignment absent from print
+| Extra | EGIPTO | UNUH |  | EHNASIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNUT |  | SOMOSTA | Recovered assignment absent from print
+| Extra | EGIPTO | UNUW |  | EL WASTA | Recovered assignment absent from print
+| Extra | EGIPTO | UNVA |  | PHON ARISH | Recovered assignment absent from print
+| Extra | EGIPTO | UNVB |  | BEAR EL ABD | Recovered assignment absent from print
+| Extra | EGIPTO | UNVR |  | RAFAH | Recovered assignment absent from print
+| Extra | EGIPTO | UNVS |  | EL SALAM | Recovered assignment absent from print
+| Extra | EGIPTO | UNWB |  | ABU SOMBOL SYAHY | Recovered assignment absent from print
+| Extra | EGIPTO | UNWD |  | DRAW | Recovered assignment absent from print
+| Extra | EGIPTO | UNWF |  | EDFOU | Recovered assignment absent from print
+| Extra | EGIPTO | UNWK |  | KOUM OMBU | Recovered assignment absent from print
+| Extra | EGIPTO | UNWN |  | NASR KEBLY | Recovered assignment absent from print
+| Extra | EGIPTO | UNXA |  | ALEXANDRIA FOUR | Recovered assignment absent from print
+| Extra | EGIPTO | UNXB |  | ALEXANDRIA TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNXC |  | PHON ALEXANDRIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNXD |  | ELSHATBY ALEXANDRIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNXE |  | ALEXANDRIA STATION | Recovered assignment absent from print
+| Extra | EGIPTO | UNXF |  | MEYAMY CENTRAL | Recovered assignment absent from print
+| Extra | EGIPTO | UNXG |  | GLEEM INT | Recovered assignment absent from print
+| Extra | EGIPTO | UNXH |  | MOHARAM BEK | Recovered assignment absent from print
+| Extra | EGIPTO | UNXI |  | SIDI GABER STATION | Recovered assignment absent from print
+| Extra | EGIPTO | UNXJ |  | EL RAMAL GLEEM | Recovered assignment absent from print
+| Extra | EGIPTO | UNXK |  | EL KABBARY | Recovered assignment absent from print
+| Extra | EGIPTO | UNXL |  | BURG EL ARAB | Recovered assignment absent from print
+| Extra | EGIPTO | UNXM |  | ELTABIA /B | Recovered assignment absent from print
+| Extra | EGIPTO | UNXN |  | ABU QUEER | Recovered assignment absent from print
+| Extra | EGIPTO | UNXO |  | EL HARAMEEN | Recovered assignment absent from print
+| Extra | EGIPTO | UNXP |  | EL MESALLA ALEXANDRIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNXQ |  | EL AAMERIYA | Recovered assignment absent from print
+| Extra | EGIPTO | UNXR |  | RAS ELTEEN | Recovered assignment absent from print
+| Extra | EGIPTO | UNXS |  | ALEXANDRIA THREE | Recovered assignment absent from print
+| Extra | EGIPTO | UNXT |  | TARBIH ALEXANDRIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNXU |  | ELGOMHORIA ALEXANDRIA /B | Recovered assignment absent from print
+| Extra | EGIPTO | UNXV |  | SEMOHA | Recovered assignment absent from print
+| Extra | EGIPTO | UNXW |  | EL MANSHIA CENTRAL/B | Recovered assignment absent from print
+| Extra | EGIPTO | UNXX |  | TRAINING INSTITUTE | Recovered assignment absent from print
+| Extra | EGIPTO | UNXY |  | EL AGAMY CENTRAL | Recovered assignment absent from print
+| Extra | EGIPTO | UNXZ |  | ALEXANDRIA FIVE | Recovered assignment absent from print
+| Extra | EGIPTO | UNYC |  | EL FARAFRA | Recovered assignment absent from print
+| Extra | EGIPTO | UNYD |  | EL DAKHLA TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNYK |  | PHON EL KHARGA | Recovered assignment absent from print
+| Extra | EGIPTO | UNYP |  | PARIS ELWADY | Recovered assignment absent from print
+| Extra | EGIPTO | UNYQ |  | EL KASER | Recovered assignment absent from print
+| Extra | EGIPTO | UNYS |  | SHARK EL EYOUNAT | Recovered assignment absent from print
+| Extra | EGIPTO | UNZA |  | ABU HAMMAD | Recovered assignment absent from print
+| Extra | EGIPTO | UNZB |  | BELBEES | Recovered assignment absent from print
+| Extra | EGIPTO | UNZD |  | DYARB NIGM | Recovered assignment absent from print
+| Extra | EGIPTO | UNZE |  | PHON ZAGAZIG 3 | Recovered assignment absent from print
+| Extra | EGIPTO | UNZF |  | FAQOUS | Recovered assignment absent from print
+| Extra | EGIPTO | UNZG |  | ZAGAZIG TWO | Recovered assignment absent from print
+| Extra | EGIPTO | UNZK |  | KAFR SAKAR | Recovered assignment absent from print
+| Extra | EGIPTO | UNZL |  | MASHTOUL EL SOUK | Recovered assignment absent from print
+| Extra | EGIPTO | UNZM |  | MENIA EL KAMH | Recovered assignment absent from print
+| Extra | EGIPTO | UNZN |  | EL HESANIA SHARKIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNZP |  | EL EBRAHIMIA SHARKIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNZQ |  | ZAGAZIG CENTRAL | Recovered assignment absent from print
+| Extra | EGIPTO | UNZR |  | ASHER RAMADAN CITY | Recovered assignment absent from print
+| Extra | EGIPTO | UNZT |  | EL SALHIA SHARKIA | Recovered assignment absent from print
+| Extra | EGIPTO | UNZX |  | EL QAREEN | Recovered assignment absent from print
+| Extra | EGIPTO | UNZY |  | HEHYA | Recovered assignment absent from print
+| Extra | EGIPTO | URRG |  | REASA EL GONHORIA | Recovered assignment absent from print
+| Extra | EGYPT | UNPH |  | 6 OCTOBER CITY | Recovered assignment absent from print
+| Extra | EGYPTE | UNMY |  | 15 MAY CITY | Recovered assignment absent from print
+| Different | ESPAGNE | ESTT | Telegrams with service | Telegrams with service indication TFx | Printed office name differs
+| Different | ESPAGNE | ESXX | indication TFx All destinations | All destinations | Printed office name differs
+| Missing | FALKLAND (ÎLES) (MALVINAS | FKXX | All destinations |  | Printed assignment absent from recovered rows
+| Extra | FALKLAND (ÎLES) (MALVINAS) | FKXX |  | All destinations | Recovered assignment absent from print
+| Different | FRANCE DE L’OCÉAN INDIEN | REXX | destinations | All destinations | Printed office name differs
+| Different | GUANTANAMO (BAIE) | UMGB | destinations | All destinations | Printed office name differs
+| Different | HONDURAS | HOLC | La Ceiba Honduras / Ceiba Honduras (La)* | La Ceiba Honduras /Ceiba Honduras (La)* | Printed office name differs
+| Missing | INDE | INBX | Ahmedabad |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Baroda |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Bhilai |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Bhopal |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Hyderabad |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Indore |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Jabalpur |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Jaipur |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Jamnagar |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Kota |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Marmugao |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Nagpur |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Nasik |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Panaji |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Poona |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Rajkot |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Ratnagiri |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Secunderabad |  | Printed assignment absent from recovered rows
+| Missing | INDE | INBX | Surat |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Asansol |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Chittaranjan |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Cuttack |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Darjeeling |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Durgapur |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Gangtok Sikkim |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Giridih |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Guwahati |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Howrah India |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Jamshedpur |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Jogbani |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Paradip |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Patna |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Ranchi |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Rourkela |  | Printed assignment absent from recovered rows
+| Missing | INDE | INCX | Shillong |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMS | Bangalore |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMS | Cochin |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMS | Ernakulam |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMS | Kakinada |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMS | Kota Nellore |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMS | MADRAS |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMS | Mangalore |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMS | Pondicherry |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMS | Tokkayam |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMX | Alleppey |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMX | Calicut |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMX | Coimbatore |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMX | Guntur |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMX | Koothanallur |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMX | Kota SK |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMX | Madurai |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMX | Mysore |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMX | Quilon |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMX | Trivandrum |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMX | Tuticorin |  | Printed assignment absent from recovered rows
+| Missing | INDE | INMX | Udyogamandal |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Agra |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Aligarh |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Allahabad |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Ballabgarh |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Bhadohi |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Bhatinda |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Chandigarh |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Dehradun |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Faridabad |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Faridkot |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Hissar India |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Jammu |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Jammu Tawi |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Jullundur |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Kanpur |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Lucknow |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Ludhiana |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Moradabad |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Patiala |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Phagwara |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Rohtak |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Saharanpur |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Simla |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Srinagar |  | Printed assignment absent from recovered rows
+| Missing | INDE | INNX | Srinagar Garhwal |  | Printed assignment absent from recovered rows
+| Extra | ITALIA 1) | --AA |  | 91011 ALCAMO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AB |  | 12051 ALBA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AC |  | 15011 ACQUI TERME | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AD |  | 45011 ADRIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AE |  | 17031 ALBENGA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AG |  | 92100 AGRIGENTO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AH |  | 28041 ARONA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AI |  | 70031 ANDRIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AL |  | 15100 ALESSANDRIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AN |  | 60100 ANCONA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AO |  | 11100 AOSTA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AP |  | 63100 ASCOLI PICENO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AQ |  | 67100 L'AQUILA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AR |  | 52100 AREZZO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AT |  | 14100 ASTI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AV |  | 83100 AVELLINO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --AZ |  | 67051 AVEZZANO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BA |  | 70100 BARI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BG |  | 24100 BERGAMO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BH |  | 13011 BORGOSESIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BI |  | 13051 BIELLA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BJ |  | 25043 BRENO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BL |  | 32100 BELLUNO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BM |  | 21052 BUSTO ARSIZIO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BN |  | 82100 BENEVENTO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BO |  | 40126 BOLOGNA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BP |  | GRAPPA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BR |  | 72100 BRINDISI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BT |  | 89041 BATTIPAGLIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BU |  | 39031 BRUNICO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BV |  | 28042 BAVENO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --BZ |  | 39100 BOLZANO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --CA |  | 09100 CAGLIARI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --CB |  | 86100 CAMPOBASSO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --CE |  | 81100 CASERTA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --CL |  | 93100 CALTANISSETTA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --CN |  | 12100 CUNEO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --CO |  | 22100 COMO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --CR |  | 26100 CREMONA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --CS |  | 87100 COSENZA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --CT |  | 95100 CATANIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --CZ |  | 88100 CATANZARO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --DO |  | 28037 DOMODOSSOLA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --EI |  | 60035 JESI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --EM |  | 50053 EMPOLI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --EN |  | 94100 ENNA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --ES |  | 35042 ESTE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FA |  | 60044 FABRIANO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FC |  | 58022 FOLLONICA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FD |  | 43036 FIDENZA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FE |  | 44100 FERRARA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FI |  | 50123 FIRENZE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FJ |  | 06034 FOLIGNO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FK |  | 04323 FORMIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FL |  | 32032 FELTRE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FM |  | 63023 FERMO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FN |  | 48018 FAENZA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FO |  | 47100 FORLI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FR |  | 03100 FROSINONE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --FT |  | 43045 FORNOVO DI TARO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --GA |  | 73104 GALLIPOLI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --GE |  | 16121 GENOVA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --GO |  | 34170 GORIZIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --GR |  | 58100 GROSSETO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --IG |  | 09016 IGLESIAS | Recovered assignment absent from print
+| Extra | ITALIA 1) | --IM |  | 18100 IMPERIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --IO |  | 40026 IMOLA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --IS |  | 86170 ISERNIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --IV |  | 10015 IVREA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JA |  | 95041 CALTAGIRONE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JB |  | 62032 CAMERINO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JC |  | MONFERRATO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JD |  | 26041 CASALMAGGIORE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JE |  | 03043 CASSINO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JF |  | 87012 CASTROVILLARI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JG |  | 38033 CAVALESE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JH |  | 90015 CEFALU | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JI |  | 71042 CERIGNOLA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JJ |  | FRIULI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JK |  | 47023 CESENA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JL |  | 53042 CHIANCIANO TERME | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JM |  | 23022 CHIAVENNA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JN |  | 00053 CIVITAVECCHIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JO |  | 38023 CLES | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JP |  | 24023 CLUSONE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JQ |  | 20073 CODOGNO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JR |  | 44022 COMACCHIO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JS |  | 31015 CONEGLIANO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JT |  | D'AMPEZZO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JU |  | 88074 CROTONE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --JW |  | 26013 CREMA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KA |  | 11027 S VINCENT | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KB |  | 84036 SALA CONSILINA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KC |  | 25087 SALO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KD |  | 12037 SALUZZO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KF |  | 30027 S DONA DI PIAVE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KH |  | 18038 SANREMO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KI |  | 71016 S SEVERO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KJ |  | LOMBARDI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KK |  | 41049 SASSUOLO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KL |  | 12038 SAVIGLIANO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KM |  | 87029 SCALEA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KN |  | 36015 SCHIO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KO |  | 92019 SCIACCA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KP |  | 20038 SEREGNO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KR |  | 88068 SOVERATO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KS |  | 33097 SPILIMBERGO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KT |  | 06049 SPOLETO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KU |  | 27049 STRADELLA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KV |  | 67039 SULMONA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --KW |  | 10059 SUSA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LA |  | 85042 LAGONEGRO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LC |  | 22053 LECCO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LD |  | 20075 LODI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LE |  | 73100 LECCE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LG |  | 37045 LEGNAGO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LI |  | 57100 LIVORNO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LM |  | 88046 LAMEZIA TERME | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LN |  | 66034 LANCIANO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LO |  | 89044 LOCRI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LR |  | 48022 LUGO DI RAVENNA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LS |  | 08045 LANUSEI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LT |  | 04100 LATINA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LU |  | 55100 LUCCA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --LZ |  | 10074 LANZO TORINESE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MA |  | 08015 MACOMER | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MC |  | 62100 MACERATA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MD |  | 41037 MIRANDOLA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --ME |  | 98100 MESSINA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MF |  | 71043 MANFREDONIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MG |  | 73034 MAGLIE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MH |  | 39012 MERANO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MI |  | 20123 MILANO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MJ |  | 22017 MENAGGIO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MK |  | 27036 MORTARA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --ML |  | 85025 MELFI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MN |  | 46100 MANTOVA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MO |  | 41100 MODENA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MR |  | TERME | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MS |  | 54100 MASSA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MT |  | 75100 MATERA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MU |  | 85054 MURO LUCANO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --MZ |  | 20052 MONZA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --NA |  | 80133 NAPOLI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --NL |  | 15067 NOVI LIGURE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --NO |  | 28100 NOVARA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --NU |  | 08100 NUORO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --OL |  | 07026 OLBIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --OR |  | 09170 ORISTANO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --OS |  | 46035 OSTIGLIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --OV |  | 05018 ORVIETO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PA |  | 90100 PALERMO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PB |  | 57025 PIOMBINO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PC |  | 29100 PIACENZA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PD |  | 35100 PADOVA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PE |  | 65100 PESCARA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PG |  | 06100 PERUGIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PH |  | 98066 PATTI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PI |  | 56100 PISA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PJ |  | 87027 PAOLA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PK |  | 32044 PIEVE DI CADORE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PL |  | 99015 PALMI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PM |  | 02047 POGGIO MIRTETO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PN |  | 33170 PORDENONE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PO |  | 10064 PINEROLO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PR |  | 43100 PARMA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PS |  | 61100 PESARO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PT |  | 51100 PISTOIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PU |  | 40046 PORRETTA TERME | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PV |  | 27100 PAVIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PW |  | 56025 PONTEDERA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PY |  | 50047 PRATO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --PZ |  | 85100 POTENZA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --RA |  | 48100 RAVENNA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --RC |  | 89100 REGGIO CALABRIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --RE |  | 42100 REGGIO EMILIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --RG |  | 97100 RAGUSA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --RI |  | 02100 RIETI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --RM |  | 00187 ROMA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --RN |  | 47031 S Marino 2) | Recovered assignment absent from print
+| Extra | ITALIA 1) | --RO |  | 45100 ROVIGO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --RP |  | 16035 RAPALLO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --RR |  | 38068 ROVERETO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --RV |  | CANAVESE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --RX |  | All others | Recovered assignment absent from print
+| Extra | ITALIA 1) | --SA |  | 84100 SALERNO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --SI |  | 53100 SIENA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --SN |  | 17100 SAVONA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --SP |  | 19100 SPEZIA (LA) | Recovered assignment absent from print
+| Extra | ITALIA 1) | --SR |  | 96100 SIRACUSA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --SS |  | 07100 SASSARI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TA |  | 74100 TARANTO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TC |  | 33018 TARVISIO CITTA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TD |  | 38079 TIONE DI TRENTO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TE |  | 64100 TERAMO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TG |  | 24047 TREVIGLIO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TI |  | 00019 TIVOLI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TL |  | 86039 TERMOLI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TM |  | 98039 TAORMINA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TN |  | 38100 TRENTO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TO |  | 10121 TORINO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TP |  | 91100 TRAPANI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TR |  | 05100 TERNI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TS |  | 34100 TRIESTE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TV |  | 31100 TREVISO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --TZ |  | 33028 TOLMEZZO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --UD |  | 33100 UDINE | Recovered assignment absent from print
+| Extra | ITALIA 1) | --UR |  | 61029 URBINO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --VB |  | 88018 VIBO VALENTIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --VC |  | 13100 VERCELLI | Recovered assignment absent from print
+| Extra | ITALIA 1) | --VE |  | 30100 VENEZIA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --VG |  | 55049 VIAREGGIO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --VH |  | 27058 VOGHERA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --VI |  | 36100 VICENZA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --VL |  | 56048 VOLTERRA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --VR |  | 37100 VERONA | Recovered assignment absent from print
+| Extra | ITALIA 1) | --VS |  | VATICANO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --VT |  | 01100 VITERBO | Recovered assignment absent from print
+| Extra | ITALIA 1) | --VV |  | 27029 VIGEVANO | Recovered assignment absent from print
+| Missing | ITALIE | --AA | 91011 ALCAMO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AB | 12051 ALBA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AC | 15011 ACQUI TERME |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AD | 45011 ADRIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AE | 17031 ALBENGA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AG | 92100 AGRIGENTO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AH | 28041 ARONA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AI | ANCONA 70031 ANDRIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AL | 15100 ALESSANDRIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AN | 60100 ANCONA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AO | 11100 AOSTA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AP | 63100 ASCOLI PICENO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AQ | 67100 AQUILA (L') |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AQ | 67100 L'AQUILA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AR | 52100 AREZZO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AT | 14100 ASTI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AV | 83100 AVELLINO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --AZ | 67051 AVEZZANO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BA | 70100 BARI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BG | BERGAMO 24100 BERGAMO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BH | 13011 BORGOSESIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BI | 13051 BIELLA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BJ | BOLZANO 25043 BRENO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BK | 39042 BRESSANONE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BL | BELLUNO 32100 BELLUNO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BM | 21052 BUSTO ARSIZIO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BN | 82100 BENEVENTO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BO | 40126 BOLOGNA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BP | 36061 BASSANO DEL GRAPPA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BR | BRINDISI 72100 BRINDISI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BT | 89041 BATTIPAGLIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BU | BRESSANONE BRUNICO 39031 BRUNICO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BV | 28042 BAVENO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --BZ | BOLOGNA BOLOGNA BOLOGNA 39100 BOLZANO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --CA | 09100 CAGLIARI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --CB | 86100 CAMPOBASSO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --CE | 81100 CASERTA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --CL | 93100 CALTANISSETTA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --CN | 12100 CUNEO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --CO | 22100 COMO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --CR | 26100 CREMONA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --CS | 87100 COSENZA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --CT | CATANIA 95100 CATANIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --CZ | 88100 CATANZARO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --DO | 28037 DOMODOSSOLA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --EI | 60035 JESI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --EM | 50053 EMPOLI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --EN | 94100 ENNA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --ES | 35042 ESTE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FA | 60044 FABRIANO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FC | 58022 FOLLONICA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FD | FERRARA 43036 FIDENZA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FE | 44100 FERRARA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FG | FIRENZE 71100 FOGGIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FI | 50123 FIRENZE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FJ | 06034 FOLIGNO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FK | 04323 FORMIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FL | 32032 FELTRE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FM | 63023 FERMO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FN | 48018 FAENZA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FO | 47100 FORLI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FR | 03100 FROSINONE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --FT | 43045 FORNOVO DI TARO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --GA | 73104 GALLIPOLI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --GE | 16121 GENOVA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --GO | 34170 GORIZIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --GR | 58100 GROSSETO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --IG | 09016 IGLESIAS |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --IM | 18100 IMPERIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --IO | 40026 IMOLA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --IS | 86170 ISERNIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --IV | 10015 IVREA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JA | 95041 CALTAGIRONE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JB | 62032 CAMERINO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JC | 15033 CASALE MONFERRATO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JD | 26041 CASALMAGGIORE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JE | CASERTA 03043 CASSINO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JF | 87012 CASTROVILLARI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JG | 38033 CAVALESE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JH | 90015 CEFALU |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JI | 71042 CERIGNOLA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JJ | 33052 CERVIGNANO DEL FRIULI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JK | 47023 CESENA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JL | 53042 CHIANCIANO TERME |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JM | 23022 CHIAVENNA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JN | 00053 CIVITAVECCHIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JO | 38023 CLES |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JP | 24023 CLUSONE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JQ | 20073 CODOGNO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JR | 44022 COMACCHIO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JS | 31015 CONEGLIANO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JT | 32043 CORTINA D'AMPEZZO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JU | CREMONA 88074 CROTONE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --JW | 26013 CREMA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KA | 11027 S VINCENT |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KB | 84036 SALA CONSILINA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KC | 25087 SALO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KD | 12037 SALUZZO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KF | 63039 S BENEDETTO DEL TRONTO 30027 S DONA DI PIAVE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KH | 18038 SANREMO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KI | 24016 S PELLEGRINO TERME SANREMO 71016 S SEVERO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KJ | 83014 S ANGELO DEI LOMBARDI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KK | 41049 SASSUOLO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KL | 12038 SAVIGLIANO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KM | SAVONA 87029 SCALEA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KN | 36015 SCHIO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KO | 92019 SCIACCA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KP | 20038 SEREGNO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KQ | 26015 SORESINA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KR | 88068 SOVERATO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KS | 33097 SPILIMBERGO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KT | 06049 SPOLETO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KU | 27049 STRADELLA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KV | 67039 SULMONA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --KW | 10059 SUSA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LA | 85042 LAGONEGRO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LC | 22053 LECCO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LD | 20075 LODI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LE | 73100 LECCE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LG | LIVORNO 37045 LEGNAGO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LI | LIVORNO 57100 LIVORNO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LM | 88046 LAMEZIA TERME |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LN | 66034 LANCIANO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LO | LIVORNO 89044 LOCRI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LR | LUCCA 48022 LUGO DI RAVENNA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LS | 08045 LANUSEI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LT | 04100 LATINA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LU | 55100 LUCCA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --LZ | 10074 LANZO TORINESE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MA | 08015 MACOMER |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MC | 62100 MACERATA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MD | 41037 MIRANDOLA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --ME | 98100 MESSINA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MF | 71043 MANFREDONIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MG | 73034 MAGLIE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MH | 39012 MERANO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MI | MESSINA 20123 MILANO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MJ | 22017 MENAGGIO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MK | 27036 MORTARA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --ML | 85025 MELFI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MM | 31044 MONTEBELLUNA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MN | MANTOVA 46100 MANTOVA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MO | 41100 MODENA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MR | 51016 MONTECATINI TERME |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MS | MANTOVA 54100 MASSA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MT | 75100 MATERA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MU | 85054 MURO LUCANO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --MZ | 20052 MONZA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --NA | 80133 NAPOLI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --NL | NOVARA 15067 NOVI LIGURE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --NO | 28100 NOVARA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --NU | 08100 NUORO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --OL | 07026 OLBIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --OR | 09170 ORISTANO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --OS | 46035 OSTIGLIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --OV | 05018 ORVIETO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PA | PALERMO 90100 PALERMO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PB | 57025 PIOMBINO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PC | 29100 PIACENZA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PD | PADOVA 35100 PADOVA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PE | 65100 PESCARA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PG | PERUGIA 06100 PERUGIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PH | 98066 PATTI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PI | 56100 PISA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PJ | 87027 PAOLA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PK | 32044 PIEVE DI CADORE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PL | 99015 PALMI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PM | PIACENZA 02047 POGGIO MIRTETO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PN | 33170 PORDENONE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PO | 10064 PINEROLO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PR | 43100 PARMA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PS | 61100 PESARO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PT | 51100 PISTOIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PU | 40046 PORRETTA TERME |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PV | 27100 PAVIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PW | 56025 PONTEDERA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PY | 50047 PRATO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --PZ | PORDENONE 85100 POTENZA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RA | 48100 RAVENNA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RC | RAVENNA 89100 REGGIO CALABRIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RE | 42100 REGGIO EMILIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RG | 97100 RAGUSA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RI | RIETI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RM | 00187 ROMA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RN | 47031 Repubblica Di San Marino 2) |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RN | 47031 S Marino 2) |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RN | 47037 RIMINI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RO | 45100 ROVIGO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RP | 16035 RAPALLO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RR | 38068 ROVERETO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RS | 87067 ROSSANO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RV | 10086 RIVAROLO CANAVESE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --RX | All others |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --SA | SALERNO 84100 SALERNO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --SI | 53100 SIENA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --SN | 17100 SAVONA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --SP | 19100 LA SPEZIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --SP | 19100 SPEZIA (LA) |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --SR | 96100 SIRACUSA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --SS | 07100 SASSARI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TA | 74100 TARANTO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TC | TARANTO 33018 TARVISIO CITTA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TD | 38079 TIONE DI TRENTO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TE | 64100 TERAMO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TG | 24047 TREVIGLIO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TI | 00019 TIVOLI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TL | 86039 TERMOLI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TM | SIRACUSA 98039 TAORMINA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TN | 38100 TRENTO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TO | 10121 TORINO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TP | 91100 TRAPANI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TR | 05100 TERNI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TS | 34100 TRIESTE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TV | TREVISO 31100 TREVISO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --TZ | 33028 TOLMEZZO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --UD | 33100 UDINE |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --UR | 61029 URBINO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VB | 88018 VIBO VALENTIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VC | VERCELLI 13100 VERCELLI |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VE | 30100 VENEDIG 30100 VENEZIA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VG | VERONA 55049 VIAREGGIO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VH | 27058 VOGHERA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VI | VICENZA 36100 VICENZA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VL | 56048 VOLTERRA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VL | 84078 VALLO DELLA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VO | 66054 VASTO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VR | 37100 VERONA |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VS | 00120 CITTA DEL VATICANO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VT | VITERBO 01100 VITERBO |  | Printed assignment absent from recovered rows
+| Missing | ITALIE | --VV | 27029 VIGEVANO |  | Printed assignment absent from recovered rows
+| Extra | ITALY 1) | --AQ |  | 67100 AQUILA (L') | Recovered assignment absent from print
+| Extra | ITALY 1) | --BK |  | 39042 BRESSANONE | Recovered assignment absent from print
+| Extra | ITALY 1) | --FG |  | 71100 FOGGIA | Recovered assignment absent from print
+| Extra | ITALY 1) | --KQ |  | 26015 SORESINA | Recovered assignment absent from print
+| Extra | ITALY 1) | --MM |  | 31044 MONTEBELLUNA | Recovered assignment absent from print
+| Extra | ITALY 1) | --RS |  | 87067 ROSSANO | Recovered assignment absent from print
+| Extra | ITALY 1) | --VO |  | 66054 VASTO | Recovered assignment absent from print
+| Missing | JAMAHIRIYA ARABE LIBYENNE | LYBE | Banghazi |  | Printed assignment absent from recovered rows
+| Missing | JAMAHIRIYA ARABE LIBYENNE | LYBX | All others |  | Printed assignment absent from recovered rows
+| Missing | JAMAHIRIYA ARABE LIBYENNE | LYTR | Tripoli Libye |  | Printed assignment absent from recovered rows
+| Missing | JAMAHIRIYA ARABE LIBYENNE | LYTX | All others |  | Printed assignment absent from recovered rows
+| Missing | JAMAÏQUE | JAKN | Kingston Jamaica |  | Printed assignment absent from recovered rows
+| Missing | JAMAÏQUE | JAKR | Kingston Jamaica Radio |  | Printed assignment absent from recovered rows
+| Missing | JAMAÏQUE | JAKX | All others |  | Printed assignment absent from recovered rows
+| Missing | JAMAÏQUE | JAMB | Montego Bay |  | Printed assignment absent from recovered rows
+| Missing | JAPON | JPJX | All others |  | Printed assignment absent from recovered rows
+| Missing | JAPON | JPKB | Kobe |  | Printed assignment absent from recovered rows
+| Missing | JAPON | JPNG | Nagoya |  | Printed assignment absent from recovered rows
+| Missing | JAPON | JPNH | Naha |  | Printed assignment absent from recovered rows
+| Missing | JAPON | JPOS | Osaka |  | Printed assignment absent from recovered rows
+| Missing | JAPON | JPTK | Tokyo |  | Printed assignment absent from recovered rows
+| Missing | JAPON | JPYH | Yokohama |  | Printed assignment absent from recovered rows
+| Missing | JOHNSTON (ÎLE) | JIJI | All destinations |  | Printed assignment absent from recovered rows
+| Extra | JORDAN | JOAM |  | Amman | Recovered assignment absent from print
+| Extra | JORDANIA | JOAX |  | All others | Recovered assignment absent from print
+| Extra | JORDANIA | JOJM |  | Jerusalem Jordan | Recovered assignment absent from print
+| Missing | JORDANIE | JOAM | Amman |  | Printed assignment absent from recovered rows
+| Missing | JORDANIE | JOAX | All others |  | Printed assignment absent from recovered rows
+| Missing | JORDANIE | JOJM | Jerusalem Jordan |  | Printed assignment absent from recovered rows
+| Missing | KAZAKHSTAN | KZXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | KIRGHIZISTAN | KHXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | KIRIBATI | KIBA | Bairiki |  | Printed assignment absent from recovered rows
+| Missing | KIRIBATI | KIBI | Banaba |  | Printed assignment absent from recovered rows
+| Missing | KIRIBATI | KIBO | Betio |  | Printed assignment absent from recovered rows
+| Missing | KIRIBATI | KIBX | All others |  | Printed assignment absent from recovered rows
+| Missing | KIRIBATI | KILC | Christmas Island Pacific |  | Printed assignment absent from recovered rows
+| Missing | KIRIBATI | KILX | All others |  | Printed assignment absent from recovered rows
+| Missing | KIRIBATI | KIPK | Kanton |  | Printed assignment absent from recovered rows
+| Missing | KIRIBATI | KIPX | All others |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTAH | Ahmadi |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTAP | Kuwait Airport |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTFA | Fahaheel |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTFL | Failaka |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTGP | Kuwait GPO |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTHI | Hawalli |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTJA | Jahra Kuwait |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTKR | Kuwait Radio |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTKU | KUWAI |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTKX | All others |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTSA | Salmiya |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTWA | Wafra |  | Printed assignment absent from recovered rows
+| Missing | KOWEÏT | KTZR | Al Zoor |  | Printed assignment absent from recovered rows
+| Missing | KÉNYA | KEMA | MOMBASA |  | Printed assignment absent from recovered rows
+| Missing | KÉNYA | KENI | NAIROBI |  | Printed assignment absent from recovered rows
+| Missing | KÉNYA | KENX | All others |  | Printed assignment absent from recovered rows
+| Missing | L'EX-RÉPUBLIQUE YOUGOSLAVE DE MACÉDOINE | MBSK | Skopje |  | Printed assignment absent from recovered rows
+| Missing | L'EX-RÉPUBLIQUE YOUGOSLAVE DE MACÉDOINE | MBSX | All others |  | Printed assignment absent from recovered rows
+| Missing | LAO (R.d.p.) | LSVE | Vientiane RP |  | Printed assignment absent from recovered rows
+| Missing | LAO (R.d.p.) | LSVX | All others |  | Printed assignment absent from recovered rows
+| Missing | LESOTHO | LOMA | Maseru |  | Printed assignment absent from recovered rows
+| Missing | LESOTHO | LOMX | All others |  | Printed assignment absent from recovered rows
+| Missing | LETTONIE | LVRG | Riga |  | Printed assignment absent from recovered rows
+| Missing | LETTONIE | LVRX | All others |  | Printed assignment absent from recovered rows
+| Missing | LIBAN | LEBH | Beyrouth |  | Printed assignment absent from recovered rows
+| Missing | LIBAN | LEBX | All others |  | Printed assignment absent from recovered rows
+| Missing | LIBAN | LETR | Tripoli Liban |  | Printed assignment absent from recovered rows
+| Missing | LIBÉRIA | --MV | Monrovia Liberia |  | Printed assignment absent from recovered rows
+| Missing | LIBÉRIA | --MX | All others |  | Printed assignment absent from recovered rows
+| Missing | LIECHTENSTEIN | FLVX | All others |  | Printed assignment absent from recovered rows
+| Missing | LIECHTENSTEIN | FLVZ | Vaduz |  | Printed assignment absent from recovered rows
+| Missing | LITUANIE | LTXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | MACAO, Chine | OMMA | Macau |  | Printed assignment absent from recovered rows
+| Missing | MACAO, Chine | OMMX | All others |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAAS | ALOR STAR |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAIP | IPOH |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAJB | JOHORE BAHRU |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAKB | KOTA KINABALU |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAKG | KUCHING |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAKL | KUALA LUMPUR |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAKN | KUANTAN |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAKO | KOTA BHARU KELANTAN |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAKU | Kluang |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAMC | MALACCA |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAMX | All others |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAPG | PENANG |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAPJ | PETALING JAYA |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MAPK | Pelabuhan Kelang |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MASR | SEREMBAN |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MATG | KUALA TRENGGANU |  | Printed assignment absent from recovered rows
+| Missing | MALAISIE | MATP | Taiping |  | Printed assignment absent from recovered rows
+| Missing | MALAWI | MIBE | Blantyre |  | Printed assignment absent from recovered rows
+| Missing | MALAWI | MIBX | All others |  | Printed assignment absent from recovered rows
+| Missing | MALDIVES | MFLE | Male |  | Printed assignment absent from recovered rows
+| Missing | MALDIVES | MFLX | All others |  | Printed assignment absent from recovered rows
+| Missing | MALI | MJBO | Bamako |  | Printed assignment absent from recovered rows
+| Missing | MALI | MJBX | All others |  | Printed assignment absent from recovered rows
+| Missing | MARIANNES DU NORD | MNSQ | Saipan |  | Printed assignment absent from recovered rows
+| Missing | MARIANNES DU NORD | MNSX | All others |  | Printed assignment absent from recovered rows
+| Missing | MAROC | MPCA | CASABLANCA |  | Printed assignment absent from recovered rows
+| Missing | MAROC | MPRA | Rabat |  | Printed assignment absent from recovered rows
+| Missing | MAROC | MPTR | Tánger |  | Printed assignment absent from recovered rows
+| Missing | MAROC | MPTX | All others |  | Printed assignment absent from recovered rows
+| Missing | MARSHALL (ÎLES) | MSEK | Einwetok |  | Printed assignment absent from recovered rows
+| Missing | MARSHALL (ÎLES) | MSEX | All others |  | Printed assignment absent from recovered rows
+| Missing | MARSHALL (ÎLES) | MSMA | Majuro |  | Printed assignment absent from recovered rows
+| Missing | MARTINIQUE | MRXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | MAURICE | IWCU | Curepipe |  | Printed assignment absent from recovered rows
+| Missing | MAURICE | IWPL | Port-Louis |  | Printed assignment absent from recovered rows
+| Missing | MAURICE | IWPX | All others |  | Printed assignment absent from recovered rows
+| Missing | MAURICE | IWRO | Rose Hill |  | Printed assignment absent from recovered rows
+| Missing | MAURITANIE | MQNO | Nouakchott |  | Printed assignment absent from recovered rows
+| Missing | MAURITANIE | MQSX | All others |  | Printed assignment absent from recovered rows
+| Missing | MAYOTTE | MYXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | MEXIQUE | MECO | Coatzacoalcos |  | Printed assignment absent from recovered rows
+| Missing | MEXIQUE | MEGU | Guadalajara de Jalisco |  | Printed assignment absent from recovered rows
+| Missing | MEXIQUE | MEHE | Hermosillo de Sonora |  | Printed assignment absent from recovered rows
+| Missing | MEXIQUE | MELE | León de Guanajuato |  | Printed assignment absent from recovered rows
+| Missing | MEXIQUE | MEME | México |  | Printed assignment absent from recovered rows
+| Missing | MEXIQUE | MEMX | All others |  | Printed assignment absent from recovered rows
+| Missing | MEXIQUE | MEMY | Monterrey de Nuevo León |  | Printed assignment absent from recovered rows
+| Missing | MEXIQUE | METO | Torreón de Coahuila |  | Printed assignment absent from recovered rows
+| Missing | MEXIQUE | MEVC | Veracruz de Veracruz |  | Printed assignment absent from recovered rows
+| Missing | MICRONÉSIE | FMKO | Kosrae |  | Printed assignment absent from recovered rows
+| Missing | MICRONÉSIE | FMPO | Ponape |  | Printed assignment absent from recovered rows
+| Missing | MICRONÉSIE | FMTK | Truk |  | Printed assignment absent from recovered rows
+| Missing | MICRONÉSIE | FMYA | Yap |  | Printed assignment absent from recovered rows
+| Missing | MICRONÉSIE | FMYX | All others |  | Printed assignment absent from recovered rows
+| Missing | MIDWAY (ÎLES) | WMYP | All destinations |  | Printed assignment absent from recovered rows
+| Missing | MOLDOVA | MDXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | MONACO | MCLC | Monaco Condamine |  | Printed assignment absent from recovered rows
+| Missing | MONACO | MCMD | Monaco Ville |  | Printed assignment absent from recovered rows
+| Missing | MONACO | MCMX | All others |  | Printed assignment absent from recovered rows
+| Missing | MONGOLIE | MHUB | Ulaanbaatar |  | Printed assignment absent from recovered rows
+| Missing | MONGOLIE | MHUX | All others |  | Printed assignment absent from recovered rows
+| Missing | MONTSERRAT | MKMT | All destinations |  | Printed assignment absent from recovered rows
+| Missing | MONTÉNÉGRO | GCXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | MOZAMBIQUE | MOBR | Beira |  | Printed assignment absent from recovered rows
+| Missing | MOZAMBIQUE | MOGZ | Xai xai |  | Printed assignment absent from recovered rows
+| Missing | MOZAMBIQUE | MOIN | Inhambane |  | Printed assignment absent from recovered rows
+| Missing | MOZAMBIQUE | MOMP | MAPUTO |  | Printed assignment absent from recovered rows
+| Missing | MOZAMBIQUE | MONP | Nampula |  | Printed assignment absent from recovered rows
+| Missing | MOZAMBIQUE | MOQL | Quelimane |  | Printed assignment absent from recovered rows
+| Missing | MOZAMBIQUE | MOTT | Tete |  | Printed assignment absent from recovered rows
+| Missing | MOZAMBIQUE | MOTX | All others |  | Printed assignment absent from recovered rows
+| Missing | MYANMAR | BMRN | Yangon |  | Printed assignment absent from recovered rows
+| Missing | MYANMAR | BMRX | All others |  | Printed assignment absent from recovered rows
+| Missing | NAMIBIE | WKJX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | NAURU | ZVSX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | NICARAGUA | NUMA | Managua Nicaragua |  | Printed assignment absent from recovered rows
+| Missing | NICARAGUA | NUMX | All others |  | Printed assignment absent from recovered rows
+| Missing | NICARAGUA | NUPC | Puerto Cabezas |  | Printed assignment absent from recovered rows
+| Missing | NICARAGUA | NUSJ | S Juan del Sur |  | Printed assignment absent from recovered rows
+| Missing | NIGER | NINY | Niamey |  | Printed assignment absent from recovered rows
+| Missing | NIGER | NIZR | Zinder |  | Printed assignment absent from recovered rows
+| Missing | NIGER | NIZX | All others |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGAI | Abakaliki |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGAK | Akure |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGAP | Apapa |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGAT | Abeokuta |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGBA | Aba Nigeria |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGBC | BENIN CITY |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGBF | Breadfruit |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGBH | Bauchi |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGCR | Calabar |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGCS | Gusau |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGEN | BENUGU |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGFL | Falomo |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGGG | Agbor |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGGO | Oshogbo |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGIB | IBADAN |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGIE | Ijebu Ode |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGIK | Ikeja |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGJS | Jos |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGKD | KADUNA |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGKN | KANO |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGKS | Katsina |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGLA | Lokoja |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGLG | LAGOS |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGLX | All others |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGMA | Minna |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGMG | Maiduguri |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGMR | Makurdi |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGON | Onitsha |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGOW | Owerri |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGPH | Port Harcourt |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGPP | Sapele |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGRN | Ilorin |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGSL | Surulere |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGST | Sokoto |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGUY | Uyo |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGWA | Warri |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGYL | Yola |  | Printed assignment absent from recovered rows
+| Missing | NIGÉRIA | NGZA | Zaria |  | Printed assignment absent from recovered rows
+| Missing | NIUE (ÎLE) | NFNX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | NORVEGE | NOXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | NÉPAL | NPKA | Kathmandu |  | Printed assignment absent from recovered rows
+| Missing | NÉPAL | NPKX | All others |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONBL | Bahla |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONBR | Barka |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONBU | Buraimi |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONII | Ibri |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONKB | Khabura |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONKS | Khasab |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONMH | Masirah |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONMN | Masnah |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONMR | Muscat Radio |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONMU | Muscat |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONMX | All others |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONNZ | Nizwa |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONRQ | Rustag |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONSB | Seeb |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONSH | Salalah |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONSM | Sumail |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONSN | Shinas |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONSQ | Suwaig |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONSR | Sohar |  | Printed assignment absent from recovered rows
+| Missing | OMAN | ONSU | Sur Oman |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGAP | Apac |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGAR | Arua |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGBU | Busia |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGEN | Entebbe |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGFP | Fort Portal |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGGU | Gulu |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGHO | Hoima |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGIB | Ibanda |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGJA | Jinja |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGKA | KAMPALA |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGKB | Kabale |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGKS | Kasese |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGKX | All others |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGLI | Lira |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGLK | Lake Katwe |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGLZ | Lugazi |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGMA | Masaka |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGMB | Mbale |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGMI | Masindi |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGML | Malaba |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGMO | Moroto |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGMR | Mbarara |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGMU | Mubende |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGNE | Nebbi |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGPA | Pakwach |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGRU | Rukungiri |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGSI | Soroti |  | Printed assignment absent from recovered rows
+| Missing | OUGANDA | UGTO | Tororo |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZAN | ANDIJAN |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZBH | BUKHARA |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZDJ | DJIZAK |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZFG | FERGANA |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZGU | GULISTAN |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZKR | KARSHI |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZNG | NAMANGAN |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZNU | NUKUS |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZNV | NAVOI |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZSM | SAMARKAND |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZTS | TASHKENT |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZTZ | TERMEZ |  | Printed assignment absent from recovered rows
+| Missing | OUZBEKISTAN | UZUR | URGENCH |  | Printed assignment absent from recovered rows
+| Missing | PALAU | PWXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | PANAMA | PGCO |  |  | Printed assignment absent from recovered rows
+| Missing | PANAMA | PGEC |  |  | Printed assignment absent from recovered rows
+| Missing | PANAMA | PGPA |  |  | Printed assignment absent from recovered rows
+| Missing | PANAMA | PGPX | All others |  | Printed assignment absent from recovered rows
+| Missing | PAPOUASIE-NOUVELLE- GUINÉE | NEXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | PARAGUAY | PYAN | Asuncion |  | Printed assignment absent from recovered rows
+| Missing | PARAGUAY | PYAX | others |  | Printed assignment absent from recovered rows
+| Missing | PAYS-BAS | NLXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHAC | Angeles City Pampanga |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHBC | Bacolod City Negros Occidental |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHBG | Baguio |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHBT | Butuan City Agusan Del Norte |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHCB | Cebu |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHCG | Cagayan |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHDV | Davao City Davao Del Sur |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHGS | General Santos City Cotabato South |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHIL | Iloilo City Iloilo |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHIN | Iligan City Lanao Del Norte |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHLG | Legaspi City Albay |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHMA | MANILA / MANILLE |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHMV | Mariveles |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHMX | All others |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHOL | Olongapo City Zambales |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHQY | Quezon City |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHSA | S Fernando Pampanga |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHSF | S Fernando La Union |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHTC | Tacloban City Leyte |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHTG | Tuguegarao Cagayan |  | Printed assignment absent from recovered rows
+| Missing | PHILIPPINES | PHZB | Zamboanga City Zamboanga Del Sur |  | Printed assignment absent from recovered rows
+| Missing | PITCAIRN | TKXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | POLYNÉSIE FRANÇAISE | FPYA | Papeete |  | Printed assignment absent from recovered rows
+| Missing | POLYNÉSIE FRANÇAISE | FPYX | All others |  | Printed assignment absent from recovered rows
+| Missing | PORTO-RICO | --SJ | S Juan Puerto Rico |  | Printed assignment absent from recovered rows
+| Missing | PORTO-RICO | --SX | All others |  | Printed assignment absent from recovered rows
+| Missing | PORTUGAL | --FU | FUNCHAL |  | Printed assignment absent from recovered rows
+| Missing | PORTUGAL | --FX | All others |  | Printed assignment absent from recovered rows
+| Missing | PORTUGAL | --LR | Lisboa Radio |  | Printed assignment absent from recovered rows
+| Missing | PORTUGAL | --LS | LISBOA |  | Printed assignment absent from recovered rows
+| Missing | PORTUGAL | --LX | All others |  | Printed assignment absent from recovered rows
+| Missing | PORTUGAL | --MR | Madeira Radio |  | Printed assignment absent from recovered rows
+| Missing | PORTUGAL | --OO | Porto |  | Printed assignment absent from recovered rows
+| Missing | PORTUGAL | --PD | PONTA DELGADA AZORES |  | Printed assignment absent from recovered rows
+| Missing | PORTUGAL | --PX | All others |  | Printed assignment absent from recovered rows
+| Missing | PORTUGAL | --SR | S. Miguel Radio |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEAA | Casma |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEAF | Ayaviri |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEAH | Ayacucho |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEAI | Lima Aeropuerto Internacional Jorge Chávez |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEAM | Chimbote |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEAQ | Arequipa |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEAS | Andahuaylas |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEAV | Aguas Verdes |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEAY | Abancay |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEAZ | Azangaro |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEBC | Bagua Chica |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEBG | Bagua Grande |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEBO | Barranco |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEBR | Barranca |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECA | Caballococha |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECC | Cajamarca |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECH | Chulucanas |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECI | Concepción |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECM | Camané |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECN | CAÑETE |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECO | Callao |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECP | Cerro Pasco |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECS | Chosica |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECT | Chota |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECU | Chiclayo |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECV | Cutervo |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECW | Chincha |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PECZ | Cuzco |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEFI | Fiori |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEHA | Huacho |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEHH | Chancay |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEHJ | Huancavelica |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEHK | Huanta |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEHL | Huaral |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEHN | Huanuco |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEHO | Huancayo |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEHQ | Chuquibamba |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEHV | Chachapoyas |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEHZ | Huaraz |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEIA | Ica |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEIL | Ilo |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEIN | Independencia |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEIQ | Contamana |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEIT | Iquitos |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEJC | Juliaca |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEJE | Jaén |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEJR | Juanjui |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEJU | Jauja |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PELA | Lima |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PELC | Pueblo Libre |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PELF | Pucallpa |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PELL | Chorrillos |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PELM | La Merced |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PELM | Merced (La) |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PELX | All others |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEME | Matarani |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEMO | Mollendo |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEMQ | Moquegua |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEMS | Miraflores |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEMZ | Mazamari |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PENA | Nazca |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PENM | Chepén |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEOY | La Oroya |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEOY | Oroya (La) |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEPC | Pisco |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEPF | Puerto Maldonado |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEPG | Puno |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEPI | Paita |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEPM | Pacasmayo |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEPR | Piura |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEQB | Quillabamba |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PERA | Rioja |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PERL | LAMPA |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PERZ | Caraz |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PESA | Arriola Suc |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PESB | S Borja |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PESI | Sicuani |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PESM | Marcona |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PESR | S Ramón |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PESU | Sullana |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PESY | Salaverry |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PETA | Talara |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PETC | Lince |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PETD | Tacna |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PETF | Tarma |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PETM | Tingo María |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PETO | Trujillo |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PETP | Tarapoto |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PETS | Tumbes |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEUP | Chala |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEVT | Vitor |  | Printed assignment absent from recovered rows
+| Missing | PÉROU | PEYU | Yurimaguas |  | Printed assignment absent from recovered rows
+| Missing | QATAR | DHXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | RODRIGUES | ROYZ | All destinations |  | Printed assignment absent from recovered rows
+| Missing | ROUMANIE | RMXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | ROYAUME-UNI | GBXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | RWANDA | RWBU | Butare |  | Printed assignment absent from recovered rows
+| Missing | RWANDA | RWCY | Cyangugu |  | Printed assignment absent from recovered rows
+| Missing | RWANDA | RWGI | Gisenyi |  | Printed assignment absent from recovered rows
+| Missing | RWANDA | RWKI | Kigali |  | Printed assignment absent from recovered rows
+| Missing | RWANDA | RWKX | All others |  | Printed assignment absent from recovered rows
+| Missing | RWANDA | RWRU | Ruhengeri |  | Printed assignment absent from recovered rows
+| Missing | RÉP. DÉM. DU CONGO | CGKA | Kinshasa |  | Printed assignment absent from recovered rows
+| Missing | RÉP. DÉM. DU CONGO | CGKI | Kisangani |  | Printed assignment absent from recovered rows
+| Missing | RÉP. DÉM. DU CONGO | CGKX | All others |  | Printed assignment absent from recovered rows
+| Missing | RÉP. DÉM. DU CONGO | CGLI | Lubumbashi |  | Printed assignment absent from recovered rows
+| Missing | RÉP. POP. DÉM. DE CORÉE | KPPH | Phyongyang |  | Printed assignment absent from recovered rows
+| Missing | RÉP. POP. DÉM. DE CORÉE | KPPX | All others |  | Printed assignment absent from recovered rows
+| Missing | RÉP. TCHEQUE | CSSV | All service messages |  | Printed assignment absent from recovered rows
+| Missing | RÉP. TCHEQUE | CSXX | PRAHA and all other destinations in the Czech Republic |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYAL | Alep |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYAZ | Bagdad Window |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYBA | Baniass |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYDA | Damas |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYDR | Deraa |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYDX | All others |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYDZ | Deir Ezzor |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYED | Edlib |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYHA | Hama |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYHK | Hassakeh |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYHO | Homs Syrie |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYJA | Jalaa Window |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYJB | Jebla |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYJR | Al Jesser |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYKM | Kamichly |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYLD | Lattaquieh |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYLM | Salamie |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYMR | Matar |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYMZ | Mezze Window |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYNK | Nebek |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYQN | Quneitra |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYQR | Kurdaha |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYRQ | Raqa |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYSA | Safita |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYSW | Soueida |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYTK | Tel Kalah |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYTR | Tartous |  | Printed assignment absent from recovered rows
+| Missing | RÉPUBLIQUE ARABE SYRIENNE | SYZN | Zabadani |  | Printed assignment absent from recovered rows
+| Missing | SAINT-KITTS-ET-NEVIS | KCNE | All destinations |  | Printed assignment absent from recovered rows
+| Missing | SAINT-KITTS-ET-NEVIS | KCSK | All destinations |  | Printed assignment absent from recovered rows
+| Missing | SAINT-PIERRE-ET- MIQUELON | QNSP | S Pierre Îles Saint-Pierre-et-Miquelon |  | Printed assignment absent from recovered rows
+| Missing | SAINT-PIERRE-ET- MIQUELON | QNSX | All others |  | Printed assignment absent from recovered rows
+| Missing | SAINT-VINCENT-ET-LES GRENADINES | VQST | All destinations |  | Printed assignment absent from recovered rows
+| Missing | SAINTE-HÉLÈNE, ASCENSION ET TRISTAN DA CUNHA | HLXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | SAINTE-HÉLÈNE, ASCENSION ET TRISTAN DA CUNHA | TDCA | All destinations |  | Printed assignment absent from recovered rows
+| Missing | SAINTE-LUCIE | LCSL | All destinations |  | Printed assignment absent from recovered rows
+| Missing | SALOMON (ÎLES) | HQLO | Honiara |  | Printed assignment absent from recovered rows
+| Missing | SALOMON (ÎLES) | HQLX | All others |  | Printed assignment absent from recovered rows
+| Missing | SAMOA | SXAP | Apia |  | Printed assignment absent from recovered rows
+| Missing | SAMOA | SXAX | All others |  | Printed assignment absent from recovered rows
+| Missing | SAMOA AMÉRICAIN | SBJD | Pago Pago |  | Printed assignment absent from recovered rows
+| Missing | SAMOA AMÉRICAIN | SBJX | All others |  | Printed assignment absent from recovered rows
+| Missing | SAO TOMÉ-ET-PRINCIPE | STIM | Principe (Île) |  | Printed assignment absent from recovered rows
+| Missing | SAO TOMÉ-ET-PRINCIPE | STST | S Tomé (Île) |  | Printed assignment absent from recovered rows
+| Missing | SAO TOMÉ-ET-PRINCIPE | STSX | All others |  | Printed assignment absent from recovered rows
+| Missing | SERBIE | YUBE | Beograd |  | Printed assignment absent from recovered rows
+| Missing | SERBIE | YUBX | All others |  | Printed assignment absent from recovered rows
+| Missing | SERBIE | YUKR | Kragujevac |  | Printed assignment absent from recovered rows
+| Missing | SERBIE | YUNI | Nis |  | Printed assignment absent from recovered rows
+| Missing | SERBIE | YUNS | Novi Sad |  | Printed assignment absent from recovered rows
+| Missing | SERBIE | YUPR | Pristina |  | Printed assignment absent from recovered rows
+| Missing | SERBIE | YUTG | Titograd |  | Printed assignment absent from recovered rows
+| Missing | SEYCHELLES | SZMA | MAHE |  | Printed assignment absent from recovered rows
+| Missing | SEYCHELLES | SZVX | PORT VICTORIA MAHE All others |  | Printed assignment absent from recovered rows
+| Missing | SIERRA LEONE | --BO | Bo Sierra Leone |  | Printed assignment absent from recovered rows
+| Missing | SIERRA LEONE | --FN | FREETOWN |  | Printed assignment absent from recovered rows
+| Missing | SIERRA LEONE | --PX | All others |  | Printed assignment absent from recovered rows
+| Missing | SLOVÉNIE | SIXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | SOMALIE | SMMO | Mogadishu |  | Printed assignment absent from recovered rows
+| Missing | SOMALIE | SMMX | All others |  | Printed assignment absent from recovered rows
+| Missing | SOUDAN | SDKM | Khartoum |  | Printed assignment absent from recovered rows
+| Missing | SOUDAN | SDKX | All others |  | Printed assignment absent from recovered rows
+| Missing | SOUDAN | SDPS | Port Sudan |  | Printed assignment absent from recovered rows
+| Missing | SRI LANKA | CECO | Colombo |  | Printed assignment absent from recovered rows
+| Missing | SRI LANKA | CECX | All others |  | Printed assignment absent from recovered rows
+| Missing | SUDAFRICAINE (RÉP.) | SAXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | SUISSE | CHBX | All others |  | Printed assignment absent from recovered rows
+| Missing | SUISSE | CHRM | BERN RADIO |  | Printed assignment absent from recovered rows
+| Missing | SUISSE | CHTI | LUGANO |  | Printed assignment absent from recovered rows
+| Missing | SUISSE | CHVD | LAUSANNE |  | Printed assignment absent from recovered rows
+| Missing | SUISSE | CHZH | ZUERICH |  | Printed assignment absent from recovered rows
+| Missing | SUISSE | CHZR | ZURICH TELEX |  | Printed assignment absent from recovered rows
+| Missing | SUÈDE | SWSX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | SWAZILAND | WDMB | Mbabane |  | Printed assignment absent from recovered rows
+| Missing | SWAZILAND | WDMX | All others |  | Printed assignment absent from recovered rows
+| Missing | SÉNÉGAL | SGDR | Dakar |  | Printed assignment absent from recovered rows
+| Missing | SÉNÉGAL | SGDX | All others |  | Printed assignment absent from recovered rows
+| Missing | TADJIKISTAN | TJXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | TANZANIE | TZDM | DAR-ES-SALAAM |  | Printed assignment absent from recovered rows
+| Missing | TANZANIE | TZDO | DODOMA |  | Printed assignment absent from recovered rows
+| Missing | TANZANIE | TZDX | All others |  | Printed assignment absent from recovered rows
+| Missing | TANZANIE | TZZR | ZANZIBAR |  | Printed assignment absent from recovered rows
+| Missing | TANZANIE | TZZX | All others |  | Printed assignment absent from recovered rows
+| Missing | TCHAD | KDFL | N’Djamena |  | Printed assignment absent from recovered rows
+| Missing | TCHAD | KDFX | All others |  | Printed assignment absent from recovered rows
+| Missing | TERRES AUSTRALES ET ANTARCTIQUES FRANÇAISES | DLTX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | TERRES AUSTRALES ET ANTARCTIQUES FRANÇAISES | KBRF | All destinations |  | Printed assignment absent from recovered rows
+| Missing | TIMOR LESTE | TIDI | Dili |  | Printed assignment absent from recovered rows
+| Missing | TIMOR LESTE | TIDX | All others |  | Printed assignment absent from recovered rows
+| Missing | TOGO | TGLO | LOMÉ |  | Printed assignment absent from recovered rows
+| Missing | TOGO | TGLX | All others |  | Printed assignment absent from recovered rows
+| Missing | TOKELAU | TLIX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | TUNISIE | TNSF | Sfax |  | Printed assignment absent from recovered rows
+| Missing | TUNISIE | TNSO | Sousse |  | Printed assignment absent from recovered rows
+| Missing | TUNISIE | TNTS | Tunis |  | Printed assignment absent from recovered rows
+| Missing | TUNISIE | TNTX | All others |  | Printed assignment absent from recovered rows
+| Missing | TURKMÉNISTAN | TMXX | All destinations |  | Printed assignment absent from recovered rows
+| Missing | TURQUES ET CAÏQUES (ÎLES) | TQTK | All destinations |  | Printed assignment absent from recovered rows
+| Missing | TURQUIE | TRAA | Adana |  | Printed assignment absent from recovered rows
+| Missing | TURQUIE | TRAN | Ankara |  | Printed assignment absent from recovered rows
+| Missing | TURQUIE | TRAX | All others |  | Printed assignment absent from recovered rows
+| Missing | TURQUIE | TRIR | Izmir |  | Printed assignment absent from recovered rows
+| Missing | TURQUIE | TRIS | Istanbul |  | Printed assignment absent from recovered rows
+| Missing | TUVALU | TVFU | Funafuti |  | Printed assignment absent from recovered rows
+| Missing | TUVALU | TVFX | All others |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXCG | Chernihiv |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXCK | Cherkasy |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXCV | Chernivtsi |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXDC | Donetsk |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXDP | Dnipropetrovsk |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXGR | Horlivka |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXHM | Khmelnitskyi |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXHR | Kharkiv |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXHS | Kherson |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXIF | Ivano-Frankivsk |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXKG | Kirovohrad |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXKM | Kramatorsk |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXKR | Kryvyi Rih |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXKV | Kyiv |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXKX | All others |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXLC | Lutsk |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXLK | Luhansk |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXLV | Lviv |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXMK | Mykolaiv |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXMR | Mariupol |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXOD | Odesa |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXPL | Poltava |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXRV | Rivne |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXSF | Simferopol |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXSU | Sumy |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXSV | Sevastopol |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXTR | Ternopil |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXUG | Uzhhorod |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXVC | Vinnytsia |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXYL | Yalta |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXZP | Zaporizhia |  | Printed assignment absent from recovered rows
+| Missing | UKRAINE | UXZT | Zhytomyr |  | Printed assignment absent from recovered rows
+| Missing | URUGUAY | UYAG | Artigas |  | Printed assignment absent from recovered rows
+| Missing | URUGUAY | UYCA | Colonia Uruguay |  | Printed assignment absent from recovered rows
+| Missing | URUGUAY | UYCL | Canelones |  | Printed assignment absent from recovered rows
+| Missing | URUGUAY | UYML | Melo Uruguay |  | Printed assignment absent from recovered rows
+| Missing | URUGUAY | UYMO | Montevideo |  | Printed assignment absent from recovered rows
+| Missing | URUGUAY | UYMS | Mercedes Uruguay |  | Printed assignment absent from recovered rows
+| Missing | URUGUAY | UYMX | All others |  | Printed assignment absent from recovered rows
+| Missing | URUGUAY | UYPE | Punta del Este |  | Printed assignment absent from recovered rows
+| Missing | URUGUAY | UYPU | Paysandu |  | Printed assignment absent from recovered rows
+| Missing | URUGUAY | UYRR | Treinta y Tres |  | Printed assignment absent from recovered rows
+| Missing | URUGUAY | UYRV | Rivera Uruguay |  | Printed assignment absent from recovered rows
+| Missing | URUGUAY | UYSO | Salto Uruguay |  | Printed assignment absent from recovered rows
+| Missing | VENEZUELA | VECA | Caracas |  | Printed assignment absent from recovered rows
+| Missing | VENEZUELA | VECX | All others |  | Printed assignment absent from recovered rows
+| Missing | VIERGES AMÉRICAINES (ÎLES) | VWCD | Christiansted |  | Printed assignment absent from recovered rows
+| Missing | VIERGES AMÉRICAINES (ÎLES) | VWCH | Charlotte Amalie / S Thomas US Virgin Islands |  | Printed assignment absent from recovered rows
+| Missing | VIERGES AMÉRICAINES (ÎLES) | VWCX | All others |  | Printed assignment absent from recovered rows
+| Missing | VIERGES AMÉRICAINES (ÎLES) | VWSJ | S John US Virgin Islands |  | Printed assignment absent from recovered rows
+| Missing | VIERGES BRITANNIQUES (ÎLES) | VBAN | Anegada |  | Printed assignment absent from recovered rows
+| Missing | VIERGES BRITANNIQUES (ÎLES) | VBAX | All others |  | Printed assignment absent from recovered rows
+| Missing | VIERGES BRITANNIQUES (ÎLES) | VBTO | Tortola |  | Printed assignment absent from recovered rows
+| Missing | VIERGES BRITANNIQUES (ÎLES) | VBVG | Virgin Gorda |  | Printed assignment absent from recovered rows
+| Missing | VIET NAM | VTHA | Ha Noi |  | Printed assignment absent from recovered rows
+| Missing | VIET NAM | VTHO | Ho Chi Minh Ville |  | Printed assignment absent from recovered rows
+| Missing | VIET NAM | VTHX | All others |  | Printed assignment absent from recovered rows
+| Missing | WAKE (ÎLE) | WAKM | All destinations |  | Printed assignment absent from recovered rows
+| Missing | WALLIS-ET-FUTUNA | WFGX | All others |  | Printed assignment absent from recovered rows
+| Missing | WALLIS-ET-FUTUNA | WFMU | Mata Utu |  | Printed assignment absent from recovered rows
+| Missing | YÉMEN | YDAN |  |  | Printed assignment absent from recovered rows
+| Missing | YÉMEN | YDAR | Aden Radio |  | Printed assignment absent from recovered rows
+| Missing | YÉMEN | YDAX | All others |  | Printed assignment absent from recovered rows
+| Missing | YÉMEN | YDMK | Mukalla |  | Printed assignment absent from recovered rows
+| Missing | YÉMEN | YDSN | Seiyun |  | Printed assignment absent from recovered rows
+| Missing | YÉMEN | YNHO | Hodeidah |  | Printed assignment absent from recovered rows
+| Missing | YÉMEN | YNSA | Sanaa |  | Printed assignment absent from recovered rows
+| Missing | YÉMEN | YNSX | All others |  | Printed assignment absent from recovered rows
+| Missing | YÉMEN | YNTZ | Taiz / Tayz |  | Printed assignment absent from recovered rows
+| Missing | ZAMBIE | ZAKE | Kitwe |  | Printed assignment absent from recovered rows
+| Missing | ZAMBIE | ZALU | Lusaka |  | Printed assignment absent from recovered rows
+| Missing | ZAMBIE | ZALX | All others |  | Printed assignment absent from recovered rows
+| Missing | ZAMBIE | ZAND | Ndola |  | Printed assignment absent from recovered rows
+| Missing | ZIMBABWE | ZWBU | Bulawayo |  | Printed assignment absent from recovered rows
+| Missing | ZIMBABWE | ZWHR | Harare |  | Printed assignment absent from recovered rows
+| Missing | ZIMBABWE | ZWHX | All others |  | Printed assignment absent from recovered rows
+| Different | ÉGYPTE | UNAX | ALEXANDRIA CENTRE / ALEXANDRIE CENTRE | ALEXANDRIE CENTRE | Printed office name differs
+| Missing | ÉGYPTE | UNSM | SAMALLOUT |  | Printed assignment absent from recovered rows
+| Different | ÉTATS-UNIS | UJMR |  | Mobile, Alabama Radio | Printed office name differs
+| Different | ÉTATS-UNIS | URFS |  | Palo Alto, California Radio/KFS | Printed office name differs
+| Different | ÉTATS-UNIS | URMO |  | Mobile, Alabama Radio | Printed office name differs
+| Different | ÉTATS-UNIS | UTFS |  | Palo Alto, California Radio/KFS | Printed office name differs
+| Different | ÉTATS-UNIS | UTMR |  | Mobile, Alabama Radio | Printed office name differs
+|===

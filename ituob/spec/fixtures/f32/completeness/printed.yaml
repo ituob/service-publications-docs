@@ -1,0 +1,30 @@
+source_uri: https://www.itu.int/dms_pub/itu-t/opb/sp/T-SP-F.32-2011-PDF-E.pdf
+source_sha256: fixture-sha256
+source_complete: true
+pages:
+  - number: 1
+    text: Two-country regression fixture
+allocations:
+  - country_or_area: {fr: ALPHA}
+    office_code: AAMA
+    telegraph_office_name: {en: Main}
+  - country_or_area: {fr: ALPHA}
+    office_code: AAMI
+    telegraph_office_name: {en: Missing}
+  - country_or_area: {fr: BETA}
+    office_code: BBDI
+    telegraph_office_name: {en: Printed name}
+contexts:
+  - kind: shared-indicator
+    entry:
+      country_or_area: {fr: ALPHA}
+      office_code: AAMA
+      telegraph_office_name: {en: Shared office}
+  - kind: network-relative-office
+    entry:
+      country_or_area: {fr: BETA}
+      office_code: --AB
+      telegraph_office_name: {en: Relative office}
+  - kind: heading
+    entry:
+      country_or_area: {fr: BETA}

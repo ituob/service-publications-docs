@@ -6,10 +6,12 @@ module Ituob
   #   provider = Ituob::Provider.new
   #   provider.edition(register: 'e212-mnc', as_of: 1170)
   #   provider.history(register: 'e212-mnc', key: '234 | 15', as_of: 1170)
+  #   provider.actions(register: 'e212-mnc', as_of: 1170)
   #
   # +register+ is the catalog slug (`e212-mnc`) or register id
-  # (`E212_MNC`); +as_of+ is an OB issue number. Both queries return
-  # lutaml-model objects (Models::RegisterEdition, Models::RegisterKeyHistory)
+  # (`E212_MNC`); +as_of+ is an OB issue number. Queries return
+  # lutaml-model objects (Models::RegisterEdition, Models::RegisterKeyHistory,
+  # Models::RegisterActions)
   # carrying ProjectionProvenance, so they reach Liquid through to_liquid.
   #
   # == Data root
@@ -28,7 +30,7 @@ module Ituob
     class UnknownRegisterError < ArgumentError; end
     class UnknownIssueError < ArgumentError; end
 
-    QUERIES = %i[edition history].freeze
+    QUERIES = %i[edition history actions].freeze
 
     def initialize(data_root: nil)
       DataRoot.configure(data_root) if data_root
@@ -43,13 +45,19 @@ module Ituob
     def edition(register:, as_of:)
       catalog, items, state = resolve(register, as_of)
       Projections::RegisterEdition.new(
-        register: catalog, state: state, items: items.hydrate(state)
+        register: catalog, state: state, items: items.hydrate(state),
+        source_contexts: items.source_contexts_at(state.at_ob_issue)
       ).to_model
     end
 
     def history(register:, key:, as_of:)
       catalog, _items, state = resolve(register, as_of)
       Projections::KeyHistory.new(register: catalog, state: state).for_key(key)
+    end
+
+    def actions(register:, as_of:)
+      catalog, _items, state = resolve(register, as_of)
+      Projections::RegisterActions.new(register: catalog, state: state).to_model
     end
 
     private
