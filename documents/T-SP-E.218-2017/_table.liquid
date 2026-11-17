@@ -12,7 +12,7 @@ numerical order
 == 按数字顺序排列的地面集群无线电列表
 {% endif %}
 
-{% assign notes = data | map: "note" | uniq %}
+{% assign empty_notes = data | where: "note", nil | map: "note" | uniq %}{% assign notes = data | map: "note" | compact | uniq: "en" | concat: empty_notes %}
 
 {% for note_content in notes %}
     {% assign note_first_word = note_content.en | split: " " | first %}
@@ -59,7 +59,7 @@ alphabetical order
 == 按字母顺序排列的地面集群无线电列表
 {% endif %}
 
-{% assign ordered_sequence = data | map: "country_or_area" | sort: lang | uniq %}
+{% assign ordered_sequence = data | map: "country_or_area" | sort: lang | uniq: "en" %}
 
 [cols="3",options="unnumbered"]
 |===

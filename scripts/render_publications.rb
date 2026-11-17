@@ -195,9 +195,19 @@ module RenderPublications
   def title_for(adoc, keys)
     ref = File.read(adoc, encoding: 'UTF-8').lines.grep(PdfCoverageMatrix::BLOCK_LINE)
               .filter_map { |l| METADATA_REF.match(l) }.first
-    return unless ref
+    if ref
+      metadata_path = File.expand_path(ref[:path], File.dirname(adoc))
+    else
+      args = PdfCoverageMatrix.provider_sources(File.read(adoc, encoding: 'UTF-8')).first
+      return unless args
 
-    meta = Ituob::Support::Yaml.safe_load_file(File.expand_path(ref[:path], File.dirname(adoc)))
+      root = File.expand_path('../..', File.dirname(adoc))
+      register = PdfCoverageMatrix.register_index(root).values.find { |r| r.slug == args.fetch('register') }
+      return unless register
+
+      metadata_path = File.join(root, register.seed_path, 'metadata.yaml')
+    end
+    meta = Ituob::Support::Yaml.safe_load_file(metadata_path)
     titles = meta.is_a?(Hash) ? meta['title'] : nil
     return unless titles.is_a?(Hash)
 

@@ -30,10 +30,10 @@ http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/annex.ht
 
 == {blank}
 
-[yaml2text,data=../../datasets/974-F.400/data.yaml,metadata=../../datasets/974-F.400/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"f400-admd","as_of":974}}]
 ----
 {% assign lang = "en" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 ----
 
 == AMENDMENTS

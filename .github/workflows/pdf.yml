@@ -165,7 +165,7 @@ jobs:
       - name: Upload PDFs and manifest.json
         uses: actions/upload-artifact@v4
         with:
-          name: pdf-${{ matrix.doc }}
+          name: pdf-pilot-${{ matrix.doc }}
           path: |
             build/pdf/
             build/render-failures.log

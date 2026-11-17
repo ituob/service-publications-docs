@@ -40,10 +40,10 @@
 
 
 
-[yaml2text,data=../../datasets/1125-E.218/data.yaml,metadata=../../datasets/1125-E.218/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e218-trcc","as_of":1125},"include_path":"."}]
 ----
 {% assign lang = "zh" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 
 == 修正
 

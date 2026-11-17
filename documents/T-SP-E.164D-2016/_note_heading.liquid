@@ -1,0 +1,9 @@
+{% for country_data in data -%}
+{%- assign prefix = country_data.note.en | slice: 0,39 -%}
+{%- if prefix == note_prefix -%}
+. [[note_{{ letter }}]]{{ country_data.note[lang] }}{% unless letter == "q" %}:
++
+--{% endunless %}
+{% break %}
+{%- endif -%}
+{%- endfor %}

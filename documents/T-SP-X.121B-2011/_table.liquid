@@ -10,14 +10,14 @@
 
 ^| 1 ^| 2 ^| 3
 
-{% assign ordered_sequence = data | map: "country_or_area" | sort: "fr" | uniq %}
+{% assign ordered_sequence = data | map: "country_or_area" | sort: "fr" | map: "en" | uniq %}
 
 {% for next_country in ordered_sequence %}
-    {% assign data_group = data | map: "country_or_area" | where: "en", next_country.en %}
+    {% assign data_group = data | map: "country_or_area" | where: "en", next_country %}
     {% assign flag = false %}
 
     {% for country_data in data %}
-        {% if country_data.country_or_area.en == next_country.en %}
+        {% if country_data.country_or_area.en == next_country %}
             {% if flag == false %}
                 {% assign flag = true %}
 .{{ data_group.size }}+| {{ country_data.country_or_area.fr }} +

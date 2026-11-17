@@ -72,6 +72,25 @@ RSpec.describe RenderPublications do
     JSON.parse(File.read(File.join(out_dir, 'pdf', 'manifest.json')))
   end
 
+  it 'builds a provider-only publication manifest with its localized seed title and issue' do
+    write('documents/T-SP-E.118-2018/T-SP-E.118-2018-F.adoc', <<~ADOC)
+      = Title
+      :docnumber: x
+
+      [lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e118-iin","as_of":1161},"include_path":"."}]
+      ----
+      {{ edition.items }}
+      ----
+    ADOC
+    result = run_render(docs: ['T-SP-E.118-2018'], langs: ['F'])
+
+    expect(result.failures).to be_empty
+    expect(manifest_json.fetch('publications').first).to include(
+      'title' => 'Identification des emetteurs', 'as_of_issue' => 1161,
+      'language' => 'fr', 'register_slugs' => ['e118-iin']
+    )
+  end
+
   it 'writes the manifest with the site field names, checksum of the copied bytes and deterministic path' do
     run_render(docs: ['T-SP-E.118-2018'], langs: %w[E F])
     entries = manifest_json.fetch('publications')

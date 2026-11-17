@@ -12,6 +12,7 @@ module Ituob
     # class, including textual/external registers.
     class RegisterItems
       class UnsupportedRegisterError < ArgumentError; end
+      class MissingSeedError < ArgumentError; end
 
       def initialize(register:)
         @register = register
@@ -19,6 +20,18 @@ module Ituob
 
       def at_issue(issue)
         hydrate(state_at(issue))
+      end
+
+      # The published seed is an ordered list: shared identifiers are distinct
+      # printed rows, even though replay groups active membership by key.
+      def seed_items
+        model = entry_class
+        seed = change_source.each_sorted.find(&:seed?)
+        raise MissingSeedError, "Register #{@register.register_id} has no publication seed" unless seed
+
+        seed.data.map do |row|
+          model.from_hash(row.merge('_class' => model.name.split('::').last))
+        end
       end
 
       # Replayed register state at the end of OB issue +issue+.

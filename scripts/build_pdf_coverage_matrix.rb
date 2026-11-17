@@ -15,6 +15,7 @@
 $LOAD_PATH.unshift(File.expand_path('../ituob/lib', __dir__))
 require 'ituob'
 require 'optparse'
+require 'json'
 
 module PdfCoverageMatrix
   LANGUAGES = %w[A C E F R S].freeze
@@ -24,11 +25,12 @@ module PdfCoverageMatrix
   # Only a yaml2text/data2text block attribute line names datasets the render
   # reads; the same text in a comment or in prose does not.
   BLOCK_LINE = /\A\[\w*2text\b/
+  PROVIDER_LINE = /\A\[lutaml_data,provider:ituob\.(?:edition|publication),[^,]+,options=(\{.*\})\]\s*\z/
   OUT_PATH = 'docs/pdf/coverage-matrix.adoc'
 
   Row = Struct.new(
     :standard, :year, :language, :file, :docnumber, :issue, :datasets,
-    :published, :registers, :unmapped, :newest, :flag, keyword_init: true
+    :published, :registers, :unmapped, :newest, :flag, :data_path, keyword_init: true
   )
 
   # A register as the catalog describes it, plus the newest OB issue whose
@@ -75,16 +77,35 @@ module PdfCoverageMatrix
     head = header(text)
     slugs = text.lines.grep(BLOCK_LINE).flat_map { |l| l.scan(DATASET_REF).flatten }.uniq.sort
     mapped, unmapped = slugs.partition { |s| registers.key?(s) }
+    providers = provider_sources(text)
     regs = mapped.map { |s| registers.fetch(s) }
     datasets = slugs.filter_map { |s| (n = s[/\A\d+/]) && [s, n.to_i] }
+    providers.each do |args|
+      reg = registers.values.find { |r| r.slug == args.fetch('register') }
+      raise ArgumentError, "unknown provider register #{args['register']} in #{path}" unless reg
+
+      regs << reg
+      datasets << [File.basename(reg.seed_path), Integer(args.fetch('as_of'))]
+    end
+    regs = regs.uniq(&:slug).sort_by(&:slug)
+    datasets = datasets.to_h.sort
     issue = datasets.map(&:last).max
     Row.new(
       standard: meta[:standard], year: meta[:year], language: lang,
       file: File.basename(path), docnumber: head['docnumber'], issue: issue,
       datasets: datasets,
       published: head['published-date'], registers: regs, unmapped: unmapped,
-      newest: regs.map(&:newest_issue).max, flag: flag(issue, regs, datasets)
+      newest: regs.map(&:newest_issue).max, flag: flag(issue, regs, datasets),
+      data_path: providers.empty? ? 'yaml2text' : (slugs.empty? ? 'provider' : 'mixed')
     )
+  end
+
+  # Only actual provider block headers contribute register/issue provenance.
+  def provider_sources(text)
+    text.lines.filter_map do |line|
+      match = PROVIDER_LINE.match(line)
+      JSON.parse(match[1]).fetch('arguments') if match
+    end
   end
 
   # Document header attributes: the `:name: value` lines before the first blank
@@ -145,9 +166,9 @@ module PdfCoverageMatrix
     out << ''
     out << '== Matrix'
     out << ''
-    out << '[cols="2,1,1,1,1,1,3,3",options="header"]'
+    out << '[cols="2,1,1,1,1,1,3,3,1",options="header"]'
     out << '|==='
-    out << '| Publication | Edition | Lang | As-of OB issue | Header docnumber | Published | Registers (slug) | Against register state'
+    out << '| Publication | Edition | Lang | As-of OB issue | Header docnumber | Published | Registers (slug) | Against register state | Data path'
     rows.each { |r| out << row_cells(r) }
     out << '|==='
     out << ''
@@ -159,7 +180,7 @@ module PdfCoverageMatrix
     regs += row.unmapped.map { |u| "#{u} (no register)" }
     [
       row.standard, row.year, row.language, issue_cell(row),
-      row.docnumber.to_s, row.published.to_s, regs.join(', '), row.flag
+      row.docnumber.to_s, row.published.to_s, regs.join(', '), row.flag, row.data_path
     ].map { |c| c.to_s.gsub('|', '{vbar}') }.join(' | ').prepend('| ')
   end
 
@@ -181,10 +202,13 @@ module PdfCoverageMatrix
       "* Publication x language rows: #{rows.size}",
       "* Rows by language: #{langs.join(', ')}",
       "* Rows by register state: #{flags.join(', ')}",
+      "* Rows by data path: #{rows.group_by(&:data_path).sort.map { |name, group| "#{name}: #{group.size}" }.join(', ')}",
       "* Rows whose header `:docnumber:` differs from the as-of issue: #{rows.count { |r| r.docnumber.to_s != r.issue.to_s }}",
       '',
       'The as-of OB issue is the highest leading number among the dataset directories',
-      'named in the document\'s `yaml2text` block (for example `1114-E.164D`); when',
+      'named in a document data block (for example `1114-E.164D`), or the explicit',
+      '`as_of` argument of its provider source. Provider publication queries read',
+      'the complete typed seed edition, preserving repeated register keys. When',
       'the datasets differ, every dataset issue is listed. The header `:docnumber:`',
       'is not used for it: it is often not an issue number or is stale.',
       '',
@@ -192,7 +216,10 @@ module PdfCoverageMatrix
       '`datasets/<seed>/changes/` (or the seed issue when there is none), read',
       'from `catalogs/registers.yaml`. A row is outdated when the issue of the dataset',
       'it reads for a register is older than that. Datasets with no register in the',
-      'catalog are listed as "no register" and are not compared.'
+      'catalog are listed as "no register" and are not compared.',
+      '',
+      'Data path is `provider` when all data blocks query the provider, `mixed`',
+      'when provider and file injection blocks coexist, or `yaml2text` otherwise.'
     ].join("\n")
   end
 

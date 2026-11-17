@@ -50,8 +50,8 @@ presentados los datos que contiene no implican, por parte de la UIT, juicio algu
 condición jurídica de países o zonas geográficas, o de sus autoridades.
 
 
-[yaml2text,data=../../datasets/1015-E.164B/data.yaml,metadata=../../datasets/1015-E.164B/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e164-acn","as_of":1015}}]
 ----
 {% assign lang = "es" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 ----

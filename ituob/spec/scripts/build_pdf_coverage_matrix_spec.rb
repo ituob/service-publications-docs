@@ -91,6 +91,32 @@ RSpec.describe PdfCoverageMatrix do
     [File.binread(out), err, status]
   end
 
+  it 'reads provider publication provenance without a legacy file reference' do
+    write('documents/T-SP-E.118-2018/T-SP-E.118-2018-E.adoc', <<~ADOC)
+      = Title
+      :docnumber: 1161
+
+      [lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e118-iin","as_of":1161},"include_path":"."}]
+      ----
+      {{ edition.items }}
+      ----
+    ADOC
+    row = row_for('E.118', 'E')
+
+    expect([row.issue, row.data_path, row.registers.map(&:slug)]).to eq([1161, 'provider', ['e118-iin']])
+    expect(row.flag).to eq('outdated: e118-iin at 1342')
+  end
+
+  it 'retains auxiliary file datasets in a mixed provider document' do
+    path = 'documents/T-SP-E.118-2018/T-SP-E.118-2018-E.adoc'
+    File.open(File.join(@root, path), 'a') do |file|
+      file.puts('[lutaml_data,provider:ituob.edition,edition,options={"arguments":{"register":"f1","as_of":669}}]')
+    end
+    row = row_for('E.118', 'E')
+
+    expect([row.issue, row.data_path, row.registers.map(&:slug)]).to eq([1161, 'mixed', %w[e118-iin f1]])
+  end
+
   it 'emits one row per publication and language, sorted, ignoring non-documents' do
     expect(rows.map { |r| [r.standard, r.year, r.language] }).to eq(
       [%w[E.118 2018 E], %w[E.118 2018 F], %w[F.1 1998 E], %w[SR.1 2012 S]]
@@ -212,7 +238,7 @@ RSpec.describe PdfCoverageMatrix do
     doc('T-SP-E.118-2018', 'S', '1161-E.118', docnumber: 'A|B')
     cells = described_class.row_cells(row_for('E.118', 'S'))
     expect(cells).to include('A{vbar}B')
-    expect(cells.count('|')).to eq(8)
+    expect(cells.count('|')).to eq(9)
   end
 
   it 'covers every language letter' do
