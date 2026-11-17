@@ -54,6 +54,14 @@ patch field is lost by those exclusions.
 
 == Verification
 
+The full comparison against `26cc6fae` covers 935 states across all 21
+replayable registers. All baseline entry keys and nested field values survive.
+The only entry differences are additional seed translations in 355 E.212/Q.708
+states. History and key-history differences are exactly the 13 exclusions
+(4 ADD, 5 LIR, 4 SUP). Error/reflected-in-seed differences are exactly the
+excluded absent-key suppressions; lapse and deletion state are unchanged.
+Namibia's date is preserved in all 124 E.118 states.
+
 The committed corpus regression checks Namibia at issue 1161 and current.
 Focused directory-source specs cover missing/differing fields, nested hashes,
 multi-row amendments, missing seeds, absent/present SUP targets and a retained

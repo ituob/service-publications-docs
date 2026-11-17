@@ -49,7 +49,7 @@ module Ituob
         seed_rows = Array(seed&.data).to_h do |row|
           [Strategies::Base.entry_key(row, @key_field), row]
         end
-        replayed_keys = []
+        replayed_keys = [] if @seed_includes_seed_issue
         each_amendment do |c|
           # The catalog flag permits exclusion only when the seed proves
           # the whole amendment redundant, including every nested field.
@@ -58,7 +58,7 @@ module Ituob
              (@seed_includes_seed_issue && c.ob_issue_no == @seed_issue &&
                seed && (change_keys(c) & replayed_keys).empty? && included_in_seed?(c, seed_rows)))
 
-          replayed_keys.concat(change_keys(c)) if c.ob_issue_no == @seed_issue
+          replayed_keys.concat(change_keys(c)) if replayed_keys && c.ob_issue_no == @seed_issue
           yield c
         end
       end
@@ -68,7 +68,7 @@ module Ituob
       def change_keys(change)
         rows = Strategies::Base.rows_for(change, @key_field)
         keys = rows.map { |row| Strategies::Base.entry_key(row, @key_field) }
-        keys = [change.identifier.code] if keys.empty? && change.identifier.direct?
+        keys = [change.identifier.code] if keys.empty? && change.identifier&.direct?
         keys
       end
 
