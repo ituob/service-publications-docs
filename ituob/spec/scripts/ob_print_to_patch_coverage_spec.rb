@@ -75,6 +75,11 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
         - register_id: E212_MNC
           slug: e212-mnc
           seed_path: datasets/1162-E.212
+        - slug: t35-na
+        - slug: e164-cc
+        - slug: e118-iin
+        - slug: list-viii
+        - slug: m1400-icc
       YAML
       @env = { 'ITU_OB_DATA_ROOT' => File.join(dir, 'data/issues'), 'OB_ISSUES_ROOT' => File.join(dir, 'ob'),
                'DATASETS_ROOT' => File.join(dir, 'datasets'), 'REGISTERS_CATALOG' => File.join(dir, 'catalog.yaml'),
@@ -123,6 +128,39 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
     build_map = block.scan(/'([^']+)' => '([^']+)'/).to_h
     require script
     expect(PrintToPatchCoverage::SLUG_BY_PUBLICATION).to eq(build_map)
+  end
+
+  it 'maps only register action files and register text, preserving other-register actions' do
+    lines = ['211 South Sudan Republic of', '31 August 2011', 'Example bulletin assignment',
+             'Unstructured register metadata', 'Other Register Telecom', 'Register narrative coverage']
+    write(File.join(@dir, 'data/issues/700/amendments.yaml'),
+          "messages:\n#{message('E164_CC', para(*lines))}")
+    write(File.join(@dir, 'ob/700/iptn/001.yaml'), "type: iptn\ndata: 211 South Sudan Republic of\n")
+    write(File.join(@dir, 'ob/700/general/approved_recommendations.yaml'), "date: 31 August 2011\n")
+    write(File.join(@dir, 'ob/700/general/text.yaml'), "text: Example bulletin assignment\n")
+    write(File.join(@dir, 'ob/700/e164-cc/metadata.yaml'), "text: Unstructured register metadata\n")
+    write(File.join(@dir, 'ob/700/general/001-ADD.yaml'), "type: ADD\ndata: Example bulletin assignment\n")
+    write(File.join(@dir, 'ob/700/e212-mnc/002-ADD.yaml'), "type: ADD\ndata: Other Register Telecom\n")
+    write(File.join(@dir, 'ob/700/e164-cc/text.yaml'), "text: Register narrative coverage\n")
+
+    out, err, st = run_script(@env)
+
+    expect(st.success?).to be(true), err
+    expect(out).to include('mapped=2 ', 'other=1 ')
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |r| r['text'] }).to eq(lines.first(4))
+  end
+
+  it 'preserves typed text amendments for registers outside the catalog' do
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'),
+          "messages:\n#{message('Coast Station Identification Numbers', para('Bahamas 3070 3079'))}")
+    write(File.join(@dir, 'ob/701/coast-station-identification-numbers/text.yaml'),
+          "_class: TextAmendment\ncontents: Bahamas 3070 3079\n")
+
+    _out, err, status = run_script(@env)
+
+    expect(status.success?).to be(true), err
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |r| r['text'] }).not_to include('Bahamas 3070 3079')
+    expect(File.read(File.join(@out, '100-05-print-to-patch-coverage.md'))).to include('| coast-station-identification-numbers | 1 | 1 | 0 | 0 | 1 |')
   end
 
   describe 'printed-line matching' do

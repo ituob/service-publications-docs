@@ -160,6 +160,10 @@ module PrintToPatchCoverage
     "MSIN: Mobile Subscription Identification Number / numéro d'identification d'abonnement mobile / número de",
     "MSIN: Mobile Subscription Identification Number / numéro d'identification d'abonnement mobile / número de identificación de suscripción al servicio móvil"
   ]).freeze
+  GLOSSARY_LEGEND_TOKEN_SHAPES = Set.new([
+    'mnc mobile network code code de reseau mobile indicativo de red para el servicio movil',
+    'mcc mobile country code indicatif de pays du mobile indicativo de pais para el servicio movil mnc mobile network code code de reseau mobile indicativo de red para el servicio movil'
+  ]).freeze
 
   # Named exclusion rules, consulted only for lines that did not map.
   # Each: id, reason, matcher(normalized_text, tokens). Filled from the
@@ -225,13 +229,13 @@ module PrintToPatchCoverage
       id: 'glossary_legend',
       reason: 'trilingual legend of a column abbreviation ("MNC : Mobile Network Code / Code de reseau mobile / ' \
               'Indicativo de red ..."), repeated boilerplate; the abbreviation is a register field name',
-      match: ->(text, _tokens, _cells) { text.match?(%r{\A[[:space:]*_]*[A-Z]{2,6}[[:space:]]*:[[:space:]]*\p{L}.* / }) }
+      match: ->(text, _tokens, _cells) { GLOSSARY_LEGEND_TOKEN_SHAPES.include?(Tok.words(text).join(' ')) }
     ),
     Rule.new(
       id: 'page_cross_reference',
       reason: 'footnote pointing at another printed page of the Bulletin ("See the present ITU Operational ' \
               'Bulletin No. N, page 5"); a layout reference, not register content',
-      match: ->(text, _tokens, _cells) { text.match?(/\A[[:space:]*]*See (the present )?(ITU )?(Operational Bulletin|page)/i) }
+      match: ->(text, _tokens, _cells) { text.match?(/\A[[:space:]*]*See (?:(?:the present )?(?:ITU )?Operational Bulletin No\.? \d+(?: of \d{1,2}\.[IVX]+\.\d{4})?, page \d+|page \d+ of (?:the present )?(?:ITU )?Operational Bulletin No\.? \d+(?: of \d{1,2}\.[IVX]+\.\d{4})?)\.?[[:space:]]*\z/i) }
     ),
     Rule.new(
       id: 'amendment_banner',
@@ -451,6 +455,9 @@ module PrintToPatchCoverage
         issue_dir = File.join(@ob_issues_root, issue.to_s)
         Dir.glob(File.join(issue_dir, '*', '*.yaml')).sort.each do |path|
           slug = File.basename(File.dirname(path))
+          next unless @register_slugs.include?(slug) || register_text?(path)
+          next unless File.basename(path) == 'text.yaml' || File.basename(path).match?(ACTION_FILE)
+
           by_slug[slug] << ob_issue_patch(path)
         end
         (@change_index[issue] || []).each do |dataset_dir, path|
@@ -474,6 +481,7 @@ module PrintToPatchCoverage
 
     def load_catalog(path)
       reg = YAML.safe_load(File.read(path), aliases: true)['registers']
+      @register_slugs = Set.new(Array(reg).map { |r| r['source_slug'] || r['slug'] })
       Array(reg).each do |r|
         next unless r['seed_path']
 
@@ -492,6 +500,15 @@ module PrintToPatchCoverage
         idx[issue.to_i] << [dir, path]
       end
       idx
+    end
+
+    # Text amendments can target registers not yet present in the catalog.
+    def register_text?(path)
+      return false unless File.basename(path) == 'text.yaml'
+
+      data = YAML.safe_load(File.read(path), aliases: true,
+                                              permitted_classes: [Date, Time, DateTime, Symbol])
+      data.is_a?(Hash) && data['_class'] == 'TextAmendment'
     end
 
     def ob_issue_patch(path)
