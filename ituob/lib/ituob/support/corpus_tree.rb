@@ -22,7 +22,7 @@ module Ituob
         'callback_procedures' => 'GeneralCallbackProcedures', 'custom' => 'GeneralCustom',
         'ipns' => 'GeneralIpns', 'iptn' => 'GeneralIptn',
         'misc_communications' => 'GeneralMiscCommunications', 'org_changes' => 'GeneralOrgChanges',
-        'sanc' => 'GeneralMessage', 'service_restrictions' => 'GeneralServiceRestrictions',
+        'sanc' => 'GeneralSancs', 'service_restrictions' => 'GeneralServiceRestrictions',
         'telephone_service' => 'GeneralTelephoneService', 'telephone_service_2' => 'GeneralTelephoneService',
         'mid' => 'GeneralMid',
       }.freeze

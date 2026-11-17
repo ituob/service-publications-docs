@@ -6,5 +6,6 @@
 groups:
   amateur: &general
   - regex: XZ2[:upper:]{2}
+    description: "XZ2AA-XZ2ZZ"
 
   experimental: *general

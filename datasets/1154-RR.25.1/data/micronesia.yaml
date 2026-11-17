@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: V63[:upper:]{2}
+    description: "V63 followed by 2 letters"
 
   experimental:
   - regex: V62X[:upper:]{2}
+    description: "V62 followed by the letter X and by 2 letters"

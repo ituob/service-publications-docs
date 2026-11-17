@@ -794,7 +794,7 @@ models Ituob {
 
   class GeneralCustom {
     attribute type, String
-    attribute title, Hash
+    attribute title, MultilingualString
     attribute recommendation, String
     attribute text, String
     attribute ob_issue_no, String
