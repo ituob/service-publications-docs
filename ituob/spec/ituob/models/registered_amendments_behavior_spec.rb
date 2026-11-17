@@ -38,7 +38,9 @@ RSpec.describe 'Registered amendment parsers (behavior)' do
 
     expect(parsed.actions.length).to eq(3)
     expect(action.action_type).to eq('SUP')
-    expect(action.position).to eq('P 17')
+    expect(action.position).to eq(
+      'P 17 Note n) +881 0 and +881 1 (ICO Global Communications) SUP*'
+    )
     entry = action.entries.first
     expect(entry.applicant).to eq('ICO Global Communications')
     expect(entry.cc_ic).to eq('+881 0 and +881 1')

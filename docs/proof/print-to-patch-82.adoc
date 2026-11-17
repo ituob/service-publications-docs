@@ -111,3 +111,8 @@ candidates; removing it leaves 536 data entries. The real Luxembourg row,
 its Belgian extra-territorial use and range remain intact. Explicit
 code-heading ADD/SUP/LIR/REP types are preserved by focused regressions.
 The existing normalizer pipeline/structural specs also pass (46 examples).
+
+Hosted RSpec found one stale OB 989 characterization expectation: the old
+page-only `P 17` value omitted the printed note, codes, operator and marker.
+The expectation now pins that complete heading. The affected registered-parser
+behavior file passes all nine focused examples; parser/data output is unchanged.
