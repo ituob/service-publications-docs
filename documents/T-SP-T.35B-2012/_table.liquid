@@ -127,20 +127,20 @@ Labels per language, as the official ITU publication prints them
 | Fax: | {{ authority.fax }}
 | E-mail: | {{ authority.email }}
 | {{ l_links }} | {{ authority.related_links }}
-{% assign d = authority.last_updated %}{%- capture date_text -%}{%- if lang == "en" -%}{{ d | date: "%d %B %Y" }}{%- else -%}{%- assign mi = d | date: "%-m" | minus: 1 -%}{{ d | date: "%-d" }}{% if lang == "es" %} de {{ months[mi] }} de {% else %} {{ months[mi] }} {% endif %}{{ d | date: "%Y" }}{%- endif -%}{% endcapture %}
+{% assign d = authority.last_updated %}{%- capture date_text -%}{%- if lang == "en" -%}{{ d | date: "%d %B %Y" }}{%- else -%}{%- assign mi = d | date: "%-m" | minus: 1 -%}{%- assign ymd = d | date: "%Y-%m-%d" -%}{%- if mi >= 0 and mi < 12 and ymd.size == 10 -%}{{ d | date: "%-d" }}{% if lang == "es" %} de {{ months[mi] }} de {% else %} {{ months[mi] }} {% endif %}{{ d | date: "%Y" }}{%- endif -%}{%- endif -%}{% endcapture %}
 | {{ l_updated }} | {{ date_text }}
 
 {% endfor %}
 
 {% if country.assignment_authority.size == 0 %}
-{% assign d = country.last_updated %}{% capture date_text %}{%- if lang == "en" -%}{{ d | date: "%d %B %Y" }}{%- else -%}{%- assign mi = d | date: "%-m" | minus: 1 -%}{{ d | date: "%-d" }}{% if lang == "es" %} de {{ months[mi] }} de {% else %} {{ months[mi] }} {% endif %}{{ d | date: "%Y" }}{%- endif -%}{% endcapture %}
+{% assign d = country.last_updated %}{% capture date_text %}{%- if lang == "en" -%}{{ d | date: "%d %B %Y" }}{%- else -%}{%- assign mi = d | date: "%-m" | minus: 1 -%}{%- assign ymd = d | date: "%Y-%m-%d" -%}{%- if mi >= 0 and mi < 12 and ymd.size == 10 -%}{{ d | date: "%-d" }}{% if lang == "es" %} de {{ months[mi] }} de {% else %} {{ months[mi] }} {% endif %}{{ d | date: "%Y" }}{%- endif -%}{%- endif -%}{% endcapture %}
 | {{ l_updated }} | {{ date_text }}
 {% endif %}
 
 {% else %}
 
 {{ country.assignment_authority }}
-{% assign d = country.last_updated %}{%- capture date_text -%}{%- if lang == "en" -%}{{ d | date: "%d %B %Y" }}{%- else -%}{%- assign mi = d | date: "%-m" | minus: 1 -%}{{ d | date: "%-d" }}{% if lang == "es" %} de {{ months[mi] }} de {% else %} {{ months[mi] }} {% endif %}{{ d | date: "%Y" }}{%- endif -%}{% endcapture %}
+{% assign d = country.last_updated %}{%- capture date_text -%}{%- if lang == "en" -%}{{ d | date: "%d %B %Y" }}{%- else -%}{%- assign mi = d | date: "%-m" | minus: 1 -%}{%- assign ymd = d | date: "%Y-%m-%d" -%}{%- if mi >= 0 and mi < 12 and ymd.size == 10 -%}{{ d | date: "%-d" }}{% if lang == "es" %} de {{ months[mi] }} de {% else %} {{ months[mi] }} {% endif %}{{ d | date: "%Y" }}{%- endif -%}{%- endif -%}{% endcapture %}
 | {{ l_updated }} | {{ date_text }}
 
 {% endif %}

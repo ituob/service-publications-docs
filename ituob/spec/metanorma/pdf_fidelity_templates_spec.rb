@@ -65,6 +65,17 @@ RSpec.describe 'PDF fidelity templates' do
       expect(out).not_to match(/Name of Administration|Information updated|\bYES\b/)
     end
 
+    %w[fr es].each do |lang|
+      it "prints no date in #{lang} (as English does) when last_updated is nil, blank or not a real date" do
+        [nil, '', 'garbage', '2006-13-40'].each do |bad|
+          data.each { |c| c['last_updated'] = bad; c['assignment_authority'].each { |a| a['last_updated'] = bad } }
+          out = render(lang)
+          expect(out).to match(/\| (Mise à jour des informations|Información actualizada): \| *$/)
+          expect(out).not_to match(/diciembre|décembre|garbage|13-40/)
+        end
+      end
+    end
+
     it 'prints Spanish labels, answers, months and the no-authority text' do
       out = render('es')
       expect(out).to include('| Nombre de la administración: |', 'SÍ', 'Autoridad de asignación:',

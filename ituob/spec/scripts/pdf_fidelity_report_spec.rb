@@ -26,6 +26,22 @@ RSpec.describe PdfFidelity do
     mod.compare('gen.pdf', 'off.pdf')
   end
 
+  describe 'NBSP and invalid UTF-8 in pdftotext output' do
+    let(:nbsp_rows) { "1\u00A0\u00A0Afghanistan\u00A0\u00A059\u00A0\u00A0Latvia\n" }
+
+    it 'counts NBSP-padded rows and cells like space-padded ones' do
+      r = compare_texts('', nbsp_rows)
+      expect([r.rows_official, r.cells_official]).to eq([1, 4])
+    end
+
+    it 'does not raise on invalid UTF-8 and still counts the valid text' do
+      bad = "caf\xE9   x\n".dup.force_encoding('UTF-8')
+      r = nil
+      expect { r = compare_texts(bad, "cafe   x\n") }.not_to raise_error
+      expect(r.rows_official).to eq(1)
+    end
+  end
+
   describe '.lines' do
     it 'drops running heads and page marks but keeps content' do
       raw = "Annex to ITU OB No. 1-E   -1-\nService Publication Annex to ITU OB\n  - 3 -\n  –12–\nAfghanistan\n"

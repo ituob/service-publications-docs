@@ -55,7 +55,8 @@ module PdfFidelity
   end
 
   def lines(raw)
-    raw.each_line.map(&:chomp).reject { |l| FURNITURE.any? { |f| l.match?(f) } }
+    # NBSP is layout padding too (`\s` misses it); invalid bytes must not raise.
+    raw.scrub.tr("\u00A0", ' ').each_line.map(&:chomp).reject { |l| FURNITURE.any? { |f| l.match?(f) } }
   end
 
   def tokens(lines)
