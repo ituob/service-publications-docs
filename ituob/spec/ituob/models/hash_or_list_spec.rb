@@ -33,6 +33,25 @@ RSpec.describe Ituob::Models::HashOrList do
   end
 end
 
+RSpec.describe Ituob::Models::RegisterChange, 'payload assignment' do
+  let(:row) { { 'mcc_mnc_codes' => '234 | 15', 'networks' => 'Example' } }
+
+  [true, false].each do |list|
+    it "preserves the whole #{list ? 'list' : 'mapping'} payload on assignment" do
+      data = list ? [row] : row
+      compiled = described_class.new(data: data)
+
+      expect(compiled.data).to eq(data)
+      assigned = described_class.new
+      assigned.data = data
+      restored = described_class.from_yaml(assigned.to_yaml)
+
+      expect(assigned.data).to eq(data)
+      expect(restored.data).to eq(data)
+    end
+  end
+end
+
 RSpec.describe Ituob::Models::RegisterChange, 'empty payloads' do
   [[], {}].each do |data|
     it "retains an empty #{data.class} through the mapped projection" do
