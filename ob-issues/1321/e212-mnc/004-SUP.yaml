@@ -1,0 +1,19 @@
+type: SUP
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1321'
+reference: OB-1321
+identifier:
+  code: 1321-004
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 248 18
+    country_or_area:
+      en: Estonia
+    networks: CLOUD COMMUNICATIONS OÜ
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

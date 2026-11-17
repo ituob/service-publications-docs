@@ -1,0 +1,23 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1123'
+identifier:
+  code: 221 01
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 221 01
+    country_or_area:
+      en: Kosovo*
+    networks: Telecom of Kosovo J.S.C.
+  - mcc_mnc_codes: 221 02
+    country_or_area:
+      en: Kosovo*
+    networks: IPKO Telecommunications LLC
+  - mcc_mnc_codes: 221 06
+    country_or_area:
+      en: Kosovo*
+    networks: Dardafon.Net LLC
+  notes: []
+reference: OB-1123

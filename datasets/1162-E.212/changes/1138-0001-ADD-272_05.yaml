@@ -1,0 +1,43 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1138'
+identifier:
+  code: 272 05
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 272 05
+    country_or_area:
+      en: Ireland
+    networks: Three Ireland (Hutchison) Ltd
+  - mcc_mnc_codes: 272 08
+    country_or_area:
+      en: Ireland
+    networks: Eircom Ltd
+  - mcc_mnc_codes: 272 11
+    country_or_area:
+      en: Ireland
+    networks: Liffey Telecom Ltd
+  - mcc_mnc_codes: 272 13
+    country_or_area:
+      en: Ireland
+    networks: Lycamobile Ireland Ltd
+  - mcc_mnc_codes: 272 15
+    country_or_area:
+      en: Ireland
+    networks: Virgin Media Ireland Ltd
+  - mcc_mnc_codes: 272 16
+    country_or_area:
+      en: Ireland
+    networks: Carphone Warehouse Ireland Mobile Ltd
+  - mcc_mnc_codes: 272 17
+    country_or_area:
+      en: Ireland
+    networks: Three Ireland (Hutchison) Ltd
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"
+reference: OB-1138

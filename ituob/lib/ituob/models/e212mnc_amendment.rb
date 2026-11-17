@@ -60,6 +60,35 @@ attribute :country, :string
         line[0...open].strip
       end
 
+      BLANK_CELL = /\A[\p{Space}\u200B-\u200D\uFEFF]*\z/
+
+      # A heading opens its own action; one that follows a heading with
+      # no rows yet replaces it rather than leaving an empty action.
+      def self.open_heading_action(amendment, action)
+        return action if action.entries.empty? && action.note.nil? && action.position.nil?
+
+        next_action(amendment, action)
+      end
+
+      # A table row holding only "«country» ACTION" (any other cells blank),
+      # or nil when the row carries data.
+      def self.rowspan_heading(segs)
+        return if segs.empty?
+        return unless segs.drop(1).all? { |cell| cell.to_s.match?(BLANK_CELL) }
+
+        # The blank cells already mark a heading, so the country text is
+        # looser than country_action_line: headings such as "shared code"
+        # or "Trial of a proposed new international telecommunication
+        # service, shared code" start lowercase or run past 50 characters.
+        line = Ituob::Helpers.normalize_whitespace(segs[0])
+        # The footnote star may stand apart: "shared code LIR *".
+        suffix = line.match(/\s(?<action>#{TABLE_ACTION_TYPES.join('|')})(?:\s?\*)?\z/)
+        return unless suffix
+
+        country = line[0...suffix.begin(0)].rstrip
+        { country: country, action: suffix[:action] } unless country.empty?
+      end
+
       # Extract the fixed-size suffix before checking the country, so
       # country whitespace never competes with an action separator.
       def self.country_action_line(line)
@@ -220,29 +249,32 @@ attribute :country, :string
             end
 
           elsif first_elem.is_a?(Array) # table
-            c[1..].each do |row|
+            c.each_with_index do |row, row_index|
               segs = row.flatten
-              heading = Ituob::Helpers.replace_legacy_space(Array(row[0]).join(' ')).strip
-              # Split the suffix instead of matching an arbitrary country
-              # followed by whitespace: that regex backtracks on long spaces.
-              heading_country, _, heading_action = heading.delete_suffix('*').rstrip.rpartition(' ')
+              # Printed first cell: the heading text of a country block, or
+              # the printed country of an entry row.
+              printed = Ituob::Helpers.replace_legacy_space(Array(row[0]).join(' ')).strip
+              block = rowspan_heading([Array(row[0]).join(' ')] + row.drop(1).flatten)
+              # Row 0 is the column header unless it is itself a heading.
+              next if row_index.zero? && !block
 
-              if row.drop(1).flatten.all? { |text| Ituob::Helpers.replace_legacy_space(text.to_s).strip.empty? } &&
-                  !heading_country.strip.empty? && TABLE_ACTION_TYPES.include?(heading_action)
-                action = next_action(amendment, action)
-                # A table's country SUP block replaces the listed codes
-                # with the rows printed below it.
-                action.action_type = heading_action == 'SUP' ? 'REP' : heading_action
-                last_country = heading_country.strip
+              if block
+                # "«country» ACTION" opens an action for the code/network
+                # rows below it; its own code and network cells are blank.
+                # It is not an entry. A country SUP block replaces the
+                # listed codes with the rows printed below it.
+                action = open_heading_action(amendment, action)
+                action.action_type = block[:action] == 'SUP' ? 'REP' : block[:action]
+                last_country = block[:country]
                 next
               end
 
               # Other single-cell rows are titles, not entries.
               next if row.length == 1
 
-              country = heading.empty? ? last_country : heading
+              country = printed.empty? ? last_country : printed
               if row.length == 3
-                last_country = heading unless heading.empty?
+                last_country = printed unless printed.empty?
                 if row[1].count > 1
                   row[1].zip(row[2]).each do |r|
                     next if Ituob::Helpers.replace_legacy_space(r[0].to_s).strip.empty?
@@ -286,7 +318,7 @@ attribute :country, :string
               elsif row.length >= 4
                 # 4+ column rows: country/code/range/networks or
                 # code/dec/range/networks. Map first 4 cells.
-                last_country = heading unless heading.empty?
+                last_country = printed unless printed.empty?
                 next if Ituob::Helpers.replace_legacy_space(segs[1].to_s).strip.empty?
 
                 entry = E212MNCEntry.new

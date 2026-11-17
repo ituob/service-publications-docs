@@ -1,0 +1,59 @@
+type: ADD
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1251'
+reference: OB-1251
+identifier:
+  code: 1251-005
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 234 40
+    country_or_area:
+      en: United Kingdom
+    networks: Mass Response Service GmbH
+  - mcc_mnc_codes: 234 72
+    country_or_area:
+      en: United Kingdom
+    networks: Hanhaa Limited
+  - mcc_mnc_codes: 234 73
+    country_or_area:
+      en: United Kingdom
+    networks: BlueWave Communications
+  - mcc_mnc_codes: 234 74
+    country_or_area:
+      en: United Kingdom
+    networks: Pareteum Europe B.V.
+  - mcc_mnc_codes: 234 77
+    country_or_area:
+      en: United Kingdom
+    networks: Vodafone Limited
+  - mcc_mnc_codes: 234 88
+    country_or_area:
+      en: United Kingdom
+    networks: Telet Research (N.I.) Limited
+  - mcc_mnc_codes: 235 04
+    country_or_area:
+      en: United Kingdom
+    networks: University Of Strathclyde
+  - mcc_mnc_codes: 235 06
+    country_or_area:
+      en: United Kingdom
+    networks: University Of Strathclyde
+  - mcc_mnc_codes: 235 07
+    country_or_area:
+      en: United Kingdom
+    networks: University Of Strathclyde
+  - mcc_mnc_codes: 235 08
+    country_or_area:
+      en: United Kingdom
+    networks: Spitfire Network Services Limited
+  - mcc_mnc_codes: 235 88
+    country_or_area:
+      en: United Kingdom
+    networks: Telet Research (N.I.) Limited
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

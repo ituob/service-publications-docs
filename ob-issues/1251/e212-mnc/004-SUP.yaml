@@ -1,0 +1,43 @@
+type: SUP
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1251'
+reference: OB-1251
+identifier:
+  code: 1251-004
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 234 05
+    country_or_area:
+      en: United Kingdom
+    networks: COLT Mobile Telecommunications Limited
+  - mcc_mnc_codes: 234 06
+    country_or_area:
+      en: United Kingdom
+    networks: Internet Computer Bureau Limited
+  - mcc_mnc_codes: 234 07
+    country_or_area:
+      en: United Kingdom
+    networks: Vodafone Ltd (C&W)
+  - mcc_mnc_codes: 234 17
+    country_or_area:
+      en: United Kingdom
+    networks: FleXtel Limited
+  - mcc_mnc_codes: 234 59
+    country_or_area:
+      en: United Kingdom
+    networks: Limitless Mobile Ltd
+  - mcc_mnc_codes: 234 70
+    country_or_area:
+      en: United Kingdom
+    networks: AMSUK Limited
+  - mcc_mnc_codes: 235 92
+    country_or_area:
+      en: United Kingdom
+    networks: Vodafone Ltd (C&W)
+  notes:
+  - 'MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'

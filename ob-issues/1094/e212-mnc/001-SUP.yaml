@@ -1,0 +1,32 @@
+type: SUP
+date_requested:
+date_active:
+ob_issue_no: '1094'
+reference: OB-1094
+identifier:
+  code: 1094-001
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 234 21
+    country_or_area:
+      en: United Kingdom
+    networks: LogicStar Ltd
+  - mcc_mnc_codes: 234 35
+    country_or_area:
+      en: United Kingdom
+    networks: JSC Ingenium (UK) Limited
+  - mcc_mnc_codes: 234 39
+    country_or_area:
+      en: United Kingdom
+    networks: SSE Energy Supply Limited
+  notes:
+  - "*        MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil            MNC:    Mobile Network Code / Code de
+    réseau mobile / Indicativo de red para el servicio móvil  **      MSIN:    Mobile
+    Subscription Identification Number / numéro d'identification d'abonnement mobile
+    / número de identificación de           suscripción al servicio móvil  ***    As
+    defined in Annex E to Recommendation ITU-T E.212, extra-territorial use of an
+    MCC+MNC is the term used to describe the situation where an MCC+MNC that has been
+    assigned to an operator in one country, Country A, is used in another country,
+    \            Country B, through a base station established in Country B."
