@@ -58,6 +58,42 @@ RSpec.describe Ituob::Provider, 'publication data integrity' do
     end
   end
 
+  it 'rejects a null-only seed row' do
+    File.write(seed_path, [{ 'country_or_area' => nil }].to_yaml)
+    expect { publication }.to raise_error(ArgumentError, /E118_IIN.*row 1.*content/)
+  end
+
+  it 'preserves a valid row with an optional null field' do
+    row = { 'country_or_area' => { 'en' => 'Example' }, 'company_name' => nil }
+    File.write(seed_path, [row].to_yaml)
+    expect(publication.items.first.to_hash.fetch('country_or_area')).to eq('en' => 'Example')
+  end
+
+  it 'rejects a null-only title' do
+    File.write(metadata_path, { 'title' => { 'en' => nil } }.to_yaml)
+    expect { publication }.to raise_error(ArgumentError, /E118_IIN.*metadata.*content/)
+  end
+
+  %w[title locale].each do |field|
+    [%w[ch zh], %w[zh ch]].each do |languages|
+      it "rejects conflicting Chinese aliases in #{field} ordered #{languages.join('/')}" do
+        labels = languages.zip(['First title', 'Second title']).to_h
+        metadata = field == 'title' ? { 'title' => labels } :
+          { 'title' => { 'en' => 'Title' }, 'locale' => [labels.merge('key' => 'code')] }
+        File.write(metadata_path, metadata.to_yaml)
+        expect { publication }.to raise_error(ArgumentError, /E118_IIN.*metadata.*(?:ch|zh)/)
+      end
+    end
+  end
+
+  it 'preserves an unambiguous Chinese alias and equal aliases' do
+    File.write(metadata_path, { 'title' => { 'ch' => 'Title' },
+      'locale' => [{ 'key' => 'code', 'ch' => 'Code', 'zh' => 'Code' }] }.to_yaml)
+    expect(publication.metadata.to_hash).to include(
+      'title' => { 'zh' => 'Title' }, 'locale' => [{ 'key' => 'code', 'zh' => 'Code' }]
+    )
+  end
+
   it 'allows metadata with no optional locale labels' do
     File.write(metadata_path, { 'title' => { 'en' => 'Publication title' } }.to_yaml)
     expect(publication.metadata.title.en).to eq('Publication title')

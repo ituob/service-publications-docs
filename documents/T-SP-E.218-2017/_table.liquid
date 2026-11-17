@@ -66,7 +66,7 @@ alphabetical order
 | {{ metadata.locale | where: "key", "tmcc_code" | map: lang | first }} | {{ metadata.locale | where: "key", "country_or_area" | map: lang | first }} | {{ metadata.locale | where: "key", "note" | map: lang | first }}
 
 {% assign country_keys = "" | split: "," %}{% for next_country in ordered_sequence -%}
-    {%- capture country_key -%}{{ next_country.en | url_encode }}|{{ next_country.fr | url_encode }}|{{ next_country.es | url_encode }}|{{ next_country.ar | url_encode }}|{{ next_country.ru | url_encode }}|{{ next_country.zh | url_encode }}{%- endcapture -%}
+    {%- capture country_key -%}{% if next_country[lang] == nil %}nil{% else %}value:{{ next_country[lang] | url_encode }}{% endif %}{%- endcapture -%}
     {%- unless country_keys contains country_key -%}
     {%- for country_data in data -%}
         {%- if country_data.country_or_area[lang] == next_country[lang] -%}

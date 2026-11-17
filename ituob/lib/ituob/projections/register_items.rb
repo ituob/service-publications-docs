@@ -40,7 +40,11 @@ module Ituob
           end
 
           item = model.from_hash(row.merge('_class' => model.name.split('::').last))
-          validate_publication_fields!(row, item.to_hash, "row #{index + 1}")
+          projected = item.to_hash
+          validate_publication_fields!(row, projected, "row #{index + 1}")
+          unless publication_content?(projected.reject { |key, _| key == '_class' })
+            raise InvalidSeedError, "Register #{@register.register_id} publication seed row #{index + 1} has no content"
+          end
           item
         end
       end
@@ -91,6 +95,15 @@ module Ituob
           source.zip(result).each_with_index do |(value, projected), index|
             validate_publication_fields!(value, projected, "#{path}[#{index}]")
           end
+        end
+      end
+
+      def publication_content?(value)
+        case value
+        when Hash then value.any? { |_, field| publication_content?(field) }
+        when Array then value.any? { |field| publication_content?(field) }
+        when String then !value.strip.empty?
+        else !value.nil?
         end
       end
 

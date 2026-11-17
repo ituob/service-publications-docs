@@ -35,4 +35,18 @@ RSpec.describe 'E.218 localized provider grouping' do
     expect(rendered).to include('[[note_a]]Dernière note')
     expect(rendered).not_to include('Liquid error')
   end
+
+  it 'prints each row once when distinct countries share a translation' do
+    colliding_rows = [
+      { 'tmcc_code' => '901', 'country_or_area' => { 'en' => 'Alpha', 'fr' => 'Commun' } },
+      { 'tmcc_code' => '902', 'country_or_area' => { 'en' => 'Beta', 'fr' => 'Commun' } }
+    ]
+    table = render_publication_table(
+      directory, 'table', colliding_rows.map { |row| model.from_hash(row).to_liquid }, metadata, 'fr'
+    )
+    alphabetical = table.split('alphabetical order', 2).last
+
+    expect(alphabetical.scan('| 901 | Commun |').size).to eq(1)
+    expect(alphabetical.scan('| 902 | Commun |').size).to eq(1)
+  end
 end

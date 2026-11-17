@@ -134,11 +134,16 @@ module Ituob
     end
 
     def validate_publication_labels!(catalog, labels, projected)
+      unless labels.any? { |key, value| key != 'key' && value.is_a?(String) && !value.strip.empty? }
+        raise InvalidPublicationMetadataError,
+              "Register #{catalog.register_id} publication metadata has no label content"
+      end
+
       labels.each do |key, value|
         next if value.nil?
 
         canonical_key = Projections::RegisterLocale::LANGUAGE_ALIASES.fetch(key, key)
-        next if projected.is_a?(Hash) && projected.key?(canonical_key)
+        next if projected.is_a?(Hash) && projected[canonical_key] == value
 
         raise InvalidPublicationMetadataError,
               "Register #{catalog.register_id} publication metadata loses #{key}"
