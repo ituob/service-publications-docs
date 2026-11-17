@@ -167,7 +167,7 @@ module RenderPublications
     dir = File.join(root, 'documents', "T-SP-#{row.standard}-#{row.year}")
     adoc = File.join(dir, row.file)
     code, keys = LANGUAGES.fetch(row.language)
-    title = title_for(adoc, keys)
+    title = title_for(adoc, keys, row.datasets.first&.first)
     return [nil, "no title for #{code} in the dataset metadata"] unless title
 
     pdf, reason = renderer.call(adoc)
@@ -191,19 +191,29 @@ module RenderPublications
     standard.sub(/(?<=\d)[A-Z]\z/, '')
   end
 
-  # metadata.title[<code>] of the first dataset the document reads.
-  def title_for(adoc, keys)
+  # metadata.title[<code>] of the first dataset the document reads: the one its
+  # first yaml2text block names, else (a provider block names none) the
+  # metadata of its first dataset directory.
+  def title_for(adoc, keys, dataset = nil)
     ref = File.read(adoc, encoding: 'UTF-8').lines.grep(PdfCoverageMatrix::BLOCK_LINE)
               .filter_map { |l| METADATA_REF.match(l) }.first
-    return unless ref
+    path = ref ? File.expand_path(ref[:path], File.dirname(adoc)) : dataset_metadata(adoc, dataset)
+    return unless path
 
-    meta = Ituob::Support::Yaml.safe_load_file(File.expand_path(ref[:path], File.dirname(adoc)))
+    meta = Ituob::Support::Yaml.safe_load_file(path)
     titles = meta.is_a?(Hash) ? meta['title'] : nil
     return unless titles.is_a?(Hash)
 
     keys.filter_map { |k| titles[k].to_s.strip }.find { |t| !t.empty? }
   rescue SystemCallError
     nil
+  end
+
+  def dataset_metadata(adoc, dataset)
+    return unless dataset
+
+    path = File.expand_path("../../datasets/#{dataset}/metadata.yaml", File.dirname(adoc))
+    path if File.file?(path)
   end
 
   def status_for(dir)
