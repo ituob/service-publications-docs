@@ -7,12 +7,15 @@ module Ituob
   #   provider.edition(register: 'e212-mnc', as_of: 1170)
   #   provider.history(register: 'e212-mnc', key: '234 | 15', as_of: 1170)
   #   provider.actions(register: 'e212-mnc', as_of: 1170)
+  #   provider.locale(register: 'e212-mnc')
   #
   # +register+ is the catalog slug (`e212-mnc`) or register id
   # (`E212_MNC`); +as_of+ is an OB issue number. Queries return
   # lutaml-model objects (Models::RegisterEdition, Models::RegisterKeyHistory,
   # Models::RegisterActions)
   # carrying ProjectionProvenance, so they reach Liquid through to_liquid.
+  # +locale+ takes no issue: it returns Models::RegisterLocale, the labels
+  # of the dataset's current metadata.yaml, in every language.
   #
   # == Data root
   #
@@ -30,7 +33,7 @@ module Ituob
     class UnknownRegisterError < ArgumentError; end
     class UnknownIssueError < ArgumentError; end
 
-    QUERIES = %i[edition history actions].freeze
+    QUERIES = %i[edition history actions locale].freeze
 
     def initialize(data_root: nil)
       DataRoot.configure(data_root) if data_root
@@ -58,6 +61,13 @@ module Ituob
     def actions(register:, as_of:)
       catalog, _items, state = resolve(register, as_of)
       Projections::RegisterActions.new(register: catalog, state: state).to_model
+    end
+
+    # Per-language title and terms of the register's dataset, read from
+    # its metadata.yaml. Every language is returned; the template picks
+    # one (`metadata.locale | where: "key", "networks" | map: lang`).
+    def locale(register:)
+      Projections::RegisterLocale.new(register: find_register(register)).to_model
     end
 
     private
