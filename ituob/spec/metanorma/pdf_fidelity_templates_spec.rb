@@ -92,4 +92,42 @@ RSpec.describe 'PDF fidelity templates' do
       end
     end
   end
+
+  describe 'T-SP-RR.25.1-2018/_table.liquid' do
+    let(:tpl) { template('documents/T-SP-RR.25.1-2018/_table.liquid') }
+    let(:countries) { [{ 'key' => 'algeria', 'name' => { 'en' => 'Algeria', 'fr' => 'Algerie' } }] }
+    let(:metadata) { { 'title' => { 'en' => 'T', 'fr' => 'T' } } }
+    let(:group) do
+      { 'regex' => '7X(02-5)[A-Z]{2,3}', 'description' => '7X0, 7X2, 7X3, 7X4 and 7X5 followed by 2 or 3 letters' }
+    end
+
+    # Stands in for metanorma-plugin-lutaml's loadfile filter: the country data comes from the spec.
+    def render(lang, group)
+      loader = Module.new { define_method(:loadfile) { |_path, _parent = '.'| { 'groups' => { 'amateur' => [group] } } } }
+      tpl.render!({ 'countries' => countries, 'metadata' => metadata, 'lang' => lang }, filters: [loader])
+    end
+
+    it 'prints the prose form description in English instead of the regex' do
+      out = render('en', group)
+      expect(out).to include('7X0, 7X2, 7X3, 7X4 and 7X5 followed by 2 or 3 letters')
+      expect(out).not_to include('[A-Z]{2,3}')
+    end
+
+    it 'keeps the regex when the group has no description, and in other languages' do
+      expect(render('en', group.reject { |k, _| k == 'description' })).to include('7X(02-5)[A-Z]{2,3}')
+      expect(render('fr', group)).to include('7X(02-5)[A-Z]{2,3}')
+    end
+  end
+
+  describe 'T-SP-F.400-2011/_table.liquid' do
+    let(:tpl) { template('documents/T-SP-F.400-2011/_table.liquid') }
+
+    it 'gives the contact address column the most width, not an equal ninth' do
+      out = tpl.render!('data' => [], 'metadata' => { 'locale' => [] }, 'lang' => 'en')
+      widths = out[/\[cols="([^"]+)"\]/, 1].split(',').map(&:to_i)
+      expect(widths.size).to eq(9)
+      expect(widths.last).to eq(widths.max)
+      expect(widths.last).to be > 2 * (widths.sum / 9.0)
+    end
+  end
 end

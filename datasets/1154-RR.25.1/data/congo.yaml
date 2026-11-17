@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: TN8[:upper:]{2}
+    description: "and"
 
   experimental:
   - regex: TN8[:upper:]{2}
+    description: "TN8AA-TN8ZZ"

@@ -9,6 +9,7 @@
 groups:
   amateur:
   - regex: CN[28][:upper:]{2}
+    description: "CN2AA-CN2ZZ CN8AA-CN8ZZ"
 
   experimental:
     - name: Morocco

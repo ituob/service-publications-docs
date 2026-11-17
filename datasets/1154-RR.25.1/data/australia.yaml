@@ -127,6 +127,7 @@ groups:
 
   experimental:
   - regex: AX[:digit:][:experimental_area:][:upper:]{2}
+    description: "AX followed by a digit (2-9) and by 3"
     criteria:
     - segment_type: string
       key: "1"

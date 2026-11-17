@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: A4[0-8][:upper:]{2}
+    description: "A40AA-A48ZZ"
 
   experimental:
   - regex: A49[:upper:]{2}
+    description: "A49AA-A49ZZ"

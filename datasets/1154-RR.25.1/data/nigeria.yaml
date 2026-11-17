@@ -26,6 +26,7 @@
 groups:
   amateur:
   - regex: 5N[:zone:][:upper:]{3}
+    description: "5N followed by a digit (indicating the zone in which the station is situated) and by 3 letters"
     criteria:
     - segment_type: string
       key: "1"
