@@ -17,6 +17,8 @@ module Ituob
 
     # Issue-level models
     autoload :IssueGeneral, 'ituob/models/issue_general'
+    autoload :AnnexedPosition, 'ituob/models/annexed_position'
+    autoload :IssueAnnexes, 'ituob/models/issue_annexes'
     autoload :OldIssue, 'ituob/models/old_issue'
 
     # E.118 (Issuer Identification Numbers)

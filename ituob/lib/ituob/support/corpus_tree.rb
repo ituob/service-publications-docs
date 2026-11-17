@@ -36,7 +36,7 @@ module Ituob
       def self.class_name_for(rel_path)
         case rel_path
         when /\Ameta\.yaml\z/ then 'IssueMetadata'
-        when /\Aannexes\.yaml\z/ then nil # freeform annex snapshot (legacy)
+        when /\Aannexes\.yaml\z/ then 'IssueAnnexes'
         when 'general/running_annexes.yaml' then 'GeneralRunningAnnexes'
         when 'general/approved_recommendations.yaml' then 'GeneralApprovedRecommendations'
         when %r{\Ageneral/} then nil # freeform general prose
