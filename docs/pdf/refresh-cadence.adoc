@@ -10,9 +10,10 @@ inputs change and the producer workflow runs on `main`.
 
 The `pdf` workflow runs for pull requests and pushes to `main` when a changed
 path matches `documents/**`, `datasets/**`, `catalogs/**`, `metanorma.yml`, the
-render, coverage-matrix, manifest-merge, typesetting-report or CJK font-fallback scripts,
-`docs/pdf/typesetting-baselines.json`, `ituob/lib/**`, or the
-workflow itself. A pull-request run is validation only. The site accepts
+render, coverage-matrix, manifest-merge, typesetting-report, CJK font-fallback, F.32 table typography,
+official-PDF check or fidelity-report scripts, `docs/pdf/typesetting-baselines.json`,
+`docs/pdf/official*`, `docs/pdf/official/**`, the F.32 official PDF fixture,
+the official-check and fidelity-report specs, `ituob/lib/**`, or the workflow itself. A pull-request run is validation only. The site accepts
 producer artifacts only from successful `push` or `workflow_dispatch` runs on
 the producer's `main` branch, with the producer repository as the head
 repository. Consequently, merging an input change to `main` is the normal

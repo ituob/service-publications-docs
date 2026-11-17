@@ -27,6 +27,7 @@ module Ituob
           provenance: self.class.provenance(@register, @state),
           items: @items,
           source_contexts: @source_contexts,
+          printed_items: printed_items,
           lapsed_keys: @state.lapsed_keys.to_a.sort,
           deleted_keys: @state.deleted_keys.to_a.sort,
           key_history: key_history
@@ -34,6 +35,14 @@ module Ituob
       end
 
       private
+
+      # Only the original publication has a pinned printed view. Replayed later
+      # editions must not resurrect seed contexts for removed allocations.
+      def printed_items
+        return [] unless @register.register_id == "F32_TDI" && @state.at_ob_issue == @register.seed_issue
+
+        F32DocumentRows.new(items: @items, contexts: @source_contexts).rows
+      end
 
       # Keys follow replay's first-touch order; each key's changes keep
       # their replay order. Only changes a key was really touched by.

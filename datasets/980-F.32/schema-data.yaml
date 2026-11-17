@@ -185,5 +185,9 @@ items:
         ar:
           type: string
       description: Subarea name in French, English, and Spanish. This field is optional.
+    source_page:
+      type: integer
+    source_row:
+      type: integer
   description: Represents a single telegraph office entry.
 description: ITU OB Dataset Schema for 980-F.32

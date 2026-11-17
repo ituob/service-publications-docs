@@ -92,7 +92,10 @@ module Ituob
               candidate.kind == "network" && candidate.entry.network_code.to_s.start_with?(prefix.to_s)
             end
             if counterpart
-              record.source_page ||= counterpart.source_page
+              record.source_page = counterpart.source_page
+              record.source_row = counterpart.source_row
+              record.entry.source_page = counterpart.source_page
+              record.entry.source_row = counterpart.source_row
               printed.contexts.delete(counterpart)
             end
           end

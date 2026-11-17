@@ -99,4 +99,16 @@ RSpec.describe "PDF workflow catalog isolation" do
     end
   end
 
+  it "keeps the official comparison and limits F.32 typography to its own shard" do
+    jobs = workflow.fetch("jobs")
+    official = jobs.fetch("official-comparison")
+    expect(official.fetch("needs")).to eq(%w[plan render])
+    expect(official.fetch("steps").last.fetch("with").fetch("name")).to eq("official-pdf-comparison")
+    steps = jobs.fetch("render").fetch("steps")
+    patch = steps.find { |step| step["name"] == "Match F.32 table typography to the official edition" }
+    expect(patch.fetch("if")).to eq("matrix.doc == 'T-SP-F.32-2011'")
+    expect(patch.fetch("run")).to eq("ruby scripts/patch_itu_f32_tables.rb")
+    expect(steps.index(patch)).to be < steps.index(steps.find { |step| step["name"] == "Build the PDFs and the manifest" })
+  end
+
 end

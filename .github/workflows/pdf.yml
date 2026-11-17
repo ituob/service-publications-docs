@@ -27,6 +27,7 @@ on:
       - 'scripts/merge_publication_manifests.rb'
       - 'scripts/pdf_typesetting_report.rb'
       - 'scripts/patch_itu_cjk_font_fallback.rb'
+      - 'scripts/patch_itu_f32_tables.rb'
       - 'docs/pdf/typesetting-baselines.json'
       - 'scripts/check_official_pdfs.rb'
       - 'scripts/pdf_fidelity_report.rb'
@@ -168,6 +169,11 @@ jobs:
           if ls "documents/$DOC_ID"/*-A.adoc >/dev/null 2>&1; then
             fontist install "Noto Naskh Arabic" --accept-all-licenses
           fi
+
+      - name: Match F.32 table typography to the official edition
+        if: matrix.doc == 'T-SP-F.32-2011'
+        # Each publication has its own container: this cannot change other shards.
+        run: ruby scripts/patch_itu_f32_tables.rb
 
       # Renders with `metanorma -t itu -x pdf --agree-to-terms` per language,
       # copies each PDF to build/pdf/<standard>-<year>/ and writes

@@ -3,7 +3,7 @@
 
 Part of ituob/service-publications-docs#89, item 6.
 
-== Full hosted result after the fixes
+== Hosted result before the F.32 content repair
 
 Run link:https://github.com/ituob/service-publications-docs/actions/runs/44122451030[44122451030]
 at `a228774f0fd45a585ce8dc57b333598b7886deb7` successfully renders and merges
@@ -34,8 +34,9 @@ The one remaining failure is F.32 English: 41 generated pages versus 47 official
 The link:https://github.com/ituob/service-publications-docs/blob/main/ituob/spec/fixtures/f32/official-2011.pdf[official reference now in main]
 was independently checked with `pdfinfo`: 47 unrotated A4 pages, SHA-256
 `7ef59fbbfcddd5690dd4f5e2de87a618e31898c8943ca1335c6c4e2a4556c3d9`.
-This matches the existing comparison pilot's reference. Its known data/content
-gap is not repaired by forcing pagination; the comparison workstream remains open.
+This matches the existing comparison pilot's reference. The section-by-section
+investigation below supersedes the earlier assumption that the remaining page
+difference was solely an incomplete office dataset.
 
 Observed page-count changes without official baselines: E.118 Chinese 96 -> 97,
 M.1400 Chinese 90 -> 92, and E.212B Arabic 67 -> 66. All pass the other checks.
@@ -48,6 +49,83 @@ equivalence. All other PDF page counts are unchanged.
 gh run download 44122451030 -R ituob/service-publications-docs \
   -n typesetting-report -D /tmp/typesetting-after
 ----
+
+== F.32 English: section-by-section diagnosis
+
+The 41-page English PDF from run `44122451030` was compared with the pinned
+47-page official fixture above. Both files were extracted with
+`pdftotext -layout`; form-feed boundaries were retained so every text fragment
+can be attributed to its physical PDF page (including cover and blank pages).
+
+[cols="2,1,1,3",options="header"]
+|===
+|Section |Official physical pages |Generated physical pages |Finding before repair
+|Cover and Note from TSB |1–2 |1–3 |Both present; generated page 2 is blank.
+|1. Destination indicators |3–40 |4–41 |The allocation-only template omits printable context rows, including network-relative office suffixes and shared indicators.
+|Appendix 1: special origin indicators |41–43 |Absent |Missing section, not denser layout.
+|Appendix 2: government telegram organization indicators |44 |Absent |Missing section.
+|Appendix 3: cessation notices and amendments |45–46 |Absent |Missing section and amendment form.
+|Blank final page |47 |Absent |Blank page is not missing substantive content.
+|===
+
+Both main tables span 38 physical pages. The six-page total difference is
+therefore not a six-page compression of the office table: the generated file
+omits six appendix pages and the official blank final page, while adding a
+blank second page. Generated fonts include Arial/Times New Roman, Noto Sans
+and STIX Two Math; the official file uses Univers/Arial. A representative shared Afghanistan/Albania page extracted with
+`pdftohtml -xml -zoom 1` measures generated body text at 10 pt (Noto Sans),
+versus official 8 pt (Arial); median office-code row pitch is 18 pt versus
+9 pt, and the left country-column anchor is 60 pt versus 34 pt. These
+measurements establish a typography/spacing difference as well as the missing
+content, even though the incomplete tables happen to span the same page count.
+
+The comparator parses 1,092 generated table rows versus 1,499 official rows
+(1,054 matched). These are extraction counts, not a certified count of missing
+records: layout can change parsed rows. Independently, the provider returns
+exactly 1,092 allocations plus 1,140 source contexts, including 368
+network-relative office and 182 shared-indicator records. Printed examples
+`--BA Buenos Aires` and `--BX All others` occur in the official PDF and source
+contexts but are absent from the generated table. The comparator's old
+legacy-data dispositions are stale for this provider-generated document and
+must not be taken as settled classifications of every delta.
+
+The cause is a *real template/projection content gap*. The document invokes
+`edition.items`, which contains office allocations; the provider separately
+retains printable non-allocation records in `edition.source_contexts`.
+The original document also has no appendix template. The verified source
+publication already retains those contexts and the official appendix pages.
+This differs from the much older 33-page pilot in link:comparison-pilot.adoc[]:
+that pilot used the legacy dataset ending at Israel, while this PDF includes
+the later offices through Zimbabwe. Increasing font size or adding page breaks
+would conceal these omissions rather than repair them.
+
+The repair keeps the canonical 1,092 allocations unchanged and exposes a
+separate, original-edition-only `printed_items` projection. It restores 311
+printed network-relative office rows and 92 shared office rows (1,495 coded
+rows total), aliases, unassigned rows, reserved/telex network notes and country
+headings otherwise absent from the allocation list. Source coordinates place
+these records in printed order; legacy duplicate contexts and continuation
+fragments are not printed twice. The publication's parsed substantive data is
+unchanged when the added/corrected source coordinates are excluded.
+
+A shared appendix template restores 28 special-origin network entries, eight
+organization indicators with their printed multilingual names, 27 cessation
+records and all 30 blank amendment rows in the English, French and Spanish
+sources. Focused document specs assert those counts and representative official
+values, all canonical office rows, printed order, and missing suffix/alias
+regressions. The earlier legacy-dataset truncation is not recreated.
+
+The F.32 shard alone applies link:../../scripts/patch_itu_f32_tables.rb[a guarded
+stylesheet patch]: 8 pt Arial table text, 3.175 mm (9 pt) minimum row height,
+and zero extra top padding instead of 1 mm. Its column proportions are
+24:28:12:26:10, approximating the official point-scale column anchors
+(34, 156, 298, 360 and about 502 pt for the centered office code).
+The page margin and cover/header layout still differ from the official PDF. Other publication
+shards keep their existing stylesheet. Specs cover the patch's exact values,
+structural guards, idempotence, and workflow isolation. This repairs the measured
+template differences; it does not guarantee identical pagination. The official
+47-page baseline stays unchanged, and the hosted `typesetting-report` continues
+to expose any residual page-count difference honestly.
 
 == Scope and reproduction
 

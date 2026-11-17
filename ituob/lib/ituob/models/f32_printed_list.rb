@@ -186,7 +186,7 @@ module Ituob
         @printed_office_rows += 1
         entry = F32TDIEntry.new(_class: "F32TDIEntry", country_or_area: @country,
                                 telegraph_office_name: MultilingualString.new(en: @pending_names.join(" ")),
-                                office_code: code)
+                                office_code: code, source_page: @page, source_row: @source_row)
         @pending_names = []
         if code.start_with?("--")
           if @networks.length == 1
@@ -218,6 +218,8 @@ module Ituob
       end
 
       def context(kind, entry, explanation = nil)
+        entry.source_page = @page
+        entry.source_row = @source_row
         @publication.contexts << F32SeedContext.new(ob_issue_no: 980,
           kind: kind, entry: entry, source_uri: @publication.source_uri, source_page: @page,
           source_path: @publication.source_path, source_row: @source_row,

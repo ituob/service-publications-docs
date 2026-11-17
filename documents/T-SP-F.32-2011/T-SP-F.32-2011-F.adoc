@@ -75,7 +75,8 @@ zones géographiques, ou de leurs autorités.
 [lutaml_data,provider:ituob.edition,edition,options={"arguments":{"register":"f32-tdi","as_of":980},"include_path":"."}]
 ----
 {% assign lang = "fr" %}
-{% render "table", data: edition.items, lang: lang %}
+{% render "table", data: edition.printed_items, lang: lang %}
+{% render "appendices" %}
 ----
 
 

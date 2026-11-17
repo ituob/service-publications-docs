@@ -21,7 +21,8 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
       environment = Liquid::Environment.build do |env|
         env.file_system = Liquid::LocalFileSystem.new(dir, '_%s.liquid')
       end
-      source = "{% assign lang = \"#{lang}\" %}{% render \"table\", data: edition.items, lang: lang %}"
+      suffix = { 'en' => 'E', 'fr' => 'F', 'es' => 'S' }.fetch(lang)
+      source = File.read(File.join(dir, "T-SP-F.32-2011-#{suffix}.adoc")).split('----')[1]
       Liquid::Template.parse(source, environment: environment).render('edition' => edition.to_liquid)
     end
   end
@@ -60,14 +61,56 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
     expect(edition.items.map(&:office_code).last).to eq('ZWHX')
   end
 
-  it 'renders every register office exactly once in the English table' do
+  it 'preserves every canonical office while also printing shared office indicators' do
     table = render('en')
 
-    expect(edition.items.map(&:office_code)).to all(satisfy { |code| table.scan(/\| ?#{Regexp.escape(code)}(?=footnote|$)/).size == 1 })
+    expect(edition.items.map(&:office_code)).to all(satisfy { |code| table.scan(/\| ?#{Regexp.escape(code)}(?=footnote|$)/).size >= 1 })
+  end
+
+  it 'renders ambiguous suffixes and shared offices retained outside canonical allocations' do
+    expect(render('en')).to include('| --BA', '| --BX', 'Buenos Aires', 'Dacca --> Dhaka')
+  end
+
+  it 'keeps canonical membership separate and orders printable contexts by the official source' do
+    expect(edition.items.size).to eq(1092)
+    canonical_rows = edition.items.map { |entry| [entry.source_row, entry.office_code] }
+    printed_rows = edition.printed_items.map { |entry| [entry.source_row, entry.office_code] }
+    expect(canonical_rows).to all(satisfy { |key| printed_rows.count(key) == 1 })
+    expect(edition.printed_items.count { |entry| !entry.office_code.to_s.empty? }).to eq(1495)
+    expect(edition.printed_items.count { |entry| entry.office_code.to_s.start_with?('--') }).to eq(311)
+    expect(edition.printed_items.filter_map(&:source_row)).to eq(edition.printed_items.filter_map(&:source_row).sort)
+    expect(edition.printed_items.count { |entry| entry.telegraph_office_name&.en == 'Dacca --> Dhaka' }).to eq(1)
+    expect(render('en').scan('Manama Diplomatic Area Counter').size).to eq(1)
+    expect(render('en')).to include('remain reserved', 'Unrouted')
+  end
+
+  it 'does not publish the original printed contexts as a later replayed edition' do
+    catalog = Ituob::Catalogs::Registers.find('F32_TDI')
+    state = Ituob::Registers::State.new(register_id: 'F32_TDI', at_ob_issue: 981,
+      entries: {}, lapsed_keys: Set.new, deleted_keys: Set.new, history: [])
+    later = Ituob::Projections::RegisterEdition.new(register: catalog, state: state,
+      items: [], source_contexts: edition.source_contexts).to_model
+
+    expect(later.printed_items).to be_empty
+  end
+
+  %w[en fr es].each do |lang|
+    it "prints the three official appendices and amendment register in #{lang}" do
+      table = render(lang)
+      appendix1, appendix2, appendix3 = table.split(/^== Appendix /)[1..]
+
+      expect(appendix1.lines.count { |line| line.start_with?('|') }).to eq(31)
+      expect(appendix1).to include('|CA |SV, XQ', '|JP |AA, AB, AS', 'XQ, YL', '|GB |AA, AB, AC')
+      expect(appendix2.lines.count { |line| line.match?(/^\|X[A-Z] /) }).to eq(8)
+      expect(appendix2).to include('Indicators to be used in the preamble line', 'F.1, A218', 'Banco Internacional de Reconstrucción y Fomento')
+      expect(appendix3.lines.count { |line| line.match?(/^\|\d{3} /) }).to eq(27)
+      expect(appendix3).to include('|648 |Antigua and Barbuda', '|958 |Madagascar', '|30 | |')
+    end
   end
 
   it 'prints two-letter network codes in the printed network form' do
     expect(render('en')).to match(/^\s*\| AF- -$/)
+    expect(render('en')).to include('[cols="24,28,12,26,10",options="unnumbered"]')
   end
 
   it 'localises the table heading and column headers' do
@@ -122,6 +165,14 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
       table = render_rows([row('AAA', 'AAAA'), row('AAA', 'AAAB'), { 'office_code' => 'ZZZZ' }, row('BBB', 'BBAA')])
 
       expect(table.scan(/^\.(\d+)\+/).flatten).to include('2')
+    end
+
+    %w[INDIA AUSTRALIA].each do |country|
+      it "keeps the country column for #{country} context rows without a subarea" do
+        table = render_rows([row(country, 'AAAA'), row(country, '--BX')])
+
+        expect(table.lines.count { |line| line.strip == '|' }).to eq(2)
+      end
     end
 
     it 'escapes a pipe in an office name' do
