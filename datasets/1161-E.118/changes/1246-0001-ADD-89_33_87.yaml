@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: France
   company_name: AIRBUS DEFENCE AND SPACE SAS
-  company_address_1: 31, rue des cosmonautes
-  company_address_2: ZI PALAYS –
-  company_address_3: 333402 TOULOUSE Cedex 4
+  company_address:
+  - 31, rue des cosmonautes
+  - ZI PALAYS –
+  - 333402 TOULOUSE Cedex 4
   contact: Jean-Bernard Loiseau
-  contact_address_1: Airbus Defence and Space
-  contact_address_2: 1, boulevard Jean-Moulin
-  contact_address_3: 78996 ELANCOURT Cedex
+  contact_address:
+  - Airbus Defence and Space
+  - 1, boulevard Jean-Moulin
+  - 78996 ELANCOURT Cedex
   email:
   - jean-bernard.loiseau@airbus.com
   issue_id_number: 89 33 87

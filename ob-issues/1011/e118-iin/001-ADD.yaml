@@ -12,14 +12,16 @@ data:
   - country_or_area:
       en: Canada
     company_name: ALO Mobile Inc
-    company_address_1: 1039 McNicoll Ave
-    company_address_2: TORONTO, Ontario M1W 3W6
-    company_address_3: Canada
+    company_address:
+    - 1039 McNicoll Ave
+    - TORONTO, Ontario M1W 3W6
+    - Canada
     contact: Mr. Rajan Arora
-    contact_address_1: ALO Mobile Inc
-    contact_address_2: 1039 McNicoll Ave
-    contact_address_3: TORONTO, Ontario M1W 3W6
-    contact_address_4: Canada
+    contact_address:
+    - ALO Mobile Inc
+    - 1039 McNicoll Ave
+    - TORONTO, Ontario M1W 3W6
+    - Canada
     tel:
     - "+1 416 499 5463"
     fax:

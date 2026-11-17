@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Montenegro
     company_name: Crnogorski Telekom A.D.
-    company_address_1: Moskovska 29
-    company_address_2: 81000 PODGORICA
+    company_address:
+    - Moskovska 29
+    - 81000 PODGORICA
     contact: Nikola Ljushev
-    contact_address_1: Moskovska 29
-    contact_address_2: 81000 PODGORICA
+    contact_address:
+    - Moskovska 29
+    - 81000 PODGORICA
     tel:
     - "+382 20 433 709"
     fax:

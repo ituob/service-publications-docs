@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Sweden
     company_name: Fink Telecom Services
-    company_address_1: Paradieshofstrasse 101
-    company_address_2: 4054 BASEL
-    company_address_3: "(Switzerland)"
+    company_address:
+    - Paradieshofstrasse 101
+    - 4054 BASEL
+    - "(Switzerland)"
     contact: Andreas Fink
-    contact_address_1: Paradieshofstrasse 101
-    contact_address_2: 4054 BASEL
-    contact_address_3: "(Switzerland)"
+    contact_address:
+    - Paradieshofstrasse 101
+    - 4054 BASEL
+    - "(Switzerland)"
     tel:
     - "+41 78 6677333"
     email:

@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Lycamobile UK Limited
-    company_address_1: 3rd Floor Walbrook Building, 195 Marsh Wall
-    company_address_2: LONDON E14 9SG
+    company_address:
+    - 3rd Floor Walbrook Building, 195 Marsh Wall
+    - LONDON E14 9SG
     contact: Richard Hohenstein
-    contact_address_1: 3rd Floor, Walbrook Building,
-    contact_address_2: 195 Marsh Wall,
-    contact_address_3: LONDON E14 9SG
+    contact_address:
+    - 3rd Floor, Walbrook Building,
+    - 195 Marsh Wall,
+    - LONDON E14 9SG
     tel:
     - "+44 20 7536 6450 (ext 6585)"
     fax:

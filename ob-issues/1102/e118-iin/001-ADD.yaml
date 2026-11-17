@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Papua New Guinea
     company_name: TELIKOM PNG LIMITED
-    company_address_1: Section 136, Allotment 17
-    company_address_2: Kumul Avenue
-    company_address_3: WAIGANI, NCD
+    company_address:
+    - Section 136, Allotment 17
+    - Kumul Avenue
+    - WAIGANI, NCD
     contact: Mr G. Arua Taravatu
-    contact_address_1: Regulatory Manager
-    contact_address_2: TELIKOM PNG LIMITED
-    contact_address_3: P.O. Box 1349
-    contact_address_4: BOROKO, NCD
+    contact_address:
+    - Regulatory Manager
+    - TELIKOM PNG LIMITED
+    - P.O. Box 1349
+    - BOROKO, NCD
     tel:
     - "+675 3004017"
     fax:

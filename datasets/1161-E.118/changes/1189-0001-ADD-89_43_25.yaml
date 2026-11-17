@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Austria
   company_name: Citycom Telekommunikation GmbH
-  company_address_1: Gadollaplatz 1
-  company_address_2: 8010 GRAZ
+  company_address:
+  - Gadollaplatz 1
+  - 8010 GRAZ
   contact: Bernd Stockinger
-  contact_address_1: Gadollaplatz 1
-  contact_address_2: 8010 GRAZ
+  contact_address:
+  - Gadollaplatz 1
+  - 8010 GRAZ
   tel:
   - "+43 316 887 6211"
   fax:

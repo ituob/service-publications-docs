@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Iceland
     company_name: IceCell ehf
-    company_address_1: Vegmúla 2
-    company_address_2: 108 REYKJAVIK
+    company_address:
+    - Vegmúla 2
+    - 108 REYKJAVIK
     contact: Andreas Fink
-    contact_address_1: Vegmúla 2
-    contact_address_2: 108 REYKJAVIK
+    contact_address:
+    - Vegmúla 2
+    - 108 REYKJAVIK
     tel:
     - "+354 845 6111"
     fax:

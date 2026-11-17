@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Czech Rep.
     company_name: Správa Zeleznicni Dopravni Cesty, s.o.
-    company_address_1: Dlážděná 1003/7
-    company_address_2: 110 00 PRAHA 1 – NOVÉ MĚSTO
+    company_address:
+    - Dlážděná 1003/7
+    - 110 00 PRAHA 1 – NOVÉ MĚSTO
     contact: Ondřej Borovský
-    contact_address_1: Dlážděná 1003/7
-    contact_address_2: 110 00 PRAHA 1 – Nové Město
+    contact_address:
+    - Dlážděná 1003/7
+    - 110 00 PRAHA 1 – Nové Město
     tel:
     - "+420 972 244 356"
     email:

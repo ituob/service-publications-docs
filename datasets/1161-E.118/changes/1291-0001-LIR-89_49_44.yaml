@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Germany
   company_name: Sysmocom -
-  company_address_1: systems for mobile communications GmbH
-  company_address_2: Siemensstrasse 26A
-  company_address_3: 10551 BERLIN
+  company_address:
+  - systems for mobile communications GmbH
+  - Siemensstrasse 26A
+  - 10551 BERLIN
   contact: Technical Support Team,
-  contact_address_1: Sysmocom
-  contact_address_2: Siemensstrasse 26A
-  contact_address_3: 10551 BERLIN
+  contact_address:
+  - Sysmocom
+  - Siemensstrasse 26A
+  - 10551 BERLIN
   tel:
   - "+49 303609871280"
   fax:

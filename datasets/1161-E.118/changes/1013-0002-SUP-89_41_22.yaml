@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Switzerland
   company_name: In & Phone S.A. 
-  company_address_1: Rue de Lausanne 33
-  company_address_2: 1800 VEVEY
-  company_address_3: Suisse
+  company_address:
+  - Rue de Lausanne 33
+  - 1800 VEVEY
+  - Suisse
   contact: Michel Barro
-  contact_address_1: Case Postale 569
-  contact_address_2: CH – 1800 VEVEY
+  contact_address:
+  - Case Postale 569
+  - CH – 1800 VEVEY
   tel:
   - "+41 21 923 3161"
   fax:

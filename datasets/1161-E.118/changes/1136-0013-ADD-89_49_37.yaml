@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Germany
   company_name: FEIG ELECTRONIC GmbH
-  company_address_1: Lange Straße 4
-  company_address_2: 35781 WEILBURG
+  company_address:
+  - Lange Straße 4
+  - 35781 WEILBURG
   contact: Mr. Markus Beyer
-  contact_address_1: FEIG ELECTRONIC GmbH
-  contact_address_2: Industriestraße 1A
-  contact_address_3: 35781 WEILBURG
+  contact_address:
+  - FEIG ELECTRONIC GmbH
+  - Industriestraße 1A
+  - 35781 WEILBURG
   tel:
   - "+49 64713109409"
   fax:

@@ -11,13 +11,17 @@ data:
   - country_or_area:
       en: United States
     company_name: Hewlett-Packard Communications Services, LLC
-    company_address_1: 5400 Legacy Drive
-    company_address_2: PLANO, TX 75024
-    company_address_3: 'Resale Tax Certificates use:'
+    company_address:
+    - 5400 Legacy Drive
+    - PLANO, TX 75024
+    - 'Resale Tax Certificates use:'
+    - P.O. Box 250409
+    - PLANO, TX 75025
     contact: Mr Merrill Stuart
-    contact_address_1: Hewlett-Packard Communications Services, LLC
-    contact_address_2: 3000 Hanover Street
-    contact_address_3: PALO ALTO, CA 94304-1112
+    contact_address:
+    - Hewlett-Packard Communications Services, LLC
+    - 3000 Hanover Street
+    - PALO ALTO, CA 94304-1112
     tel:
     - "+1 510 7062450"
     email:

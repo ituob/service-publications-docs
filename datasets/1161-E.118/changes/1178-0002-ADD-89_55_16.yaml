@@ -8,15 +8,19 @@ data:
   country_or_area:
     en: Brazil
   company_name: Oi Móvel S/A
-  company_address_1: Setor Comercial Norte,
-  company_address_2: Quadra 03, Bloco A,
-  company_address_3: Edifício Estação Telefônica,
+  company_address:
+  - Setor Comercial Norte,
+  - Quadra 03, Bloco A,
+  - Edifício Estação Telefônica,
+  - térreo, parte 2 –
+  - 'CEP: 70713-900 Brasília/DF'
   contact: Frederico de Melo Lima Isaac/
-  contact_address_1: Daniel Luiz Capella Leoneza
-  contact_address_2: Setor Comercial Norte, Quadra 03, Bloco
-  contact_address_3: A, Edifício Estação Telefônica, térreo,
-  contact_address_4: parte 2 –
-  contact_address_5: 'CEP: 70713-900 Brasília/DF'
+  contact_address:
+  - Daniel Luiz Capella Leoneza
+  - Setor Comercial Norte, Quadra 03, Bloco
+  - A, Edifício Estação Telefônica, térreo,
+  - parte 2 –
+  - 'CEP: 70713-900 Brasília/DF'
   tel:
   - "+55 21 3131-2564/2320"
   email:

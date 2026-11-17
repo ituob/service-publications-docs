@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: Netherlands
   company_name: UPC NL
-  company_address_1: Kabelweg 51
-  company_address_2: 1014 BA AMSTERDAM
-  company_address_3: The Netherlands
+  company_address:
+  - Kabelweg 51
+  - 1014 BA AMSTERDAM
+  - The Netherlands
   contact: Mr R.Kolthek
-  contact_address_1: UPC NL
-  contact_address_2: Postbus 80900
-  contact_address_3: 1005 DA AMSTERDAM
-  contact_address_4: The Netherlands
+  contact_address:
+  - UPC NL
+  - Postbus 80900
+  - 1005 DA AMSTERDAM
+  - The Netherlands
   tel:
   - "+31 20 775 5523"
   email:

@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Malta
     company_name: GO p.l.c.
-    company_address_1: Fra Diegu Street
-    company_address_2: MARSA, MRS 1501
+    company_address:
+    - Fra Diegu Street
+    - MARSA, MRS 1501
     contact: Fabian Grima
-    contact_address_1: Fra Diegu Street
-    contact_address_2: MARSA, MRS 1501
+    contact_address:
+    - Fra Diegu Street
+    - MARSA, MRS 1501
     tel:
     - "+356 2594 2522"
     email:

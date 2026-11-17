@@ -12,11 +12,13 @@ data:
   - country_or_area:
       en: Germany
     company_name: Vintage Wireless Networks Gesellschaft für Telekommunikation mbH
-    company_address_1: Gladbacher Str. 74
-    company_address_2: D-40219 DUSSELDORF
+    company_address:
+    - Gladbacher Str. 74
+    - D-40219 DUSSELDORF
     contact: Mr Frederic Paulisch
-    contact_address_1: Gladbacher Str. 74
-    contact_address_2: D-40219 DUSSELDORF
+    contact_address:
+    - Gladbacher Str. 74
+    - D-40219 DUSSELDORF
     tel:
     - "+49 211 635 555 40"
     fax:

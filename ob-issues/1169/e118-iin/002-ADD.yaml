@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Japan
     company_name: NTT Communications Corporation
-    company_address_1: 2-3-1 Otemachi, Chiyoda-ku
-    company_address_2: TOKYO 100-8019
+    company_address:
+    - 2-3-1 Otemachi, Chiyoda-ku
+    - TOKYO 100-8019
     contact: Hiroshi Ootsubo
-    contact_address_1: 2-3-1 Otemachi, Chiyoda-ku
-    contact_address_2: TOKYO 100-8019
+    contact_address:
+    - 2-3-1 Otemachi, Chiyoda-ku
+    - TOKYO 100-8019
     tel:
     - "+81 3 6700 8320"
     fax:

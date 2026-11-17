@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Lebara Mobile Limited
-    company_address_1: 25 Copthall Avenue
-    company_address_2: LONDON EC2R 7BP
+    company_address:
+    - 25 Copthall Avenue
+    - LONDON EC2R 7BP
     contact: Ms. Saddia Khalique
-    contact_address_1: Lebara Mobile Limited
-    contact_address_2: UK Mobile Billing
-    contact_address_3: 25 Copthall Avenue
-    contact_address_4: LONDON EC2R 7BP
+    contact_address:
+    - Lebara Mobile Limited
+    - UK Mobile Billing
+    - 25 Copthall Avenue
+    - LONDON EC2R 7BP
     tel:
     - "+44 203 036 3000"
     fax:

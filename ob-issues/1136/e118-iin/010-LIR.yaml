@@ -11,15 +11,18 @@ data:
   - country_or_area:
       en: Gambia
     company_name: Comium Gambia Limited
-    company_address_1: 27 Kairaba Avenue
-    company_address_2: Pipeline, KSMD
-    company_address_3: P.O.Box 2097
+    company_address:
+    - 27 Kairaba Avenue
+    - Pipeline, KSMD
+    - P.O.Box 2097
+    - SERRE KUNDA
     contact: Mr Lamin DRAMMEH
-    contact_address_1: Comium Gambia Limited
-    contact_address_2: 27 Kairaba Avenue
-    contact_address_3: Pipeline, KSMD
-    contact_address_4: P.O.Box 2097
-    contact_address_5: SERRE KUNDA
+    contact_address:
+    - Comium Gambia Limited
+    - 27 Kairaba Avenue
+    - Pipeline, KSMD
+    - P.O.Box 2097
+    - SERRE KUNDA
     tel:
     - "+220 6600500"
     email:

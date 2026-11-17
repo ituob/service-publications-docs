@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Sweden
     company_name: Götalandsnätet AB
-    company_address_1: Box 33
-    company_address_2: SE-461 21 TROLLHATTAN
+    company_address:
+    - Box 33
+    - SE-461 21 TROLLHATTAN
     contact: Per Frykner
-    contact_address_1: Box 33
-    contact_address_2: SE-461 21 TROLLHATTAN
+    contact_address:
+    - Box 33
+    - SE-461 21 TROLLHATTAN
     tel:
     - "+46 520 50 05 80"
     fax:

@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Kenya
     company_name: Kencell Communications Limited
-    company_address_1: P.O. Box 73146
-    company_address_2: NAIROBI
+    company_address:
+    - P.O. Box 73146
+    - NAIROBI
     contact: Mr Thibaut de la Barre de Nantevil
-    contact_address_1: P.O. Box 73146
-    contact_address_2: Nairobi
+    contact_address:
+    - P.O. Box 73146
+    - Nairobi
     tel:
     - "+254 2 6901 2026"
     fax:

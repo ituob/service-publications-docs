@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Sweden
   company_name: Spring Mobil AB
-  company_address_1: Gävlegatan 12A
-  company_address_2: Box 45064
-  company_address_3: 104 30 STOCKHOLM
+  company_address:
+  - Gävlegatan 12A
+  - Box 45064
+  - 104 30 STOCKHOLM
   contact: Mr Peter Manros
-  contact_address_1: Gävlegatan 12A
-  contact_address_2: Box 45064
-  contact_address_3: 104 30 STOCKHOLM
+  contact_address:
+  - Gävlegatan 12A
+  - Box 45064
+  - 104 30 STOCKHOLM
   tel:
   - "+46 8 674 5021"
   fax:

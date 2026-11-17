@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Norway
   company_name: Automobil Invest AS
-  company_address_1: Damsgardsveien 131,
-  company_address_2: PO Box 23 Laksevag
-  company_address_3: N-5847 BERGEN
+  company_address:
+  - Damsgardsveien 131,
+  - PO Box 23 Laksevag
+  - N-5847 BERGEN
   contact: Ingvild Myhre
-  contact_address_1: P.O. Box 417 Okern
-  contact_address_2: N-0513 OSLO
+  contact_address:
+  - P.O. Box 417 Okern
+  - N-0513 OSLO
   tel:
   - "+47 9003 8442"
   fax:

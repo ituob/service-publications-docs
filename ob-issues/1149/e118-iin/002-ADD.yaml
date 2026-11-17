@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Netherlands
     company_name: Greenet Netwerk B.V.
-    company_address_1: Maanlander 47, 3824 MN
-    company_address_2: AMERSFOORT
+    company_address:
+    - Maanlander 47, 3824 MN
+    - AMERSFOORT
     contact: Mr Bart Heinink
-    contact_address_1: Greenet Netwerk B.V.
-    contact_address_2: Maanlander 47, 3824 MN
-    contact_address_3: AMERSFOORT
+    contact_address:
+    - Greenet Netwerk B.V.
+    - Maanlander 47, 3824 MN
+    - AMERSFOORT
     tel:
     - "+31 628908201"
     email:

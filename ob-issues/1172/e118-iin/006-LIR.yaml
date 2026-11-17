@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Ireland
     company_name: Virgin Media
-    company_address_1: Eastpoint Business Park
-    company_address_2: DUBLIN 3
+    company_address:
+    - Eastpoint Business Park
+    - DUBLIN 3
     contact: Adrienne Costello
-    contact_address_1: Eastpoint Business Park
-    contact_address_2: DUBLIN 3
+    contact_address:
+    - Eastpoint Business Park
+    - DUBLIN 3
     tel:
     - "+353 1 245 8058"
     email:

@@ -8,13 +8,16 @@ data:
   country_or_area:
     en: Global
   company_name: KORE Wireless
-  company_address_1: "(Formerly Twilio Inc.)"
-  company_address_2: 3 Ravinia DR Suite 300
-  company_address_3: ATLANTA, GA 30346
+  company_address:
+  - "(Formerly Twilio Inc.)"
+  - 3 Ravinia DR Suite 300
+  - ATLANTA, GA 30346
+  - United States
   contact: KORE Headquarters
-  contact_address_1: 3 Ravinia Drive, Floor 5,
-  contact_address_2: ATLANTA, GA
-  contact_address_3: United States
+  contact_address:
+  - 3 Ravinia Drive, Floor 5,
+  - ATLANTA, GA
+  - United States
   tel:
   - "+1 877 710 5673"
   email:

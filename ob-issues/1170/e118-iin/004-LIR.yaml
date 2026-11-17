@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Singapore
     company_name: M1 Limited
-    company_address_1: 10 International Business Park
-    company_address_2: SINGAPORE 609928
+    company_address:
+    - 10 International Business Park
+    - SINGAPORE 609928
     contact: Matthias Foo
-    contact_address_1: 10 International Business Park
-    contact_address_2: SINGAPORE 609928
+    contact_address:
+    - 10 International Business Park
+    - SINGAPORE 609928
     tel:
     - "+65 6655 1837"
     fax:

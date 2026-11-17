@@ -8,11 +8,17 @@ data:
   country_or_area:
     en: France
   company_name: Halys
-  company_address_1: 16 rue Jean Jacques Rousseau
-  company_address_2: 92130 ISSY LES MOULINEAUX
+  company_address:
+  - 16 rue Jean Jacques Rousseau
+  - 92130 ISSY LES MOULINEAUX
   contact: Thierry Braconnier
-  contact_address_1: 16 rue Jean Jacques Rousseau
-  contact_address_2: 92130 ISSY LES MOULINEAUX
+  contact_address:
+  - 16 rue Jean Jacques Rousseau
+  - 92130 ISSY LES MOULINEAUX
+  tel:
+  - "+33 1 55 95 96 36"
+  email:
+  - contact@halys.fr
   issue_id_number: 89 33 94
   effective_date: 14.XII.2020
 reference: OB-1272

@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Telet Research (N.I.) Limited
-    company_address_1: 14 Great College St
-    company_address_2: LONDON SW1P 3RX
+    company_address:
+    - 14 Great College St
+    - LONDON SW1P 3RX
     contact: James Body
-    contact_address_1: 14 Great College St
-    contact_address_2: LONDON SW1P 3RX
+    contact_address:
+    - 14 Great College St
+    - LONDON SW1P 3RX
     tel:
     - "+44 20 8002 0000"
     email:

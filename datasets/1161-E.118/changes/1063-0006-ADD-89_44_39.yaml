@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: United Kingdom
   company_name: Telefonica UK Limited
-  company_address_1: 260 Bath Road
-  company_address_2: SLOUGH, SL1 4DX
+  company_address:
+  - 260 Bath Road
+  - SLOUGH, SL1 4DX
   contact: Mr Lawrence Wardle
-  contact_address_1: Telefonica UK Limited
-  contact_address_2: 260 Bath Road
-  contact_address_3: SLOUGH, SL1 4DX
-  contact_address_4: United Kingdom
+  contact_address:
+  - Telefonica UK Limited
+  - 260 Bath Road
+  - SLOUGH, SL1 4DX
+  - United Kingdom
   tel:
   - "+44 771 239 7148"
   email:

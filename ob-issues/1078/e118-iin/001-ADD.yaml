@@ -11,16 +11,19 @@ data:
   - country_or_area:
       en: Cyprus
     company_name: Mundio Mobile Cyprus Ltd
-    company_address_1: 31 Evagoras Avenue
-    company_address_2: Evagoras Tower
-    company_address_3: Office 32
+    company_address:
+    - 31 Evagoras Avenue
+    - Evagoras Tower
+    - Office 32
+    - 1066 NICOSIA
     contact: Ms. Stephanie Lazarus
-    contact_address_1: Mundio Mobile
-    contact_address_2: 54 Marsh Wall
-    contact_address_3: LONDON E14 9TP
-    contact_address_4: United Kingdom
+    contact_address:
+    - Mundio Mobile
+    - 54 Marsh Wall
+    - LONDON E14 9TP
+    - United Kingdom
     tel:
-    - "        +44 2075364800"
+    - "+44 2075364800"
     fax:
     - "+44 2070050562"
     email:

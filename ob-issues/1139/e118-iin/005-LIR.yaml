@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Finland
     company_name: DNA Oyj
-    company_address_1: P.O. Box 10
-    company_address_2: 01044 DNA
+    company_address:
+    - P.O. Box 10
+    - 01044 DNA
     contact: Ami Mutikainen
-    contact_address_1: DNA Oyj
-    contact_address_2: P.O. Box 10
-    contact_address_3: 01044 DNA
+    contact_address:
+    - DNA Oyj
+    - P.O. Box 10
+    - 01044 DNA
     tel:
     - "+358 44 0440/+358 44 044 1063"
     fax:

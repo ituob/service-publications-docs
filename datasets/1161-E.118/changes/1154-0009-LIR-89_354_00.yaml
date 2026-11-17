@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Iceland
   company_name: Síminn hf.
-  company_address_1: Ármúla 25
-  company_address_2: IS–108 REYKJAVIK
+  company_address:
+  - Ármúla 25
+  - IS–108 REYKJAVIK
   contact: Baldur V. Baldursson
-  contact_address_1: Síminn hf.
-  contact_address_2: Ármúla 25
-  contact_address_3: IS-108 REYKJAVIK
+  contact_address:
+  - Síminn hf.
+  - Ármúla 25
+  - IS-108 REYKJAVIK
   tel:
   - "+354 550 6000"
   email:

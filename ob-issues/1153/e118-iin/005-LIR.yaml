@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Georgia
     company_name: Geocell LLC
-    company_address_1: 3 Gotua Str. Right Side of the River Mtkvari,
-    company_address_2: TBILISI, 0160
+    company_address:
+    - 3 Gotua Str. Right Side of the River Mtkvari,
+    - TBILISI, 0160
     contact: Mr David Svanidze
-    contact_address_1: 3 Gotua Str. Right Side of the River Mtkvari,
-    contact_address_2: TBILISI, 0160
+    contact_address:
+    - 3 Gotua Str. Right Side of the River Mtkvari,
+    - TBILISI, 0160
     tel:
     - "+995 32 277 01 00"
     fax:

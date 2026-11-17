@@ -11,14 +11,18 @@ data:
   - country_or_area:
       en: Mexico
     company_name: DIRI TELECOMUNICACIONES S.A. DE C.V.
-    company_address_1: Avenida Santa Fe 428,
-    company_address_2: Interior 2201,
-    company_address_3: Santa Fe Cuajimalpa,
+    company_address:
+    - Avenida Santa Fe 428,
+    - Interior 2201,
+    - Santa Fe Cuajimalpa,
+    - Cuajimalpa de Morelos,
+    - CIUDAD DE MEXICO, 05348
     contact: Josselin Abigahy Maldonado Cabrera
-    contact_address_1: Avenida Santa Fe 428,
-    contact_address_2: Interior 2201, Santa Fe Cuajimalpa,
-    contact_address_3: Cuajimalpa de Morelos,
-    contact_address_4: CIUDAD DE MEXICO, 05348
+    contact_address:
+    - Avenida Santa Fe 428,
+    - Interior 2201, Santa Fe Cuajimalpa,
+    - Cuajimalpa de Morelos,
+    - CIUDAD DE MEXICO, 05348
     tel:
     - "+52 55 2894 8134"
     email:

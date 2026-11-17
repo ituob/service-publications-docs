@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Eseye Limited
-    company_address_1: 20 Nugent Road
-    company_address_2: Surrey Reseach Park
-    company_address_3: GUILDFORD, GU2 7AF
+    company_address:
+    - 20 Nugent Road
+    - Surrey Reseach Park
+    - GUILDFORD, GU2 7AF
     contact: Eseye Support
-    contact_address_1: 20 Nugent Road
-    contact_address_2: Surrey Reseach Park
-    contact_address_3: GUILDFORD, GU2 7AF
+    contact_address:
+    - 20 Nugent Road
+    - Surrey Reseach Park
+    - GUILDFORD, GU2 7AF
     tel:
     - "+44 1483 802503 (UK)"
     email:

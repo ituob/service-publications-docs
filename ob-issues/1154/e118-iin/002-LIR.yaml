@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Canada
     company_name: Freedom Mobile Inc.
-    company_address_1: 900, 630 - 3rd Ave SW
-    company_address_2: CALGARY, AB T2P 4L4
+    company_address:
+    - 900, 630 - 3rd Ave SW
+    - CALGARY, AB T2P 4L4
     contact: Mr Paul Cowling
-    contact_address_1: 900, 630 - 3rd Ave SW
-    contact_address_2: CALGARY, AB T2P 4L4
+    contact_address:
+    - 900, 630 - 3rd Ave SW
+    - CALGARY, AB T2P 4L4
     email:
     - Regulatory@sjrb.ca
     issue_id_number: 89 1 490

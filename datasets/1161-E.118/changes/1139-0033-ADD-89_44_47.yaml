@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: United Kingdom
   company_name: Truphone Limited
-  company_address_1: 25 Canada Square
-  company_address_2: LONDON E14 5LQ
+  company_address:
+  - 25 Canada Square
+  - LONDON E14 5LQ
   contact: Mr Ian Jones
-  contact_address_1: Truphone Limited
-  contact_address_2: 25 Canada Square
-  contact_address_3: LONDON E14 5LQ
+  contact_address:
+  - Truphone Limited
+  - 25 Canada Square
+  - LONDON E14 5LQ
   tel:
   - "+44 7408 849048"
   email:

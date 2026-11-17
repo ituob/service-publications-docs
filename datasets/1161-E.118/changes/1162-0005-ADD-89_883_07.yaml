@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: United States
   company_name: Twilio Inc.
-  company_address_1: 375 Beale Street, Suite 300
-  company_address_2: CA-94105 SAN FRANCISCO
+  company_address:
+  - 375 Beale Street, Suite 300
+  - CA-94105 SAN FRANCISCO
   contact: Twilio Wireless/IoT Business Unit
-  contact_address_1: 375 Beale Street, Suite 300
-  contact_address_2: CA-94105 SAN FRANCISCO
+  contact_address:
+  - 375 Beale Street, Suite 300
+  - CA-94105 SAN FRANCISCO
   tel:
   - "+1 415 390 2337"
   email:

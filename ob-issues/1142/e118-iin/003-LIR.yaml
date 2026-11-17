@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Ukraine
     company_name: '"Kyivstar" PJSC'
-    company_address_1: 53 Degtyarivska St.
-    company_address_2: KYIV, 03113
+    company_address:
+    - 53 Degtyarivska St.
+    - KYIV, 03113
     contact: Alexey Logvinenko
-    contact_address_1: 53 Degtyarivska St.
-    contact_address_2: KYIV, 03113
+    contact_address:
+    - 53 Degtyarivska St.
+    - KYIV, 03113
     tel:
     - "+380 67 220 75 59"
     email:

@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Colombia
     company_name: Comunicación Celular S.A. - COMCEL S.A.
-    company_address_1: 'Carrera 68 A #24B - 10'
-    company_address_2: BOGOTÁ D.C.
+    company_address:
+    - 'Carrera 68 A #24B - 10'
+    - BOGOTÁ D.C.
     contact: Hilda Maria Pardo Hasche
-    contact_address_1: 'Carrera 68 A #24B - 10'
-    contact_address_2: BOGOTÁ D.C.
+    contact_address:
+    - 'Carrera 68 A #24B - 10'
+    - BOGOTÁ D.C.
     tel:
     - "+57 1 7429797"
     email:

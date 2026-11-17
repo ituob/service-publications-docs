@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Luxembourg
   company_name: Join Experience S.A.
-  company_address_1: 11, rue de Bitbourg
-  company_address_2: 1273 Luxembourg/Hamm
+  company_address:
+  - 11, rue de Bitbourg
+  - 1273 Luxembourg/Hamm
   contact: Mr Luc Van den Bogaert
-  contact_address_1: Join Experience S.A.
-  contact_address_2: 11, rue de Bitbourg
-  contact_address_3: 1273 Luxembourg/Hamm
+  contact_address:
+  - Join Experience S.A.
+  - 11, rue de Bitbourg
+  - 1273 Luxembourg/Hamm
   tel:
   - "+352 621 880 522"
   fax:

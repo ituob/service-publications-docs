@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Japan
   company_name: NEC Networks & System Integration Corporation
-  company_address_1: Iidabashi First Tower,
-  company_address_2: 2-6-1 Koraku, Bunkyo-ku
-  company_address_3: TOKYO 112-8560
+  company_address:
+  - Iidabashi First Tower,
+  - 2-6-1 Koraku, Bunkyo-ku
+  - TOKYO 112-8560
   contact: Business Design Operation Unit
-  contact_address_1: Nihonbashi Muromachi Mitsui Tower
-  contact_address_2: 3-2-1 Muromachi Nihonbashi Chuoku
-  contact_address_3: TOKYO 103-0022
+  contact_address:
+  - Nihonbashi Muromachi Mitsui Tower
+  - 3-2-1 Muromachi Nihonbashi Chuoku
+  - TOKYO 103-0022
   tel:
   - "+81 3 4582 2950"
   email:

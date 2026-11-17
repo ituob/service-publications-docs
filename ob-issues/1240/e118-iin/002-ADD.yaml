@@ -11,15 +11,17 @@ data:
   - country_or_area:
       en: Japan
     company_name: Japan Communications Inc.
-    company_address_1: 4-1-28 Toranomon,
-    company_address_2: Minato-ku,
-    company_address_3: TOKYO, 105-0001
+    company_address:
+    - 4-1-28 Toranomon,
+    - Minato-ku,
+    - TOKYO, 105-0001
     contact: Hardware Function,
-    contact_address_1: Japan Communications Inc.
-    contact_address_2: 4-1-28 Toranomon, Minato-ku,
-    contact_address_3: TOKYO, 105-0001
+    contact_address:
+    - Japan Communications Inc.
+    - 4-1-28 Toranomon, Minato-ku,
+    - TOKYO, 105-0001
     tel:
-    - "          +81 3 5776 1701"
+    - "+81 3 5776 1701"
     fax:
     - "+81 3 6721 5039"
     email:

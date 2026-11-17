@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: France
   company_name: Gemalto SA
-  company_address_1: 6 rue de la Verrerie
-  company_address_2: 92190 MEUDON
+  company_address:
+  - 6 rue de la Verrerie
+  - 92190 MEUDON
   contact: Denis PRACA
-  contact_address_1: GEMALTO SA, La Vigie, Avenue du Jujubier, Z.I. Athélia IV,
-  contact_address_2: 13705 LA CIOTAT Cedex
+  contact_address:
+  - GEMALTO SA, La Vigie, Avenue du Jujubier, Z.I. Athélia IV,
+  - 13705 LA CIOTAT Cedex
   tel:
   - "+33 6 88 39 18 75"
   fax:

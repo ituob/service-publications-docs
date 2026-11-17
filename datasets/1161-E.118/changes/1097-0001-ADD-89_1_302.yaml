@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Canada
   company_name: ECOTEL inc.
-  company_address_1: 2570 Letourneux, Unit 3
-  company_address_2: Montreal, QC, H1V 2P4
+  company_address:
+  - 2570 Letourneux, Unit 3
+  - Montreal, QC, H1V 2P4
   contact: Mr Eric L'Heureux
-  contact_address_1: ECOTEL inc.
-  contact_address_2: 2570 Letourneux, Unit 3
-  contact_address_3: Montreal, QC, H1V 2P4
+  contact_address:
+  - ECOTEL inc.
+  - 2570 Letourneux, Unit 3
+  - Montreal, QC, H1V 2P4
   tel:
   - "+1 514 497 1939"
   fax:

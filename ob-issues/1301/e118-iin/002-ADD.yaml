@@ -11,9 +11,11 @@ data:
   - country_or_area:
       en: Sweden
     company_name: Myndigheten för Samhällsskydd och Beredskap, MSB
-    company_address_1: 651 81 KARLSTAD
+    company_address:
+    - 651 81 KARLSTAD
     contact: MSB Switchboard
-    contact_address_1: 651 81 KARLSTAD
+    contact_address:
+    - 651 81 KARLSTAD
     tel:
     - "+46 771 240 240"
     email:

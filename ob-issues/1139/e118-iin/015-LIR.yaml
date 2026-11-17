@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Greece
     company_name: COSMOTE
-    company_address_1: 99, Kifissias Avenue
-    company_address_2: GR-MAROUSSI 15181
+    company_address:
+    - 99, Kifissias Avenue
+    - GR-MAROUSSI 15181
     contact: Vassiliki Papadaki
-    contact_address_1: 99, Kifissias Avenue
-    contact_address_2: GR-MAROUSSI 15124
+    contact_address:
+    - 99, Kifissias Avenue
+    - GR-MAROUSSI 15124
     tel:
     - "+30 21-06177777"
     fax:

@@ -11,14 +11,18 @@ data:
   - country_or_area:
       en: Cabo Verde
     company_name: UNITEL T+ TELECOMUNICAÇÕES, SOCIEDADE UNIPESSOAL, SA
-    company_address_1: Avenida Cidade de Lisboa
-    company_address_2: Edifício BAI Center
-    company_address_3: 4º e 6º Pisos
+    company_address:
+    - Avenida Cidade de Lisboa
+    - Edifício BAI Center
+    - 4º e 6º Pisos
+    - Chã de Areia
+    - CP 346-A PRAIA
     contact: Ms Paula Carioca
-    contact_address_1: Avenida Cidade de Lisboa
-    contact_address_2: Edifício BAI Center-4º e 6º Pisos
-    contact_address_3: Chã de Areia
-    contact_address_4: CP 346-A PRAIA
+    contact_address:
+    - Avenida Cidade de Lisboa
+    - Edifício BAI Center-4º e 6º Pisos
+    - Chã de Areia
+    - CP 346-A PRAIA
     tel:
     - "+238 330 30 30"
     fax:

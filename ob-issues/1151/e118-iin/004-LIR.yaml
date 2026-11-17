@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Estonia
     company_name: Top Connect OÜ
-    company_address_1: Väike-Paala 1
-    company_address_2: 11415 TALLINN
+    company_address:
+    - Väike-Paala 1
+    - 11415 TALLINN
     contact: Mr Vladislav Sobolev
-    contact_address_1: Väike-Paala 1
-    contact_address_2: 11415 TALLINN
+    contact_address:
+    - Väike-Paala 1
+    - 11415 TALLINN
     tel:
     - "+372 606 2500"
     fax:

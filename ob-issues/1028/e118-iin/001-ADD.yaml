@@ -12,12 +12,14 @@ data:
   - country_or_area:
       en: Luxembourg
     company_name: MTX Connect S.a r.l
-    company_address_1: 4, rue A. Graham Bell
-    company_address_2: L-3235 BETTEMBOURG
+    company_address:
+    - 4, rue A. Graham Bell
+    - L-3235 BETTEMBOURG
     contact: Mrs. Alexandra Sevodnyaeva
-    contact_address_1: MTX Connect S.a r.l.
-    contact_address_2: 4, rue A. Graham Bell
-    contact_address_3: L-3235 BETTEMBOURG
+    contact_address:
+    - MTX Connect S.a r.l.
+    - 4, rue A. Graham Bell
+    - L-3235 BETTEMBOURG
     tel:
     - "+ 357 22 030 076"
     fax:

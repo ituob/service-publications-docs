@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Azerbaijan
     company_name: Azerfon LLC
-    company_address_1: 153, Netchilar Ave., Nasimi district
-    company_address_2: AZ 1010 BAKU
+    company_address:
+    - 153, Netchilar Ave., Nasimi district
+    - AZ 1010 BAKU
     contact: Mr Gunnar Pahnke
-    contact_address_1: 153, Netchilar Ave., Nasimi district
-    contact_address_2: AZ 1010 BAKU
+    contact_address:
+    - 153, Netchilar Ave., Nasimi district
+    - AZ 1010 BAKU
     tel:
     - "+994 12 444 0730"
     fax:

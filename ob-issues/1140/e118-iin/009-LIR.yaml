@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Sweden
     company_name: Hi3G Access AB
-    company_address_1: Lindhagensgatan 98
-    company_address_2: SE-112 18 STOCKHOLM
+    company_address:
+    - Lindhagensgatan 98
+    - SE-112 18 STOCKHOLM
     contact: Edwin Tumukunde
-    contact_address_1: Lindhagensgatan 98
-    contact_address_2: SE-112 18 STOCKHOLM
+    contact_address:
+    - Lindhagensgatan 98
+    - SE-112 18 STOCKHOLM
     tel:
     - "+4673 533 81 88"
     email:

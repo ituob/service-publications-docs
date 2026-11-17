@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Switzerland
   company_name: UPC Schweiz GmbH
-  company_address_1: Richtiplatz 5
-  company_address_2: CH-8304 Wallisellen
+  company_address:
+  - Richtiplatz 5
+  - CH-8304 Wallisellen
   contact: Reichmuth Benjamin
-  contact_address_1: Richtiplatz 5
-  contact_address_2: CH-8304 Wallisellen
+  contact_address:
+  - Richtiplatz 5
+  - CH-8304 Wallisellen
   tel:
-  - "         +41 58 388 98 96"
+  - "+41 58 388 98 96"
   fax:
   - "+41 58 388 98 96"
   email:

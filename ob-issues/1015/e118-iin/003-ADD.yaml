@@ -12,14 +12,16 @@ data:
   - country_or_area:
       en: United States
     company_name: ASPIDER Solutions US,inc
-    company_address_1: 18 Casino Road
-    company_address_2: MARBLEHEAD, MA 01945
-    company_address_3: United States
+    company_address:
+    - 18 Casino Road
+    - MARBLEHEAD, MA 01945
+    - United States
     contact: Mr David Traynor
-    contact_address_1: ASPIDER Solutions US,inc
-    contact_address_2: 18 Casino Road
-    contact_address_3: MARBLEHEAD, MA 01945
-    contact_address_4: United States
+    contact_address:
+    - ASPIDER Solutions US,inc
+    - 18 Casino Road
+    - MARBLEHEAD, MA 01945
+    - United States
     tel:
     - "+1 781 820 4424"
     fax:

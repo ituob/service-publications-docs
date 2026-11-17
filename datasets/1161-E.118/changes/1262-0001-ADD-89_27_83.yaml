@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: South Africa
   company_name: ONEX SA (PTY) LTD
-  company_address_1: 19 Liverpool Road
-  company_address_2: Benoni South,
-  company_address_3: GAUTENG 1502
+  company_address:
+  - 19 Liverpool Road
+  - Benoni South,
+  - GAUTENG 1502
   contact: Mobeen Bhamjee
-  contact_address_1: ONEX SA (PTY) LTD,
-  contact_address_2: PO Box 5037
-  contact_address_3: Benoni West, GAUTENG 1503
+  contact_address:
+  - ONEX SA (PTY) LTD,
+  - PO Box 5037
+  - Benoni West, GAUTENG 1503
   tel:
   - "+27 11 646 8777"
   email:

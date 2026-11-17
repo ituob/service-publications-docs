@@ -11,9 +11,10 @@ data:
   - country_or_area:
       en: Portugal
     company_name: Mundio Mobile (Portugal) Limited
-    company_address_1: 54 Marsh Wall
-    company_address_2: LONDON E14 9TP
-    company_address_3: United Kingdom
+    company_address:
+    - 54 Marsh Wall
+    - LONDON E14 9TP
+    - United Kingdom
     issue_id_number: 89 351 07
     effective_date: 23.VII.2013
   notes: []

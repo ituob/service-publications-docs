@@ -11,12 +11,15 @@ data:
   - country_or_area:
       en: Belarus
     company_name: Mr Andrey Kulinkin
-    company_address_1: FE Velcom
-    company_address_2: Masherova Avenue, 19
-    company_address_3: "(8th floor)"
+    company_address:
+    - FE Velcom
+    - Masherova Avenue, 19
+    - "(8th floor)"
+    - 220002 MINSK
     contact: Mr Andrey Kulinkin
-    contact_address_1: Masherova Avenue, 19 (8th floor)
-    contact_address_2: 220002 MINSK
+    contact_address:
+    - Masherova Avenue, 19 (8th floor)
+    - 220002 MINSK
     tel:
     - "+375 17 217 8494"
     fax:

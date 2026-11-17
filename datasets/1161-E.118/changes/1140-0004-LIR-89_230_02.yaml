@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Mauritius
   company_name: Emtel Ltd
-  company_address_1: 10 Ebène Cybercity
-  company_address_2: Ebène 72201
-  company_address_3: PORT LOUIS
+  company_address:
+  - 10 Ebène Cybercity
+  - Ebène 72201
+  - PORT LOUIS
   contact: Mr Rajvardhan Singh Bhullar
-  contact_address_1: 10 Ebène Cybercity
-  contact_address_2: Ebène 72201
-  contact_address_3: PORT LOUIS
+  contact_address:
+  - 10 Ebène Cybercity
+  - Ebène 72201
+  - PORT LOUIS
   tel:
   - "+230 5 729 54 00"
   fax:

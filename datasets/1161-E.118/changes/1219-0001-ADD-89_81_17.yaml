@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Japan
   company_name: Sony Wireless Communications Inc.
-  company_address_1: 1-7-1 Kounan, Minato-ku
-  company_address_2: TOKYO
+  company_address:
+  - 1-7-1 Kounan, Minato-ku
+  - TOKYO
   contact: Naoyuki Kato
-  contact_address_1: 1-7-1 Kounan, Minato-ku
-  contact_address_2: TOKYO
-  contact_address_3: Japan
+  contact_address:
+  - 1-7-1 Kounan, Minato-ku
+  - TOKYO
+  - Japan
   tel:
   - "+81 90 7289 7070"
   fax:
