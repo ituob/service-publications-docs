@@ -43,7 +43,7 @@ attribute :notes, :string, collection: true
         return false unless date
 
         amendment.notes << text
-        matching = actions.select { |position, _entries| position.to_s[/\*+\z/] == date[1] }
+        matching = actions.select { |position, _entries| position.to_s.reverse[/\A\*+/] == date[1] }
         # A list of dates does not identify which date belongs to which row.
         # Keep the printed footnote rather than inventing that association.
         unless date[2].include?(';')
@@ -89,7 +89,7 @@ attribute :notes, :string, collection: true
               amendment.notes << fixed_str
             elsif fixed_str.match?(/\A(?:P\s*\d+|Note\s|country code\s|(?:ADD|SUP|REP|LIR)\s+notes?\s)/i)
               amendment.notes << fixed_str if fixed_str.match?(/\A(?:ADD|SUP|REP|LIR)\s+notes?\s+[a-z]\b/i)
-              state.date_actions.clear unless fixed_str.match?(/\*+\z/)
+              state.date_actions.clear unless fixed_str.end_with?('*')
               if state.action.position.to_s.include?('+') && fixed_str.include?('+')
                 state.table_headings << state.action.position
               end
@@ -100,7 +100,7 @@ attribute :notes, :string, collection: true
 
           elsif first_elem.is_a?(Array) # table
             date_groups = (state.table_headings + [state.action.position]).map { |position| [position, []] }
-            state.date_actions.concat(date_groups.select { |position, _entries| position.to_s.match?(/\*+\z/) })
+            state.date_actions.concat(date_groups.select { |position, _entries| position.to_s.end_with?('*') })
             trial_table = c[0].flatten.join(' ').include?('Trial Identification Code')
             c[1..].each do |row|
               segs = row.map { |cell| cell.is_a?(Array) ? cell.join(' ').strip : cell.to_s.strip }
