@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Bulgaria
   company_name: A1 Bulgaria EAD
-  company_address_1: 1 Kukush Street
-  company_address_2: SOFIA 1309
+  company_address:
+  - 1 Kukush Street
+  - SOFIA 1309
   contact: Mr Emil Rangelov
-  contact_address_1: A1 Bulgaria EAD
-  contact_address_2: 1 Kukush Street
-  contact_address_3: SOFIA 1309
+  contact_address:
+  - A1 Bulgaria EAD
+  - 1 Kukush Street
+  - SOFIA 1309
   tel:
   - "+359 2 485 1410"
   email:

@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: Norway
   company_name: COM4 AS
-  company_address_1: Økernveien 121
-  company_address_2: N-0579 OSLO
-  company_address_3: Norway
+  company_address:
+  - Økernveien 121
+  - N-0579 OSLO
+  - Norway
   contact: Mr Henning Solberg
-  contact_address_1: COM4 AS
-  contact_address_2: Økernveien 121
-  contact_address_3: N-0579 OSLO
-  contact_address_4: Norway
+  contact_address:
+  - COM4 AS
+  - Økernveien 121
+  - N-0579 OSLO
+  - Norway
   tel:
   - "+47 9404 9404"
   fax:

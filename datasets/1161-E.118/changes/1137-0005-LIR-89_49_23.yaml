@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Germany
   company_name: Airdata AG
-  company_address_1: Dieselstraße 18
-  company_address_2: D-70771 LEINFELDEN-ECHTERDINGEN
+  company_address:
+  - Dieselstraße 18
+  - D-70771 LEINFELDEN-ECHTERDINGEN
   contact: Mr Martin Arndt
-  contact_address_1: Postfach 100145
-  contact_address_2: D-70178 STUTTGART
+  contact_address:
+  - Postfach 100145
+  - D-70178 STUTTGART
   tel:
   - "+49 711 96438-162"
   fax:

@@ -12,14 +12,16 @@ data:
   - country_or_area:
       en: United States
     company_name: IDT Telecom, Inc.
-    company_address_1: 550 Broad Street
-    company_address_2: NEWARK, NJ 07102
-    company_address_3: United States
+    company_address:
+    - 550 Broad Street
+    - NEWARK, NJ 07102
+    - United States
     contact: Anthony Davidson
-    contact_address_1: IDT Telecom, Inc.
-    contact_address_2: 550 Broad Street
-    contact_address_3: NEWARK, NJ 07102
-    contact_address_4: United States
+    contact_address:
+    - IDT Telecom, Inc.
+    - 550 Broad Street
+    - NEWARK, NJ 07102
+    - United States
     tel:
     - "+1 973 438 4170"
     fax:

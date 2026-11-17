@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: United States
   company_name: Vivaro Corporation
-  company_address_1: 1250 Broadway, 26th Floor
-  company_address_2: NEW YORK, NY
+  company_address:
+  - 1250 Broadway, 26th Floor
+  - NEW YORK, NY
   contact: Ms Susan Spann
-  contact_address_1: 1250 Broadway, 26th Floor
-  contact_address_2: NEW YORK, NY
+  contact_address:
+  - 1250 Broadway, 26th Floor
+  - NEW YORK, NY
   tel:
   - "+1 913 562 1114"
   fax:

@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Australia
   company_name: SingTel Optus Pty Limited
-  company_address_1: 1 Lyonpark Road
-  company_address_2: MACQUARIE PARK NSW 2113
+  company_address:
+  - 1 Lyonpark Road
+  - MACQUARIE PARK NSW 2113
   contact: Tristan Thabtim
-  contact_address_1: PO Box 888
-  contact_address_2: NSW-1670 NORTH RYDE
+  contact_address:
+  - PO Box 888
+  - NSW-1670 NORTH RYDE
   tel:
   - "+61 2 8082 7800"
   fax:

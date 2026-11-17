@@ -8,14 +8,17 @@ data:
   country_or_area:
     en: Liechtenstein
   company_name: SORACOM CORPORATION, LTD.
-  company_address_1: 16 Great Queen Street,
-  company_address_2: Covent Garden
-  company_address_3: LONDON WC2B 5AH
+  company_address:
+  - 16 Great Queen Street,
+  - Covent Garden
+  - LONDON WC2B 5AH
+  - "(United Kingdom)"
   contact: Ken Otsuki
-  contact_address_1: 16 Great Queen Street
-  contact_address_2: Covent Garden
-  contact_address_3: LONDON WC2B 5AH
-  contact_address_4: "(United Kingdom)"
+  contact_address:
+  - 16 Great Queen Street
+  - Covent Garden
+  - LONDON WC2B 5AH
+  - "(United Kingdom)"
   tel:
   - "+44 203290 9033"
   email:

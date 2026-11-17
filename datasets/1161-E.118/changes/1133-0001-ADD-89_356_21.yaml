@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Malta
   company_name: GO p.l.c.
-  company_address_1: Fra Diegu Street
-  company_address_2: MARSA, MRS 1501
+  company_address:
+  - Fra Diegu Street
+  - MARSA, MRS 1501
   contact: Mr Kurt Camilleri
-  contact_address_1: GO p.l.c.
-  contact_address_2: Fra Diegu Street
-  contact_address_3: MARSA, MRS 1501
+  contact_address:
+  - GO p.l.c.
+  - Fra Diegu Street
+  - MARSA, MRS 1501
   tel:
   - "+356 2594 1083"
   email:

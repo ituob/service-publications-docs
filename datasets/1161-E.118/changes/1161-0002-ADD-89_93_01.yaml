@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Afghanistan
   company_name: Afghan Wireless Communication Company (AWCC)
-  company_address_1: Darulaman Road,
-  company_address_2: Near Hajari Najari Bus Station
-  company_address_3: KABUL
+  company_address:
+  - Darulaman Road,
+  - Near Hajari Najari Bus Station
+  - KABUL
   contact: AWCC
-  contact_address_1: Darulaman Road,
-  contact_address_2: Near Hajari Najari Bus Station
-  contact_address_3: KABUL
+  contact_address:
+  - Darulaman Road,
+  - Near Hajari Najari Bus Station
+  - KABUL
   tel:
   - "+93 70 111 40 27"
   email:

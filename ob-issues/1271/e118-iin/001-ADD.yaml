@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Belgium
     company_name: CWave (Citymesh Connect)
-    company_address_1: Siemensiaan 13
-    company_address_2: 8020 OOSTKAMP
+    company_address:
+    - Siemensiaan 13
+    - 8020 OOSTKAMP
     contact: Geert Dewestelinck
-    contact_address_1: Siemensiaan 13
-    contact_address_2: 8020 OOSTKAMP
+    contact_address:
+    - Siemensiaan 13
+    - 8020 OOSTKAMP
     tel:
     - "+32 50 41 02 00"
     email:

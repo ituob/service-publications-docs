@@ -12,14 +12,16 @@ data:
   - country_or_area:
       en: Israel
     company_name: Golan Telecom Ltd
-    company_address_1: 98 Yigal Allon
-    company_address_2: 67 891 TEL AVIV
-    company_address_3: Israel
+    company_address:
+    - 98 Yigal Allon
+    - 67 891 TEL AVIV
+    - Israel
     contact: Mr David Golan
-    contact_address_1: Golan Telecom Ltd
-    contact_address_2: 98 yigal Allon
-    contact_address_3: 67 891 TEL AVIV
-    contact_address_4: Israel
+    contact_address:
+    - Golan Telecom Ltd
+    - 98 yigal Allon
+    - 67 891 TEL AVIV
+    - Israel
     tel:
     - "+972 54 615 6236"
     email:

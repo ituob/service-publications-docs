@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Albania
   company_name: Albanian Mobile Communications Sh.a.
-  company_address_1: Rruga "Gjergj Legisi"
-  company_address_2: Laprake
-  company_address_3: TIRANA
+  company_address:
+  - Rruga "Gjergj Legisi"
+  - Laprake
+  - TIRANA
   contact: Ms Irena Elmas
-  contact_address_1: Rruga "Gjergj Legisi"
-  contact_address_2: Laprake
-  contact_address_3: TIRANA
+  contact_address:
+  - Rruga "Gjergj Legisi"
+  - Laprake
+  - TIRANA
   tel:
   - "+355 4 227 5832"
   fax:

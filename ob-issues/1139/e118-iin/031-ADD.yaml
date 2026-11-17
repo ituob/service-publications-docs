@@ -11,14 +11,17 @@ data:
   - country_or_area:
       en: Singapore
     company_name: TPG TELECOM PTE. LTD
-    company_address_1: 150 Beach Road
-    company_address_2: "#07-05/08"
-    company_address_3: Gateway West
+    company_address:
+    - 150 Beach Road
+    - "#07-05/08"
+    - Gateway West
+    - SINGAPORE 189720
     contact: Mr Wayne Springer
-    contact_address_1: 150 Beach Road
-    contact_address_2: "#07-05/08"
-    contact_address_3: Gateway West
-    contact_address_4: SINGAPORE 189720
+    contact_address:
+    - 150 Beach Road
+    - "#07-05/08"
+    - Gateway West
+    - SINGAPORE 189720
     tel:
     - "+65 6817 9070"
     email:

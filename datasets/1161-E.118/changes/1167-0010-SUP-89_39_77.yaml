@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Italy
   company_name: IPSE 2000
-  company_address_1: Piazza del Caprettari 70
-  company_address_2: I-00186 ROMA
+  company_address:
+  - Piazza del Caprettari 70
+  - I-00186 ROMA
   contact: Filippo Dallatorre
-  contact_address_1: V. delle Testuggini, s.n.c.
-  contact_address_2: I-00134 ROMA
+  contact_address:
+  - V. delle Testuggini, s.n.c.
+  - I-00134 ROMA
   tel:
   - "+39 06 5799 5703"
   fax:

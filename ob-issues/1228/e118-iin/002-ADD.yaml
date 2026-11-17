@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Colombia
     company_name: SUMA MÓVIL S.A.S.
-    company_address_1: Carrera 7 No. 19-48 Edificio Banco Popular piso 6
-    company_address_2: PERERIA
+    company_address:
+    - Carrera 7 No. 19-48 Edificio Banco Popular piso 6
+    - PERERIA
     contact: Departamento Legal,
-    contact_address_1: SUMA MÓVIL S.A.S.
-    contact_address_2: Carrera 7 No. 19-48 Edificio Banco Popular piso 6
-    contact_address_3: PERERIA
+    contact_address:
+    - SUMA MÓVIL S.A.S.
+    - Carrera 7 No. 19-48 Edificio Banco Popular piso 6
+    - PERERIA
     tel:
     - "+57 3206754137"
     email:

@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Aghoco 1128 Limited.
-    company_address_1: 100 Barbirolli Square
-    company_address_2: MANCHESTER, M2 3AB
-    company_address_3: United Kingdom
+    company_address:
+    - 100 Barbirolli Square
+    - MANCHESTER, M2 3AB
+    - United Kingdom
     contact: Mr.James Tatro
-    contact_address_1: Aghoco 1128 Limited.
-    contact_address_2: 100 Barbirolli Square
-    contact_address_3: MANCHESTER, M2 3AB
-    contact_address_4: United Kingdom
+    contact_address:
+    - Aghoco 1128 Limited.
+    - 100 Barbirolli Square
+    - MANCHESTER, M2 3AB
+    - United Kingdom
     tel:
     - "+44 20 7160 3189"
     fax:

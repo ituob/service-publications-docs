@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: France
   company_name: Oberthur Technologies
-  company_address_1: 420 Rue d'Estienne d'Orves
-  company_address_2: 92700 COLOMBES
+  company_address:
+  - 420 Rue d'Estienne d'Orves
+  - 92700 COLOMBES
   contact: GAUVIN David
-  contact_address_1: 420 Rue d'Estienne d'Orves
-  contact_address_2: 92700 COLOMBES
+  contact_address:
+  - 420 Rue d'Estienne d'Orves
+  - 92700 COLOMBES
   tel:
   - "+33 1 78 14 72 89"
   email:

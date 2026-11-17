@@ -8,15 +8,17 @@ data:
   country_or_area:
     en: United States
   company_name: DataXoom
-  company_address_1: 25 Sundial Ave, Suite 316
-  company_address_2: MANCHESTER
-  company_address_3: NH 03103
+  company_address:
+  - 25 Sundial Ave, Suite 316
+  - MANCHESTER
+  - NH 03103
   contact: Zak Brickett
-  contact_address_1: 25 Sundial Ave, Suite 316
-  contact_address_2: MANCHESTER
-  contact_address_3: NH 03103
+  contact_address:
+  - 25 Sundial Ave, Suite 316
+  - MANCHESTER
+  - NH 03103
   tel:
-  - "          +1 510 474 0044"
+  - "+1 510 474 0044"
   email:
   - Zak.brickett@dataxoom.com
   issue_id_number: 89 1 082

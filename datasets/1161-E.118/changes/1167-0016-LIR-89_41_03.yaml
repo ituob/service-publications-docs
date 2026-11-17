@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: Switzerland
   company_name: Salt Mobile SA
-  company_address_1: Regulatory Affairs
-  company_address_2: Rue du Caudray 4
-  company_address_3: CH-1020 Renens
+  company_address:
+  - Regulatory Affairs
+  - Rue du Caudray 4
+  - CH-1020 Renens
   contact: Beghi Luca
-  contact_address_1: Rue du Caudray 4
-  contact_address_2: CH-1020 Renens
+  contact_address:
+  - Rue du Caudray 4
+  - CH-1020 Renens
   tel:
-  - "         +41 21 216 1010"
+  - "+41 21 216 1010"
   fax:
   - "+41 21 216 1515"
   email:

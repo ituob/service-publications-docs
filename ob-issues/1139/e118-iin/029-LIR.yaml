@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Serbia
     company_name: Preduzece za telekomunicacije "Telekom Srbija' a.d.
-    company_address_1: Takovska 2
-    company_address_2: 11000 BELGRADE
+    company_address:
+    - Takovska 2
+    - 11000 BELGRADE
     contact: Slobodan Terzić
-    contact_address_1: Takovska 2
-    contact_address_2: 11000 BELGRADE
+    contact_address:
+    - Takovska 2
+    - 11000 BELGRADE
     tel:
     - "+381 64 610 5407"
     fax:

@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Germany
   company_name: Giesecke+Devrient Mobile Security GmbH
-  company_address_1: Prinzregentenstr. 159
-  company_address_2: 81677 MUENCHEN
+  company_address:
+  - Prinzregentenstr. 159
+  - 81677 MUENCHEN
   contact: Daniel Daksiewicz
-  contact_address_1: Prinzregentenstr. 159
-  contact_address_2: 81677 MUENCHEN
+  contact_address:
+  - Prinzregentenstr. 159
+  - 81677 MUENCHEN
   tel:
   - "+49 89 4119 0"
   email:

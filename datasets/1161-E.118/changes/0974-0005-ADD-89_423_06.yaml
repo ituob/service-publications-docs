@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Liechtenstein
   company_name: Cubic AG
-  company_address_1: Auelestrasse 45
-  company_address_2: 9490 VADUZ
+  company_address:
+  - Auelestrasse 45
+  - 9490 VADUZ
   contact: Alois Widmann
-  contact_address_1: Auelestrasse 45
-  contact_address_2: 9490 VADUZ
+  contact_address:
+  - Auelestrasse 45
+  - 9490 VADUZ
   tel:
   - "+41 77 25 00000"
   email:

@@ -11,9 +11,11 @@ data:
   - country_or_area:
       en: Japan
     company_name: OPTAGE Inc.
-    company_address_1: OPTAGE BLDG.
-    company_address_2: 2-1-5- Shiromi,
-    company_address_3: Chuo-ku
+    company_address:
+    - OPTAGE BLDG.
+    - 2-1-5- Shiromi,
+    - Chuo-ku
+    - OSAKA, 540-8622
     tel:
     - Business Strategy Department
     - Business Division

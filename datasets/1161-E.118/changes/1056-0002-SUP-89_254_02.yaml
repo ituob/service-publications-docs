@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Kenya
   company_name: Safaricom Limited
-  company_address_1: Waiyaki Way
-  company_address_2: PO Box 46350
-  company_address_3: NAIROBI
+  company_address:
+  - Waiyaki Way
+  - PO Box 46350
+  - NAIROBI
   contact: Vitalis K. Olunga
-  contact_address_1: Waiyaki Way
-  contact_address_2: PO Box 46350
-  contact_address_3: NAIROBI
+  contact_address:
+  - Waiyaki Way
+  - PO Box 46350
+  - NAIROBI
   tel:
   - "+254 2 3272 3111"
   fax:

@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Fiji
     company_name: Vodafone Fiji Pte Limited
-    company_address_1: Private Bag
-    company_address_2: SUVA
+    company_address:
+    - Private Bag
+    - SUVA
     contact: Andrew Kumar
-    contact_address_1: c/- Vodafone Fiji Pte Limited
-    contact_address_2: 168 Princes Road
-    contact_address_3: SUVA
+    contact_address:
+    - c/- Vodafone Fiji Pte Limited
+    - 168 Princes Road
+    - SUVA
     tel:
     - "+679 331 2000"
     fax:

@@ -11,15 +11,18 @@ data:
   - country_or_area:
       en: Spain
     company_name: TUENTI TECHNOLOGIES, S.L.
-    company_address_1: Calle Gran Via, n0 28,60
-    company_address_2: C.P. 28013
-    company_address_3: MADRID
+    company_address:
+    - Calle Gran Via, n0 28,60
+    - C.P. 28013
+    - MADRID
+    - España
     contact: Sr D.Oscar Casado Oliva,
-    contact_address_1: Director del Departamento Legal
-    contact_address_2: Calle Gran Via, n0 28,60
-    contact_address_3: C.P. 28013
-    contact_address_4: MADRID
-    contact_address_5: España
+    contact_address:
+    - Director del Departamento Legal
+    - Calle Gran Via, n0 28,60
+    - C.P. 28013
+    - MADRID
+    - España
     tel:
     - "+34 91 429 40 39"
     fax:

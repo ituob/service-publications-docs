@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Uruguay
   company_name: Administración Nacional de Telecomunicaciones (ANTEL)
-  company_address_1: Guatemala 1075, Nivel 2,
-  company_address_2: Complejo Torre de las Comunicaciones
-  company_address_3: 11800 MONTEVIDEO
+  company_address:
+  - Guatemala 1075, Nivel 2,
+  - Complejo Torre de las Comunicaciones
+  - 11800 MONTEVIDEO
   contact: Ing. Andrés Ferrari
-  contact_address_1: Guatemala 1075, Nivel 15,
-  contact_address_2: Complejo Torre de las Comunicaciones
-  contact_address_3: 11800 MONTEVIDEO
+  contact_address:
+  - Guatemala 1075, Nivel 15,
+  - Complejo Torre de las Comunicaciones
+  - 11800 MONTEVIDEO
   tel:
   - "+598 2 98 5822"
   fax:

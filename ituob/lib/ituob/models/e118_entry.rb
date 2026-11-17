@@ -9,53 +9,17 @@ module Ituob
 
       attribute :country_or_area, MultilingualString
       attribute :company_name, :string
-      attribute :company_address_1, :string
-      attribute :company_address_2, :string
-      attribute :company_address_3, :string
+      # Every printed line after the company name / contact name, in print
+      # order. The printed cell has no fixed number of address lines (a
+      # postal code and city can be a fourth), so nothing caps the list.
+      attribute :company_address, :string, collection: true
       attribute :contact, :string
-      attribute :contact_address_1, :string
-      attribute :contact_address_2, :string
-      attribute :contact_address_3, :string
-      attribute :contact_address_4, :string
-      attribute :contact_address_5, :string
-      attribute :contact_address_6, :string
+      attribute :contact_address, :string, collection: true
       attribute :tel, :string, collection: true
       attribute :fax, :string, collection: true
       attribute :email, :string, collection: true
       attribute :issue_id_number, :string
       attribute :effective_date, :string
-
-      # Set a numbered company_address_N attribute explicitly without
-      # using send. Kept private so callers use the proper attribute API.
-      def assign_company_address(index, value)
-        case index
-        when 1 then self.company_address_1 = value
-        when 2 then self.company_address_2 = value
-        when 3 then self.company_address_3 = value
-        end
-      end
-
-      def assign_contact_address(index, value)
-        case index
-        when 1 then self.contact_address_1 = value
-        when 2 then self.contact_address_2 = value
-        when 3 then self.contact_address_3 = value
-        when 4 then self.contact_address_4 = value
-        when 5 then self.contact_address_5 = value
-        when 6 then self.contact_address_6 = value
-        end
-      end
-
-      def read_contact_address(index)
-        case index
-        when 1 then contact_address_1
-        when 2 then contact_address_2
-        when 3 then contact_address_3
-        when 4 then contact_address_4
-        when 5 then contact_address_5
-        when 6 then contact_address_6
-        end
-      end
 
       def self.parse(prosemirror_row)
         entry = new
@@ -70,11 +34,8 @@ module Ituob
           lines = prosemirror_row.cells[1].lines
 
           entry.company_name = lines[0] if lines.size > 0
-          (1..3).each do |i|
-            if lines.size > i && lines[i]
-              entry.assign_company_address(i, lines[i].gsub(/[[:space:]]/, ' ').strip)
-            end
-          end
+          address = lines.drop(1).compact.map { |line| line.gsub(/[[:space:]]/, ' ').strip }.reject(&:empty?)
+          entry.company_address = address unless address.empty?
         end
 
         # Extract issuer identifier number
@@ -93,7 +54,12 @@ module Ituob
             else
               []
             end
-          end.map(&:strip).reject(&:empty?)
+          end.flat_map do |line|
+            normalized = line.gsub(/[\p{Space}\p{Zs}]/, ' ').strip
+            # Some source rows print a contact label after its address on the
+            # same line. Split at the label so the address prefix survives.
+            normalized.split(/(?<=\S) +(?=(?:Tel|Tél|Cell|Mobile|Fax|E-?mail)\s*(?:\.|:))/i)
+          end.reject(&:empty?)
           contact_lines = []
           tel_fax_email_lines = []
           contact_info_started = false
@@ -117,11 +83,7 @@ module Ituob
           end
 
           entry.contact = Ituob::Helpers.strip_legacy(contact_lines[0]) || nil
-          (1..6).each do |i|
-            if contact_lines.size > i && contact_lines[i]
-              entry.assign_contact_address(i, contact_lines[i].gsub(/[[:space:]]/, ' ').strip)
-            end
-          end
+          contact_address = contact_lines.drop(1).compact.map { |line| line.gsub(/[[:space:]]/, ' ').strip }.reject(&:empty?)
 
           tel = []
           fax = []
@@ -154,45 +116,39 @@ module Ituob
               last_label = :tel
 
             elsif line =~ /^Fax\s*(?:\.|:)/i
-              text = line.gsub(/^Fax\s*(?:\.|:)[[:space:]]*/, '').strip
+              text = line.gsub(/^Fax\s*(?:\.|:)[[:space:]]*/i, '').strip
               fax << text unless text.empty?
               last_label = :fax
 
             elsif line =~ /^E-?mail\s*(?:\.|:)/i || line.include?('@')
               last_label = :email
               if line.count('@') > 1
-                emails = line.sub(/^E-?mail\s*(?:\.|:)[[:space:]]*/, '').split(/\s+/).select { |e| e.include?('@') }
+                emails = line.sub(/^E-?mail\s*(?:\.|:)[[:space:]]*/i, '').split(/\s+/).select { |e| e.include?('@') }
                 email.concat(emails)
               else
-                text = line.sub(/^E-?mail\s*(?:\.|:)[[:space:]]*/, '').strip
+                text = line.sub(/^E-?mail\s*(?:\.|:)[[:space:]]*/i, '').strip
                 email << text unless text.empty?
               end
             end
           end
 
-          # Sweep contact_address fields for misclassified phone numbers/emails.
-          (1..6).each do |i|
-            addr_field = entry.read_contact_address(i)
-            next unless addr_field
-
+          # Sweep contact address lines for misclassified phone numbers/emails.
+          contact_address = contact_address.reject do |addr_field|
             if addr_field =~ /^(Tel|Tél|Cell|Mobile)(?:\.|:|\s)/i || addr_field =~ /^:/
-              text = addr_field.gsub(/^(?:(Tel|Tél|Cell|Mobile)(?:\.|:|\s)?|:)[[:space:]]*/, '').strip
-              tel << text
-              entry.assign_contact_address(i, nil)
+              tel << addr_field.gsub(/^(?:(Tel|Tél|Cell|Mobile)(?:\.|:|\s)?|:)[[:space:]]*/, '').strip
             elsif addr_field =~ /^Fax(?:\.|:)/i
-              text = addr_field.gsub(/^Fax(?:\.|:)[[:space:]]*/, '').strip
-              fax << text
-              entry.assign_contact_address(i, nil)
+              fax << addr_field.gsub(/^Fax(?:\.|:)[[:space:]]*/i, '').strip
             elsif addr_field.include?('@')
               if addr_field.count('@') > 1
-                emails = addr_field.split(/\s+/).select { |e| e.include?('@') }
-                email.concat(emails)
+                email.concat(addr_field.split(/\s+/).select { |e| e.include?('@') })
               else
                 email << addr_field.strip
               end
-              entry.assign_contact_address(i, nil)
+            else
+              false
             end
           end
+          entry.contact_address = contact_address unless contact_address.empty?
 
           tel = tel.map { |t| t.sub(/^:/, '').strip } unless tel.empty?
 

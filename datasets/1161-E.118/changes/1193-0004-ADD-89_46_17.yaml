@@ -8,11 +8,19 @@ data:
   country_or_area:
     en: Sweden
   company_name: Götalandsnätet AB
-  company_address_1: Box 912
-  company_address_2: 461 29 TROLLHÄTTAN
+  company_address:
+  - Box 912
+  - 461 29 TROLLHÄTTAN
   contact: Per Frykner
-  contact_address_1: Box 912
-  contact_address_2: 461 29 TROLLHÄTTAN
+  contact_address:
+  - Box 912
+  - 461 29 TROLLHÄTTAN
+  tel:
+  - "+46 520 500580"
+  fax:
+  - "+46 520 500589"
+  email:
+  - administration@gotanet.se
   issue_id_number: 89 46 17
   effective_date: 1.IV.2020
 reference: OB-1193

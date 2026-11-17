@@ -12,14 +12,16 @@ data:
   - country_or_area:
       en: Portugal
     company_name: Telecomunicações Moveis Nacionais
-    company_address_1: Av.Alvaro País No 2
-    company_address_2: 1649-041 LISBOA
-    company_address_3: Portugal
+    company_address:
+    - Av.Alvaro País No 2
+    - 1649-041 LISBOA
+    - Portugal
     contact: Mr José Paulo Pires
-    contact_address_1: Telecomunicações Moveis Nacionais
-    contact_address_2: Av.Alvaro País No 2
-    contact_address_3: 1649-041 LISBOA
-    contact_address_4: Portugal
+    contact_address:
+    - Telecomunicações Moveis Nacionais
+    - Av.Alvaro País No 2
+    - 1649-041 LISBOA
+    - Portugal
     tel:
     - "+351 21 782 4248"
     fax:

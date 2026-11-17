@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Lebara Mobile Limited
-    company_address_1: 7th Floor, Import Building
-    company_address_2: 2 Clove Crescent,
-    company_address_3: LONDON E14 2BE
+    company_address:
+    - 7th Floor, Import Building
+    - 2 Clove Crescent,
+    - LONDON E14 2BE
     contact: Mr Gavin Miller
-    contact_address_1: 7th Floor, Import Building
-    contact_address_2: 2 Clove Crescent,
-    contact_address_3: LONDON E14 2BE
+    contact_address:
+    - 7th Floor, Import Building
+    - 2 Clove Crescent,
+    - LONDON E14 2BE
     tel:
     - "+447831263314"
     email:

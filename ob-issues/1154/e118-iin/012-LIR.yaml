@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Iceland
     company_name: IMC Island ehf
-    company_address_1: Armuli 7B
-    company_address_2: 108 REYKJAVIK
+    company_address:
+    - Armuli 7B
+    - 108 REYKJAVIK
     contact: Jim Blaisdell
-    contact_address_1: 801 Roeder Rd., Suite 800
-    contact_address_2: SILVER SPRING, MD 20910. USA
-    contact_address_3: "(United States)"
+    contact_address:
+    - 801 Roeder Rd., Suite 800
+    - SILVER SPRING, MD 20910. USA
+    - "(United States)"
     tel:
     - "+1 301 960 0060"
     fax:

@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Denmark
   company_name: Telia Mobile
-  company_address_1: Holmbladsgade 139
-  company_address_2: 2300 COPENHAGEN S
+  company_address:
+  - Holmbladsgade 139
+  - 2300 COPENHAGEN S
   contact: Lene Damgaard
-  contact_address_1: Holmbladsgade 139
-  contact_address_2: DK-2300 KOBENHAVN S
+  contact_address:
+  - Holmbladsgade 139
+  - DK-2300 KOBENHAVN S
   tel:
   - "+45 2610 0762"
   fax:

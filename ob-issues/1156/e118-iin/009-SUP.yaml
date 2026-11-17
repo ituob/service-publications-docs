@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Unitel Communications Ltd
-    company_address_1: Wealo House, 88 Main Road
-    company_address_2: SUNDRIDGE, KENT TN14 6ER
+    company_address:
+    - Wealo House, 88 Main Road
+    - SUNDRIDGE, KENT TN14 6ER
     contact: Christine Kennelwell
-    contact_address_1: Wealo House, 88 Main Road
-    contact_address_2: SUNDRIDGE, KENT TN14 6ER
+    contact_address:
+    - Wealo House, 88 Main Road
+    - SUNDRIDGE, KENT TN14 6ER
     tel:
     - "+44 195 956 5300"
     fax:

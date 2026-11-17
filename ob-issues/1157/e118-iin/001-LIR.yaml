@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Australia
     company_name: Vodafone Australia Ltd
-    company_address_1: Level 14, 177 Pacific Hwy
-    company_address_2: North Sydney, NSW 2060
+    company_address:
+    - Level 14, 177 Pacific Hwy
+    - North Sydney, NSW 2060
     contact: Mr Alexander Osborne
-    contact_address_1: Level 14, 177 Pacific Hwy
-    contact_address_2: North Sydney NSW 2060
+    contact_address:
+    - Level 14, 177 Pacific Hwy
+    - North Sydney NSW 2060
     tel:
     - "+61 425 232 539"
     email:

@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Estonia
     company_name: Tele2 Eesti AS
-    company_address_1: Jõe 2a
-    company_address_2: 10151 TALLINN
+    company_address:
+    - Jõe 2a
+    - 10151 TALLINN
     contact: Mr Ardi Aolaid
-    contact_address_1: Jõe 2a
-    contact_address_2: 10151 TALLINN
+    contact_address:
+    - Jõe 2a
+    - 10151 TALLINN
     tel:
     - "+372 686 6230"
     fax:

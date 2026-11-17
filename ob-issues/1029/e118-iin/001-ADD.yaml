@@ -11,15 +11,18 @@ data:
   - country_or_area:
       en: Japan
     company_name: eAccess Ltd.
-    company_address_1: 2-10-1, Toranomon,
-    company_address_2: Minato-ku
-    company_address_3: 105-0001 TOKYO
+    company_address:
+    - 2-10-1, Toranomon,
+    - Minato-ku
+    - 105-0001 TOKYO
+    - Japan
     contact: Mr. Isao Ohashi
-    contact_address_1: eAccess Ltd.
-    contact_address_2: 2-10-1, Toranomon,
-    contact_address_3: Minato-ku
-    contact_address_4: 105-0001 TOKYO
-    contact_address_5: Japan
+    contact_address:
+    - eAccess Ltd.
+    - 2-10-1, Toranomon,
+    - Minato-ku
+    - 105-0001 TOKYO
+    - Japan
     tel:
     - "+81 3 3588 7545"
     fax:

@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Brazil
     company_name: Sercomtel Celular S/A
-    company_address_1: Rua Prof. Joao Candido 555
-    company_address_2: Centro Londrina – PR
+    company_address:
+    - Rua Prof. Joao Candido 555
+    - Centro Londrina – PR
     contact: Alessandro Cianca
-    contact_address_1: Rua Prof. Joao Candido 555
-    contact_address_2: Centro Londrina – PR
+    contact_address:
+    - Rua Prof. Joao Candido 555
+    - Centro Londrina – PR
     fax:
     - "+55 43 3324 3333"
     email:

@@ -11,16 +11,20 @@ data:
   - country_or_area:
       en: Albania
     company_name: Plus Communication Sh.a.
-    company_address_1: Rruga “Dëshmorët e 4 Shkurtit »
-    company_address_2: Godina e Re prane Gardës
-    company_address_3: së Republikës
+    company_address:
+    - Rruga “Dëshmorët e 4 Shkurtit »
+    - Godina e Re prane Gardës
+    - së Republikës
+    - Kati 2
+    - TIRANA
     contact: Mr Moni Buchnik
-    contact_address_1: Administrator
-    contact_address_2: Rruga “Dëshmorët e 4 Shkurtit»
-    contact_address_3: Godina e Re prane Gardës së
-    contact_address_4: Republikës
-    contact_address_5: Kati 2
-    contact_address_6: TIRANA
+    contact_address:
+    - Administrator
+    - Rruga “Dëshmorët e 4 Shkurtit»
+    - Godina e Re prane Gardës së
+    - Republikës
+    - Kati 2
+    - TIRANA
     tel:
     - "+355 4 450 1500"
     fax:

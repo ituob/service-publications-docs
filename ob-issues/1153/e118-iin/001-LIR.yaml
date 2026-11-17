@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Azerbaijan
     company_name: Azercell Telecom LLC
-    company_address_1: 149 Tbilisi Avenue
-    company_address_2: AZ 1122 BAKU
+    company_address:
+    - 149 Tbilisi Avenue
+    - AZ 1122 BAKU
     contact: Ms Aida Bayramova
-    contact_address_1: 149 Tbilisi Avenue
-    contact_address_2: AZ 1122 BAKU
+    contact_address:
+    - 149 Tbilisi Avenue
+    - AZ 1122 BAKU
     tel:
     - "+994 50 210 0091"
     fax:

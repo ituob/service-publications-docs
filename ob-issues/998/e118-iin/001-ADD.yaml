@@ -12,13 +12,15 @@ data:
   - country_or_area:
       en: Netherlands
     company_name: Private Mobility Nederland B.V
-    company_address_1: Bolderweg 1
-    company_address_2: 1332 AX Almere
-    company_address_3: The Netherlands
+    company_address:
+    - Bolderweg 1
+    - 1332 AX Almere
+    - The Netherlands
     contact: Mr Stefan Tobé
-    contact_address_1: Bolderweg 1
-    contact_address_2: 1332 AX Almere
-    contact_address_3: The Netherlands
+    contact_address:
+    - Bolderweg 1
+    - 1332 AX Almere
+    - The Netherlands
     tel:
     - "+31 62 126 5968"
     email:

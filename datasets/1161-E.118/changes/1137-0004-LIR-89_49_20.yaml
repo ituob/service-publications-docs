@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Germany
   company_name: Vodafone GmbH
-  company_address_1: Ferdinand-Braun-Platz 1
-  company_address_2: D-40549 DUESSELDORF
+  company_address:
+  - Ferdinand-Braun-Platz 1
+  - D-40549 DUESSELDORF
   contact: Mrs Ninja Dietrich
-  contact_address_1: Ferdinand-Braun-Platz 1
-  contact_address_2: D-40549 DUESSELDORF
+  contact_address:
+  - Ferdinand-Braun-Platz 1
+  - D-40549 DUESSELDORF
   tel:
   - "+49 211 533 3807"
   email:

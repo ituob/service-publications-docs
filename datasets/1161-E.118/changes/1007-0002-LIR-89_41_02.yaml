@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Switzerland
   company_name: Sunrise Communications AG Binzmuehlestrasse 130
-  company_address_1: CH-8050 Zurich
-  company_address_2: Switzerland
+  company_address:
+  - CH-8050 Zurich
+  - Switzerland
   contact: Eduard Huisman
-  contact_address_1: Binzmuehlestrasse 130
-  contact_address_2: CH-8050 Zurich
-  contact_address_3: Switzerland
+  contact_address:
+  - Binzmuehlestrasse 130
+  - CH-8050 Zurich
+  - Switzerland
   tel:
   - "+41 58 777 8494"
   fax:

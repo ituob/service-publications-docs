@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Estonia
     company_name: Elion Enterprises Ltd
-    company_address_1: 16 Endla Street
-    company_address_2: EE-15033 TALLINN
+    company_address:
+    - 16 Endla Street
+    - EE-15033 TALLINN
     contact: Jaak Männik
-    contact_address_1: Kreutzwaldi 12
-    contact_address_2: EE-15033 TALLINN
+    contact_address:
+    - Kreutzwaldi 12
+    - EE-15033 TALLINN
     tel:
     - "+372 639 7212"
     fax:

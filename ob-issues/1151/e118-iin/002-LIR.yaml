@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Estonia
     company_name: Elisa Eesti AS
-    company_address_1: Sõpruse pst 145
-    company_address_2: 13417 TALLINN
+    company_address:
+    - Sõpruse pst 145
+    - 13417 TALLINN
     contact: Mr Sami Jussi Petteri Seppänen
-    contact_address_1: Sõpruse pst 145
-    contact_address_2: 13417 TALLINN
+    contact_address:
+    - Sõpruse pst 145
+    - 13417 TALLINN
     tel:
     - "+372 681 1963"
     fax:

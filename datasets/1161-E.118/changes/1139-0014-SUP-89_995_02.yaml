@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Georgia
   company_name: Magticom Ltd.
-  company_address_1: 7.A. Politkovskaya str.
-  company_address_2: '0186 TBILISI'
+  company_address:
+  - 7.A. Politkovskaya str.
+  - '0186 TBILISI'
   contact: Mr Irakli Mzhavanadze
-  contact_address_1: Magticom Ltd.
-  contact_address_2: 7.A. Politkovskaya str.
-  contact_address_3: '0186 TBILISI'
+  contact_address:
+  - Magticom Ltd.
+  - 7.A. Politkovskaya str.
+  - '0186 TBILISI'
   email:
   - irakli.mzhavanadze@magticom.ge
   issue_id_number: 89 995 02

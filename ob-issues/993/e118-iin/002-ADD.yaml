@@ -12,14 +12,16 @@ data:
   - country_or_area:
       en: Namibia
     company_name: Wireless Technologies Namibia Pty Ltd
-    company_address_1: PO Box 90140, Klein
-    company_address_2: WINDHOEK
-    company_address_3: Namibia
+    company_address:
+    - PO Box 90140, Klein
+    - WINDHOEK
+    - Namibia
     contact: Mr Schalk Erasmus
-    contact_address_1: Wireless Technologies Namibia Pty Ltd
-    contact_address_2: PO Box 90140, Klein
-    contact_address_3: WINDHOEK
-    contact_address_4: Namibia
+    contact_address:
+    - Wireless Technologies Namibia Pty Ltd
+    - PO Box 90140, Klein
+    - WINDHOEK
+    - Namibia
     tel:
     - "+264 61 375 486"
     fax:

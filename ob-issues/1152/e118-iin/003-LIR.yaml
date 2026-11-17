@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Botswana
     company_name: Orange Botswana (Pty) Ltd
-    company_address_1: Private Bag BO64
-    company_address_2: GABORONE
+    company_address:
+    - Private Bag BO64
+    - GABORONE
     contact: Mr Patrick Benon
-    contact_address_1: Orange Botswana (Pty) Ltd
-    contact_address_2: Plot 1131/37, Main Mall
-    contact_address_3: Private Bag BO64
-    contact_address_4: GABORONE
+    contact_address:
+    - Orange Botswana (Pty) Ltd
+    - Plot 1131/37, Main Mall
+    - Private Bag BO64
+    - GABORONE
     tel:
     - "+267 397 2672"
     email:

@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: United States
     company_name: Lower Colorado River Authority
-    company_address_1: 3505 Montopolis Dr.
-    company_address_2: AUSTIN, TX 78744
+    company_address:
+    - 3505 Montopolis Dr.
+    - AUSTIN, TX 78744
     contact: Eddie Krekel
-    contact_address_1: 3505 Montopolis Dr.
-    contact_address_2: AUSTIN, TX 78744
+    contact_address:
+    - 3505 Montopolis Dr.
+    - AUSTIN, TX 78744
     tel:
     - "+1 512 730 6486"
     email:

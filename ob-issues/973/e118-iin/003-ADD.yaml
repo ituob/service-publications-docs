@@ -13,7 +13,8 @@ data:
         Country/
         geographical area
     company_name: Company
-    company_address_1: Name/Address
+    company_address:
+    - Name/Address
     contact: Contact
     issue_id_number: Issuer Identifier Number
     effective_date: Effective date of usage

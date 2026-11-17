@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Switzerland
     company_name: Nexphone AG
-    company_address_1: Alpenstrasse 1
-    company_address_2: CH-8803 RÜSCHLIKON
+    company_address:
+    - Alpenstrasse 1
+    - CH-8803 RÜSCHLIKON
     contact: Technical Support,
-    contact_address_1: Nexphone AG
-    contact_address_2: Alpenstrasse 1
-    contact_address_3: CH-8803 RÜSCHLIKON
+    contact_address:
+    - Nexphone AG
+    - Alpenstrasse 1
+    - CH-8803 RÜSCHLIKON
     tel:
     - "+41 44 545 40 88"
     email:

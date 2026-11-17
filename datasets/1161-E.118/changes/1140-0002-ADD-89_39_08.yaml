@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Italy
   company_name: FASTWEB S.P.A.
-  company_address_1: Via Caracciolo n.51
-  company_address_2: 20155 MILAN
+  company_address:
+  - Via Caracciolo n.51
+  - 20155 MILAN
   contact: Ms Laura Navarra
-  contact_address_1: FASTWEB S.P.A.
-  contact_address_2: Piazzale Luigi Sturzo 23
-  contact_address_3: 00144 ROME
+  contact_address:
+  - FASTWEB S.P.A.
+  - Piazzale Luigi Sturzo 23
+  - 00144 ROME
   tel:
   - "+39 0650860812"
   email:

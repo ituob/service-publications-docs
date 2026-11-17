@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: United States
     company_name: Neuner Mobile Technologies LLC
-    company_address_1: 8 The Green, Suite B
-    company_address_2: DOVER, DE 19901
+    company_address:
+    - 8 The Green, Suite B
+    - DOVER, DE 19901
     contact: Christian Endsjo
-    contact_address_1: Ridderkleiva 50d
-    contact_address_2: 1338 ASKER
-    contact_address_3: "(Norway)"
+    contact_address:
+    - Ridderkleiva 50d
+    - 1338 ASKER
+    - "(Norway)"
     tel:
     - "+47 93424431"
     email:

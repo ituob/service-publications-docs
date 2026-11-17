@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Palau
     company_name: Palau Communication and Electronics Company dba Palau Telecoms
-    company_address_1: P.O. Box 605 PECI Bldg.
-    company_address_2: MALAKAL KOROR
-    company_address_3: Palau 96940
+    company_address:
+    - P.O. Box 605 PECI Bldg.
+    - MALAKAL KOROR
+    - Palau 96940
     contact: Mr Sebastian S. Masang.
-    contact_address_1: Palau Communication and Electronics Company dba Palau Telecoms
-    contact_address_2: P.O. Box 605 PECI Bldg.
-    contact_address_3: MALAKAL KOROR
-    contact_address_4: Palau 96940
+    contact_address:
+    - Palau Communication and Electronics Company dba Palau Telecoms
+    - P.O. Box 605 PECI Bldg.
+    - MALAKAL KOROR
+    - Palau 96940
     tel:
     - "+680 488 2628/7705"
     fax:

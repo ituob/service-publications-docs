@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Namibia
     company_name: Mobile Telecommunications Ltd.
-    company_address_1: PO Box 23051
-    company_address_2: WINDHOEK
+    company_address:
+    - PO Box 23051
+    - WINDHOEK
     contact: Curt Mouton
-    contact_address_1: PO Box 23051
-    contact_address_2: WINDHOEK
+    contact_address:
+    - PO Box 23051
+    - WINDHOEK
     tel:
     - "+264 61 280 2000"
     fax:

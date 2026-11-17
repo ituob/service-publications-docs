@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: Etats-Unis
   company_name: Gigsky, Inc.
-  company_address_1: '2390 El Camino Real, #250'
-  company_address_2: Palo Alto, CA 94306
-  company_address_3: United States
+  company_address:
+  - '2390 El Camino Real, #250'
+  - Palo Alto, CA 94306
+  - United States
   contact: Mr. Tony Wyant
-  contact_address_1: Gigsky, Inc.
-  contact_address_2: '2390 El Camino Real, # 250'
-  contact_address_3: Palo Alto, CA 94306
-  contact_address_4: United States
+  contact_address:
+  - Gigsky, Inc.
+  - '2390 El Camino Real, # 250'
+  - Palo Alto, CA 94306
+  - United States
   tel:
   - "+1 650 353 3323"
   fax:

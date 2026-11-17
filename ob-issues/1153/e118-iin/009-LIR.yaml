@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Hong Kong, China
     company_name: SmarTone Mobile Communications Limited
-    company_address_1: 31/F Millennium City 2,
-    company_address_2: 378 Kwun Tong Road, Kowloon,
-    company_address_3: Hong Kong
+    company_address:
+    - 31/F Millennium City 2,
+    - 378 Kwun Tong Road, Kowloon,
+    - Hong Kong
     contact: Mr Stephen Chau
-    contact_address_1: 31/F Millennium City 2,
-    contact_address_2: 378 Kwun Tong Road, Kowloon,
-    contact_address_3: Hong Kong
+    contact_address:
+    - 31/F Millennium City 2,
+    - 378 Kwun Tong Road, Kowloon,
+    - Hong Kong
     tel:
     - "+852 3128 2838"
     fax:

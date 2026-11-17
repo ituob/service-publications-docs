@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Luxembourg
   company_name: POST Luxembourg
-  company_address_1: 20, rue de Reims
-  company_address_2: L-2417 LUXEMBOURG
+  company_address:
+  - 20, rue de Reims
+  - L-2417 LUXEMBOURG
   contact: Mr Gaston Bohnenberger
-  contact_address_1: POST Technologies
-  contact_address_2: 2, rue Emile Bian
-  contact_address_3: L-2999 LUXEMBOURG
+  contact_address:
+  - POST Technologies
+  - 2, rue Emile Bian
+  - L-2999 LUXEMBOURG
   tel:
   - "+352 4991 5740"
   fax:

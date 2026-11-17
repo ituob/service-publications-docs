@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Japan
   company_name: NTT DOCOMO, Inc.
-  company_address_1: 2-11-1 Nagatacho, Chiyada-hu
-  company_address_2: TOKYO 100-6150
+  company_address:
+  - 2-11-1 Nagatacho, Chiyada-hu
+  - TOKYO 100-6150
   contact: Carrier & Regulatory Affairs Office
-  contact_address_1: 2-11-1 Nagatacho, Chiyada-hu
-  contact_address_2: TOKYO 100-6150
+  contact_address:
+  - 2-11-1 Nagatacho, Chiyada-hu
+  - TOKYO 100-6150
   tel:
   - "+81 3 5156 1263"
   fax:

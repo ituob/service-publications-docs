@@ -8,13 +8,17 @@ data:
   country_or_area:
     en: Afghanistan
   company_name: Tryco International Inc.
-  company_address_1: 6736 Old McClean
-  company_address_2: Village Drive
-  company_address_3: McCLEAN VA 22101
+  company_address:
+  - 6736 Old McClean
+  - Village Drive
+  - McCLEAN VA 22101
+  - USA
+  - "(United States)"
   contact: Franz Zenz
-  contact_address_1: 6736 Old McClean Village Drive
-  contact_address_2: McCLEAN VA 22101, USA
-  contact_address_3: "(United States)"
+  contact_address:
+  - 6736 Old McClean Village Drive
+  - McCLEAN VA 22101, USA
+  - "(United States)"
   tel:
   - "+1 703 734 0467"
   fax:

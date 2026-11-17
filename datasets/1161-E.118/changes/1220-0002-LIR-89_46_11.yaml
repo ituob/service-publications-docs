@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Sweden
   company_name: Sinch Sweden AB
-  company_address_1: Lindhagensgatan 72
-  company_address_2: SE-112 18 STOCKHOLM
+  company_address:
+  - Lindhagensgatan 72
+  - SE-112 18 STOCKHOLM
   contact: Ola Hanson
-  contact_address_1: Lindhagensgatan 72
-  contact_address_2: SE-112 18 STOCKHOLM
+  contact_address:
+  - Lindhagensgatan 72
+  - SE-112 18 STOCKHOLM
   tel:
-  - "           +46 70 933 55 23"
+  - "+46 70 933 55 23"
   email:
   - ola.hanson@sinch.com
   issue_id_number: 89 46 11

@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Ireland
     company_name: Cellusys IOT Limited trading as ZARIOT
-    company_address_1: 7 Bachelor’s Walk
-    company_address_2: DUBLIN 1, D01NH93
+    company_address:
+    - 7 Bachelor’s Walk
+    - DUBLIN 1, D01NH93
     contact: ZARIOT
-    contact_address_1: 7 Bachelor’s Walk
-    contact_address_2: DUBLIN 1, D01NH93
+    contact_address:
+    - 7 Bachelor’s Walk
+    - DUBLIN 1, D01NH93
     email:
     - helpdesk@zariot.com
     issue_id_number: 89 353 07

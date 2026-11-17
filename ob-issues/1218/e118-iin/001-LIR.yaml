@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Sweden
     company_name: Tele2 Sverige AB
-    company_address_1: Box 62
-    company_address_2: SE-164 94 KISTA
+    company_address:
+    - Box 62
+    - SE-164 94 KISTA
     contact: Mats Larsson Hammarsten
-    contact_address_1: Box 62
-    contact_address_2: SE-164 94 KISTA
+    contact_address:
+    - Box 62
+    - SE-164 94 KISTA
     tel:
     - "+46 70 660 25 23"
     email:

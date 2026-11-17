@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Spain
     company_name: Telecor SA
-    company_address_1: c/ Hermosilla 112
-    company_address_2: 28009 MADRID
+    company_address:
+    - c/ Hermosilla 112
+    - 28009 MADRID
     contact: D. José Eduardo Urquiza
-    contact_address_1: c/ Hermosilla 112
-    contact_address_2: 28009 MADRID
+    contact_address:
+    - c/ Hermosilla 112
+    - 28009 MADRID
     tel:
     - "+34 91 597 2876"
     fax:
