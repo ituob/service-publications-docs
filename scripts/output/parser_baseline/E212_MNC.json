@@ -6325,25 +6325,35 @@
               "en": "France"
             },
             "networks": "Orange"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "SUP",
+        "entries": [
           {
             "mcc_mnc_codes": "647 02",
             "country_or_area": {
-              "en": "France"
+              "en": "French Departments and Territories in the Indian Ocean"
             },
             "networks": "Outremer Telecom"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "ADD",
+        "entries": [
           {
             "mcc_mnc_codes": "647 01",
             "country_or_area": {
-              "en": "France"
+              "en": "French Departments and Territories in the Indian Ocean"
             },
             "networks": "BJT Partners"
           },
           {
             "mcc_mnc_codes": "647 02",
             "country_or_area": {
-              "en": "France"
+              "en": "French Departments and Territories in the Indian Ocean"
             },
             "networks": "Telco OI"
           }
@@ -7781,28 +7791,15 @@
             "networks": "Network Rail Infrastructure Limited"
           },
           {
-            "mcc_mnc_codes": "MCC+MNC*",
+            "mcc_mnc_codes": "208 01",
             "country_or_area": {
-              "en": "Country or Geographical Area"
+              "en": "France"
             },
-            "networks": "Operators Name",
-            "range": "MSIN** range to be used"
-          },
-          {
-            "mcc_mnc_codes": "(Country A)",
-            "country_or_area": {
-              "en": "France (Country A)"
+            "networks": "Orange",
+            "note": {
+              "en": "Extra-territorial use in Monaco (Country B – Where the MCC+MNC is to be used extra-territorially): Orange/Monaco Télécom; MSIN range 0100000000 - 0199999999"
             },
-            "networks": "0000000000 - 0099999999; 0200000000 - 9999999999",
-            "range": "208 01"
-          },
-          {
-            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra-territorially)",
-            "country_or_area": {
-              "en": "Monaco (Country B – Where the MCC+MNC is to be used extra-territorially)"
-            },
-            "networks": "0100000000 - 0199999999",
-            "range": "208 01"
+            "range": "0000000000 - 0099999999; 0200000000 - 9999999999"
           }
         ]
       }
@@ -8968,44 +8965,26 @@
             "networks": "Wireless Business Solutions (Pty) Ltd"
           },
           {
-            "mcc_mnc_codes": "MCC+MNC*",
-            "country_or_area": {
-              "en": "Country or Geographical Area"
-            },
-            "networks": "Operators Name",
-            "range": "MSIN** range to be used"
-          },
-          {
             "mcc_mnc_codes": "208 10",
             "country_or_area": {
-              "en": "France (Country A)"
+              "en": "France"
             },
             "networks": "Société Française du Radiotéléphone",
+            "note": {
+              "en": "Extra-territorial use in Monaco (Country B – Where the MCC+MNC is to be used extra-territorially): Société Française du Radiotéléphone; MSIN range 2654100000 - 2654199999; 2654300000 - 2654399999; 2754100000 - 2754199999; 2754300000 - 2754399999"
+            },
             "range": "0000000000 - 2654099999; 2654200000 - 2654299999; 2654400000 - 2754099999; 2754200000 - 2754299999; 2754400000 - 9999999999"
           },
           {
-            "mcc_mnc_codes": "208 10",
-            "country_or_area": {
-              "en": "Monaco (Country B  – Where the MCC+MNC is to be used extra-territorially)"
-            },
-            "networks": "Société Française du Radiotéléphone",
-            "range": "2654100000 - 2654199999; 2654300000 - 2654399999; 2754100000 - 2754199999; 2754300000 - 2754399999"
-          },
-          {
             "mcc_mnc_codes": "208 20",
             "country_or_area": {
-              "en": "France (Country A)"
+              "en": "France"
             },
             "networks": "Bouygues Telecom",
+            "note": {
+              "en": "Extra-territorial use in Monaco (Country B – Where the MCC+MNC is to be used extra-territorially): Bouygues Telecom; MSIN range 0055500000 - 0055599999; 2007200000 - 2007299999"
+            },
             "range": "0000000000 - 0055499999; 0055600000 - 2007199999; 2007300000 - 9999999999"
-          },
-          {
-            "mcc_mnc_codes": "208 20",
-            "country_or_area": {
-              "en": "Monaco (Country B  – Where the MCC+MNC is to be used extra-territorially)"
-            },
-            "networks": "Bouygues Telecom",
-            "range": "0055500000 - 0055599999; 2007200000 - 2007299999"
           }
         ]
       }
@@ -9455,13 +9434,6 @@
               "en": "United States"
             },
             "networks": "Voyager Mobility LLC"
-          },
-          {
-            "mcc_mnc_codes": "MCC+MNC *",
-            "country_or_area": {
-              "en": "Country/Geographical area"
-            },
-            "networks": "Operator/Network"
           }
         ]
       },
@@ -9721,380 +9693,366 @@
             "networks": "Great Plains Communications, Inc"
           },
           {
-            "mcc_mnc_codes": "MCC+MNC *",
-            "country_or_area": {
-              "en": "Country/Geographical area"
-            },
-            "networks": "Operator/Network"
-          },
-          {
             "mcc_mnc_codes": "312 570",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Buffalo-Lake Erie Wireless Systems Co., LLC"
           },
           {
             "mcc_mnc_codes": "312 580",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Morgan, Lewis & Bockius LLP"
           },
           {
             "mcc_mnc_codes": "312 590",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Northern Michigan University"
           },
           {
             "mcc_mnc_codes": "312 600",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Sagebrush Cellular, Inc."
           },
           {
             "mcc_mnc_codes": "312 620",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "GlobeTouch Inc."
           },
           {
             "mcc_mnc_codes": "312 630",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "NetGenuity, Inc."
           },
           {
             "mcc_mnc_codes": "312 650",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "365 Wireless LLC"
           },
           {
             "mcc_mnc_codes": "312 670",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "AT&T Mobility"
           },
           {
             "mcc_mnc_codes": "312 680",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "AT&T Mobility"
           },
           {
             "mcc_mnc_codes": "312 690",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Tecore Government Services, LLC"
           },
           {
             "mcc_mnc_codes": "312 700",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Wireless Partners,LLC"
           },
           {
             "mcc_mnc_codes": "312 710",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Great North Woods Wireless LLC"
           },
           {
             "mcc_mnc_codes": "312 720",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Southern Communications Services, Inc. D/B/A SouthernLINC Wireless"
           },
           {
             "mcc_mnc_codes": "312 730",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Triangle Communication System Inc."
           },
           {
             "mcc_mnc_codes": "312 740",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "KDDI America, Inc dba Locus Telecommunications"
           },
           {
             "mcc_mnc_codes": "312 750",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Artemis"
           },
           {
             "mcc_mnc_codes": "312 760",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "ARCTIC SLOPE TELEPHONE ASSOCIATION COOPERATIVE"
           },
           {
             "mcc_mnc_codes": "312 770",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Verizon Wireless"
           },
           {
             "mcc_mnc_codes": "312 780",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "RedZone Wireless LLC"
           },
           {
             "mcc_mnc_codes": "312 790",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Gila Electronics"
           },
           {
             "mcc_mnc_codes": "312 800",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Cirrus Core Networks"
           },
           {
             "mcc_mnc_codes": "312 810",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Bristol Bay Telephone Cooperative"
           },
           {
             "mcc_mnc_codes": "312 820",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Santel Communications Cooperative, Inc."
           },
           {
             "mcc_mnc_codes": "312 830",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Kings County Office of Education"
           },
           {
             "mcc_mnc_codes": "312 840",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "South Georgia Regional Information Technology"
           },
           {
             "mcc_mnc_codes": "312 850",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Onvoy Spectrum, LLC"
           },
           {
             "mcc_mnc_codes": "312 860",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Flat Wireless, LLC"
           },
           {
             "mcc_mnc_codes": "312 870",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "GigSky Mobile, LLC"
           },
           {
             "mcc_mnc_codes": "312 880",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Albemarle County Public Schools"
           },
           {
             "mcc_mnc_codes": "312 890",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Circle Gx"
           },
           {
             "mcc_mnc_codes": "312 900",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Flat West Wireless, LLC"
           },
           {
             "mcc_mnc_codes": "312 910",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "East Kentucky Network LLC dba Appalachian Wireless"
           },
           {
             "mcc_mnc_codes": "312 920",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Northeast Wireless Networks"
           },
           {
             "mcc_mnc_codes": "312 930",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Hewlett-Packard Communication Services, LLC"
           },
           {
             "mcc_mnc_codes": "312 940",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Webformix"
           },
           {
-            "mcc_mnc_codes": "MCC+MNC *",
-            "country_or_area": {
-              "en": "Country/Geographical area"
-            },
-            "networks": "Operator/Network"
-          },
-          {
             "mcc_mnc_codes": "312 950",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Custer Telephone Cooperative, Inc"
           },
           {
             "mcc_mnc_codes": "312 960",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "M&A Technology, Inc."
           },
           {
             "mcc_mnc_codes": "312 970",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "IOSAZ Intellectual Property LLC"
           },
           {
             "mcc_mnc_codes": "312 980",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Mark Twain Communications Company"
           },
           {
             "mcc_mnc_codes": "312 990",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Premier Holdings LLC DBA Premier Broadband"
           },
           {
             "mcc_mnc_codes": "313 000",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Tennessee Wireless"
           },
           {
             "mcc_mnc_codes": "313 010",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Cross Wireless LLC dba Sprocket Wireless"
           },
           {
             "mcc_mnc_codes": "313 020",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "CTC Telecom, INC. dba CTC Wireless"
           },
           {
             "mcc_mnc_codes": "313 030",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Eagle Telephone System, INC dba Snake River PCS"
           },
           {
             "mcc_mnc_codes": "313 040",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Nucla-Naturita Telephone Company"
           },
           {
             "mcc_mnc_codes": "313 050",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Manti Tele Communications Company, Inc. dba Breakaway Wireless"
           },
           {
             "mcc_mnc_codes": "313 060",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Country Wireless"
           },
           {
             "mcc_mnc_codes": "313 070",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Midwest Network Solutions Hub LLC"
           },
           {
             "mcc_mnc_codes": "313 080",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Speedwavz LLP"
           },
           {
             "mcc_mnc_codes": "313 090",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Vivint Wireless, Inc"
           },
           {
             "mcc_mnc_codes": "313 200",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Mercury Network Corporation"
           },
           {
             "mcc_mnc_codes": "313 210",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "AT&T"
           }
@@ -10237,317 +10195,303 @@
             "networks": "Transactions Network Services (TNS)"
           },
           {
-            "mcc_mnc_codes": "MCC+MNC *",
-            "country_or_area": {
-              "en": "Country/Geographical area"
-            },
-            "networks": "Operator/Network"
-          },
-          {
             "mcc_mnc_codes": "310 530",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Iowa Wireless Services LLC dba | Wireless"
           },
           {
             "mcc_mnc_codes": "310 550",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Syniverse Technologies"
           },
           {
             "mcc_mnc_codes": "310 600",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "NewCell dba Cellcom"
           },
           {
             "mcc_mnc_codes": "310 620",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Nsight"
           },
           {
             "mcc_mnc_codes": "310 640",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Numerex Corp"
           },
           {
             "mcc_mnc_codes": "310 650",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "JASPER TECHNOLOGIES INC."
           },
           {
             "mcc_mnc_codes": "310 670",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "AT&T Mobility"
           },
           {
             "mcc_mnc_codes": "310 680",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "AT&T Mobility"
           },
           {
             "mcc_mnc_codes": "310 720",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Syniverse Technologies"
           },
           {
             "mcc_mnc_codes": "310 740",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Viaero Wireless"
           },
           {
             "mcc_mnc_codes": "310 820",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Verizon Wireless"
           },
           {
             "mcc_mnc_codes": "310 830",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Sprint"
           },
           {
             "mcc_mnc_codes": "310 860",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "West Central Wireless"
           },
           {
             "mcc_mnc_codes": "310 900",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Mid-Rivers Telephone Cooperative"
           },
           {
             "mcc_mnc_codes": "310 950",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "AT&T Mobility"
           },
           {
             "mcc_mnc_codes": "311 000",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "West Central Wireless"
           },
           {
             "mcc_mnc_codes": "311 070",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "AT&T Mobility"
           },
           {
             "mcc_mnc_codes": "311 090",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "AT&T Mobility"
           },
           {
             "mcc_mnc_codes": "311 120",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Wave Runner LLC"
           },
           {
             "mcc_mnc_codes": "311 170",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Broadpoint, LLC"
           },
           {
             "mcc_mnc_codes": "311 180",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "AT&T Mobility"
           },
           {
             "mcc_mnc_codes": "311 190",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "AT&T Mobility"
           },
           {
             "mcc_mnc_codes": "311 260",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Sprint"
           },
           {
             "mcc_mnc_codes": "311 420",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Northwest Cell"
           },
           {
             "mcc_mnc_codes": "311 470",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Vitelcom Cellular D/B/A Innovative Wireless"
           },
           {
             "mcc_mnc_codes": "311 490",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Sprint"
           },
           {
             "mcc_mnc_codes": "311 580",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "U.S. Cellular"
           },
           {
             "mcc_mnc_codes": "311 590",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Verizon Wireless"
           },
           {
             "mcc_mnc_codes": "311 630",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Cellular South Inc."
           },
           {
             "mcc_mnc_codes": "311 700",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Aspenta International, Inc."
           },
           {
             "mcc_mnc_codes": "311 750",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Flat Wireless, LLC"
           },
           {
             "mcc_mnc_codes": "311 770",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Altiostar Networks, Inc."
           },
           {
             "mcc_mnc_codes": "311 820",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Sonus Networks"
           },
           {
             "mcc_mnc_codes": "311 840",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Nsight"
           },
           {
             "mcc_mnc_codes": "311 850",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Nsight"
           },
           {
             "mcc_mnc_codes": "311 870",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Sprint"
           },
           {
             "mcc_mnc_codes": "311 880",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Sprint"
           },
           {
-            "mcc_mnc_codes": "MCC+MNC *",
-            "country_or_area": {
-              "en": "Country/Geographical area"
-            },
-            "networks": "Operator/Network"
-          },
-          {
             "mcc_mnc_codes": "311 890",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Globecomm Network Services Corporation"
           },
           {
             "mcc_mnc_codes": "311 940",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Sprint"
           },
           {
             "mcc_mnc_codes": "312 090",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "AT&T Mobility"
           },
           {
             "mcc_mnc_codes": "312 190",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Sprint"
           },
           {
             "mcc_mnc_codes": "313 100",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "First Responder Network Authority"
           },
           {
             "mcc_mnc_codes": "316 010",
             "country_or_area": {
-              "en": "Country/Geographical area"
+              "en": "United States"
             },
             "networks": "Sprint"
           }
@@ -13151,22 +13095,22 @@
               "en": "International Mobile, shared code"
             },
             "networks": "OneWeb"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
-            "mcc_mnc_codes": "(Country A)",
+            "mcc_mnc_codes": "270 77",
             "country_or_area": {
-              "en": "Luxembourg (Country A)"
+              "en": "Luxembourg"
             },
-            "networks": "000 x xxx xxx",
-            "range": "270 77"
-          },
-          {
-            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra-territorially)",
-            "country_or_area": {
-              "en": "Belgium (Country B – Where the MCC+MNC is to be used extra-territorially)"
+            "networks": "Tango S.A.",
+            "note": {
+              "en": "Extra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Tango S.A.; MSIN range 800 x xxx xxx; 801 x xxx xxx"
             },
-            "networks": "800 x xxx xxx; 801 x xxx xxx",
-            "range": "270 77"
+            "range": "000 x xxx xxx"
           }
         ]
       }
@@ -17341,29 +17285,26 @@
               "en": "Sweden"
             },
             "networks": "Twilio Ireland Ltd."
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
+          {
+            "mcc_mnc_codes": "270 77",
+            "networks": "LIR"
           },
           {
             "mcc_mnc_codes": "270 77",
             "country_or_area": {
-              "en": "Sweden"
+              "en": "Luxembourg"
             },
-            "networks": "LIR"
-          },
-          {
-            "mcc_mnc_codes": "(Country A)",
-            "country_or_area": {
-              "en": "Luxembourg (Country A)"
+            "networks": "Proximus Luxembourg S.A.",
+            "note": {
+              "en": "Extra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Proximus Luxembourg S.A.; MSIN range 800 x xxx xxx; 801 x xxx xxx"
             },
-            "networks": "000 x xxx xxx",
-            "range": "270 77"
-          },
-          {
-            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra-territorially)",
-            "country_or_area": {
-              "en": "Belgium (Country B – Where the MCC+MNC is to be used extra-territorially)"
-            },
-            "networks": "800 x xxx xxx; 801 x xxx xxx",
-            "range": "270 77"
+            "range": "000 x xxx xxx"
           }
         ]
       }
@@ -17403,22 +17344,22 @@
               "en": "Malta"
             },
             "networks": "Melita Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
-            "mcc_mnc_codes": "(Country A)",
+            "mcc_mnc_codes": "270 99",
             "country_or_area": {
-              "en": "Luxembourg (Country A)"
+              "en": "Luxembourg"
             },
-            "networks": "270 99 000 x xxx xxx",
-            "range": "270 99"
-          },
-          {
-            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra-territorially)",
-            "country_or_area": {
-              "en": "Belgium (Country B – Where the MCC+MNC is to be used extra-territorially)"
+            "networks": "Orange Communications Luxembourg S.A.",
+            "note": {
+              "en": "Extra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Orange Communications Luxembourg S.A.; MSIN range 270 99 860 x xxx xxx"
             },
-            "networks": "270 99 860 x xxx xxx",
-            "range": "270 99"
+            "range": "270 99 000 x xxx xxx"
           }
         ]
       }
@@ -23124,22 +23065,22 @@
               "en": "Switzerland"
             },
             "networks": "iWay AG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
-            "mcc_mnc_codes": "(Country A)",
+            "mcc_mnc_codes": "270 07",
             "country_or_area": {
-              "en": "Luxembourg (Country A)"
+              "en": "Luxembourg"
             },
-            "networks": "270 07 00 0X XX XX XX",
-            "range": "270 07"
-          },
-          {
-            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra-territorially)",
-            "country_or_area": {
-              "en": "France (Country B – Where the MCC+MNC is to be used extra-territorially)"
+            "networks": "Bouygues Telecom S.A.",
+            "note": {
+              "en": "Extra-territorial use in France (Country B – Where the MCC+MNC is to be used extra-territorially): Bouygues Telecom S.A.; MSIN range 270 07 60 XX XX XX XX"
             },
-            "networks": "270 07 60 XX XX XX XX",
-            "range": "270 07"
+            "range": "270 07 00 0X XX XX XX"
           }
         ]
       }
@@ -27259,22 +27200,22 @@
               "en": "Costa Rica"
             },
             "networks": "COOPERATIVA DE ELECTRIFICACIÓN RURAL DE GUANACASTE R.L."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
-            "mcc_mnc_codes": "(Country A)",
+            "mcc_mnc_codes": "262 74",
             "country_or_area": {
-              "en": "Germany (Country A)"
+              "en": "Germany"
             },
-            "networks": "0000099000 - 0000099099",
-            "range": "262 74"
-          },
-          {
-            "mcc_mnc_codes": "(Country B – Where the MCC+MNC is to be used extra‑territorially)",
-            "country_or_area": {
-              "en": "Sweden (Country B – Where the MCC+MNC is to be used extra‑territorially)"
+            "networks": "Ericsson GmbH",
+            "note": {
+              "en": "Extra-territorial use in Sweden (Country B – Where the MCC+MNC is to be used extra‑territorially): Ericsson GmbH; MSIN range 0000099100 - 0000099199"
             },
-            "networks": "0000099100 - 0000099199",
-            "range": "262 74"
+            "range": "0000099000 - 0000099099"
           }
         ]
       }
