@@ -63,6 +63,14 @@ RSpec.describe 'General messages are lossless against the stored corpus' do
       expect(msg.to_hash['title']).to eq('en' => 'Telegram Service', 'fr' => 'Service télégraphique')
     end
 
+    it 'keeps an explicit blank GeneralCustom title (OB 1202) but omits blank cells everywhere else' do
+      expect(Ituob::Models::GeneralCustom.from_hash('title' => { 'en' => '' }).to_hash['title']).to eq('en' => '')
+      expect(Ituob::Models::GeneralCustom.from_hash('type' => 'custom').to_hash).not_to have_key('title')
+      blank_cell = Ituob::Models::MultilingualString.new(en: '')
+      expect(blank_cell.to_hash).to eq({})
+      expect(Ituob::Models::MultilingualString.new(en: 'x').to_hash).to eq('en' => 'x')
+    end
+
     it 'resolves sanc files to GeneralSancs, the class the issue loader dispatches to' do
       expect(Ituob::Support::CorpusTree.class_name_for('sanc/001.yaml')).to eq('GeneralSancs')
     end
