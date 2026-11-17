@@ -6,12 +6,9 @@ source "https://rubygems.org"
 # container (Ituob::Models::RegisterEdition) come from the in-repo gem.
 gem "ituob", path: "../../ituob"
 
-# lutaml_data provider support: metanorma-plugin-lutaml PR #350
-# (feat/lml-loader). Pinned to the exact commit; drop the pin for a
-# release once that PR ships.
-gem "metanorma-plugin-lutaml",
-    git: "https://github.com/metanorma/metanorma-plugin-lutaml.git",
-    ref: "0265249abbb070084ba7f34740dd90d51b6ee210"
+# lutaml_data provider support shipped in metanorma-plugin-lutaml 0.7.69
+# (PR #350, feat/lml-loader).
+gem "metanorma-plugin-lutaml", "~> 0.7.69"
 
 gem "metanorma-standoc"
 gem "nokogiri"

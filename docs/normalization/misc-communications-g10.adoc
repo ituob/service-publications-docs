@@ -1,0 +1,57 @@
+= misc_communications asset references (G10)
+
+== Result
+
+G10 reads "Three misc_communications issues render no content." Measured on the
+real data, that is not the case, and no parser or replay change is needed. It is
+a source-data quirk, documented here as an exclusion.
+
+For OB 1167, 1168 and 1170 the source `itu-ob-data/issues/<n>/general.yaml` prints
+two `type: misc_communications` messages:
+
+[cols="1,2,2",options="header"]
+|===
+|OB |Asset-reference message (corpus `001.yaml`) |Inlined message (corpus `002.yaml`)
+|1167 |`general.yaml:19-20`, `contents: general/misc_comms.adoc` |`general.yaml:1088`, full ProseMirror text, 1 communication
+|1168 |same shape |full ProseMirror text, 1 communication
+|1170 |same shape |full ProseMirror text, 2 communications
+|===
+
+The `.adoc` asset holds the same communications as the inlined message (Serbia:
+YU125VS, YU73BFG, YT74DP, YU10WCA), only as AsciiDoc. The asset-reference message
+is therefore a duplicate of content the issue already carries inline, and the
+corpus normalizes both: `ob-issues/<n>/misc_communications/001.yaml` (reference)
+and `002.yaml` (inline text). Every one of the three issues has its communication
+text in `002.yaml` regardless of the reference, so no content is missing from the
+data or from the site's per-issue textual list.
+
+The three reference files are the ones listed in `catalogs/freeform_messages.yaml`
+(G9); they stay on that list because the source prints them. They are not parsed
+because there is nothing to recover from them that `002.yaml` does not hold.
+
+== Site-side residue (not changed here)
+
+The site reader added in ituob/ituob.github.io#96 (`loadGeneralAdoc` and
+`AdocText.astro`) renders the asset as well. Reading that code against the three
+assets shows two cosmetic defects, both in the site repository and outside this
+repository's ownership:
+
+* Both messages of an issue are rendered, so each communication appears twice
+  (once from the AsciiDoc asset, once from the inlined text).
+* `AdocText.astro` converts `^^x^^` to a superscript but the assets use the
+  single-caret form `125^th^`, `73^rd^`, `74^th^`, `10^th^`, so the ordinals
+  render with literal carets.
+
+Either dropping the asset-reference message from the site render when an inlined
+message of the same type is present, or handling single-caret superscripts, would
+settle them. The site page was not built for this note, so the doubled output is
+derived from the loader and page code, not from a rendered page.
+
+== Reproduction
+
+[source,shell]
+----
+grep -n 'type: misc_communications' itu-ob-data/issues/{1167,1168,1170}/general.yaml
+ls ob-issues/{1167,1168,1170}/misc_communications/
+grep -c '\^' ob-issues/{1167,1168,1170}/general/misc_comms.adoc
+----
