@@ -32,6 +32,11 @@ on:
     branches: [main]
     paths: *paths
   workflow_dispatch:
+    inputs:
+      docs:
+        description: 'Comma-separated publications to render (default: all), e.g. T-SP-F.32-2011'
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -52,9 +57,15 @@ jobs:
         with:
           persist-credentials: false
       - id: list
+        env:
+          ONLY: ${{ github.event.inputs.docs }}
         run: |
           set -eu
           docs=$(ls -d documents/T-SP-* | xargs -n1 basename | jq -R . | jq -sc .)
+          # A manual run may restrict the shards; the merge then expects only those.
+          if [ -n "${ONLY:-}" ]; then
+            docs=$(echo "$docs" | jq -c --arg only "$ONLY" '($only | split(",")) as $o | map(select(. as $d | $o | index($d)))')
+          fi
           echo "docs=$docs" >> "$GITHUB_OUTPUT"
           echo "count=$(echo "$docs" | jq length)" >> "$GITHUB_OUTPUT"
           echo "$docs"

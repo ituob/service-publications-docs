@@ -74,13 +74,28 @@ module RenderPublications
   def metanorma_renderer(adoc)
     pdf = adoc.sub(/\.adoc\z/, '.pdf')
     FileUtils.rm_f(pdf)
-    env = metanorma_env
+    env = metanorma_env.merge(provider_env)
     run = proc { Open3.capture3(env, 'metanorma', '-t', 'itu', '-x', 'pdf', '--agree-to-terms', adoc) }
     _out, err, status = defined?(Bundler) ? Bundler.with_unbundled_env(&run) : run.call
-    return [nil, "metanorma exit #{status.exitstatus}: #{err.lines.last.to_s.strip}"] unless status.success?
+    return [nil, "metanorma exit #{status.exitstatus}: #{failure_summary(err)}"] unless status.success?
     return [nil, 'metanorma produced no PDF'] unless File.size?(pdf)
 
     [pdf, nil]
+  end
+
+  # A document may read its register through the ituob data provider
+  # (`lutaml_data provider:ituob.edition`); metanorma finds it through
+  # ituob/lib/metanorma/plugin/lutaml/data_providers/ituob.rb, so ituob/lib
+  # must be on the load path of the metanorma process.
+  def provider_env
+    lib = File.expand_path('../ituob/lib', __dir__)
+    { 'RUBYLIB' => [lib, ENV.fetch('RUBYLIB', nil)].compact.reject(&:empty?).join(File::PATH_SEPARATOR) }
+  end
+
+  # The first and last lines say what failed and where; a backtrace line alone does not.
+  def failure_summary(err)
+    lines = err.lines.map(&:strip).reject(&:empty?)
+    (lines.first(3) + ['...'] + lines.last(2)).uniq.join(' | ')
   end
 
   # renderer: callable(adoc_path) => [pdf_path, nil] | [nil, reason]
