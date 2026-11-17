@@ -6,3 +6,4 @@
 groups:
   amateur:
   - regex: 5W[:digit:][:upper:]{2}
+    description: "5W followed by a digit and 2 letters"

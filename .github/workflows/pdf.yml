@@ -2,7 +2,8 @@ name: pdf
 
 # Renders every service publication x language to PDF (spd#89, ituob.github.io#106)
 # and uploads the one `publications` artifact the site fetches: manifest.json at
-# its root and the PDFs at the paths the manifest names.
+# its root and the PDFs at the paths the manifest names. Restricted manual runs
+# upload `publications-subset`, which the site never selects as its catalog.
 #
 # One shard per publication (documents/T-SP-*), so a slow or broken
 # publication cannot hide the others; each shard runs
@@ -59,6 +60,7 @@ jobs:
     outputs:
       docs: ${{ steps.list.outputs.docs }}
       count: ${{ steps.list.outputs.count }}
+      artifact-name: ${{ steps.list.outputs.artifact-name }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -69,10 +71,14 @@ jobs:
         run: |
           set -eu
           docs=$(ls -d documents/T-SP-* | xargs -n1 basename | jq -R . | jq -sc .)
-          # A manual run may restrict the shards; the merge then expects only those.
+          artifact_name=publications
+          # A restricted run can merge successfully without covering the catalog.
+          # Reserve the site artifact name for unrestricted runs only.
           if [ -n "${ONLY:-}" ]; then
+            artifact_name=publications-subset
             docs=$(echo "$docs" | jq -c --arg only "$ONLY" '($only | split(",")) as $o | map(select(. as $d | $o | index($d)))')
           fi
+          echo "artifact-name=$artifact_name" >> "$GITHUB_OUTPUT"
           echo "docs=$docs" >> "$GITHUB_OUTPUT"
           echo "count=$(echo "$docs" | jq length)" >> "$GITHUB_OUTPUT"
           echo "$docs"
@@ -271,6 +277,6 @@ jobs:
       - name: Upload the publications artifact
         uses: actions/upload-artifact@v4
         with:
-          name: publications
+          name: ${{ needs.plan.outputs.artifact-name }}
           path: publications/
           if-no-files-found: error

@@ -1,0 +1,20 @@
+# Descriptions and model-compatible refinements over the LML-generated schema.
+---
+title: ITU OB Dataset Schema for 1114 E.164D Notes P and Q
+description: Schema for ITU Operational Bulletin E.164D Notes P and Q data
+items:
+  properties:
+    applicant:
+      description: Entity that applied for the code
+    network:
+      description: Name of the network
+    cc_ic:
+      description: Country Code and Identification Code format
+    status:
+      description: Current assignment status of the code
+      enum:
+      - Assigned
+      - Reserved
+      - Spare
+    formerly:
+      description: Previous name of the applicant or network

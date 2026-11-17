@@ -1,0 +1,129 @@
+= Dataset schema generation coverage
+
+`scripts/generate_data_schemas.rb` generates 20 of the 40 dataset data schemas
+from `ituob/lib/ituob/ontology/messages.lml`. The executable dataset-to-model
+mapping is `ituob/lib/ituob/ontology/data_schemas.yaml`; datasets outside that
+mapping retain hand-maintained schemas. Register seed shape, rather than a
+similar recommendation number or similarly named attribute, determines whether
+a model can be reused.
+
+== Additional model coverage
+
+The original 13 mapped datasets remain mapped. These seven datasets also have
+existing models suitable for generation:
+
+[cols="1,1,3",options="header"]
+|===
+|Dataset |LML class |Shape evidence
+|1001-T.35B |T35NAEntry
+|The seed uses country, administration_name, manufactures_htv, last_updated,
+assignment_authority and note. Nested authorities use T35AssignmentAuthority,
+including terminal_type and related_links string collections.
+|1162-E.212 |E212MNCEntry
+|The seed uses mcc_mnc_codes, country_or_area, networks and multilingual note.
+The model also allows former_name and range.
+|1162-E.212-Shared-MCC |E212MNCEntry
+|The seed's mcc_mnc_codes, networks and former_name are a compatible subset.
+The model's country_or_area, note and range are optional.
+|994-E.164C |DPEntry
+|The seed and model agree on country_or_area, country_code,
+international_prefix, national_prefix, national_sig_number, utc_dst and note.
+|icc |M1400Entry
+|The empty local seed is an explicit alias of 1060-M.1400 in metadata.yaml.
+It therefore shares the existing carrier-code model.
+|list-viii |ListVIIIStation
+|An external publication with an empty local seed. The existing List VIII
+monitoring-station model supplies country, station details, centralizing_office
+and measurements; the empty seed remains valid.
+|nnp |NumberingPlanEntry
+|An external publication with an empty local seed. The existing national
+numbering-plan model supplies country, prefixes, number length, UTC/DST and note;
+the empty seed remains valid.
+|===
+
+The coverage regression in `ituob/spec/scripts/data_schema_coverage_spec.rb`
+invokes the public generator on these real models and validates the complete
+local seeds against the resulting schemas. Generated schemas describe
+model-serialized values. `Ituob::Dataset` reads `x-lml-model`, loads and validates
+each row through the actual model, then validates the normalized serialization
+with `_class` omitted. This applies model coercion and unknown-field handling
+without rewriting seed data. Unmapped schemas retain raw-data validation.
+
+Overlays may supply annotations and supported constraints, but cannot change or
+delete model structure. Production overlays no longer narrow the model's field
+set or language structure. Generation coverage does not assert that every legacy
+field was required by the LML, or that an external publication now has local
+records.
+
+== Remaining datasets
+
+These 20 datasets have no existing LML model matching their register seed shape.
+They cannot yet be generated from the current ontology without inventing fields,
+misusing another publication's model, or changing the ontology:
+
+[cols="1,4",options="header"]
+|===
+|Dataset |Specific blocker
+|1000-SR.1
+|No model for name, geographic_area, restrictions and notes.
+GeneralServiceRestriction describes a bulletin reference (country, ob, page),
+not a register row with restriction details.
+|1002-T.35
+|No model for code_bit, country_or_area and notes. T35NAEntry describes national
+assignment authorities, not country code bit assignments.
+|1117-E.212A
+|No MCC allocation model with code, country_or_area and note. E212MNCEntry
+represents MCC/MNC network assignments and uses mcc_mnc_codes and networks.
+|1117-E.212A-MCCMNC
+|No model for mcc_mnc, network, status and former_name. E212MNCEntry uses
+mcc_mnc_codes and networks and has no status attribute.
+|1154-RR.25.1
+|The seed is split across data/*.yaml and uses country_or_area, nested groups,
+codelists and notes. RR251Entry is a flat telegraph-network/office row and
+cannot represent those nested groups or codelists.
+|1162-E.212-ET
+|No model for country_or_area, country_type, mcc_mnc, msin_range and
+operator_network. E212MNCEntry lacks the assignment classification and range
+fields and uses different code/operator names.
+|1162-E.212-MCC-Others
+|No model for mcc_mnc_codes, applicant, purpose and temporary_assignment_to.
+E212MNCEntry has the code but lacks the other assignment attributes.
+|669-F.1
+|No model for code, field, field_desc and multilingual message.
+|955-E.180
+|No tone-plan model with country_or_area, tone_desc, frequency_in_hz,
+cadence_in_s, tone_type and notes.
+|976-X.121A
+|No model for code, zone, country_or_area, reserved and spare. X121DNICEntry
+models dnic_number and network_name assignments instead.
+|978-F.68-A1
+|No model for tnic_code, telegram_network_codes, country, number_block and
+allocated_to.
+|978-F.68-A2
+|No model for ob_number, telex_code, geographic_area, number_block and
+allocated_to.
+|978-F.68
+|No model for number_block, telex_code, allocated_to,
+integrated_numbering_plan and notes.
+|991-PP.RES.21.pp
+|No model for number and geographic_area in this publication.
+|bureaufax
+|No model for country_or_area, access_code, location, bureaufax_number,
+destination_priority, availability and hours.
+|coast-stations
+|Empty external List of Coast Stations and Special Service Stations seed;
+no matching coast-station model. ListVIIIStation belongs to the distinct
+monitoring-station publication.
+|country-names
+|No country-name reference-row model with key and multilingual name.
+MultilingualString models only the localized value, not its keyed row.
+|iso-3166
+|No ISO reference-row model with code and multilingual name.
+MultilingualString cannot represent the code attribute.
+|list-v
+|Empty external List V ship-station publication seed; no ship-station model.
+|roa
+|No recognized-operating-agency model with country_or_area, company_name,
+address, tel, fax, email, url and ob_issue_number. M1400Entry describes carrier
+codes and split address lines and lacks url and ob_issue_number.
+|===

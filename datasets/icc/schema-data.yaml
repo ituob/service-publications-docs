@@ -1,10 +1,49 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (M1400Entry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-$id: https://github.com/ituob/service-publications-docs/datasets/icc/schema-data
-title: ITU OB Dataset Schema for icc
-description: >-
-  Stub schema. The ICC dataset is an alias of 1060-M.1400; no local data is
-  maintained here. See datasets/1060-M.1400/data.yaml for the canonical data.
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for icc (generated from LML M1400Entry)
+x-lml-model: M1400Entry
 type: array
-items: {}
+items:
+  type: object
+  additionalProperties: false
+  properties:
+    iso_code:
+      type: string
+    country_or_area:
+      type: object
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+        fr:
+          type: string
+        es:
+          type: string
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
+    company_name:
+      type: string
+    address_line_1:
+      type: string
+    address_line_2:
+      type: string
+    address_line_3:
+      type: string
+    carrier_code:
+      type: string
+    contact:
+      type: string
+    tel:
+      type: string
+    fax:
+      type: string
+    email:
+      type: array
+      items:
+        type: string

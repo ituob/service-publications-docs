@@ -32,3 +32,4 @@ groups:
 
   experimental:
     - regex: OK9[:upper:]{2,3}
+      description: "OK9 followed by 2 or 3 letters"

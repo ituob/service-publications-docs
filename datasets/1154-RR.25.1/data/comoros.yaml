@@ -7,6 +7,7 @@
 groups:
   amateur:
   - regex: D68[:upper:]{2}
+    description: "D68 followed by 2 letters*"
 
 notes:
   - The 2 letters are the operator identity.

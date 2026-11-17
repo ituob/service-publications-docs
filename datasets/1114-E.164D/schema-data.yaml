@@ -1,14 +1,12 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (E164DEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
+"$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1114 E.164D
-description: Schema for ITU Operational Bulletin E.164D data
+x-lml-model: E164DEntry
 type: array
 items:
   type: object
-  required:
-    - country_code
-    - country_area_or_service
   additionalProperties: false
   properties:
     country_code:
@@ -16,14 +14,6 @@ items:
       description: The E.164 assigned country code
     country_area_or_service:
       type: object
-      description: Name of the country, geographical area or global service in different languages
-      required:
-        - en
-        - fr
-        - es
-        - ru
-        - zh
-        - ar
       additionalProperties: false
       properties:
         en:
@@ -35,18 +25,19 @@ items:
         es:
           type: string
           description: Name in Spanish
-        ru:
-          type: string
-          description: Name in Russian
         zh:
           type: string
           description: Name in Chinese
+        ru:
+          type: string
+          description: Name in Russian
         ar:
           type: string
           description: Name in Arabic
+      description: Name of the country, geographical area or global service in different
+        languages
     note:
       type: object
-      description: Additional information about the country code in different languages
       additionalProperties: false
       properties:
         en:
@@ -58,12 +49,14 @@ items:
         es:
           type: string
           description: Note in Spanish
-        ru:
-          type: string
-          description: Note in Russian
         zh:
           type: string
           description: Note in Chinese
+        ru:
+          type: string
+          description: Note in Russian
         ar:
           type: string
           description: Note in Arabic
+      description: Additional information about the country code in different languages
+description: Schema for ITU Operational Bulletin E.164D data

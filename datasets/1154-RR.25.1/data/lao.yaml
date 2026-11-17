@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: XW8[A-D][:upper:]
+    description: "XW8AA-XW8DZ"
 
   experimental:
   - regex: XW8E[:upper:]
+    description: "XW8EA-XW8EZ"

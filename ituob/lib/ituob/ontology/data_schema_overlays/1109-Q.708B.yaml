@@ -1,0 +1,29 @@
+# Descriptions and model-compatible refinements over the LML-generated schema.
+---
+description: ITU OB Dataset Schema for 1109 Q.708B
+title: ITU OB Dataset Schema for 1109 Q.708B
+items:
+  properties:
+    ipsc:
+      description: International signaling point code
+    country:
+      description: Localized country or geographical area names
+      properties:
+        en:
+          description: English name
+        fr:
+          description: French name
+        es:
+          description: Spanish name
+        ru:
+          description: Russian name
+        zh:
+          description: Chinese name
+        ar:
+          description: Arabic name
+    dec:
+      description: Decimal representation of the IPSC code
+    signal_point_name:
+      description: Name of the signal point
+    signal_point_operator:
+      description: Operator of the signal point

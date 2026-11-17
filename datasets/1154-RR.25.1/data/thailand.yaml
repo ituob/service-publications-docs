@@ -17,6 +17,7 @@
 groups:
   amateur:
   - regex: "[E2|HS][:area:][:upper:]{2,3}"
+    description: "E2 or HS followed by a digit (indicating the area in which the station is situated) and by 2 or 3 letters"
     criteria:
     - key: "1"
       segment_type: enum
@@ -38,6 +39,7 @@ groups:
   experimental:
   - name: Thailand
     regex: E22A[:upper:]{2}
+    description: "E22AAA-E22AZZ"
 
 codelists:
   - name: area
