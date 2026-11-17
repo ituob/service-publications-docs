@@ -10,6 +10,11 @@
   right while the data is sorted by country; provider items keep replay order, so
   a run is the correct span. Items with no country (data gap) get a blank country
   cell and are not merged into the previous country.
+
+  Rows whose code and network are both blank are not register rows (a heading
+  such as "Portugal SUP" that reached the register as an entry); they are skipped
+  and do not break a country run. The country label is the first non-blank of
+  en, fr, es, ru, zh, ar. Every cell escapes "|" so it cannot split a table cell.
 {% endcomment %}
 == Mobile Network Codes (MNC) for the international identification plan for public networks and subscriptions (According to Recommendation ITU-T E.212 (09/2016))
 
@@ -22,20 +27,36 @@
 {% assign items = edition.items %}
 {% assign previous = "-" %}
 {% for item in items %}
-    {% assign current = item.country_or_area.en | default: "" %}
-    {% if forloop.first or current != previous %}
+    {% assign code = item.mcc_mnc_codes | strip %}
+    {% assign network = item.networks | strip %}
+    {% if code == "" and network == "" %}{% continue %}{% endif %}
+    {% assign current = item.country_or_area.en | strip %}
+    {% if current == "" %}{% assign current = item.country_or_area.fr | strip %}{% endif %}
+    {% if current == "" %}{% assign current = item.country_or_area.es | strip %}{% endif %}
+    {% if current == "" %}{% assign current = item.country_or_area.ru | strip %}{% endif %}
+    {% if current == "" %}{% assign current = item.country_or_area.zh | strip %}{% endif %}
+    {% if current == "" %}{% assign current = item.country_or_area.ar | strip %}{% endif %}
+    {% if previous == "-" or current != previous %}
         {% assign previous = current %}
         {% assign span = 1 %}
         {% assign start = forloop.index %}
         {% for next_item in items offset: start %}
-            {% assign next_country = next_item.country_or_area.en | default: "" %}
+            {% assign next_code = next_item.mcc_mnc_codes | strip %}
+            {% assign next_network = next_item.networks | strip %}
+            {% if next_code == "" and next_network == "" %}{% continue %}{% endif %}
+            {% assign next_country = next_item.country_or_area.en | strip %}
+            {% if next_country == "" %}{% assign next_country = next_item.country_or_area.fr | strip %}{% endif %}
+            {% if next_country == "" %}{% assign next_country = next_item.country_or_area.es | strip %}{% endif %}
+            {% if next_country == "" %}{% assign next_country = next_item.country_or_area.ru | strip %}{% endif %}
+            {% if next_country == "" %}{% assign next_country = next_item.country_or_area.zh | strip %}{% endif %}
+            {% if next_country == "" %}{% assign next_country = next_item.country_or_area.ar | strip %}{% endif %}
             {% if next_country != current %}{% break %}{% endif %}
             {% assign span = span | plus: 1 %}
         {% endfor %}
-        .{{ span | plus: 1 }}+| {{ current }} | |
+        .{{ span | plus: 1 }}+| {{ current | replace: "|", "\|" }} | |
     {% endif %}
-    | {{ item.networks | replace: "|", "\|" }}
-    ^| {{ item.mcc_mnc_codes }}
+    | {{ network | replace: "|", "\|" }}
+    ^| {{ code | replace: "|", "\|" }}
 
 {% endfor %}
 |===
