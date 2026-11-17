@@ -1,0 +1,56 @@
+# Legacy constraints the LML cannot express (required, description, format,
+# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+---
+title: ITU OB Dataset Schema for 1060 M.1400
+description: ITU OB Dataset Schema for 1060 M.1400
+items:
+  properties:
+    iso_code:
+      description: ISO 3166-1 alpha-3 country code.
+    country_or_area:
+      description: Name of the country or area in different languages.
+      properties:
+        en:
+          description: Name in English.
+        fr:
+          description: Name in French.
+        es:
+          description: Name in Spanish.
+        zh:
+          description: Name in Chinese.
+        ar:
+          description: Name in Arabic.
+        ru:
+          description: Name in Russian.
+      required:
+      - en
+      - ru
+      - fr
+      - ar
+      - es
+      - zh
+    company_name:
+      description: Name of the company or carrier.
+    address_line_1:
+      description: First line of the address.
+    address_line_2:
+      description: Second line of the address.
+    address_line_3:
+      description: Third line of the address.
+    carrier_code:
+      description: Carrier identification code.
+    contact:
+      description: Name of the contact person.
+    tel:
+      description: Telephone number.
+    fax:
+      description: Fax number.
+    email:
+      description: Email address.
+      items:
+        format: email
+  required:
+  - iso_code
+  - country_or_area
+  - company_name
+  - carrier_code

@@ -2,8 +2,7 @@
 # Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
 "$schema": http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for F.32 (generated from LML F32TDIEntry)
-type: array
+title: ITU OB Dataset Schema for 980-F.32
 items:
   type: object
   additionalProperties: false
@@ -14,118 +13,136 @@ items:
       properties:
         en:
           type: string
+          description: English name of the Country or Geographical Area.
         fr:
           type: string
+          description: French name of the Country or Geographical Area.
         es:
           type: string
-        zh:
-          type: string
-        ru:
-          type: string
-        ar:
-          type: string
+          description: Spanish name of the Country or Geographical Area.
+      description: Country or Geographical Area name in French, English, and Spanish.
+      required:
+      - en
+      - fr
+      - es
     country_or_area_note:
       type: object
       additionalProperties: false
       properties:
         en:
           type: string
+          description: English note related to the Country or Geographical Area.
         fr:
           type: string
+          description: French note related to the Country or Geographical Area.
         es:
           type: string
-        zh:
-          type: string
-        ru:
-          type: string
-        ar:
-          type: string
+          description: Spanish note related to the Country or Geographical Area.
+      description: Note related to the Country or Geographical Area. This field is
+        optional.
+      required:
+      - en
+      - fr
+      - es
     notes:
       type: object
       additionalProperties: false
       properties:
         en:
           type: string
+          description: English note related to the telegraph office.
         fr:
           type: string
+          description: French note related to the telegraph office.
         es:
           type: string
-        zh:
-          type: string
-        ru:
-          type: string
-        ar:
-          type: string
+          description: Spanish note related to the telegraph office.
+      description: Notes related to the telegraph office. This field is optional.
+      required:
+      - en
+      - fr
+      - es
     network_roa:
       type: string
+      description: Network (administration/ROA).
     network_roa_note:
-      type: object
-      additionalProperties: false
       properties:
         en:
           type: string
+          description: English note related to the telegraph office.
         fr:
           type: string
+          description: French note related to the telegraph office.
         es:
           type: string
-        zh:
-          type: string
-        ru:
-          type: string
-        ar:
-          type: string
+          description: Spanish note related to the telegraph office.
+      description: Note related to the Network (administration/ROA). This field is
+        optional.
+      required:
+      - en
+      - fr
+      - es
     network_code:
       type: string
+      description: Network code.
     network_code_note:
       type: object
       additionalProperties: false
       properties:
         en:
           type: string
+          description: English note related to the Network code.
         fr:
           type: string
+          description: French note related to the Network code.
         es:
           type: string
-        zh:
-          type: string
-        ru:
-          type: string
-        ar:
-          type: string
+          description: Spanish note related to the Network code.
+      description: Note related to the Network code. This field is optional.
+      required:
+      - en
+      - fr
+      - es
     telegraph_office_name:
       type: object
       additionalProperties: false
       properties:
         en:
           type: string
+          description: English name of the Telegraph Office.
         fr:
           type: string
+          description: French name of the Telegraph Office.
         es:
           type: string
-        zh:
-          type: string
-        ru:
-          type: string
-        ar:
-          type: string
+          description: Spanish name of the Telegraph Office.
+      description: Name of the Telegraph Office in French, English, and Spanish. This
+        field is optional.
+      required:
+      - fr
+      - en
+      - es
     office_code:
       type: string
+      description: Office code.
     office_code_note:
       type: object
       additionalProperties: false
       properties:
         en:
           type: string
+          description: English note related to the Office code.
         fr:
           type: string
+          description: French note related to the Office code.
         es:
           type: string
-        zh:
-          type: string
-        ru:
-          type: string
-        ar:
-          type: string
+          description: Spanish note related to the Office code.
+      description: Note related to the Office code. This field is optional.
+      required:
+      - en
+      - fr
+      - es
     network_codes:
       type: array
       items:
@@ -136,13 +153,19 @@ items:
       properties:
         en:
           type: string
+          description: English name of the Subarea.
         fr:
           type: string
+          description: French name of the Subarea.
         es:
           type: string
-        zh:
-          type: string
-        ru:
-          type: string
-        ar:
-          type: string
+          description: Spanish name of the Subarea.
+      description: Subarea name in French, English, and Spanish. This field is optional.
+      required:
+      - fr
+      - en
+      - es
+  description: Represents a single telegraph office entry.
+  required:
+  - country_or_area
+description: ITU OB Dataset Schema for 980-F.32

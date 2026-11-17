@@ -1,0 +1,58 @@
+# Legacy constraints the LML cannot express (required, description, format,
+# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+---
+title: ITU OB Dataset Schema for 1161 E.118
+description: ITU OB Dataset Schema for 1161 E.118
+items:
+  required:
+  - issue_id_number
+  - country_or_area
+  - company_name
+  - company_address_1
+  properties:
+    effective_date:
+      description: Date when the information becomes effective
+    issue_id_number:
+      description: Identifier for the record
+    country_or_area:
+      properties:
+        en:
+          description: Country or area name in English
+        fr:
+        es:
+        zh:
+        ru:
+        ar:
+      required:
+      - en
+      additionalProperties:
+    company_name:
+      description: Name of the telecommunications company
+    company_address_1:
+      description: First line of company address
+    company_address_2:
+      description: Second line of company address
+    company_address_3:
+      description: Third line of company address
+    contact:
+      description: Contact person or department
+    contact_address_1:
+      description: First line of contact address
+    contact_address_2:
+      description: Second line of contact address
+    contact_address_3:
+      description: Third line of contact address
+    contact_address_4:
+      description: Fourth line of contact address
+    contact_address_5:
+      description: Fifth line of contact address
+    contact_address_6:
+      description: Sixth line of contact address
+    tel:
+      description: Telephone numbers
+    fax:
+      description: Fax numbers
+    email:
+      items:
+        format: email
+      description: Email addresses

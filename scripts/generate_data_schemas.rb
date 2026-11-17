@@ -4,7 +4,7 @@
 # Generates datasets/<slug>/schema-data.yaml (JSON Schema draft-07) from the
 # LML Entry classes in ituob/lib/ituob/ontology/messages.lml, for the
 # datasets listed in ituob/lib/ituob/ontology/data_schemas.yaml.
-# The LML is the single source: never edit a generated file by hand.
+# The LML is the single source of the property set: never edit a generated file by hand.
 # CI runs this script and fails on any diff (git diff --exit-code).
 #
 #   bundle exec ruby scripts/generate_data_schemas.rb
@@ -48,6 +48,19 @@ def object_schema(klass)
   { 'type' => 'object', 'additionalProperties' => false, 'properties' => props }
 end
 
+# Legacy constraints the LML cannot express yet (required lists, descriptions,
+# formats, narrower language sets) live in ontology/data_schema_overlays/<slug>.yaml
+# and are deep-merged over the generated schema; an explicit null deletes a key.
+def overlay(base, patch)
+  return patch unless base.is_a?(Hash) && patch.is_a?(Hash)
+
+  patch.each_with_object(base.dup) do |(key, value), out|
+    if value.nil? then out.delete(key)
+    else out[key] = overlay(base[key], value)
+    end
+  end
+end
+
 MAPPING.sort.each do |slug, class_name|
   klass = CLASSES[class_name] or abort "#{slug}: no LML class #{class_name}"
   dir = File.join(ROOT, 'datasets', slug)
@@ -60,6 +73,8 @@ MAPPING.sort.each do |slug, class_name|
     'type' => 'array',
     'items' => object_schema(klass),
   }
+  overlay_path = File.join(ONTOLOGY_DIR, 'data_schema_overlays', "#{slug}.yaml")
+  schema = overlay(schema, YAML.load_file(overlay_path)) if File.file?(overlay_path)
   header = "# GENERATED from ituob/lib/ituob/ontology/messages.lml (#{class_name}) - do not edit.\n" \
            "# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb\n"
   File.write(File.join(dir, 'schema-data.yaml'), header + YAML.dump(schema))

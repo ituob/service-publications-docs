@@ -1,0 +1,42 @@
+# Legacy constraints the LML cannot express (required, description, format,
+# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+---
+description: ITU OB Dataset Schema for 1109 Q.708B
+title: ITU OB Dataset Schema for 1109 Q.708B
+items:
+  required:
+  - ipsc
+  - country
+  - dec
+  - signal_point_operator
+  properties:
+    ipsc:
+      description: International signaling point code
+    country:
+      description: Localized country or geographical area names
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
+      properties:
+        en:
+          description: English name
+        fr:
+          description: French name
+        es:
+          description: Spanish name
+        ru:
+          description: Russian name
+        zh:
+          description: Chinese name
+        ar:
+          description: Arabic name
+    dec:
+      description: Decimal representation of the IPSC code
+    signal_point_name:
+      description: Name of the signal point
+    signal_point_operator:
+      description: Operator of the signal point

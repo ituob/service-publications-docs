@@ -2,7 +2,7 @@
 # Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
 "$schema": http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for F.400 (generated from LML F400Entry)
+title: ITU OB Schema for 974 F.400
 type: array
 items:
   type: object
@@ -14,35 +14,92 @@ items:
       properties:
         en:
           type: string
+          description: English name of the country or area
         fr:
           type: string
+          description: French name of the country or area
         es:
           type: string
-        zh:
-          type: string
-        ru:
-          type: string
-        ar:
-          type: string
+          description: Spanish name of the country or area
+      required:
+      - en
+      - fr
+      - es
     admd_name:
       type: string
+      description: Administration Management Domain Name
     not_operational_yet:
       type: boolean
+      description: Indicates if it is not operational yet
     country_code:
       type: string
+      description: Country code
     for_test_purposes:
       type: boolean
+      description: Indicates if the code is for test purposes
     mt:
       type: string
+      description: Message Transfer service name
     ipm:
       type: string
+      description: Interpersonal Messaging service name
     other:
       type: string
+      description: Other service names
     helpdesk:
       type: object
+      additionalProperties: false
+      properties:
+        available:
+          type: boolean
+          description: Availability status of helpdesk
+        x400:
+          type: string
+          description: X.400 address for helpdesk
+        others:
+          type: string
+          description: Other helpdesk information
     autoanswer:
       type: object
+      additionalProperties: false
+      properties:
+        available:
+          type: boolean
+          description: Availability status of auto-answer feature
+        x400:
+          type: string
+          description: X.400 address for auto-answer
     contact_address:
       type: object
+      additionalProperties: false
+      required:
+      - address_line_1
+      properties:
+        company_name:
+          type: string
+          description: Name of the company or organization
+        address_line_1:
+          type: string
+          description: First line of postal address
+        address_line_2:
+          type: string
+          description: Second line of postal address
+        address_line_3:
+          type: string
+          description: Third line of postal address including location
+        address_line_4:
+          type: string
+          description: Fourth line of postal address including location
+        x400:
+          type: string
+          description: X.400 contact address
+        email:
+          type: string
+          description: Email address for contact
     note:
       type: string
+  required:
+  - country_or_area
+  - admd_name
+  - country_code
+description: ITU OB Dataset Schema for 974 F.400

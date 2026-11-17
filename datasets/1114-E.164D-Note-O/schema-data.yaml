@@ -2,7 +2,7 @@
 # Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
 "$schema": http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for E.164D-Note-O (generated from LML E164DNoteOEntry)
+title: ITU OB Dataset Schema for 1114 E.164D Note O
 type: array
 items:
   type: object
@@ -10,11 +10,22 @@ items:
   properties:
     applicant:
       type: string
+      description: Name of the organization that applied for the code
     network:
       type: string
+      description: Name of the telecommunications network
     cc_ic:
       type: string
+      description: Country Code and Identification Code in format +882 XX
     status:
       type: string
+      description: Current assignment status of the code
     formerly:
       type: string
+      description: Previous name of the applicant/network, if applicable
+  required:
+  - applicant
+  - network
+  - cc_ic
+  - status
+description: Schema for ITU Operational Bulletin E.164D Note O data

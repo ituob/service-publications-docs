@@ -2,7 +2,7 @@
 # Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
 "$schema": http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for X.121B (generated from LML X121DNICEntry)
+title: ITU OB Dataset Schema for 977-X.121B
 type: array
 items:
   type: object
@@ -10,23 +10,33 @@ items:
   properties:
     dnic_number:
       type: string
+      description: Data Network Identification Code number
     country_or_area:
       type: object
       additionalProperties: false
       properties:
         en:
           type: string
+          description: Country or geographical area name in English
         fr:
           type: string
+          description: Country or geographical area name in French
         es:
           type: string
-        zh:
-          type: string
-        ru:
-          type: string
-        ar:
-          type: string
+          description: Country or geographical area name in Spanish
+      description: Country or geographical area names in different languages
+      required:
+      - en
+      - fr
+      - es
     network_name:
       type: string
+      description: Name of network to which a DNIC is allocated
     note:
       type: string
+      description: Additional notes or remarks specific to this entry
+  required:
+  - dnic_number
+  - country_or_area
+  - network_name
+description: ITU OB Dataset Schema for 977-X.121B

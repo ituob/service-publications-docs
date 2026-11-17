@@ -1,0 +1,18 @@
+# Legacy constraints the LML cannot express (required, description, format,
+# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+---
+title: ITU OB Dataset Schema for 1114 E.164D Note N
+description: Schema for ITU Operational Bulletin E.164D Note N data
+items:
+  required:
+  - network
+  - cc_ic
+  - status
+  properties:
+    network:
+      description: Name of the satellite or mobile network
+    cc_ic:
+      description: Country Code and Identification Code in E.164 format
+    status:
+      description: Assignment status of the code
+type:

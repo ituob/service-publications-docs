@@ -2,7 +2,7 @@
 # Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
 "$schema": http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for Q.708B (generated from LML Q708ISPCEntry)
+title: ITU OB Dataset Schema for 1109 Q.708B
 type: array
 items:
   type: object
@@ -10,25 +10,49 @@ items:
   properties:
     ipsc:
       type: string
+      description: International signaling point code
     country:
       type: object
       additionalProperties: false
       properties:
         en:
           type: string
+          description: English name
         fr:
           type: string
+          description: French name
         es:
           type: string
+          description: Spanish name
         zh:
           type: string
+          description: Chinese name
         ru:
           type: string
+          description: Russian name
         ar:
           type: string
+          description: Arabic name
+      description: Localized country or geographical area names
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
     dec:
       type: string
+      description: Decimal representation of the IPSC code
     signal_point_name:
       type: string
+      description: Name of the signal point
     signal_point_operator:
       type: string
+      description: Operator of the signal point
+  required:
+  - ipsc
+  - country
+  - dec
+  - signal_point_operator
+description: ITU OB Dataset Schema for 1109 Q.708B

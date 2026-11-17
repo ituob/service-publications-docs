@@ -1,0 +1,53 @@
+# Legacy constraints the LML cannot express (required, description, format,
+# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+---
+title: ITU OB Dataset Schema for 1125 Q.708A
+description: ITU OB Dataset Schema for 1125 Q.708A
+items:
+  required:
+  - code
+  - area_or_network
+  properties:
+    code:
+      description: Signalling Area/Network Code (SANC)
+      pattern: "^[0-9]-[0-9]{3}$"
+      examples:
+      - 2-000
+      - 7-255
+    area_or_network:
+      description: Geographical Area or Signalling Network translations
+      properties:
+        en:
+          description: English name
+        fr:
+          description: French name
+        es:
+          description: Spanish name
+        ru:
+          description: Russian name
+        zh:
+          description: Chinese name
+        ar:
+          description: Arabic name
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
+    note:
+      description: Localized notes
+      properties:
+        en:
+          description: English note
+        fr:
+          description: French note
+        es:
+          description: Spanish note
+        ru:
+          description: Russian note
+        zh:
+          description: Chinese note
+        ar:
+          description: Arabic note

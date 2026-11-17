@@ -2,7 +2,7 @@
 # Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
 "$schema": http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for E.164D-Note-PQ (generated from LML E164DNotePQEntry)
+title: ITU OB Dataset Schema for 1114 E.164D Notes P and Q
 type: array
 items:
   type: object
@@ -10,11 +10,27 @@ items:
   properties:
     applicant:
       type: string
+      description: Entity that applied for the code
     network:
       type: string
+      description: Name of the network
     cc_ic:
       type: string
+      description: Country Code and Identification Code format
+      pattern: "^\\+[0-9]{3} [0-9]+$"
     status:
       type: string
+      description: Current assignment status of the code
+      enum:
+      - Assigned
+      - Reserved
+      - Spare
     formerly:
       type: string
+      description: Previous name of the applicant or network
+  required:
+  - applicant
+  - network
+  - cc_ic
+  - status
+description: Schema for ITU Operational Bulletin E.164D Notes P and Q data

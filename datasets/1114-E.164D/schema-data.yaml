@@ -2,7 +2,7 @@
 # Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
 "$schema": http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for E.164D (generated from LML E164DEntry)
+title: ITU OB Dataset Schema for 1114 E.164D
 type: array
 items:
   type: object
@@ -10,35 +10,62 @@ items:
   properties:
     country_code:
       type: string
+      description: The E.164 assigned country code
     country_area_or_service:
       type: object
       additionalProperties: false
       properties:
         en:
           type: string
+          description: Name in English
         fr:
           type: string
+          description: Name in French
         es:
           type: string
+          description: Name in Spanish
         zh:
           type: string
+          description: Name in Chinese
         ru:
           type: string
+          description: Name in Russian
         ar:
           type: string
+          description: Name in Arabic
+      description: Name of the country, geographical area or global service in different
+        languages
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
     note:
       type: object
       additionalProperties: false
       properties:
         en:
           type: string
+          description: Note in English
         fr:
           type: string
+          description: Note in French
         es:
           type: string
+          description: Note in Spanish
         zh:
           type: string
+          description: Note in Chinese
         ru:
           type: string
+          description: Note in Russian
         ar:
           type: string
+          description: Note in Arabic
+      description: Additional information about the country code in different languages
+  required:
+  - country_code
+  - country_area_or_service
+description: Schema for ITU Operational Bulletin E.164D data

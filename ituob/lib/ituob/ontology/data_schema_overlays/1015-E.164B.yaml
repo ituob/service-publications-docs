@@ -1,0 +1,47 @@
+# Legacy constraints the LML cannot express (required, description, format,
+# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+---
+title: ITU OB Dataset Schema for 1015 E.164B
+description: ITU OB Dataset Schema for 1015 E.164B
+items:
+  description: Represents information about mobile networks used with the E.164 country
+    code for a country or geographical area.
+  required:
+  - country_or_area
+  - country_code
+  - mobile_telephone_numbers
+  properties:
+    country_or_area:
+      description: The name of the country or geographical area in different languages.
+      required:
+      - en
+      - fr
+      - es
+      properties:
+        en:
+          description: English name.
+        fr:
+          description: French name.
+        es:
+          description: Spanish name.
+        zh:
+        ru:
+        ar:
+    country_code:
+      description: The E.164 country code assigned to the country or geographical
+        area.
+    mobile_telephone_numbers:
+      description: Mobile telephone numbers or patterns used with the country code
+        in different languages.
+      required:
+      - en
+      properties:
+        en:
+          description: Mobile telephone numbers description in English.
+        fr:
+          description: Mobile telephone numbers description in French.
+        es:
+          description: Mobile telephone numbers description in Spanish.
+        zh:
+        ru:
+        ar:
