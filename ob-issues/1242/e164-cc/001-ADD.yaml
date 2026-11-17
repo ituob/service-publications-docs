@@ -4,12 +4,14 @@ date_active: *1
 ob_issue_no: '1242'
 reference: OB-1242
 identifier:
-  code: Note p)
+  code: Note p) +883 440 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 440 ADD*
   entries:
-  - applicant: Truphone Limited
+  - notes:
+    - p
+    applicant: Truphone Limited
     network: Truphone Limited
     cc_ic: "+883 440"
     status: Assigned

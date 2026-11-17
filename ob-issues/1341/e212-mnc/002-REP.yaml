@@ -1,0 +1,17 @@
+type: REP
+date_requested: &1 2023-10-14 22:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1341'
+reference: OB-1341
+identifier:
+  code: Estonia SUP
+data:
+  _class: E212MNCAmendment
+  position: Estonia SUP
+  entries:
+  - mcc_mnc_codes: 248 34
+    country_or_area:
+      en: Estonia
+    networks: Nettora Systems OÜ
+  notes:
+  - 'MCC: Mobile Country Code  MNC: Mobile Network Code'

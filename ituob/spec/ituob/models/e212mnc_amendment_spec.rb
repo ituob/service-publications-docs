@@ -603,10 +603,12 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
 
       expect(entries.length).to eq(1)
       expect(entries.first.country_or_area.en).to eq('Germany')
-      expect(entries.first.note.en).to eq(
+      expect(entries.first.note.en).to start_with(
         "Extra-territorial use in Sweden (Country B – Where the MCC+MNC is to be used " \
         'extra‑territorially): Ericsson GmbH; MSIN range 0000099100 - 0000099199'
       )
+      expect(entries.first.extra_territorial_use).to be(true)
+      expect(entries.first.note.en).to include('***', 'As defined in Annex E')
     end
 
     it 'splits an inline qualifier from the country name and pairs Country B rows (OB 1108)' do
@@ -714,6 +716,157 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
         expect(described_class.rowspan_heading(['Denmark ADD', mark, ' ']))
           .to eq(country: 'Denmark', action: 'ADD')
       end
+    end
+  end
+
+  describe 'printed footnotes and extra-territorial details' do
+    let(:header) do
+      row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')), cell(paragraph('Operator/Network')))
+    end
+
+    it 'applies an As from footnote only to its preceding announcement (OB 989, 1008)' do
+      doc = document(paragraph('P 1 Australia ADD'),
+                     table(header, row(cell(paragraph('Australia')), cell(paragraph('505 20')), cell(paragraph('Ausgrid')))),
+                     paragraph('P 17 International Mobile, shared code ADD 1'),
+                     table(header, row(cell(paragraph('International Mobile, shared code')), cell(paragraph('901 33')),
+                                       cell(paragraph('Smart Communications')))),
+                     paragraph('1 As from 31 August 2011'))
+      actions = parse(doc).actions
+
+      expect(actions.map { |a| a.entries.first.effective_date }).to eq([nil, '31 August 2011'])
+      expect(actions.map { |a| a.entries.first.mcc_mnc_codes }).to eq(['505 20', '901 33'])
+      expect(parse(doc).notes).to include('1 As from 31 August 2011')
+    end
+
+    it 'keeps an inline country-first announcement separate from the following country (OB 1062)' do
+      parsed = parse(document(paragraph('Malta ADD 278 11 YOM'),
+                              paragraph('International Mobile, shared code ADD'),
+                              paragraph('901 43 EMnify GmbH')))
+
+      expect(parsed.actions.map { |action| [action.action_type, action.entries.map(&:mcc_mnc_codes)] })
+        .to eq([['ADD', ['278 11']], ['ADD', ['901 43']]])
+      expect(parsed.actions.first.entries.first.country_or_area.en).to eq('Malta')
+      expect(parsed.actions.first.entries.first.networks).to eq('YOM')
+      expect(parsed.actions.last.entries.first.country_or_area.en).to eq('International Mobile, shared code')
+    end
+
+    it 'retains the North America MNC formatting note without inventing an entry (OB 1007)' do
+      note = 'For North America three digits MNC have been assigned with MNC with a trailing 0'
+      parsed = parse(document(paragraph('Canada ADD'), paragraph('302 220 Telus Mobility'), paragraph(note)))
+
+      expect(parsed.notes).to include(note)
+      expect(parsed.actions.flat_map(&:entries).map(&:mcc_mnc_codes)).to eq(['302 220'])
+    end
+
+    it 'retains heading annotations in the action position without changing the table values' do
+      headings = [
+        'P 17 International Mobile, shared code 901 13 (Global Networks Switzerland AG) LIR',
+        'P 7 Canada (http://www.cnac.ca/other_codes/imsi/imsi_codes.htm) REP all information by',
+        'P 40 Switzerland ADD (extra-territorial use of MCC/MNC, Annex E to ITU-T Recommendation E.212)',
+        'P 9 Georgia LIR'
+      ]
+      headings.each do |heading|
+        parsed = parse(document(paragraph(heading),
+                                table(header, row(cell(paragraph('Printed country')), cell(paragraph('228 01')),
+                                                  cell(paragraph('Operator'))))))
+
+        expect(parsed.actions.first.position).to eq(heading)
+        expect(parsed.actions.first.entries.first.mcc_mnc_codes).to eq('228 01')
+        expect(parsed.actions.first.entries.first.country_or_area.en).to eq('Printed country')
+      end
+    end
+
+    it 'applies star-keyed effective dates and preserves ordinary entries' do
+      doc = document(paragraph('P 1 Denmark ADD*'),
+                     table(header, row(cell(paragraph('Denmark')), cell(paragraph('238 01')), cell(paragraph('Operator')))),
+                     paragraph('* As from 1 June 2024'))
+      entry = parse(doc).actions.first.entries.first
+
+      expect(entry.effective_date).to eq('1 June 2024')
+      expect(entry.note.en).to eq('* As from 1 June 2024')
+      expect(entry.extra_territorial_use).to be_nil
+    end
+
+    it 'retains a keyed country note without applying it to unrelated countries (OB 1280)' do
+      note = '* This designation is without prejudice to positions on status.'
+      doc = document(table(header, row(cell(paragraph('Kosovo* SUP')), cell(paragraph('')), cell(paragraph(''))), row(cell(paragraph('221 06')), cell(paragraph('Dardafon.Net LLC'))),
+                           row(cell(paragraph('New Zealand ADD')), cell(paragraph('')), cell(paragraph(''))), row(cell(paragraph('530 11')), cell(paragraph('Interim Māori Spectrum Commission')))),
+                     paragraph(note))
+      parsed = parse(doc)
+      entries = parsed.actions.flat_map(&:entries)
+
+      expect(parsed.notes).to include(note)
+      expect(entries.first.note.en).to eq(note)
+      expect(entries.last.note).to be_nil
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['221 06', '530 11'])
+    end
+
+    it 'retains keyed table note rows and their prose continuations (OB 1102)' do
+      note = '** MCC+MNC "248 05" was assigned to AS Bravocom Mobiil until 19 April 2007.'
+      continued = 'Then it was assigned to Skycompiler OÜ on 15 March 2011.'
+      doc = document(table(header,
+                           row(cell(paragraph('Estonia')), cell(paragraph('248 05')), cell(paragraph('Skycompiler OÜ**'))),
+                           row(cell(paragraph(note)), cell(paragraph('')), cell(paragraph('')))),
+                     paragraph('    ' + continued))
+      parsed = parse(doc)
+      entries = parsed.actions.flat_map(&:entries)
+
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['248 05'])
+      expect(entries.first.note.en).to eq(note + "\n" + continued)
+      expect(parsed.notes).to include(note + "\n" + continued)
+    end
+
+    it 'retains the destination country and marks a code-first extra-territorial row (OB 1016)' do
+      doc = document(paragraph('Switzerland ADD (extra-territorial use of MCC/MNC, Annex E to ITU-T Recommendation E.212)'),
+                     table(row(cell(paragraph('MCC/MNC')), cell(paragraph('Operator')), cell(paragraph('Country B')),
+                               cell(paragraph('Country A range')), cell(paragraph('Country B range'))),
+                           row(cell(paragraph('228 01')), cell(paragraph('Swisscom')), cell(paragraph('Principality of Liechtenstein')),
+                               cell(paragraph('20XXXXXXXX (Switzerland)')), cell(paragraph('37XXXXXXXX (Liechtenstein)')))))
+      action = parse(doc).actions.first
+      entry = action.entries.first
+
+      expect(action.action_type).to eq('ADD')
+      expect(entry.extra_territorial_use).to be(true)
+      expect(entry.country_or_area.en).to eq('Switzerland')
+      expect(entry.note.en).to include('Principality of Liechtenstein')
+      expect(entry.range).to eq('20XXXXXXXX (Switzerland) 37XXXXXXXX (Liechtenstein)')
+      expect(entry.mcc_mnc_codes).to eq('228 01')
+    end
+
+    it 'preserves footnotes and extra-territorial details in the real bulletins' do
+      parsed = [989, 1008, 1102, 1280, 1304, 1016].to_h do |issue|
+        path = File.expand_path("../../../../itu-ob-data/issues/#{issue}/amendments.yaml", __dir__)
+        data = YAML.load_file(path, permitted_classes: [Date, Time])
+        message = data['messages'].find { |m| m['target']['publication'] == 'E212_MNC' }
+        [issue, parse(message['contents']['en'])]
+      end
+      first = parsed[989].actions.flat_map(&:entries)
+      second = parsed[1008].actions.flat_map(&:entries)
+      estonia = parsed[1102].actions.flat_map(&:entries).find { |entry| entry.networks.include?('**') }
+      kosovo = parsed[1280].actions.flat_map(&:entries).find { |entry| entry.country_or_area.en.start_with?('Kosovo') }
+      trial = parsed[1304].actions.flat_map(&:entries).find { |entry| entry.mcc_mnc_codes == '991 04' }
+      switzerland = parsed[1016].actions.flat_map(&:entries).find { |entry| entry.mcc_mnc_codes == '228 01' }
+
+      expect(first.find { |entry| entry.mcc_mnc_codes == '901 33' }.effective_date).to eq('31 August 2011')
+      expect(first.reject { |entry| entry.mcc_mnc_codes == '901 33' }.map(&:effective_date)).to all(be_nil)
+      expect(second.first.effective_date).to eq('15 June 2012')
+      expect(estonia.note.en).to include('19 April 2007', '15 March 2011', '15 March 2013')
+      expect(kosovo.note.en).to include('UNSCR 1244')
+      expect(trial.note.en).to include('18.X.2024')
+      expect(switzerland.extra_territorial_use).to be(true)
+      expect(switzerland.note.en).to include('Principality of Liechtenstein')
+    end
+
+    it 'marks an unmatched Country B row while preserving its country and qualifier' do
+      doc = document(table(row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')),
+                               cell(paragraph('MSIN range')), cell(paragraph('Operator'))),
+                           row(cell(paragraph('Sweden (Country B – extra-territorial)')), cell(paragraph('262 74')),
+                               cell(paragraph('1 - 2')), cell(paragraph('Ericsson')))))
+      entry = parse(doc).actions.first.entries.first
+
+      expect(entry.extra_territorial_use).to be(true)
+      expect(entry.note.en).to eq('(Country B – extra-territorial)')
+      expect(entry.country_or_area.en).to eq('Sweden')
     end
   end
 

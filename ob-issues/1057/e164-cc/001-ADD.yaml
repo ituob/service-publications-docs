@@ -4,15 +4,23 @@ date_active: *1
 ob_issue_no: '1057'
 reference: OB-1057
 identifier:
-  code: Note q)
+  code: Note q) +883 150 ADD*
 data:
   _class: E164CCAmendment
-  position: Note q)
+  position: Note q) +883 150 ADD*
   entries:
-  - applicant: BodyTrace Netherlands B.V.
+  - notes:
+    - q
+    - 'q Associated with shared country code 883, the following three-digit identification
+      code has been assigned for the international network of:'
+    applicant: BodyTrace Netherlands B.V.
     network: BodyTrace Netherlands B.V
     cc_ic: "+883 150"
     status: Assigned
+    effective_date: 1 July 2014
   notes:
+  - 'q Associated with shared country code 883, the following three-digit identification
+    code has been assigned for the international network of:'
+  - "* 1 July 2014"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

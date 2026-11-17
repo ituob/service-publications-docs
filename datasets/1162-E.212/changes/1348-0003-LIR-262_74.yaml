@@ -10,8 +10,10 @@ data:
     en: Germany
   networks: Ericsson GmbH
   note:
-    en: 'Extra-territorial use in Sweden (Country B – Where the MCC+MNC is to be used
-      extra‑territorially): Ericsson GmbH; MSIN range 0000099100 - 0000099199'
+    en: |-
+      Extra-territorial use in Sweden (Country B – Where the MCC+MNC is to be used extra‑territorially): Ericsson GmbH; MSIN range 0000099100 - 0000099199
+      ***       As defined in Annex E to Recommendation ITU-T E.212, extra-territorial use of an MCC+MNC is the term used to describe the situation where an MCC+MNC that has been assigned to an operator in one country, Country A, is used in another country, Country B, through a base station established in Country B.
   range: '0000099000 - 0000099099'
+  extra_territorial_use: true
 reference: OB-1348
 date_active: 2023-10-14 22:00:00.000000000 Z

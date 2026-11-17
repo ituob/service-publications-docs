@@ -1,0 +1,52 @@
+type: REP
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1240'
+reference: OB-1240
+identifier:
+  code: International Mobile, shared code SUP*
+data:
+  _class: E212MNCAmendment
+  position: International Mobile, shared code SUP*
+  entries:
+  - mcc_mnc_codes: 901 29
+    country_or_area:
+      en: International Mobile, shared code
+    networks: Telenor Connexion AB
+    note:
+      en: "* See the present ITU Operational Bulletin No 1240 of 15.III.2022, page
+        5."
+  - mcc_mnc_codes: 901 33
+    country_or_area:
+      en: International Mobile, shared code
+    networks: Smart Communications, Inc
+    note:
+      en: "* See the present ITU Operational Bulletin No 1240 of 15.III.2022, page
+        5."
+  - mcc_mnc_codes: 901 47
+    country_or_area:
+      en: International Mobile, shared code
+    networks: Ooredoo
+    note:
+      en: "* See the present ITU Operational Bulletin No 1240 of 15.III.2022, page
+        5."
+  - mcc_mnc_codes: 901 57
+    country_or_area:
+      en: International Mobile, shared code
+    networks: SAP
+    note:
+      en: "* See the present ITU Operational Bulletin No 1240 of 15.III.2022, page
+        5."
+  - mcc_mnc_codes: 901 70
+    country_or_area:
+      en: International Mobile, shared code
+    networks: Clementvale Baltic OÜ
+    note:
+      en: "* See the present ITU Operational Bulletin No 1240 of 15.III.2022, page
+        5."
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'
+  - "* See the present ITU Operational Bulletin No 1240 of 15.III.2022, page 5."

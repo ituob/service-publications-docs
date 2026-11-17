@@ -4,15 +4,19 @@ date_active:
 ob_issue_no: '1099'
 reference: OB-1099
 identifier:
-  code: Note q)
+  code: Note q) +883 5160 ADD*
 data:
   _class: E164CCAmendment
-  position: Note q)
+  position: Note q) +883 5160 ADD*
   entries:
-  - applicant: Tel2tel kft.
+  - notes:
+    - q
+    applicant: Tel2tel kft.
     network: Tel2tel kft.
     cc_ic: "+883 5160"
     status: Assigned
+    effective_date: 8 April 2016
   notes:
+  - "* 8 April 2016"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

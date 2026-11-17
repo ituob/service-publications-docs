@@ -4,16 +4,27 @@ date_active: *1
 ob_issue_no: '1219'
 reference: OB-1219
 identifier:
-  code: Note q)
+  code: Note q) +883 5190 ADD*
 data:
   _class: E164CCAmendment
-  position: Note q)
+  position: Note q) +883 5190 ADD*
   entries:
-  - applicant: Nokia Corporation
+  - notes:
+    - q
+    - 'q Associated with shared country code 883, the following four-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: Nokia Corporation
     network: Nokia Corporation
     cc_ic: "+883 5190"
     status: Assigned
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
+  - 'q Associated with shared country code 883, the following four-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

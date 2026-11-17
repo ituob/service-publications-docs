@@ -4,18 +4,26 @@ date_active: *1
 ob_issue_no: '1348'
 reference: OB-1348
 identifier:
-  code: 1348-003
+  code: Extra-territorial use*** of MCC/MNC, Annex E to Recommendation ITU-T E.212
 data:
   _class: E212MNCAmendment
+  position: Extra-territorial use*** of MCC/MNC, Annex E to Recommendation ITU-T E.212
   entries:
   - mcc_mnc_codes: 262 74
     country_or_area:
       en: Germany
     networks: Ericsson GmbH
     note:
-      en: 'Extra-territorial use in Sweden (Country B – Where the MCC+MNC is to be
-        used extra‑territorially): Ericsson GmbH; MSIN range 0000099100 - 0000099199'
+      en: |-
+        Extra-territorial use in Sweden (Country B – Where the MCC+MNC is to be used extra‑territorially): Ericsson GmbH; MSIN range 0000099100 - 0000099199
+        ***       As defined in Annex E to Recommendation ITU-T E.212, extra-territorial use of an MCC+MNC is the term used to describe the situation where an MCC+MNC that has been assigned to an operator in one country, Country A, is used in another country, Country B, through a base station established in Country B.
     range: '0000099000 - 0000099099'
+    extra_territorial_use: true
   notes:
   - "*            MCC:     Mobile Country Code"
   - 'MNC:    Mobile Network Code'
+  - "**          MSIN:   Mobile Subscription Identification Number"
+  - "***       As defined in Annex E to Recommendation ITU-T E.212, extra-territorial
+    use of an MCC+MNC is the term used to describe the situation where an MCC+MNC
+    that has been assigned to an operator in one country, Country A, is used in another
+    country, Country B, through a base station established in Country B."

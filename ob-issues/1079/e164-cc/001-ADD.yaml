@@ -4,15 +4,23 @@ date_active:
 ob_issue_no: '1079'
 reference: OB-1079
 identifier:
-  code: Note p)
+  code: Note p) +883 180 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 180 ADD*
   entries:
-  - applicant: Ooredoo
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code has been assigned for the international network of:'
+    applicant: Ooredoo
     network: Ooredoo
     cc_ic: "+883 180"
     status: Assigned
+    effective_date: 5 June 2015
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code has been assigned for the international network of:'
+  - "* 5 June 2015"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

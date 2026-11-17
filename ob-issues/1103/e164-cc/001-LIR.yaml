@@ -4,12 +4,14 @@ date_active:
 ob_issue_no: '1103'
 reference: OB-1103
 identifier:
-  code: Note o)
+  code: Note o) +882 99 LIR
 data:
   _class: E164CCAmendment
-  position: Note o)
+  position: Note o) +882 99 LIR
   entries:
-  - applicant: AeroMobile AS
+  - notes:
+    - o
+    applicant: AeroMobile AS
     network: AeroMobile AS
     cc_ic: "+882 99"
     status: Assigned

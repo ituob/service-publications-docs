@@ -4,16 +4,23 @@ date_active: *1
 ob_issue_no: '1268'
 reference: OB-1268
 identifier:
-  code: Note p)
+  code: Note p) +883 470 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 470 ADD*
   entries:
-  - applicant: Webbing
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservation or assignment has been made for the international networks
+      of:'
+    applicant: Webbing
     network: Webbing
     cc_ic: "+883 470"
     status: Assigned
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservation or assignment has been made for the international networks of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

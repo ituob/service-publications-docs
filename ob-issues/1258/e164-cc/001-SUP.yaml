@@ -4,16 +4,23 @@ date_active: *1
 ob_issue_no: '1258'
 reference: OB-1258
 identifier:
-  code: Note p)
+  code: Note p) +883 280 SUP*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 280 SUP*
   entries:
-  - applicant: Plintron Global Technology Solutions Private Limited
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservation or assignment has been made for the international networks
+      of:'
+    applicant: Plintron Global Technology Solutions Private Limited
     network: Plintron Global Technology Solutions Private Limited
     cc_ic: "+883 280"
     status: Withdrawn
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservation or assignment has been made for the international networks of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

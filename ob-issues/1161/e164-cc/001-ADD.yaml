@@ -4,20 +4,36 @@ date_active:
 ob_issue_no: '1161'
 reference: OB-1161
 identifier:
-  code: Note p)
+  code: Note p) +883 260; +883 270 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 260; +883 270 ADD*
   entries:
-  - applicant: Twilio Inc.
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: Twilio Inc.
     network: Twilio Inc.
     cc_ic: "+883 260"
     status: Assigned
-  - applicant: GloTell B.V.
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: GloTell B.V.
     network: GloTell B.V.
     cc_ic: "+883 270"
     status: Assigned
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
+  - 's Associated with shared country code 991, the following three-digit trial identification
+    code has been temporarily assigned for the international non-commercial trials
+    of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

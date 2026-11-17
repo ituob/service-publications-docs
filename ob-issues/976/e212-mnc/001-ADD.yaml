@@ -4,21 +4,27 @@ date_active:
 ob_issue_no: '976'
 reference: OB-976
 identifier:
-  code: P 5
+  code: P 5 Belarus ADD
 data:
   _class: E212MNCAmendment
-  position: P 5
+  position: P 5 Belarus ADD
   entries:
   - mcc_mnc_codes: 257 03
     country_or_area:
       en: Belarus
     networks: BelCel Joint Venture (JV)
   - mcc_mnc_codes: 257 04
+    country_or_area:
+      en: Belarus
     networks: Closed joint-stock company "Belarusian telecommunication network"
   - mcc_mnc_codes: 257 05
+    country_or_area:
+      en: Belarus
     networks: Republican Unitary Telecommunication Enterprise (RUE) Beltelecom (National
       Telecommunications Operator of the Republic of Belarus
   - mcc_mnc_codes: 257 06
+    country_or_area:
+      en: Belarus
     networks: Yota Bel Foreign Limited Liability Company (FLLC)
   notes:
   - ______________

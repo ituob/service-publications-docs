@@ -4,16 +4,24 @@ date_active: *1
 ob_issue_no: '1236'
 reference: OB-1236
 identifier:
-  code: Note p)
+  code: Note p) +883 270 SUP*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 270 SUP*
   entries:
-  - applicant: GloTell B.V.
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: GloTell B.V.
     network: GloTell B.V.
     cc_ic: "+883 270"
     status: Withdrawn
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

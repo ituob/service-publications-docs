@@ -4,20 +4,33 @@ date_active: *1
 ob_issue_no: '1198'
 reference: OB-1198
 identifier:
-  code: Note p)
+  code: Note p) +883 320 and +883 330 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 320 and +883 330 ADD*
   entries:
-  - applicant: Tele2 IoT
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: Tele2 IoT
     network: Tele2 IoT
     cc_ic: "+883 320"
     status: Assigned
-  - applicant: Cubic Telecom Limited
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: Cubic Telecom Limited
     network: Cubic Telecom Limited
     cc_ic: "+883 330"
     status: Assigned
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

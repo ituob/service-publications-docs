@@ -8,11 +8,22 @@ identifier:
 data:
   _class: E164CCAmendment
   entries:
-  - applicant: World’s Global Telecom
-    network: "+991 001"
-    cc_ic: 15.I.2019
-    status: 15.I.2020
+  - notes:
+    - s
+    - 's Associated with shared country code 991, the following three-digit trial
+      identification code has been temporarily assigned for the international non-commercial
+      trials of:'
+    applicant: World’s Global Telecom
+    cc_ic: "+991 001"
+    reclamation_date: 15.I.2020
+    effective_date: 15.I.2019
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
+  - 's Associated with shared country code 991, the following three-digit trial identification
+    code has been temporarily assigned for the international non-commercial trials
+    of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

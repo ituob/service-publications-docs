@@ -1,0 +1,20 @@
+type: SUP
+date_requested: &1 2011-10-01
+date_active: *1
+ob_issue_no: '1001'
+reference: OB-1001
+identifier:
+  code: P 17 Note o) +882 24 (TeliaSonera Sverige AB) SUP*
+data:
+  _class: E164CCAmendment
+  position: P 17 Note o) +882 24 (TeliaSonera Sverige AB) SUP*
+  entries:
+  - notes:
+    - o
+    applicant: TeliaSonera Sverige AB
+    network: TeliaSonera Sverige AB
+    cc_ic: "+882 24"
+    status: Withdrawn
+  notes:
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes

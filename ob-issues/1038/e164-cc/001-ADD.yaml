@@ -4,19 +4,32 @@ date_active: *1
 ob_issue_no: '1038'
 reference: OB-1038
 identifier:
-  code: Note q)
+  code: Note q) +883 5120, +883 5130 ADD
 data:
   _class: E164CCAmendment
-  position: Note q)
+  position: Note q) +883 5120, +883 5130 ADD
   entries:
-  - applicant: MTX Connect Ltd
+  - notes:
+    - q
+    - 'q Associated with shared country code 883, the following four-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: MTX Connect Ltd
     network: MTX Connect Ltd
     cc_ic: "+883 5120"
     status: Assigned
-  - applicant: SIMPE Ltd
+  - notes:
+    - q
+    - 'q Associated with shared country code 883, the following four-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: SIMPE Ltd
     network: SIMPE Ltd
     cc_ic: "+883 5130"
     status: Assigned
   notes:
+  - 'q Associated with shared country code 883, the following four-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

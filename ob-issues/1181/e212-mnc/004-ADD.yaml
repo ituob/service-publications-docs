@@ -4,10 +4,13 @@ date_active:
 ob_issue_no: '1181'
 reference: OB-1181
 identifier:
-  code: 1181-004
+  code: Spain ADD
 data:
   _class: E212MNCAmendment
+  position: Spain ADD
   entries:
   - mcc_mnc_codes: 214 33
+    country_or_area:
+      en: Spain
     networks: XFERA MÓVILES, S.A.U.
   notes: []

@@ -215,6 +215,7 @@ models Ituob {
     attribute formerly, String
     attribute action_date, String
     attribute reclamation_date, String
+    attribute effective_date, String
   }
 
   class E164DEntry {
@@ -222,6 +223,8 @@ models Ituob {
     attribute country_code, String
     attribute country_area_or_service, MultilingualString
     attribute note, MultilingualString
+    attribute notes, String { cardinality 0..n }
+    attribute effective_date, String
   }
 
   class E164DNoteNEntry {
@@ -229,6 +232,8 @@ models Ituob {
     attribute network, String
     attribute cc_ic, String
     attribute status, String
+    attribute notes, String { cardinality 0..n }
+    attribute effective_date, String
   }
 
   class E164DNoteOEntry {
@@ -238,6 +243,8 @@ models Ituob {
     attribute cc_ic, String
     attribute status, String
     attribute formerly, String
+    attribute notes, String { cardinality 0..n }
+    attribute effective_date, String
   }
 
   class E164DNotePQEntry {
@@ -247,6 +254,8 @@ models Ituob {
     attribute cc_ic, String
     attribute status, String
     attribute formerly, String
+    attribute notes, String { cardinality 0..n }
+    attribute effective_date, String
   }
 
   // E.212 family
@@ -279,6 +288,8 @@ models Ituob {
     attribute note, MultilingualString
     attribute former_name, String
     attribute range, String
+    attribute effective_date, String
+    attribute extra_territorial_use, Boolean
   }
 
   // E.218

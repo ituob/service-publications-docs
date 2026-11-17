@@ -4,12 +4,14 @@ date_active:
 ob_issue_no: '1126'
 reference: OB-1126
 identifier:
-  code: P 18
+  code: P 18 Note p) +883 230 ADD*
 data:
   _class: E164CCAmendment
-  position: P 18
+  position: P 18 Note p) +883 230 ADD*
   entries:
-  - applicant: SAP
+  - notes:
+    - p
+    applicant: SAP
     network: SAP
     cc_ic: "+883 230"
     status: Assigned

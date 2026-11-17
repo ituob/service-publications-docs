@@ -18,4 +18,10 @@ items:
     status:
       type: string
       description: Assignment status of the code
+    notes:
+      type: array
+      items:
+        type: string
+    effective_date:
+      type: string
 description: Schema for ITU Operational Bulletin E.164D Note N data

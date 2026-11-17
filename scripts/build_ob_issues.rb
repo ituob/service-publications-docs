@@ -230,7 +230,11 @@ def process_amendments(issue_id, src_dir, dst_dir, stats)
     # precedence; this fills in parsers that haven't been updated.
     if parsed.is_a?(Ituob::Models::Amendment)
       current_notes = parsed.notes || []
-      if !current_notes.is_a?(Array) || current_notes.empty?
+      # New footnotes must not suppress the glossary fallback that these
+      # parsers previously used when they returned no notes.
+      needs_glossary = pub_id == 'E164_CC' ||
+        (pub_id == 'E212_MNC' && Array(current_notes).none? { |note| note.match?(/MCC:|MNC:/) })
+      if !current_notes.is_a?(Array) || current_notes.empty? || needs_glossary
         doc = Prosereflect::Parser.parse_document(contents_en)
         simplified = Ituob::Helpers.dump_doc(doc)
         generic_notes = []
@@ -252,7 +256,7 @@ def process_amendments(issue_id, src_dir, dst_dir, stats)
             generic_notes << text unless text.empty?
           end
         end
-        parsed.notes = generic_notes if generic_notes.any?
+        parsed.notes = (Array(current_notes) + generic_notes).uniq if generic_notes.any?
       end
     end
 

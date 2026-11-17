@@ -6,6 +6,7 @@ identifier:
   code: 655 73
 data:
   _class: E212MNCAmendment
+  position: South Africa ADD
   entries:
   - mcc_mnc_codes: 655 73
     country_or_area:
@@ -26,6 +27,7 @@ data:
         2754300000 - 2754399999'
     range: 0000000000 - 2654099999; 2654200000 - 2654299999; 2654400000 - 2754099999;
       2754200000 - 2754299999; 2754400000 - 9999999999
+    extra_territorial_use: true
   - mcc_mnc_codes: 208 20
     country_or_area:
       en: France
@@ -35,9 +37,16 @@ data:
         used extra-territorially): Bouygues Telecom; MSIN range 0055500000 - 0055599999;
         2007200000 - 2007299999'
     range: 0000000000 - 0055499999; 0055600000 - 2007199999; 2007300000 - 9999999999
+    extra_territorial_use: true
   notes:
   - "*        MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"
   - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
     el servicio móvil'
+  - "**      MSIN:    Mobile Subscription Identification Number / numéro d'identification
+    d'abonnement mobile / número de identificación de suscripción al servicio móvil"
+  - "***    As defined in Annex E to Recommendation ITU-T E.212, extra-territorial
+    use of an MCC+MNC is the term used to describe the situation where an MCC+MNC
+    that has been assigned to an operator in one country, Country A, is used in another
+    country, Country B, through a base station established in Country B."
 reference: OB-1108

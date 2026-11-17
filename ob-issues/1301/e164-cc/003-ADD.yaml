@@ -4,15 +4,26 @@ date_active: *1
 ob_issue_no: '1301'
 reference: OB-1301
 identifier:
-  code: Note p)
+  code: Note p) +883 490 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 490 ADD*
   entries:
-  - applicant: Datora Mobile Telecomunicações SA
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: Datora Mobile Telecomunicações SA
     network: Datora Mobile Telecomunicações SA
     cc_ic: "+883 490"
     status: Assigned
   notes:
+  - 'o Associated with shared country code 882, the following two-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

@@ -4,20 +4,33 @@ date_active: *1
 ob_issue_no: '1235'
 reference: OB-1235
 identifier:
-  code: Note p)
+  code: Note p) +883 400 and +883 410 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 400 and +883 410 ADD*
   entries:
-  - applicant: TELEFONICA MOVILES ESPAÑA, S.A. UNIPERSONAL (TME)
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: TELEFONICA MOVILES ESPAÑA, S.A. UNIPERSONAL (TME)
     network: TELEFONICA MOVILES ESPAÑA, S.A. UNIPERSONAL (TME)
     cc_ic: "+883 400"
     status: Assigned
-  - applicant: Telefónica Germany GmbH & Co. OHG
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: Telefónica Germany GmbH & Co. OHG
     network: Telefónica Germany GmbH & Co. OHG
     cc_ic: "+883 410"
     status: Assigned
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

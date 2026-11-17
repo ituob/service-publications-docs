@@ -4,23 +4,38 @@ date_active: *1
 ob_issue_no: '1210'
 reference: OB-1210
 identifier:
-  code: 1210-010
+  code: Extra-territorial use*** of MCC/MNC, Annex E to Recommendation ITU-T E.212
 data:
   _class: E212MNCAmendment
+  position: Extra-territorial use*** of MCC/MNC, Annex E to Recommendation ITU-T E.212
   entries:
   - mcc_mnc_codes: 270 77
     networks: LIR
+    note:
+      en: "***          As defined in Annex E to Recommendation ITU-T E.212, extra-territorial
+        use of an MCC+MNC is the term used to describe the   situation where an MCC+MNC
+        that has been assigned to an operator in one country, Country A, is used in
+        another country, Country B, through a base station established in Country
+        B."
+    extra_territorial_use: true
   - mcc_mnc_codes: 270 77
     country_or_area:
       en: Luxembourg
     networks: Proximus Luxembourg S.A.
     note:
-      en: 'Extra-territorial use in Belgium (Country B – Where the MCC+MNC is to be
-        used extra-territorially): Proximus Luxembourg S.A.; MSIN range 800 x xxx
-        xxx; 801 x xxx xxx'
+      en: |-
+        Extra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Proximus Luxembourg S.A.; MSIN range 800 x xxx xxx; 801 x xxx xxx
+        ***          As defined in Annex E to Recommendation ITU-T E.212, extra-territorial use of an MCC+MNC is the term used to describe the   situation where an MCC+MNC that has been assigned to an operator in one country, Country A, is used in another country, Country B, through a base station established in Country B.
     range: 000 x xxx xxx
+    extra_territorial_use: true
   notes:
   - "*              MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"
   - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
     el servicio móvil'
+  - "**            MSIN:   Mobile Subscription Identification Number / numéro d'identification
+    d'abonnement mobile /   número de identificación de suscripción al servicio móvil"
+  - "***          As defined in Annex E to Recommendation ITU-T E.212, extra-territorial
+    use of an MCC+MNC is the term used to describe the   situation where an MCC+MNC
+    that has been assigned to an operator in one country, Country A, is used in another
+    country, Country B, through a base station established in Country B."

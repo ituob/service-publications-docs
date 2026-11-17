@@ -4,15 +4,23 @@ date_active: *1
 ob_issue_no: '1173'
 reference: OB-1173
 identifier:
-  code: Note q)
+  code: Note q) +883 5170 ADD*
 data:
   _class: E164CCAmendment
-  position: Note q)
+  position: Note q) +883 5170 ADD*
   entries:
-  - applicant: DIDWW
+  - notes:
+    - q
+    - 'q Associated with shared country code 883, the following four-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: DIDWW
     network: DIDWW
     cc_ic: "+883 5170"
     status: Assigned
   notes:
+  - 'q Associated with shared country code 883, the following four-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
