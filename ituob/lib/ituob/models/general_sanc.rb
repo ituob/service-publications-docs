@@ -11,6 +11,7 @@ module Ituob
       key_value do
         map 'type', to: :type
         map 'items', to: :items
+        map 'notes', to: :notes
       end
 
       def self.parse(data)

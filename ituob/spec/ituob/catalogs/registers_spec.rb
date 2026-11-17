@@ -2,6 +2,7 @@
 
 require 'spec_helper'
 require 'ituob/catalogs'
+require 'tmpdir'
 
 RSpec.describe Ituob::Catalogs::Registers do
   before { described_class.reset! }
@@ -19,6 +20,30 @@ RSpec.describe Ituob::Catalogs::Registers do
       expect(entry.title_en).to include('Mobile Network Codes')
       expect(entry.recommendation).to eq('E.212')
       expect(entry.key_field).to eq('mcc_mnc_codes')
+    end
+  end
+
+  describe 'authoritative url' do
+    after { described_class.reset! }
+
+    it 'is nil when a register declares none' do
+      expect(described_class.find('E212_MNC').url).to be_nil
+    end
+
+    it 'is read from the register entry when present' do
+      Dir.mktmpdir do |dir|
+        path = File.join(dir, 'registers.yaml')
+        File.write(path, <<~YAML)
+          registers:
+            - register_id: NEWPUB
+              slug: newpub
+              recommendation: E.164
+              title: { en: New publication }
+              url: https://www.itu.int/pub/newpub
+        YAML
+        described_class.load!(path: path)
+        expect(described_class.find('NEWPUB').url).to eq('https://www.itu.int/pub/newpub')
+      end
     end
   end
 
