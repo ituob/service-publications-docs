@@ -35,6 +35,8 @@ module Ituob
     module Compiled
       ONTOLOGY_PATH = File.expand_path('../../ituob/ontology/messages.lml', __dir__)
 
+      CUSTOM_ATTRIBUTE_TYPES = [HashOrList].freeze
+
       CLASS_NAMES = %w[
         E164ACNEntry
         E164BEntry
@@ -249,7 +251,7 @@ module Ituob
         CLASS_NAMES.each do |name|
           klass = compiler.compiled_classes.fetch(name)
           klass.attributes.each_value do |attribute|
-            attribute.type.configure_attribute(attribute) if attribute.type.respond_to?(:configure_attribute)
+            attribute.type.configure_attribute(attribute) if CUSTOM_ATTRIBUTE_TYPES.include?(attribute.type)
           end
           ensure_collections_default_to_empty(klass)
           preserve_empty_strings(name, klass)
