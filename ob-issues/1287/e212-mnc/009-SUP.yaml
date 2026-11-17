@@ -1,0 +1,31 @@
+type: SUP
+date_requested: &1 2018-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1287'
+reference: OB-1287
+identifier:
+  code: International Mobile, shared code SUP*
+data:
+  _class: E212MNCAmendment
+  position: International Mobile, shared code SUP*
+  entries:
+  - mcc_mnc_codes: 901 24
+    country_or_area:
+      en: International Mobile, shared code
+    networks: Voxbone SA
+    note:
+      en: "* See the present ITU Operational Bulletin No. 1287 of 1.III.2024, page
+        6."
+  - mcc_mnc_codes: 901 90
+    country_or_area:
+      en: International Mobile, shared code
+    networks: Truphone Limited
+    note:
+      en: "* See the present ITU Operational Bulletin No. 1287 of 1.III.2024, page
+        6."
+  notes:
+  - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil'
+  - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil'
+  - "* See the present ITU Operational Bulletin No. 1287 of 1.III.2024, page 6."
