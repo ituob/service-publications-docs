@@ -159,7 +159,7 @@ module OfficialPdfGate
                 row.key?("pages_official") ? "#{row['pages_official']}/#{row['pages_generated']}" : "n/a",
                 row.fetch("page_drift", "n/a"),
                 ([row["official_status"]] + row.fetch("errors")).compact.join("; ")]
-      "| #{fields.map { |field| field.to_s.gsub('|', '\\|').gsub(/[\r\n]+/, ' ') }.join(' | ')} |"
+      "| #{fields.map { |field| field.to_s.gsub(/[\\|]/) { |character| "\\#{character}" }.gsub(/[\r\n]+/, ' ') }.join(' | ')} |"
     end.join("\n") + "\n"
   end
 

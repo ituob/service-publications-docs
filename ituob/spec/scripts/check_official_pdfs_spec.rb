@@ -45,6 +45,15 @@ RSpec.describe OfficialPdfGate do
     expect(markdown).to include("2/4", "6/8", "10/11", "pass")
   end
 
+  it "escapes Markdown backslashes and pipes while folding embedded newlines" do
+    report = described_class.markdown([{ "key" => key, "status" => "error",
+                                        "errors" => ["bad\\|column\\path\r\ninjected|row"] }])
+    expected_details = "bad" + "\\" * 3 + "|column" + "\\" * 2 + "path injected\\|row"
+    expect(report.lines.size).to eq(3)
+    expect(report.lines.last).to end_with("| #{expected_details} |\n")
+    expect(report.lines.last.scan(/(?<!\\)(?:\\\\)*\K\|/).size).to eq(13)
+  end
+
   it "fails metric regressions and page drift while retaining comparison results" do
     comparison.recall = 0.8
     comparison.rows_matched = 1
