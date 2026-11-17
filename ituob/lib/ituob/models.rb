@@ -86,6 +86,10 @@ module Ituob
     autoload :GeneralServiceRestrictions, 'ituob/models/general_service_restrictions'
     autoload :GeneralTelephoneServices, 'ituob/models/general_telephone_service'
 
+    # PDF publication manifest (spd#89)
+    autoload :PublicationManifestEntry, 'ituob/models/publication_manifest_entry'
+    autoload :PublicationManifest, 'ituob/models/publication_manifest'
+
     # Value types for corpus fields that must be kept as stored
     autoload :DateOrText, 'ituob/models/date_or_text'
     autoload :HashOrText, 'ituob/models/hash_or_text'

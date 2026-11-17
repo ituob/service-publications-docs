@@ -4,6 +4,10 @@ name: pdf
 # publication (T-SP-PP.RES.21-2011) to PDF in English, French and Spanish
 # and upload the PDFs as a build artifact.
 #
+# scripts/render_publications.rb renders the pilot set and emits manifest.json
+# (spd#89 C3/C10) next to the PDFs; the manifest lists only renders that
+# succeeded, and --strict fails the job if any pilot render did not.
+#
 # This workflow only builds and uploads. It never deploys, uses no secrets
 # and restores no cache, so a pull request from a fork cannot poison
 # anything another workflow later trusts.
@@ -13,6 +17,21 @@ on:
       - 'documents/T-SP-PP.RES.21-2011/**'
       - 'datasets/991-PP.RES.21.pp/**'
       - 'metanorma.yml'
+      - 'scripts/render_publications.rb'
+      - 'scripts/build_pdf_coverage_matrix.rb'
+      - 'ituob/lib/ituob/models/publication_manifest*.rb'
+      - '.github/workflows/pdf.yml'
+    # The site fetches only push/workflow_dispatch runs on main, so the PDFs
+    # reach ituob.org only from this trigger.
+  push:
+    branches: [main]
+    paths:
+      - 'documents/T-SP-PP.RES.21-2011/**'
+      - 'datasets/991-PP.RES.21.pp/**'
+      - 'metanorma.yml'
+      - 'scripts/render_publications.rb'
+      - 'scripts/build_pdf_coverage_matrix.rb'
+      - 'ituob/lib/ituob/models/publication_manifest*.rb'
       - '.github/workflows/pdf.yml'
   workflow_dispatch:
 
@@ -38,12 +57,34 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Build PDFs (E, F, S)
+      - name: Install the manifest gems
         run: |
           set -eu
-          for lang in E F S; do
-            metanorma -t itu -x pdf --agree-to-terms "$DOC_DIR/$DOC_ID-$lang.adoc"
-          done
+          # The image has no working C compiler out of the box and already ships current
+          # builds of every native gem ituob needs (nokogiri, json,
+          # bigdecimal, ffi, parsanol) plus lutaml-model, lutaml-lml, thor,
+          # rubyzip and liquid. Installing ituob/Gemfile.lock instead would
+          # compile older pinned native gems and fail. Add only the
+          # pure-Ruby gems the image lacks, with the image's RUBYOPT and
+          # BUNDLE_GEMFILE (-rbundler/setup of /setup/Gemfile) removed so
+          # plain rubygems can resolve them.
+          env -u RUBYOPT -u BUNDLE_GEMFILE gem install --no-document json-schema colorize prosereflect
+          env -u RUBYOPT -u BUNDLE_GEMFILE ruby -I ituob/lib -e 'require "ituob"; require "ituob/models"; puts "ituob loads"'
+
+      # Renders with `metanorma -t itu -x pdf --agree-to-terms` per language,
+      # copies each PDF to build/pdf/<standard>-<year>/ and writes
+      # build/pdf/manifest.json. The PDFs also stay beside their sources for
+      # the checks below.
+      - name: Build PDFs (E, F, S) and the manifest
+        run: |
+          set -eu
+          # The script runs on the image's gems via plain rubygems (no bundler
+          # env) with ituob/lib on the load path; the metanorma it starts gets
+          # the image's original env back.
+          RENDER_ORIG_RUBYOPT="${RUBYOPT-}" RENDER_ORIG_BUNDLE_GEMFILE="${BUNDLE_GEMFILE-}" \
+          env -u RUBYOPT -u BUNDLE_GEMFILE ruby -I ituob/lib scripts/render_publications.rb \
+            --docs "$DOC_ID" --langs E,F,S --out-dir build --strict
+          cat build/pdf/manifest.json
 
       - name: Check the PDFs exist and are not empty
         run: |
@@ -74,9 +115,11 @@ jobs:
             ' "$DATA" "$lang" "$DOC_DIR/$DOC_ID-$lang.presentation.xml"
           done
 
-      - name: Upload PDFs
+      - name: Upload PDFs and manifest.json
         uses: actions/upload-artifact@v4
         with:
           name: pdf-pilot-T-SP-PP.RES.21-2011
-          path: documents/T-SP-PP.RES.21-2011/*.pdf
+          path: |
+            build/pdf/
+            build/render-failures.log
           if-no-files-found: error

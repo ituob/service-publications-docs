@@ -1037,4 +1037,23 @@ models Ituob {
     attribute provenance, ProjectionProvenance { cardinality 1 }
     attribute changes, RegisterChange { cardinality 0..n }
   }
+
+  // PDF publication manifest (pdf/manifest.json). status is one of
+  // candidate or itu-adopted; see docs/pdf/manifest.adoc.
+  class PublicationManifestEntry {
+    attribute standard, String { cardinality 1 }
+    attribute recommendation, String { cardinality 1 }
+    attribute title, String { cardinality 1 }
+    attribute edition_year, Integer { cardinality 1 }
+    attribute language, String { cardinality 1 }
+    attribute as_of_issue, Integer { cardinality 1 }
+    attribute sha256, String { cardinality 1 }
+    attribute status, String { cardinality 1 }
+    attribute register_slugs, String { cardinality 0..n }
+    attribute path, String { cardinality 1 }
+  }
+
+  class PublicationManifest {
+    attribute publications, PublicationManifestEntry { cardinality 0..n }
+  }
 }
