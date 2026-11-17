@@ -216,7 +216,6 @@ jobs:
           path: |
             build/pdf/
             build/render-failures.log
-            documents/${{ matrix.doc }}/*-C.presentation.xml
           if-no-files-found: error
 
   typesetting:

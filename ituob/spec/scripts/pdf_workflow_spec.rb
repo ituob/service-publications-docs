@@ -60,6 +60,14 @@ RSpec.describe "PDF workflow catalog isolation" do
     expect(upload.fetch("with").fetch("name")).to eq("${{ needs.plan.outputs.artifact-name }}")
   end
 
+  it "keeps shard uploads rooted at build so the merger finds pdf/manifest.json" do
+    steps = workflow.fetch("jobs").fetch("render").fetch("steps")
+    upload = steps.find { |step| step["name"] == "Upload this publication's PDFs and manifest" }
+    paths = upload.fetch("with").fetch("path").lines.map(&:strip)
+    expect(paths).to include("build/pdf/", "build/render-failures.log")
+    expect(paths.map { |path| path.split('/').first }.uniq).to eq(["build"])
+  end
+
   it "reports the merged catalog without blocking initial publication on fidelity failures" do
     job = workflow.fetch("jobs").fetch("typesetting")
     expect(job.fetch("needs")).to eq(%w[plan publications])

@@ -10,7 +10,7 @@ inputs change and the producer workflow runs on `main`.
 
 The `pdf` workflow runs for pull requests and pushes to `main` when a changed
 path matches `documents/**`, `datasets/**`, `catalogs/**`, `metanorma.yml`, the
-render, coverage-matrix, manifest-merge or typesetting-report scripts,
+render, coverage-matrix, manifest-merge, typesetting-report or CJK font-fallback scripts,
 `docs/pdf/typesetting-baselines.json`, `ituob/lib/**`, or the
 workflow itself. A pull-request run is validation only. The site accepts
 producer artifacts only from successful `push` or `workflow_dispatch` runs on

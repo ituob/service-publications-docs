@@ -130,6 +130,29 @@ with the same reporter and `--verify`.
   Installing and registering the fonts alone is therefore insufficient;
   this attempt is not evidence of a resolved Chinese rendering defect.
 
+Run link:https://github.com/ituob/service-publications-docs/actions/runs/44118456856[44118456856]
+at `bba3933416528a129b2b4240438e870a87d0d841` then renders E.212A with
+the guarded Arial/Calibri fallback adjustment. All six downloaded PDFs pass
+`--verify`, with 19 pages each (unchanged from the initial main artifact),
+embedded fonts, no overflow, and successful title/script round-trips.
+The Chinese PDF now embeds `NotoSansSC-Regular` and `NotoSansSC-Bold`
+(`emb yes`, `sub yes`, `uni yes`). Its previously missing title
+`移动国家或地理区域代码列表`, cover branding `ITU出版物`, and Chinese body text
+extract correctly; the other five PDFs do not gain a CJK font.
+
+That run's render shard succeeded, but an added diagnostic XML upload changed
+the artifact root and broke manifest merging. The diagnostic path was removed;
+a workflow regression now asserts that every shard upload path stays beneath
+`build`, preserving `pdf/manifest.json` at the artifact root. The PDF evidence
+above comes directly from the successful render shard and is independent of
+that packaging failure.
+
+These are targeted before/after measurements, not a completed post-fix
+87-PDF matrix. The remaining six Chinese publication variants still need a
+full hosted rerender; the initial report above deliberately retains their
+observed failures rather than predicting passes. F.32's 41/47 page mismatch
+also remains unresolved.
+
 == Initial main artifact: per-language results
 
 All 87 PDFs were measured; no missing, duplicate or unlisted files. All listed fonts are embedded and all pages are unrotated portrait A4. No literal Unicode tofu/replacement markers were extracted; the Chinese failures demonstrate that this alone is insufficient, because the renderer substitutes `#`. Overall: 76 pass, 11 fail.
