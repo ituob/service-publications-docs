@@ -21,6 +21,8 @@ registers:
     classification: structured
     parser_class: Ituob::Models::E118Amendment
     renderer: iin-table
+    # Post-amendment annex: ob-issues/1161/annexes.yaml:2 (position_on).
+    seed_includes_seed_issue: true
     seed_issue: 1161
     seed_path: datasets/1161-E.118
 
@@ -57,6 +59,8 @@ registers:
     classification: structured
     parser_class: Ituob::Models::E164CCAmendment
     renderer: cc-table
+    # Post-amendment annex: ob-issues/1114/annexes.yaml:2 (position_on).
+    seed_includes_seed_issue: true
     seed_issue: 1114
     seed_path: datasets/1114-E.164D
 
@@ -93,6 +97,8 @@ registers:
     key_field: cc_ic
     classification: structured
     parser_class: Ituob::Models::E164CCAmendment
+    # Post-amendment annex: ob-issues/1114/annexes.yaml:2 (position_on).
+    seed_includes_seed_issue: true
     seed_issue: 1114
     seed_path: datasets/1114-E.164D-Note-PQ
     source_slug: e164-cc
@@ -116,6 +122,8 @@ registers:
     classification: structured
     parser_class: Ituob::Models::E212MNCAmendment
     renderer: mnc-table
+    # Post-amendment annex: ob-issues/1162/annexes.yaml:2 (position_on).
+    seed_includes_seed_issue: true
     seed_issue: 1162
     seed_path: datasets/1162-E.212
 
@@ -220,6 +228,8 @@ registers:
     classification: structured
     parser_class: Ituob::Models::Q708ISPCAmendment
     renderer: ispc-table
+    # Post-amendment annex: ob-issues/1109/annexes.yaml:2 (position_on).
+    seed_includes_seed_issue: true
     seed_issue: 1109
     seed_path: datasets/1109-Q.708B
 

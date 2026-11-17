@@ -117,6 +117,7 @@ module Ituob
           register_id: @register.register_id,
           seed_path: File.expand_path(@register.seed_path, DataRoot.path),
           seed_issue: @register.seed_issue,
+          seed_includes_seed_issue: @register.seed_includes_seed_issue,
           key_field: @register.key_field
         )
       end

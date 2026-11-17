@@ -108,6 +108,17 @@ attribute :country, :string
         { country: country, action: suffix[:action] }
       end
 
+      # A title can precede the column header. Recognise the code label
+      # explicitly so a data row with a nonnumeric placeholder survives.
+      def self.header_row_index(table)
+        title, candidate = table
+        return 0 unless candidate && title.length == 1 && candidate.length > 1
+
+        row_cells(candidate).any? do |cell|
+          cell.downcase.gsub(/[\p{Space}*]/, '').match?(/\Amcc[+\/]mnc\z/)
+        end ? 1 : 0
+      end
+
       # One normalized string per cell of a table row.
       def self.row_cells(row)
         row.map { |cell| Ituob::Helpers.normalize_whitespace(Array(cell).join(' ')) }
@@ -294,14 +305,15 @@ attribute :country, :string
             end
 
           elsif first_elem.is_a?(Array) # table
+            header_index = header_row_index(c)
             c.each_with_index do |row, row_index|
               segs = row.flatten
               # Printed first cell: the heading text of a country block, or
               # the printed country of an entry row.
               printed = Ituob::Helpers.replace_legacy_space(Array(row[0]).join(' ')).strip
               block = rowspan_heading([Array(row[0]).join(' ')] + row.drop(1).flatten)
-              # Row 0 is the column header unless it is itself a heading.
-              next if row_index.zero? && !block
+              # Title and column header rows are not data unless they open a country block.
+              next if row_index <= header_index && !block
               # Long tables repeat the column header at each page break.
               next if !block && row_cells(row).any? { |cell| cell.downcase.gsub(/[\p{Space}*]/, '') == 'mcc+mnc' }
 

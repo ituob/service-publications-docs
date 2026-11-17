@@ -1,0 +1,83 @@
+= G7: seed-issue replay proof
+
+Issue: ituob/service-publications-docs#84.
+Comparison baseline: main at `26cc6fae`.
+
+== Exclusion contract
+
+A catalogued post-amendment annex permits exclusion of a same-issue ADD or
+LIR only when every keyed patch row is present and every field the patch
+sets has the same value in the seed. Hashes are compared recursively: extra
+seed translations are preserved, but missing or differing patch fields prevent
+exclusion. Arrays and scalar values must match exactly. A SUP is excluded only
+when every target is absent. Unknown actions, unkeyed content and missing seeds
+retain replay. A key touched by an earlier retained seed-issue patch also
+retains replay, so a SUP followed by an otherwise identical ADD restores it.
+Pre-seed and later-issue behavior is unchanged.
+
+Patches with missing or differing fields are replayed in full using the existing
+ADD/LIR update behavior. The printed amendment is the authority for the fields
+it carries, including differently split addresses and effective dates. This
+avoids inventing equivalences between different printed field values.
+Namibia's `1161-0005-ADD-89_264_33.yaml` therefore preserves
+`effective_date: 1.VII.2018`, which is absent from the annex seed.
+
+== Counts
+
+These counts enumerate patches, without multiplying historical editions.
+The earlier blanket exclusion removed 22 patches; the content check excludes
+13 and retains 9.
+
+[cols="2,1,1,1",options="header"]
+|===
+|Register |Seed-issue patches |Excluded |Replayed
+|E118_IIN |6 |2 |4
+|E164_CC |1 |0 |1
+|E164_NOTE_PQ |4 |0 |4
+|E212_MNC |4 |4 |0
+|Q708_ISPC |7 |7 |0
+|Total |22 |13 |9
+|===
+
+E.118 retains Afghanistan's SUP/ADD replacement, Namibia's dated ADD and
+Thailand's differently split address. Austria's LIR is fully represented;
+the Czech SUP targets an absent key. Note PQ retains all four patches because
+`status: assigned` differs from seed `status: Assigned`. E164_CC's unkeyed
+common-note amendment is retained conservatively: no matching seed row proves
+its content redundant. Its pre-existing identifier-derived entry behavior is
+unchanged by this fix.
+
+All seven E.212 ADD/LIR rows and ten Q.708 ADD/LIR rows are recursively
+contained in the seed; the seed has additional country translations. All
+E.212 and Q.708 SUP targets are already absent. No membership operation or
+patch field is lost by those exclusions.
+
+== Verification
+
+The full comparison against `26cc6fae` covers 935 states across all 21
+replayable registers. All baseline entry keys and nested field values survive.
+The only entry differences are additional seed translations in 355 E.212/Q.708
+states. History and key-history differences are exactly the 13 exclusions
+(4 ADD, 5 LIR, 4 SUP). Error/reflected-in-seed differences are exactly the
+excluded absent-key suppressions; lapse and deletion state are unchanged.
+Namibia's date is preserved in all 124 E.118 states.
+
+The committed corpus regression checks Namibia at issue 1161 and current.
+Focused directory-source specs cover missing/differing fields, nested hashes,
+multi-row amendments, missing seeds, absent/present SUP targets and a retained
+SUP/ADD sequence. E.212 and Q.708 corpus specs preserve complete seed entries.
+
+[source,sh]
+----
+BUNDLE_GEMFILE=ituob/Gemfile bundle exec rspec --options /dev/null -I ituob/lib -I ituob/spec ituob/spec/ituob/registers/directory_change_source_spec.rb ituob/spec/ituob/registers/seed_issue_replay_spec.rb ituob/spec/ituob/projections/register_items_spec.rb
+BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby -r liquid scripts/audit_seed_issue_replay.rb
+BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby -r liquid scripts/verify_parser_equivalence.rb --verify
+----
+
+The audit reports retained patches and counts allowlisted duplicate-add findings
+only when the corresponding actual amendment still reaches replay. A retained
+patch is expected when its fields are not proven redundant. The previous claim
+that all 12 G7 duplicate-add findings disappear no longer applies: Namibia and
+the two Note PQ ADDs must remain to preserve their printed fields. The other
+nine G7 findings are redundant exclusions. No patch data or parser baseline
+is modified.
