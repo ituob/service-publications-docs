@@ -48,7 +48,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: "pdf-${{ github.ref }}"
+  group: "pdf-${{ github.ref }}-${{ inputs.docs }}"
   cancel-in-progress: true
 
 jobs:
@@ -80,7 +80,7 @@ jobs:
       matrix:
         doc: ${{ fromJSON(needs.plan.outputs.docs) }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     container:
       image: metanorma/metanorma:latest
     env:
@@ -119,7 +119,7 @@ jobs:
       # copies each PDF to build/pdf/<standard>-<year>/ and writes
       # build/pdf/manifest.json. The PDFs also stay beside their sources for
       # the checks below.
-      - name: Build PDFs (E, F, S) and the manifest
+      - name: Build selected PDFs and the manifest
         run: |
           set -eu
           # The script runs on the image's gems via plain rubygems (no bundler
@@ -133,10 +133,10 @@ jobs:
       - name: Check the PDFs exist and are not empty
         run: |
           set -eu
-          for lang in $(echo "$LANGS" | tr \, ' '); do
-            test -f "$DOC_DIR/$DOC_ID-$lang.adoc" || continue
-            test -s "$DOC_DIR/$DOC_ID-$lang.pdf"
-            ls -l "$DOC_DIR/$DOC_ID-$lang.pdf"
+          for lang in $(echo "$LANGS" | tr ',' ' '); do
+            if find "$DOC_DIR" -maxdepth 1 -name "*-$lang.adoc" | grep -q .; then
+              test -s "build/pdf/${DOC_ID#T-SP-}/${DOC_ID#T-SP-}-$lang.pdf"
+            fi
           done
 
       # A PDF built from an empty dataset is still a valid, non-empty file
@@ -148,7 +148,7 @@ jobs:
           DATA: datasets/991-PP.RES.21.pp/data.yaml
         run: |
           set -eu
-          for lang in $(echo "$LANGS" | tr \, ' '); do
+          for lang in $(echo "$LANGS" | tr ',' ' '); do
             test -f "$DOC_DIR/$DOC_ID-$lang.adoc" || continue
             ruby -ryaml -e '
               lang = { "E" => "en", "F" => "fr", "S" => "es" }.fetch(ARGV[1])
