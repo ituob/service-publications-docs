@@ -1,22 +1,51 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (E212MNCEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 1162 E.212 Shared MCC/MNC
-description: ITU OB Dataset Schema for 1162 E.212 Shared MCC/MNC
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for E.212-Shared-MCC (generated from LML E212MNCEntry)
+x-lml-model: E212MNCEntry
 type: array
 items:
   type: object
-  required:
-    - mcc_mnc_codes
-    - networks
   additionalProperties: false
   properties:
     mcc_mnc_codes:
       type: string
-      description: "MCC + MNC code combination"
+    country_or_area:
+      type: object
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+        fr:
+          type: string
+        es:
+          type: string
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
     networks:
       type: string
-      description: "Network name"
+    note:
+      type: object
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+        fr:
+          type: string
+        es:
+          type: string
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
     former_name:
       type: string
-      description: "Previous name of the network"
+    range:
+      type: string

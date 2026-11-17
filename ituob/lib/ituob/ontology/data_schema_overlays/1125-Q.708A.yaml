@@ -1,0 +1,41 @@
+# Descriptions and model-compatible refinements over the LML-generated schema.
+---
+title: ITU OB Dataset Schema for 1125 Q.708A
+description: ITU OB Dataset Schema for 1125 Q.708A
+items:
+  properties:
+    code:
+      description: Signalling Area/Network Code (SANC)
+      examples:
+      - 2-000
+      - 7-255
+    area_or_network:
+      description: Geographical Area or Signalling Network translations
+      properties:
+        en:
+          description: English name
+        fr:
+          description: French name
+        es:
+          description: Spanish name
+        ru:
+          description: Russian name
+        zh:
+          description: Chinese name
+        ar:
+          description: Arabic name
+    note:
+      description: Localized notes
+      properties:
+        en:
+          description: English note
+        fr:
+          description: French note
+        es:
+          description: Spanish note
+        ru:
+          description: Russian note
+        zh:
+          description: Chinese note
+        ar:
+          description: Arabic note

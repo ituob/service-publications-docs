@@ -1,30 +1,27 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (E164DNoteOEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
+"$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1114 E.164D Note O
-description: Schema for ITU Operational Bulletin E.164D Note O data
+x-lml-model: E164DNoteOEntry
 type: array
 items:
   type: object
   additionalProperties: false
-  required:
-    - applicant
-    - network
-    - cc_ic
-    - status
   properties:
     applicant:
       type: string
-      description: "Name of the organization that applied for the code"
+      description: Name of the organization that applied for the code
     network:
       type: string
-      description: "Name of the telecommunications network"
+      description: Name of the telecommunications network
     cc_ic:
       type: string
-      description: "Country Code and Identification Code in format +882 XX"
+      description: Country Code and Identification Code in format +882 XX
     status:
       type: string
-      description: "Current assignment status of the code"
+      description: Current assignment status of the code
     formerly:
       type: string
-      description: "Previous name of the applicant/network, if applicable"
+      description: Previous name of the applicant/network, if applicable
+description: Schema for ITU Operational Bulletin E.164D Note O data

@@ -14,6 +14,7 @@
 
 $LOAD_PATH.unshift(File.expand_path('../ituob/lib', __dir__))
 require 'ituob'
+require 'json'
 require 'optparse'
 
 module PdfCoverageMatrix
@@ -24,6 +25,9 @@ module PdfCoverageMatrix
   # Only a yaml2text/data2text block attribute line names datasets the render
   # reads; the same text in a comment or in prose does not.
   BLOCK_LINE = /\A\[\w*2text\b/
+  # A `[lutaml_data,provider:ituob.edition,...,options={"arguments":{"register":
+  # "<slug>","as_of":<issue>}}]` block reads the register as of that OB issue.
+  PROVIDER_LINE = /\A\[lutaml_data\b.*provider:ituob\.edition\b.*\boptions=(?<json>\{.*\})\]/
   OUT_PATH = 'docs/pdf/coverage-matrix.adoc'
 
   Row = Struct.new(
@@ -73,10 +77,14 @@ module PdfCoverageMatrix
   def row_for(path, meta, lang, registers)
     text = File.read(path, encoding: 'UTF-8')
     head = header(text)
-    slugs = text.lines.grep(BLOCK_LINE).flat_map { |l| l.scan(DATASET_REF).flatten }.uniq.sort
+    slugs = text.lines.grep(BLOCK_LINE).flat_map { |l| l.scan(DATASET_REF).flatten }
+    provider = provider_datasets(text, registers)
+    slugs = (slugs + provider.map(&:first)).uniq.sort
+    # A provider block reads its dataset as of its own issue, not the directory's number.
+    datasets = slugs.filter_map { |s| (n = s[/\A\d+/]) && [s, n.to_i] unless provider.assoc(s) }
+    datasets = (datasets + provider).uniq.sort
     mapped, unmapped = slugs.partition { |s| registers.key?(s) }
     regs = mapped.map { |s| registers.fetch(s) }
-    datasets = slugs.filter_map { |s| (n = s[/\A\d+/]) && [s, n.to_i] }
     issue = datasets.map(&:last).max
     Row.new(
       standard: meta[:standard], year: meta[:year], language: lang,
@@ -85,6 +93,17 @@ module PdfCoverageMatrix
       published: head['published-date'], registers: regs, unmapped: unmapped,
       newest: regs.map(&:newest_issue).max, flag: flag(issue, regs, datasets)
     )
+  end
+
+  # [dataset dir, as_of issue] for each provider block: the register's seed
+  # directory (the dataset the register is stored in) at the issue it is read as of.
+  def provider_datasets(text, registers)
+    text.lines.filter_map do |line|
+      m = PROVIDER_LINE.match(line) or next
+      args = JSON.parse(m[:json]).fetch('arguments')
+      reg = registers.values.find { |r| r.slug == args.fetch('register') } or next
+      [File.basename(reg.seed_path), Integer(args.fetch('as_of'))]
+    end
   end
 
   # Document header attributes: the `:name: value` lines before the first blank
