@@ -194,7 +194,8 @@ RSpec.describe OfficialPdfGate do
   it "rejects missing and invalid baseline configuration" do
     path = File.join(root, "docs/pdf/official-baseline.json")
     ["{", "[]", JSON.generate(key => metrics.reject { |metric, _| metric == "recall" }),
-     JSON.generate(key => metrics.merge("recall" => "0.9"))].each do |content|
+     JSON.generate(key => metrics.merge("recall" => "0.9")),
+     JSON.generate(key => metrics.merge("recall" => nil))].each do |content|
       File.write(path, content)
       expect { expect(gate_run).to eq(2) }.to output(/official PDF gate:/).to_stderr
     end

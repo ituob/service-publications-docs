@@ -35,7 +35,7 @@ module OfficialPdfGate
       entries.each do |key, entry|
         valid = entry.is_a?(Hash) && entry["official_sha256"].is_a?(String) &&
           entry["official_sha256"].match?(/\A[0-9a-f]{64}\z/) &&
-          RATIOS.all? { |metric| entry.key?(metric) && ratio?(entry[metric]) } &&
+          !entry["recall"].nil? && RATIOS.all? { |metric| entry.key?(metric) && ratio?(entry[metric]) } &&
           PAGES.all? { |metric| entry[metric].is_a?(Integer) && entry[metric] >= 0 }
         valid &&= entry["pages_official"] > 0 && entry["pages_generated"] > 0 &&
           entry["page_drift"] == (entry["pages_generated"] - entry["pages_official"]).abs
@@ -127,7 +127,7 @@ module OfficialPdfGate
     metrics = (RATIOS + PAGES.reject { |metric| metric == "page_drift" }).to_h do |metric|
       [metric, result.public_send(metric)]
     end
-    unless RATIOS.all? { |metric| ratio?(metrics[metric]) } &&
+    unless !metrics["recall"].nil? && RATIOS.all? { |metric| ratio?(metrics[metric]) } &&
         %w[pages_official pages_generated].all? { |metric| metrics[metric].is_a?(Integer) && metrics[metric] > 0 }
       raise "invalid extracted metrics or page count"
     end
