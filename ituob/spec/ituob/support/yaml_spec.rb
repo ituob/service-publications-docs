@@ -85,4 +85,33 @@ RSpec.describe Ituob::Support::Yaml do
       expect(described_class.safe_load_string('')).to be_nil
     end
   end
+
+  describe '.load_source_file' do
+    def load_source(contents)
+      described_class.load_source_file(write_yaml('source.yaml', contents))
+    end
+
+    it 'keeps every YAML 1.1 boolean spelling in a text node as printed' do
+      words = %w[YES Yes yes ON NO No off false true]
+      nodes = words.map { |word| "- {type: text, text: #{word}}" }.join("\n")
+
+      expect(load_source(nodes).map { |node| node['text'] }).to eq(words)
+    end
+
+    it 'leaves booleans outside text nodes and quoted scalars alone' do
+      data = load_source("- {type: text, text: 'NO'}\n- {enabled: yes}\n- {text: yes}\n")
+
+      expect(data).to eq([{ 'type' => 'text', 'text' => 'NO' }, { 'enabled' => true }, { 'text' => true }])
+    end
+
+    it 'still resolves dates and numbers in text nodes' do
+      data = load_source("- {type: text, text: 2017-02-11}\n- {type: text, text: 01.00}\n")
+
+      expect(data.map { |node| node['text'] }).to eq([Date.new(2017, 2, 11), 1.0])
+    end
+
+    it 'returns false for an empty file like YAML.load_file' do
+      expect(load_source('')).to be(false)
+    end
+  end
 end

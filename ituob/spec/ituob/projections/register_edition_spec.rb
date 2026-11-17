@@ -60,7 +60,10 @@ RSpec.describe Ituob::Provider, 'edition and actions projections' do
   it 'matches global history filtered by identifier across multiple issues in replay order' do
     changes_by_identifier = state.history.reject(&:seed?).group_by { |change| change.identifier.code }
     key, = changes_by_identifier.max_by { |_identifier, changes| changes.map(&:ob_issue_no).uniq.size }
-    expected = state.history.select { |change| change.identifier.code == key }
+    # A seeded key's per-key history opens with the SEED change, whose own
+    # identifier is the __seed__ placeholder rather than the key.
+    seeded = items_projection.state_at(register.seed_issue).has_key?(key)
+    expected = state.history.select { |change| change.identifier.code == key || (seeded && change.seed?) }
 
     expect(key).not_to be_nil
     expect(expected.map(&:ob_issue_no).uniq.size).to be > 1

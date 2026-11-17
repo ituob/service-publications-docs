@@ -1,0 +1,105 @@
+= E.212B 2018 (English) from the ituob provider: structure pilot
+
+Card C8 of spd#89. One template, `documents/T-SP-E.212B-2018/T-SP-E.212B-2018-E.adoc`,
+has its main MNC table moved from yaml2text (`datasets/1162-E.212`) to
+`lutaml_data` with `provider:ituob.edition`. The other three tables
+(Shared MCC, MCC others, extra-territorial) stay on yaml2text; the provider has
+no edition for them.
+
+Measured on `origin/main` 4899b91f, metanorma 2.5.24, metanorma-itu 2.9.4,
+metanorma-plugin-lutaml 0.7.71, `metanorma -t itu -x xml|pdf` run in
+`documents/T-SP-E.212B-2018` (26 s XML, 34 s PDF). Rows are `tbody/tr` of the
+first table in the Metanorma XML.
+
+== As-of issue
+
+`as_of: 1162`. The annex is "Annex to ITU Operational Bulletin No. 1162"
+(`:docnumber: 1162`) and 1162 is also the E.212 seed issue (provenance
+`as_of_issue=1162 seed_issue=1162`). The 2016 in the title is the
+Recommendation's date, not an issue. Issue 1170 (the 1987-row proof) is a later
+state and was not used.
+
+== Row counts
+
+[cols="3,1,1,1",options="header"]
+|===
+|Table 1 (main MNC table) |Old (yaml2text) |New (provider) |Delta
+
+|Entries |1979 |1975 |-4
+|Country rows (one per country run, holds the rowspan cell) |214 |232 |+18
+|Rendered `tbody/tr` |2193 |2207 |+14
+|===
+
+Rendered rows = entries + country rows in both (1979 + 214, 1975 + 232). The
+other three tables are identical (55, 4, 14 rows). PDF: 67 pages, 512004 bytes.
+
+Entry equality was checked by MCC+MNC multiset: old and new share the same
+ordered key sequence apart from the deltas below.
+
+== Entry deltas (-4 net)
+
+[cols="2,1,3",options="header"]
+|===
+|Delta |Rows |Cause
+
+|`208 01`, `208 10`, `208 20` printed twice (France and Monaco) in the seed;
+the provider keeps one, with Monaco's country |-3
+|Data: open PR #96 (seed France, not Monaco). Not fixed by it for the other
+two pairs below.
+
+|`270 77` (Belgium/Luxembourg), `228 01` (Liechtenstein/Switzerland) |-2
+|Data/model: both countries print the same MCC+MNC and the register is keyed
+by it, so the later row replaces the earlier. #96 says it leaves these as they
+are. Open question, no PR covers it.
+
+|`274 02` (Faroe/Iceland), `542 02` (Fiji/Nauru) |-2
+|Same as the previous row: shared code, last row wins. Not named in #96.
+
+|blank-key row (code blank, network `Portugal SUP`) |+1
+|Data: #87 (heading row parsed as a blank-key entry).
+
+|`268 02`, `268 07` (Portugal) |+2
+|Data: #87 states the replay reports SUPs of exactly these two keys at 1162
+that the blank-key entry used to absorb. They exist in the provider state and
+not in the old yaml, and carry no country.
+|===
+
+-7 + 3 = -4. Causes are taken from the PR descriptions and the key lists;
+the fixes themselves were not applied and the counts after them were not
+measured.
+
+== Country-row delta (+18) and the template decision
+
+Provider items keep replay order, not country order. A country therefore
+appears in several runs: France 6, Monaco 4, Luxembourg, Iceland, Fiji,
+Switzerland 2 each, and 9 items have no country at all (`208 23`, `208 29`,
+`208 33`, `208 500`, `208 700`, `208 86`, `272 18`, `268 02`, `268 07`; data
+gap, same #87/#94/#96 family, not attributed to one PR without applying them).
+
+This is a template bug, not a data bug, in the old section, and the new one
+fixes it: the old `_tables.liquid` set the rowspan to the count of all items of
+a country in the whole list, which is only right while the data is
+country-sorted. On the provider's order it would produce wrong spans. The new
+`_tables_edition.liquid` spans a run of consecutive items with the same
+country. Items without a country get a blank country cell and are not merged
+into the previous country (carrying the previous country forward would hide the
+gap and mislabel `268 02`/`268 07`). Rows for the same country split across
+runs are therefore data-order effects, listed above.
+
+== Template structure
+
+* `_tables_edition.liquid`: new partial, main table from `edition.items`,
+  English labels as literals. They become `locale(register:)` once spd#102 is on
+  main (open at the time of this run).
+* `_tables.liquid`: gains `skip_main`; unchanged for the other five languages
+  (A, C, F, R, S still render the main table from yaml2text).
+* `T-SP-E.212B-2018-E.adoc`: one `lutaml_data` block renders the partial; the
+  existing yaml2text block passes `skip_main: true`.
+
+== NOT RUN
+
+* Counts after #87, #94, #96 are applied.
+* Comparison against the official ITU PDF for this publication (C12 scope).
+* The other five languages (they are untouched and were not rendered).
+* PDF row count by text extraction; the count is from the XML the PDF is built from.
+* No test was added; the check is the render and the counts above.

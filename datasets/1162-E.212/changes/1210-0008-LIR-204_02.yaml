@@ -1,0 +1,44 @@
+type: LIR
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1210'
+identifier:
+  code: 204 02
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 204 02
+    country_or_area:
+      en: Netherlands
+    networks: T-Mobile Netherlands B.V.
+  - mcc_mnc_codes: 204 07
+    country_or_area:
+      en: Netherlands
+    networks: Tata Communications MOVE B.V.
+  - mcc_mnc_codes: 204 08
+    country_or_area:
+      en: Netherlands
+    networks: KPN B.V.
+  - mcc_mnc_codes: 204 18
+    country_or_area:
+      en: Netherlands
+    networks: Ziggo Services B.V.
+  - mcc_mnc_codes: 204 23
+    country_or_area:
+      en: Netherlands
+    networks: KORE Wireless Nederland B.V.
+  - mcc_mnc_codes: 204 25
+    country_or_area:
+      en: Netherlands
+    networks: CapX Nederland
+  - mcc_mnc_codes: 204 69
+    country_or_area:
+      en: Netherlands
+    networks: KPN B.V.
+  notes:
+  - "*              MCC:    Mobile Country Code / Indicatif de pays du mobile / Indicativo
+    de país para el servicio móvil"
+  - 'MNC:    Mobile Network Code / Code de réseau mobile / Indicativo de red para
+    el servicio móvil'
+reference: OB-1210
+date_active: 2018-11-14 23:00:00.000000000 Z

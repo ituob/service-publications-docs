@@ -5,11 +5,8 @@ ob_issue_no: '1182'
 identifier:
   code: 302 100
 data:
-  _class: E212MNCAmendment
-  entries:
-  - country_or_area:
-      en: Canada ADD
-  - mcc_mnc_codes: 302 100
-    networks: Data on Tap Inc.
-  notes: []
+  mcc_mnc_codes: 302 100
+  country_or_area:
+    en: Canada
+  networks: Data on Tap Inc.
 reference: OB-1182

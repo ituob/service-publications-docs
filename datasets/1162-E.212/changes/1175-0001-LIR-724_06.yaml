@@ -1,0 +1,27 @@
+type: LIR
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1175'
+identifier:
+  code: 724 06
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 724 06
+    country_or_area:
+      en: Brazil
+    networks: Telefônica Brasil S.A.
+  - mcc_mnc_codes: 724 10
+    country_or_area:
+      en: Brazil
+    networks: Telefônica Brasil S.A.
+  - mcc_mnc_codes: 724 11
+    country_or_area:
+      en: Brazil
+    networks: Telefônica Brasil S.A.
+  - mcc_mnc_codes: 724 23
+    country_or_area:
+      en: Brazil
+    networks: Telefônica Brasil S.A.
+  notes: []
+reference: OB-1175
