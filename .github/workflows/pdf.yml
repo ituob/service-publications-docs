@@ -100,7 +100,24 @@ jobs:
           # BUNDLE_GEMFILE (-rbundler/setup of /setup/Gemfile) removed so
           # plain rubygems can resolve them.
           env -u RUBYOPT -u BUNDLE_GEMFILE gem install --no-document json-schema colorize prosereflect
+          # metanorma restores the image's /setup/Gemfile bundle. Globally
+          # installed gems are hidden by Bundler until that bundle declares
+          # them too. Resolve locally to keep the image's native gems.
+          cat >> "$BUNDLE_GEMFILE" <<'GEMS'
+
+          gem "json-schema"
+          gem "colorize"
+          gem "prosereflect"
+          GEMS
+          bundle install --local
           env -u RUBYOPT -u BUNDLE_GEMFILE ruby -I ituob/lib -e 'require "ituob"; require "ituob/models"; puts "ituob loads"'
+          # Exercise the lazy amendment models inside the render bundle;
+          # merely requiring ituob does not load their prosereflect dependency.
+          ruby -I ituob/lib -r liquid -r ituob -e '
+            edition = Ituob::Provider.new.edition(register: "e212-mnc", as_of: 1162)
+            abort "E.212 edition has no items" if edition.items.empty?
+            puts "E.212 render bundle: #{edition.items.size} items"
+          '
 
       # The image embeds only Noto Sans/Serif and Arial, so Chinese prints as `#`
       # and Arabic loses glyphs. The A and C sources name their font in a
