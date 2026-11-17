@@ -97,6 +97,13 @@ RSpec.describe PdfTypesettingReport do
     expect(described_class.roundtrip_text('ITU-T E.118 06/2005', 'ar')).not_to eq(described_class.roundtrip_text('ITU-T E.118 05/2006', 'ar'))
   end
 
+  it 'preserves logical Arabic across a Latin bidi-run boundary with an omitted extraction space' do
+    expect(described_class.roundtrip_text('SANCقائمة بالرموز', 'ar')).to eq(described_class.roundtrip_text('SANC قائمة بالرموز', 'ar'))
+    expect(described_class.roundtrip_text('MNCفيما يتعلق', 'ar')).to eq(described_class.roundtrip_text('MNC فيما يتعلق', 'ar'))
+    expect(described_class.roundtrip_text('SANCقائمة بالرموز', 'ar')).not_to eq(described_class.roundtrip_text('SANC ةمئاق بالرموز', 'ar'))
+    expect(described_class.roundtrip_text('SANCقائمة بالرموز', 'ar')).not_to eq(described_class.roundtrip_text('SANCقائمة بالرمز', 'ar'))
+  end
+
   it 'checks a native Arabic source heading when the source cover title is English' do
     file = write_typesetting_manifest(artifact_dir, standard: 'E.118', language: 'ar')
     manifest = File.join(artifact_dir, 'pdf', 'manifest.json')

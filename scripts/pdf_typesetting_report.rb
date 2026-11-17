@@ -114,6 +114,9 @@ module PdfTypesettingReport
 
   def roundtrip_text(text, language)
     value = normalized(text).gsub(/[^\p{L}\p{M}\p{N}]+/, ' ').strip
+    # Poppler may omit a space at an embedded Latin/Arabic bidi-run boundary.
+    # Preserve letter order and Arabic word boundaries while separating scripts.
+    value = value.gsub(/(\p{Latin})(\p{Arabic})/, '\\1 \\2').gsub(/(\p{Arabic})(\p{Latin})/, '\\1 \\2') if language == 'ar'
     # A CJK title may wrap between any two characters without a word boundary.
     language == 'zh' ? value.delete(' ') : value
   end
