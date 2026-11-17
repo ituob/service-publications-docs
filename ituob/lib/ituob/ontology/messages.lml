@@ -76,7 +76,7 @@ models Ituob {
   // annexes.yaml is a mapping keyed by publication id; the model is the
   // list of its entries (IssueAnnexes owns the transposition).
   class AnnexedPosition {
-    attribute publication_id, String
+    attribute publication_id, AnnexPublicationId
     attribute position_on, DateOrText
     attribute datasets, Hash
   }

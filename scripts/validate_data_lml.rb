@@ -5,7 +5,7 @@
 # compiled-from-LML classes, so the corpus is provably valid against
 # the ontology-defined shapes.
 #
-#   bundle exec ruby scripts/validate_data_lml.rb [--all]
+#   bundle exec ruby scripts/validate_data_lml.rb [--all | --annexes-only]
 #
 # Default validates a deterministic sample (first + last issue of each
 # decade); --all walks the full corpus. Exits 1 on any failure.
@@ -15,6 +15,7 @@ require 'ituob'
 require 'yaml'
 
 ALL = ARGV.include?('--all')
+ANNEXES_ONLY = ARGV.include?('--annexes-only')
 ROOT = File.expand_path('../ob-issues', __dir__)
 
 def deep_stringify_keys(value)
@@ -31,15 +32,23 @@ def freeform_general_message?(rel, data)
 end
 
 issues = Dir.children(ROOT).grep(/\A\d+\z/).map(&:to_i).sort
-selected = ALL ? issues : issues.select { |i| (i % 10).zero? || i == issues.min || i == issues.max }
-selected -= [669, 1075] if selected.include?(669) && !ALL # incomplete editions validated separately
+selected = if ALL || ANNEXES_ONLY
+             issues
+           else
+             issues.select { |i| (i % 10).zero? || i == issues.min || i == issues.max }
+           end
+selected -= [669, 1075] if selected.include?(669) && !ALL && !ANNEXES_ONLY # incomplete editions validated separately
 
 failures = []
 validated = 0
 skipped = 0
 
 # Check the complete inventory even when validating a sample of issues.
-freeform_messages = YAML.load_file(File.expand_path('../catalogs/freeform_messages.yaml', __dir__)) || []
+freeform_messages = if ANNEXES_ONLY
+                      []
+                    else
+                      YAML.load_file(File.expand_path('../catalogs/freeform_messages.yaml', __dir__)) || []
+                    end
 freeform_by_file = {}
 freeform_messages.each do |entry|
   file = entry.fetch('file')
@@ -67,7 +76,12 @@ end
 
 selected.each do |issue|
   dir = File.join(ROOT, issue.to_s)
-  Dir.glob(File.join(dir, '**', '*.yaml')).sort.each do |path|
+  paths = if ANNEXES_ONLY
+            [File.join(dir, 'annexes.yaml')].select { |path| File.file?(path) }
+          else
+            Dir.glob(File.join(dir, '**', '*.yaml')).sort
+          end
+  paths.each do |path|
     rel = path.delete_prefix("#{dir}/")
     # Freeform positions are skipped before reading: their payloads may
     # contain YAML aliases the strict loader rejects.
@@ -119,7 +133,8 @@ selected.each do |issue|
       failures << "#{issue}/#{rel}: cannot resolve class #{resolved.inspect}"
       next
     end
-    Ituob::Models.const_get(resolved).from_yaml(data.to_yaml, permitted_classes: [Date, Time])
+    source_yaml = resolved == 'IssueAnnexes' ? File.read(path) : data.to_yaml
+    Ituob::Models.const_get(resolved).from_yaml(source_yaml, permitted_classes: [Date, Time])
     validated += 1
   rescue StandardError => e
     failures << "#{issue}/#{rel}: #{e.class}: #{e.message.lines.first.strip}"
@@ -131,7 +146,8 @@ end
 # — the register-layer patch model mirrored in the ontology as
 # RegisterChange/Identifier (per-op conditionals stay in the JSON
 # Schema gated by `ituob dataset validate`).
-Dir.glob(File.expand_path('../datasets/*/changes/*.yaml', __dir__)).sort.each do |path|
+dataset_changes = ANNEXES_ONLY ? [] : Dir.glob(File.expand_path('../datasets/*/changes/*.yaml', __dir__)).sort
+dataset_changes.each do |path|
   rel = path.sub(%r{.*/datasets/}, '')
   hash = YAML.load_file(path, permitted_classes: [Date, Time], aliases: true)
   Ituob::Registers::Change.from_hash(hash)

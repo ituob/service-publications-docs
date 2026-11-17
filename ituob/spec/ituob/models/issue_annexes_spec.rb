@@ -47,6 +47,66 @@ RSpec.describe Ituob::Models::IssueAnnexes do
   end
 
   describe 'wire shapes' do
+    it 'preserves real __type__ publications while accepting adapter metadata' do
+      require 'lutaml/lml'
+      [nil, { 'position_on' => Date.new(2018, 12, 15) }].each do |entry|
+        data = { '__type__' => entry }
+        expect(described_class.from_hash(data).to_hash).to eq(data)
+        expect(described_class.from_yaml(data.to_yaml).to_hash).to eq(data)
+      end
+      parsed = Lutaml::Lml::Format::Adapter::StandardAdapter.parse('instance IssueAnnexes { PUB = instance { position_on = "2018-12-15" } }')
+      expect(described_class.from_hash(parsed).publication_ids).to eq(['PUB'])
+    end
+
+    it 'preserves numeric and quoted publication identities without lookup collisions' do
+      annexes = described_class.from_yaml("1092: {position_on: 2018-12-15}\n'1092': {position_on: 2019-12-15}\n")
+      expect(annexes.publication_ids).to eq([1092, '1092'])
+      expect(annexes.position_for(1092).position_on).to eq(Date.new(2018, 12, 15))
+      expect(annexes.position_for('1092').position_on).to eq(Date.new(2019, 12, 15))
+      expect(described_class.from_yaml(annexes.to_yaml).to_hash).to eq(annexes.to_hash)
+    end
+
+    it 'preserves yes no on off as distinct publication identifiers' do
+      annexes = described_class.from_yaml("yes: null\nno: null\non: null\noff: null\n")
+      expect(annexes.publication_ids).to eq(%w[yes no on off])
+      expect(annexes.to_hash.keys).to eq(%w[yes no on off])
+      expect(described_class.from_yaml(annexes.to_yaml).publication_ids).to eq(%w[yes no on off])
+    end
+
+    it 'rejects invalid position types and invalid date text' do
+      [true, false, 123, ['2018-12-15'], { 'bad' => 'value' }, 'bogus'].each do |value|
+        expect { described_class.from_yaml({ 'PUB' => { 'position_on' => value } }.to_yaml) }
+          .to raise_error(ArgumentError, /position_on/)
+      end
+    end
+
+    it 'preserves null positions and empty mappings as annex events' do
+      data = { 'NULL' => nil, 'EMPTY' => {}, 'POSITION' => { 'position_on' => nil }, 'DATASETS' => { 'datasets' => nil } }
+      annexes = described_class.from_yaml(data.to_yaml)
+      expect(annexes.to_hash).to eq(data)
+      expect(described_class.from_yaml(annexes.to_yaml).to_hash).to eq(data)
+      expect(annexes.to_hash.select { |_, entry| entry }.keys).to eq(%w[EMPTY POSITION DATASETS])
+    end
+
+    it 'returns every stored annexes.yaml byte for byte' do
+      changed = corpus_files.reject do |path|
+        bytes = File.binread(path)
+        described_class.from_yaml(bytes).to_yaml == bytes
+      end
+      expect(changed).to be_empty
+    end
+
+    it 'serializes edits instead of returning stale source bytes' do
+      source = "# original formatting\nPUB: {position_on: 2018-12-15, datasets: {en: original}}\n"
+      annexes = described_class.from_yaml(source)
+      expect(annexes.to_yaml).to eq(source)
+      annexes.position_for('PUB').position_on = Date.new(2019, 12, 15)
+      annexes.position_for('PUB').datasets['en'] = 'edited'
+      reloaded = described_class.from_yaml(annexes.to_yaml)
+      expect(reloaded.position_for('PUB').position_on).to eq(Date.new(2019, 12, 15))
+      expect(reloaded.position_for('PUB').datasets).to eq('en' => 'edited')
+    end
+
     it 'reads a timestamp, a date and an unspecified position' do
       annexes = described_class.from_yaml(<<~YAML)
         Q708_ISPC:

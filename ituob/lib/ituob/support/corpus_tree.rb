@@ -66,6 +66,7 @@ module Ituob
       def self.resolve_for(rel_path, data)
         heuristic = class_name_for(rel_path)
         return nil if heuristic.nil?
+        return heuristic if heuristic == 'IssueAnnexes'
 
         return data['_class'] if data.is_a?(Hash) && data['_class']
 

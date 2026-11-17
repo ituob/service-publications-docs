@@ -41,11 +41,12 @@ TS_TYPE = {
   'HashOrText' => 'Record<string, unknown> | string', # mapping, or a string kept as stored
   'HashOrList' => 'Record<string, unknown> | Record<string, unknown>[]',
   'DateOrText' => 'string', # date or timestamp as ISO text, or free text; kept as stored
+  'AnnexPublicationId' => 'string | number | boolean | null', # mapping keys preserve their YAML scalar kind
 }.freeze
 
 VALIDATOR_RUNTIME_HEADER = <<~'TS'
   export type FieldKind =
-    | "string" | "integer" | "float" | "boolean" | "date" | "time"
+    | "string" | "integer" | "float" | "boolean" | "annexPublicationId" | "date" | "time"
     | "hash" | "hashOrText" | "hashOrList" | "dateOrText" | "enum" | "class";
 
   export interface FieldSpec {
@@ -72,7 +73,7 @@ VALIDATOR_RUNTIME_BODY = <<~'TS'
     string: "a string", integer: "an integer", float: "a number", boolean: "a boolean",
     date: "an ISO date string (YYYY-MM-DD)", time: "a timestamp string", hash: "an object",
     hashOrText: "an object or a string", dateOrText: "a string", enum: "an enum member", class: "an object",
-    hashOrList: "an object or a list of objects",
+    hashOrList: "an object or a list of objects", annexPublicationId: "a string, number, boolean, or null",
   };
 
   function scalarOk(kind: FieldKind, v: unknown): boolean {
@@ -81,6 +82,7 @@ VALIDATOR_RUNTIME_BODY = <<~'TS'
       case "integer": return (typeof v === "number" && Number.isInteger(v)) || (typeof v === "string" && /^-?\d+$/.test(v));
       case "float": return (typeof v === "number" && Number.isFinite(v)) || (typeof v === "string" && v.trim() !== "" && Number.isFinite(Number(v)));
       case "boolean": return typeof v === "boolean";
+      case "annexPublicationId": return v === null || typeof v === "string" || typeof v === "boolean" || (typeof v === "number" && Number.isFinite(v));
       case "date": return typeof v === "string" && /^\d{4}-\d{2}-\d{2}/.test(v);
       case "time": return typeof v === "string";
       case "hash": return isObj(v);
@@ -207,7 +209,7 @@ VALIDATOR_KIND = {
   'String' => 'string', 'Integer' => 'integer', 'Float' => 'float', 'Boolean' => 'boolean',
   'Date' => 'date', 'Time' => 'time', 'Hash' => 'hash', 'HashOrText' => 'hashOrText',
   'HashOrList' => 'hashOrList',
-  'DateOrText' => 'dateOrText'
+  'DateOrText' => 'dateOrText', 'AnnexPublicationId' => 'annexPublicationId'
 }.freeze
 
 class_names = doc.classes.map { |c| c.name.to_s }.to_set
