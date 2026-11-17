@@ -21,6 +21,18 @@ on:
       - 'scripts/build_pdf_coverage_matrix.rb'
       - 'ituob/lib/ituob/models/publication_manifest*.rb'
       - '.github/workflows/pdf.yml'
+    # The site fetches only push/workflow_dispatch runs on main, so the PDFs
+    # reach ituob.org only from this trigger.
+  push:
+    branches: [main]
+    paths:
+      - 'documents/T-SP-PP.RES.21-2011/**'
+      - 'datasets/991-PP.RES.21.pp/**'
+      - 'metanorma.yml'
+      - 'scripts/render_publications.rb'
+      - 'scripts/build_pdf_coverage_matrix.rb'
+      - 'ituob/lib/ituob/models/publication_manifest*.rb'
+      - '.github/workflows/pdf.yml'
   workflow_dispatch:
 
 permissions:
@@ -48,9 +60,12 @@ jobs:
       - name: Install the manifest gems
         run: |
           set -eu
-          # The metanorma image exports BUNDLE_GEMFILE=/setup/Gemfile, which
-          # would make a bare `bundle install` install that Gemfile instead.
-          BUNDLE_GEMFILE="$PWD/ituob/Gemfile" bundle install --jobs 4
+          # The metanorma image exports BUNDLE_GEMFILE=/setup/Gemfile (which
+          # would make a bare `bundle install` install that Gemfile instead)
+          # and RUBYOPT=-rbundler/setup (which loads /setup's bundle into
+          # bundler itself and fails before it can install a Gemfile whose
+          # gems are not installed yet). Neither applies to this install.
+          env -u RUBYOPT BUNDLE_GEMFILE="$PWD/ituob/Gemfile" bundle install --jobs 4
 
       # Renders with `metanorma -t itu -x pdf --agree-to-terms` per language,
       # copies each PDF to build/pdf/<standard>-<year>/ and writes
@@ -59,7 +74,10 @@ jobs:
       - name: Build PDFs (E, F, S) and the manifest
         run: |
           set -eu
-          BUNDLE_GEMFILE="$PWD/ituob/Gemfile" bundle exec ruby scripts/render_publications.rb \
+          # The script runs under ituob/Gemfile without the image's RUBYOPT; the
+          # metanorma it starts gets the image's original env back.
+          RENDER_ORIG_RUBYOPT="${RUBYOPT-}" RENDER_ORIG_BUNDLE_GEMFILE="${BUNDLE_GEMFILE-}" \
+          env -u RUBYOPT BUNDLE_GEMFILE="$PWD/ituob/Gemfile" bundle exec ruby scripts/render_publications.rb \
             --docs "$DOC_ID" --langs E,F,S --out-dir build --strict
           cat build/pdf/manifest.json
 
