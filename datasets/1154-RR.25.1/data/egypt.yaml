@@ -6,3 +6,4 @@
 groups:
   amateur:
   - regex: SU[:digit:][:upper:]{2}
+    description: "SU followed by a digit and 2 letters"

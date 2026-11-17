@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: 5Z4[:upper:]{2}
+    description: "5Z4AA-5Z4ZZ"
 
   experimental:
   - regex: 5Z5[:upper:]{2}
+    description: "5Z5AA-5Z5ZZ"

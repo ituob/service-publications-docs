@@ -62,6 +62,9 @@ $defs:
       regex:
         description: Regular expression for group
         type: string
+      description:
+        description: English prose form of the call signs, as printed in the official publication (rendered instead of the regex in English)
+        type: string
       criteria:
         description: Criteria for group
         type: array

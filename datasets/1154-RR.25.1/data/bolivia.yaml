@@ -25,6 +25,7 @@
 groups:
   amateur:
   - regex: CP[:departments:][:upper:]{2}[:labels:]?
+    description: "CP1AA-CP9ZZ"
 
 codelists:
   - name: departments

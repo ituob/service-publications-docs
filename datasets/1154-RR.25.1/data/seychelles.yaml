@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: S79[:upper:]{3}
+    description: "S79AAA-S79ZZZ"
 
   experimental:
   - regex: S78A[:upper:]
+    description: "S78AA-S78AZ"

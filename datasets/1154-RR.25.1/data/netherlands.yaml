@@ -17,3 +17,4 @@ groups:
   experimental:
     - name: Netherlands
       regex: PI[59][:upper:]{2,3}
+      description: "PI5 or PI9 followed by 2 or 3 letters"

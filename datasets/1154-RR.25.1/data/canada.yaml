@@ -25,10 +25,12 @@
 groups:
   amateur:
   - regex: V[:province_or_area:][:upper:]{1,3}
+    description: "VE1, VA1 followed by 1, 2 or 3 letters – Provinces of Nova Scotia and New Brunswick VE2, VA2 followed by 1, 2 or 3 letters – Province of Quebec VE3, VA3 followed by 1, 2 or 3 letters – Province of Ontario VE4, VA4 followed by 1, 2 or 3 letters – Province of Manitoba VE5, VA5 followed by 1, 2 or 3 letters – Province of Saskatchewan VE6, VA6 followed by 1, 2 or 3 letters – Province of Alberta VE7, VA7 followed by 1, 2 or 3 letters – Province of British Columbia VE8 followed by 1, 2 or 3 letters – Northwest Territories (excluding Nunavut) VE9 followed by 1, 2 or 3 letters – Province of New Brunswick VE0* followed by 1, 2 or 3 letters – Amateur station on board a ship VO1 followed by 1, 2 or 3 letters – Province of Newfoundland (excluding Labrador) VO2 followed by 1, 2 or 3 letters – Labrador VY0 followed by 1, 2 or 3 letters – Nunavut Territory VY1 followed by 1, 2 or 3 letters – Yukon Territory VY2 followed by 1, 2 or 3 letters – Province of Prince Edward Island"
 
   experimental:
     - name: Canada (all provinces and territories)
       regex: VX9[:upper:]{2,3}
+      description: "VX9 followed by 2 or 3 letters – Canada (all provinces and territories)"
 
 codelists:
   - name: province_or_area

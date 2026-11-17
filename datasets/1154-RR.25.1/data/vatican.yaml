@@ -6,3 +6,4 @@
 groups:
   amateur:
   - regex: HV[:digit:][:upper:]{2}
+    description: "HV followed by a digit and 2 letters"
