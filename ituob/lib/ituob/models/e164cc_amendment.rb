@@ -32,6 +32,17 @@ attribute :notes, :string, collection: true
         attr_accessor :action, :previous_action
       end
 
+      def self.apply_date_footnote(text, amendment, action)
+        date = text.match(/\A(\*+)\s+(?:As from\s+)?(\d{1,2}\s+[A-Za-z]+\s+\d{4})\z/i)
+        return false unless date
+
+        amendment.notes << text
+        if action && action.position.to_s[/\*+\z/] == date[1]
+          action.entries.each { |entry| entry.effective_date = date[2] }
+        end
+        true
+      end
+
       def self.parse(hash, position_on: nil, dataset_code: nil)
         amendment = new
 
@@ -57,12 +68,8 @@ attribute :notes, :string, collection: true
           if first_elem.is_a?(String)
             fixed_str = Ituob::Helpers.normalize_whitespace(c.join(' '))
 
-            if (date = fixed_str.match(/\A(\*+)\s+(?:As from\s+)?(\d{1,2}\s+[A-Za-z]+\s+\d{4})\z/i))
-              amendment.notes << fixed_str
-              previous = state.previous_action
-              if previous && previous.position.to_s[/\*+\z/] == date[1]
-                previous.entries.each { |entry| entry.effective_date = date[2] }
-              end
+            if apply_date_footnote(fixed_str, amendment, state.previous_action)
+              next
             elsif (definition = fixed_str.match(/\A([a-z])\s+(.+)\z/))
               definitions[definition[1]] << [index, fixed_str]
               amendment.notes << fixed_str
@@ -76,14 +83,18 @@ attribute :notes, :string, collection: true
           elsif first_elem.is_a?(Array) # table
             trial_table = c[0].flatten.join(' ').include?('Trial Identification Code')
             c[1..].each do |row|
-              next unless row.length >= 3
               segs = row.map { |cell| cell.is_a?(Array) ? cell.join(' ').strip : cell.to_s.strip }
+              footnote = Ituob::Helpers.normalize_whitespace(segs.join(' '))
+              next if apply_date_footnote(footnote, amendment, state.action)
+              next unless row.length >= 3
               entry = E164CCEntry.new
               if row.length == 3 && segs[0].match?(/\A\d{3}\z/)
                 entry.country_code = segs[0]
                 entry.country_area_or_service = MultilingualString.new(en: segs[1])
                 entry.notes = segs[2].split(/[,\p{Space}]+/).reject(&:empty?)
               elsif row.length == 3
+                next unless segs[1].match?(/\A\+\d{3}\p{Space}*\d+\z/)
+
                 entry.network = segs[0]
                 entry.cc_ic = segs[1]
                 entry.status = segs[2]

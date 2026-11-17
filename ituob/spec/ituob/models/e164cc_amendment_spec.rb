@@ -172,4 +172,31 @@ RSpec.describe Ituob::Models::E164CCAmendment do
     expect(amendment.actions.first.entries.first.country_code).to eq('878')
   end
 
+
+  it 'reads the issue 1052 table footnote as the assignment date, without creating another entry' do
+    source = YAML.load_file(File.join(FIXTURE_ROOT, '1052', 'amendments.yaml'),
+                            permitted_classes: [Date, Time], aliases: true)
+    message = source.fetch('messages').find { |item| item.dig('target', 'publication') == 'E164_CC' }
+    amendment = described_class.parse(message.dig('contents', 'en'))
+    entries = amendment.actions.flat_map(&:entries)
+    expect(entries.map(&:cc_ic)).to eq(['+883 5140'])
+    expect(entries.first.applicant).to eq('Ellipsat Inc')
+    expect(entries.first.effective_date).to eq('15 April 2014')
+    expect(amendment.notes).to include('* 15 April 2014')
+  end
+
+  it 'recognizes table date footnotes and skips header rows instead of creating network entries' do
+    doc = { 'type' => 'doc', 'content' => [
+      paragraph('Note q) +883 5140 ADD*'),
+      table(%w[Applicant Network Code Status], ['Ellipsat Inc', 'Ellipsat Inc', '+883 5140', 'Assigned'],
+            ["\u00a0", '* As from 15 April 2014', "\u00a0"],
+            %w[Network Code Status]),
+    ] }
+    amendment = described_class.parse(doc)
+    entries = amendment.actions.flat_map(&:entries)
+    expect(entries.map(&:cc_ic)).to eq(['+883 5140'])
+    expect(entries.first.effective_date).to eq('15 April 2014')
+    expect(amendment.notes).to include('* As from 15 April 2014')
+  end
+
 end
