@@ -17,6 +17,7 @@
 groups:
   amateur:
   - regex: H[CD][:province:][:upper:]{1,3}
+    description: "HC or HD followed by a digit (1-8, indicating the province in which the station is situated) and by 1, 2 or 3 letters The beginners have to use the letter N after the digit indicating the province"
     criteria:
     - segment_type: string
       key: "1"
@@ -41,6 +42,7 @@ groups:
   experimental:
     - name: Ecuador
       regex: HD9[:upper:]{3}
+      description: "HD9 followed by 3 letters"
 
 codelists:
   - name: province

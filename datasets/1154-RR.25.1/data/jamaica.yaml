@@ -7,6 +7,7 @@
 groups:
   amateur: &general
   - regex: 6Y5[:upper:]{2}
+    description: "6Y5AA-6Y5ZZ"
 
   experimental: *general
 

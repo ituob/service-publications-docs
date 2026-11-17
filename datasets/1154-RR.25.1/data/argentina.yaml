@@ -36,6 +36,7 @@
 groups:
   amateur:
   - regex: "(AY|AZ|LU|LW)[:digit:][:province:][A-Z]"
+    description: "AY, AZ, LU, LW followed by a digit (0-9) and by 2 or 3 letters, the first indicating the province in which the station is situated"
 
     criteria:
     - key: "1"

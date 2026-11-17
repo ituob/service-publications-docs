@@ -18,6 +18,7 @@
 groups:
   amateur:
   - regex: OA[:zone:][:upper:]{1,3}
+    description: "OA followed by a digit (0-9, indicating the zone in which the station is situated) and by 1, 2 or 3 letters"
     criteria:
     - segment_type: string
       key: "1"

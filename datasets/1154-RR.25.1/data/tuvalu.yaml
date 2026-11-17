@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: T2[:digit:][:upper:]{2}
+    description: "T20AA-T29ZZ"
 
   experimental:
   - regex: T2[2-9][:upper:]{2}
+    description: "T22AA-T29ZZ"

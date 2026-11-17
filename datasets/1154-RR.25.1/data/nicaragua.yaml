@@ -16,6 +16,7 @@
 groups:
   amateur:
   - regex: YN[:zone:][:upper:]{2,3}
+    description: "YN followed by a digit (indicating the zone in which the station is situated) and by 2 or 3 letters"
     criteria:
     - segment_type: string
       key: "1"

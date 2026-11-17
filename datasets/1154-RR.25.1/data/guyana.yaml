@@ -10,6 +10,7 @@
 groups:
   amateur: &general
   - regex: 8R[:region:][:upper:]{3}
+    description: "8R1AAA-8R1ZZZ – Demerara 8R2AAA-8R2ZZZ – Berbice 8R3AAA-8R3ZZZ – Essequibo"
 
   experimental: *general
 

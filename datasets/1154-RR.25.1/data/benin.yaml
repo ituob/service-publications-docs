@@ -6,3 +6,4 @@
 groups:
   amateur:
   - regex: TY[:digit:][:upper:]{2}
+    description: "TY followed by a digit (1-9) and by 2 letters"

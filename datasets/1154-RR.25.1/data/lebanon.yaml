@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: OD5[:upper:]{2}
+    description: "OD5 followed by 2 letters"
 
   experimental:
   - regex: OD9[:upper:]{2}
+    description: "OD9 followed by 2 letters"

@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: 5R8[:upper:]{1,3}
+    description: "5R8 followed by a group of not more than 3 letters"
 
   experimental:
   - regex: 5S6[:upper:]{1,3}
+    description: "5S6 followed by a group of not more than 3 letters"

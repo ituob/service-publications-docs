@@ -8,5 +8,6 @@
 groups:
   amateur: &general
   - regex: O[F-J][:digit:][0-9A-Z]{3}[:upper:]{1}
+    description: "OF, OG, OH, OI or OJ followed by a digit and a group of not more than 4 characters, the last of which shall be a letter"
 
   experimental: *general
