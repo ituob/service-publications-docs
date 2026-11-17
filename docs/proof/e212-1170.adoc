@@ -4,6 +4,14 @@
 :novalid:
 :no-isobib:
 
+// Build and verify from docs/proof:
+// bundle install
+// bundle exec ruby check_e212_1170.rb
+// The checker writes Metanorma XML to PROOF_OUT (default: e212-1170.xml
+// in the system temporary directory)
+// and compares every cell and row order with the site's issue-1170 snapshot.
+// The ituob gem supplies provider registration and compiled LML models.
+
 [lutaml_data,provider:ituob.edition,edition,options={"arguments":{"register":"e212-mnc","as_of":1170}}]
 ----
 State as of OB No. {{ edition.provenance.as_of_issue }} · {{ edition.items.size }} active entries
