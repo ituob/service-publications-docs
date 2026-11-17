@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Switzerland
     company_name: relario AG
-    company_address_1: Lindenstrasse 16
-    company_address_2: CH-6340 Baar
+    company_address:
+    - Lindenstrasse 16
+    - CH-6340 Baar
     contact: Klebor Stefan
-    contact_address_1: Lindenstrasse 16
-    contact_address_2: CH-6340 Baar
+    contact_address:
+    - Lindenstrasse 16
+    - CH-6340 Baar
     tel:
     - "         +41 61 666 63 30"
     fax:

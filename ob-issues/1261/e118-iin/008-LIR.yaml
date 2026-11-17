@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: United States
     company_name: GlobeTouch AB
-    company_address_1: Box 5126
-    company_address_2: SE-102 43 STOCKHOLM
+    company_address:
+    - Box 5126
+    - SE-102 43 STOCKHOLM
     contact: James Snyder
-    contact_address_1: GlobeTouch AB,
-    contact_address_2: 3141 Stevens Creek Blvd,
-    contact_address_3: PMB 40206,
-    contact_address_4: SAN JOSE, CA 95117
-    contact_address_5: "(United States)"
+    contact_address:
+    - GlobeTouch AB,
+    - 3141 Stevens Creek Blvd,
+    - PMB 40206,
+    - SAN JOSE, CA 95117
+    - "(United States)"
     tel:
     - "      +1 408-474-0991"
     email:

@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Saint Pierre and Miquelon
   company_name: GLOBALTEL
-  company_address_1: 18 rue Albert Briand,
-  company_address_2: BP4453
-  company_address_3: 97500 SAINT-PIERRE-ET-MIQUELON
+  company_address:
+  - 18 rue Albert Briand,
+  - BP4453
+  - 97500 SAINT-PIERRE-ET-MIQUELON
   contact: GLOBALTEL, Support
-  contact_address_1: 18 rue Albert Briand,
-  contact_address_2: BP4453
-  contact_address_3: 97500 SAINT-PIERRE-ET-MIQUELON
+  contact_address:
+  - 18 rue Albert Briand,
+  - BP4453
+  - 97500 SAINT-PIERRE-ET-MIQUELON
   email:
   - support@globaltel-spm.com
   issue_id_number: 89 508 02

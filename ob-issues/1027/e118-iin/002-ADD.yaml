@@ -12,16 +12,19 @@ data:
   - country_or_area:
       en: Japan
     company_name: Wireless City Planning Inc.
-    company_address_1: 1-9-1, Higashi-Shimbashi,
-    company_address_2: Minato-ku
-    company_address_3: 105-7303 TOKYO
+    company_address:
+    - 1-9-1, Higashi-Shimbashi,
+    - Minato-ku
+    - 105-7303 TOKYO
+    - Japan
     contact: Mr. Izumi Kurosawa
-    contact_address_1: Senior General Manager, Technology
-    contact_address_2: Wireless City Planning Inc.
-    contact_address_3: 1-9-1, Higashi-Shimbashi,
-    contact_address_4: Minato-ku
-    contact_address_5: 105-7303 TOKYO
-    contact_address_6: Japan
+    contact_address:
+    - Senior General Manager, Technology
+    - Wireless City Planning Inc.
+    - 1-9-1, Higashi-Shimbashi,
+    - Minato-ku
+    - 105-7303 TOKYO
+    - Japan
     tel:
     - "+81 3 6889 0820"
     fax:

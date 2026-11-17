@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Sweden
     company_name: RebTel Networks AB
-    company_address_1: Jakobsbergsgatan 16
-    company_address_2: SE-111 44 STOCKHOLM
+    company_address:
+    - Jakobsbergsgatan 16
+    - SE-111 44 STOCKHOLM
     contact: Linda Cullfors
-    contact_address_1: Jakobsbergsgatan 16
-    contact_address_2: SE-111 44 STOCKHOLM
+    contact_address:
+    - Jakobsbergsgatan 16
+    - SE-111 44 STOCKHOLM
     tel:
     - "      +46 70 330 60 67"
     email:

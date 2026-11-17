@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Spain
   company_name: PROCONO S.A.
-  company_address_1: Calle Alderete 22
-  company_address_2: 29013, MALAGA
+  company_address:
+  - Calle Alderete 22
+  - 29013, MALAGA
   contact: Antonio Carrillo Baeza
-  contact_address_1: Avenida de Cádiz, 58
-  contact_address_2: 14013 CÓRDOBA
+  contact_address:
+  - Avenida de Cádiz, 58
+  - 14013 CÓRDOBA
   tel:
   - "+34 662666970"
   fax:

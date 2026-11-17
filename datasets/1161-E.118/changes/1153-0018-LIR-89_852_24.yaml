@@ -8,14 +8,17 @@ data:
   country_or_area:
     en: Hong Kong, China
   company_name: Multibyte Info Technology Limited
-  company_address_1: Flat E, 12/F, Effort Industrial Building,
-  company_address_2: No. 2-8 Kung Yip Street,
-  company_address_3: Kwai Chung, New Territories,
+  company_address:
+  - Flat E, 12/F, Effort Industrial Building,
+  - No. 2-8 Kung Yip Street,
+  - Kwai Chung, New Territories,
+  - Hong Kong
   contact: Mr Shawn Wong
-  contact_address_1: Flat E, 12/F, Effort Industrial Building,
-  contact_address_2: No. 2-8 Kung Yip Street,
-  contact_address_3: Kwai Chung, New Territories,
-  contact_address_4: Hong Kong
+  contact_address:
+  - Flat E, 12/F, Effort Industrial Building,
+  - No. 2-8 Kung Yip Street,
+  - Kwai Chung, New Territories,
+  - Hong Kong
   tel:
   - "+852 2428 8247 "
   fax:

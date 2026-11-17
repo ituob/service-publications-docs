@@ -11,15 +11,19 @@ data:
   - country_or_area:
       en: Kenya
     company_name: Safaricom Limited
-    company_address_1: Safaricom House
-    company_address_2: Waiyaki Way
-    company_address_3: P.O. Box 66827
+    company_address:
+    - Safaricom House
+    - Waiyaki Way
+    - P.O. Box 66827
+    - NAIROBI 00800
+    - Kenya
     contact: Mr Steve Chege
-    contact_address_1: Safaricom House
-    contact_address_2: Waiyaki Way
-    contact_address_3: P.O. Box 66827
-    contact_address_4: NAIROBI 00800
-    contact_address_5: Kenya
+    contact_address:
+    - Safaricom House
+    - Waiyaki Way
+    - P.O. Box 66827
+    - NAIROBI 00800
+    - Kenya
     tel:
     - "+254 722 00 3844"
     email:

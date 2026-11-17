@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: France
     company_name: Airnity SAS
-    company_address_1: 751 chemin de Pigranel
-    company_address_2: 06250 MOUGINS
+    company_address:
+    - 751 chemin de Pigranel
+    - 06250 MOUGINS
     contact: Roaming department,
-    contact_address_1: Airnity SAS
-    contact_address_2: 751 chemin de Pigranel
-    contact_address_3: 06250 MOUGINS
+    contact_address:
+    - Airnity SAS
+    - 751 chemin de Pigranel
+    - 06250 MOUGINS
     email:
     - roaming@airnity.com
     issue_id_number: 89 883 10

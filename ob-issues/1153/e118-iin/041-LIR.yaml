@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Venezuela (Bolivarian Republic of)
     company_name: Telefónica Venezolana, C.A.
-    company_address_1: Avenida Francisco de Miranda
-    company_address_2: CARACAS 1060
+    company_address:
+    - Avenida Francisco de Miranda
+    - CARACAS 1060
     contact: Alfredo Uzcátegui
-    contact_address_1: And/or José Riera
-    contact_address_2: Avenida Francisco de Miranda
-    contact_address_3: CARACAS 1060
+    contact_address:
+    - And/or José Riera
+    - Avenida Francisco de Miranda
+    - CARACAS 1060
     tel:
     - "+58 212 200 8259 and/or 200.95.55"
     fax:

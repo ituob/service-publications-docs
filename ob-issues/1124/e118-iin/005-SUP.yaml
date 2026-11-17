@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Portugal
     company_name: Companhia Portugesa Rádio Marconi (CPRM), S.A.
-    company_address_1: Avenida Alvaro País No. 2, Edificio Marconi
-    company_address_2: 1600 LISBOA
+    company_address:
+    - Avenida Alvaro País No. 2, Edificio Marconi
+    - 1600 LISBOA
     contact: José Morais de Oliveira
-    contact_address_1: 2 Av. Álvaro País
-    contact_address_2: 1600 LISBOA
+    contact_address:
+    - 2 Av. Álvaro País
+    - 1600 LISBOA
     tel:
     - "+351 21 720 7191"
     fax:

@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Netherlands
   company_name: Intercity Communications B.V.
-  company_address_1: Kruisweg 659
-  company_address_2: 2132 NC HOOFDDORP
+  company_address:
+  - Kruisweg 659
+  - 2132 NC HOOFDDORP
   contact: Mr G.A. (Tony) Rijkers
-  contact_address_1: Kruisweg 659
-  contact_address_2: 2132 NC HOOFDDORP
+  contact_address:
+  - Kruisweg 659
+  - 2132 NC HOOFDDORP
   tel:
   - "+31 20 655 3000"
   fax:

@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Somalia
     company_name: NOMAD TELECOM LTD
-    company_address_1: Maka Al-Mukarama Street
-    company_address_2: MOGADISHU
+    company_address:
+    - Maka Al-Mukarama Street
+    - MOGADISHU
     contact: Mr Ali Omar
-    contact_address_1: Managing Director
-    contact_address_2: NOMAD TELECOM LTD
-    contact_address_3: Maka Al-Mukarama Street
-    contact_address_4: MOGADISHU
+    contact_address:
+    - Managing Director
+    - NOMAD TELECOM LTD
+    - Maka Al-Mukarama Street
+    - MOGADISHU
     tel:
     - "+252 84 200 022"
     fax:

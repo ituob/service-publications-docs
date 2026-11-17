@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Ireland
     company_name: Lycamobile Ireland Limited
-    company_address_1: 22 Clan William Square,
-    company_address_2: Grand Canal Quay
-    company_address_3: DUBLIN 2
+    company_address:
+    - 22 Clan William Square,
+    - Grand Canal Quay
+    - DUBLIN 2
     contact: Lycamobile Ireland Legal
-    contact_address_1: 195 Marsh Wall
-    contact_address_2: LONDON E14 9SG
-    contact_address_3: United Kingdom
+    contact_address:
+    - 195 Marsh Wall
+    - LONDON E14 9SG
+    - United Kingdom
     email:
     - legal@lycamobile.com
     issue_id_number: 89 353 06

@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Germany
   company_name: Telefónica Germany GmbH & Co. OHG
-  company_address_1: Georg-Brauchle-Ring 23-25
-  company_address_2: D-80992 MUNICH
+  company_address:
+  - Georg-Brauchle-Ring 23-25
+  - D-80992 MUNICH
   contact: Mr Uwe Loewenstein
-  contact_address_1: Georg-Brauchle-Ring 50
-  contact_address_2: D-80992 MUNICH
+  contact_address:
+  - Georg-Brauchle-Ring 50
+  - D-80992 MUNICH
   tel:
   - "+49 89 2442 4880"
   fax:

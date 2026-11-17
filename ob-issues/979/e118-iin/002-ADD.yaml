@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Bosnia and Herzegovina   
     company_name: HT MOSTAR
-    company_address_1: Kneza Branimira bb
-    company_address_2: 88000 MOSTAR
+    company_address:
+    - Kneza Branimira bb
+    - 88000 MOSTAR
     contact: Mr Martin Bosnjak
-    contact_address_1: Kneza Branimira bb
-    contact_address_2: 88000 MOSTAR
+    contact_address:
+    - Kneza Branimira bb
+    - 88000 MOSTAR
     tel:
     - "+387 36 395 490"
     fax:

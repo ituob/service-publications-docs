@@ -8,13 +8,16 @@ data:
   country_or_area:
     en: Hong Kong, China
   company_name: TinkLabs Limited
-  company_address_1: Room 1708,
-  company_address_2: Dominion Centre,
-  company_address_3: 43-59 Queen’s Road
+  company_address:
+  - Room 1708,
+  - Dominion Centre,
+  - 43-59 Queen’s Road
+  - WANCHAI
   contact: Mr Lau Kin Sang
-  contact_address_1: TinkLabs Limited
-  contact_address_2: 1st Floor, 101 King's Road
-  contact_address_3: NORTH POINT
+  contact_address:
+  - TinkLabs Limited
+  - 1st Floor, 101 King's Road
+  - NORTH POINT
   tel:
   - "+852 9138 1033"
   fax:

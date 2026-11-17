@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Albania
     company_name: Telekom Albania sh.a
-    company_address_1: Rruga Gjergj Legisi,  Laprakë
-    company_address_2: TIRANA
+    company_address:
+    - Rruga Gjergj Legisi,  Laprakë
+    - TIRANA
     contact: Mr Dimitrios Blatsios
-    contact_address_1: Telekom Albania sh.a
-    contact_address_2: Rruga Gjergj Legisi, Laprakë
-    contact_address_3: TIRANA
+    contact_address:
+    - Telekom Albania sh.a
+    - Rruga Gjergj Legisi, Laprakë
+    - TIRANA
     tel:
     - "+355 4 2275300"
     fax:

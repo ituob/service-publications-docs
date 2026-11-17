@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Japan
     company_name: closip, Inc.
-    company_address_1: 3-14-18 Shibaura,
-    company_address_2: Minato-ku, TOKYO
+    company_address:
+    - 3-14-18 Shibaura,
+    - Minato-ku, TOKYO
     contact: Takehiro Ikeda
-    contact_address_1: 3-14-18 Shibaura,
-    contact_address_2: Minato-ku, TOKYO
+    contact_address:
+    - 3-14-18 Shibaura,
+    - Minato-ku, TOKYO
     tel:
     - "         +81 3 6228 4402"
     email:

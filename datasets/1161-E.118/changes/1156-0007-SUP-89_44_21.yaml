@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: United Kingdom
   company_name: Dolphin Telecom plc
-  company_address_1: The Crescent, Jays Close
-  company_address_2: BASINGSTOKE, HANTS RG22 4BS
+  company_address:
+  - The Crescent, Jays Close
+  - BASINGSTOKE, HANTS RG22 4BS
   contact: Hamish Macleod
-  contact_address_1: The Cresent, Jays Close
-  contact_address_2: BASINGSTOKE, HANTS RG22 4BS
+  contact_address:
+  - The Cresent, Jays Close
+  - BASINGSTOKE, HANTS RG22 4BS
   tel:
   - "+44 1256 367050"
   fax:

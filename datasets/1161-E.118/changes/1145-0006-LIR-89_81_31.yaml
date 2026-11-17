@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Japan
   company_name: UQ Communications Inc.
-  company_address_1: 2-16-1, Kounan,
-  company_address_2: Minato-ku
-  company_address_3: 108-0075 TOKYO
+  company_address:
+  - 2-16-1, Kounan,
+  - Minato-ku
+  - 108-0075 TOKYO
   contact: Yoshiyuki Nishikawa, General Manager
-  contact_address_1: Government & Industrial Affairs Department
-  contact_address_2: 2-16-1, Kounan, Minato-ku
-  contact_address_3: 108-0075 TOKYO
+  contact_address:
+  - Government & Industrial Affairs Department
+  - 2-16-1, Kounan, Minato-ku
+  - 108-0075 TOKYO
   tel:
   - "+81 3 6311 6007"
   fax:

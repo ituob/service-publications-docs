@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: Belgium
   company_name: Voxbone SA/NV
-  company_address_1: Avenue Louise  489
-  company_address_2: 1050 BRUXELLES
-  company_address_3: Belgique
+  company_address:
+  - Avenue Louise  489
+  - 1050 BRUXELLES
+  - Belgique
   contact: Mme Anne-Valérie Heuschen
-  contact_address_1: Voxbone SA/NV
-  contact_address_2: Avenue Louise 489
-  contact_address_3: 1050 BRUXELLES
-  contact_address_4: Belgique
+  contact_address:
+  - Voxbone SA/NV
+  - Avenue Louise 489
+  - 1050 BRUXELLES
+  - Belgique
   tel:
   - "+32 2808 0000"
   fax:

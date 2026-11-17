@@ -12,6 +12,7 @@ RSpec.describe Ituob::Models::E118Entry do
       { 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => text }] }
     end
   end
+  let(:company_lines) { ['Example Telecom'] }
   let(:contact_details) do
     ['Tel: +41 22 123', 'Fax: +41 22 456', 'E-mail: contact@example.com']
   end
@@ -21,10 +22,10 @@ RSpec.describe Ituob::Models::E118Entry do
     end
   end
   let(:document) do
-    cells = ['Switzerland', 'Example Telecom', '89 41 01'].map do |text|
-      { 'type' => 'table_cell', 'content' => [
+    cells = [['Switzerland'], company_lines, ['89 41 01']].map do |lines|
+      { 'type' => 'table_cell', 'content' => lines.map do |text|
         { 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => text }] }
-      ] }
+      end }
     end
     cells << { 'type' => 'table_cell', 'content' => contact_content }
     cells << { 'type' => 'table_cell', 'content' => [
@@ -40,8 +41,7 @@ RSpec.describe Ituob::Models::E118Entry do
   shared_examples 'a complete contact' do
     it 'extracts the contact, address and communication details' do
       expect(entry.contact).to eq('Contact Person')
-      expect(entry.contact_address_1).to eq('Contact Street')
-      expect(entry.contact_address_2).to be_nil
+      expect(entry.contact_address).to eq(['Contact Street'])
       expect(entry.tel).to eq(['+41 22 123'])
       expect(entry.fax).to eq(['+41 22 456'])
       expect(entry.email).to eq(['contact@example.com'])
@@ -106,6 +106,28 @@ RSpec.describe Ituob::Models::E118Entry do
     it 'does not fold it into the telephone number' do
       expect(entry.tel).to eq(['+358 294 440 500/'])
       expect(entry.email).to eq(['a@b.org'])
+    end
+  end
+
+  context 'with more printed address lines than the old fixed slots' do
+    let(:company_lines) { ['Example Telecom', 'Street 1', 'P.O. Box 2', 'Town', 'ZIP 12345', 'Country'] }
+    let(:paragraphs) do
+      ['Contact Person', 'Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5', 'Line 6', 'Line 7'].map do |text|
+        { 'type' => 'paragraph', 'content' => [{ 'type' => 'text', 'text' => text }] }
+      end
+    end
+
+    it 'keeps every company and contact address line in print order' do
+      expect(entry.company_name).to eq('Example Telecom')
+      expect(entry.company_address).to eq(['Street 1', 'P.O. Box 2', 'Town', 'ZIP 12345', 'Country'])
+      expect(entry.contact_address).to eq(['Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5', 'Line 6', 'Line 7'])
+      expect(entry.tel).to eq(['+41 22 123'])
+    end
+  end
+
+  context 'with no printed address lines' do
+    it 'leaves the company address unset' do
+      expect(entry.company_address).to be_nil
     end
   end
 end

@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Japan
     company_name: Japan Radio Co., Ltd.
-    company_address_1: NAKANO CENTRAL PARK EST,
-    company_address_2: 4-10-1 Nakano, Nakano-ku,
-    company_address_3: TOKYO 164-8570
+    company_address:
+    - NAKANO CENTRAL PARK EST,
+    - 4-10-1 Nakano, Nakano-ku,
+    - TOKYO 164-8570
     contact: Mr Takafumi Matsunami
-    contact_address_1: Japan Radio Co., Ltd.
-    contact_address_2: NAKANO CENTRAL PARK EST,
-    contact_address_3: 4-10-1 Nakano, Nakano-ku
-    contact_address_4: TOKYO 164-8570
+    contact_address:
+    - Japan Radio Co., Ltd.
+    - NAKANO CENTRAL PARK EST,
+    - 4-10-1 Nakano, Nakano-ku
+    - TOKYO 164-8570
     tel:
     - "      +81 3 6832 0986"
     fax:

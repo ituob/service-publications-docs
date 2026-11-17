@@ -11,15 +11,18 @@ data:
   - country_or_area:
       en: Albania
     company_name: Plus Communications Sh.a
-    company_address_1: Rr. Ibrahim Rugova
-    company_address_2: Pallati i ri pranë Gardës së Republikës
-    company_address_3: Kati II
+    company_address:
+    - Rr. Ibrahim Rugova
+    - Pallati i ri pranë Gardës së Republikës
+    - Kati II
+    - TIRANA
     contact: Ms Matilda Shehu
-    contact_address_1: Plus Communications Sh.a
-    contact_address_2: Rr. Ibrahim Rugova
-    contact_address_3: Pallati i ri pranë Gardës së Republikës
-    contact_address_4: Kati II
-    contact_address_5: TIRANA
+    contact_address:
+    - Plus Communications Sh.a
+    - Rr. Ibrahim Rugova
+    - Pallati i ri pranë Gardës së Republikës
+    - Kati II
+    - TIRANA
     tel:
     - "+355 4238 2512"
     - "+355 4238 2538"

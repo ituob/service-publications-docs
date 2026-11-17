@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Netherlands
     company_name: Tismi B.V
-    company_address_1: Radboudkwarter 245B
-    company_address_2: 3511 GK UTRECHT
+    company_address:
+    - Radboudkwarter 245B
+    - 3511 GK UTRECHT
     contact: Mr Jan Wilhem Bogert
-    contact_address_1: PO Box 19092
-    contact_address_2: 3501 DB UTRECHT
+    contact_address:
+    - PO Box 19092
+    - 3501 DB UTRECHT
     tel:
     - "+31 62 700 7000"
     email:

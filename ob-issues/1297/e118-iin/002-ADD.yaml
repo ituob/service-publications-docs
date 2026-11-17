@@ -11,13 +11,16 @@ data:
   - country_or_area:
       en: Cayman Islands
     company_name: Paradise Mobile Ltd.
-    company_address_1: PO Box 309
-    company_address_2: Ugland House
-    company_address_3: GRAND-CAYMAN
+    company_address:
+    - PO Box 309
+    - Ugland House
+    - GRAND-CAYMAN
+    - KY1-1104
     contact: Zlatko Zahirovic
-    contact_address_1: PO Box 309
-    contact_address_2: Ugland House
-    contact_address_3: GRAND-CAYMAN, KY1-1104
+    contact_address:
+    - PO Box 309
+    - Ugland House
+    - GRAND-CAYMAN, KY1-1104
     tel:
     - "+1 441 909 9035"
     email:

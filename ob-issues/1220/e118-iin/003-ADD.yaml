@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: United States
     company_name: Expeto Wireless Inc.
-    company_address_1: 920 SW 6th Avenue
-    company_address_2: Portland, OR 97204
+    company_address:
+    - 920 SW 6th Avenue
+    - Portland, OR 97204
     contact: Brian Anderson
-    contact_address_1: 920 SW 6th Avenue
-    contact_address_2: Portland, OR 97204
+    contact_address:
+    - 920 SW 6th Avenue
+    - Portland, OR 97204
     tel:
     - "           +1 855 273 5782"
     fax:

@@ -11,9 +11,10 @@ data:
   - country_or_area:
       en: New Zealand
     company_name: Spark NZ Limited
-    company_address_1: Telecom House
-    company_address_2: Level 2, 68-86 Jervois Quay
-    company_address_3: WELLINGTON
+    company_address:
+    - Telecom House
+    - Level 2, 68-86 Jervois Quay
+    - WELLINGTON
     contact: Spark NZ Limited
     tel:
     - "+64 44985624"

@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Ireland
   company_name: CARPHONE WAREHOUSE IRELAND MOBILE LIMITED
-  company_address_1: 3 RD Floor, Omni Park Shopping Centre,
-  company_address_2: Santry
-  company_address_3: DUBLIN 9
+  company_address:
+  - 3 RD Floor, Omni Park Shopping Centre,
+  - Santry
+  - DUBLIN 9
   contact: Mr Joe Sloan
-  contact_address_1: 3 RD Floor,Omni Park Shopping Centre,
-  contact_address_2: Santry
-  contact_address_3: DUBLIN 9
+  contact_address:
+  - 3 RD Floor,Omni Park Shopping Centre,
+  - Santry
+  - DUBLIN 9
   tel:
   - "+353 872 740 776"
   email:

@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Netherlands
     company_name: Wyless Nederlands B.V.
-    company_address_1: Tjaskermolenlaan 1-7
-    company_address_2: 3447GE WOERDEN
+    company_address:
+    - Tjaskermolenlaan 1-7
+    - 3447GE WOERDEN
     contact: Mr Ward Mertens
-    contact_address_1: Wyless Nederlands B.V.
-    contact_address_2: Tjaskermolenlaan 1-7
-    contact_address_3: 3447GE WOERDEN
+    contact_address:
+    - Wyless Nederlands B.V.
+    - Tjaskermolenlaan 1-7
+    - 3447GE WOERDEN
     tel:
     - "+31 88 74 64 626"
     email:

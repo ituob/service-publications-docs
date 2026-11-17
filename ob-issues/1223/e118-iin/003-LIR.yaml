@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Netherlands
     company_name: PM Factory B.V.
-    company_address_1: Bolderweg 2
-    company_address_2: 1332 AT ALMERE
+    company_address:
+    - Bolderweg 2
+    - 1332 AT ALMERE
     contact: Stefan Tobé
-    contact_address_1: Bolderweg 2
-    contact_address_2: 1332 AT ALMERE
+    contact_address:
+    - Bolderweg 2
+    - 1332 AT ALMERE
     tel:
     - "+31 621265968"
     email:

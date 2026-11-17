@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Netherlands
   company_name: Voiceworks BV
-  company_address_1: Editiestraat 29
-  company_address_2: 1321NG ALMERE
-  company_address_3: The Netherlands
+  company_address:
+  - Editiestraat 29
+  - 1321NG ALMERE
+  - The Netherlands
   contact: Mr Stish Mishuis
-  contact_address_1: Postbus 60281
-  contact_address_2: 1320AH ALMERE
-  contact_address_3: The Netherlands
+  contact_address:
+  - Postbus 60281
+  - 1320AH ALMERE
+  - The Netherlands
   tel:
   - "+31 36 546 8855"
   fax:

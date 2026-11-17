@@ -11,15 +11,17 @@ data:
   - country_or_area:
       en: Luxembourg
     company_name: Bouygues Telecom
-    company_address_1: 37-39, Rue Boissière
-    company_address_2: 75116 PARIS
-    company_address_3: France
+    company_address:
+    - 37-39, Rue Boissière
+    - 75116 PARIS
+    - France
     contact: Mr. Rémy Pintenet
-    contact_address_1: Bouygues Telecom
-    contact_address_2: 13-15 avenue du Maréchal Juin
-    contact_address_3: 92366 MEUDON-LA-FORET
-    contact_address_4: Cédex
-    contact_address_5: France
+    contact_address:
+    - Bouygues Telecom
+    - 13-15 avenue du Maréchal Juin
+    - 92366 MEUDON-LA-FORET
+    - Cédex
+    - France
     tel:
     - "+33 6 65 73 32 27"
     fax:

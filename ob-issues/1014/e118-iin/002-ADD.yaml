@@ -12,14 +12,16 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Broadsword Network Limited.
-    company_address_1: 50 Shad Thames
-    company_address_2: LONDON SE1 2LY
-    company_address_3: United Kingdom
+    company_address:
+    - 50 Shad Thames
+    - LONDON SE1 2LY
+    - United Kingdom
     contact: Mr Paul Schonewald
-    contact_address_1: Broadsword Network Limited.
-    contact_address_2: 50 Shad Thames
-    contact_address_3: LONDON SE1 2LY
-    contact_address_4: United Kingdom
+    contact_address:
+    - Broadsword Network Limited.
+    - 50 Shad Thames
+    - LONDON SE1 2LY
+    - United Kingdom
     tel:
     - "+44 20 7870 8603"
     email:

@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Israel
     company_name: Golan Telecom Ltd
-    company_address_1: 98 Yigal Allon
-    company_address_2: 67 891 TEL AVIV
+    company_address:
+    - 98 Yigal Allon
+    - 67 891 TEL AVIV
     contact: Oren Most
-    contact_address_1: 98 Yigal Allon
-    contact_address_2: 67 891 TEL AVIV
+    contact_address:
+    - 98 Yigal Allon
+    - 67 891 TEL AVIV
     tel:
     - "+972 58 4499499"
     email:

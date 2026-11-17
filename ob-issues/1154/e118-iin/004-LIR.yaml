@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Colombia
     company_name: Telefónica Móviles Colombia SA (Movistar)
-    company_address_1: Transversal 60# 114A – 55
-    company_address_2: BOGOTÁ D.C.
+    company_address:
+    - Transversal 60# 114A – 55
+    - BOGOTÁ D.C.
     contact: Sr. Ariel Pontón
-    contact_address_1: Representante Legal
-    contact_address_2: Transversal 60# 114A – 55
-    contact_address_3: BOGOTÁ D.C.
+    contact_address:
+    - Representante Legal
+    - Transversal 60# 114A – 55
+    - BOGOTÁ D.C.
     tel:
     - "+57 1 593 5399; +57 1 593 5206;"
     fax:

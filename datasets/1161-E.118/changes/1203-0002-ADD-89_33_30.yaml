@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: France
   company_name: SYMA
-  company_address_1: 153 Avenue d'Italie
-  company_address_2: 75013 PARIS
+  company_address:
+  - 153 Avenue d'Italie
+  - 75013 PARIS
   contact: SYMA
-  contact_address_1: 153 Avenue d'Italie
-  contact_address_2: 75013 PARIS
+  contact_address:
+  - 153 Avenue d'Italie
+  - 75013 PARIS
   fax:
   - "+33 1 44240138"
   email:

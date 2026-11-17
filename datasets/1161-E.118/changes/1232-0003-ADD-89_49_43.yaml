@@ -8,12 +8,16 @@ data:
   country_or_area:
     en: Germany
   company_name: Lebara Limited
-  company_address_1: 7th Floor, Import Building,
-  company_address_2: 2 Clove Crescent,
-  company_address_3: East India Dock
+  company_address:
+  - 7th Floor, Import Building,
+  - 2 Clove Crescent,
+  - East India Dock
+  - LONDON E14 2BE
+  - "(United Kingdom)"
   contact: Lebara Germany Limited
-  contact_address_1: Zollhof 17
-  contact_address_2: 40221 DUSSELDORF
+  contact_address:
+  - Zollhof 17
+  - 40221 DUSSELDORF
   tel:
   - "+49 211 31051 0000"
   email:

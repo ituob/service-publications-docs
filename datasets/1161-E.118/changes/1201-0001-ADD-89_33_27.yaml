@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: France
   company_name: Coriolis Telecom S.A.S.
-  company_address_1: 2, rue du Capitaine Scott
-  company_address_2: 75015 Paris
+  company_address:
+  - 2, rue du Capitaine Scott
+  - 75015 Paris
   contact: Luc Chonkel
-  contact_address_1: 2, rue du Capitaine Scott
-  contact_address_2: 75015 Paris
+  contact_address:
+  - 2, rue du Capitaine Scott
+  - 75015 Paris
   tel:
   - "+33 1 41 45 57 01"
   email:

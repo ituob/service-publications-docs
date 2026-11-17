@@ -9,13 +9,15 @@ data:
     en: France
   company_name: Agence des Communications Mobiles Opérationnelles de Sécurité et de
     Secours
-  company_address_1: Tour Liberty
-  company_address_2: 17 Place des Reflets
-  company_address_3: 92400 COURBEVOIE
+  company_address:
+  - Tour Liberty
+  - 17 Place des Reflets
+  - 92400 COURBEVOIE
   contact: ACMOSS (Agence des Communications Mobiles Opérationnelles de Sécurité et
     de Secours)
-  contact_address_1: Tour Liberty - Place Beauvau
-  contact_address_2: 75800 PARIS CEDEX
+  contact_address:
+  - Tour Liberty - Place Beauvau
+  - 75800 PARIS CEDEX
   email:
   - 'E-mail : rrf@interieur.gouv.fr'
   issue_id_number: 89 33 18

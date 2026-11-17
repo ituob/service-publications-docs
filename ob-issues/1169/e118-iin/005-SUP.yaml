@@ -11,14 +11,17 @@ data:
   - country_or_area:
       en: Sweden
     company_name: Abbla Mobile S.A.
-    company_address_1: c/Saturno,
-    company_address_2: 1 Pozuelo de Alarcón
-    company_address_3: E-28224 MADRID
+    company_address:
+    - c/Saturno,
+    - 1 Pozuelo de Alarcón
+    - E-28224 MADRID
+    - "(Spain)"
     contact: Detlef Stube
-    contact_address_1: c/Saturno,
-    contact_address_2: 1 Poluezo de Alarcón
-    contact_address_3: E-28224 MADRID
-    contact_address_4: "(Spain)"
+    contact_address:
+    - c/Saturno,
+    - 1 Poluezo de Alarcón
+    - E-28224 MADRID
+    - "(Spain)"
     tel:
     - "+34 678 52 6699"
     fax:

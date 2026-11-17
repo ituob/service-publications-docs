@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Australia
     company_name: Pivotel Group Pty Limited
-    company_address_1: 75 Nerang Street
-    company_address_2: SOUTHPORT QLD 4215
+    company_address:
+    - 75 Nerang Street
+    - SOUTHPORT QLD 4215
     contact: Mr Robert Sakker
-    contact_address_1: 75 Nerang Street
-    contact_address_2: SOUTHPORT QLD 4215
+    contact_address:
+    - 75 Nerang Street
+    - SOUTHPORT QLD 4215
     tel:
     - "+61 414 207 050"
     fax:

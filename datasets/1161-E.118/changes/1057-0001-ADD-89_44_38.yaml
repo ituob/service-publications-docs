@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: United Kingdom
   company_name: Simwood eSMS Limited
-  company_address_1: Falcon Drive, Cardiff Bay
-  company_address_2: Cardiff CF10 4RU
-  company_address_3: United Kingdom
+  company_address:
+  - Falcon Drive, Cardiff Bay
+  - Cardiff CF10 4RU
+  - United Kingdom
   contact: Mr. Dan Lane
-  contact_address_1: 8 Wychwood Place
-  contact_address_2: Winchester
-  contact_address_3: Hampshire, SO22 6BE
-  contact_address_4: United Kingdom
+  contact_address:
+  - 8 Wychwood Place
+  - Winchester
+  - Hampshire, SO22 6BE
+  - United Kingdom
   tel:
   - "+44 1444 304 444"
   email:

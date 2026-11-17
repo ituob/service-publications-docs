@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Switzerland
     company_name: Sunrise Communications AG
-    company_address_1: Binzmühlestrasse 130
-    company_address_2: CH-8050 Zürich
+    company_address:
+    - Binzmühlestrasse 130
+    - CH-8050 Zürich
     contact: Meier Andreas
-    contact_address_1: Binzmühlestrasse 130
-    contact_address_2: CH-8050 Zürich
+    contact_address:
+    - Binzmühlestrasse 130
+    - CH-8050 Zürich
     tel:
     - "         +41 58 777 77 77"
     fax:

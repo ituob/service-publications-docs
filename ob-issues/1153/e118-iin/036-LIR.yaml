@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Malaysia
     company_name: TT dotCom Sdn. Bhd.
-    company_address_1: Level 4, No. 14, Jalan Majistret U1/26,
-    company_address_2: HICOM Glenmarie Industrial Park,
-    company_address_3: 40150 SHAH ALAM SELANGOR
+    company_address:
+    - Level 4, No. 14, Jalan Majistret U1/26,
+    - HICOM Glenmarie Industrial Park,
+    - 40150 SHAH ALAM SELANGOR
     contact: Afzal Abdul Rahim
-    contact_address_1: Level 4, No. 14, Jalan Majistret U1/26,
-    contact_address_2: HICOM Glenmarie Industrial Park,
-    contact_address_3: 40150 SHAH ALAM SELANGOR
+    contact_address:
+    - Level 4, No. 14, Jalan Majistret U1/26,
+    - HICOM Glenmarie Industrial Park,
+    - 40150 SHAH ALAM SELANGOR
     tel:
     - "+60 3 5032 6000"
     fax:

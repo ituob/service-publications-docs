@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Vanilla Vouchers Ltd
-    company_address_1: 1638 Parkway, Solent Business Park
-    company_address_2: WHITELEY, HAMPSHIRE PO15 7AH
+    company_address:
+    - 1638 Parkway, Solent Business Park
+    - WHITELEY, HAMPSHIRE PO15 7AH
     contact: Brian Tagg
-    contact_address_1: 1638 Parkway, Solent Business Park
-    contact_address_2: WHITELEY, HAMPSHIRE PO15 7AH
+    contact_address:
+    - 1638 Parkway, Solent Business Park
+    - WHITELEY, HAMPSHIRE PO15 7AH
     tel:
     - "+44 1489 556 700"
     fax:

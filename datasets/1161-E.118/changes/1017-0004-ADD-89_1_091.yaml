@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: United States    
   company_name: Allied Wireless Communications Corp
-  company_address_1: 400 Northridge Rd, STE 325
-  company_address_2: Atlanta, GA 30350
-  company_address_3: United States
+  company_address:
+  - 400 Northridge Rd, STE 325
+  - Atlanta, GA 30350
+  - United States
   contact: Mr Dave Wittekind
-  contact_address_1: Allied Wireless Communications Corp
-  contact_address_2: 400 Northridge Rd, STE 325
-  contact_address_3: Atlanta, GA 30350
-  contact_address_4: United States
+  contact_address:
+  - Allied Wireless Communications Corp
+  - 400 Northridge Rd, STE 325
+  - Atlanta, GA 30350
+  - United States
   tel:
   - "+1 678 338 5971"
   fax:

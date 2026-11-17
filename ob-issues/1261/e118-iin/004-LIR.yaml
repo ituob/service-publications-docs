@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Sweden
     company_name: Telenor Sverige AB
-    company_address_1: Box 3081
-    company_address_2: SE-169 03 SOLNA
+    company_address:
+    - Box 3081
+    - SE-169 03 SOLNA
     contact: Stefan Wahlstedt
-    contact_address_1: Box 3081
-    contact_address_2: SE-169 03 SOLNA
+    contact_address:
+    - Box 3081
+    - SE-169 03 SOLNA
     tel:
     - "+46 70 933 55 15"
     email:

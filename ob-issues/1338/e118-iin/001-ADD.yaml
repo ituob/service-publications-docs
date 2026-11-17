@@ -11,10 +11,12 @@ data:
   - country_or_area:
       en: United States
     company_name: Space Exploration Technologies Corp. (SpaceX)
-    company_address_1: 1 Rocket Road, Starbase TEXAS, 78521
+    company_address:
+    - 1 Rocket Road, Starbase TEXAS, 78521
     contact: Marianne Lu / Sharon Zhang
-    contact_address_1: 1155 F St. NW, Suite 475
-    contact_address_2: WASHINGTON, DC 20004
+    contact_address:
+    - 1155 F St. NW, Suite 475
+    - WASHINGTON, DC 20004
     tel:
     - "+1 737 396 2340"
     email:

@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Finland
     company_name: Nokia Corporation
-    company_address_1: Karakaari 7
-    company_address_2: 02610 ESPOO
+    company_address:
+    - Karakaari 7
+    - 02610 ESPOO
     contact: Nokia Enterprise Solutions
-    contact_address_1: Nokia Corporation,
-    contact_address_2: P.O. Box 226
-    contact_address_3: FIN-00045 Nokia Group
+    contact_address:
+    - Nokia Corporation,
+    - P.O. Box 226
+    - FIN-00045 Nokia Group
     tel:
     - "+358 10 44 88 000"
     email:

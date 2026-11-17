@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: French Polynesia
   company_name: Pacific Mobile Telecom
-  company_address_1: BP 335
-  company_address_2: 98713 PAPETEE
-  company_address_3: Polynésie française
+  company_address:
+  - BP 335
+  - 98713 PAPETEE
+  - Polynésie française
   contact: Mr Bruce Rudy
-  contact_address_1: Pacific Mobile Telecom
-  contact_address_2: BP 335
-  contact_address_3: 98713 PAPETEE
-  contact_address_4: Polynésie française
+  contact_address:
+  - Pacific Mobile Telecom
+  - BP 335
+  - 98713 PAPETEE
+  - Polynésie française
   tel:
   - "+689 24 23 20"
   fax:

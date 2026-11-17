@@ -8,14 +8,17 @@ data:
   country_or_area:
     en: Hong Kong, China
   company_name: HGC Global Communications Limited
-  company_address_1: 17/F Hutchison Telecom Tower,
-  company_address_2: 99 Cheung Fai Road,
-  company_address_3: Tsing Yi, New Territories,
+  company_address:
+  - 17/F Hutchison Telecom Tower,
+  - 99 Cheung Fai Road,
+  - Tsing Yi, New Territories,
+  - Hong Kong
   contact: Mr Michael Shiu
-  contact_address_1: 9/F Hutchison Telecom Tower,
-  contact_address_2: 99 Cheung Fai Road,
-  contact_address_3: Tsing Yi, New Territories,
-  contact_address_4: Hong Kong
+  contact_address:
+  - 9/F Hutchison Telecom Tower,
+  - 99 Cheung Fai Road,
+  - Tsing Yi, New Territories,
+  - Hong Kong
   tel:
   - "+852 2128 3399"
   fax:

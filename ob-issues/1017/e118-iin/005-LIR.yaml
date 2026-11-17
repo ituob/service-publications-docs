@@ -12,13 +12,15 @@ data:
   - country_or_area:
       en: United States
     company_name: North East Colorado Cellular Inc.
-    company_address_1: 1274 West Platte Avenue
-    company_address_2: FORT MORGAN CO 80701
-    company_address_3: United States
+    company_address:
+    - 1274 West Platte Avenue
+    - FORT MORGAN CO 80701
+    - United States
     contact: Ms Valerie Hallet
-    contact_address_1: 1274 West Platte Avenue
-    contact_address_2: FORT MORGAN CO 80701
-    contact_address_3: United States
+    contact_address:
+    - 1274 West Platte Avenue
+    - FORT MORGAN CO 80701
+    - United States
     tel:
     - "+1 970 467 31 79"
     fax:

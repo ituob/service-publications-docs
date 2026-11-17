@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Lithuania
     company_name: Telia Lietuva, AB
-    company_address_1: Lvovo g. 25
-    company_address_2: LT-03501 VILNIUS
+    company_address:
+    - Lvovo g. 25
+    - LT-03501 VILNIUS
     contact: Inga Volungevičiūtė
-    contact_address_1: Lvovo g. 25
-    contact_address_2: LT-03501 VILNIUS
+    contact_address:
+    - Lvovo g. 25
+    - LT-03501 VILNIUS
     tel:
     - "+370 5 262 1511"
     fax:

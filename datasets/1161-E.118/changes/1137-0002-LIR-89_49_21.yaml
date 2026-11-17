@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Germany
   company_name: E-Plus Service GmbH
-  company_address_1: E-Plus-Strasse 1
-  company_address_2: D-40472 DUESSELDORF
+  company_address:
+  - E-Plus-Strasse 1
+  - D-40472 DUESSELDORF
   contact: Mr. Uwe Loewenstein
-  contact_address_1: Georg-Brauchle-Ring 50
-  contact_address_2: 80992 MUENCHEN
+  contact_address:
+  - Georg-Brauchle-Ring 50
+  - 80992 MUENCHEN
   tel:
   - "+49 89 2442 4880"
   fax:

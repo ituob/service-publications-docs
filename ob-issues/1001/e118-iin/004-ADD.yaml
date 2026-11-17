@@ -12,15 +12,18 @@ data:
   - country_or_area:
       en: United Kingdom
     company_name: Valuedial LTD
-    company_address_1: 4 Paradise Street
-    company_address_2: Sheffield
-    company_address_3: South Yorkshire S1 2DF
+    company_address:
+    - 4 Paradise Street
+    - Sheffield
+    - South Yorkshire S1 2DF
+    - United Kingdom
     contact: Mr Chris Baxter
-    contact_address_1: Valuedial LTD
-    contact_address_2: 4 Paradise Street
-    contact_address_3: Sheffield
-    contact_address_4: South Yorkshire S1 2DF
-    contact_address_5: United Kingdom
+    contact_address:
+    - Valuedial LTD
+    - 4 Paradise Street
+    - Sheffield
+    - South Yorkshire S1 2DF
+    - United Kingdom
     tel:
     - "+44 1143 190525"
     fax:

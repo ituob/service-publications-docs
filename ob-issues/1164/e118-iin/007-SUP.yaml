@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Romania
     company_name: 2K TELECOM S.R.L.
-    company_address_1: 10 Mihai Bravu Blvd
-    company_address_2: PLOIESTI
+    company_address:
+    - 10 Mihai Bravu Blvd
+    - PLOIESTI
     contact: Alexandru Ghita
-    contact_address_1: Sos. Pipera-Tunari nr. 1/VI, Twin Towers
-    contact_address_2: Corp 1, Et. 8, Voluntari
-    contact_address_3: Jud. Ilfov, 077190
+    contact_address:
+    - Sos. Pipera-Tunari nr. 1/VI, Twin Towers
+    - Corp 1, Et. 8, Voluntari
+    - Jud. Ilfov, 077190
     tel:
     - "+40 21 344 84 00"
     fax:

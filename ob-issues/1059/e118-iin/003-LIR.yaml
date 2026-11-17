@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Liechtenstein
     company_name: FIRST MOBILE AG
-    company_address_1: Am Schrägen Weg 33
-    company_address_2: 9490 VADUZ
+    company_address:
+    - Am Schrägen Weg 33
+    - 9490 VADUZ
     contact: Mr Albert Villliger
-    contact_address_1: Am Schrägen Weg 33
-    contact_address_2: 9490 VADUZ
+    contact_address:
+    - Am Schrägen Weg 33
+    - 9490 VADUZ
     tel:
     - "+423 742 1000"
     fax:

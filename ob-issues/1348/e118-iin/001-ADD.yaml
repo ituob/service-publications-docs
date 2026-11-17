@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: United States
     company_name: Ringer Mobile
-    company_address_1: 1900 W. Littleton Boulevard
-    company_address_2: Littleton Colorado 80120
+    company_address:
+    - 1900 W. Littleton Boulevard
+    - Littleton Colorado 80120
     contact: Doug Davis/Ryan Deloach
-    contact_address_1: 1900 W. Littleton Boulevard
-    contact_address_2: Littleton Colorado 80120
+    contact_address:
+    - 1900 W. Littleton Boulevard
+    - Littleton Colorado 80120
     tel:
     - "+8447464370;"
     email:

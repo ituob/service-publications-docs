@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Kenya
     company_name: FinServe Africa Limited
-    company_address_1: Alfaways Centre, Kilimani, Nairobi
-    company_address_2: P.O.Box 10113
-    company_address_3: NAIROBI 00101
+    company_address:
+    - Alfaways Centre, Kilimani, Nairobi
+    - P.O.Box 10113
+    - NAIROBI 00101
     contact: Mr Enrico Nora
-    contact_address_1: FinServe Africa Limited
-    contact_address_2: Alfaways Centre, Kilimani, Nairobi
-    contact_address_3: P.O. Box 10113
-    contact_address_4: NAIROBI 00101
+    contact_address:
+    - FinServe Africa Limited
+    - Alfaways Centre, Kilimani, Nairobi
+    - P.O. Box 10113
+    - NAIROBI 00101
     tel:
     - "+254 763508206"
     fax:

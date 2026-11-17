@@ -11,11 +11,17 @@ data:
   - country_or_area:
       en: France
     company_name: Cellhire France SARL
-    company_address_1: 53 Rue du Capitaine Guynemer
-    company_address_2: 92418 COURBEVOIE
+    company_address:
+    - 53 Rue du Capitaine Guynemer
+    - 92418 COURBEVOIE
     contact: Fanny Lozé
-    contact_address_1: 53 Rue du Capitaine Guynemer
-    contact_address_2: 92418 COURBEVOIE
+    contact_address:
+    - 53 Rue du Capitaine Guynemer
+    - 92418 COURBEVOIE
+    tel:
+    - "+33 1 41 43 79 40"
+    email:
+    - networksupport@cellhire.com
     issue_id_number: 89 33 34
     effective_date: 1.II.2021
   notes: []

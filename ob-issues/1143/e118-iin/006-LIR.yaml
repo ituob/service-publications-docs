@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Belgium
     company_name: Voxbone SA
-    company_address_1: Claus Building
-    company_address_2: Avenue Louise 489
-    company_address_3: B-1050 BRUXELLES
+    company_address:
+    - Claus Building
+    - Avenue Louise 489
+    - B-1050 BRUXELLES
     contact: Ms Katarzyna Golos-Terrasi
-    contact_address_1: Claus Building
-    contact_address_2: Avenue Louise 489
-    contact_address_3: B-1050 BRUXELLES
+    contact_address:
+    - Claus Building
+    - Avenue Louise 489
+    - B-1050 BRUXELLES
     tel:
     - "        +32 2 808 00 61"
     fax:

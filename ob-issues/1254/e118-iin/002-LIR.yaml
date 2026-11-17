@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Denmark
     company_name: Nuuday
-    company_address_1: Teglholmsgade 1
-    company_address_2: 2450 Kh. SV
+    company_address:
+    - Teglholmsgade 1
+    - 2450 Kh. SV
     contact: Nick Papageorge
-    contact_address_1: Teglholmsgade 1
-    contact_address_2: 2450 Kh. SV
+    contact_address:
+    - Teglholmsgade 1
+    - 2450 Kh. SV
     tel:
     - "+45 7011 0330"
     email:

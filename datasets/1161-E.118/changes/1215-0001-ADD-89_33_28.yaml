@@ -8,11 +8,15 @@ data:
   country_or_area:
     en: France
   company_name: AIRMOB INFRA FULL
-  company_address_1: 29 Rue Pierre Paul Riquet
-  company_address_2: 31000 TOULOUSE
+  company_address:
+  - 29 Rue Pierre Paul Riquet
+  - 31000 TOULOUSE
   contact: Arnaud Lecoeur
-  contact_address_1: 29 Rue Pierre Paul Riquet
-  contact_address_2: 31000 TOULOUSE
+  contact_address:
+  - 29 Rue Pierre Paul Riquet
+  - 31000 TOULOUSE
+  email:
+  - 'E-mail : itu@aif-telecom.com'
   issue_id_number: 89 33 28
   effective_date: 1.II.2021
 reference: OB-1215

@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Finland
     company_name: Ukko Mobile Oy
-    company_address_1: Munkkiniemen puistotie 25
-    company_address_2: FI-00330 HELSINKI
-    company_address_3: Finland
+    company_address:
+    - Munkkiniemen puistotie 25
+    - FI-00330 HELSINKI
+    - Finland
     contact: Mr Antti Pellinen
-    contact_address_1: Ukko Mobile Oy
-    contact_address_2: Munkkiniemen puistotie 25
-    contact_address_3: FI-00330 HELSINKI
-    contact_address_4: Finland
+    contact_address:
+    - Ukko Mobile Oy
+    - Munkkiniemen puistotie 25
+    - FI-00330 HELSINKI
+    - Finland
     tel:
     - "+358 40 547 7044"
     email:

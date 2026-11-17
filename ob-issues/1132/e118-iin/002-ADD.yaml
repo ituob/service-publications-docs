@@ -11,14 +11,17 @@ data:
   - country_or_area:
       en: Japan
     company_name: SAKURA Internet Inc.
-    company_address_1: Sumitomofudosan Nishishinjuku Building 33F, 7-20-1,
-    company_address_2: Nishi-shinjuku,
-    company_address_3: Shinjuku-Ward,
+    company_address:
+    - Sumitomofudosan Nishishinjuku Building 33F, 7-20-1,
+    - Nishi-shinjuku,
+    - Shinjuku-Ward,
+    - TOKYO
     contact: Mr Hiroyuki Kawabata
-    contact_address_1: SAKURA Internet Inc.
-    contact_address_2: Sumitomofudosan Nishishinjuku Building 33F, 7-20-1,
-    contact_address_3: Nishi-shinjuku, Shinjuku-Ward,
-    contact_address_4: TOKYO
+    contact_address:
+    - SAKURA Internet Inc.
+    - Sumitomofudosan Nishishinjuku Building 33F, 7-20-1,
+    - Nishi-shinjuku, Shinjuku-Ward,
+    - TOKYO
     tel:
     - "+81 3 5332 7070"
     fax:

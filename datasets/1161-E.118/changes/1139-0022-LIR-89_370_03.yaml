@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Lithuania
   company_name: UAB “Tele2”
-  company_address_1: Upės g. 23,
-  company_address_2: LT-08128 VILNIUS
+  company_address:
+  - Upės g. 23,
+  - LT-08128 VILNIUS
   contact: Evaldas Stankevičius
-  contact_address_1: Upės g. 23
-  contact_address_2: LT-08128 VILNIUS
+  contact_address:
+  - Upės g. 23
+  - LT-08128 VILNIUS
   tel:
   - "+370 5 236 6300"
   fax:

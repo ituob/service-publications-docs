@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Botswana
     company_name: Botswana Telecommunications Corporation (Ltd)
-    company_address_1: PO Box 700
-    company_address_2: GABORONE
+    company_address:
+    - PO Box 700
+    - GABORONE
     contact: Mr Anthony Masunga
-    contact_address_1: P O Box 700
-    contact_address_2: Main Mall
-    contact_address_3: GABORONE
+    contact_address:
+    - P O Box 700
+    - Main Mall
+    - GABORONE
     tel:
     - "+267 395 8304"
     email:

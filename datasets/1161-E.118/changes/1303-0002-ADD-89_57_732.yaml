@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Colombia
   company_name: COLOMBIA MÓVIL S.A. E.S.P.
-  company_address_1: Av. Calle 26 No 92 –
-  company_address_2: 32 Modulo G1
-  company_address_3: BOGOTÁ D.C.
+  company_address:
+  - Av. Calle 26 No 92 –
+  - 32 Modulo G1
+  - BOGOTÁ D.C.
   contact: COLOMBIA MÓVIL S.A. E.S.P.
-  contact_address_1: 'Carrera 50 # 96-12'
-  contact_address_2: BOGOTÁ D.C.
+  contact_address:
+  - 'Carrera 50 # 96-12'
+  - BOGOTÁ D.C.
   email:
   - gerenciacontrolyreportes@tigo.com.co;
   - notificacionesjudiciales@tigo.com.co

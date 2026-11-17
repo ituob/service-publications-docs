@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: French Departments and Territories in the Indian Ocean
     company_name: ZEOP MOBILE
-    company_address_1: 39 rue Pierre Brossolette
-    company_address_2: 97420 Le Port
+    company_address:
+    - 39 rue Pierre Brossolette
+    - 97420 Le Port
     contact: ZEOP Mobile, Roaming
-    contact_address_1: 39 rue Pierre Brossolette
-    contact_address_2: 97420 Le Port
+    contact_address:
+    - 39 rue Pierre Brossolette
+    - 97420 Le Port
     email:
     - roaming@zeop.net
     issue_id_number: 89 262 04

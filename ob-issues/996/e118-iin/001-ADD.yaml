@@ -12,13 +12,15 @@ data:
   - country_or_area:
       en: Canada
     company_name: Bragg Communications Inc
-    company_address_1: 6080 Young Street, 8th floor
-    company_address_2: Halifax
-    company_address_3: NS Canada BSK 5M3
+    company_address:
+    - 6080 Young Street, 8th floor
+    - Halifax
+    - NS Canada BSK 5M3
     contact: Mr. Steve Irvine
-    contact_address_1: 6080 Young Street, 6th floor
-    contact_address_2: Halifax
-    contact_address_3: NS Canada BSK 5M3
+    contact_address:
+    - 6080 Young Street, 6th floor
+    - Halifax
+    - NS Canada BSK 5M3
     tel:
     - "+1 902 431 9961"
     email:

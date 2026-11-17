@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: United States
     company_name: Workz Technologies Inc
-    company_address_1: 3948 3rd St S, Unit 345
-    company_address_2: Jacksonville Beach
-    company_address_3: FL 32250
+    company_address:
+    - 3948 3rd St S, Unit 345
+    - Jacksonville Beach
+    - FL 32250
     contact: Brad Taylor
-    contact_address_1: 3948 3rd St S, Unit 345
-    contact_address_2: Jacksonville Beach
-    contact_address_3: FL 32250
+    contact_address:
+    - 3948 3rd St S, Unit 345
+    - Jacksonville Beach
+    - FL 32250
     tel:
     - "      +1 904 703 6455"
     email:

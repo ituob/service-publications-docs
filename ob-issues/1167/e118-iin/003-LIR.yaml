@@ -11,16 +11,18 @@ data:
   - country_or_area:
       en: Fiji
     company_name: Digicel (Fiji) Pte Limited
-    company_address_1: Level 3, Digicel House
-    company_address_2: 5 Vuna Rd
-    company_address_3: NABUA
+    company_address:
+    - Level 3, Digicel House
+    - 5 Vuna Rd
+    - NABUA
     contact: Peter Rigamoto
-    contact_address_1: Digicel (Fiji) Pte Limited
-    contact_address_2: PO Box 13811
-    contact_address_3: SUVA
+    contact_address:
+    - Digicel (Fiji) Pte Limited
+    - PO Box 13811
+    - SUVA
     tel:
     - "    +679 7017 480"
     email:
-    - 'Email : peter.rigamoto@digicelgroup.com'
+    - peter.rigamoto@digicelgroup.com
     issue_id_number: 89 679 02
   notes: []

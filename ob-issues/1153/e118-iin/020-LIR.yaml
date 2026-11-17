@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: Hong Kong, China
     company_name: China Telecom Global Limited
-    company_address_1: 28/F Everbright Centre,
-    company_address_2: 108 Gloucester Road, Wanchai,
-    company_address_3: Hong Kong
+    company_address:
+    - 28/F Everbright Centre,
+    - 108 Gloucester Road, Wanchai,
+    - Hong Kong
     contact: Mr Karson Ng
-    contact_address_1: 28/F Everbright Centre,
-    contact_address_2: 108 Gloucester Road, Wanchai,
-    contact_address_3: Hong Kong
+    contact_address:
+    - 28/F Everbright Centre,
+    - 108 Gloucester Road, Wanchai,
+    - Hong Kong
     tel:
     - "+852 2582 9131"
     fax:

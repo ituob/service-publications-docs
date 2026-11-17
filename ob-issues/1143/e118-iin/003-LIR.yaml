@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Belgium
     company_name: Orange Belgium N.V.
-    company_address_1: Bourgetlaan 3
-    company_address_2: B-1140 BRUSSEL
+    company_address:
+    - Bourgetlaan 3
+    - B-1140 BRUSSEL
     contact: Mr Dirk Segers
-    contact_address_1: Bourgetlaan 3
-    contact_address_2: B-1140 BRUSSEL
+    contact_address:
+    - Bourgetlaan 3
+    - B-1140 BRUSSEL
     tel:
     - "+32 2 745 72 00"
     email:

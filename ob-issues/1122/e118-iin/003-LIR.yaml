@@ -11,12 +11,14 @@ data:
   - country_or_area:
       en: Portugal
     company_name: Lycamobile Portugal, Lda
-    company_address_1: Avenida João Crisóstomo 24
-    company_address_2: 1050-127 LISBOA
+    company_address:
+    - Avenida João Crisóstomo 24
+    - 1050-127 LISBOA
     contact: Mr António Maria Spínola Brito Mendes Arnaut
-    contact_address_1: Lycamobile Portugal, Lda
-    contact_address_2: Avenida João Crisóstomo 24
-    contact_address_3: 1050-127 LISBOA
+    contact_address:
+    - Lycamobile Portugal, Lda
+    - Avenida João Crisóstomo 24
+    - 1050-127 LISBOA
     tel:
     - "+351 210 990 582"
     email:

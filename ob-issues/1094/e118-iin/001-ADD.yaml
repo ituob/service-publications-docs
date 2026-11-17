@@ -11,14 +11,16 @@ data:
   - country_or_area:
       en: Switzerland
     company_name: Mundio Mobile Limited
-    company_address_1: 54 Marsh Wall
-    company_address_2: LONDON E14 9TP
-    company_address_3: "(United Kingdom)"
+    company_address:
+    - 54 Marsh Wall
+    - LONDON E14 9TP
+    - "(United Kingdom)"
     contact: Mr Alkesh Dave
-    contact_address_1: Mundio Mobile Limited
-    contact_address_2: 54 Marsh Wall
-    contact_address_3: LONDON E14 9TP
-    contact_address_4: "(United Kingdom)"
+    contact_address:
+    - Mundio Mobile Limited
+    - 54 Marsh Wall
+    - LONDON E14 9TP
+    - "(United Kingdom)"
     tel:
     - "+44 2035364800"
     fax:

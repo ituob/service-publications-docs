@@ -11,11 +11,13 @@ data:
   - country_or_area:
       en: Slovakia
     company_name: Slovak Telekom, a.s.
-    company_address_1: 28 Bajkalská
-    company_address_2: 817 62 BRATISLAVA
+    company_address:
+    - 28 Bajkalská
+    - 817 62 BRATISLAVA
     contact: Mr Sebastian Schumann
-    contact_address_1: 28 Bajkalská
-    contact_address_2: 817 62 BRATISLAVA
+    contact_address:
+    - 28 Bajkalská
+    - 817 62 BRATISLAVA
     tel:
     - "+421 258823332"
     fax:

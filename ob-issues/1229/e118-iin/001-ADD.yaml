@@ -11,13 +11,15 @@ data:
   - country_or_area:
       en: United States
     company_name: Comcast Corporation
-    company_address_1: One Comcast Center
-    company_address_2: 1701 John F. Kennedy Blvd.
-    company_address_3: PHILADELPHIA PA 19103
+    company_address:
+    - One Comcast Center
+    - 1701 John F. Kennedy Blvd.
+    - PHILADELPHIA PA 19103
     contact: Tim Farrell
-    contact_address_1: One Comcast Center
-    contact_address_2: 1701 John F. Kennedy Blvd.
-    contact_address_3: PHILADELPHIA PA 19103
+    contact_address:
+    - One Comcast Center
+    - 1701 John F. Kennedy Blvd.
+    - PHILADELPHIA PA 19103
     tel:
     - "+1 267 735 3275"
     email:

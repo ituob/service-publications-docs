@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: Japan
   company_name: Hanshin Cable Engineering Co. Ltd.
-  company_address_1: 27-11, Agenaruo-cho,
-  company_address_2: Nishinomiya-shi,
-  company_address_3: Hyogo 663-8186
+  company_address:
+  - 27-11, Agenaruo-cho,
+  - Nishinomiya-shi,
+  - Hyogo 663-8186
   contact: Mr Hiroyoshi Fujii
-  contact_address_1: Hanshin Cable Engineering Co. Ltd.
-  contact_address_2: 1-1-24, Ebie,
-  contact_address_3: Fukushima-ku Osaka-shi,
-  contact_address_4: Osaka, 553-0001
+  contact_address:
+  - Hanshin Cable Engineering Co. Ltd.
+  - 1-1-24, Ebie,
+  - Fukushima-ku Osaka-shi,
+  - Osaka, 553-0001
   tel:
   - "+81 6 6343 7470"
   fax:

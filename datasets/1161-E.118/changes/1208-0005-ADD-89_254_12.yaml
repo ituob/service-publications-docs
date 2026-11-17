@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Kenya
   company_name: Infura Limited
-  company_address_1: 1 Flr Park Place Parklands
-  company_address_2: NAIROBI
+  company_address:
+  - 1 Flr Park Place Parklands
+  - NAIROBI
   contact: CTO Infura Limited
-  contact_address_1: 1st Floor Park Place
-  contact_address_2: Limuru Road Parklands
-  contact_address_3: NAIROBI
+  contact_address:
+  - 1st Floor Park Place
+  - Limuru Road Parklands
+  - NAIROBI
   email:
   - info@infura.co.ke
   issue_id_number: 89 254 12

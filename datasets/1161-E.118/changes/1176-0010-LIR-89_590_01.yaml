@@ -8,12 +8,14 @@ data:
   country_or_area:
     en: Guadeloupe
   company_name: Orange Caraïbe
-  company_address_1: 1 AVENUE NELSON MANDELA
-  company_address_2: BP 2336
-  company_address_3: 94110 ARCUEIL CEDEX
+  company_address:
+  - 1 AVENUE NELSON MANDELA
+  - BP 2336
+  - 94110 ARCUEIL CEDEX
   contact: Valérie LABBE
-  contact_address_1: BP 2336
-  contact_address_2: 97196 JARRY CEDEX
+  contact_address:
+  - BP 2336
+  - 97196 JARRY CEDEX
   tel:
   - "+590 590 38 52 12"
   email:

@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: United Kingdom
   company_name: Keygold.com Ltd
-  company_address_1: 10 Stoke Road, Walton-on Thames
-  company_address_2: SURREY KT12 3DD
+  company_address:
+  - 10 Stoke Road, Walton-on Thames
+  - SURREY KT12 3DD
   contact: Warren Lee Richards
-  contact_address_1: 10 Stoke Road, Walton-on Thames
-  contact_address_2: SURREY KT12 3DD
+  contact_address:
+  - 10 Stoke Road, Walton-on Thames
+  - SURREY KT12 3DD
   tel:
   - "+44 1932 267 715"
   fax:

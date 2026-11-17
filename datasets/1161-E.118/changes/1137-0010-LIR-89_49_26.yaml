@@ -8,13 +8,15 @@ data:
   country_or_area:
     en: Germany
   company_name: VIOLA Kabelgesellschaft
-  company_address_1: "(Deutschland) mbH"
-  company_address_2: Graurheindorfer Strasse 153
-  company_address_3: D-53117 BONN
+  company_address:
+  - "(Deutschland) mbH"
+  - Graurheindorfer Strasse 153
+  - D-53117 BONN
   contact: Ms Monika Pinders
-  contact_address_1: Thomas Mann Str. 2-4
-  contact_address_2: 53111 BONN
-  contact_address_3: Germany
+  contact_address:
+  - Thomas Mann Str. 2-4
+  - 53111 BONN
+  - Germany
   tel:
   - "+49 228 181 27341"
   fax:

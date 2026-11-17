@@ -8,15 +8,17 @@ data:
   country_or_area:
     en: Japan
   company_name: Internet Initiative Japan Inc.
-  company_address_1: 2-10-2 Fujimi,
-  company_address_2: Chiyoda-ku,
-  company_address_3: TOKYO 102-0071
+  company_address:
+  - 2-10-2 Fujimi,
+  - Chiyoda-ku,
+  - TOKYO 102-0071
   contact: Mr Futoshi Sasaki
-  contact_address_1: Internet Initiative Japan Inc.
-  contact_address_2: Iidabashi Grand Bloom,
-  contact_address_3: 2-10-2 Fujimi
-  contact_address_4: Chiyoda-ku
-  contact_address_5: TOKYO 102-0071
+  contact_address:
+  - Internet Initiative Japan Inc.
+  - Iidabashi Grand Bloom,
+  - 2-10-2 Fujimi
+  - Chiyoda-ku
+  - TOKYO 102-0071
   tel:
   - "        +81 3 5205 6524"
   fax:

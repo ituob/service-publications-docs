@@ -8,11 +8,13 @@ data:
   country_or_area:
     en: Netherlands
   company_name: 6GMobile B.V.
-  company_address_1: Opaallaan 1212
-  company_address_2: 2132 LN HOOFDDORP
+  company_address:
+  - Opaallaan 1212
+  - 2132 LN HOOFDDORP
   contact: Mr. H. Beers
-  contact_address_1: Opaallaan 1212
-  contact_address_2: 2132 LN HOOFDDORP
+  contact_address:
+  - Opaallaan 1212
+  - 2132 LN HOOFDDORP
   tel:
   - "+31 23 890 6600"
   fax:

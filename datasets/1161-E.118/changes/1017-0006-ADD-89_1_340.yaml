@@ -8,14 +8,16 @@ data:
   country_or_area:
     en: United States
   company_name: WestLink Communications, LLC.
-  company_address_1: 120 W.Kansas Ave
-  company_address_2: ULYSSES, KS  67880
-  company_address_3: United States
+  company_address:
+  - 120 W.Kansas Ave
+  - ULYSSES, KS  67880
+  - United States
   contact: Mr Matthew Schonlau
-  contact_address_1: WestLink Communications, LLC.
-  contact_address_2: 120 W.Kansas Ave
-  contact_address_3: ULYSSES, KS  67880
-  contact_address_4: United States
+  contact_address:
+  - WestLink Communications, LLC.
+  - 120 W.Kansas Ave
+  - ULYSSES, KS  67880
+  - United States
   tel:
   - "+1 620 356 7146"
   fax:
