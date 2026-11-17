@@ -1,0 +1,35 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1129'
+identifier:
+  code: 604 02
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 604 02
+    country_or_area:
+      en: Morocco
+    networks: Wana Corporate
+  - mcc_mnc_codes: 604 04
+    country_or_area:
+      en: Morocco
+    networks: Al Houria Telecom
+  - mcc_mnc_codes: 604 05
+    country_or_area:
+      en: Morocco
+    networks: Wana Corporate
+  - mcc_mnc_codes: 604 06
+    country_or_area:
+      en: Morocco
+    networks: Itissalat Al-Maghrib
+  - mcc_mnc_codes: 604 99
+    country_or_area:
+      en: Morocco
+    networks: Al Houria Telecom
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"
+reference: OB-1129

@@ -1,0 +1,31 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1162'
+identifier:
+  code: 208 23
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 208 23
+    country_or_area:
+      en: France
+    networks: Syndicat mixte ouvert Charente Numérique
+  - mcc_mnc_codes: 208 29
+    country_or_area:
+      en: France
+    networks: Cubic télécom France
+  - mcc_mnc_codes: 208 33
+    country_or_area:
+      en: France
+    networks: Département des Pyrénées Atlantiques
+  - mcc_mnc_codes: 208 500
+    country_or_area:
+      en: France
+    networks: EDF
+  - mcc_mnc_codes: 208 700
+    country_or_area:
+      en: France
+    networks: Weaccess group
+  notes: []
+reference: OB-1162

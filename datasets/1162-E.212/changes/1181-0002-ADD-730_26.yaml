@@ -1,0 +1,19 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1181'
+identifier:
+  code: 730 26
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 730 26
+    country_or_area:
+      en: Chile
+    networks: WILL S.A
+  - mcc_mnc_codes: 730 27
+    country_or_area:
+      en: Chile
+    networks: Cibeles Telecom S.A.
+  notes: []
+reference: OB-1181

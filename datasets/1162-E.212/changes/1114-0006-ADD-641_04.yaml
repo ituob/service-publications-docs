@@ -1,0 +1,27 @@
+type: ADD
+register: E212_MNC
+recommendation: E.212
+ob_issue_no: '1114'
+identifier:
+  code: 641 04
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 641 04
+    country_or_area:
+      en: Uganda
+    networks: Tangerine Uganda Limited
+  - mcc_mnc_codes: 641 06
+    country_or_area:
+      en: Uganda
+    networks: Afrimax Uganda Limited
+  - mcc_mnc_codes: 641 26
+    country_or_area:
+      en: Uganda
+    networks: Lycamobile Network services Uganda Limited
+  notes:
+  - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil"
+  - "*MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
+    servicio móvil"
+reference: OB-1114

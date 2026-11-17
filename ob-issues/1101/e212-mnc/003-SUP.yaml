@@ -1,0 +1,34 @@
+type: SUP
+date_requested:
+date_active:
+ob_issue_no: '1101'
+reference: OB-1101
+identifier:
+  code: 1101-003
+data:
+  _class: E212MNCAmendment
+  entries:
+  - mcc_mnc_codes: 248 05
+    country_or_area:
+      en: Estonia
+    networks: AS Bravocom Mobiil
+  - mcc_mnc_codes: 248 05
+    country_or_area:
+      en: Estonia
+    networks: Skycompiler OÜ
+  - mcc_mnc_codes: 248 06
+    country_or_area:
+      en: Estonia
+    networks: ProGroup Holding OY
+  - mcc_mnc_codes: 248 09
+    country_or_area:
+      en: Estonia
+    networks: Bravo Telecom OÜ
+  - mcc_mnc_codes: 248 10
+    country_or_area:
+      en: Estonia
+    networks: Telcotrade OÜ
+  notes:
+  - "* MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
+    para el servicio móvil    MNC:  Mobile Network Code / Code de réseau mobile /
+    Indicativo de red para el servicio móvil"
