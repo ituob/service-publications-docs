@@ -750,6 +750,13 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(parsed.actions.last.entries.first.country_or_area.en).to eq('International Mobile, shared code')
     end
 
+    it 'preserves non-breaking spaces within an inline network name' do
+      network = "YOM\u00a0Wireless"
+      parsed = described_class.inline_country_entry("Malta ADD 278 11 #{network}")
+
+      expect(parsed[:network]).to eq(network)
+    end
+
     it 'retains the North America MNC formatting note without inventing an entry (OB 1007)' do
       note = 'For North America three digits MNC have been assigned with MNC with a trailing 0'
       parsed = parse(document(paragraph('Canada ADD'), paragraph('302 220 Telus Mobility'), paragraph(note)))

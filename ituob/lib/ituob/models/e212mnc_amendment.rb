@@ -111,7 +111,7 @@ attribute :country, :string
       # Some country-first announcements print the code and network on
       # the same paragraph as the action, rather than on a following line.
       def self.inline_country_entry(line)
-        suffix = line.match(/\s(?<action>ADD|SUP|LIR|REP)\*?\s+(?<code>\d{3}\s+\d{2,3})(?:\s+(?<network>.+))?\z/)
+        suffix = line.match(/\s(?<action>ADD|SUP|LIR|REP)\*?\s+(?<code>\d{3}\s+\d{2,3})(?:\s+(?<network>\S.*))?\z/)
         return unless suffix
 
         heading = country_action_line("#{line[0...suffix.begin(0)]} #{suffix[:action]}")
@@ -175,7 +175,7 @@ attribute :country, :string
         definitions.each do |definition|
           text, key, preceding_action = definition.values_at(:text, :key, :action)
           amendment.notes << text
-          date = text.match(/\A(?:\*+|\d{1,2}\)?)\s+As from\s+(.+)\z/i)
+          date = text.match(/\A(?:\*+|\d{1,2}\)?)\s+As from\s+(\S.*)\z/i)
           amendment.actions.each do |parsed_action|
             parsed_action.entries.each do |entry|
               reference = [headings[parsed_action], entry.country_or_area&.en,
@@ -293,8 +293,11 @@ attribute :country, :string
 
             if (heading_country = extra_territorial_country(stripped))
               action = next_action(amendment, action)
-              action.action_type = heading_country[/\b(ADD|SUP|LIR|REP)\s*\z/, 1] || 'LIR'
-              last_country = heading_country.sub(/\AP\s*\d+\s+/, '').sub(/\s+(?:ADD|SUP|LIR|REP)\z/, '').strip
+              heading_action = heading_country[/\b(ADD|SUP|LIR|REP)\s*\z/, 1]
+              action.action_type = heading_action || 'LIR'
+              last_country = heading_country.sub(/\AP\s*\d+\s+/, '')
+              last_country = last_country.delete_suffix(heading_action).rstrip if heading_action
+              last_country = last_country.strip
               headings[action] = stripped
               next
             end

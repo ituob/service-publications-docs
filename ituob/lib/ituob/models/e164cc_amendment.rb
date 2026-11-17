@@ -70,7 +70,7 @@ attribute :notes, :string, collection: true
 
             if apply_date_footnote(fixed_str, amendment, state.previous_action)
               next
-            elsif (definition = fixed_str.match(/\A([a-z])\s+(.+)\z/))
+            elsif (definition = fixed_str.match(/\A([a-z]) (\S.*)\z/))
               definitions[definition[1]] << [index, fixed_str]
               amendment.notes << fixed_str
             elsif fixed_str.match?(/\A(?:P\s*\d+|Note\s|country code\s|(?:ADD|SUP|REP|LIR)\s+notes?\s)/i)
