@@ -172,20 +172,30 @@ attribute :country, :string
       end
 
       def self.apply_footnotes(amendment, definitions, headings)
+        date_offsets = {}
         definitions.each do |definition|
           text, key, preceding_action = definition.values_at(:text, :key, :action)
           amendment.notes << text
           date = text.match(/\A(?:\*+|\d{1,2}\)?)\s+As from\s+(\S.*)\z/i)
+          if date
+            key = key.delete_suffix(')')
+            # Reusing a marker starts a new date block after its prior definition.
+            date_entries = {}.compare_by_identity
+            definition[:entries].drop(date_offsets.fetch(key, 0)).each { |entry| date_entries[entry] = true }
+            date_offsets[key] = definition[:entries].length
+          end
           amendment.actions.each do |parsed_action|
             parsed_action.entries.each do |entry|
+              next if date && !date_entries.key?(entry)
+
               reference = [headings[parsed_action], entry.country_or_area&.en,
                            entry.mcc_mnc_codes, entry.networks].compact.join(' ')
-              marked = if key.start_with?('*')
-                         reference.scan(/\*+/).include?(key)
-                       else
-                         headings[parsed_action].to_s.match?(/\b(?:ADD|SUP|LIR|REP)\s+#{Regexp.escape(key)}\z/)
-                       end
-              next unless marked || (date && parsed_action.equal?(preceding_action))
+              markers = reference.scan(/\*+/)
+              numbered = headings[parsed_action].to_s[/\b(?:ADD|SUP|LIR|REP)\s+(\d{1,2}\)?)\z/, 1]
+              numbered = numbered.delete_suffix(')') if date && numbered
+              markers << numbered if numbered
+              marked = markers.include?(key)
+              next unless marked || (date && markers.empty? && parsed_action.equal?(preceding_action))
 
               entry.note = MultilingualString.new(en: [entry.note&.en, text].compact.join("\n"))
               entry.effective_date = date[1].strip if date
@@ -245,7 +255,8 @@ attribute :country, :string
             end
 
             if (definition = footnote_definition(stripped))
-              definitions << { text: stripped, key: definition[:key], action: action }
+              definitions << { text: stripped, key: definition[:key], action: action,
+                               entries: amendment.actions.flat_map(&:entries) }
               next
             end
             if definitions.any? && stripped.match?(/\A(?:Then\b|["“]\d{3}\s\d+)/)
@@ -396,7 +407,8 @@ attribute :country, :string
               block = rowspan_heading([Array(row[0]).join(' ')] + row.drop(1).flatten)
               if row.drop(1).flatten.all? { |cell| cell.to_s.match?(BLANK_CELL) } &&
                   (definition = footnote_definition(printed))
-                definitions << { text: printed, key: definition[:key], action: action }
+                definitions << { text: printed, key: definition[:key], action: action,
+                                 entries: amendment.actions.flat_map(&:entries) }
                 next
               end
               # Title and column header rows are not data unless they open a country block.

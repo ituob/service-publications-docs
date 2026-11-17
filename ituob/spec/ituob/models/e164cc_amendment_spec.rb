@@ -199,4 +199,89 @@ RSpec.describe Ituob::Models::E164CCAmendment do
     expect(amendment.notes).to include('* As from 15 April 2014')
   end
 
+  { 1130 => ['+883 240', '25.VII.2017'],
+    1114 => ['+883 5140', '15.IV.2014'],
+    1126 => ['+883 230', '23.V.2017'] }.each do |issue, (code, date)|
+    it "retains the Roman-numeral assignment date in issue #{issue}" do
+      source = YAML.load_file(File.join(FIXTURE_ROOT, issue.to_s, 'amendments.yaml'),
+                              permitted_classes: [Date, Time], aliases: true)
+      message = source.fetch('messages').find { |item| item.dig('target', 'publication') == 'E164_CC' }
+      amendment = described_class.parse(message.dig('contents', 'en'))
+      matching = amendment.actions.flat_map(&:entries).select { |entry| entry.cc_ic == code }
+      expect(matching).not_to be_empty
+      expect(matching.map(&:effective_date)).to all(eq(date))
+      expect(amendment.notes).to include("* #{date}")
+    end
+  end
+
+  it 'preserves both printed dates in issue 1161 without assigning an ambiguous date to every row' do
+    source = YAML.load_file(File.join(FIXTURE_ROOT, '1161', 'amendments.yaml'),
+                            permitted_classes: [Date, Time], aliases: true)
+    message = source.fetch('messages').find { |item| item.dig('target', 'publication') == 'E164_CC' }
+    amendment = described_class.parse(message.dig('contents', 'en'))
+    entries = amendment.actions.flat_map(&:entries)
+    expect(amendment.notes).to include('* 2.XI.2018; 20.XI.2018')
+    expect(entries.map(&:cc_ic)).to eq(['+883 260', '+883 270', '+991 001'])
+    expect(entries.first(2).map(&:effective_date)).to eq([nil, nil])
+    expect(entries.last.effective_date).to eq('15.I.2019')
+    expect(entries.last.reclamation_date).to eq('15.I.2020')
+  end
+
+  it 'applies the shared date to both starred withdrawals in issue 1091' do
+    source = YAML.load_file(File.join(FIXTURE_ROOT, '1091', 'amendments.yaml'),
+                            permitted_classes: [Date, Time], aliases: true)
+    message = source.fetch('messages').find { |item| item.dig('target', 'publication') == 'E164_CC' }
+    amendment = described_class.parse(message.dig('contents', 'en'))
+    entries = amendment.actions.flat_map(&:entries)
+    expect(entries.map(&:cc_ic)).to eq(['+882 20', '+883 5140'])
+    expect(entries.map(&:effective_date)).to eq(['15 December 2015', '15 December 2015'])
+    expect(entries.map(&:status)).to eq(['Withdrawn', 'Withdrawn'])
+  end
+
+  it 'keeps date markers within their block and leaves unstarred rows unchanged' do
+    doc = { 'type' => 'doc', 'content' => [
+      paragraph('Note p) +883 320 ADD*'),
+      table(%w[Applicant Network Code Status], ['First', 'First', '+883 320', 'Assigned']),
+      paragraph('Notes common to Numerical and Alphabetical lists'),
+      paragraph('Note p) +883 321 ADD**'),
+      table(%w[Applicant Network Code Status], ['Second', 'Second', '+883 321', 'Assigned']),
+      paragraph('* 25.VII.2017'),
+      paragraph('** 26.VII.2017'),
+      paragraph('Note p) +883 322 ADD'),
+      table(%w[Applicant Network Code Status], ['Third', 'Third', '+883 322', 'Assigned']),
+      paragraph('* 27.VII.2017'),
+    ] }
+    amendment = described_class.parse(doc)
+    entries = amendment.actions.flat_map(&:entries)
+    expect(entries.map(&:effective_date)).to eq([nil, '26.VII.2017', nil])
+    expect(entries.map(&:cc_ic)).to eq(['+883 320', '+883 321', '+883 322'])
+    expect(amendment.notes).to include('* 25.VII.2017', '** 26.VII.2017', '* 27.VII.2017')
+  end
+
+  it 'binds issue 1240 dates to the codes in each consecutive starred heading' do
+    source = YAML.load_file(File.join(FIXTURE_ROOT, '1240', 'amendments.yaml'),
+                            permitted_classes: [Date, Time], aliases: true)
+    message = source.fetch('messages').find { |item| item.dig('target', 'publication') == 'E164_CC' }
+    amendment = described_class.parse(message.dig('contents', 'en'))
+    actions = amendment.actions.select { |action| action.entries.any? }
+    entries = actions.flat_map(&:entries)
+    dates = entries.to_h { |entry| [entry.cc_ic, entry.effective_date] }
+    expect(dates).to eq('+882 12' => '4.III.2022', '+882 22' => '4.III.2022',
+                        '+882 33' => '18.II.2022', '+882 97' => '4.III.2022',
+                        '+883 120' => '4.III.2022', '+883 180' => '18.II.2022',
+                        '+883 230' => '18.II.2022', '+883 310' => '18.II.2022',
+                        '+883 430' => '18.II.2022')
+    expect(actions.map(&:position)).to eq(['Note o) +882 12, +882 22, +882 97 SUP**',
+                                          'Note p) +883 120 SUP**',
+                                          'Note p) +883 430 ADD***'])
+    expect(actions.map { |action| action.entries.map(&:cc_ic) }).to eq([
+      ['+882 12', '+882 22', '+882 33', '+882 97'],
+      ['+883 120', '+883 180', '+883 230', '+883 310'], ['+883 430'],
+    ])
+    expect(actions.select { |action| action.action_type == 'SUP' }.flat_map(&:entries).map(&:status)).to all(eq('Withdrawn'))
+    expect(actions.select { |action| action.action_type == 'ADD' }.flat_map(&:entries).map(&:cc_ic)).to eq(['+883 430'])
+    expect(entries.find { |entry| entry.cc_ic == '+883 430' }.status).to eq('Assigned')
+    expect(amendment.notes).to include('* 18.II.2022', '** 4.III.2022', '*** 18.II.2022')
+  end
+
 end

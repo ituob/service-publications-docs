@@ -738,6 +738,21 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(parse(doc).notes).to include('1 As from 31 August 2011')
     end
 
+    it 'matches numbered date markers with optional closing parentheses in separate blocks (OB 983)' do
+      path = File.expand_path('../../../../itu-ob-data/issues/983/amendments.yaml', __dir__)
+      data = YAML.load_file(path, permitted_classes: [Date, Time])
+      message = data['messages'].find { |item| item['target']['publication'] == 'E212_MNC' }
+      entries = parse(message['contents']['en']).actions.flat_map(&:entries)
+      first = entries.find { |entry| entry.mcc_mnc_codes == '901 30' }
+      later = entries.select { |entry| ['901 31', '901 32'].include?(entry.mcc_mnc_codes) }
+
+      expect(first.effective_date).to eq('30 June 2011')
+      expect(first.note.en.split.join(' ')).to eq('1) As from 30 June 2011')
+      expect(later.map(&:mcc_mnc_codes)).to eq(['901 31', '901 32'])
+      expect(later.map(&:effective_date)).to eq(['1 June 2011', '1 June 2011'])
+      expect(later.map { |entry| entry.note.en.split.join(' ') }).to eq(['1) As from 1 June 2011', '1) As from 1 June 2011'])
+    end
+
     it 'keeps an inline country-first announcement separate from the following country (OB 1062)' do
       parsed = parse(document(paragraph('Malta ADD 278 11 YOM'),
                               paragraph('International Mobile, shared code ADD'),
@@ -792,6 +807,45 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entry.effective_date).to eq('1 June 2024')
       expect(entry.note.en).to eq('* As from 1 June 2024')
       expect(entry.extra_territorial_use).to be_nil
+    end
+
+    it 'binds repeated date markers to their preceding announcement blocks' do
+      doc = document(paragraph('P 1 Denmark ADD*'), paragraph('238 01 Operator A'),
+                     paragraph('P 2 Malta ADD*'), paragraph('278 11 Operator B'),
+                     paragraph('* As from 1 January 2024'),
+                     paragraph('P 3 Norway ADD*'), paragraph('242 01 Operator C'),
+                     paragraph('* As from 1 February 2024'))
+      parsed = parse(doc)
+      entries = parsed.actions.flat_map(&:entries)
+
+      expect(entries.map(&:effective_date)).to eq(['1 January 2024', '1 January 2024', '1 February 2024'])
+      expect(entries.map { |entry| entry.note.en }).to eq([
+        '* As from 1 January 2024', '* As from 1 January 2024', '* As from 1 February 2024'
+      ])
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['238 01', '278 11', '242 01'])
+      expect(parsed.notes).to eq(['* As from 1 January 2024', '* As from 1 February 2024'])
+    end
+
+    it 'does not apply a single-star date to a double-star announcement through fallback' do
+      doc = document(paragraph('P 1 Denmark ADD**'), paragraph('238 01 Operator A'),
+                     paragraph('* As from 1 January 2024'))
+      parsed = parse(doc)
+      entry = parsed.actions.first.entries.first
+
+      expect(entry.effective_date).to be_nil
+      expect(entry.note).to be_nil
+      expect(entry.mcc_mnc_codes).to eq('238 01')
+      expect(parsed.notes).to eq(['* As from 1 January 2024'])
+    end
+
+    it 'preserves the date fallback for an unmarked preceding announcement' do
+      doc = document(paragraph('P 1 Denmark ADD'), paragraph('238 01 Operator A'),
+                     paragraph('* As from 1 January 2024'))
+      entry = parse(doc).actions.first.entries.first
+
+      expect(entry.effective_date).to eq('1 January 2024')
+      expect(entry.note.en).to eq('* As from 1 January 2024')
+      expect(entry.networks).to eq('Operator A')
     end
 
     it 'retains a keyed country note without applying it to unrelated countries (OB 1280)' do
@@ -855,6 +909,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       switzerland = parsed[1016].actions.flat_map(&:entries).find { |entry| entry.mcc_mnc_codes == '228 01' }
 
       expect(first.find { |entry| entry.mcc_mnc_codes == '901 33' }.effective_date).to eq('31 August 2011')
+      expect(first.find { |entry| entry.mcc_mnc_codes == '901 33' }.note.en).not_to include('cancels and replaces')
       expect(first.reject { |entry| entry.mcc_mnc_codes == '901 33' }.map(&:effective_date)).to all(be_nil)
       expect(second.first.effective_date).to eq('15 June 2012')
       expect(estonia.note.en).to include('19 April 2007', '15 March 2011', '15 March 2013')
