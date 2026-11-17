@@ -235,6 +235,30 @@ RSpec.describe OfficialPdfGate do
                                    "E.212A-2017-C", "E.212A-2017-R")
   end
 
+  it "rejects an indexed official language with no source or baseline" do
+    gate_index(key => official_path, "F.32-2011-R" => official_path)
+    gate_generated("F.32-2011-R")
+    expect(gate_run).to eq(1)
+    expect(rows).to contain_exactly(include("key" => key, "status" => "pass"),
+                                   include("key" => "F.32-2011-R", "source" => nil, "status" => "error",
+                                           "errors" => ["no reviewed baseline", "source missing for official or baseline row"]))
+  end
+
+  it "rejects an indexed official publication with no source directory or baseline" do
+    gate_index(key => official_path, "SR.1-2012-E" => official_path)
+    gate_generated("SR.1-2012-E")
+    expect(gate_run).to eq(1)
+    expect(rows.last).to include("key" => "SR.1-2012-E", "source" => nil, "status" => "error",
+                                "errors" => ["no reviewed baseline", "source missing for official or baseline row"])
+  end
+
+  it "ignores unselected orphan official publications in a subset comparison" do
+    gate_index(key => official_path, "SR.1-2012-E" => official_path)
+    expect(gate_run("--docs", "T-SP-F.32-2011")).to eq(0)
+    expect(rows).to contain_exactly(include("key" => key, "status" => "pass", "errors" => []))
+    expect(candidate).to eq(key => metrics)
+  end
+
   it "retains a vanished baseline source as a failing report row" do
     gate_baseline(key => metrics, "SR.1-2012-E" => metrics)
     expect(gate_run).to eq(1)

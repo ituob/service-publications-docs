@@ -173,8 +173,8 @@ module OfficialPdfGate
     previous = baseline(baseline_file)
     officials = official_files(root)
     sources = inventory(root, docs)
-    # Retain baseline coverage even if an official or its source disappeared.
-    previous.each_key do |key|
+    # Retain official and baseline coverage even if a source disappeared.
+    (previous.keys | officials.keys).each do |key|
       next if docs && !docs.include?("T-SP-#{key[0...-2]}")
       next if sources.any? { |row| row["key"] == key }
 
@@ -184,7 +184,7 @@ module OfficialPdfGate
       compared = compare_row(row, generated, officials[row["key"]], previous[row["key"]])
       if row["source"].nil?
         compared["status"] = "error"
-        compared["errors"] << "source missing for baseline row"
+        compared["errors"] << "source missing for official or baseline row"
       end
       compared
     end

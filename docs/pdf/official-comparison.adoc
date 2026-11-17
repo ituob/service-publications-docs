@@ -24,7 +24,9 @@ repository-relative path to `official-pdfs.json` under key
 `<standard>-<year>-<L>`. Use the directory's publication identity, including for
 source filenames containing `MSW` or `OAS-MSW`. A duplicate reference is an error.
 A reference or render that cannot be read is an error, as is removing a reference
-for a row that already has a baseline.
+for a row that already has a baseline. An indexed or discovered official reference
+with no matching source is a failing report row even before it has a baseline;
+a misspelled publication or language key cannot silently discard coverage.
 
 == Scores and regression policy
 
