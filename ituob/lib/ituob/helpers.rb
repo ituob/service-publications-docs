@@ -76,7 +76,8 @@ module Ituob
       # Strip the key prefix (e.g. "Tel.:", "Fax:", "Email:") and any
       # leading whitespace.
       replaced = replaced.sub(/#{key_pattern}[\s.:]*\s*/i, '')
-      replace_legacy_space(replaced).strip
+      value = replace_legacy_space(replaced).strip
+      value.empty? ? nil : value
     end
 
     def self.grabcol2(arr_of_arr_of_1str, key)
