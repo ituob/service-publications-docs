@@ -216,7 +216,6 @@ module RenderPublications
     return unless path
 
     meta = Ituob::Support::Yaml.safe_load_file(path)
-
     titles = meta.is_a?(Hash) ? meta['title'] : nil
     return unless titles.is_a?(Hash)
 

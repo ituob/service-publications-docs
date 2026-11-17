@@ -59,13 +59,15 @@ alphabetical order
 == 按字母顺序排列的地面集群无线电列表
 {% endif %}
 
-{% assign ordered_sequence = data | map: "country_or_area" | sort: lang | uniq: "en" %}
+{% assign ordered_sequence = data | map: "country_or_area" | sort: lang %}
 
 [cols="3",options="unnumbered"]
 |===
 | {{ metadata.locale | where: "key", "tmcc_code" | map: lang | first }} | {{ metadata.locale | where: "key", "country_or_area" | map: lang | first }} | {{ metadata.locale | where: "key", "note" | map: lang | first }}
 
-{% for next_country in ordered_sequence -%}
+{% assign country_keys = "" | split: "," %}{% for next_country in ordered_sequence -%}
+    {%- capture country_key -%}{{ next_country.en | url_encode }}|{{ next_country.fr | url_encode }}|{{ next_country.es | url_encode }}|{{ next_country.ar | url_encode }}|{{ next_country.ru | url_encode }}|{{ next_country.zh | url_encode }}{%- endcapture -%}
+    {%- unless country_keys contains country_key -%}
     {%- for country_data in data -%}
         {%- if country_data.country_or_area[lang] == next_country[lang] -%}
             | {{ country_data.tmcc_code }} | {{ country_data.country_or_area[lang] }} |
@@ -80,6 +82,9 @@ alphabetical order
             {% endcase %}
         {%- endif -%}
     {%- endfor %}
+    {%- assign country_key_array = country_key | split: " " -%}
+    {%- assign country_keys = country_keys | concat: country_key_array -%}
+    {%- endunless -%}
 {%- endfor %}
 |===
 

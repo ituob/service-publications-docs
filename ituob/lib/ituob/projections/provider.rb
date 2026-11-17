@@ -18,7 +18,9 @@ module Ituob
   # +publication+ returns every typed seed row in its published order, including
   # shared identifiers, without applying amendments. It accepts only the seed
   # issue; +edition+ returns replayed membership as of any supported issue.
-  # Editions and publications carry optional current +metadata+ labels.
+  # Publications require valid current +metadata+ labels; editions carry them
+  # when available. Empty publication seeds and fields lost during typed
+  # hydration raise ArgumentError rather than producing incomplete tables.
   # +locale+ takes no issue: it returns Models::RegisterLocale, the labels
   # of the dataset's current metadata.yaml, in every language.
   #
@@ -37,6 +39,7 @@ module Ituob
   class Provider
     class UnknownRegisterError < ArgumentError; end
     class UnknownIssueError < ArgumentError; end
+    class InvalidPublicationMetadataError < ArgumentError; end
 
     QUERIES = %i[edition publication history actions locale].freeze
 
@@ -76,7 +79,7 @@ module Ituob
           seed_issue: issue, last_change_issue: issue
         ),
         items: Projections::RegisterItems.new(register: catalog).seed_items,
-        metadata: edition_metadata(catalog)
+        metadata: publication_metadata(catalog)
       )
     end
 
@@ -98,6 +101,49 @@ module Ituob
     end
 
     private
+
+    def publication_metadata(catalog)
+      # Unlike replayed editions, publication templates consume these labels.
+      # Missing or malformed metadata must fail before Liquid renders blanks.
+      metadata = Projections::RegisterLocale.new(register: catalog)
+      path = DataRoot.join(catalog.seed_path, 'metadata.yaml')
+      return metadata.to_model unless File.file?(path)
+
+      data = Ituob::Support::Yaml.safe_load_file(path)
+      valid = data.is_a?(Hash) && !data.empty?
+      if valid
+        title = data['title']
+        locale = data['locale']
+        valid = (!title.nil? || !locale.nil?) &&
+          (!data.key?('title') || (title.is_a?(Hash) && !title.empty?)) &&
+          (!data.key?('locale') || (locale.is_a?(Array) && locale.all? do |label|
+            label.is_a?(Hash) && label['key'].is_a?(String) && !label['key'].empty?
+          end))
+      end
+      unless valid
+        raise InvalidPublicationMetadataError, "Register #{catalog.register_id} has invalid publication metadata at #{path}"
+      end
+
+      model = metadata.to_model
+      projected = model.to_hash
+      validate_publication_labels!(catalog, data['title'], projected['title']) if data['title']
+      Array(data['locale']).zip(Array(projected['locale'])).each do |labels, rendered|
+        validate_publication_labels!(catalog, labels, rendered)
+      end
+      model
+    end
+
+    def validate_publication_labels!(catalog, labels, projected)
+      labels.each do |key, value|
+        next if value.nil?
+
+        canonical_key = Projections::RegisterLocale::LANGUAGE_ALIASES.fetch(key, key)
+        next if projected.is_a?(Hash) && projected.key?(canonical_key)
+
+        raise InvalidPublicationMetadataError,
+              "Register #{catalog.register_id} publication metadata loses #{key}"
+      end
+    end
 
     def edition_metadata(catalog)
       Projections::RegisterLocale.new(register: catalog).to_model
