@@ -75,6 +75,11 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
         - register_id: E212_MNC
           slug: e212-mnc
           seed_path: datasets/1162-E.212
+        - slug: t35-na
+        - slug: e164-cc
+        - slug: e118-iin
+        - slug: list-viii
+        - slug: m1400-icc
       YAML
       @env = { 'ITU_OB_DATA_ROOT' => File.join(dir, 'data/issues'), 'OB_ISSUES_ROOT' => File.join(dir, 'ob'),
                'DATASETS_ROOT' => File.join(dir, 'datasets'), 'REGISTERS_CATALOG' => File.join(dir, 'catalog.yaml'),
@@ -125,6 +130,39 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
     expect(PrintToPatchCoverage::SLUG_BY_PUBLICATION).to eq(build_map)
   end
 
+  it 'maps only register action files and register text, preserving other-register actions' do
+    lines = ['211 South Sudan Republic of', '31 August 2011', 'Example bulletin assignment',
+             'Unstructured register metadata', 'Other Register Telecom', 'Register narrative coverage']
+    write(File.join(@dir, 'data/issues/700/amendments.yaml'),
+          "messages:\n#{message('E164_CC', para(*lines))}")
+    write(File.join(@dir, 'ob/700/iptn/001.yaml'), "type: iptn\ndata: 211 South Sudan Republic of\n")
+    write(File.join(@dir, 'ob/700/general/approved_recommendations.yaml'), "date: 31 August 2011\n")
+    write(File.join(@dir, 'ob/700/general/text.yaml'), "text: Example bulletin assignment\n")
+    write(File.join(@dir, 'ob/700/e164-cc/metadata.yaml'), "text: Unstructured register metadata\n")
+    write(File.join(@dir, 'ob/700/general/001-ADD.yaml'), "type: ADD\ndata: Example bulletin assignment\n")
+    write(File.join(@dir, 'ob/700/e212-mnc/002-ADD.yaml'), "type: ADD\ndata: Other Register Telecom\n")
+    write(File.join(@dir, 'ob/700/e164-cc/text.yaml'), "text: Register narrative coverage\n")
+
+    out, err, st = run_script(@env)
+
+    expect(st.success?).to be(true), err
+    expect(out).to include('mapped=2 ', 'other=1 ')
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |r| r['text'] }).to eq(lines.first(4))
+  end
+
+  it 'preserves typed text amendments for registers outside the catalog' do
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'),
+          "messages:\n#{message('Coast Station Identification Numbers', para('Bahamas 3070 3079'))}")
+    write(File.join(@dir, 'ob/701/coast-station-identification-numbers/text.yaml'),
+          "_class: TextAmendment\ncontents: Bahamas 3070 3079\n")
+
+    _out, err, status = run_script(@env)
+
+    expect(status.success?).to be(true), err
+    expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |r| r['text'] }).not_to include('Bahamas 3070 3079')
+    expect(File.read(File.join(@out, '100-05-print-to-patch-coverage.md'))).to include('| coast-station-identification-numbers | 1 | 1 | 0 | 0 | 1 |')
+  end
+
   describe 'printed-line matching' do
     before { require script }
 
@@ -133,6 +171,35 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
       lambda do |text|
         cells = (text.include?(' | ') ? text.split(' | ') : text.split(/[[:space:]]{2,}/)).map { |c| tok.words(c).join(' ') }
         PrintToPatchCoverage::EXCLUSION_RULES.select { |r| r.match.call(text, tok.of_print(text), cells) }.map(&:id)
+      end
+    end
+
+    [
+      ['shared-code assignment', 'e164-cc', 'Associated with shared code 883, network Example Telecom assigned 999'],
+      ['telephone suffix', 'e118-iin', 'Alice Tel: +358 40 866 85829'],
+      ['telephone prefix', 'e118-iin', 'Alice Tel: +999 358 40 866 8582'],
+      ['inline coordinates', 'list-viii', '2. Geographical coordinates: 46 N 6 E'],
+      ['extra-territorial assignment', 'e212-mnc', 'Sweden | 240 99 | Example operator assigned extra-territorial use'],
+      ['parenthesized carrier code', 'm1400-icc', 'P 17 Sweden ADD Example Telecom (carrier code EXAMPLE)'],
+      ['single-digit country code', 'e164-cc', 'Country code | 7'],
+      ['embedded ISPC assignment', 'q708-ispc', '(According to Recommendation ITU-T Q.708, assign ISPC 2-001-0 to Example Telecom)']
+    ].each do |name, slug, text|
+      it "counts the breaker's #{name} as unmapped real content" do
+        patch = PrintToPatchCoverage::Patch.new(
+          path: 'synthetic.yaml', layer: :ob_issues, kind: :structured,
+          tokens: Set.new(tok.of_patch_value('Alice +358 40 8668582')),
+          numbers: Set['358408668582']
+        )
+        index = double('patch index', for_issue: { 'e118-iin' => [patch] })
+        line = PrintToPatchCoverage::Line.new(
+          issue: 700, slug: slug, text: text,
+          tokens: Set.new(tok.with_unpadded(tok.of_print(text)))
+        )
+
+        result = PrintToPatchCoverage::Classifier.new(index).classify(line, collision: false)
+
+        expect(result.status).to eq(:unmapped)
+        expect(result.missing).not_to be_empty
       end
     end
 
