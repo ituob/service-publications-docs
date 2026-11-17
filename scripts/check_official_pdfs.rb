@@ -12,7 +12,8 @@ module OfficialPdfGate
   class ConfigError < StandardError; end
 
   KEY = /\A.+-\d{4}-[ACEFRS]\z/
-  RATIOS = %w[recall rows cells].freeze
+  WORD_RATIOS = %w[recall precision order].freeze
+  RATIOS = (WORD_RATIOS + %w[rows cells]).freeze
   PAGES = %w[pages_official pages_generated page_drift].freeze
   EPSILON = 1e-9
 
@@ -35,7 +36,7 @@ module OfficialPdfGate
       entries.each do |key, entry|
         valid = entry.is_a?(Hash) && entry["official_sha256"].is_a?(String) &&
           entry["official_sha256"].match?(/\A[0-9a-f]{64}\z/) &&
-          !entry["recall"].nil? && RATIOS.all? { |metric| entry.key?(metric) && ratio?(entry[metric]) } &&
+          valid_ratios?(entry) &&
           PAGES.all? { |metric| entry[metric].is_a?(Integer) && entry[metric] >= 0 }
         valid &&= entry["pages_official"] > 0 && entry["pages_generated"] > 0 &&
           entry["page_drift"] == (entry["pages_generated"] - entry["pages_official"]).abs
@@ -46,6 +47,11 @@ module OfficialPdfGate
 
   def ratio?(value)
     value.nil? || (value.is_a?(Numeric) && value.finite? && value.between?(0, 1))
+  end
+
+  def valid_ratios?(metrics)
+    RATIOS.all? { |metric| metrics.key?(metric) && ratio?(metrics[metric]) } &&
+      WORD_RATIOS.all? { |metric| !metrics[metric].nil? && metrics[metric] > 0 }
   end
 
   def official_files(root)
@@ -123,11 +129,12 @@ module OfficialPdfGate
 
     result = PdfFidelity.compare(paths.first, official)
     raise "official PDF has no extractable words" if result.words_official.zero?
+    raise "generated PDF has no extractable words" if result.words_generated.zero?
 
     metrics = (RATIOS + PAGES.reject { |metric| metric == "page_drift" }).to_h do |metric|
       [metric, result.public_send(metric)]
     end
-    unless !metrics["recall"].nil? && RATIOS.all? { |metric| ratio?(metrics[metric]) } &&
+    unless valid_ratios?(metrics) &&
         %w[pages_official pages_generated].all? { |metric| metrics[metric].is_a?(Integer) && metrics[metric] > 0 }
       raise "invalid extracted metrics or page count"
     end
@@ -142,10 +149,11 @@ module OfficialPdfGate
   end
 
   def markdown(rows)
-    header = "| Publication | Status | Recall % | Rows matched/official | Rows % | Cells matched/official | Cells % | Pages official/generated | Drift | Details |\n" \
-      "|---|---|---|---|---|---|---|---|---|---|\n"
+    header = "| Publication | Status | Recall % | Precision % | Order % | Rows matched/official | Rows % | Cells matched/official | Cells % | Pages official/generated | Drift | Details |\n" \
+      "|---|---|---|---|---|---|---|---|---|---|---|---|\n"
     header + rows.map do |row|
       fields = [row["key"], row["status"], PdfFidelity.pct(row["recall"]),
+                PdfFidelity.pct(row["precision"]), PdfFidelity.pct(row["order"]),
                 counts(row, "rows"), PdfFidelity.pct(row["rows"]), counts(row, "cells"),
                 PdfFidelity.pct(row["cells"]),
                 row.key?("pages_official") ? "#{row['pages_official']}/#{row['pages_generated']}" : "n/a",

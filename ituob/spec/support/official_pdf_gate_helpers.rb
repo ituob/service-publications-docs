@@ -24,6 +24,10 @@ module OfficialPdfGateHelpers
     gate_write("docs/pdf/official-pdfs.json", JSON.generate(entries))
   end
 
+  def gate_extracted_text(text)
+    allow(PdfFidelity).to receive(:text).with(a_string_ending_with("-E.pdf")).and_return(text)
+  end
+
   def gate_run(*arguments)
     described_class.main(["--root", root, "--generated", File.join(root, "generated")] + arguments)
   end

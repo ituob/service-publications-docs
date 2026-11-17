@@ -103,6 +103,14 @@ RSpec.describe PdfFidelity do
     end
   end
 
+  describe '.lcs command failures' do
+    it 'rejects failed diff instead of reporting a perfect subsequence' do
+      status = Open3.capture3(RbConfig.ruby, '-e', 'exit 2').last
+      allow(Open3).to receive(:capture2).with('diff', '-d', anything, anything).and_return(['', status])
+      expect { mod.lcs(%w[a b], %w[a b]) }.to raise_error(/diff failed/)
+    end
+  end
+
   describe '.compare' do
     it 'scores an identical text 1.0 on every layer' do
       r = compare_texts(official, official)

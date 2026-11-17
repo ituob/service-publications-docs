@@ -13,7 +13,7 @@ RSpec.describe OfficialPdfGate do
   let(:key) { "F.32-2011-E" }
   let(:official_path) { "fixtures/official.pdf" }
   let(:metrics) do
-    { "official_sha256" => Digest::SHA256.hexdigest("PDF"), "recall" => 0.9,
+    { "official_sha256" => Digest::SHA256.hexdigest("PDF"), "recall" => 0.9, "precision" => 0.9, "order" => 0.9,
       "rows" => 0.5, "cells" => 0.75, "pages_official" => 10,
       "pages_generated" => 11, "page_drift" => 1 }
   end
@@ -54,6 +54,52 @@ RSpec.describe OfficialPdfGate do
     expect(rows.first["errors"].join("; ")).to include("recall declined", "rows declined", "cells declined",
                                                      "page_drift increased: 1 -> 2")
     expect(candidate[key]["recall"]).to eq(0.8)
+  end
+
+  %w[precision order].each do |metric|
+    it "fails a #{metric} regression and preserves its unrounded candidate" do
+      comparison.public_send("#{metric}=", 0.812345678901)
+      expect(gate_run).to eq(1)
+      expect(rows.first["errors"]).to eq(["#{metric} declined: 0.9 -> 0.812345678901"])
+      expect(candidate[key][metric]).to eq(0.812345678901)
+    end
+  end
+
+  context "with real comparison of extracted layout text" do
+    let(:official_text) { "1    Afghanistan    59    Latvia\n2    Albania    60    Lebanon\n" }
+
+    before do
+      allow(PdfFidelity).to receive(:compare).and_call_original
+      allow(PdfFidelity).to receive(:text).with(File.join(root, official_path)).and_return(official_text)
+      allow(PdfFidelity).to receive(:pages).with(File.join(root, official_path)).and_return(10)
+      allow(PdfFidelity).to receive(:pages).with(a_string_ending_with("-E.pdf")).and_return(11)
+      gate_baseline(key => metrics.merge("recall" => 1.0, "precision" => 1.0, "order" => 1.0,
+                                         "rows" => 1.0, "cells" => 1.0))
+    end
+
+    it "rejects appended unrelated words even when official words and rows all remain" do
+      gate_extracted_text(official_text + "unrelated garbage extra words\n")
+      expect(gate_run).to eq(1)
+      expect(rows.first).to include("status" => "regression", "recall" => 1.0, "order" => 1.0,
+                                   "rows" => 1.0, "cells" => 1.0)
+      expect(rows.first["errors"]).to contain_exactly(a_string_starting_with("precision declined:"))
+    end
+
+    it "rejects reordered complete rows even when all word and table overlap remains" do
+      gate_extracted_text(official_text.lines.reverse.join)
+      expect(gate_run).to eq(1)
+      expect(rows.first).to include("status" => "regression", "recall" => 1.0, "precision" => 1.0,
+                                   "rows" => 1.0, "cells" => 1.0)
+      expect(rows.first["errors"]).to contain_exactly(a_string_starting_with("order declined:"))
+    end
+
+    it "preserves identical content on every metric" do
+      gate_extracted_text(official_text)
+      expect(gate_run).to eq(0)
+      expect(rows.first).to include("status" => "pass", "recall" => 1.0, "precision" => 1.0,
+                                   "order" => 1.0, "rows" => 1.0, "cells" => 1.0, "errors" => [])
+      expect(candidate[key]).to include("recall" => 1.0, "precision" => 1.0, "order" => 1.0)
+    end
   end
 
   it "allows tiny floating point differences within tolerance" do
@@ -111,6 +157,21 @@ RSpec.describe OfficialPdfGate do
     FileUtils.rm(gate_generated(key))
     expect(gate_run).to eq(1)
     expect(rows.first["errors"]).to eq(["missing generated PDF"])
+  end
+
+  it "does not substitute another language for a missing generated PDF" do
+    FileUtils.rm(gate_generated(key))
+    gate_generated("F.32-2011-F")
+    expect(gate_run).to eq(1)
+    expect(rows.first["errors"]).to eq(["missing generated PDF"])
+    expect(PdfFidelity).not_to have_received(:compare)
+  end
+
+  it "does not substitute another language for a missing official mapping" do
+    gate_index("F.32-2011-F" => official_path)
+    expect(gate_run).to eq(1)
+    expect(rows.first["errors"]).to eq(["official PDF removed from index/discovery (baseline exists)"])
+    expect(PdfFidelity).not_to have_received(:compare)
   end
 
   it "continues comparing other rows after extraction errors" do
@@ -189,6 +250,41 @@ RSpec.describe OfficialPdfGate do
     expect(gate_run).to eq(1)
     expect(rows.first["errors"]).to eq(["official PDF has no extractable words"])
     expect(candidate).to eq({})
+  end
+
+  it "fails empty generated text rather than emitting a baseline candidate" do
+    comparison.words_generated = 0
+    expect(gate_run).to eq(1)
+    expect(rows.first["errors"]).to eq(["generated PDF has no extractable words"])
+    expect(candidate).to eq({})
+  end
+
+  %w[recall precision order].each do |metric|
+    [nil, 0.0, -0.1, 1.1, "0.9"].each do |value|
+      it "rejects baseline #{metric} of #{value.inspect}" do
+        gate_baseline(key => metrics.merge(metric => value))
+        expect { expect(gate_run).to eq(2) }.to output(/invalid baseline entry/).to_stderr
+      end
+    end
+
+    it "requires baseline #{metric}" do
+      gate_baseline(key => metrics.reject { |name, _| name == metric })
+      expect { expect(gate_run).to eq(2) }.to output(/invalid baseline entry/).to_stderr
+    end
+
+    it "rejects nonfinite baseline #{metric}" do
+      gate_write("docs/pdf/official-baseline.json", JSON.generate(key => metrics).sub("\"#{metric}\":0.9", "\"#{metric}\":1e999"))
+      expect { expect(gate_run).to eq(2) }.to output(/invalid baseline entry/).to_stderr
+    end
+
+    [nil, 0.0, Float::NAN, Float::INFINITY].each do |value|
+      it "rejects extracted #{metric} of #{value.inspect}" do
+        comparison.public_send("#{metric}=", value)
+        expect(gate_run).to eq(1)
+        expect(rows.first["errors"]).to eq(["invalid extracted metrics or page count"])
+        expect(candidate).to eq({})
+      end
+    end
   end
 
   it "rejects missing and invalid baseline configuration" do

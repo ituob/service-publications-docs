@@ -103,7 +103,9 @@ module PdfFidelity
         fa.puts(a)
         fb.puts(b)
         [fa, fb].each(&:flush)
-        out, = Open3.capture2('diff', '-d', fa.path, fb.path)
+        out, status = Open3.capture2('diff', '-d', fa.path, fb.path)
+        raise "diff failed (exit #{status.exitstatus.inspect})" unless [0, 1].include?(status.exitstatus)
+
         a.size - out.lines.count { |l| l.start_with?('< ') }
       end
     end
