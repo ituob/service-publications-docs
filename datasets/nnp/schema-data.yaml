@@ -1,10 +1,53 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (NumberingPlanEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-$id: https://github.com/ituob/service-publications-docs/datasets/nnp/schema-data
-title: ITU OB Dataset Schema for nnp
-description: >-
-  Stub schema for the external National Numbering Plan publication. No local
-  data is maintained; see metadata.yaml:external.
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for nnp (generated from LML NumberingPlanEntry)
+x-lml-model: NumberingPlanEntry
 type: array
-items: {}
+items:
+  type: object
+  additionalProperties: false
+  properties:
+    country_or_area:
+      type: object
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+        fr:
+          type: string
+        es:
+          type: string
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
+    country_code:
+      type: string
+    international_prefix:
+      type: string
+    national_prefix:
+      type: string
+    national_sig_number:
+      type: string
+    utc_dst:
+      type: string
+    note:
+      type: object
+      additionalProperties: false
+      properties:
+        en:
+          type: string
+        fr:
+          type: string
+        es:
+          type: string
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string

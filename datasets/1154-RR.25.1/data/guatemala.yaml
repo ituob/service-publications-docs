@@ -14,6 +14,7 @@
 groups:
   amateur:
   - regex: TG[:departments:][:upper:]{2}
+    description: "TG followed by a digit (4-9, indicating the department in which the station is situated) and by 2 letters"
     criteria:
     - segment_type: string
       key: "1"
@@ -31,6 +32,7 @@ groups:
   experimental:
   - name: Ecuador
     regex: TD9[:upper:]
+    description: "TD9A-TD9Z"
 
 codelists:
   - name: departments

@@ -5,6 +5,7 @@
 groups:
   amateur: &general
   - regex: C6[2-9][:upper:]{2}
+    description: "C62AA-C69ZZ"
     criteria:
     - segment_type: string
       key: "1"

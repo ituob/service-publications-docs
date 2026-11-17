@@ -7797,7 +7797,7 @@
             },
             "networks": "Orange",
             "note": {
-              "en": "(Country A)\nExtra-territorial use in Monaco (Country B – Where the MCC+MNC is to be used extra-territorially): Orange/Monaco Télécom; MSIN range 0100000000 - 0199999999"
+              "en": "Extra-territorial use in Monaco (Country B – Where the MCC+MNC is to be used extra-territorially): Orange/Monaco Télécom; MSIN range 0100000000 - 0199999999"
             },
             "range": "0000000000 - 0099999999; 0200000000 - 9999999999"
           }
@@ -8971,7 +8971,7 @@
             },
             "networks": "Société Française du Radiotéléphone",
             "note": {
-              "en": "(Country A)\nExtra-territorial use in Monaco (Country B – Where the MCC+MNC is to be used extra-territorially): Société Française du Radiotéléphone; MSIN range 2654100000 - 2654199999; 2654300000 - 2654399999; 2754100000 - 2754199999; 2754300000 - 2754399999"
+              "en": "Extra-territorial use in Monaco (Country B – Where the MCC+MNC is to be used extra-territorially): Société Française du Radiotéléphone; MSIN range 2654100000 - 2654199999; 2654300000 - 2654399999; 2754100000 - 2754199999; 2754300000 - 2754399999"
             },
             "range": "0000000000 - 2654099999; 2654200000 - 2654299999; 2654400000 - 2754099999; 2754200000 - 2754299999; 2754400000 - 9999999999"
           },
@@ -8982,7 +8982,7 @@
             },
             "networks": "Bouygues Telecom",
             "note": {
-              "en": "(Country A)\nExtra-territorial use in Monaco (Country B – Where the MCC+MNC is to be used extra-territorially): Bouygues Telecom; MSIN range 0055500000 - 0055599999; 2007200000 - 2007299999"
+              "en": "Extra-territorial use in Monaco (Country B – Where the MCC+MNC is to be used extra-territorially): Bouygues Telecom; MSIN range 0055500000 - 0055599999; 2007200000 - 2007299999"
             },
             "range": "0000000000 - 0055499999; 0055600000 - 2007199999; 2007300000 - 9999999999"
           }
@@ -13095,7 +13095,12 @@
               "en": "International Mobile, shared code"
             },
             "networks": "OneWeb"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "270 77",
             "country_or_area": {
@@ -13103,7 +13108,7 @@
             },
             "networks": "Tango S.A.",
             "note": {
-              "en": "(Country A)\nExtra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Tango S.A.; MSIN range 800 x xxx xxx; 801 x xxx xxx"
+              "en": "Extra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Tango S.A.; MSIN range 800 x xxx xxx; 801 x xxx xxx"
             },
             "range": "000 x xxx xxx"
           }
@@ -17280,12 +17285,14 @@
               "en": "Sweden"
             },
             "networks": "Twilio Ireland Ltd."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "270 77",
-            "country_or_area": {
-              "en": "Sweden"
-            },
             "networks": "LIR"
           },
           {
@@ -17295,7 +17302,7 @@
             },
             "networks": "Proximus Luxembourg S.A.",
             "note": {
-              "en": "(Country A)\nExtra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Proximus Luxembourg S.A.; MSIN range 800 x xxx xxx; 801 x xxx xxx"
+              "en": "Extra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Proximus Luxembourg S.A.; MSIN range 800 x xxx xxx; 801 x xxx xxx"
             },
             "range": "000 x xxx xxx"
           }
@@ -17337,7 +17344,12 @@
               "en": "Malta"
             },
             "networks": "Melita Ltd"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "270 99",
             "country_or_area": {
@@ -17345,7 +17357,7 @@
             },
             "networks": "Orange Communications Luxembourg S.A.",
             "note": {
-              "en": "(Country A)\nExtra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Orange Communications Luxembourg S.A..; MSIN range 270 99 860 x xxx xxx"
+              "en": "Extra-territorial use in Belgium (Country B – Where the MCC+MNC is to be used extra-territorially): Orange Communications Luxembourg S.A.; MSIN range 270 99 860 x xxx xxx"
             },
             "range": "270 99 000 x xxx xxx"
           }
@@ -23053,7 +23065,12 @@
               "en": "Switzerland"
             },
             "networks": "iWay AG"
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "270 07",
             "country_or_area": {
@@ -23061,7 +23078,7 @@
             },
             "networks": "Bouygues Telecom S.A.",
             "note": {
-              "en": "(Country A)\nExtra-territorial use in France (Country B – Where the MCC+MNC is to be used extra-territorially): Bouygues Telecom S.A.; MSIN range 270 07 60 XX XX XX XX"
+              "en": "Extra-territorial use in France (Country B – Where the MCC+MNC is to be used extra-territorially): Bouygues Telecom S.A.; MSIN range 270 07 60 XX XX XX XX"
             },
             "range": "270 07 00 0X XX XX XX"
           }
@@ -27183,7 +27200,12 @@
               "en": "Costa Rica"
             },
             "networks": "COOPERATIVA DE ELECTRIFICACIÓN RURAL DE GUANACASTE R.L."
-          },
+          }
+        ]
+      },
+      {
+        "action_type": "LIR",
+        "entries": [
           {
             "mcc_mnc_codes": "262 74",
             "country_or_area": {
@@ -27191,7 +27213,7 @@
             },
             "networks": "Ericsson GmbH",
             "note": {
-              "en": "(Country A)\nExtra-territorial use in Sweden (Country B – Where the MCC+MNC is to be used extra‑territorially): Ericsson GmbH; MSIN range 0000099100 - 0000099199"
+              "en": "Extra-territorial use in Sweden (Country B – Where the MCC+MNC is to be used extra‑territorially): Ericsson GmbH; MSIN range 0000099100 - 0000099199"
             },
             "range": "0000099000 - 0000099099"
           }

@@ -74,13 +74,28 @@ module RenderPublications
   def metanorma_renderer(adoc)
     pdf = adoc.sub(/\.adoc\z/, '.pdf')
     FileUtils.rm_f(pdf)
-    env = metanorma_env
+    env = metanorma_env.merge(provider_env)
     run = proc { Open3.capture3(env, 'metanorma', '-t', 'itu', '-x', 'pdf', '--agree-to-terms', adoc) }
     _out, err, status = defined?(Bundler) ? Bundler.with_unbundled_env(&run) : run.call
-    return [nil, "metanorma exit #{status.exitstatus}: #{err.lines.last.to_s.strip}"] unless status.success?
+    return [nil, "metanorma exit #{status.exitstatus}: #{failure_summary(err)}"] unless status.success?
     return [nil, 'metanorma produced no PDF'] unless File.size?(pdf)
 
     [pdf, nil]
+  end
+
+  # A document may read its register through the ituob data provider
+  # (`lutaml_data provider:ituob.edition`); metanorma finds it through
+  # ituob/lib/metanorma/plugin/lutaml/data_providers/ituob.rb, so ituob/lib
+  # must be on the load path of the metanorma process.
+  def provider_env
+    lib = File.expand_path('../ituob/lib', __dir__)
+    { 'RUBYLIB' => [lib, ENV.fetch('RUBYLIB', nil)].compact.reject(&:empty?).join(File::PATH_SEPARATOR) }
+  end
+
+  # The first and last lines say what failed and where; a backtrace line alone does not.
+  def failure_summary(err)
+    lines = err.lines.map(&:strip).reject(&:empty?)
+    (lines.first(3) + ['...'] + lines.last(2)).uniq.join(' | ')
   end
 
   # renderer: callable(adoc_path) => [pdf_path, nil] | [nil, reason]
@@ -167,7 +182,7 @@ module RenderPublications
     dir = File.join(root, 'documents', "T-SP-#{row.standard}-#{row.year}")
     adoc = File.join(dir, row.file)
     code, keys = LANGUAGES.fetch(row.language)
-    title = title_for(adoc, keys)
+    title = title_for(adoc, keys, row.datasets.first&.first)
     return [nil, "no title for #{code} in the dataset metadata"] unless title
 
     pdf, reason = renderer.call(adoc)
@@ -191,19 +206,29 @@ module RenderPublications
     standard.sub(/(?<=\d)[A-Z]\z/, '')
   end
 
-  # metadata.title[<code>] of the first dataset the document reads.
-  def title_for(adoc, keys)
+  # metadata.title[<code>] of the first dataset the document reads: the one its
+  # first yaml2text block names, else (a provider block names none) the
+  # metadata of its first dataset directory.
+  def title_for(adoc, keys, dataset = nil)
     ref = File.read(adoc, encoding: 'UTF-8').lines.grep(PdfCoverageMatrix::BLOCK_LINE)
               .filter_map { |l| METADATA_REF.match(l) }.first
-    return unless ref
+    path = ref ? File.expand_path(ref[:path], File.dirname(adoc)) : dataset_metadata(adoc, dataset)
+    return unless path
 
-    meta = Ituob::Support::Yaml.safe_load_file(File.expand_path(ref[:path], File.dirname(adoc)))
+    meta = Ituob::Support::Yaml.safe_load_file(path)
     titles = meta.is_a?(Hash) ? meta['title'] : nil
     return unless titles.is_a?(Hash)
 
     keys.filter_map { |k| titles[k].to_s.strip }.find { |t| !t.empty? }
   rescue SystemCallError
     nil
+  end
+
+  def dataset_metadata(adoc, dataset)
+    return unless dataset
+
+    path = File.expand_path("../../datasets/#{dataset}/metadata.yaml", File.dirname(adoc))
+    path if File.file?(path)
   end
 
   def status_for(dir)

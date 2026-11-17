@@ -1,17 +1,12 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (Q708ISPCEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-type: array
-description: ITU OB Dataset Schema for 1109 Q.708B
+"$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1109 Q.708B
+x-lml-model: Q708ISPCEntry
+type: array
 items:
   type: object
-  required:
-    - ipsc
-    - country
-    - dec
-    # - signal_point_name
-    - signal_point_operator
   additionalProperties: false
   properties:
     ipsc:
@@ -19,14 +14,6 @@ items:
       description: International signaling point code
     country:
       type: object
-      description: Localized country or geographical area names
-      required:
-        - en
-        - fr
-        - es
-        - ru
-        - zh
-        - ar
       additionalProperties: false
       properties:
         en:
@@ -38,15 +25,16 @@ items:
         es:
           type: string
           description: Spanish name
-        ru:
-          type: string
-          description: Russian name
         zh:
           type: string
           description: Chinese name
+        ru:
+          type: string
+          description: Russian name
         ar:
           type: string
           description: Arabic name
+      description: Localized country or geographical area names
     dec:
       type: string
       description: Decimal representation of the IPSC code
@@ -56,3 +44,4 @@ items:
     signal_point_operator:
       type: string
       description: Operator of the signal point
+description: ITU OB Dataset Schema for 1109 Q.708B

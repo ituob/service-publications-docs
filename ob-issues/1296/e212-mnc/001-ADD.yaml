@@ -12,15 +12,6 @@ data:
     country_or_area:
       en: Switzerland
     networks: iWay AG
-  - mcc_mnc_codes: 270 07
-    country_or_area:
-      en: Luxembourg
-    networks: Bouygues Telecom S.A.
-    note:
-      en: |-
-        (Country A)
-        Extra-territorial use in France (Country B – Where the MCC+MNC is to be used extra-territorially): Bouygues Telecom S.A.; MSIN range 270 07 60 XX XX XX XX
-    range: 270 07 00 0X XX XX XX
   notes:
   - "*            MCC:      Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"

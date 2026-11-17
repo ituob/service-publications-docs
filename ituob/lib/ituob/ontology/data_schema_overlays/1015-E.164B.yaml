@@ -1,0 +1,30 @@
+# Descriptions and model-compatible refinements over the LML-generated schema.
+---
+title: ITU OB Dataset Schema for 1015 E.164B
+description: ITU OB Dataset Schema for 1015 E.164B
+items:
+  description: Represents information about mobile networks used with the E.164 country
+    code for a country or geographical area.
+  properties:
+    country_or_area:
+      description: The name of the country or geographical area in different languages.
+      properties:
+        en:
+          description: English name.
+        fr:
+          description: French name.
+        es:
+          description: Spanish name.
+    country_code:
+      description: The E.164 country code assigned to the country or geographical
+        area.
+    mobile_telephone_numbers:
+      description: Mobile telephone numbers or patterns used with the country code
+        in different languages.
+      properties:
+        en:
+          description: Mobile telephone numbers description in English.
+        fr:
+          description: Mobile telephone numbers description in French.
+        es:
+          description: Mobile telephone numbers description in Spanish.

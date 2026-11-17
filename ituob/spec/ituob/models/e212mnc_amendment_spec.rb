@@ -604,7 +604,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entries.length).to eq(1)
       expect(entries.first.country_or_area.en).to eq('Germany')
       expect(entries.first.note.en).to eq(
-        "(Country A)\nExtra-territorial use in Sweden (Country B – Where the MCC+MNC is to be used " \
+        "Extra-territorial use in Sweden (Country B – Where the MCC+MNC is to be used " \
         'extra‑territorially): Ericsson GmbH; MSIN range 0000099100 - 0000099199'
       )
     end
@@ -614,7 +614,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
 
       expect(entries.map { |e| [e.mcc_mnc_codes, e.country_or_area.en] })
         .to eq([['208 10', 'France'], ['208 20', 'France']])
-      expect(entries.map { |e| e.note.en.lines.first.chomp }).to all(eq('(Country A)'))
+      expect(entries.map { |e| e.note.en }).to all(start_with('Extra-territorial use'))
       expect(entries.first.note.en).to include('Extra-territorial use in Monaco (Country B')
     end
 
@@ -626,15 +626,18 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       end
     end
 
-    it 'skips the column header that follows a single-cell title row' do
-      title = row(cell(paragraph('Extra-territorial use of MCC+MNC')))
-      header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC*')),
-                   cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))
-      data = row(cell(paragraph('France'), paragraph('(Country A)')),
-                 cell(paragraph('208 01')), cell(paragraph('A')), cell(paragraph('Orange')))
-      entries = parse(document(table(title, header, data))).actions.flat_map(&:entries)
+    ['MCC+MNC*', 'MCC*/MNC**'].each do |code_label|
+      it "skips a #{code_label} header after a title while preserving the data row" do
+        title = row(cell(paragraph('Extra-territorial use of MCC+MNC')))
+        header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph(code_label)),
+                     cell(paragraph('MSIN range')), cell(paragraph('Operator 1')))
+        data = row(cell(paragraph('France'), paragraph('(Country A)')),
+                   cell(paragraph('208 01')), cell(paragraph('A')), cell(paragraph('Orange')))
+        entries = parse(document(table(title, header, data))).actions.flat_map(&:entries)
 
-      expect(entries.map(&:mcc_mnc_codes)).to eq(['208 01'])
+        expect(entries.map { |entry| [entry.mcc_mnc_codes, entry.networks, entry.range] })
+          .to eq([['208 01', 'Orange', 'A']])
+      end
     end
 
     # A row 1 holding a code is a data row under the title, not a header:
@@ -644,7 +647,8 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       ['310 260 / 310 270', 'two codes in one cell'],
       ['310260', 'code without the space'],
       ['310 260, 310 270', 'comma-separated codes'],
-      ['310 26A', 'letter in the code']
+      ['310 26A', 'letter in the code'],
+      ['—', 'a printed dash placeholder']
     ].each do |code, shape|
       it "keeps a data row under a single-cell title when the code has #{shape} (#{code})" do
         title = row(cell(paragraph('Extra-territorial use of MCC+MNC')))
@@ -720,12 +724,33 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     end
 
     it 'holds one entry per MCC+MNC for the France/Monaco extra-territorial codes' do
-      ['208 01', '208 10', '208 20'].each do |code|
+      {
+        '208 01' => ['Orange', 'Orange/Monaco Télécom'],
+        '208 10' => ['Société Française du Radiotéléphone', 'Société Française du Radiotéléphone'],
+        '208 20' => ['Bouygues Telecom', 'Bouygues Telecom']
+      }.each do |code, (home_network, away_network)|
         rows = seed.select { |row| row['mcc_mnc_codes'] == code }
 
         expect(rows.map { |row| row['country_or_area']['en'] }).to eq(['France'])
-        expect(rows.first['note']['en']).to start_with('Extra-territorial use in Monaco')
+        expect(rows.first['networks']).to eq(home_network)
+        expect(rows.first['note']['en']).to eq("Extra-territorial use in Monaco: #{away_network}")
+        expect(rows.first['note'].keys).to eq(%w[en fr es ru zh ar])
       end
+    end
+
+    it 'preserves every Indian Ocean code and operator printed in OB 1162 page 17' do
+      rows = seed.select { |entry| entry['mcc_mnc_codes'].start_with?('647 ') }
+
+      expect(rows.map { |entry| entry['country_or_area']['en'] }.uniq)
+        .to eq(['French Departments and Territories in the Indian Ocean'])
+      expect(rows.map { |entry| [entry['mcc_mnc_codes'], entry['networks']] }).to eq([
+        ['647 00', 'Orange'],
+        ['647 01', 'BJT Partners'],
+        ['647 02', 'Telco OI'],
+        ['647 03', 'Telco OI'],
+        ['647 04', 'Zeop Mobile'],
+        ['647 10', 'Société Réunionnaise du Radiotéléphone']
+      ])
     end
 
     it 'has no duplicate MCC+MNC key' do
@@ -749,6 +774,89 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
         expect(row['note']['en']).to start_with("Extra-territorial use in #{extra}")
         expect(row['note'].keys).to eq(%w[en fr es ru zh ar])
       end
+    end
+  end
+
+  context 'follow-up regressions' do
+    let(:header) do
+      row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')),
+          cell(paragraph('Range')), cell(paragraph('Network')))
+    end
+    let(:home) do
+      row(cell(paragraph('France (Country A)')), cell(paragraph('208 01')),
+          cell(paragraph('A')), cell(paragraph('Home')))
+    end
+    let(:abroad) do
+      row(cell(paragraph('Monaco (Country B – x)')), cell(paragraph('208 01')),
+          cell(paragraph('B')), cell(paragraph('S.A..')))
+    end
+
+    it 'skips headers by content regardless of case spacing or first row' do
+      repeated = row(cell(paragraph('COUNTRY OR GEOGRAPHICAL AREA')), cell(paragraph(' mcc + mnc * ')),
+                     cell(paragraph('MSIN** range to be used')), cell(paragraph('Operators Name')))
+      entries = parse(document(table(row(cell(paragraph(''))), header, home, repeated))).actions.flat_map(&:entries)
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['208 01'])
+      [1094, 1108].each do |issue|
+        path = File.expand_path("../../../../itu-ob-data/issues/#{issue}/amendments.yaml", __dir__)
+        data = YAML.load_file(path, permitted_classes: [Date, Time])
+        msg = data['messages'].find { |m| m['target']['publication'] == 'E212_MNC' }
+        codes = parse(msg['contents']['en']).actions.flat_map(&:entries).map(&:mcc_mnc_codes)
+        expect(codes).to all(match(/\A\d{3} \d{2,3}\z/))
+      end
+    end
+
+    it 'cleans Country A markers punctuation and empty Country B details' do
+      empty = row(cell(paragraph('Andorra (Country B – y)')), cell(paragraph('208 01')),
+                  cell(paragraph('')), cell(paragraph('')))
+      entry = parse(document(table(header, home, abroad, empty))).actions.flat_map(&:entries).first
+      expect(entry.note.en).to eq("Extra-territorial use in Monaco (Country B – x): S.A.; MSIN range B\n" \
+                                'Extra-territorial use in Andorra (Country B – y)')
+    end
+
+    it 'updates country carry-over before skipping a blank code' do
+      spain = row(cell(paragraph('Spain')), cell(paragraph('')), cell(paragraph('')), cell(paragraph('')))
+      carried = row(cell(paragraph('')), cell(paragraph('214 01')), cell(paragraph('')), cell(paragraph('Vodafone')))
+      entries = parse(document(table(header, home, spain, carried))).actions.flat_map(&:entries)
+      expect(entries.map { |e| [e.mcc_mnc_codes, e.country_or_area.en] })
+        .to eq([['208 01', 'France'], ['214 01', 'Spain']])
+    end
+
+    it 'never treats a qualifier-only cell as a country' do
+      odd = row(cell(paragraph('(Country B – x)')), cell(paragraph('208 02')),
+                cell(paragraph('B')), cell(paragraph('Other')))
+      entry = parse(document(table(header, home, odd))).actions.flat_map(&:entries).last
+      expect(entry.country_or_area.en).to eq('France')
+      expect(entry.note.en).to eq('(Country B – x)')
+    end
+
+    it 'pairs Country B before Country A without a duplicate allocation' do
+      entries = parse(document(table(header, abroad, home))).actions.flat_map(&:entries)
+      expect(entries.size).to eq(1)
+      expect(entries.first.country_or_area.en).to eq('France')
+      expect(entries.first.note.en).to eq('Extra-territorial use in Monaco (Country B – x): S.A.; MSIN range B')
+    end
+
+    it 'opens a LIR for a generic extra-territorial heading after an ADD (OB 1296)' do
+      path = File.expand_path('../../../../itu-ob-data/issues/1296/amendments.yaml', __dir__)
+      data = YAML.load_file(path, permitted_classes: [Date, Time])
+      msg = data['messages'].find { |m| m['target']['publication'] == 'E212_MNC' }
+      actions = parse(msg['contents']['en']).actions
+      expect(actions.map { |a| [a.action_type, a.entries.map(&:mcc_mnc_codes)] })
+        .to eq([['ADD', ['228 73']], ['LIR', ['270 07']]])
+    end
+
+    it 'pairs large Country B blocks within a linear work budget' do
+      homes = 8000.times.map do |n|
+        row(cell(paragraph('France (Country A)')), cell(paragraph("208 #{n}")),
+            cell(paragraph('A')), cell(paragraph('Home')))
+      end
+      uses = 8000.times.map do |n|
+        row(cell(paragraph('Monaco (Country B – x)')), cell(paragraph("208 #{n}")),
+            cell(paragraph('B')), cell(paragraph('Away')))
+      end
+      entries = Timeout.timeout(8) { parse(document(table(header, *homes, *uses))).actions.flat_map(&:entries) }
+      expect(entries.size).to eq(8000)
+      expect(entries.map { |e| e.note.en }).to all(include('Extra-territorial use in Monaco'))
     end
   end
 end

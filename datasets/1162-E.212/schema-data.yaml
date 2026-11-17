@@ -1,31 +1,19 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (E212MNCEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 1162 E.212
-description: ITU OB Dataset Schema for 1162 E.212
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for E.212 (generated from LML E212MNCEntry)
+x-lml-model: E212MNCEntry
 type: array
 items:
   type: object
-  required:
-    - mcc_mnc_codes
-    - country_or_area
-    - networks
   additionalProperties: false
   properties:
     mcc_mnc_codes:
       type: string
-      description: "MCC + MNC code combination"
     country_or_area:
       type: object
-      description: "Country or geographical area in multiple languages"
       additionalProperties: false
-      required:
-        - en
-        - fr
-        - es
-        - ru
-        - zh
-        - ar
       properties:
         en:
           type: string
@@ -33,45 +21,31 @@ items:
           type: string
         es:
           type: string
-        ru:
-          type: string
         zh:
+          type: string
+        ru:
           type: string
         ar:
           type: string
     networks:
       type: string
-      description: "Network name"
     note:
       type: object
-      description: "Note in multiple languages"
       additionalProperties: false
-      required:
-        - en
-        - fr
-        - es
-        - ru
-        - zh
-        - ar
       properties:
         en:
           type: string
-          description: "English description"
         fr:
           type: string
-          description: "French description"
         es:
           type: string
-          description: "Spanish description"
-        ru:
-          type: string
-          description: "Russian description"
         zh:
           type: string
-          description: "Chinese description"
+        ru:
+          type: string
         ar:
           type: string
-          description: "Arabic description"
     former_name:
       type: string
-      description: "Previous name of the network"
+    range:
+      type: string

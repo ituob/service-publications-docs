@@ -16,6 +16,7 @@
 groups:
   amateur:
   - regex: (T4|CL|CM|CO)[:amateur_area:][:upper:]{1,3}
+    description: "T4, CL, CM or CO followed by a digit (indicating the province or zone in which the station is situated) and by 1, 2 or 3 letters"
     criteria:
     - key: "1"
       segment_type: enum
