@@ -1,24 +1,30 @@
 name: pdf
 
-# Pilot for ituob/service-publications-docs#89: render one service
-# publication (T-SP-PP.RES.21-2011) to PDF in English, French and Spanish
-# and upload the PDFs as a build artifact.
+# Renders every service publication x language to PDF (spd#89, ituob.github.io#106)
+# and uploads the one `publications` artifact the site fetches: manifest.json at
+# its root and the PDFs at the paths the manifest names. Restricted manual runs
+# upload `publications-subset`, which the site never selects as its catalog.
 #
-# scripts/render_publications.rb renders the pilot set and emits manifest.json
-# (spd#89 C3/C10) next to the PDFs; the manifest lists only renders that
-# succeeded, and --strict fails the job if any pilot render did not.
+# One shard per publication (documents/T-SP-*), so a slow or broken
+# publication cannot hide the others; each shard runs
+# scripts/render_publications.rb --strict and keeps its own manifest and
+# render-failures.log. The `publications` job merges the shards
+# (scripts/merge_publication_manifests.rb) and fails when any shard
+# logged a failure, so a run that fails never reaches the site.
 #
 # This workflow only builds and uploads. It never deploys, uses no secrets
 # and restores no cache, so a pull request from a fork cannot poison
 # anything another workflow later trusts.
 on:
   pull_request:
-    paths:
-      - 'documents/T-SP-PP.RES.21-2011/**'
-      - 'datasets/991-PP.RES.21.pp/**'
+    paths: &paths
+      - 'documents/**'
+      - 'datasets/**'
+      - 'catalogs/**'
       - 'metanorma.yml'
       - 'scripts/render_publications.rb'
       - 'scripts/build_pdf_coverage_matrix.rb'
+      - 'scripts/merge_publication_manifests.rb'
       - 'ituob/lib/**'
       - 'ituob/ituob.gemspec'
       - 'scripts/prepare_metanorma_provider.rb'
@@ -27,70 +33,63 @@ on:
     # reach ituob.org only from this trigger.
   push:
     branches: [main]
-    paths:
-      - 'documents/T-SP-PP.RES.21-2011/**'
-      - 'datasets/991-PP.RES.21.pp/**'
-      - 'metanorma.yml'
-      - 'scripts/render_publications.rb'
-      - 'scripts/build_pdf_coverage_matrix.rb'
-      - 'ituob/lib/**'
-      - 'ituob/ituob.gemspec'
-      - 'scripts/prepare_metanorma_provider.rb'
-      - '.github/workflows/pdf.yml'
+    paths: *paths
   workflow_dispatch:
     inputs:
       docs:
-        description: 'Comma-separated publication IDs (empty: PP.RES.21 pilot)'
+        description: 'Comma-separated publications to render (default: all), e.g. T-SP-F.32-2011'
         required: false
         default: ''
-      langs:
-        description: 'Comma-separated languages'
-        required: false
-        default: 'A,C,E,F,R,S'
 
 permissions:
   contents: read
 
 concurrency:
-  group: "pdf-${{ github.ref }}-${{ inputs.docs }}"
+  group: "pdf-${{ github.ref }}"
   cancel-in-progress: true
 
 jobs:
   plan:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     outputs:
-      docs: ${{ steps.docs.outputs.docs }}
+      docs: ${{ steps.list.outputs.docs }}
+      count: ${{ steps.list.outputs.count }}
+      artifact-name: ${{ steps.list.outputs.artifact-name }}
     steps:
       - uses: actions/checkout@v4
-      - id: docs
+        with:
+          persist-credentials: false
+      - id: list
         env:
-          DOCS: ${{ inputs.docs }}
+          ONLY: ${{ github.event.inputs.docs }}
         run: |
-          python3 - <<'PYTHON'
-          import json, os
-          docs = os.environ.get('DOCS') or 'T-SP-PP.RES.21-2011'
-          selected = docs.split(',')
-          known = os.listdir('documents')
-          if any(d not in known or not d.startswith('T-SP-') for d in selected):
-              raise SystemExit('Unknown publication ID')
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
-              out.write('docs=' + json.dumps(selected) + '\n')
-          PYTHON
+          set -eu
+          docs=$(ls -d documents/T-SP-* | xargs -n1 basename | jq -R . | jq -sc .)
+          artifact_name=publications
+          # A restricted run can merge successfully without covering the catalog.
+          # Reserve the site artifact name for unrestricted runs only.
+          if [ -n "${ONLY:-}" ]; then
+            artifact_name=publications-subset
+            docs=$(echo "$docs" | jq -c --arg only "$ONLY" '($only | split(",")) as $o | map(select(. as $d | $o | index($d)))')
+          fi
+          echo "artifact-name=$artifact_name" >> "$GITHUB_OUTPUT"
+          echo "docs=$docs" >> "$GITHUB_OUTPUT"
+          echo "count=$(echo "$docs" | jq length)" >> "$GITHUB_OUTPUT"
+          echo "$docs"
 
-  pilot:
+  render:
     needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
         doc: ${{ fromJSON(needs.plan.outputs.docs) }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
     container:
       image: metanorma/metanorma:latest
     env:
-      DOC_DIR: documents/${{ matrix.doc }}
       DOC_ID: ${{ matrix.doc }}
-      LANGS: ${{ inputs.langs || 'E,F,S' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -102,11 +101,26 @@ jobs:
           METANORMA_GEMFILE="${BUNDLE_GEMFILE:-/setup/Gemfile}" \
           env -u RUBYOPT -u BUNDLE_GEMFILE ruby scripts/prepare_metanorma_provider.rb
 
+      # The image embeds only Noto Sans/Serif and Arial, so Chinese prints as `#`
+      # and Arabic loses glyphs. The A and C sources name their font in a
+      # `:fonts:` header attribute (itu.service-publication.xsl adds it to the
+      # font stack); install it here so the render can find it. A failed
+      # install fails the shard rather than rendering `#` silently.
+      - name: Install the Chinese and Arabic fonts
+        run: |
+          set -eu
+          if ls "documents/$DOC_ID"/*-C.adoc >/dev/null 2>&1; then
+            fontist install "Noto Sans CJK SC" --accept-all-licenses
+          fi
+          if ls "documents/$DOC_ID"/*-A.adoc >/dev/null 2>&1; then
+            fontist install "Noto Naskh Arabic" --accept-all-licenses
+          fi
+
       # Renders with `metanorma -t itu -x pdf --agree-to-terms` per language,
       # copies each PDF to build/pdf/<standard>-<year>/ and writes
       # build/pdf/manifest.json. The PDFs also stay beside their sources for
       # the checks below.
-      - name: Build selected PDFs and the manifest
+      - name: Build the PDFs and the manifest
         run: |
           set -eu
           # The script runs on the image's gems via plain rubygems (no bundler
@@ -114,29 +128,28 @@ jobs:
           # the image's original env back.
           RENDER_ORIG_RUBYOPT="${RUBYOPT-}" RENDER_ORIG_BUNDLE_GEMFILE="${BUNDLE_GEMFILE-}" \
           env -u RUBYOPT -u BUNDLE_GEMFILE ruby -I ituob/lib scripts/render_publications.rb \
-            --docs "$DOC_ID" --langs "$LANGS" --out-dir build --strict
+            --docs "$DOC_ID" --out-dir build --strict
           cat build/pdf/manifest.json
 
       - name: Check the PDFs exist and are not empty
         run: |
           set -eu
-          for lang in $(echo "$LANGS" | tr ',' ' '); do
-            if find "$DOC_DIR" -maxdepth 1 -name "*-$lang.adoc" | grep -q .; then
-              test -s "build/pdf/${DOC_ID#T-SP-}/${DOC_ID#T-SP-}-$lang.pdf"
-            fi
+          for pdf in "documents/$DOC_ID"/*.pdf; do
+            test -s "$pdf"
+            ls -l "$pdf"
           done
 
       # A PDF built from an empty dataset is still a valid, non-empty file
-      # (metanorma exits 0), so check the rendered content: every dataset
-      # row must appear in the document metanorma built the PDF from.
-      - name: Check the PDFs contain the dataset rows
+      # (metanorma exits 0), so the pilot also checks the rendered content:
+      # every dataset row must appear in the document metanorma built the PDF from.
+      - name: Check the pilot PDFs contain the dataset rows
         if: matrix.doc == 'T-SP-PP.RES.21-2011'
         env:
           DATA: datasets/991-PP.RES.21.pp/data.yaml
+          DOC_DIR: documents/T-SP-PP.RES.21-2011
         run: |
           set -eu
-          for lang in $(echo "$LANGS" | tr ',' ' '); do
-            test -f "$DOC_DIR/$DOC_ID-$lang.adoc" || continue
+          for lang in E F S; do
             ruby -ryaml -e '
               lang = { "E" => "en", "F" => "fr", "S" => "es" }.fetch(ARGV[1])
               rows = YAML.safe_load_file(ARGV[0])
@@ -149,11 +162,43 @@ jobs:
             ' "$DATA" "$lang" "$DOC_DIR/$DOC_ID-$lang.presentation.xml"
           done
 
-      - name: Upload PDFs and manifest.json
+      - name: Upload this publication's PDFs and manifest
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: pdf-pilot-${{ matrix.doc }}
+          name: shard-${{ matrix.doc }}
           path: |
             build/pdf/
             build/render-failures.log
+          if-no-files-found: error
+
+  publications:
+    needs: [plan, render]
+    # Runs even when a shard failed, to say which; it then fails itself.
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: shard-*
+          path: parts
+
+      - name: Merge the shards into one manifest
+        run: |
+          set -eu
+          ruby scripts/merge_publication_manifests.rb --parts parts --out publications \
+            --expect "${{ needs.plan.outputs.count }}"
+          jq '.publications | length' publications/manifest.json
+          du -sh publications
+
+      - name: Upload the publications artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ needs.plan.outputs.artifact-name }}
+          path: publications/
           if-no-files-found: error

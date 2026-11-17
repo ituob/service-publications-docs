@@ -140,6 +140,38 @@ def copy_meta_and_annexes(issue_id, src_dir, dst_dir)
   end
 end
 
+# Key values can be multilingual hashes or arrays; prose outside these
+# explicitly selected fields must retain its printed whitespace.
+def clean_patch_key_value(value)
+  case value
+  when String then Ituob::Helpers.replace_legacy_space(value)
+  when Hash then value.transform_values { |item| clean_patch_key_value(item) }
+  when Array then value.map { |item| clean_patch_key_value(item) }
+  else value
+  end
+end
+
+def clean_patch_data_keys(data, dataset_slug)
+  registers = Ituob::Catalogs::Registers.all.select { |entry| entry.amendment_slug == dataset_slug }
+  fields = registers.flat_map { |entry| [entry.key_field, entry.fallback_key_fields] }.flatten.compact
+  cleaned = data.dup
+  fields.each do |field|
+    cleaned[field] = clean_patch_key_value(data[field]) if data.key?(field)
+  end
+  if data['entries'].is_a?(Array)
+    cleaned['entries'] = data['entries'].map do |row|
+      next row unless row.is_a?(Hash)
+
+      row.dup.tap do |entry|
+        fields.each do |field|
+          entry[field] = clean_patch_key_value(row[field]) if row.key?(field)
+        end
+      end
+    end
+  end
+  cleaned
+end
+
 def write_change_object(issue_id:, dataset_slug:, seq:, type: 'ADD',
                         date_active:, identifier:, data:, description: nil)
   obj = {
@@ -148,8 +180,8 @@ def write_change_object(issue_id:, dataset_slug:, seq:, type: 'ADD',
     'date_active' => date_active,
     'ob_issue_no' => issue_id.to_s,
     'reference' => "OB-#{issue_id}",
-    'identifier' => identifier,
-    'data' => data,
+    'identifier' => clean_patch_key_value(identifier),
+    'data' => clean_patch_data_keys(data, dataset_slug),
   }
   obj['description'] = description if description
   obj
@@ -438,4 +470,4 @@ def main
 end
 
 require 'time'
-main
+main if $PROGRAM_NAME == __FILE__

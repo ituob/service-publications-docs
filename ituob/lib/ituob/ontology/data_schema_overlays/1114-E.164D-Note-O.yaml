@@ -1,0 +1,16 @@
+# Descriptions and model-compatible refinements over the LML-generated schema.
+---
+title: ITU OB Dataset Schema for 1114 E.164D Note O
+description: Schema for ITU Operational Bulletin E.164D Note O data
+items:
+  properties:
+    applicant:
+      description: Name of the organization that applied for the code
+    network:
+      description: Name of the telecommunications network
+    cc_ic:
+      description: Country Code and Identification Code in format +882 XX
+    status:
+      description: Current assignment status of the code
+    formerly:
+      description: Previous name of the applicant/network, if applicable

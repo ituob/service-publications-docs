@@ -120,6 +120,23 @@ RSpec.describe RenderPublications do
     expect(File.read(File.join(out_dir, 'render-failures.log'))).to include('T-SP-E.164B-2012-E.adoc: no numbered dataset')
   end
 
+  it 'renders a provider-read document with the title of its dataset directory' do
+    write('documents/T-SP-F.32-2011/T-SP-F.32-2011-E.adoc', <<~ADOC)
+      = Title
+      :docnumber: F.32
+
+      [lutaml_data,provider:ituob.edition,edition,options={"arguments":{"register":"e118-iin","as_of":1170},"include_path":"."}]
+      ----
+      x
+      ----
+    ADOC
+    result = run_render(docs: ['T-SP-F.32-2011'])
+    expect(result.failures).to eq([])
+    expect(manifest_json['publications'].first).to include(
+      'title' => 'Issuer identification', 'as_of_issue' => 1170, 'register_slugs' => ['e118-iin']
+    )
+  end
+
   it 'logs a renderer failure and omits that language' do
     failing = described_class.run(root: @root, out_dir: out_dir, docs: ['T-SP-PP.RES.21-2011'], langs: %w[E F],
                                   renderer: ->(adoc) { adoc.end_with?('-E.adoc') ? [nil, 'boom'] : [nil, 'no file'] })

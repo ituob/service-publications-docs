@@ -545,6 +545,13 @@ The `E118Action` class is an example of an action type that has been implemented
 
 . Add the new class to the `AMENDMENT_TYPE_TO_CLASS` hash in `old_issue.rb`
 
+==== Non-breaking spaces in register patches
+
+For every register, clean primary and fallback key field values and
+identifiers with the existing `replace_legacy_space` helper before serializing
+patches. Preserve text values exactly as printed: do not normalize non-breaking
+spaces in stored prose or other text values.
+
 
 === New general message types
 

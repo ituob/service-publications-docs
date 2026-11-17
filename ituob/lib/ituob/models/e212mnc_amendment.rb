@@ -60,7 +60,7 @@ attribute :country, :string
         line[0...open].strip
       end
 
-      BLANK_CELL = /\A[\p{Space}\u200B-\u200D\uFEFF]*\z/
+      BLANK_CELL = /\A[\p{Space}\u00AD\u200B-\u200F\u2060\uFEFF]*\z/
 
       # A heading opens its own action; one that follows a heading with
       # no rows yet replaces it rather than leaving an empty action.
@@ -89,6 +89,10 @@ attribute :country, :string
         { country: country, action: suffix[:action] } unless country.empty?
       end
 
+      # Long enough for "French Departments and Territories in the Indian
+      # Ocean" (58); a bound still keeps running prose out.
+      MAX_COUNTRY_LENGTH = 64
+
       # Extract the fixed-size suffix before checking the country, so
       # country whitespace never competes with an action separator.
       def self.country_action_line(line)
@@ -98,10 +102,39 @@ attribute :country, :string
         return unless suffix
 
         country = line[0...suffix.begin(0)].rstrip
-        return unless country.length.between?(1, 50)
+        return unless country.length.between?(1, MAX_COUNTRY_LENGTH)
         return unless country.match?(/\A\p{Lu}[^\d:]*\z/)
 
         { country: country, action: suffix[:action] }
+      end
+
+      # One normalized string per cell of a table row.
+      def self.row_cells(row)
+        row.map { |cell| Ituob::Helpers.normalize_whitespace(Array(cell).join(' ')) }
+      end
+
+      # A country cell is the name plus an optional "(Country A)" or
+      # "(Country B – ...)" qualifier, either as its own paragraph or
+      # inline after the name. Returns [name, qualifier-or-nil].
+      def self.split_country_cell(paragraphs)
+        text = paragraphs.join(' ')
+        open = text.index('(Country')
+        return [text, nil] unless open
+
+        [text[0...open].rstrip, text[open..]]
+      end
+
+      # Only nonempty printed details belong in the generated note.
+      def self.record_extra_territorial_use(home, country, qualifier, cells)
+        location = [country, qualifier].reject { |part| part.to_s.empty? }.join(' ')
+        details = []
+        details << cells[3].sub(/\.{2,}\z/, '.') unless cells[3].empty?
+        details << "MSIN range #{cells[2]}" unless cells[2].empty?
+        details.concat(cells.drop(4).reject(&:empty?))
+        use = "Extra-territorial use in #{location}"
+        use += ": #{details.join('; ')}" unless details.empty?
+        text = [home.note&.en, use].compact.join("\n")
+        home.note = MultilingualString.new(en: text)
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
@@ -132,6 +165,11 @@ attribute :country, :string
         end
 
         last_country = nil
+        homes = Hash.new { |h, parsed_action| h[parsed_action] = {} }.compare_by_identity
+        pending_uses = Hash.new do |h, parsed_action|
+          h[parsed_action] = Hash.new { |codes, code| codes[code] = [] }
+        end.compare_by_identity
+        paired_rows = {}.compare_by_identity
 
         simplified_doc.each_with_index do |c, ci|
           next if c.nil?
@@ -170,6 +208,13 @@ attribute :country, :string
               action = next_action(amendment, action)
               action.action_type = 'LIR'
               last_country = heading_country
+              next
+            end
+
+            if stripped.match?(/\AExtra-territorial use\** of MCC\/MNC,/i)
+              action = next_action(amendment, action)
+              action.action_type = 'LIR'
+              last_country = nil
               next
             end
 
@@ -257,6 +302,8 @@ attribute :country, :string
               block = rowspan_heading([Array(row[0]).join(' ')] + row.drop(1).flatten)
               # Row 0 is the column header unless it is itself a heading.
               next if row_index.zero? && !block
+              # Long tables repeat the column header at each page break.
+              next if !block && row_cells(row).any? { |cell| cell.downcase.gsub(/[\p{Space}*]/, '') == 'mcc+mnc' }
 
               if block
                 # "«country» ACTION" opens an action for the code/network
@@ -317,15 +364,36 @@ attribute :country, :string
                 action.entries << entry
               elsif row.length >= 4
                 # 4+ column rows: country/code/range/networks or
-                # code/dec/range/networks. Map first 4 cells.
-                last_country = printed unless printed.empty?
-                next if Ituob::Helpers.replace_legacy_space(segs[1].to_s).strip.empty?
+                # code/dec/range/networks. Map first 4 cells; a cell may
+                # hold several paragraphs, and the country cell may add a
+                # qualifier such as "(Country A)" after the name.
+                cells = row_cells(row)
+                name, qualifier = split_country_cell(Array(row[0]).map { |p| Ituob::Helpers.normalize_whitespace(p) })
+                last_country = name unless name.empty?
+                next if cells[1].match?(BLANK_CELL)
+
+                country = name.empty? ? last_country : name
+                key = cells[1]
+                if qualifier&.start_with?('(Country B') && (home = homes[action][cells[1]])
+                  record_extra_territorial_use(home, country, qualifier, cells)
+                  next
+                end
 
                 entry = E212MNCEntry.new
                 entry.country_or_area = MultilingualString.new(en: country) if country
-                entry.mcc_mnc_codes = segs[1]
-                entry.range = segs[2]
-                entry.networks = segs[3]
+                entry.note = MultilingualString.new(en: qualifier) if qualifier && qualifier != '(Country A)'
+                entry.mcc_mnc_codes = cells[1]
+                entry.range = cells[2]
+                entry.networks = cells[3]
+                if qualifier == '(Country A)'
+                  homes[action][cells[1]] = entry
+                  pending_uses[action].delete(key).to_a.each do |pending, use_country, use_qualifier, use_cells|
+                    record_extra_territorial_use(entry, use_country, use_qualifier, use_cells)
+                    paired_rows[pending] = true
+                  end
+                elsif qualifier&.start_with?('(Country B')
+                  pending_uses[action][key] << [entry, country, qualifier, cells]
+                end
                 action.entries << entry
               end
             end
@@ -333,6 +401,10 @@ attribute :country, :string
             next if first_elem.nil?
             raise "Unexpected non-string/array elem in c[0]"
           end
+        end
+
+        amendment.actions.each do |parsed_action|
+          parsed_action.entries.reject! { |entry| paired_rows.key?(entry) }
         end
 
         # The per-table action rollover leaves a typeless, noteless

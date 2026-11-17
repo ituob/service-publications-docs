@@ -61,6 +61,16 @@ jobs:
         BUNDLE_GEMFILE: ituob/Gemfile
       run: bundle install
 
+    # The LML ontology is the single source of the register data
+    # schemas: regenerate datasets/*/schema-data.yaml and fail when the
+    # committed copy differs from a fresh generation.
+    - name: Check generated data schemas are in sync with the LML
+      env:
+        BUNDLE_GEMFILE: ituob/Gemfile
+      run: |
+        bundle exec ruby scripts/generate_data_schemas.rb
+        git diff --exit-code -- datasets
+
     - name: Run the ituob gem suite
       env:
         BUNDLE_GEMFILE: ituob/Gemfile

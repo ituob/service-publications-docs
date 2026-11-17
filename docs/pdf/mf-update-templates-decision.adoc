@@ -1,0 +1,60 @@
+= Decision: `mf-update-templates` is already on main
+
+Part of spd#89, task 2 ("Land or supersede `mf-update-templates`").
+
+== Decision
+
+Supersede. Nothing is ported. The branch `origin/mf-update-templates` holds one
+commit, `114d2858` ("feat: Use `loadfile` within render tag", 2025-05-12). Its
+patch-id (`git patch-id --stable`) is identical to `29e5819c` on main (spd#50),
+so the commit was already landed as a rebased copy. The old branch is left in
+place; deleting it is a separate decision.
+
+== Classification
+
+Classes: (a) already on main, (b) superseded by a different main approach,
+(c) still valuable, (d) wrong.
+
+[cols="3,1,4",options="header"]
+|===
+| Change on the branch | Class | Evidence
+
+| `T-SP-RR.25.1-2018-MSW-E.adoc`: replace the inline loop with `{% render "table", countries: ..., metadata: ..., lang: lang %}`
+| (a)
+| main `-MSW-E.adoc` line 320 has the same call.
+
+| `T-SP-RR.25.1-2018-MSW-F.adoc`: same change, `lang = "fr"`
+| (a)
+| main `-MSW-F.adoc` line 321.
+
+| `T-SP-RR.25.1-2018-MSW-S.adoc`: same change, `lang = "es"`
+| (a)
+| main `-MSW-S.adoc` line 322.
+
+| `_table.liquid`: move the `== title` heading and the `for country` loop into the partial
+| (a)
+| main `_table.liquid` opens with the same heading and loop.
+
+| `_table.liquid`: `load_file` replaced by `loadfile: "."`
+| (a)
+| main `_table.liquid` line 6.
+
+| Branch `_table.liquid` prints every call-sign item as its regex only (no `item.description` branch)
+| (d)
+| That is the pre-#118 state. Main (`226e6dbb`) prints the ITU description in English; porting the branch version would regress RR.25.1 English prose.
+|===
+
+Counts: (a) 5, (b) 0, (c) 0, (d) 1.
+
+== Why nothing is ported
+
+`git diff origin/main origin/mf-update-templates -- documents/T-SP-RR.25.1-2018`
+differs only in the two `item.description` lines that main added after the
+branch was cut. The later main work (spd#117, spd#118, #102 per-language
+labels, the provider data path for F.32 and E.212B) touches other files and
+does not conflict with this commit.
+
+== Fidelity
+
+Not measured, because no template changed: a CI render of this branch would be
+byte-for-byte the render of main for RR.25.1.

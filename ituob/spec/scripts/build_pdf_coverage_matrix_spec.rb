@@ -215,6 +215,20 @@ RSpec.describe PdfCoverageMatrix do
       expect(described_class.row_cells(row)).to include('e118-iin, 0999-ZZ (no register), 1000-AA (no register)')
     end
 
+    it 'reads the issue and register of an ituob.edition provider block (as_of)' do
+      write('documents/T-SP-F.32-2011/T-SP-F.32-2011-E.adoc', <<~ADOC)
+        = Title
+        :docnumber: F.32
+
+        [lutaml_data,provider:ituob.edition,edition,options={"arguments":{"register":"f1","as_of":700},"include_path":"."}]
+        ----
+        x
+        ----
+      ADOC
+      row = row_for('F.32')
+      expect([row.issue, row.datasets, row.registers.map(&:slug), row.unmapped]).to eq([700, [['669-F.1', 700]], ['f1'], []])
+    end
+
     it 'reports unknown when no dataset has an issue number' do
       doc('T-SP-M.3-2018', 'E', 'NOISSUE', docnumber: 1)
       row = row_for('M.3')

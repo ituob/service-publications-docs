@@ -182,6 +182,7 @@ module Ituob
         end
 
         data = safe_load_yaml(file_path)
+        data = normalize_model_data(data, schema)
 
         # Use fully_validate to get detailed error information
         errors = JSON::Validator.fully_validate(schema, data, errors_as_objects: true)
@@ -198,6 +199,24 @@ module Ituob
         end
       rescue => e
         [false, "#{file_path.basename}: #{e.message}"]
+      end
+    end
+
+    # Generated schemas describe serialized model values. Apply the same
+    # coercion and unknown-field handling as model consumers before checking them.
+    def normalize_model_data(data, schema)
+      model_name = schema["x-lml-model"]
+      return data unless model_name && data.is_a?(Array)
+
+      model_class = Models.const_get(model_name, false)
+      data.map.with_index do |row, index|
+        model = model_class.from_yaml(YAML.dump(row))
+        errors = model.validate
+        unless errors.empty?
+          raise ArgumentError, "row #{index}: #{errors.map(&:message).join(', ')}"
+        end
+
+        model.to_hash.reject { |key, _value| key == "_class" }
       end
     end
 
