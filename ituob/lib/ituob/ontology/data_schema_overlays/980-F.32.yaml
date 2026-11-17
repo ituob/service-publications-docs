@@ -1,5 +1,4 @@
-# Legacy constraints the LML cannot express (required, description, format,
-# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+# Descriptions and model-compatible refinements over the LML-generated schema.
 ---
 title: ITU OB Dataset Schema for 980-F.32
 description: ITU OB Dataset Schema for 980-F.32
@@ -15,20 +14,9 @@ items:
           description: French name of the Country or Geographical Area.
         es:
           description: Spanish name of the Country or Geographical Area.
-        zh:
-        ru:
-        ar:
-      required:
-      - en
-      - fr
-      - es
     country_or_area_note:
       description: Note related to the Country or Geographical Area. This field is
         optional.
-      required:
-      - en
-      - fr
-      - es
       properties:
         en:
           description: English note related to the Country or Geographical Area.
@@ -36,9 +24,6 @@ items:
           description: French note related to the Country or Geographical Area.
         es:
           description: Spanish note related to the Country or Geographical Area.
-        zh:
-        ru:
-        ar:
     notes:
       description: Notes related to the telegraph office. This field is optional.
       properties:
@@ -48,13 +33,6 @@ items:
           description: French note related to the telegraph office.
         es:
           description: Spanish note related to the telegraph office.
-        zh:
-        ru:
-        ar:
-      required:
-      - en
-      - fr
-      - es
     network_roa:
       description: Network (administration/ROA).
     network_roa_note:
@@ -67,15 +45,6 @@ items:
           description: French note related to the telegraph office.
         es:
           description: Spanish note related to the telegraph office.
-        zh:
-        ru:
-        ar:
-      required:
-      - en
-      - fr
-      - es
-      type:
-      additionalProperties:
     network_code:
       description: Network code.
     network_code_note:
@@ -87,13 +56,6 @@ items:
           description: French note related to the Network code.
         es:
           description: Spanish note related to the Network code.
-        zh:
-        ru:
-        ar:
-      required:
-      - en
-      - fr
-      - es
     telegraph_office_name:
       description: Name of the Telegraph Office in French, English, and Spanish. This
         field is optional.
@@ -104,13 +66,6 @@ items:
           description: English name of the Telegraph Office.
         es:
           description: Spanish name of the Telegraph Office.
-        zh:
-        ru:
-        ar:
-      required:
-      - fr
-      - en
-      - es
     office_code:
       description: Office code.
     office_code_note:
@@ -122,13 +77,6 @@ items:
           description: French note related to the Office code.
         es:
           description: Spanish note related to the Office code.
-        zh:
-        ru:
-        ar:
-      required:
-      - en
-      - fr
-      - es
     subarea:
       description: Subarea name in French, English, and Spanish. This field is optional.
       properties:
@@ -138,13 +86,3 @@ items:
           description: English name of the Subarea.
         es:
           description: Spanish name of the Subarea.
-        zh:
-        ru:
-        ar:
-      required:
-      - fr
-      - en
-      - es
-  required:
-  - country_or_area
-type:

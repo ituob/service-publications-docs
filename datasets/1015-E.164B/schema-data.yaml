@@ -3,6 +3,7 @@
 ---
 "$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1015 E.164B
+x-lml-model: E164BEntry
 type: array
 items:
   type: object
@@ -21,11 +22,13 @@ items:
         es:
           type: string
           description: Spanish name.
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
       description: The name of the country or geographical area in different languages.
-      required:
-      - en
-      - fr
-      - es
     country_code:
       type: string
       description: The E.164 country code assigned to the country or geographical
@@ -43,16 +46,16 @@ items:
         es:
           type: string
           description: Mobile telephone numbers description in Spanish.
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
       description: Mobile telephone numbers or patterns used with the country code
         in different languages.
-      required:
-      - en
     remarks:
       type: string
   description: Represents information about mobile networks used with the E.164 country
     code for a country or geographical area.
-  required:
-  - country_or_area
-  - country_code
-  - mobile_telephone_numbers
 description: ITU OB Dataset Schema for 1015 E.164B

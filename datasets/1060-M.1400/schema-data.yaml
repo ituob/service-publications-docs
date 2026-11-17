@@ -3,6 +3,7 @@
 ---
 "$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1060 M.1400
+x-lml-model: M1400Entry
 type: array
 items:
   type: object
@@ -34,13 +35,6 @@ items:
           type: string
           description: Name in Arabic.
       description: Name of the country or area in different languages.
-      required:
-      - en
-      - ru
-      - fr
-      - ar
-      - es
-      - zh
     company_name:
       type: string
       description: Name of the company or carrier.
@@ -69,11 +63,5 @@ items:
       type: array
       items:
         type: string
-        format: email
       description: Email address.
-  required:
-  - iso_code
-  - country_or_area
-  - company_name
-  - carrier_code
 description: ITU OB Dataset Schema for 1060 M.1400

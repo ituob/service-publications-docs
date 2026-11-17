@@ -3,6 +3,7 @@
 ---
 "$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1161 E.118
+x-lml-model: E118Entry
 type: array
 items:
   type: object
@@ -10,12 +11,21 @@ items:
   properties:
     country_or_area:
       type: object
+      additionalProperties: false
       properties:
         en:
           type: string
           description: Country or area name in English
-      required:
-      - en
+        fr:
+          type: string
+        es:
+          type: string
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
     company_name:
       type: string
       description: Name of the telecommunications company
@@ -63,7 +73,6 @@ items:
       type: array
       items:
         type: string
-        format: email
       description: Email addresses
     issue_id_number:
       type: string
@@ -71,9 +80,4 @@ items:
     effective_date:
       type: string
       description: Date when the information becomes effective
-  required:
-  - issue_id_number
-  - country_or_area
-  - company_name
-  - company_address_1
 description: ITU OB Dataset Schema for 1161 E.118

@@ -6,8 +6,10 @@ require 'open3'
 require 'rbconfig'
 require 'tmpdir'
 require 'yaml'
+require 'support/data_schema_generation'
 
 RSpec.describe 'scripts/generate_data_schemas.rb' do
+  include DataSchemaGeneration
   let(:repo_root) { File.expand_path('../../..', __dir__) }
   let(:lml) do
     <<~LML
@@ -40,23 +42,6 @@ RSpec.describe 'scripts/generate_data_schemas.rb' do
     end
   end
 
-  def write_overlay(slug, content)
-    path = File.join(@root, 'ituob/lib/ituob/ontology/data_schema_overlays', "#{slug}.yaml")
-    File.write(path, content.is_a?(String) ? content : YAML.dump(content))
-  end
-
-  def run_generator
-    Open3.capture3({ 'ITUOB_SCHEMA_ROOT' => @root }, RbConfig.ruby,
-                   File.join(repo_root, 'scripts/generate_data_schemas.rb'))
-  end
-
-  def expect_failure(message)
-    _out, err, status = run_generator
-    expect(status.exitstatus).to eq(1)
-    expect(err).to include(message)
-    expect(File.read(schema_path)).to eq('untouched')
-  end
-
   it 'merges the overlay over the LML-generated schema' do
     _out, err, status = run_generator
     expect(status.exitstatus).to eq(0), err
@@ -64,6 +49,45 @@ RSpec.describe 'scripts/generate_data_schemas.rb' do
     expect(items['required']).to eq(['name'])
     expect(items['properties']['name']).to eq('type' => 'string', 'description' => 'Widget name')
     expect(items['properties']['size']).to eq('type' => 'integer')
+  end
+
+  it 'rejects overlays that override an evolved LML type' do
+    write_overlay('1-W', 'items' => { 'properties' => { 'size' => { 'type' => 'string' } } })
+    expect_failure('cannot change or remove LML-generated type')
+  end
+
+  it 'rejects removal of model types and properties' do
+    write_overlay('1-W', 'type' => nil, 'items' => { 'properties' => { 'name' => nil } })
+    expect_failure('cannot change or remove LML-generated type')
+  end
+
+  it 'rejects references that would bypass model type assertions' do
+    write_overlay('1-W', 'items' => { 'properties' => { 'size' => { '$ref' => '#' } } })
+    expect_failure('unknown overlay key "$ref"')
+  end
+
+  it 'rejects stale required references after a model field is removed' do
+    write_overlay('1-W', 'items' => { 'required' => ['gone'] })
+    expect_failure('required property "gone" is not in the final properties')
+  end
+
+  {
+    'misspelled type' => { 'type' => 'strnig' },
+    'scalar required' => { 'required' => 'name' },
+    'scalar enum' => { 'enum' => 'abc' },
+    'numeric additionalProperties' => { 'additionalProperties' => 7 },
+    'numeric pattern' => { 'pattern' => 7 },
+    'negative minLength' => { 'minLength' => -1 },
+  }.each do |label, patch|
+    it "rejects #{label} against the JSON Schema metaschema" do
+      write_overlay('1-W', 'items' => { 'properties' => { 'name' => patch } })
+      expect_failure('invalid JSON Schema')
+    end
+  end
+
+  it 'rejects malformed regular expressions before writing' do
+    write_overlay('1-W', 'items' => { 'properties' => { 'name' => { 'pattern' => '[' } } })
+    expect_failure('invalid pattern')
   end
 
   it 'fails when an overlay property is not in the LML (1)' do

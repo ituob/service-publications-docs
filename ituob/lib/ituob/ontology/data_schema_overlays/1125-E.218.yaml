@@ -1,24 +1,13 @@
-# Legacy constraints the LML cannot express (required, description, format,
-# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+# Descriptions and model-compatible refinements over the LML-generated schema.
 ---
 title: ITU OB Dataset Schema for 1125 E.218
 description: ITU OB Dataset Schema for 1125 E.218
 items:
-  required:
-  - tmcc_code
-  - country_or_area
   properties:
     tmcc_code:
       description: Terrestrial trunk radio mobile country code
     country_or_area:
       description: Localized country or geographical area names
-      required:
-      - en
-      - fr
-      - es
-      - ru
-      - zh
-      - ar
       properties:
         en:
           description: English name

@@ -3,6 +3,7 @@
 ---
 "$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 977-X.121B
+x-lml-model: X121DNICEntry
 type: array
 items:
   type: object
@@ -24,19 +25,17 @@ items:
         es:
           type: string
           description: Country or geographical area name in Spanish
+        zh:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
       description: Country or geographical area names in different languages
-      required:
-      - en
-      - fr
-      - es
     network_name:
       type: string
       description: Name of network to which a DNIC is allocated
     note:
       type: string
       description: Additional notes or remarks specific to this entry
-  required:
-  - dnic_number
-  - country_or_area
-  - network_name
 description: ITU OB Dataset Schema for 977-X.121B

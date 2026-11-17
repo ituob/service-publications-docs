@@ -1,25 +1,14 @@
-# Legacy constraints the LML cannot express (required, description, format,
-# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+# Descriptions and model-compatible refinements over the LML-generated schema.
 ---
 title: ITU OB Dataset Schema for 1114 E.164D
 description: Schema for ITU Operational Bulletin E.164D data
 items:
-  required:
-  - country_code
-  - country_area_or_service
   properties:
     country_code:
       description: The E.164 assigned country code
     country_area_or_service:
       description: Name of the country, geographical area or global service in different
         languages
-      required:
-      - en
-      - fr
-      - es
-      - ru
-      - zh
-      - ar
       properties:
         en:
           description: Name in English

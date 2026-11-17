@@ -1,5 +1,4 @@
-# Legacy constraints the LML cannot express (required, description, format,
-# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+# Descriptions and model-compatible refinements over the LML-generated schema.
 ---
 title: ITU OB Dataset Schema for 1060 M.1400
 description: ITU OB Dataset Schema for 1060 M.1400
@@ -22,13 +21,6 @@ items:
           description: Name in Arabic.
         ru:
           description: Name in Russian.
-      required:
-      - en
-      - ru
-      - fr
-      - ar
-      - es
-      - zh
     company_name:
       description: Name of the company or carrier.
     address_line_1:
@@ -47,10 +39,3 @@ items:
       description: Fax number.
     email:
       description: Email address.
-      items:
-        format: email
-  required:
-  - iso_code
-  - country_or_area
-  - company_name
-  - carrier_code

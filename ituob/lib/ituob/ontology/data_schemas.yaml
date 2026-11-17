@@ -3,6 +3,7 @@
 # from the class in messages.lml; CI regenerates and fails on any diff.
 # Datasets not listed here keep their hand-maintained schema-data.yaml
 # (their LML Entry class is missing or does not match the dataset yet).
+1001-T.35B: T35NAEntry
 1015-E.164B: E164BEntry
 1060-M.1400: M1400Entry
 1109-Q.708B: Q708ISPCEntry
@@ -13,6 +14,12 @@
 1125-E.218: E218TRCCEntry
 1125-Q.708A: Q708SANCEntry
 1161-E.118: E118Entry
+1162-E.212: E212MNCEntry
+1162-E.212-Shared-MCC: E212MNCEntry
 974-F.400: F400Entry
 977-X.121B: X121DNICEntry
 980-F.32: F32TDIEntry
+994-E.164C: DPEntry
+icc: M1400Entry
+list-viii: ListVIIIStation
+nnp: NumberingPlanEntry

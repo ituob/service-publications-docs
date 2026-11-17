@@ -1,14 +1,8 @@
-# Legacy constraints the LML cannot express (required, description, format,
-# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+# Descriptions and model-compatible refinements over the LML-generated schema.
 ---
 title: ITU OB Dataset Schema for 1114 E.164D Notes P and Q
 description: Schema for ITU Operational Bulletin E.164D Notes P and Q data
 items:
-  required:
-  - applicant
-  - network
-  - cc_ic
-  - status
   properties:
     applicant:
       description: Entity that applied for the code
@@ -16,7 +10,6 @@ items:
       description: Name of the network
     cc_ic:
       description: Country Code and Identification Code format
-      pattern: "^\\+[0-9]{3} [0-9]+$"
     status:
       description: Current assignment status of the code
       enum:

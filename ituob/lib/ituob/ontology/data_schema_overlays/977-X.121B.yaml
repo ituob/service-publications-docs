@@ -1,22 +1,13 @@
-# Legacy constraints the LML cannot express (required, description, format,
-# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+# Descriptions and model-compatible refinements over the LML-generated schema.
 ---
 title: ITU OB Dataset Schema for 977-X.121B
 description: ITU OB Dataset Schema for 977-X.121B
 items:
-  required:
-  - dnic_number
-  - country_or_area
-  - network_name
   properties:
     dnic_number:
       description: Data Network Identification Code number
     country_or_area:
       description: Country or geographical area names in different languages
-      required:
-      - en
-      - fr
-      - es
       properties:
         en:
           description: Country or geographical area name in English
@@ -24,9 +15,6 @@ items:
           description: Country or geographical area name in French
         es:
           description: Country or geographical area name in Spanish
-        zh:
-        ru:
-        ar:
     network_name:
       description: Name of network to which a DNIC is allocated
     note:

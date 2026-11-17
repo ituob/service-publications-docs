@@ -1,19 +1,10 @@
-# Legacy constraints the LML cannot express (required, description, format,
-# narrower language sets). Deep-merged over the generated schema; null deletes a key.
+# Descriptions and model-compatible refinements over the LML-generated schema.
 ---
 title: ITU OB Schema for 974 F.400
 description: ITU OB Dataset Schema for 974 F.400
 items:
-  required:
-  - country_or_area
-  - admd_name
-  - country_code
   properties:
     country_or_area:
-      required:
-      - en
-      - fr
-      - es
       properties:
         en:
           description: English name of the country or area
@@ -21,9 +12,6 @@ items:
           description: French name of the country or area
         es:
           description: Spanish name of the country or area
-        zh:
-        ru:
-        ar:
     admd_name:
       description: Administration Management Domain Name
     not_operational_yet:
@@ -39,49 +27,32 @@ items:
     other:
       description: Other service names
     helpdesk:
-      additionalProperties: false
       properties:
         available:
-          type: boolean
           description: Availability status of helpdesk
         x400:
-          type: string
           description: X.400 address for helpdesk
         others:
-          type: string
           description: Other helpdesk information
     autoanswer:
-      additionalProperties: false
       properties:
         available:
-          type: boolean
           description: Availability status of auto-answer feature
         x400:
-          type: string
           description: X.400 address for auto-answer
     contact_address:
-      additionalProperties: false
-      required:
-      - address_line_1
       properties:
         company_name:
-          type: string
           description: Name of the company or organization
         address_line_1:
-          type: string
           description: First line of postal address
         address_line_2:
-          type: string
           description: Second line of postal address
         address_line_3:
-          type: string
           description: Third line of postal address including location
         address_line_4:
-          type: string
           description: Fourth line of postal address including location
         x400:
-          type: string
           description: X.400 contact address
         email:
-          type: string
           description: Email address for contact

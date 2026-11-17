@@ -3,6 +3,7 @@
 ---
 "$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1109 Q.708B
+x-lml-model: Q708ISPCEntry
 type: array
 items:
   type: object
@@ -34,13 +35,6 @@ items:
           type: string
           description: Arabic name
       description: Localized country or geographical area names
-      required:
-      - en
-      - fr
-      - es
-      - ru
-      - zh
-      - ar
     dec:
       type: string
       description: Decimal representation of the IPSC code
@@ -50,9 +44,4 @@ items:
     signal_point_operator:
       type: string
       description: Operator of the signal point
-  required:
-  - ipsc
-  - country
-  - dec
-  - signal_point_operator
 description: ITU OB Dataset Schema for 1109 Q.708B

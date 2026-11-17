@@ -3,6 +3,7 @@
 ---
 "$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1114 E.164D Note O
+x-lml-model: E164DNoteOEntry
 type: array
 items:
   type: object
@@ -23,9 +24,4 @@ items:
     formerly:
       type: string
       description: Previous name of the applicant/network, if applicable
-  required:
-  - applicant
-  - network
-  - cc_ic
-  - status
 description: Schema for ITU Operational Bulletin E.164D Note O data
