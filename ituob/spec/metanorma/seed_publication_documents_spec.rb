@@ -31,6 +31,18 @@ RSpec.describe 'Seed publication provider documents' do
           expect(source).not_to include('yaml2text', 'data.yaml', 'metadata.yaml')
           expect(source).to include('data: edition.items, metadata: edition.metadata')
           table = render_publication_table(directory, 'table', edition.items, edition.metadata, language)
+          if slug == 'e118-iin'
+            seed_directory = File.join(root, 'datasets/1161-E.118')
+            rows = Ituob::Support::Yaml.safe_load_file(File.join(seed_directory, 'data.yaml'))
+            metadata = Ituob::Support::Yaml.safe_load_file(File.join(seed_directory, 'metadata.yaml'))
+            source_lines = render_publication_table(directory, 'table', rows, metadata, language).lines
+            actual_lines = table.lines
+
+            expect(actual_lines.length).to eq(source_lines.length)
+            actual_lines.each_with_index do |line, index|
+              expect(line).to eq(source_lines[index]), "E.118 #{language} table differs from source at line #{index + 1}"
+            end
+          end
           expect(Digest::SHA256.hexdigest(table)).to eq(expected.fetch(slug).fetch(language))
         end
       end
