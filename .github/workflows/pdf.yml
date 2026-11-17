@@ -60,17 +60,16 @@ jobs:
       - name: Install the manifest gems
         run: |
           set -eu
-          echo "--- diag"; cat /etc/os-release | head -2; id -u; which gcc cc make || true
-          gem list 2>/dev/null | grep -E "^(json|bigdecimal|nokogiri|thor|lutaml-model|lutaml-lml|prosereflect|json-schema|colorize|rubyzip|liquid|canon|moxml|ffi) " || true
-          echo "--- end diag"
-          # The metanorma image exports BUNDLE_GEMFILE=/setup/Gemfile (which
-          # would make a bare `bundle install` install that Gemfile instead)
-          # and RUBYOPT=-rbundler/setup (which loads /setup's bundle into
-          # bundler itself and fails before it can install a Gemfile whose
-          # gems are not installed yet). Neither applies to this install.
-          apt-get update -qq && apt-get install -y -qq build-essential
-          which gcc make
-          env -u RUBYOPT BUNDLE_GEMFILE="$PWD/ituob/Gemfile" bundle install --jobs 4
+          # The image has no working C compiler out of the box and already ships current
+          # builds of every native gem ituob needs (nokogiri, json,
+          # bigdecimal, ffi, parsanol) plus lutaml-model, lutaml-lml, thor,
+          # rubyzip and liquid. Installing ituob/Gemfile.lock instead would
+          # compile older pinned native gems and fail. Add only the
+          # pure-Ruby gems the image lacks, with the image's RUBYOPT and
+          # BUNDLE_GEMFILE (-rbundler/setup of /setup/Gemfile) removed so
+          # plain rubygems can resolve them.
+          env -u RUBYOPT -u BUNDLE_GEMFILE gem install --no-document json-schema colorize prosereflect
+          env -u RUBYOPT -u BUNDLE_GEMFILE ruby -I ituob/lib -e 'require "ituob"; require "ituob/models"; puts "ituob loads"'
 
       # Renders with `metanorma -t itu -x pdf --agree-to-terms` per language,
       # copies each PDF to build/pdf/<standard>-<year>/ and writes
@@ -79,10 +78,11 @@ jobs:
       - name: Build PDFs (E, F, S) and the manifest
         run: |
           set -eu
-          # The script runs under ituob/Gemfile without the image's RUBYOPT; the
-          # metanorma it starts gets the image's original env back.
+          # The script runs on the image's gems via plain rubygems (no bundler
+          # env) with ituob/lib on the load path; the metanorma it starts gets
+          # the image's original env back.
           RENDER_ORIG_RUBYOPT="${RUBYOPT-}" RENDER_ORIG_BUNDLE_GEMFILE="${BUNDLE_GEMFILE-}" \
-          env -u RUBYOPT BUNDLE_GEMFILE="$PWD/ituob/Gemfile" bundle exec ruby scripts/render_publications.rb \
+          env -u RUBYOPT -u BUNDLE_GEMFILE ruby -I ituob/lib scripts/render_publications.rb \
             --docs "$DOC_ID" --langs E,F,S --out-dir build --strict
           cat build/pdf/manifest.json
 
