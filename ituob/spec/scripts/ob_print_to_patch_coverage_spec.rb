@@ -136,6 +136,35 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
       end
     end
 
+    [
+      ['shared-code assignment', 'e164-cc', 'Associated with shared code 883, network Example Telecom assigned 999'],
+      ['telephone suffix', 'e118-iin', 'Alice Tel: +358 40 866 85829'],
+      ['telephone prefix', 'e118-iin', 'Alice Tel: +999 358 40 866 8582'],
+      ['inline coordinates', 'list-viii', '2. Geographical coordinates: 46 N 6 E'],
+      ['extra-territorial assignment', 'e212-mnc', 'Sweden | 240 99 | Example operator assigned extra-territorial use'],
+      ['parenthesized carrier code', 'm1400-icc', 'P 17 Sweden ADD Example Telecom (carrier code EXAMPLE)'],
+      ['single-digit country code', 'e164-cc', 'Country code | 7'],
+      ['embedded ISPC assignment', 'q708-ispc', '(According to Recommendation ITU-T Q.708, assign ISPC 2-001-0 to Example Telecom)']
+    ].each do |name, slug, text|
+      it "counts the breaker's #{name} as unmapped real content" do
+        patch = PrintToPatchCoverage::Patch.new(
+          path: 'synthetic.yaml', layer: :ob_issues, kind: :structured,
+          tokens: Set.new(tok.of_patch_value('Alice +358 40 8668582')),
+          numbers: Set['358408668582']
+        )
+        index = double('patch index', for_issue: { 'e118-iin' => [patch] })
+        line = PrintToPatchCoverage::Line.new(
+          issue: 700, slug: slug, text: text,
+          tokens: Set.new(tok.with_unpadded(tok.of_print(text)))
+        )
+
+        result = PrintToPatchCoverage::Classifier.new(index).classify(line, collision: false)
+
+        expect(result.status).to eq(:unmapped)
+        expect(result.missing).not_to be_empty
+      end
+    end
+
     it 'meets a detached ordinal or unit digit on either spelling, but never the page marker' do
       expect(tok.of('12920 SE 38th Street')).to include('38th')
       expect(tok.of_print('SE 38 th Street')).to include('38th')
