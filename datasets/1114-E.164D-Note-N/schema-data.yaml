@@ -1,22 +1,16 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (E164DNoteNEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 1114 E.164D Note N
-description: Schema for ITU Operational Bulletin E.164D Note N data
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for E.164D-Note-N (generated from LML E164DNoteNEntry)
+type: array
 items:
   type: object
-  required:
-    - network
-    - cc_ic
-    - status
   additionalProperties: false
   properties:
     network:
       type: string
-      description: "Name of the satellite or mobile network"
     cc_ic:
       type: string
-      description: "Country Code and Identification Code in E.164 format"
     status:
       type: string
-      description: "Assignment status of the code"
