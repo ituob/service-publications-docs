@@ -10,13 +10,18 @@
 
 {{ metadata.locale | where: "key", "note" | map: lang | first }}
 
-{% assign half_size_data = data.size | divided_by: 2 %}
+{% comment %}
+Two columns, filled down the first and then the second: row i holds entry i
+and entry i + rows, so every entry prints once and an odd count leaves the
+last right cell empty.
+{% endcomment %}
+{% assign rows = data.size | plus: 1 | divided_by: 2 %}
+{% assign last = rows | minus: 1 %}
 
 [cols="4",options="unnumbered"]
 |===
-{% for n in (0..half_size_data) -%}
-    {%- assign i = n -%}
-    {%- assign j = i | plus: half_size_data | minus: 1 -%}
+{% for i in (0..last) -%}
+    {%- assign j = i | plus: rows -%}
     {%- assign column_one = data[i] -%}
     {%- assign column_two = data[j] -%}
     | {{ column_one.number }} | {{ column_one.geographic_area[lang] }}
