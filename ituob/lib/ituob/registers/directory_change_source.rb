@@ -25,11 +25,12 @@ module Ituob
 
       attr_reader :seed_path, :seed_issue
 
-      def initialize(register_id:, seed_path:, seed_issue:, key_field:)
+      def initialize(register_id:, seed_path:, seed_issue:, key_field:, seed_includes_seed_issue: false)
         super(register_id: register_id)
         @seed_path = seed_path.to_s
         @seed_issue = seed_issue&.to_i
         @key_field = key_field.to_s
+        @seed_includes_seed_issue = seed_includes_seed_issue == true
       end
 
       # The amendment files dated before the seed issue: skipped by
@@ -45,10 +46,11 @@ module Ituob
 
         yield seed_change if seed_change
         each_amendment do |c|
-          # The seed list already embodies every amendment published
-          # before the seed issue; replaying them would target entries
-          # of a list state that no longer exists.
-          next if @seed_issue && c.ob_issue_no && c.ob_issue_no < @seed_issue
+          # Same-issue patches are superseded only for a catalogued
+          # post-amendment annex; other seeds retain inclusive replay.
+          next if @seed_issue && c.ob_issue_no &&
+            (c.ob_issue_no < @seed_issue ||
+             (@seed_includes_seed_issue && c.ob_issue_no == @seed_issue))
 
           yield c
         end

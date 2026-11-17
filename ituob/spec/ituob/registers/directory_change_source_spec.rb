@@ -56,6 +56,41 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
     end
   end
 
+  context 'with patches before and in the seed issue' do
+    let(:seed_includes_seed_issue) { false }
+    let(:source) do
+      described_class.new(
+        register_id: 'F1', seed_path: seed_dir, seed_issue: 669,
+        key_field: 'code', seed_includes_seed_issue: seed_includes_seed_issue
+      )
+    end
+
+    before do
+      [668, 669].each do |issue|
+        File.write(File.join(changes_dir, "#{issue}-001-ADD-XYZ.yaml"), {
+          'type' => 'ADD', 'ob_issue_no' => issue,
+          'identifier' => { 'code' => 'XYZ' },
+          'data' => { 'code' => 'XYZ', 'field' => 'delivery' }
+        }.to_yaml)
+      end
+    end
+
+    it 'retains same-issue patches by default and excludes older ones' do
+      expect(source.each_sorted.map(&:ob_issue_no)).to eq([669, 669, 700, 701])
+      expect(source.pre_seed_changes.map(&:ob_issue_no)).to eq([668])
+    end
+
+    context 'when the seed already includes its own issue' do
+      let(:seed_includes_seed_issue) { true }
+
+      it 'excludes same-issue patches while retaining later patches and earlier evidence' do
+        expect(source.each_sorted.map(&:ob_issue_no)).to eq([669, 700, 701])
+        expect(source.each_until(669).map(&:type)).to eq(['SEED'])
+        expect(source.pre_seed_changes.map(&:ob_issue_no)).to eq([668])
+      end
+    end
+  end
+
   describe '#each_until' do
     it 'stops at the given ob_issue' do
       changes = source.each_until(700).to_a

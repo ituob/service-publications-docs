@@ -12,7 +12,7 @@ Unclassified skips or unexpected replay errors fail generation instead of being
 silently assigned a source-gap class. Print references identify the transcribed
 wording in `itu-ob-data`, not a PDF page or a reconstructed seed.
 
-Total skips: *5*.
+Total skips: *4*.
 
 == Totals per register
 
@@ -20,7 +20,7 @@ Total skips: *5*.
 |===
 |Register |Skips
 |E212_MNC |2
-|Q708_ISPC |2
+|Q708_ISPC |1
 |X121_DNIC |1
 |===
 
@@ -33,7 +33,7 @@ pre-#66 counts are historical baselines; they are not expected totals here.
 |===
 |Class |Meaning |Skips
 |S |Seed or route from an existing dataset |0
-|E |Engine rule (including seed-issue amendments already embodied) |1
+|E |Engine rule (including seed-issue amendments already embodied) |0
 |T |Correct the action type from print |0
 |D |Mis-filed patch |1
 |G |Documented source or extraction gap |3
@@ -64,6 +64,8 @@ pre-#66 counts are historical baselines; they are not expected totals here.
   are the only printed mentions of those codes. The corresponding additions
   appear in no seed, dataset patch or print in this corpus, so there is no
   key to withdraw.
-* Seed-issue suppressions (E) target keys already absent from the post-amendment
-  annex. Mis-filed patches (D) carry a different register's printed columns.
-  These classes describe the evidence; the inventory does not change replay.
+* G7 is proven: the five catalogued post-amendment seeds now exclude their
+  own issue's patches. See `84-g7-seed-replay.adoc` for the per-register
+  counts, row evidence and the 12 of 91 duplicate-add findings attributable
+  to G7. Seed-issue skips are now zero. Mis-filed patches (D) carry a
+  different register's printed columns. The inventory only reports replay.

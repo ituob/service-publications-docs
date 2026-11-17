@@ -143,7 +143,8 @@ def self.source_for(entry)
   source_class = entry.register_id == 'F32_TDI' ? F32Source : Source
   source_class.new(
     register_id: entry.register_id, seed_path: seed_dir,
-    seed_issue: entry.seed_issue, key_field: entry.key_field
+    seed_issue: entry.seed_issue, key_field: entry.key_field,
+    seed_includes_seed_issue: entry.seed_includes_seed_issue
   )
 end
 
@@ -256,9 +257,11 @@ end
         are the only printed mentions of those codes. The corresponding additions
         appear in no seed, dataset patch or print in this corpus, so there is no
         key to withdraw.
-      * Seed-issue suppressions (E) target keys already absent from the post-amendment
-        annex. Mis-filed patches (D) carry a different register's printed columns.
-        These classes describe the evidence; the inventory does not change replay.
+      * G7 is proven: the five catalogued post-amendment seeds now exclude their
+        own issue's patches. See `84-g7-seed-replay.adoc` for the per-register
+        counts, row evidence and the 12 of 91 duplicate-add findings attributable
+        to G7. Seed-issue skips are now zero. Mis-filed patches (D) carry a
+        different register's printed columns. The inventory only reports replay.
     ADOC
   end
 
