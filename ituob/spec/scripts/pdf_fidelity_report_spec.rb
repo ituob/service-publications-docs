@@ -49,6 +49,26 @@ RSpec.describe PdfFidelity do
     end
   end
 
+  describe '.pages' do
+    let(:status) { instance_double(Process::Status, success?: true) }
+
+    it 'reads a positive page count' do
+      allow(Open3).to receive(:capture3).with('pdfinfo', 'off.pdf').and_return(["Pages: 47\n", '', status])
+      expect(mod.pages('off.pdf')).to eq(47)
+    end
+
+    it 'rejects failed extraction even if stdout includes a page count' do
+      allow(status).to receive(:success?).and_return(false)
+      allow(Open3).to receive(:capture3).with('pdfinfo', 'off.pdf').and_return(["Pages: 47\n", 'bad PDF', status])
+      expect { mod.pages('off.pdf') }.to raise_error(/pdfinfo failed/)
+    end
+
+    it 'rejects missing page metadata rather than reporting zero pages' do
+      allow(Open3).to receive(:capture3).with('pdfinfo', 'off.pdf').and_return(['', '', status])
+      expect { mod.pages('off.pdf') }.to raise_error(/pdfinfo failed/)
+    end
+  end
+
   describe '.tokens' do
     it 'lowercases, folds curly quotes and splits punctuation' do
       expect(mod.tokens(["Côte d’Ivoire (Rep.)"])).to eq(%w[côte d ivoire rep])
@@ -80,6 +100,14 @@ RSpec.describe PdfFidelity do
     it 'measures order: the same words reordered share a shorter subsequence' do
       expect(mod.lcs(%w[a b c d], %w[a b c d])).to eq(4)
       expect(mod.lcs(%w[a b c d], %w[d c b a])).to eq(1)
+    end
+  end
+
+  describe '.lcs command failures' do
+    it 'rejects failed diff instead of reporting a perfect subsequence' do
+      status = Open3.capture3(RbConfig.ruby, '-e', 'exit 2').last
+      allow(Open3).to receive(:capture2).with('diff', '-d', anything, anything).and_return(['', status])
+      expect { mod.lcs(%w[a b], %w[a b]) }.to raise_error(/diff failed/)
     end
   end
 

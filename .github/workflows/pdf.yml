@@ -25,6 +25,13 @@ on:
       - 'scripts/render_publications.rb'
       - 'scripts/build_pdf_coverage_matrix.rb'
       - 'scripts/merge_publication_manifests.rb'
+      - 'scripts/check_official_pdfs.rb'
+      - 'scripts/pdf_fidelity_report.rb'
+      - 'docs/pdf/official*'
+      - 'docs/pdf/official/**'
+      - 'ituob/spec/fixtures/f32/official-2011.pdf'
+      - 'ituob/spec/scripts/check_official_pdfs_spec.rb'
+      - 'ituob/spec/scripts/pdf_fidelity_report_spec.rb'
       - 'ituob/lib/**'
       - '.github/workflows/pdf.yml'
     # The site fetches only push/workflow_dispatch runs on main, so the PDFs
@@ -194,6 +201,53 @@ jobs:
           path: |
             build/pdf/
             build/render-failures.log
+          if-no-files-found: error
+
+  official-comparison:
+    needs: [plan, render]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+
+      - name: Install PDF text extraction tools
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: shard-*
+          path: parts
+
+      - name: Compare every selected row with its official PDF
+        env:
+          DOCS: ${{ needs.plan.outputs.docs }}
+        run: |
+          ruby scripts/check_official_pdfs.rb --generated parts \
+            --docs "$(echo "$DOCS" | jq -r 'join(",")')" \
+            --out build/official-comparison
+
+      - name: Write the per-row score table to the job summary
+        if: always()
+        run: |
+          if [ -f build/official-comparison/scores.md ]; then
+            cat build/official-comparison/scores.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Official PDF comparison did not produce a report. See failed steps.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload official PDF scores and candidate baseline
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-pdf-comparison
+          path: build/official-comparison/
           if-no-files-found: error
 
   publications:

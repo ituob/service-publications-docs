@@ -50,8 +50,11 @@ module PdfFidelity
   end
 
   def pages(path)
-    out, = Open3.capture2('pdfinfo', path)
-    out[/^Pages:\s+(\d+)/, 1].to_i
+    out, err, status = Open3.capture3('pdfinfo', path)
+    count = out[/^Pages:\s+(\d+)/, 1].to_i
+    raise "pdfinfo failed on #{path}: #{err}" unless status.success? && count.positive?
+
+    count
   end
 
   def lines(raw)
@@ -100,7 +103,9 @@ module PdfFidelity
         fa.puts(a)
         fb.puts(b)
         [fa, fb].each(&:flush)
-        out, = Open3.capture2('diff', '-d', fa.path, fb.path)
+        out, status = Open3.capture2('diff', '-d', fa.path, fb.path)
+        raise "diff failed (exit #{status.exitstatus.inspect})" unless [0, 1].include?(status.exitstatus)
+
         a.size - out.lines.count { |l| l.start_with?('< ') }
       end
     end
@@ -133,7 +138,7 @@ module PdfFidelity
   end
 
   def pairs(generated_dir, official_dir)
-    Dir[File.join(generated_dir, '*', '*-[A-Z].pdf')].sort.filter_map do |gen|
+    Dir[File.join(generated_dir, '*', '*-[A-Z].pdf')].filter_map do |gen|
       stem = File.basename(gen, '.pdf')
       lang = stem[-1]
       off = File.join(official_dir, "T-SP-#{stem[0..-3]}-#{lang}.pdf")
