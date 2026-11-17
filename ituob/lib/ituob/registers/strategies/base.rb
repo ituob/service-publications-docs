@@ -127,6 +127,7 @@ module Ituob
         def self.call(builder, change, key_field, fallbacks = [], &on_conflict)
           rows = rows_for(change, key_field, fallbacks)
           if rows.empty?
+            note_keyless_rows(builder, change)
             key = resolve_key(builder, change, key_field, fallbacks)
             validate!(builder, change, key)
             apply(builder, change, key_field, key, fallbacks)
@@ -138,6 +139,20 @@ module Ituob
             apply_valid_row(builder, change, key_field, row, fallbacks, seen, &on_conflict)
           end
         end
+
+        # An ADD, REP or LIR that prints data but no row carrying the
+        # register's key falls back to the identifier code as the key. That
+        # is how identifier-keyed printed patches replay; it is reported so
+        # a row that merely lost its key field cannot pass unseen.
+        def self.note_keyless_rows(builder, change)
+          return unless %w[ADD REP LIR].include?(change.type)
+          return unless change.data.is_a?(Hash) && !change.data.empty?
+
+          builder.record_issue('keyless-row', change,
+                               "#{change.type} #{change.identifier.to_hash.inspect} carries data with no key field; " \
+                               'the identifier is used as the key')
+        end
+        private_class_method :note_keyless_rows
 
         # A key repeated within one change is validated once, against the
         # state before the change; earlier rows of the same change must not

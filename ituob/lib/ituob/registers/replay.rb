@@ -115,6 +115,7 @@ module Ituob
       rescue StandardError => e
         msg = "error #{change.type} #{change.identifier.to_hash.inspect} at OB #{change.ob_issue_no}: #{e.class}: #{e.message}"
         builder.record_error(msg)
+        builder.record_issue('error', change, msg)
         warn "replay: #{msg}"
       end
 
@@ -181,6 +182,7 @@ module Ituob
 
         msg = "skip #{change.type} #{change.identifier.to_hash.inspect} at OB #{change.ob_issue_no}: #{error.message}"
         builder.record_error(msg)
+        builder.record_issue('skip', change, msg)
         warn "replay: #{msg}"
         true
       end
