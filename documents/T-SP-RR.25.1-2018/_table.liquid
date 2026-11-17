@@ -17,7 +17,7 @@ Amateur stations and experimental stations:::
 +
 --
 {% for item in country_data.groups.amateur %}
-{% if item.name %} {{ item.name }}::: {% endif %}{{ item.regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z" }}
+{% if item.name %} {{ item.name }}::: {% endif %}{% if item.description and lang == "en" %}{{ item.description }}{% else %}{{ item.regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z" }}{% endif %}
 {% endfor %}
 --
 
@@ -54,7 +54,7 @@ Experimental stations::
 +
 --
 {% for item in country_data.groups.experimental %}
-{% if item.name %} {{ item.name }}::: {% endif %}{{ item.regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z" }}
+{% if item.name %} {{ item.name }}::: {% endif %}{% if item.description and lang == "en" %}{{ item.description }}{% else %}{{ item.regex | remove: ":" | replace: "digit", "1-9" | replace: "upper", "A-Z" }}{% endif %}
 {% endfor %}
 --
 {% endif %}

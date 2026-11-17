@@ -29,6 +29,7 @@ module Ituob
           register_id: entry.register_id,
           seed_path: File.expand_path(entry.seed_path, root),
           seed_issue: entry.seed_issue,
+          seed_includes_seed_issue: entry.seed_includes_seed_issue,
           key_field: entry.key_field
         )
         Ituob::Registers::Replay.new(

@@ -9,14 +9,39 @@ on:
       - 'messages/**'
       - 'ob-issues/**'
       - 'Gemfile'
+      - 'scripts/**'
+      - '.github/workflows/**'
   push:
     branches: [ main ]
     paths:
       - 'ituob/**'
       - 'datasets/**'
       - 'catalogs/**'
+      - 'scripts/**'
+      - '.github/workflows/**'
 
 jobs:
+  authored-patch-tests:
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/ituob/Gemfile
+      AUTHORED_PATCH_RUBY_TESTS: '1'
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.4'
+
+    - name: Install the service gem bundle
+      run: bundle install
+
+    - name: Run authored data Python and Ruby tests
+      run: python3 -m unittest discover -s scripts/tests -p 'test_*.py'
+
   rspec:
     runs-on: ubuntu-latest
     steps:
@@ -35,6 +60,16 @@ jobs:
       env:
         BUNDLE_GEMFILE: ituob/Gemfile
       run: bundle install
+
+    # The LML ontology is the single source of the register data
+    # schemas: regenerate datasets/*/schema-data.yaml and fail when the
+    # committed copy differs from a fresh generation.
+    - name: Check generated data schemas are in sync with the LML
+      env:
+        BUNDLE_GEMFILE: ituob/Gemfile
+      run: |
+        bundle exec ruby scripts/generate_data_schemas.rb
+        git diff --exit-code -- datasets
 
     - name: Run the ituob gem suite
       env:

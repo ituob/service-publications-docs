@@ -139,21 +139,15 @@ data:
     country_or_area:
       en: United Kingdom
     networks: Network Rail Infrastructure Limited
-  - mcc_mnc_codes: MCC+MNC*
-    country_or_area:
-      en: Country or Geographical Area
-    networks: Operators Name
-    range: MSIN** range to be used
-  - mcc_mnc_codes: "(Country A)"
+  - mcc_mnc_codes: 208 01
     country_or_area:
       en: France
-    networks: 0000000000 - 0099999999; 0200000000 - 9999999999
-    range: 208 01
-  - mcc_mnc_codes: "(Country B – Where the MCC+MNC is to be used extra-territorially)"
-    country_or_area:
-      en: Monaco
-    networks: 0100000000 - 0199999999
-    range: 208 01
+    networks: Orange
+    note:
+      en: 'Extra-territorial use in Monaco (Country B – Where the MCC+MNC is to be
+        used extra-territorially): Orange/Monaco Télécom; MSIN range 0100000000 -
+        0199999999'
+    range: 0000000000 - 0099999999; 0200000000 - 9999999999
   notes:
   - "*        MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil            MNC:    Mobile Network Code / Code de

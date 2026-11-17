@@ -1,18 +1,20 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (M1400Entry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
+"$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1060 M.1400
-description: ITU OB Dataset Schema for 1060 M.1400
+x-lml-model: M1400Entry
 type: array
 items:
   type: object
+  additionalProperties: false
   properties:
     iso_code:
       type: string
       description: ISO 3166-1 alpha-3 country code.
     country_or_area:
       type: object
-      description: Name of the country or area in different languages.
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -26,20 +28,13 @@ items:
         zh:
           type: string
           description: Name in Chinese.
-        ar:
-          type: string
-          description: Name in Arabic.
         ru:
           type: string
           description: Name in Russian.
-      required:
-        - en
-        - ru
-        - fr
-        - ar
-        - es
-        - zh
-      additionalProperties: false
+        ar:
+          type: string
+          description: Name in Arabic.
+      description: Name of the country or area in different languages.
     company_name:
       type: string
       description: Name of the company or carrier.
@@ -66,16 +61,7 @@ items:
       description: Fax number.
     email:
       type: array
-      description: Email address.
       items:
         type: string
-        format: email
-  required:
-    - iso_code
-    - country_or_area
-    - company_name
-    - carrier_code
-    # - address_line_1
-    # - email
-    # - contact
-  additionalProperties: false
+      description: Email address.
+description: ITU OB Dataset Schema for 1060 M.1400

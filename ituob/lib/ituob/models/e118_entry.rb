@@ -127,16 +127,39 @@ module Ituob
           fax = []
           email = []
 
+          last_label = nil
           tel_fax_email_lines.each do |line|
+            continuation = line.gsub(/[[:space:]]/, '')
+            # A telephone or fax list wrapped after "/" ("+358 294 440 500/" /
+            # "+358 40 8668 582") keeps its second number on the next line.
+            numbers = last_label == :fax ? fax : tel
+            if %i[tel fax].include?(last_label) && numbers.last&.end_with?('/') &&
+               line !~ /^(Tel|Tél|Cell|Mobile|Fax|E-?mail)(?:\.|:|\s)/i && line !~ /^:/ &&
+               line.gsub(/[[:space:]]+/, ' ').strip.match?(%r{\A\+?\d[\d ()./-]*\z})
+              numbers[-1] = "#{numbers.last} #{line.gsub(/[[:space:]]+/, ' ').strip}"
+              next
+            end
+
+            # A printed e-mail address wrapped after its "@" continues on the
+            # next line ("jerry@" / "marathontelecom.net"): join the two.
+            if email.last&.end_with?('@') && line !~ /^(Tel|Tél|Cell|Mobile|Fax|E-?mail)(?:\.|:|\s)/i && line !~ /^:/ &&
+               continuation.match?(/\A[^@:]+\.[[:alpha:]]+\z/)
+              email[-1] = "#{email.last}#{continuation}"
+              next
+            end
+
             if line =~ /^(Tel|Tél|Cell|Mobile)(?:\.|:|\s)/i || line =~ /^:/
               text = line.gsub(/^(?:(Tel|Tél|Cell|Mobile)(?:\.|:|\s)?|:)[[:space:]]*/, '').strip
               tel << text unless text.empty?
+              last_label = :tel
 
             elsif line =~ /^Fax\s*(?:\.|:)/i
               text = line.gsub(/^Fax\s*(?:\.|:)[[:space:]]*/, '').strip
               fax << text unless text.empty?
+              last_label = :fax
 
             elsif line =~ /^E-?mail\s*(?:\.|:)/i || line.include?('@')
+              last_label = :email
               if line.count('@') > 1
                 emails = line.sub(/^E-?mail\s*(?:\.|:)[[:space:]]*/, '').split(/\s+/).select { |e| e.include?('@') }
                 email.concat(emails)

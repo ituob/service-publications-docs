@@ -1,26 +1,22 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (Q708SANCEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-type: array
+"$schema": http://json-schema.org/draft-07/schema#
 title: ITU OB Dataset Schema for 1125 Q.708A
-description: ITU OB Dataset Schema for 1125 Q.708A
+x-lml-model: Q708SANCEntry
+type: array
 items:
   type: object
-  required:
-    - code
-    - area_or_network
   additionalProperties: false
   properties:
     code:
       type: string
       description: Signalling Area/Network Code (SANC)
-      pattern: '^[0-9]-[0-9]{3}$'
       examples:
-        - "2-000"
-        - "7-255"
+      - 2-000
+      - 7-255
     area_or_network:
       type: object
-      description: Geographical Area or Signalling Network translations
       additionalProperties: false
       properties:
         en:
@@ -32,25 +28,18 @@ items:
         es:
           type: string
           description: Spanish name
-        ru:
-          type: string
-          description: Russian name
         zh:
           type: string
           description: Chinese name
+        ru:
+          type: string
+          description: Russian name
         ar:
           type: string
           description: Arabic name
-      required:
-        - en
-        - fr
-        - es
-        - ru
-        - zh
-        - ar
+      description: Geographical Area or Signalling Network translations
     note:
       type: object
-      description: Localized notes
       additionalProperties: false
       properties:
         en:
@@ -62,12 +51,14 @@ items:
         es:
           type: string
           description: Spanish note
-        ru:
-          type: string
-          description: Russian note
         zh:
           type: string
           description: Chinese note
+        ru:
+          type: string
+          description: Russian note
         ar:
           type: string
           description: Arabic note
+      description: Localized notes
+description: ITU OB Dataset Schema for 1125 Q.708A

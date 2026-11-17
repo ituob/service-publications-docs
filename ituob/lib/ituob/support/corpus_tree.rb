@@ -22,7 +22,7 @@ module Ituob
         'callback_procedures' => 'GeneralCallbackProcedures', 'custom' => 'GeneralCustom',
         'ipns' => 'GeneralIpns', 'iptn' => 'GeneralIptn',
         'misc_communications' => 'GeneralMiscCommunications', 'org_changes' => 'GeneralOrgChanges',
-        'sanc' => 'GeneralMessage', 'service_restrictions' => 'GeneralServiceRestrictions',
+        'sanc' => 'GeneralSancs', 'service_restrictions' => 'GeneralServiceRestrictions',
         'telephone_service' => 'GeneralTelephoneService', 'telephone_service_2' => 'GeneralTelephoneService',
         'mid' => 'GeneralMid',
       }.freeze
@@ -36,7 +36,7 @@ module Ituob
       def self.class_name_for(rel_path)
         case rel_path
         when /\Ameta\.yaml\z/ then 'IssueMetadata'
-        when /\Aannexes\.yaml\z/ then nil # freeform annex snapshot (legacy)
+        when /\Aannexes\.yaml\z/ then 'IssueAnnexes'
         when 'general/running_annexes.yaml' then 'GeneralRunningAnnexes'
         when 'general/approved_recommendations.yaml' then 'GeneralApprovedRecommendations'
         when %r{\Ageneral/} then nil # freeform general prose
@@ -66,6 +66,7 @@ module Ituob
       def self.resolve_for(rel_path, data)
         heuristic = class_name_for(rel_path)
         return nil if heuristic.nil?
+        return heuristic if heuristic == 'IssueAnnexes'
 
         return data['_class'] if data.is_a?(Hash) && data['_class']
 

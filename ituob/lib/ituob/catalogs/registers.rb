@@ -24,8 +24,8 @@ module Ituob
       Entry = Struct.new(
         :register_id, :slug, :recommendation, :title, :key_field,
         :fallback_key_fields, :classification, :parser_class_name,
-        :renderer, :seed_issue, :seed_path, :external,
-        :source_slug, :route,
+        :renderer, :seed_issue, :seed_path, :external, :url,
+        :source_slug, :route, :seed_includes_seed_issue,
         keyword_init: true,
       ) do
         def structured? = classification&.structured?
@@ -82,8 +82,10 @@ module Ituob
             parser_class_name: hash['parser_class'],
             renderer: hash['renderer'],
             seed_issue: hash['seed_issue'],
+            seed_includes_seed_issue: hash['seed_includes_seed_issue'],
             seed_path: hash['seed_path'],
             external: hash['external'],
+            url: hash['url'],
             source_slug: hash['source_slug'],
             route: hash['route'],
           )

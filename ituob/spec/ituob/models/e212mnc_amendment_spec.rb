@@ -468,13 +468,13 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       end
     end
 
-    it 'preserves the country guards and the 50-character limit' do
-      ['germany', 'Germany 2', 'Germany:', 'P 35 Germany', 'A' * 51, ''].each do |country|
+    it 'preserves the country guards and the 64-character limit' do
+      ['germany', 'Germany 2', 'Germany:', 'P 35 Germany', 'A' * 65, ''].each do |country|
         expect(described_class.country_action_line("#{country} ADD")).to be_nil
       end
 
-      expect(described_class.country_action_line("#{'A' * 50} ADD")).to eq(
-        country: 'A' * 50, action: 'ADD',
+      expect(described_class.country_action_line("#{'A' * 64} ADD")).to eq(
+        country: 'A' * 64, action: 'ADD',
       )
       expect(described_class.country_action_line('GermanyADD')).to be_nil
       expect(described_class.country_action_line('Germany MOD')).to be_nil
@@ -546,6 +546,317 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entry.networks).to eq('Tele 2 Sverige AB')
       expect(entry.country_or_area.en).to eq('Sweden')
       expect(entry.range).to include('6680000000').and include('6689999999')
+    end
+  end
+
+  describe 'E.212 print shapes found in the corpus' do
+    def heading(text)
+      row(cell(paragraph(text)), cell(paragraph(' ')), cell(paragraph(' ')))
+    end
+
+    def pair(code, network)
+      row(cell(paragraph(code)), cell(paragraph(network)))
+    end
+
+    def source_entries(issue, position_on: nil)
+      path = File.expand_path("../../../../itu-ob-data/issues/#{issue}/amendments.yaml", __dir__)
+      skip 'itu-ob-data submodule not checked out' unless File.exist?(path)
+
+      data = YAML.load_file(path, permitted_classes: [Date, Time])
+      msgs = data['messages'].select { |m| m['target']['publication'] == 'E212_MNC' }
+      parse(msgs.first['contents']['en'])
+    end
+
+    it 'recognises the 58-character French Indian Ocean country lines (OB 1087)' do
+      expect(described_class.country_action_line(
+        'French Departments and Territories in the Indian Ocean SUP',
+      )).to eq(country: 'French Departments and Territories in the Indian Ocean', action: 'SUP')
+
+      actions = source_entries(1087).actions
+      by_type = actions.select { |a| a.entries.any? { |e| e.mcc_mnc_codes.start_with?('647') } }
+      expect(by_type.map { |a| [a.action_type, a.entries.map(&:mcc_mnc_codes)] })
+        .to eq([['SUP', ['647 02']], ['ADD', ['647 01', '647 02']]])
+    end
+
+    it 'skips a column header repeated inside a table' do
+      header = row(cell(paragraph('Country/Geographical area')), cell(paragraph('MCC+MNC *')),
+                   cell(paragraph('Operator/Network')))
+      doc = document(table(header, heading('Denmark SUP'), pair('238 96', 'Telia'), header,
+                           pair('238 97', 'Tele2')))
+      entries = parse(doc).actions.flat_map(&:entries)
+
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['238 96', '238 97'])
+    end
+
+    it 'keeps the operator and range of a country cell with a (Country A) qualifier (OB 1348)' do
+      entries = source_entries(1348).actions.flat_map(&:entries)
+      germany = entries.find { |e| e.country_or_area.en == 'Germany' }
+
+      expect([germany.mcc_mnc_codes, germany.range, germany.networks])
+        .to eq(['262 74', '0000099000 - 0000099099', 'Ericsson GmbH'])
+      expect(entries.map(&:mcc_mnc_codes)).not_to include(a_string_starting_with('('))
+      expect(entries.map(&:mcc_mnc_codes)).not_to include(a_string_matching(/\AMCC\+MNC/))
+    end
+
+    it 'records a Country B row as extra-territorial use on the Country A entry (OB 1348)' do
+      entries = source_entries(1348).actions.flat_map(&:entries).select { |e| e.mcc_mnc_codes == '262 74' }
+
+      expect(entries.length).to eq(1)
+      expect(entries.first.country_or_area.en).to eq('Germany')
+      expect(entries.first.note.en).to eq(
+        "Extra-territorial use in Sweden (Country B – Where the MCC+MNC is to be used " \
+        'extra‑territorially): Ericsson GmbH; MSIN range 0000099100 - 0000099199'
+      )
+    end
+
+    it 'splits an inline qualifier from the country name and pairs Country B rows (OB 1108)' do
+      entries = source_entries(1108).actions.flat_map(&:entries).select { |e| e.mcc_mnc_codes.start_with?('208') }
+
+      expect(entries.map { |e| [e.mcc_mnc_codes, e.country_or_area.en] })
+        .to eq([['208 10', 'France'], ['208 20', 'France']])
+      expect(entries.map { |e| e.note.en }).to all(start_with('Extra-territorial use'))
+      expect(entries.first.note.en).to include('Extra-territorial use in Monaco (Country B')
+    end
+
+    it 'does not read the column header under a title row as an entry (OB 1108, OB 1094)' do
+      [1108, 1094].each do |issue|
+        codes = source_entries(issue).actions.flat_map(&:entries).map(&:mcc_mnc_codes)
+
+        expect(codes).not_to include(a_string_matching(/\AMCC\+MNC/))
+      end
+    end
+
+    ['MCC+MNC*', 'MCC*/MNC**'].each do |code_label|
+      it "skips a #{code_label} header after a title while preserving the data row" do
+        title = row(cell(paragraph('Extra-territorial use of MCC+MNC')))
+        header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph(code_label)),
+                     cell(paragraph('MSIN range')), cell(paragraph('Operator 1')))
+        data = row(cell(paragraph('France'), paragraph('(Country A)')),
+                   cell(paragraph('208 01')), cell(paragraph('A')), cell(paragraph('Orange')))
+        entries = parse(document(table(title, header, data))).actions.flat_map(&:entries)
+
+        expect(entries.map { |entry| [entry.mcc_mnc_codes, entry.networks, entry.range] })
+          .to eq([['208 01', 'Orange', 'A']])
+      end
+    end
+
+    # A row 1 holding a code is a data row under the title, not a header:
+    # each shape below was dropped as a header before the fix.
+    [
+      ['310 260*', 'footnote star on the code'],
+      ['310 260 / 310 270', 'two codes in one cell'],
+      ['310260', 'code without the space'],
+      ['310 260, 310 270', 'comma-separated codes'],
+      ['310 26A', 'letter in the code'],
+      ['—', 'a printed dash placeholder']
+    ].each do |code, shape|
+      it "keeps a data row under a single-cell title when the code has #{shape} (#{code})" do
+        title = row(cell(paragraph('Extra-territorial use of MCC+MNC')))
+        data = row(cell(paragraph('Sweden')), cell(paragraph(code)), cell(paragraph('A')), cell(paragraph('Op A')))
+        following = row(cell(paragraph('Sweden')), cell(paragraph('310 270')),
+                        cell(paragraph('A')), cell(paragraph('Op B')))
+        entries = parse(document(table(title, data, following))).actions.flat_map(&:entries)
+
+        expect(entries.map(&:mcc_mnc_codes)).to eq([code, '310 270'])
+      end
+    end
+
+    it 'keeps a Country B row with no matching Country A code as its own entry' do
+      header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC')),
+                   cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))
+      sweden = row(cell(paragraph('Sweden'), paragraph('(Country B – extra-territorial)')),
+                   cell(paragraph('262 74')), cell(paragraph('1 - 2')), cell(paragraph('Ericsson')))
+      doc = document(table(header, sweden))
+      entry = parse(doc).actions.flat_map(&:entries).first
+
+      expect([entry.country_or_area.en, entry.note.en]).to eq(['Sweden', '(Country B – extra-territorial)'])
+    end
+
+    it 'does not attach a Country B row to a plain row that shares its code' do
+      header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC')),
+                   cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))
+      plain = row(cell(paragraph('France')), cell(paragraph('208 01')), cell(paragraph('A')), cell(paragraph('Plain Op')))
+      monaco = row(cell(paragraph('Monaco'), paragraph('(Country B – extra)')),
+                   cell(paragraph('208 01')), cell(paragraph('B')), cell(paragraph('OpB')))
+      entries = parse(document(table(header, plain, monaco))).actions.flat_map(&:entries)
+
+      expect(entries.map { |e| [e.country_or_area.en, e.note&.en] })
+        .to eq([['France', nil], ['Monaco', '(Country B – extra)']])
+    end
+
+    it 'keeps two Country B rows sharing a code without a Country A row as separate entries' do
+      header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC')),
+                   cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))
+      first = row(cell(paragraph('Monaco'), paragraph('(Country B – x)')),
+                  cell(paragraph('208 01')), cell(paragraph('B1')), cell(paragraph('Op1')))
+      second = row(cell(paragraph('Andorra'), paragraph('(Country B – y)')),
+                   cell(paragraph('208 01')), cell(paragraph('B2')), cell(paragraph('Op2')))
+      entries = parse(document(table(header, first, second))).actions.flat_map(&:entries)
+
+      expect(entries.map { |e| [e.country_or_area.en, e.note.en] })
+        .to eq([['Monaco', '(Country B – x)'], ['Andorra', '(Country B – y)']])
+    end
+
+    it 'keeps cells past the fourth on a Country B row' do
+      header = row(cell(paragraph('Country or Geographical Area')), cell(paragraph('MCC+MNC')),
+                   cell(paragraph('MSIN range')), cell(paragraph('Operators Name')))
+      france = row(cell(paragraph('France'), paragraph('(Country A)')),
+                   cell(paragraph('208 01')), cell(paragraph('A')), cell(paragraph('OpA')))
+      monaco = row(cell(paragraph('Monaco'), paragraph('(Country B – x)')),
+                   cell(paragraph('208 01')), cell(paragraph('B')), cell(paragraph('OpB')), cell(paragraph('EXTRA5')))
+      entry = parse(document(table(header, france, monaco))).actions.flat_map(&:entries).first
+
+      expect(entry.note.en).to end_with('Monaco (Country B – x): OpB; MSIN range B; EXTRA5')
+    end
+
+    it 'reads left-to-right marks, word joiners and soft hyphens as blank cells' do
+      ["\u200E", "\u200F", "\u2060", "\u00AD"].each do |mark|
+        expect(described_class.rowspan_heading(['Denmark ADD', mark, ' ']))
+          .to eq(country: 'Denmark', action: 'ADD')
+      end
+    end
+  end
+
+  describe 'E.212 baseline seed' do
+    let(:seed) do
+      path = File.expand_path('../../../../datasets/1162-E.212/data.yaml', __dir__)
+      YAML.load_file(path)
+    end
+
+    it 'holds one entry per MCC+MNC for the France/Monaco extra-territorial codes' do
+      {
+        '208 01' => ['Orange', 'Orange/Monaco Télécom'],
+        '208 10' => ['Société Française du Radiotéléphone', 'Société Française du Radiotéléphone'],
+        '208 20' => ['Bouygues Telecom', 'Bouygues Telecom']
+      }.each do |code, (home_network, away_network)|
+        rows = seed.select { |row| row['mcc_mnc_codes'] == code }
+
+        expect(rows.map { |row| row['country_or_area']['en'] }).to eq(['France'])
+        expect(rows.first['networks']).to eq(home_network)
+        expect(rows.first['note']['en']).to eq("Extra-territorial use in Monaco: #{away_network}")
+        expect(rows.first['note'].keys).to eq(%w[en fr es ru zh ar])
+      end
+    end
+
+    it 'preserves every Indian Ocean code and operator printed in OB 1162 page 18' do
+      rows = seed.select { |entry| entry['mcc_mnc_codes'].start_with?('647 ') }
+
+      expect(rows.map { |entry| entry['country_or_area']['en'] }.uniq)
+        .to eq(['French Departments and Territories in the Indian Ocean'])
+      expect(rows.map { |entry| [entry['mcc_mnc_codes'], entry['networks']] }).to eq([
+        ['647 00', 'Orange'],
+        ['647 01', 'BJT Partners'],
+        ['647 02', 'Telco OI'],
+        ['647 03', 'Telco OI'],
+        ['647 04', 'Zeop Mobile'],
+        ['647 10', 'Société Réunionnaise du Radiotéléphone']
+      ])
+    end
+
+    it 'has no duplicate MCC+MNC key' do
+      duplicates = seed.group_by { |row| row['mcc_mnc_codes'] }
+                       .select { |_code, rows| rows.size > 1 }
+                       .transform_values { |rows| rows.map { |row| row['country_or_area']['en'] } }
+
+      expect(duplicates).to eq({})
+    end
+
+    it 'keeps the owning country and notes the extra-territorial one (OB 1162 Country A / B)' do
+      {
+        '270 77' => %w[Luxembourg Belgium],
+        '274 02' => ['Iceland', 'Faroe Islands'],
+        '542 02' => %w[Fiji Nauru],
+        '228 01' => %w[Switzerland Liechtenstein]
+      }.each do |code, (owner, extra)|
+        row = seed.find { |entry| entry['mcc_mnc_codes'] == code }
+
+        expect(row['country_or_area']['en']).to eq(owner)
+        expect(row['note']['en']).to start_with("Extra-territorial use in #{extra}")
+        expect(row['note'].keys).to eq(%w[en fr es ru zh ar])
+      end
+    end
+  end
+
+  context 'follow-up regressions' do
+    let(:header) do
+      row(cell(paragraph('Country')), cell(paragraph('MCC+MNC')),
+          cell(paragraph('Range')), cell(paragraph('Network')))
+    end
+    let(:home) do
+      row(cell(paragraph('France (Country A)')), cell(paragraph('208 01')),
+          cell(paragraph('A')), cell(paragraph('Home')))
+    end
+    let(:abroad) do
+      row(cell(paragraph('Monaco (Country B – x)')), cell(paragraph('208 01')),
+          cell(paragraph('B')), cell(paragraph('S.A..')))
+    end
+
+    it 'skips headers by content regardless of case spacing or first row' do
+      repeated = row(cell(paragraph('COUNTRY OR GEOGRAPHICAL AREA')), cell(paragraph(' mcc + mnc * ')),
+                     cell(paragraph('MSIN** range to be used')), cell(paragraph('Operators Name')))
+      entries = parse(document(table(row(cell(paragraph(''))), header, home, repeated))).actions.flat_map(&:entries)
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['208 01'])
+      [1094, 1108].each do |issue|
+        path = File.expand_path("../../../../itu-ob-data/issues/#{issue}/amendments.yaml", __dir__)
+        data = YAML.load_file(path, permitted_classes: [Date, Time])
+        msg = data['messages'].find { |m| m['target']['publication'] == 'E212_MNC' }
+        codes = parse(msg['contents']['en']).actions.flat_map(&:entries).map(&:mcc_mnc_codes)
+        expect(codes).to all(match(/\A\d{3} \d{2,3}\z/))
+      end
+    end
+
+    it 'cleans Country A markers punctuation and empty Country B details' do
+      empty = row(cell(paragraph('Andorra (Country B – y)')), cell(paragraph('208 01')),
+                  cell(paragraph('')), cell(paragraph('')))
+      entry = parse(document(table(header, home, abroad, empty))).actions.flat_map(&:entries).first
+      expect(entry.note.en).to eq("Extra-territorial use in Monaco (Country B – x): S.A.; MSIN range B\n" \
+                                'Extra-territorial use in Andorra (Country B – y)')
+    end
+
+    it 'updates country carry-over before skipping a blank code' do
+      spain = row(cell(paragraph('Spain')), cell(paragraph('')), cell(paragraph('')), cell(paragraph('')))
+      carried = row(cell(paragraph('')), cell(paragraph('214 01')), cell(paragraph('')), cell(paragraph('Vodafone')))
+      entries = parse(document(table(header, home, spain, carried))).actions.flat_map(&:entries)
+      expect(entries.map { |e| [e.mcc_mnc_codes, e.country_or_area.en] })
+        .to eq([['208 01', 'France'], ['214 01', 'Spain']])
+    end
+
+    it 'never treats a qualifier-only cell as a country' do
+      odd = row(cell(paragraph('(Country B – x)')), cell(paragraph('208 02')),
+                cell(paragraph('B')), cell(paragraph('Other')))
+      entry = parse(document(table(header, home, odd))).actions.flat_map(&:entries).last
+      expect(entry.country_or_area.en).to eq('France')
+      expect(entry.note.en).to eq('(Country B – x)')
+    end
+
+    it 'pairs Country B before Country A without a duplicate allocation' do
+      entries = parse(document(table(header, abroad, home))).actions.flat_map(&:entries)
+      expect(entries.size).to eq(1)
+      expect(entries.first.country_or_area.en).to eq('France')
+      expect(entries.first.note.en).to eq('Extra-territorial use in Monaco (Country B – x): S.A.; MSIN range B')
+    end
+
+    it 'opens a LIR for a generic extra-territorial heading after an ADD (OB 1296)' do
+      path = File.expand_path('../../../../itu-ob-data/issues/1296/amendments.yaml', __dir__)
+      data = YAML.load_file(path, permitted_classes: [Date, Time])
+      msg = data['messages'].find { |m| m['target']['publication'] == 'E212_MNC' }
+      actions = parse(msg['contents']['en']).actions
+      expect(actions.map { |a| [a.action_type, a.entries.map(&:mcc_mnc_codes)] })
+        .to eq([['ADD', ['228 73']], ['LIR', ['270 07']]])
+    end
+
+    it 'pairs large Country B blocks within a linear work budget' do
+      homes = 8000.times.map do |n|
+        row(cell(paragraph('France (Country A)')), cell(paragraph("208 #{n}")),
+            cell(paragraph('A')), cell(paragraph('Home')))
+      end
+      uses = 8000.times.map do |n|
+        row(cell(paragraph('Monaco (Country B – x)')), cell(paragraph("208 #{n}")),
+            cell(paragraph('B')), cell(paragraph('Away')))
+      end
+      entries = Timeout.timeout(8) { parse(document(table(header, *homes, *uses))).actions.flat_map(&:entries) }
+      expect(entries.size).to eq(8000)
+      expect(entries.map { |e| e.note.en }).to all(include('Extra-territorial use in Monaco'))
     end
   end
 end

@@ -1,3 +1,60 @@
+{% comment %}
+Labels per language, as the official ITU publication prints them
+(T-SP-T.35B-2012-{E,F,S}).
+{% endcomment %}
+{% case lang %}
+    {% when "fr" %}
+        {% assign l_admin = "Nom de l’Administration:" %}
+        {% assign l_manuf = "Existe t-il, dans votre pays, des fabricants d'équipements conformes aux Recommandations des séries H, T ou V ?" %}
+        {% assign l_yes = "OUI" %}
+        {% assign l_no = "NON" %}
+        {% assign l_authorities = "Autorités responsables de l'attribution" %}
+        {% assign l_authority = "Autorité responsable de l'attribution:" %}
+        {% assign l_none = "Aucune n'a été désignée" %}
+        {% assign l_type = "Type de terminal:" %}
+        {% assign l_contact = "Contact:" %}
+        {% assign l_org = "Organisation:" %}
+        {% assign l_dept = "Département:" %}
+        {% assign l_address = "Adresse:" %}
+        {% assign l_tel = "Téléphone:" %}
+        {% assign l_links = "Liens correspondants:" %}
+        {% assign l_updated = "Mise à jour des informations:" %}
+        {% assign months = "janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre" | split: "," %}
+    {% when "es" %}
+        {% assign l_admin = "Nombre de la administración:" %}
+        {% assign l_manuf = "¿Existen fabricantes nacionales de equipos conformes a las Series H, T o V?" %}
+        {% assign l_yes = "SÍ" %}
+        {% assign l_no = "NO" %}
+        {% assign l_authorities = "Autoridades de asignación" %}
+        {% assign l_authority = "Autoridad de asignación:" %}
+        {% assign l_none = "No se ha designado ninguna" %}
+        {% assign l_type = "Tipo de terminal:" %}
+        {% assign l_contact = "Contacto:" %}
+        {% assign l_org = "Organización:" %}
+        {% assign l_dept = "Departmento:" %}
+        {% assign l_address = "Dirección:" %}
+        {% assign l_tel = "Teléfono:" %}
+        {% assign l_links = "Enlaces relacionados:" %}
+        {% assign l_updated = "Información actualizada:" %}
+        {% assign months = "enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre" | split: "," %}
+    {% else %}
+        {% assign l_admin = "Name of Administration:" %}
+        {% assign l_manuf = "National manufacturers of H-, T- or V-Series compliant equipment?" %}
+        {% assign l_yes = "YES" %}
+        {% assign l_no = "NO" %}
+        {% assign l_authorities = "Assignment authorities" %}
+        {% assign l_authority = "Assignment authority:" %}
+        {% assign l_none = "None designated" %}
+        {% assign l_type = "Terminal Type:" %}
+        {% assign l_contact = "Contact name" %}
+        {% assign l_org = "Organization:" %}
+        {% assign l_dept = "Department:" %}
+        {% assign l_address = "Address:" %}
+        {% assign l_tel = "Telephone:" %}
+        {% assign l_links = "Related links:" %}
+        {% assign l_updated = "Information updated:" %}
+{% endcase %}
+
 
 {% case lang %}
     {% when "en" %}
@@ -20,17 +77,17 @@
     Norway
 {%- endif -%}
 
-| Name of Administration: | {{ country.administration_name }}
+| {{ l_admin }} | {{ country.administration_name }}
 
-2+.<| National manufacturers of H-, T- or V-Series compliant equipment?
-{{ country.manufactures_htv | replace: "true", "YES" | replace: "false", "NO"}}
+2+.<| {{ l_manuf }}
+{{ country.manufactures_htv | replace: "true", l_yes | replace: "false", l_no }}
 
 
 {% if country.assignment_authority != "None designated" %}
 
 2+.<|
 {% if country.assignment_authority.size > 1 %}
-    Assignment authorities
+    {{ l_authorities }}
     {%- if country.note -%}
         {%- case lang -%}
             {%- when "en" or "fr" -%}
@@ -40,7 +97,7 @@
         {%- endcase -%}
     {%- endif -%}
 {% else %}
-    Assignment authority:
+    {{ l_authority }}{% if country.assignment_authority.size == 0 %} {{ l_none }}{% endif %}
 {% endif %}
 
 {% for authority in country.assignment_authority %}
@@ -61,23 +118,30 @@
     {% endcase %}
 {% endfor %}
 
-| Terminal Type: | {{ terminalType }}
-| Contact name | {{ authority.contact_name }}
-| Organization: | {{ authority.organization }}
-| Department: | {{ authority.department }}
-| Address: | {{ authority.address }}
-| Telephone: | {{ authority.telephone }}
+| {{ l_type }} | {{ terminalType }}
+| {{ l_contact }} | {{ authority.contact_name }}
+| {{ l_org }} | {{ authority.organization }}
+| {{ l_dept }} | {{ authority.department }}
+| {{ l_address }} | {{ authority.address }}
+| {{ l_tel }} | {{ authority.telephone }}
 | Fax: | {{ authority.fax }}
 | E-mail: | {{ authority.email }}
-| Related links: | {{ authority.related_links }}
-| Information updated: | {{ authority.last_updated | date: "%d %B %Y" }}
+| {{ l_links }} | {{ authority.related_links }}
+{% assign d = authority.last_updated %}{%- capture date_text -%}{%- if lang == "en" -%}{{ d | date: "%d %B %Y" }}{%- else -%}{%- assign mi = d | date: "%-m" | minus: 1 -%}{%- assign ymd = d | date: "%Y-%m-%d" -%}{%- if mi >= 0 and mi < 12 and ymd.size == 10 -%}{{ d | date: "%-d" }}{% if lang == "es" %} de {{ months[mi] }} de {% else %} {{ months[mi] }} {% endif %}{{ d | date: "%Y" }}{%- endif -%}{%- endif -%}{% endcapture %}
+| {{ l_updated }} | {{ date_text }}
 
 {% endfor %}
+
+{% if country.assignment_authority.size == 0 %}
+{% assign d = country.last_updated %}{% capture date_text %}{%- if lang == "en" -%}{{ d | date: "%d %B %Y" }}{%- else -%}{%- assign mi = d | date: "%-m" | minus: 1 -%}{%- assign ymd = d | date: "%Y-%m-%d" -%}{%- if mi >= 0 and mi < 12 and ymd.size == 10 -%}{{ d | date: "%-d" }}{% if lang == "es" %} de {{ months[mi] }} de {% else %} {{ months[mi] }} {% endif %}{{ d | date: "%Y" }}{%- endif -%}{%- endif -%}{% endcapture %}
+| {{ l_updated }} | {{ date_text }}
+{% endif %}
 
 {% else %}
 
 {{ country.assignment_authority }}
-| Information updated: | {{ country.last_updated | date: "%d %B %Y" }}
+{% assign d = country.last_updated %}{%- capture date_text -%}{%- if lang == "en" -%}{{ d | date: "%d %B %Y" }}{%- else -%}{%- assign mi = d | date: "%-m" | minus: 1 -%}{%- assign ymd = d | date: "%Y-%m-%d" -%}{%- if mi >= 0 and mi < 12 and ymd.size == 10 -%}{{ d | date: "%-d" }}{% if lang == "es" %} de {{ months[mi] }} de {% else %} {{ months[mi] }} {% endif %}{{ d | date: "%Y" }}{%- endif -%}{%- endif -%}{% endcapture %}
+| {{ l_updated }} | {{ date_text }}
 
 {% endif %}
 

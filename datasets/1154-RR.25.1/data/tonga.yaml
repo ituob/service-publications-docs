@@ -7,6 +7,8 @@
 groups:
   amateur:
   - regex: A35[:upper:]{2}
+    description: "A35 followed by 2 letters"
 
   experimental:
   - regex: A35X[:upper:]{2}
+    description: "A35 followed by 3 letters, the first of which shall be the letter X"

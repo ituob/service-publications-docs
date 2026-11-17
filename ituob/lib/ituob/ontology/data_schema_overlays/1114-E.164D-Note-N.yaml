@@ -1,0 +1,12 @@
+# Descriptions and model-compatible refinements over the LML-generated schema.
+---
+title: ITU OB Dataset Schema for 1114 E.164D Note N
+description: Schema for ITU Operational Bulletin E.164D Note N data
+items:
+  properties:
+    network:
+      description: Name of the satellite or mobile network
+    cc_ic:
+      description: Country Code and Identification Code in E.164 format
+    status:
+      description: Assignment status of the code

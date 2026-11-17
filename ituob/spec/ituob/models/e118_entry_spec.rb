@@ -86,4 +86,26 @@ RSpec.describe Ituob::Models::E118Entry do
 
     include_examples 'a complete contact'
   end
+
+  context 'with contact values wrapped onto the next printed line' do
+    let(:contact_details) do
+      ['Tel: +358 294 440 500/', "\u00a0\u00a0\u00a0 +358 40 8668 582", 'Fax: +358 294 440 501',
+       'E-mail: jerry@', "\u00a0\u00a0\u00a0\u00a0 marathontelecom.net"]
+    end
+
+    it 'keeps the second telephone number and completes the wrapped e-mail address' do
+      expect(entry.tel).to eq(['+358 294 440 500/ +358 40 8668 582'])
+      expect(entry.fax).to eq(['+358 294 440 501'])
+      expect(entry.email).to eq(['jerry@marathontelecom.net'])
+    end
+  end
+
+  context 'with a continuation that is not a number or an address' do
+    let(:contact_details) { ['Tel: +358 294 440 500/', 'some free text', 'E-mail: a@b.org'] }
+
+    it 'does not fold it into the telephone number' do
+      expect(entry.tel).to eq(['+358 294 440 500/'])
+      expect(entry.email).to eq(['a@b.org'])
+    end
+  end
 end

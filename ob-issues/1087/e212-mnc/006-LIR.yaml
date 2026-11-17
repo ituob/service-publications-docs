@@ -8,10 +8,18 @@ identifier:
 data:
   _class: E212MNCAmendment
   entries:
-  - mcc_mnc_codes: 738 01
+  - mcc_mnc_codes: 340 01
     country_or_area:
-      en: Guyana
-    networks: U-Mobile (Cellular) Inc.
+      en: Guadeloupe
+    networks: Orange Caraïbe
+  - mcc_mnc_codes: 340 03
+    country_or_area:
+      en: Guadeloupe
+    networks: United telecommunications services Caraïbe
+  - mcc_mnc_codes: 340 20
+    country_or_area:
+      en: Guadeloupe
+    networks: Bouygues Telecom
   notes:
   - "*        MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"

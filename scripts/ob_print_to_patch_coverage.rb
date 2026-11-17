@@ -68,7 +68,7 @@ module PrintToPatchCoverage
 
   Line = Struct.new(:issue, :msg_index, :publication, :slug, :text, :source_line,
                     :tokens, keyword_init: true)
-  Patch = Struct.new(:path, :layer, :kind, :tokens, keyword_init: true)
+  Patch = Struct.new(:path, :layer, :kind, :tokens, :numbers, keyword_init: true)
 
   # Normalized (folded, tokens joined by one space) titles of table columns.
   HEADER_CELLS = Set.new([
@@ -91,6 +91,76 @@ module PrintToPatchCoverage
     'country geographical area network administration roa'
   ]).freeze
 
+  ADDITIONAL_HEADER_CELLS = Set.new([
+    'applicant network', 'auto answer', 'company name address carrier code', 'contact name',
+    'country b where the mcc mnc is to be used extra territorially',
+    'country code and trial identification code', 'country geographical area global network',
+    'country geographical area mcc mnc', 'country geographical code', 'country name address',
+    'country or area iso code company code', 'country or area iso code company name address',
+    'date of assigment', 'date of registration', 'date of usage', 'date of withdrawal',
+    'di assigned to telegraph office third and fourth letters office code',
+    'effective date of assignment', 'effective date of registration', 'effective date of withdrawal',
+    'issuer identification number', 'mobile subscription identification number', 'msin',
+    'msin range to be used', 'msin range to be used in country a', 'msin range to be used in country b',
+    'name of assignee', 'name of operator s countries a and b', 'network administration roa',
+    'nom de reseau operateur', 'pais o zona geografica', 'pays ou zone geographique',
+    'pays zone geographique', 'reclamation date'
+  ]).freeze
+  NUMBERED_COUNTRY_CODE_HEADER = /\Acountry \| admd name \| country code 1 \| service name s \| helpdesk \| (?:auto ?answer \| )?contact address\z/
+
+  NUMBERED_HEADER_ROWS = Set.new([
+    '1 | 2 | 3 | 4 | 5', '1 | 2 | 3 | 4 | 5 | 6',
+    '1 | 2 | 3 | 4 | 5a | 5b | 6', '1 | 2 | 3 | 4 | 5a | 5b | 6 | 7',
+    '1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9'
+  ]).freeze
+
+  LIST_VIII_ITEMS = {
+    2 => 'Geographical coordinates', 3 => 'Hours of service', 4 => 'Information on antennas in use',
+    5 => 'Range of azimuth and elevation angles',
+    6 => 'Maximum attainable accuracy in determining orbital positions(?: of space stations)?', 7 => 'Information on system polarization',
+    8 => 'System noise temperature', 9 => 'Ranges of frequencies with the maximum attainable accuracy(?: of frequency measurement for each frequency range)?',
+    10 => 'Ranges of frequencies in which field strength(?: or power flux-density measurements can be performed)?', 11 => 'Minimum value of measurable field strength(?: or power flux-density with indication of attainable accuracy of measurement)?',
+    12 => 'Information available for bandwidth(?: measurements)?', 13 => 'Information available for spectrum occupancy(?: measurements)?',
+    14 => 'Information available for orbit occupancy(?: measurements)?'
+  }.freeze
+  LIST_VIII_LABEL = Regexp.new(
+    '\A[[:space:]]*(?:' + LIST_VIII_ITEMS.map { |n, t| "#{n}\\.[[:space:]]+#{t}" }.join('|') + ')(?=[[:space:]:]|\z)'
+  )
+  LIST_VIII_LABEL_ONLY = Regexp.new(LIST_VIII_LABEL.source + '[[:space:]]*:?[[:space:]]*\z')
+
+  # Remove only fixed layout/directive text; names and codes still need patches.
+  module PageHeading
+    ACTION = /\b(?:ADD|SUP|LIR|REP)(?:1\)?)?\b/
+    module_function
+
+    def values(text)
+      return text unless text.match?(ACTION)
+
+      text.gsub(/\((?:delete|read)\)/i, ' ')
+          .gsub(/\ball information(?:s)? by[[:space:]]*:?/i, ' ')
+          .gsub(/\b(?:by )?(?:Numeric(?:al)?|Alphabetical) order\b/i, ' ')
+          .gsub(/(?<![[:alnum:]])P[[:space:]]*\d+(?:[[:space:]]*(?:,|and|to)[[:space:]]*(?:P[[:space:]]*)?\d+)*/, ' ')
+          .gsub(ACTION, ' ')
+    end
+
+    def match?(text)
+      text.match?(ACTION) && values(text).match?(/\A[[:space:]|*]*\z/)
+    end
+  end
+
+  EXTRA_TERRITORIAL_DEFINITION = 'As defined in Annex E to Recommendation ITU-T E.212, ' \
+    'extra-territorial use of an MCC+MNC is the term used to describe the'.freeze
+  EXTRA_TERRITORIAL_SITUATION = 'situation where an MCC+MNC that has been assigned to an operator in one ' \
+    'country, Country A, is used in another country, Country B, through a base station established in Country B.'.freeze
+  EXTRA_TERRITORIAL_LABELS = Set.new([
+    EXTRA_TERRITORIAL_DEFINITION, EXTRA_TERRITORIAL_SITUATION,
+    "#{EXTRA_TERRITORIAL_DEFINITION} #{EXTRA_TERRITORIAL_SITUATION}",
+    'Extra-territorial use*** of MCC/MNC, Annex E to Recommendation ITU-T E.212',
+    "MSIN: Mobile Subscription Identification Number / numéro d'identification d'abonnement mobile /",
+    "MSIN: Mobile Subscription Identification Number / numéro d'identification d'abonnement mobile / número de",
+    "MSIN: Mobile Subscription Identification Number / numéro d'identification d'abonnement mobile / número de identificación de suscripción al servicio móvil"
+  ]).freeze
+
   # Named exclusion rules, consulted only for lines that did not map.
   # Each: id, reason, matcher(normalized_text, tokens). Filled from the
   # measured unmapped population; see EXCLUSION_RULES below.
@@ -102,14 +172,54 @@ module PrintToPatchCoverage
       reason: 'table column titles ("Country/ geographical area | Company Name/Address ..."): labels of the ' \
               'register fields, repeated on every printed table; the field names live in the register schema',
       match: lambda { |_text, _tokens, cells|
-        cells.any? && cells.all? { |c| c.empty? || HEADER_CELLS.include?(c) || (cells.size >= 3 && c.match?(/\A\d{1,2}[a-z]?\z/)) }
+        NUMBERED_HEADER_ROWS.include?(cells.join(' | ')) ||
+          (cells.any? && cells.all? { |c| c.empty? || HEADER_CELLS.include?(c) })
+      }
+    ),
+    Rule.new(
+      id: 'column_header_vocabulary',
+      reason: 'complete fixed table captions in French/Spanish or longer wording; numeric footnote markers ' \
+              'are allowed only in the full known heading shape',
+      match: lambda { |_text, _tokens, cells|
+        cells.join(' | ').match?(NUMBERED_COUNTRY_CODE_HEADER) ||
+          (cells.any? && cells.all? { |c| c.empty? || HEADER_CELLS.include?(c) || ADDITIONAL_HEADER_CELLS.include?(c) })
       }
     ),
     Rule.new(
       id: 'ordering_directive',
       reason: 'printed insertion-order heading ("Numerical order ADD", "Alphabetical order ADD"); registers are ' \
               'keyed, not ordered, so the directive has no field in a patch',
-      match: ->(_text, tokens, _cells) { tokens.to_a.sort.join(' ').match?(/\A(add|alphabetical|numerical|order)( (add|alphabetical|numerical|order))*\z/) && tokens.size <= 3 }
+      match: ->(_text, tokens, _cells) { tokens.to_a.sort.join(' ').match?(/\A(add|alphabetical|numeric|numerical|order)( (add|alphabetical|numeric|numerical|order))*\z/) && tokens.size <= 3 }
+    ),
+    Rule.new(
+      id: 'page_action_heading',
+      reason: 'page markers and fixed action/order directives only; country names, operator names and codes ' \
+              'must still map to a patch',
+      match: ->(text, _tokens, _cells) { PageHeading.match?(text) }
+    ),
+    Rule.new(
+      id: 'extra_territorial_footnote',
+      reason: 'definition footnote of the extra-territorial-use tables ("*** As defined in Annex E to Recommendation ' \
+              'ITU-T E.212, extra-territorial use of an MCC+MNC ..."), boilerplate repeated on every such table; the ' \
+              'extra-territorial use itself is carried by the patch rows',
+      match: lambda { |text, _tokens, _cells|
+        label = text.gsub(/[[:space:]]+/, ' ').strip.sub(/\A\*+[ ]*/, '')
+        EXTRA_TERRITORIAL_LABELS.include?(label)
+      }
+    ),
+    Rule.new(
+      id: 'bulletin_reference_banner',
+      reason: 'parenthesised pointer to another Operational Bulletin or Recommendation ("(Annex to ITU Operational ' \
+              'Bulletin No. 1161 - 1.XII.2018)", "(According to Recommendation ITU-T Q.708 (03/1999))"); a ' \
+              'cross-reference, not register content',
+      match: ->(text, _tokens, _cells) { text.match?(/\A[[:space:]]*\((?:Annex to ITU Operational Bulletin No\. \d+ [–-] \d{1,2}\.[IVX]+\.\d{4}|According to Recommendation ITU-T Q\.708 \(\d{2}\/\d{4}\))\)[[:space:]]*\z/i) }
+    ),
+    Rule.new(
+      id: 'list_viii_questionnaire_label',
+      reason: 'numbered item label of the fixed List VIII Part III monitoring-station questionnaire ("2. Geographical ' \
+              'coordinates", "9. Ranges of frequencies ..."): the same fourteen headings precede every station ' \
+              'entry; the station values that follow them are what the patch stores',
+      match: ->(text, _tokens, _cells) { text.match?(LIST_VIII_LABEL_ONLY) }
     ),
     Rule.new(
       id: 'glossary_legend',
@@ -136,9 +246,13 @@ module PrintToPatchCoverage
     ),
     Rule.new(
       id: 'shared_mcc_intro',
-      reason: 'introductory sentence of the shared-country-code (882/883) identification-code table; the table ' \
+      reason: 'introductory sentence of the shared-country-code (881/882/883) identification-code table; the table ' \
               'rows carry the data',
-      match: ->(_text, tokens, _cells) { tokens.include?('shared') && tokens.include?('associated') && tokens.include?('networks') }
+      match: lambda { |text, _tokens, _cells|
+        text.gsub(/[[:space:]]+/, ' ').strip.match?(
+          /\A(?:[nopq] )?Associated with shared country code (?:881|882|883), the following (?:one|two|three|four)-digit identification(?: code)?(?: reservations? or assignments?| reservations?| assignments?| withdrawal)? (?:have been made for|has been made for|has been withdrawn from|have been withdrawn (?:from|for)|has been assigned for) the (?:international|GMSS) networks? of:\z/
+        )
+      }
     )
   ].freeze
 
@@ -151,8 +265,28 @@ module PrintToPatchCoverage
       str.to_s.unicode_normalize(:nfkd).gsub(/\p{M}/, '').downcase
     end
 
-    def of(str)
+    # A word and its detached suffix: "38 th" (ordinal), "m 2" / "T 0" (one
+    # letter with a superscript or subscript digit; never "P 24", the page
+    # marker). Printed text and patch values disagree on the space.
+    JOINABLE = /(?<![[:alnum:]])(\d+(?=[[:space:]]+(?:st|nd|rd|th)(?![[:alnum:]]))|[a-oq-z](?=[[:space:]]+\d(?![[:alnum:]])))[[:space:]]+(st|nd|rd|th|\d)(?![[:alnum:]])/
+
+    def words(str)
       fold(str).scan(/[[:alnum:]]+/)
+    end
+
+    # Patch side: the separate words plus the joined form (a superset).
+    def of(str)
+      folded = fold(str)
+      toks = folded.scan(/[[:alnum:]]+/)
+      folded.scan(JOINABLE) { |a, b| toks << (a + b) }
+      toks
+    end
+
+    # Printed side: the joined form replaces its two words, so a patch holding
+    # either spelling ("38th" or "38 th") carries it.
+    def of_print(str)
+      folded = fold(str)
+      folded.gsub(JOINABLE) { "#{Regexp.last_match(1)}#{Regexp.last_match(2)}" }.scan(/[[:alnum:]]+/)
     end
 
     # Add the unpadded form of a numeric token so "03" meets "3".
@@ -362,36 +496,47 @@ module PrintToPatchCoverage
 
     def ob_issue_patch(path)
       kind = File.basename(path) == 'text.yaml' ? :text : :structured
-      Patch.new(path: path, layer: :ob_issues, kind: kind, tokens: tokens_of_file(path))
+      tokens, numbers = tokens_of_file(path)
+      Patch.new(path: path, layer: :ob_issues, kind: kind, tokens: tokens, numbers: numbers)
     end
 
     def change_patch(path)
-      Patch.new(path: path, layer: :changes, kind: :structured, tokens: tokens_of_file(path))
+      tokens, numbers = tokens_of_file(path)
+      Patch.new(path: path, layer: :changes, kind: :structured, tokens: tokens, numbers: numbers)
     end
 
     def tokens_of_file(path)
       data = YAML.safe_load(File.read(path), aliases: true,
                                               permitted_classes: [Date, Time, DateTime, Symbol])
       set = Set.new
+      numbers = Set.new
       if File.basename(path) == 'text.yaml' && data.is_a?(Hash) && data['contents'].is_a?(Hash)
         # Verbatim ProseMirror: tokenise per printed line, the way the source
         # is, so "CS" + "3" in two text nodes is the token "cs3" on both sides.
         Extract.lines(data['contents']).each { |text, _| set.merge(Tok.with_unpadded(Tok.of(text))) }
       end
-      collect(data, set)
-      set
+      collect(data, set, numbers)
+      [set, numbers]
     rescue StandardError => e
       warn "coverage: cannot read #{path}: #{e.class}: #{e.message}"
-      Set.new
+      [Set.new, Set.new]
     end
 
-    def collect(node, set)
+    # A patch value that is only a telephone-style number ("+358 40 8668582"):
+    # its digits with the grouping removed, so a printed regrouping
+    # ("+358 40 866 8582") still meets it.
+    PHONE_VALUE = /\A[+\d][\d +().\/-]*\d\z/
+
+    def collect(node, set, numbers)
       case node
-      when Hash then node.each_value { |v| collect(v, set) }
-      when Array then node.each { |v| collect(v, set) }
+      when Hash then node.each_value { |v| collect(v, set, numbers) }
+      when Array then node.each { |v| collect(v, set, numbers) }
       when Date, Time
         set.merge(Tok.date_tokens(node.year, node.month, node.day))
-      when String then set.merge(Tok.of_patch_value(node))
+      when String
+        set.merge(Tok.of_patch_value(node))
+        digits = node.gsub(/\D/, '')
+        numbers << digits if node.match?(PHONE_VALUE) && digits.size >= 6
       when Integer, Float then set.merge(Tok.of_patch_value(node.to_s))
       end
     end
@@ -429,7 +574,7 @@ module PrintToPatchCoverage
                           detail: by_slug.key(by_slug.values.find { |a| a.include?(hit) }))
       end
 
-      stripped = strip_labels(line)
+      stripped = strip_labels(line) - regrouped_numbers(line, structured)
       if stripped.size < tokens.size && !stripped.empty?
         hit = pick(structured, stripped) ||
               (union_covers?(structured, stripped) ? structured.first : nil)
@@ -437,7 +582,7 @@ module PrintToPatchCoverage
       end
 
       cells = (line.text.include?(' | ') ? line.text.split(' | ') : line.text.split(/[[:space:]]{2,}/))
-              .map { |c| Tok.of(c).join(' ') }
+              .map { |c| Tok.words(c).join(' ') }
       if (rule = EXCLUSION_RULES.find { |r| r.match.call(line.text, tokens, cells) })
         return Result.new(line: line, status: :excluded, detail: rule.id)
       end
@@ -476,11 +621,34 @@ module PrintToPatchCoverage
     # leading page marker ("P 24 Gibraltar SUP": P = the Bulletin page letter).
     LABEL_TOKENS = Set.new(%w[tel fax mail email]).freeze
 
+    PHONE_RUN = /\+?\d[\d ().\/-]*\d/
+
+    # Tokens of printed telephone numbers whose digits, grouping ignored, are
+    # a patch's number: the patch keeps "+358 40 8668582", the print wraps it
+    # "+358 40 866 8582".
+    def regrouped_numbers(line, structured)
+      numbers = structured.flat_map { |p| p.numbers.to_a }
+      return Set.new if numbers.empty?
+
+      covered = Set.new
+      line.text.scan(PHONE_RUN) do |run|
+        digits = run.gsub(/\D/, '')
+        next unless digits.size >= 6 && numbers.include?(digits)
+
+        covered.merge(Tok.with_unpadded(Tok.words(run)))
+      end
+      covered
+    end
+
     def strip_labels(line)
-      text = line.text.sub(/(?<![[:alnum:]])[A-Z][[:space:]]+(?=\d)/, '')
+      text = PageHeading.values(line.text)
+      text = text.sub(LIST_VIII_LABEL, '') if line.slug == 'list-viii'
+      text = text.sub(/\A[[:space:]]*Country code(?: \(CC\))?[[:space:]]*\|/i, '')
+      text = text.sub(/\A[[:space:]]*P[[:space:]]+(?=\d)/, '')
+      text = text.gsub(/(?<![[:alnum:]])(?:Cell|Mobile|Telephone|Tel\.)[[:space:]]*:/i, ' ') # "Mobile:" contact label
       text = text.sub(/\A[^|]*:[[:space:]]*\|/, '')            # "Label: | value" form row
       text = text.sub(/\A[^|?]*\?[[:space:]]+(?=\S+\z)/, '')  # "Label? YES" form row
-      toks = Tok.with_unpadded(Tok.of(text))
+      toks = Tok.with_unpadded(Tok.of_print(text))
       drop_e = toks.include?('mail')
       Set.new(toks.reject { |t| LABEL_TOKENS.include?(t) || (drop_e && t == 'e') })
     end
@@ -551,7 +719,7 @@ module PrintToPatchCoverage
           next
         end
         Extract.lines(contents).each do |text, src_line|
-          tokens = Set.new(Tok.with_unpadded(Tok.of(text)))
+          tokens = Set.new(Tok.with_unpadded(Tok.of_print(text)))
           line = Line.new(issue: issue, msg_index: idx + 1, publication: pub, slug: slug,
                           text: text, source_line: src_line, tokens: tokens)
           @results << @classifier.classify(line, collision: per_slug[slug] > 1)
