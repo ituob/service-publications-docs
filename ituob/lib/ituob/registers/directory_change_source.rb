@@ -44,19 +44,57 @@ module Ituob
       def each_sorted
         return enum_for(:each_sorted) unless block_given?
 
-        yield seed_change if seed_change
+        seed = seed_change
+        yield seed if seed
+        seed_rows = Array(seed&.data).to_h do |row|
+          [Strategies::Base.entry_key(row, @key_field), row]
+        end
+        replayed_keys = []
         each_amendment do |c|
-          # Same-issue patches are superseded only for a catalogued
-          # post-amendment annex; other seeds retain inclusive replay.
+          # The catalog flag permits exclusion only when the seed proves
+          # the whole amendment redundant, including every nested field.
           next if @seed_issue && c.ob_issue_no &&
             (c.ob_issue_no < @seed_issue ||
-             (@seed_includes_seed_issue && c.ob_issue_no == @seed_issue))
+             (@seed_includes_seed_issue && c.ob_issue_no == @seed_issue &&
+               seed && (change_keys(c) & replayed_keys).empty? && included_in_seed?(c, seed_rows)))
 
+          replayed_keys.concat(change_keys(c)) if c.ob_issue_no == @seed_issue
           yield c
         end
       end
 
       private
+
+      def change_keys(change)
+        rows = Strategies::Base.rows_for(change, @key_field)
+        keys = rows.map { |row| Strategies::Base.entry_key(row, @key_field) }
+        keys = [change.identifier.code] if keys.empty? && change.identifier.direct?
+        keys
+      end
+
+      def included_in_seed?(change, seed_rows)
+        rows = Strategies::Base.rows_for(change, @key_field)
+        if change.sup?
+          keys = change_keys(change)
+          return !keys.empty? && keys.all? { |key| !seed_rows.key?(key) }
+        end
+        return false unless change.add? || change.lir?
+        return false if rows.empty?
+
+        rows.all? do |row|
+          seed_row = seed_rows[Strategies::Base.entry_key(row, @key_field)]
+          fields_included?(row, seed_row)
+        end
+      end
+
+      def fields_included?(patch, seed)
+        return patch == seed unless patch.is_a?(Hash)
+        return false unless seed.is_a?(Hash)
+
+        patch.all? do |field, value|
+          seed.key?(field) && fields_included?(value, seed[field])
+        end
+      end
 
       def seed_change
         path = File.join(@seed_path, SEED_FILENAME)

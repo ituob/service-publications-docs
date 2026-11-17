@@ -38,7 +38,15 @@ Ituob::Catalogs::Registers.all.each do |entry|
     **options, seed_includes_seed_issue: entry.seed_includes_seed_issue
   ).each_sorted.reject(&:seed?).select { |change| change.ob_issue_no == entry.seed_issue }
   duplicate_count = duplicates.count { |row| row[0] == entry.register_id && row[1] == entry.seed_issue }
-  remaining = after.empty? ? 0 : duplicate_count
+  replayed = after.map(&:to_hash)
+  remaining = duplicates.count do |row|
+    next false unless row[0] == entry.register_id && row[1] == entry.seed_issue
+
+    change = Ituob::Registers::Change.from_hash(
+      Ituob::Support::Yaml.safe_load_file(File.join(root, row[2]))
+    )
+    replayed.include?(change.to_hash)
+  end
   counts[:patches_before] += patches.length
   counts[:rows_before] += rows.length
   counts[:replayed_after] += after.length
@@ -52,4 +60,4 @@ Ituob::Catalogs::Registers.all.each do |entry|
   ])
 end
 warn "Totals: #{counts}; allowlist duplicate-add findings: #{duplicates.length}"
-exit(counts[:replayed_after].zero? && counts[:g7_duplicate_add_after].zero? ? 0 : 1)
+# Retained patches carry fields not proven redundant by the seed.

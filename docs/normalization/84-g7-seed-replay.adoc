@@ -1,117 +1,75 @@
 = G7: seed-issue replay proof
 
 Issue: ituob/service-publications-docs#84.
-Baseline: main at `7d94b1c1a6425396525dc6e153ee09eece74cd54` (after #66).
-The hypothesis is proven. `DirectoryChangeSource#each_sorted` excluded only
-issues strictly older than the seed, so a post-amendment annex replayed its own
-issue's amendments. ADD/LIR overwrote seed rows; an E.118 SUP/ADD pair removed
-and restored a row already replaced in the seed. This was not necessarily a
-second active entry: replay stores rows by key. Duplicate-add findings measure
-attempted additions of existing keys, not duplicate final hash keys.
+Comparison baseline: main at `26cc6fae`.
+
+== Exclusion contract
+
+A catalogued post-amendment annex permits exclusion of a same-issue ADD or
+LIR only when every keyed patch row is present and every field the patch
+sets has the same value in the seed. Hashes are compared recursively: extra
+seed translations are preserved, but missing or differing patch fields prevent
+exclusion. Arrays and scalar values must match exactly. A SUP is excluded only
+when every target is absent. Unknown actions, unkeyed content and missing seeds
+retain replay. A key touched by an earlier retained seed-issue patch also
+retains replay, so a SUP followed by an otherwise identical ADD restores it.
+Pre-seed and later-issue behavior is unchanged.
+
+Patches with missing or differing fields are replayed in full using the existing
+ADD/LIR update behavior. The printed amendment is the authority for the fields
+it carries, including differently split addresses and effective dates. This
+avoids inventing equivalences between different printed field values.
+Namibia's `1161-0005-ADD-89_264_33.yaml` therefore preserves
+`effective_date: 1.VII.2018`, which is absent from the annex seed.
 
 == Counts
 
-One pass per seeded register, without multiplying historical editions.
-Rows are expanded with the production `Strategies::Base.rows_for` and
-`entry_key`, including multi-row patches. The before columns use the original,
-unflagged directory source. The after columns use the catalog flag.
+These counts enumerate patches, without multiplying historical editions.
+The earlier blanket exclusion removed 22 patches; the content check excludes
+13 and retains 9.
 
-[cols="2,1,1,1,1,1,1",options="header"]
+[cols="2,1,1,1",options="header"]
 |===
-|Register |Seed |Patches before |Keyed rows before |ADD/LIR rows already present |SUP rows already absent |Patches after
-|E118_IIN |1161 |6 |6 |4 |1 |0
-|E164_CC |1114 |1 |0 |0 |0 |0
-|E164_NOTE_PQ |1114 |4 |4 |4 |0 |0
-|E212_MNC |1162 |4 |9 |7 |2 |0
-|Q708_ISPC |1109 |7 |19 |10 |9 |0
-|Total | |22 |38 |25 |12 |0
-|===
-
-The remaining E.118 SUP targets `89 93 01`, followed by ADD of the replacement
-AWCC row already present in the seed. Thus all 38 keyed operations target
-positions already represented by the post-amendment seed; 25 ADD/LIR operations
-reapply existing rows, 12 SUP operations target already-absent rows, and one SUP
-is the first half of that redundant replacement. All become zero after filtering.
-There are 35 distinct keys, since the replacement and duplicate Note PQ patches
-repeat keys. E164_CC's lone patch contains common-note text with no keyed row;
-replay previously fabricated a `1114-0005` country-code entry from its identifier.
-
-All other seeded registers have zero seed-issue patches before and after:
-DP, E164_ACN, E164_NOTE_N, E164_NOTE_O, E212_SHARED_MCC, E218_TRCC, F1,
-F32_TDI, BUREAUFAX, F400_ADMD, M1400_ICC, Q708_SANC, T35_NA, T35_CC,
-X121_DNIC and RR.25.1. External registers have no dataset replay.
-
-== Row and annex evidence
-
-The publication dates in `ob-issues/{issue}/meta.yaml:2` equal the annex
-`position_on` in `ob-issues/{issue}/annexes.yaml:2`: 1161 is 2018-12-01,
-1109 is 2016-10-01, 1114 is 2016-12-15, and 1162 is 2018-12-15.
-The routed Note PQ seed belongs to the same E.164 annex.
-Dates support the row evidence; dates alone are not the proof.
-
-* `datasets/1161-E.118/data.yaml` already has the AWCC replacement for
-  `89 93 01`, Namibia `89 264 33`, and the repeated Austria/Thailand rows;
-  `89 420 06` is absent. Compare its six `changes/1161-*.yaml` patches.
-  Address splitting and effective-date formatting differ between extraction
-  formats, so the rows are not all byte-identical. Skipping replay preserves
-  the annex row in full rather than overwriting its richer representation.
-* `datasets/1114-E.164D-Note-PQ/data.yaml` already has `+883 5140` and
-  Com4 Sweden AB at `+883 190`. The two ADDs and two LIRs in `changes/1114-*`
-  repeat those keys; amendment rows additionally carry `status: assigned`.
-* `datasets/1162-E.212/data.yaml` already has all six ADD codes
-  (`208 23`, `208 29`, `208 33`, `208 500`, `208 700`, `272 18`) and
-  the LIR network SEM@FOR77 at `208 86`. Both withdrawals (`268 02`,
-  `268 07`) are absent. Country translations differ in shape, but the network
-  names agree with `changes/1162-*`.
-* `datasets/1109-Q.708B/data.yaml` already has all three ADD codes
-  (`2-249-2`, `4-090-4`, `4-090-5`) and all seven LIR codes. All nine SUP
-  codes in the two `changes/1109-*-SUP-*` patches are absent. Amendment rows
-  add the country field to the seed's point/operator representation.
-
-The previous reflected-SUP heuristic hid most seed-issue conflicts from the
-skip ledger but still put those changes in history. It did not stop ADD/LIR
-replay. The five real-corpus regression examples fail before the fix (5/5),
-with histories containing the seed plus its own patches. After the fix they
-assert seed-only history, no errors and complete preservation of seed entries.
-Unflagged source tests still apply same-issue patches and retain later issues;
-pre-seed evidence remains available to the existing reflected-SUP heuristic.
-
-== Attribution of #115's duplicate-add findings
-
-The allowlist is on #115, not this main baseline. Reviewed head:
-`dee5447dd69f958241f5a916e68d79439a2aef31`.
-Filter JSONL field 4 equal to `duplicate-add`, then match its register and issue
-to the catalog seed issue. Of *91* duplicate-add findings, *12* are G7:
-
-[cols="2,1,1",options="header"]
-|===
-|Register |G7 before |G7 after
-|E118_IIN |1 |0
-|E164_NOTE_PQ |2 |0
-|E212_MNC |6 |0
-|Q708_ISPC |3 |0
-|Total |12 |0
+|Register |Seed-issue patches |Excluded |Replayed
+|E118_IIN |6 |2 |4
+|E164_CC |1 |0 |1
+|E164_NOTE_PQ |4 |0 |4
+|E212_MNC |4 |4 |0
+|Q708_ISPC |7 |7 |0
+|Total |22 |13 |9
 |===
 
-The AWCC ADD follows a SUP, so it is not one of the duplicate-add findings.
-The remaining *79* findings are not G7. This change neither removes nor
-reclassifies that separate baseline. The after count means none of the 12
-allowlisted G7 additions reaches replay, not that the other findings vanish.
+E.118 retains Afghanistan's SUP/ADD replacement, Namibia's dated ADD and
+Thailand's differently split address. Austria's LIR is fully represented;
+the Czech SUP targets an absent key. Note PQ retains all four patches because
+`status: assigned` differs from seed `status: Assigned`. E164_CC's unkeyed
+common-note amendment is retained conservatively: no matching seed row proves
+its content redundant. Its pre-existing identifier-derived entry behavior is
+unchanged by this fix.
 
-== Reproduce
+All seven E.212 ADD/LIR rows and ten Q.708 ADD/LIR rows are recursively
+contained in the seed; the seed has additional country translations. All
+E.212 and Q.708 SUP targets are already absent. No membership operation or
+patch field is lost by those exclusions.
 
-Run from the repository root with the gem bundle and Ruby 3.4:
+== Verification
+
+The committed corpus regression checks Namibia at issue 1161 and current.
+Focused directory-source specs cover missing/differing fields, nested hashes,
+multi-row amendments, missing seeds, absent/present SUP targets and a retained
+SUP/ADD sequence. E.212 and Q.708 corpus specs preserve complete seed entries.
 
 [source,sh]
 ----
-git show dee5447dd69f958241f5a916e68d79439a2aef31:scripts/register_state_integrity_allowlist.jsonl > /tmp/g7-allowlist.jsonl
-BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby -r liquid scripts/audit_seed_issue_replay.rb /tmp/g7-allowlist.jsonl
-BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby -r liquid scripts/replay_skip_inventory.rb
-BUNDLE_GEMFILE=ituob/Gemfile bundle exec rspec --options /dev/null -I ituob/lib -I ituob/spec -r liquid -r ituob ituob/spec/ituob/registers/directory_change_source_spec.rb ituob/spec/ituob/registers/seed_issue_replay_spec.rb
+BUNDLE_GEMFILE=ituob/Gemfile bundle exec rspec --options /dev/null -I ituob/lib -I ituob/spec ituob/spec/ituob/registers/directory_change_source_spec.rb ituob/spec/ituob/registers/seed_issue_replay_spec.rb ituob/spec/ituob/projections/register_items_spec.rb
+BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby -r liquid scripts/audit_seed_issue_replay.rb
 BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby -r liquid scripts/verify_parser_equivalence.rb --verify
 ----
 
-The audit prints all 21 seeded registers and exits nonzero if any seed-issue
-patch or G7 duplicate-add finding still reaches replay. The skip inventory drops
-from 5 to 4: seed-issue errors go from 1 to 0, while the three source gaps and
-one mis-filed patch remain. Parser baselines and amendment data are unchanged.
+The audit reports retained patches and counts allowlisted duplicate-add findings
+only when the corresponding actual amendment still reaches replay. A retained
+patch is expected when its fields are not proven redundant. The previous claim
+that all 12 G7 duplicate-add findings disappear no longer applies: Namibia and
+the two Note PQ ADDs must remain to preserve their printed fields. The other
+nine G7 findings are redundant exclusions. No patch data or parser baseline
+is modified.

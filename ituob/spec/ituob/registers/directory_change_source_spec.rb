@@ -70,7 +70,7 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
         File.write(File.join(changes_dir, "#{issue}-001-ADD-XYZ.yaml"), {
           'type' => 'ADD', 'ob_issue_no' => issue,
           'identifier' => { 'code' => 'XYZ' },
-          'data' => { 'code' => 'XYZ', 'field' => 'delivery' }
+          'data' => { 'code' => 'ABC', 'field' => 'accounts' }
         }.to_yaml)
       end
     end
@@ -82,6 +82,75 @@ RSpec.describe Ituob::Registers::DirectoryChangeSource do
 
     context 'when the seed already includes its own issue' do
       let(:seed_includes_seed_issue) { true }
+
+      [
+        { 'code' => 'ABC', 'field' => 'different' },
+        { 'code' => 'ABC', 'field' => 'accounts', 'effective_date' => '1.VII.2018' },
+        { 'code' => 'XYZ', 'field' => 'accounts' },
+        { 'code' => 'ABC', 'country' => { 'en' => 'Namibia' } },
+        { 'entries' => [{ 'code' => 'ABC', 'field' => 'accounts' }, { 'code' => 'XYZ' }] },
+        { 'notes' => ['unkeyed content'] }
+      ].each do |payload|
+        it "retains content not fully held by the seed: #{payload.inspect}" do
+          File.write(File.join(changes_dir, '669-001-ADD-XYZ.yaml'), {
+            'type' => 'ADD', 'ob_issue_no' => 669,
+            'identifier' => { 'code' => 'XYZ' }, 'data' => payload
+          }.to_yaml)
+
+          expect(source.each_until(669).map(&:type)).to eq(%w[SEED ADD])
+        end
+      end
+
+      it 'excludes a subset of nested seed fields without requiring all translations' do
+        File.write(File.join(seed_dir, 'data.yaml'), [
+          { 'code' => 'ABC', 'country' => { 'en' => 'Namibia', 'fr' => 'Namibie' } }
+        ].to_yaml)
+        File.write(File.join(changes_dir, '669-001-ADD-XYZ.yaml'), {
+          'type' => 'LIR', 'ob_issue_no' => 669,
+          'identifier' => { 'code' => 'ABC' },
+          'data' => { 'code' => 'ABC', 'country' => { 'en' => 'Namibia' } }
+        }.to_yaml)
+
+        expect(source.each_until(669).map(&:type)).to eq(['SEED'])
+      end
+
+      it 'keeps a SUP when its target is still present in the seed' do
+        File.write(File.join(changes_dir, '669-002-SUP-ABC.yaml'), {
+          'type' => 'SUP', 'ob_issue_no' => 669,
+          'identifier' => { 'code' => 'ABC' },
+          'data' => { 'code' => 'ABC' }
+        }.to_yaml)
+
+        expect(source.each_until(669).map(&:type)).to eq(%w[SEED SUP])
+      end
+
+      it 'replays an otherwise identical ADD after a retained SUP of the same key' do
+        File.write(File.join(changes_dir, '669-000-SUP-ABC.yaml'), {
+          'type' => 'SUP', 'ob_issue_no' => 669,
+          'identifier' => { 'code' => 'ABC' }, 'data' => { 'code' => 'ABC' }
+        }.to_yaml)
+        replay = Ituob::Registers::Replay.new(register_id: 'F1', key_field: 'code', source: source)
+
+        expect(source.each_until(669).map(&:type)).to eq(%w[SEED SUP ADD])
+        expect(replay.at_seed.entry_for('ABC')).to eq('code' => 'ABC', 'field' => 'accounts')
+        expect(replay.at_seed.deleted_keys).to be_empty
+      end
+
+      it 'excludes a SUP only when all of its targets are absent' do
+        File.write(File.join(changes_dir, '669-002-SUP-XYZ.yaml'), {
+          'type' => 'SUP', 'ob_issue_no' => 669,
+          'identifier' => { 'code' => 'XYZ' },
+          'data' => { 'entries' => [{ 'code' => 'XYZ' }, { 'code' => 'NEW' }] }
+        }.to_yaml)
+
+        expect(source.each_until(669).map(&:type)).to eq(['SEED'])
+      end
+
+      it 'retains amendments when the seed file is missing' do
+        FileUtils.rm(File.join(seed_dir, 'data.yaml'))
+
+        expect(source.each_until(669).map(&:type)).to eq(['ADD'])
+      end
 
       it 'excludes same-issue patches while retaining later patches and earlier evidence' do
         expect(source.each_sorted.map(&:ob_issue_no)).to eq([669, 700, 701])
