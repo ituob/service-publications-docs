@@ -26,6 +26,20 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
     end
   end
 
+  def render_rows(rows, lang = 'en')
+    environment = Liquid::Environment.build do |env|
+      env.file_system = Liquid::LocalFileSystem.new(dir, '_%s.liquid')
+    end
+    source = "{% assign lang = \"#{lang}\" %}{% render \"table\", data: rows, lang: lang %}"
+    Liquid::Template.parse(source, environment: environment).render('rows' => rows)
+  end
+
+  def row(country, code, name: 'Office', **extra)
+    { 'country_or_area' => { 'en' => country, 'fr' => country, 'es' => country },
+      'network_roa' => 'ROA', 'network_code' => code[0, 2], 'office_code' => code,
+      'telegraph_office_name' => { 'en' => name } }.merge(extra)
+  end
+
   %w[E F S].each do |suffix|
     it "reads the register from the provider, not the legacy data file, in the #{suffix} document" do
       source = File.read(File.join(dir, "T-SP-F.32-2011-#{suffix}.adoc"))
@@ -60,5 +74,66 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
     expect(render('fr')).to include('Indicateurs de destination (ID) attribués aux bureaux télégraphiques',
                                     'Code de bureau')
     expect(render('es')).to include('Indicadores de destino (ID) atribuidos a oficinas telegráficas')
+  end
+
+  describe 'content the table must not lose' do
+    it 'prints the Saudi Arabia shared-indicator footnotes' do
+      expect(render('en').scan('The same destination indicator').size).to eq(5)
+      expect(render('fr')).to include('Le même indicateur de destination')
+    end
+
+    %w[en fr es].each do |lang|
+      it "leaves no empty office-name cell in the #{lang} table" do
+        expect(render(lang)).not_to match(/^\| *\| [A-Z]{4}(?=footnote|$)/)
+      end
+    end
+
+    it 'names the offices the printed list leaves blank or in bold' do
+      table = render('en')
+
+      expect(edition.items.select { |item| item.telegraph_office_name.nil? || item.telegraph_office_name.en.to_s.strip.empty? }).to be_empty
+      expect(table).to match(%r{\| Palo Alto, California Radio/KFS\s*\| URFS})
+      expect(table).to match(/\| Mobile, Alabama Radio\s*\| URMO/)
+      expect(table).to match(/\| ADEN\s*\| YDAN/)
+    end
+
+    it 'prints French and Spanish names for the offices whose legacy names differ from English' do
+      legacy = Ituob::Support::Yaml.safe_load_file(File.join(root, 'datasets/980-F.32/data.yaml'))
+      by_code = legacy.group_by { |entry| entry['office_code'] }
+      carried = edition.items.select do |item|
+        legacy_name = by_code.fetch(item.office_code, []).map { |entry| entry['telegraph_office_name'] }.compact
+                              .find { |name| name['en'].to_s.strip.casecmp?(item.telegraph_office_name.en.to_s.strip) }
+        legacy_name && legacy_name['fr'].to_s.strip != legacy_name['en'].to_s.strip
+      end
+
+      expect(carried.size).to be >= 70
+      expect(carried).to all(satisfy { |item| item.telegraph_office_name.fr.to_s.strip != '' })
+      sample = carried.first
+      expect(render('fr')).to include(sample.telegraph_office_name.fr)
+    end
+
+    it 'gives each contiguous country run its own rowspan' do
+      table = render_rows([row('AAA', 'AAAA'), row('AAA', 'AAAB'), row('BBB', 'BBAA'), row('AAA', 'AAAC')])
+
+      expect(table.scan(/^\.(\d+)\+/).flatten).to eq(%w[2 1 1])
+    end
+
+    it 'keeps rowspans when an item has no country' do
+      table = render_rows([row('AAA', 'AAAA'), row('AAA', 'AAAB'), { 'office_code' => 'ZZZZ' }, row('BBB', 'BBAA')])
+
+      expect(table.scan(/^\.(\d+)\+/).flatten).to include('2')
+    end
+
+    it 'escapes a pipe in an office name' do
+      table = render_rows([row('AAA', 'AAAA', name: 'Left | Right')])
+
+      expect(table).to include('| Left \\| Right')
+    end
+
+    it 'strips only a trailing 1) from a country name' do
+      table = render_rows([row('AUSTRALIA1)', 'AAAA'), row('PORT 1) ISLAND', 'BBAA')])
+
+      expect(table).to include('*AUSTRALIA*', '*PORT 1) ISLAND*')
+    end
   end
 end
