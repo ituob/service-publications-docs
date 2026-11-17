@@ -888,13 +888,53 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entry.mcc_mnc_codes).to eq('228 01')
     end
 
+    %w[ADD SUP LIR REP].each do |action_type|
+      it "preserves #{action_type} on a code-only extra-territorial heading" do
+        heading = 'Extra-territorial use*** of MCC/MNC, Annex E to Recommendation ITU-T E.212'
+        parsed = parse(document(paragraph(heading), paragraph("270 77 #{action_type}"),
+                                table(header, row(cell(paragraph('Luxembourg')), cell(paragraph('270 77')),
+                                                  cell(paragraph('Proximus Luxembourg S.A.'))))))
+        action = parsed.actions.first
+
+        expect(action.position).to eq(heading)
+        expect(action.action_type).to eq(action_type)
+        expect(action.entries.length).to eq(1)
+        expect(action.entries.first.networks).to eq('Proximus Luxembourg S.A.')
+        expect(action.entries.first.country_or_area.en).to eq('Luxembourg')
+        expect(action.entries.first.extra_territorial_use).to be(true)
+      end
+    end
+
+    it 'opens a separate action when a code-only heading follows populated rows' do
+      heading = 'Extra-territorial use*** of MCC/MNC, Annex E to Recommendation ITU-T E.212'
+      parsed = parse(document(paragraph(heading), paragraph('270 77 ADD'),
+                              table(header, row(cell(paragraph('Luxembourg')), cell(paragraph('270 77')),
+                                                cell(paragraph('First operator')))),
+                              paragraph('270 78 SUP'),
+                              table(header, row(cell(paragraph('Luxembourg')), cell(paragraph('270 78')),
+                                                cell(paragraph('Second operator'))))))
+
+      expect(parsed.actions.map(&:action_type)).to eq(%w[ADD SUP])
+      expect(parsed.actions.map(&:position)).to eq([heading, heading])
+      expect(parsed.actions.map { |action| action.entries.map(&:mcc_mnc_codes) }).to eq([['270 77'], ['270 78']])
+      expect(parsed.actions.flat_map(&:entries).map(&:networks)).to eq(['First operator', 'Second operator'])
+      expect(parsed.actions.flat_map(&:entries).map(&:extra_territorial_use)).to eq([true, true])
+    end
+
     it 'preserves footnotes and extra-territorial details in the real bulletins' do
-      parsed = [981, 983, 989, 1008, 1102, 1280, 1304, 1016].to_h do |issue|
+      parsed = [981, 983, 989, 1008, 1102, 1210, 1280, 1304, 1016].to_h do |issue|
         path = File.expand_path("../../../../itu-ob-data/issues/#{issue}/amendments.yaml", __dir__)
         data = YAML.load_file(path, permitted_classes: [Date, Time])
         message = data['messages'].find { |m| m['target']['publication'] == 'E212_MNC' }
         [issue, parse(message['contents']['en'])]
       end
+      luxembourg = parsed[1210].actions.last.entries
+      expect(luxembourg.length).to eq(1)
+      expect(luxembourg.first.country_or_area.en).to eq('Luxembourg')
+      expect(luxembourg.first.networks).to eq('Proximus Luxembourg S.A.')
+      expect(luxembourg.first.range).to eq('000 x xxx xxx')
+      expect(luxembourg.first.extra_territorial_use).to be(true)
+      expect(luxembourg.first.note.en).to include('Belgium', '800 x xxx xxx', 'Annex E')
       australia = parsed[981].actions.flat_map(&:entries).select { |entry| ['505 62', '505 68'].include?(entry.mcc_mnc_codes) }
       shared = parsed[983].actions.last.entries
       expect(australia.length).to eq(2)

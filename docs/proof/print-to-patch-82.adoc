@@ -64,6 +64,7 @@ dependency. Remaining unrelated unmapped lines are retained in the report.
   remains register amendment metadata in the action patches.
 * E.212 repeated marker definitions close their preceding announcement group.
   An explicit different marker prevents the unmarked-preceding fallback.
+  OB 1210 retains the code/action heading without inventing a network row.
   OB 983 loses only the earlier group's incorrectly attached date note;
   its own date remains. OB 981's SUP 1 date remains with 901 25, not Australia.
 * ActionSplitter leaves already separated printed actions intact, preserving
@@ -78,14 +79,14 @@ dependency. Remaining unrelated unmapped lines are retained in the report.
   normalizer losses were also reproduced before their fixes. Final parser and
   normalizer specs: 36 examples, zero failures.
 * E.212 repeated-marker and mismatched-marker regressions failed before;
-  final E.212 specs: 82 examples, zero failures.
+  final E.212 specs: 87 examples, zero failures.
 * Inherited schema/ontology/patch-generation focused checks: 121 examples,
   zero failures (including the E.212 specs before the additional scope tests).
 * Regenerated E.164: 59 issues, 104 entries; every entry scalar was checked
   against printed source, and all entries, action types and notes survive the
   normalization pipeline. Routed changes for all four E.164 registers refreshed.
-* E.212 parser comparison: 353 messages, only the intended OB 983 note correction
-  beyond the dependency. Affected normalized patch and routed change refreshed.
+* E.212 parser comparison: 353 messages, only OB 983's note correction and OB 1210's phantom-heading removal
+  beyond the dependency. Affected normalized patches and routed changes refreshed.
 
 NOT RUN locally: full suite, full PDF render (requested resource restriction),
 RuboCop (executable unavailable in the gem bundle). Printed-source checks use the
@@ -101,3 +102,12 @@ passes after the normalizer fixes (one example).
 focused-quality: complete assigned code/spec/report diff and interactions;
 resolved shared-date association and normalizer preservation defects; no
 remaining actionable finding in the examined implementation.
+
+The final changed-entry audit checked 537 candidate entries across 187 changed
+patches against exact printed code rows and announcement context. It matched
+858 changed text values and separately checked 13 derived extra-territorial
+flags. Review identified the OB 1210 action-heading phantom among those
+candidates; removing it leaves 536 data entries. The real Luxembourg row,
+its Belgian extra-territorial use and range remain intact. Explicit
+code-heading ADD/SUP/LIR/REP types are preserved by focused regressions.
+The existing normalizer pipeline/structural specs also pass (46 examples).

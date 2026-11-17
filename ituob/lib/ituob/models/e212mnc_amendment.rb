@@ -260,6 +260,16 @@ attribute :country, :string
               next
             end
 
+            # An extra-territorial table may print its code and action
+            # on a separate line; the operator is supplied by its rows.
+            if (code_heading = stripped.match(/\A\d{3}\s+\d{2,3}\s+(ADD|SUP|LIR|REP)\z/))
+              heading = headings[action]
+              action = next_action(amendment, action) if action.entries.any?
+              headings[action] = heading || stripped
+              action.action_type = code_heading[1]
+              next
+            end
+
             # Handle continuation paragraphs: "334 010 Network..." that
             # extend the previous country's entry list. These may have
             # leading whitespace that makes first_elem look too short.
