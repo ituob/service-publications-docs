@@ -132,6 +132,7 @@ module Ituob
         # Ontology names for the lossless corpus value types
         # (see DateOrText, HashOrText, HashOrList).
         LOSSLESS_TYPES = {
+          "AnnexPublicationId" => "Ituob::Models::AnnexPublicationId",
           "DateOrText" => "Ituob::Models::DateOrText",
           "HashOrText" => "Ituob::Models::HashOrText",
           'HashOrList' => 'Ituob::Models::HashOrList'
