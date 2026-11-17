@@ -16,6 +16,7 @@ on:
       - 'ituob/**'
       - 'datasets/**'
       - 'catalogs/**'
+      - 'scripts/generate_data_schemas.rb'
 
 jobs:
   rspec:

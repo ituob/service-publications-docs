@@ -12,7 +12,7 @@
 require 'lutaml/lml'
 require 'yaml'
 
-ROOT = File.expand_path('..', __dir__)
+ROOT = File.expand_path(ENV.fetch('ITUOB_SCHEMA_ROOT', File.join(__dir__, '..')))
 ONTOLOGY_DIR = File.join(ROOT, 'ituob/lib/ituob/ontology')
 MAPPING = YAML.load_file(File.join(ONTOLOGY_DIR, 'data_schemas.yaml'))
 DOC = Lutaml::Lml.parse_document(File.open(File.join(ONTOLOGY_DIR, 'messages.lml')))
@@ -50,21 +50,62 @@ end
 
 # Legacy constraints the LML cannot express yet (required lists, descriptions,
 # formats, narrower language sets) live in ontology/data_schema_overlays/<slug>.yaml
-# and are deep-merged over the generated schema; an explicit null deletes a key.
-def overlay(base, patch)
-  return patch unless base.is_a?(Hash) && patch.is_a?(Hash)
+# and are merged over the generated schema; an explicit null deletes a key.
+# An overlay may only refine what the LML generated: it fails loudly when it
+# names a property the LML no longer has, or uses an unknown JSON-schema keyword.
+KEYWORDS = %w[type description required properties items additionalProperties format title $schema enum pattern examples].freeze
 
+def overlay(base, patch, where, errors)
+  unless patch.is_a?(Hash)
+    errors << "#{where}: overlay node must be a mapping"
+    return base
+  end
+
+  base ||= {}
   patch.each_with_object(base.dup) do |(key, value), out|
+    unless KEYWORDS.include?(key)
+      errors << "#{where}: unknown overlay key #{key.inspect}"
+      next
+    end
     if value.nil? then out.delete(key)
-    else out[key] = overlay(base[key], value)
+    elsif key == 'properties' then out[key] = overlay_properties(base[key], value, "#{where}.properties", errors)
+    elsif key == 'items' && base[key].is_a?(Hash) then out[key] = overlay(base[key], value, "#{where}.items", errors)
+    else out[key] = value
     end
   end
 end
 
+def overlay_properties(base, patch, where, errors)
+  # A Hash-typed LML attribute has no properties of its own: the overlay
+  # describes its shape. Where the LML does define properties it is binding.
+  free_shape = base.nil?
+  base ||= {}
+  return (errors << "#{where}: must be a mapping"; base) unless patch.is_a?(Hash)
+
+  patch.each_with_object(base.dup) do |(name, value), out|
+    unless free_shape || base.key?(name)
+      errors << "#{where}.#{name}: not in the LML-generated schema (dropped from the LML?)"
+      next
+    end
+    if value.nil? then out.delete(name)
+    else out[name] = overlay(base[name], value, "#{where}.#{name}", errors)
+    end
+  end
+end
+
+errors = []
+overlay_dir = File.join(ONTOLOGY_DIR, 'data_schema_overlays')
+Dir.glob(File.join(overlay_dir, '*.yaml')).each do |path|
+  slug = File.basename(path, '.yaml')
+  errors << "#{slug}: overlay file has no entry in data_schemas.yaml" unless MAPPING.key?(slug)
+end
+
+outputs = {}
 MAPPING.sort.each do |slug, class_name|
-  klass = CLASSES[class_name] or abort "#{slug}: no LML class #{class_name}"
+  klass = CLASSES[class_name]
   dir = File.join(ROOT, 'datasets', slug)
-  abort "#{slug}: no dataset directory" unless File.directory?(dir)
+  (errors << "#{slug}: no LML class #{class_name}"; next) unless klass
+  (errors << "#{slug}: no dataset directory"; next) unless File.directory?(dir)
 
   title = "ITU OB Dataset Schema for #{slug.sub(/\A\d+-/, '')} (generated from LML #{class_name})"
   schema = {
@@ -73,10 +114,23 @@ MAPPING.sort.each do |slug, class_name|
     'type' => 'array',
     'items' => object_schema(klass),
   }
-  overlay_path = File.join(ONTOLOGY_DIR, 'data_schema_overlays', "#{slug}.yaml")
-  schema = overlay(schema, YAML.load_file(overlay_path)) if File.file?(overlay_path)
+  overlay_path = File.join(overlay_dir, "#{slug}.yaml")
+  if File.file?(overlay_path)
+    patch = YAML.load_file(overlay_path)
+    schema = overlay(schema, patch, slug, errors)
+  end
   header = "# GENERATED from ituob/lib/ituob/ontology/messages.lml (#{class_name}) - do not edit.\n" \
            "# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb\n"
-  File.write(File.join(dir, 'schema-data.yaml'), header + YAML.dump(schema))
-  puts "wrote datasets/#{slug}/schema-data.yaml"
+  outputs[File.join(dir, 'schema-data.yaml')] = header + YAML.dump(schema)
+end
+
+unless errors.empty?
+  warn "generate_data_schemas: #{errors.size} error(s); nothing was written:"
+  errors.each { |e| warn "  - #{e}" }
+  exit 1
+end
+
+outputs.each do |path, body|
+  File.write(path, body)
+  puts "wrote #{path.delete_prefix("#{ROOT}/")}"
 end
