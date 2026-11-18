@@ -3,6 +3,7 @@
 require 'spec_helper'
 require 'ituob/models'
 require 'ituob/helpers'
+require 'timeout'
 
 RSpec.describe Ituob::Models::M1400Amendment do
   def text_node(text)
@@ -539,6 +540,33 @@ RSpec.describe Ituob::Models::M1400Amendment do
   end
 
   describe 'printed contact and address details' do
+    it 'preserves a long internal separator run and trims the trailing run quickly' do
+      name = "Dr #{';— ' * 30_000}Smith"
+      amendment = Timeout.timeout(2) do
+        described_class.parse(doc(paragraph('Germany / DEU ADD'),
+          table(row(cell(paragraph('Company')), cell(paragraph('CODE')),
+                    cell(paragraph("#{name}; —\t;"))))))
+      end
+
+      expect(amendment.actions.first.entries.first.contact).to eq(name)
+    end
+
+    [
+      ["Dr Smith; —\t;", 'Dr Smith'],
+      ["Dr Smith\nJones; —", 'Dr Smith Jones'],
+      ['Dr; — Smith', 'Dr; — Smith'],
+      ['; — ;', '; — ;'],
+      ['', '']
+    ].each do |printed, expected|
+      it "preserves contact trimming and fallback for #{printed.inspect}" do
+        amendment = described_class.parse(doc(paragraph('Germany / DEU ADD'),
+          table(row(cell(paragraph('Company')), cell(paragraph('CODE')),
+                    cell(paragraph(printed))))))
+
+        expect(amendment.actions.first.entries.first.contact).to eq(expected)
+      end
+    end
+
     ['Mr Andreas Bantel', 'Mr Marcus Eitel', 'Mr Andreas Bartel',
      'TeleData Network Operation Center'].each do |name|
       it "keeps the telephone separate from #{name}" do

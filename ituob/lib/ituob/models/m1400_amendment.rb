@@ -228,7 +228,9 @@ attribute :notes, :string, collection: true
               end
               entry.carrier_code = Ituob::Helpers.strip_legacy(row[1][0]) rescue nil
               contact_text = Ituob::Helpers.replace_legacy_space(Array(row[2]).join('; '))
-              contact = contact_text.split(Ituob::Helpers::CONTACT_LABEL, 2).first.to_s.strip.sub(/[;\s—]+\z/, '')
+              contact = contact_text.split(Ituob::Helpers::CONTACT_LABEL, 2).first.to_s.strip
+              # Search backwards once instead of retrying a trailing run at every separator.
+              contact = contact[0, (contact.rindex(/[^;\s—]/) || -1) + 1]
               entry.contact = contact.empty? ? Ituob::Helpers.strip_legacy(row[2]&.first) : contact
               entry.fax = Ituob::Helpers.isolate_key(row[2], 'Fax')
               entry.tel = Ituob::Helpers.isolate_key(row[2], 'Tel')
