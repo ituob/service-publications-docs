@@ -4,16 +4,20 @@ date_active:
 ob_issue_no: '1008'
 reference: OB-1008
 identifier:
-  code: P 17
+  code: P 17 International mobile, shared code ADD
 data:
   _class: E212MNCAmendment
-  position: P 17
+  position: P 17 International mobile, shared code ADD
   entries:
   - mcc_mnc_codes: 901 36
     country_or_area:
       en: International mobile, shared code
     networks: Azerfon LLC
+    note:
+      en: 1              As from 15 June 2012
+    effective_date: 15 June 2012
   notes:
+  - 1              As from 15 June 2012
   - ______________
   - "*         MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"

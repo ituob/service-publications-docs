@@ -4,12 +4,14 @@ date_active:
 ob_issue_no: '1151'
 reference: OB-1151
 identifier:
-  code: P 18
+  code: P 18 Note p) +883 110 LIR
 data:
   _class: E164CCAmendment
-  position: P 18
+  position: P 18 Note p) +883 110 LIR
   entries:
-  - applicant: Syniverse Technologies, LLC
+  - notes:
+    - p
+    applicant: Syniverse Technologies, LLC
     network: Syniverse Technologies, LLC
     cc_ic: "+883 110"
     status: Assigned

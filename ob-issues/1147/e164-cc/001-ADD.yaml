@@ -4,15 +4,19 @@ date_active:
 ob_issue_no: '1147'
 reference: OB-1147
 identifier:
-  code: P 18
+  code: P 18 Note p) +883 250 ADD*
 data:
   _class: E164CCAmendment
-  position: P 18
+  position: P 18 Note p) +883 250 ADD*
   entries:
-  - applicant: MessageBird B.V.
+  - notes:
+    - p
+    applicant: MessageBird B.V.
     network: MessageBird B.V.
     cc_ic: "+883 250"
     status: Assigned
+    effective_date: 11.IV.2018
   notes:
+  - "* 11.IV.2018"
   - Notes common to Numerical and Alphabetical lists of Recommendation ITU-T E.164
     assigned country codes

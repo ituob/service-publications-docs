@@ -4,9 +4,10 @@ date_active:
 ob_issue_no: '1147'
 reference: OB-1147
 identifier:
-  code: 1147-003
+  code: Extra-territorial use*** of MCC/MNC, Annex E to Recommendation ITU-T E.212
 data:
   _class: E212MNCAmendment
+  position: Extra-territorial use*** of MCC/MNC, Annex E to Recommendation ITU-T E.212
   entries:
   - mcc_mnc_codes: 270 77
     country_or_area:
@@ -17,6 +18,7 @@ data:
         used extra-territorially): Tango S.A.; MSIN range 800 x xxx xxx; 801 x xxx
         xxx'
     range: 000 x xxx xxx
+    extra_territorial_use: true
   notes:
   - "*MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
     para el servicio móvil"

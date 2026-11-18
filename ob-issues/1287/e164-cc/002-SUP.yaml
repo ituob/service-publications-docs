@@ -4,20 +4,39 @@ date_active: *1
 ob_issue_no: '1287'
 reference: OB-1287
 identifier:
-  code: Note q)
+  code: Note q) +883 5100, +883 5110 SUP**
 data:
   _class: E164CCAmendment
-  position: Note q)
+  position: Note q) +883 5100, +883 5110 SUP**
   entries:
-  - applicant: Voxbone SA
+  - notes:
+    - q
+    - 'q Associated with shared country code 883, the following four-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: Voxbone SA
     network: Voxbone SA
     cc_ic: "+883 5100"
     status: Withdrawn
-  - applicant: Bandwidth.com Inc
+    effective_date: 7.II.2024
+  - notes:
+    - q
+    - 'q Associated with shared country code 883, the following four-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: Bandwidth.com Inc
     network: Bandwidth.com Inc
     cc_ic: "+883 5110"
     status: Withdrawn
+    effective_date: 7.II.2024
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservation or assignment has been made for the international networks of:'
+  - "* 6.II.2024"
+  - 'q Associated with shared country code 883, the following four-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
+  - "** 7.II.2024"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

@@ -11,6 +11,8 @@ module Ituob
       attribute :cc_ic, :string
       attribute :status, :string, values: %w[Assigned Reserved Spare]
       attribute :formerly, :string
+      attribute :notes, :string, collection: true
+      attribute :effective_date, :string
     end
   end
 end

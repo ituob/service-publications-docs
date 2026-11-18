@@ -10,8 +10,10 @@ data:
     en: Luxembourg
   networks: Bouygues Telecom S.A.
   note:
-    en: 'Extra-territorial use in France (Country B – Where the MCC+MNC is to be used
-      extra-territorially): Bouygues Telecom S.A.; MSIN range 270 07 60 XX XX XX XX'
+    en: |-
+      Extra-territorial use in France (Country B – Where the MCC+MNC is to be used extra-territorially): Bouygues Telecom S.A.; MSIN range 270 07 60 XX XX XX XX
+      ***        As defined in Annex E to Recommendation ITU-T E.212, extra-territorial use of an MCC+MNC is the term used to describe the   situation where an MCC+MNC that has been assigned to an operator in one country, Country A, is used in another country, Country B, through a base station established in Country B.
   range: 270 07 00 0X XX XX XX
+  extra_territorial_use: true
 reference: OB-1296
 date_active: 2018-11-14 23:00:00.000000000 Z

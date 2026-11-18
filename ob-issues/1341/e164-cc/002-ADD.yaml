@@ -4,20 +4,33 @@ date_active: *1
 ob_issue_no: '1341'
 reference: OB-1341
 identifier:
-  code: Note p)
+  code: Note p) +883 180, +883 270 ADD
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 180, +883 270 ADD
   entries:
-  - applicant: Bondio Limited
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for IoT/M2M of, with some exceptions
+      made for other uses due to historical reasons:'
+    applicant: Bondio Limited
     network: Bondio Limited
     cc_ic: "+883 180"
     status: Assigned
-  - applicant: Onomondo ApS
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for IoT/M2M of, with some exceptions
+      made for other uses due to historical reasons:'
+    applicant: Onomondo ApS
     network: Onomondo ApS
     cc_ic: "+883 270"
     status: Assigned
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for IoT/M2M of, with some exceptions
+    made for other uses due to historical reasons:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

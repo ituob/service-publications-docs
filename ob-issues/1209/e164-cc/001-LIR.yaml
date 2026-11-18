@@ -4,16 +4,24 @@ date_active: *1
 ob_issue_no: '1209'
 reference: OB-1209
 identifier:
-  code: Note p)
+  code: Note p) +883 320 LIR
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 320 LIR
   entries:
-  - applicant: Tele2 Sverige Aktiebolag
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: Tele2 Sverige Aktiebolag
     network: Tele2 Sverige Aktiebolag
     cc_ic: "+883 320"
     status: Assigned
     formerly: Tele2 IoT
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

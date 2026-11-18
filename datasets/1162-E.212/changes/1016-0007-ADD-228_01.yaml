@@ -1,4 +1,4 @@
-type: LIR
+type: ADD
 register: E212_MNC
 recommendation: E.212
 ob_issue_no: '1016'
@@ -7,9 +7,12 @@ identifier:
 data:
   mcc_mnc_codes: 228 01
   country_or_area:
-    en: P  40  Switzerland   ADD
+    en: Switzerland
   networks: Swisscom (Schweiz AG)
+  note:
+    en: Extra-territorial use in Principality of Liechtenstein
   range: 20XXXXXXXX-35XXXXXXXX 38XXXXXXXX 40XXXXXXXX-44XXXXXXXX 47XXXXXXXX 52XXXXXXXX
     59XXXXXXXX 60XXXXXXXX-62XXXXXXXX 72XXXXXXXX 77XXXXXXXX 80XXXXXXXX (Switzerland)
     37XXXXXXXX (Liechtenstein)
+  extra_territorial_use: true
 reference: OB-1016

@@ -4,12 +4,14 @@ date_active: *1
 ob_issue_no: '1001'
 reference: OB-1001
 identifier:
-  code: P 17
+  code: P 17 Note o) +882 24 (TeliaSonera Sverige AB) SUP*
 data:
   _class: E164CCAmendment
-  position: P 17
+  position: P 17 Note o) +882 24 (TeliaSonera Sverige AB) SUP*
   entries:
-  - applicant: TeliaSonera Sverige AB
+  - notes:
+    - o
+    applicant: TeliaSonera Sverige AB
     network: TeliaSonera Sverige AB
     cc_ic: "+882 24"
     status: Withdrawn

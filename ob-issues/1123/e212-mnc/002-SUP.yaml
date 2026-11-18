@@ -4,9 +4,10 @@ date_active:
 ob_issue_no: '1123'
 reference: OB-1123
 identifier:
-  code: 1123-002
+  code: Spain SUP
 data:
   _class: E212MNCAmendment
+  position: Spain SUP
   entries:
   - mcc_mnc_codes: 214 10
     country_or_area:
@@ -36,4 +37,6 @@ data:
     country_or_area:
       en: Spain
     networks: Fonyou Telecom, SL
-  notes: []
+  notes:
+  - "*  This designation is without prejudice to positions on status, and is in line
+    with UNSCR 1244 and the ICJ Opinion on the Kosovo declaration of independence."

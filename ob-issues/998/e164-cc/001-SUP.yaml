@@ -4,15 +4,19 @@ date_active: *1
 ob_issue_no: '998'
 reference: OB-998
 identifier:
-  code: P 17
+  code: P 17 Note o) +882 43 SUP*
 data:
   _class: E164CCAmendment
-  position: P 17
+  position: P 17 Note o) +882 43 SUP*
   entries:
-  - applicant: Beeline
+  - notes:
+    - o
+    applicant: Beeline
     network: Beeline
     cc_ic: "+882 43"
     status: Withdrawn
+    effective_date: 31 January 2012
   notes:
+  - "* 31 January 2012"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

@@ -4,17 +4,18 @@ date_active:
 ob_issue_no: '1114'
 reference: OB-1114
 identifier:
-  code: Note p)
+  code: Note p) +883 190 LIR
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 190 LIR
   entries:
-  - applicant: Com4 Sweden AB
+  - notes:
+    - p
+    applicant: Com4 Sweden AB
     network: Com4 Sweden AB
     cc_ic: "+883 190"
     status: assigned
   notes:
-  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
-    assigned country codes
+  - "* 15.IV.2014"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

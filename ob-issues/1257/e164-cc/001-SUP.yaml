@@ -4,17 +4,27 @@ date_active: *1
 ob_issue_no: '1257'
 reference: OB-1257
 identifier:
-  code: Note o)
+  code: Note o) +882 34 SUP*
 data:
   _class: E164CCAmendment
-  position: Note o)
+  position: Note o) +882 34 SUP*
   entries:
-  - applicant: BebbiCell AG
+  - notes:
+    - o
+    - 'o Associated with shared country code 882, the following two-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: BebbiCell AG
     network: BebbiCell AG
     cc_ic: "+882 34"
     status: Withdrawn
     formerly: Global Networks Switzerland AG
+    effective_date: 1.XII.2022
   notes:
+  - 'o Associated with shared country code 882, the following two-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
+  - "* 1.XII.2022"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

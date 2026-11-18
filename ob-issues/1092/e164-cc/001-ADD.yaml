@@ -4,15 +4,19 @@ date_active:
 ob_issue_no: '1092'
 reference: OB-1092
 identifier:
-  code: P 17
+  code: P 17 Note o) +882 48 ADD*
 data:
   _class: E164CCAmendment
-  position: P 17
+  position: P 17 Note o) +882 48 ADD*
   entries:
-  - applicant: Sawatch Limited
+  - notes:
+    - o
+    applicant: Sawatch Limited
     network: EchoStar Mobile Limited
     cc_ic: "+882 48"
     status: Assigned
+    effective_date: 15 December 2015
   notes:
+  - "* 15 December 2015"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
