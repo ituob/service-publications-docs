@@ -145,7 +145,8 @@ attribute :notes, :string, collection: true
               heading_country, heading_iso = heading.sub(/\AP \S+ (?:to P \S+ )?/, '').split(' / ', 2)
               next unless heading_country && !heading_country.empty? && heading_iso&.match?(/\A[A-Z]{3}\z/)
 
-              action.note = segs[1]
+              # Short leading fragments are part of the joined heading, not notes.
+              action.note = first_elem.length < 3 ? nil : segs[1]
               action.action_type = nil
               if Ituob::Catalogs::ActionTypes.valid?(fixed_str.split.last)
                 if m = fixed_str.match(/[A-Z]{3}\*$/)
