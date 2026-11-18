@@ -4,13 +4,14 @@ date_active: *1
 ob_issue_no: '1197'
 reference: OB-1197
 identifier:
-  code: Germany (Federal Republic of)/DEU
+  code: Germany (Federal Republic of) / DEU
 data:
   _class: M1400Amendment
-  position: Germany (Federal Republic of)/DEU
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - country_or_area:
-      en: Germany (Federal Republic of)/DEU
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
     company_name: FONLUTION Telekommunikations GmbH
     address_line_1: Harrlachweg 1
     address_line_2: D-68163 MANNHEIM

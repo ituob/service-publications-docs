@@ -8,16 +8,31 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - company_name: Germany (Federal Republic of) DEU
-  - company_name: Stern Kom GmbH
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Germany (Federal Republic of) DEU
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Stern Kom GmbH
     carrier_code: STERN
-  - company_name: Kurf 11a
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Kurf 11a
     contact: 'Tel:           + 49 8053 209798'
     tel: "+ 49 8053 209798"
-  - company_name: 83093 Bad Endorf
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 83093 Bad Endorf
     contact: 'Fax:           + 49 8053 2329'
     fax: "+ 49 8053 2329"
-  - contact: 'E-mail:     info@sternkom.de'
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:     info@sternkom.de'
     email:
     - info@sternkom.de
   notes: []
