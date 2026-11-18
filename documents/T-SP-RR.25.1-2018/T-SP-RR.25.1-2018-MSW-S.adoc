@@ -46,11 +46,14 @@ NOTE: La forma de agrupar o presentar los datos adoptada en este Anexo no supone
 
 [cols="<,^.^,^.^,^.^,^.^",options="unnumbered"]
 |===
-.2+^.^h| Administración del país o zona geográfica
-2+h| ENTRE ESTACIONES DE PAÍSES DISTINTOS
-.2+h| Observaciones y restricciones impuestas
-h| Forma de los distintivos de llamada
-h| Permitidas h| Prohibidas h| Páginas
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"1154-RR.25.1","as_of":1154}}]
+----
+.2+^.^h| {{ edition.metadata.locale | where: "key", "rr251_administration" | map: "es" | first }}
+2+h| {{ edition.metadata.locale | where: "key", "rr251_between" | map: "es" | first }}
+.2+h| {{ edition.metadata.locale | where: "key", "rr251_remarks" | map: "es" | first }}
+h| {{ edition.metadata.locale | where: "key", "rr251_form" | map: "es" | first }}
+h| {{ edition.metadata.locale | where: "key", "rr251_permitted" | map: "es" | first }} h| {{ edition.metadata.locale | where: "key", "rr251_forbidden" | map: "es" | first }} h| {{ edition.metadata.locale | where: "key", "rr251_pages" | map: "es" | first }}
+----
 ^.^h| 1 h| 2 h| 3 h| 4 h| 5
 
 | Afganistán | x | | {blank}footnote:res[Esta administración no ha manifestado explícitamente su postura. En cuanto al procedimiento de consulta se supone que la administración no ha presentado objeciones a las radiocomunicaciones entre estaciones de aficionado de su país y estaciones de otros países (véase la Carta circular CR/430 del 14 de mayo de 2018).] |
@@ -316,16 +319,16 @@ h| Permitidas h| Prohibidas h| Páginas
 
 |===
 
-[yaml2text,countries=../../datasets/1154-RR.25.1/countries.yaml,metadata=../../datasets/1154-RR.25.1/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"1154-RR.25.1","as_of":1154}}]
 ----
-{% assign lang = "es" %}
+{% assign countries = edition.countries %}{% assign metadata = edition.metadata %}{% assign lang = "es" %}
 {% render "table", countries: countries, metadata: metadata, lang: lang %}
 
 == ENMIENDAS
 
 [cols="^,^,^",options="unnumbered,header"]
 |===
-| Enmienda N. | Boletín de Explotación N. | Administración
+| {{ metadata.locale | where: "key", "amendment_number" | map: lang | first }} | {{ metadata.locale | where: "key", "bulletin_number" | map: lang | first }} | {{ metadata.locale | where: "key", "administration" | map: lang | first }}
 
 {% for i in (1..30) %}
 | {{ i }} | |
