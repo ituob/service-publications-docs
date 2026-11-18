@@ -1,0 +1,25 @@
+type: ADD
+register: Q708_ISPC
+recommendation: Q.708
+ob_issue_no: '1348'
+identifier:
+  code: 6-105-2
+data:
+  _class: Q708ISPCAmendment
+  entries:
+  - ipsc: 6-105-2
+    country:
+      en: Botswana
+    dec: '13130'
+    signal_point_name: SIG-GAB-DSC161-STP
+    signal_point_operator: Orange Botswana
+  - ipsc: 6-105-3
+    country:
+      en: Botswana
+    dec: '13131'
+    signal_point_name: SIG-FRA-DSC162-STP
+    signal_point_operator: Orange Botswana
+  notes:
+  - 'ISPC: International Signalling Point Codes.'
+reference: OB-1348
+date_active: 2024-06-01
