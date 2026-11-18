@@ -1,0 +1,162 @@
+= Printed-line preservation: 82 substantive lines
+
+Part of ituob/ituob.github.io#100.
+
+The branch integrates `origin/claude-a/100-footnotes` at `d5fac821`
+with `origin/main` at `900a1f06`: the dependency already carries 38 of
+the 82 newly unmapped substantive lines reported after PR 129.
+The remaining 44 substantive lines are E.164 dates, South Sudan rows,
+and a shared-code withdrawal notice. All 82 now map to register patches;
+none is dismissed as non-register content.
+
+The six layout rows are excluded by `fixed_column_guide`: exact normalized
+three- or nine-column numbered guides, or the complete E.218 terrestrial
+trunk radio column-heading row. Only empty edge cells may be ignored.
+Altered numbers, appended values and partial headings remain unmapped in specs.
+
+`../../scripts/output/100-05-unmapped-82-resolution.tsv` records all original
+88 source locations, printed text, final classification and patch path or
+exclusion rule. The generated coverage report and its unmapped/excluded TSVs
+remain the complete corpus inventory (itu-ob-data `e17484be`).
+
+== Unmapped before and after
+
+Counts compare merged PR 129 on main with this branch, including the footnote
+dependency. Remaining unrelated unmapped lines are retained in the report.
+
+[cols="2,1,1",options="header"]
+|===
+|Register |Before |After
+|bureaufax |0 |0
+|coast-station-identification-numbers |0 |0
+|coast-stations |0 |0
+|dp |0 |0
+|e118-iin |22 |22
+|e164-acn |3 |3
+|e164-cc |112 |0
+|e212-icc |0 |0
+|e212-mnc |43 |2
+|e218-trcc |2 |0
+|f32-tdi |0 |0
+|f400-admd |2 |0
+|list-v |0 |0
+|list-viii |2 |2
+|m1400-icc |22 |22
+|nnp |0 |0
+|q708-ispc |2 |2
+|q708-sanc |0 |0
+|rr251 |0 |0
+|t35-na |3 |3
+|x121-dnic |2 |0
+|TOTAL |215 |56
+|===
+
+== Preservation behavior
+
+* Roman-numeral, compact and semicolon-separated E.164 date footnotes retain
+  their printed strings. A shared marker applies to all pending matching
+  actions; consuming a definition prevents a later reused marker overwriting it.
+* OB 1161 prints two dates in a single footnote without per-row keys. The exact
+  two-date string is retained in amendment notes without assigning a date
+  to either marked row; no unprinted per-row date assignment is inferred.
+* Both numerical/alphabetical South Sudan announcements retain code 211,
+  country name and their printed action positions. The withdrawal introduction
+  remains register amendment metadata in the action patches.
+* E.212 repeated marker definitions close their preceding announcement group.
+  An explicit different marker prevents the unmarked-preceding fallback.
+  OB 1210 retains the code/action heading without inventing a network row.
+  OB 983 loses only the earlier group's incorrectly attached date note;
+  its own date remains. OB 981's SUP 1 date remains with 901 25, not Australia.
+* ActionSplitter leaves already separated printed actions intact, preserving
+  metadata and notes. ActionMerger removes only the files of the group being
+  merged, preserving other action groups and their entries.
+
+== Focused evidence
+
+* Layout/header regressions: 17 examples, 4 failures before; combined coverage
+  specs: 46 examples, zero failures after, including content-preservation controls.
+* New E.164 patterns: 32 examples, 5 failures before; shared dates and both
+  normalizer losses were also reproduced before their fixes. Final parser and
+  normalizer specs: 36 examples, zero failures.
+* E.212 repeated-marker and mismatched-marker regressions failed before;
+  final E.212 specs: 87 examples, zero failures.
+* Inherited schema/ontology/patch-generation focused checks: 121 examples,
+  zero failures (including the E.212 specs before the additional scope tests).
+* Regenerated E.164: 59 issues, 104 entries; every entry scalar was checked
+  against printed source, and all entries, action types and notes survive the
+  normalization pipeline. Routed changes for all four E.164 registers refreshed.
+* E.212 parser comparison: 353 messages, only OB 983's note correction and OB 1210's phantom-heading removal
+  beyond the dependency. Affected normalized patches and routed changes refreshed.
+
+NOT RUN locally: full suite, full PDF render (requested resource restriction),
+RuboCop (executable unavailable in the gem bundle). Printed-source checks use the
+corpus ProseMirror documents; they do not claim comparison against separate
+physical/PDF originals.
+
+The final parser-equivalence verifier returned `EQUIVALENT` after recapture;
+only the intended `E164_CC` and `E212_MNC` baselines differ from the starting
+main revision. Ruby syntax checks pass for all 15 changed Ruby files and
+`git diff --check` passes. The patch-generation footnote integration spec also
+passes after the normalizer fixes (one example).
+
+focused-quality: complete assigned code/spec/report diff and interactions;
+resolved shared-date association and normalizer preservation defects; no
+remaining actionable finding in the examined implementation.
+
+The final changed-entry audit checked 537 candidate entries across 187 changed
+patches against exact printed code rows and announcement context. It matched
+858 changed text values and separately checked 13 derived extra-territorial
+flags. Review identified the OB 1210 action-heading phantom among those
+candidates; removing it leaves 536 data entries. The real Luxembourg row,
+its Belgian extra-territorial use and range remain intact. Explicit
+code-heading ADD/SUP/LIR/REP types are preserved by focused regressions.
+The existing normalizer pipeline/structural specs also pass (46 examples).
+
+Hosted RSpec found one stale OB 989 characterization expectation: the old
+page-only `P 17` value omitted the printed note, codes, operator and marker.
+The expectation now pins that complete heading. The affected registered-parser
+behavior file passes all nine focused examples; parser/data output is unchanged.
+
+== Integration with merged PR 131
+
+Merged `origin/main` at `3657ca75`, which contains PR 131 through `24fb5647`,
+into this branch with a merge commit. Parser/spec conflicts retain the
+82-line work and main's marker-block, ambiguous-date and anchored-scan fixes.
+Generated conflicts are resolved by rebuilding and normalizing all 75 E.164
+source issue trees and the affected E.212 issue trees, then regenerating
+their routed changes, parser baselines and coverage evidence.
+
+OB 1161 retains the ambiguous two-date footnote only in amendment notes.
+OB 1240 binds each row to the date for its printed code heading.
+The post-merge recount remains 56 unmapped, including zero E.164 and two
+E.212 lines. All original 88 resolution rows remain accounted for:
+80 structured, two values-only and six excluded layout rows.
+
+The prepared integrity correction removes OB 1349's empty E.164 action
+and its keyless derived change, and applies the reviewed allowlist
+correction for the preserved historical changes. Normalizing the affected
+E.164 issue trees also removes the remaining empty glossary-only actions.
+
+Regeneration exposed a parser-only SUP-to-REP remapping of E.212 country
+headings. Removing it preserves the printed action and reproduces the
+existing certified SUP patches, including OB 1210's seven Netherlands rows.
+The baseline records this action-type correction in 116 E.212 issues;
+their certified patch rows and printed action labels are preserved.
+
+Final focused checks after integration: parser and registered behavior,
+140 examples; normalizers and coverage, 49; patch integration and schema,
+nine. All pass. Parser `--verify` returns `EQUIVALENT`. The 116 E.212
+issue trees regenerated after the action-type correction reproduce the
+certified SUP patches exactly. No entry data changes in that recapture.
+
+Final direct integrity replay: 21 registers, 2,766 replay findings, all
+2,766 allowlisted, zero errors. The coverage recount is 56 unmapped.
+The repository's global `.rspec` pattern expanded an initial targeted
+invocation; that run was interrupted. The focused results above use
+`--options /dev/null`. No full suite was completed and no PDF was rendered
+locally. RuboCop is unavailable in the bundle.
+
+focused-quality: final assigned diff and combined parser/normalizer/data
+interactions; resolved the OB 1210 printed-SUP remapping found during
+regeneration, with a red-before/green-after regression; no remaining
+actionable finding.

@@ -199,6 +199,60 @@ RSpec.describe Ituob::Models::E164CCAmendment do
     expect(amendment.notes).to include('* As from 15 April 2014')
   end
 
+  ['15.IV.2014', '22.VIII.2019'].each do |date|
+    it "preserves the printed Roman date #{date} on its starred action" do
+      doc = { 'type' => 'doc', 'content' => [
+        paragraph('Note p) +883 320 ADD*'),
+        table(%w[Applicant Network Code Status], ['Tele2', 'Tele2', '+883 320', 'Assigned']),
+        paragraph("*#{date}"),
+        paragraph('Note q) +883 321 SUP*'),
+        table(%w[Applicant Network Code Status], ['Other', 'Other', '+883 321', 'Withdrawn']),
+        paragraph('* 19.I.2022'),
+      ] }
+      amendment = described_class.parse(doc)
+      entries = amendment.actions.flat_map(&:entries)
+      expect(entries.map(&:effective_date)).to eq([date, '19.I.2022'])
+      expect(entries.map(&:cc_ic)).to eq(['+883 320', '+883 321'])
+      expect(amendment.notes).to include("*#{date}", '* 19.I.2022')
+    end
+  end
+
+  it 'retains both printed South Sudan additions as separate actions' do
+    doc = { 'type' => 'doc', 'content' => [
+      paragraph('P 3 ADD'), paragraph('211     South Sudan (Republic of)'),
+      paragraph('Alphabetical order'), paragraph('P 13 ADD'),
+      paragraph('211     South Sudan (Republic of)'),
+    ] }
+    actions = described_class.parse(doc).actions.select { |action| action.entries.any? }
+    expect(actions.map(&:position)).to eq(['P 3 ADD', 'P 13 ADD'])
+    expect(actions.map(&:action_type)).to eq(['ADD', 'ADD'])
+    expect(actions.map { |action| action.entries.first.country_code }).to eq(['211', '211'])
+    expect(actions.map { |action| action.entries.first.country_area_or_service.en }).to eq(
+      ['South Sudan (Republic of)', 'South Sudan (Republic of)'])
+  end
+
+  it 'retains the unkeyed withdrawal announcement with the affected table' do
+    doc = { 'type' => 'doc', 'content' => [
+      paragraph('Associated with shared country code 882, the following two-digit identification code will be withdrawn on 23 March 2012 :'),
+      paragraph('Note o) +882 15 SUP*'),
+      table(%w[Applicant Network Code Status], ['Telstra (Formerly REACH)', 'ATM', '+882 15', 'Withdrawn']),
+      paragraph('* 23 March 2012'),
+    ] }
+    amendment = described_class.parse(doc)
+    expect(amendment.notes).to include(a_string_starting_with('Associated with shared country code 882'))
+    expect(amendment.actions.first.entries.first.formerly).to eq('REACH')
+    expect(amendment.actions.first.entries.first.status).to eq('Withdrawn')
+  end
+
+  it 'applies a shared footnote to both preceding SUP actions in issue 1091' do
+    source = YAML.load_file(File.join(FIXTURE_ROOT, '1091', 'amendments.yaml'),
+                            permitted_classes: [Date, Time], aliases: true)
+    message = source.fetch('messages').find { |item| item.dig('target', 'publication') == 'E164_CC' }
+    entries = described_class.parse(message.dig('contents', 'en')).actions.flat_map(&:entries)
+    expect(entries.map(&:cc_ic)).to eq(['+882 20', '+883 5140'])
+    expect(entries.map(&:effective_date)).to eq(['15 December 2015', '15 December 2015'])
+  end
+
   { 1130 => ['+883 240', '25.VII.2017'],
     1114 => ['+883 5140', '15.IV.2014'],
     1126 => ['+883 230', '23.V.2017'] }.each do |issue, (code, date)|

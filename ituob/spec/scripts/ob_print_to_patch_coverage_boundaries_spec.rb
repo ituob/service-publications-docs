@@ -41,4 +41,28 @@ RSpec.describe PrintToPatchCoverage::Classifier do
       expect(result.missing).not_to be_empty
     end
   end
+  [
+    '1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |',
+    '| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9',
+    '1 | 2 | 3',
+    'Applicant / Network | Terrestrial trunk radio Mobile Country Code ((T)MCC)* and Terrestrial trunk radio Mobile Network Code ((T)MNC)** | Date of assignment'
+  ].each do |text|
+    it "excludes complete column guide: #{text[0, 45]}" do
+      result = classify.call(text)
+      expect(result.status).to eq(:excluded)
+      expect(result.detail).to eq('fixed_column_guide')
+    end
+  end
+
+  [
+    '1 | 2 | 4',
+    '1 | 2 | 3 | Example Telecom',
+    'Applicant / Network | Example Telecom | Date of assignment',
+    'Applicant / Network | Terrestrial trunk radio Mobile Country Code ((T)MCC)* and Terrestrial trunk radio Mobile Network Code ((T)MNC)** | Date of assignment | 2025'
+  ].each do |text|
+    it "preserves content beside column labels: #{text[0, 45]}" do
+      expect(classify.call(text).status).to eq(:unmapped)
+    end
+  end
+
 end

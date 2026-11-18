@@ -39,7 +39,7 @@ attribute :notes, :string, collection: true
 
       def self.apply_date_footnote(text, amendment, actions)
         date_pattern = /\d{1,2}(?:\s+[A-Za-z]+\s+|\.[IVXLCDM]+\.)\d{4}/
-        date = text.match(/\A(\*+)\s+(?:As from\s+)?(#{date_pattern}(?:;\s*#{date_pattern})*)\z/i)
+        date = text.match(/\A(\*+)\s*(?:As from\s+)?(#{date_pattern}(?:;\s*#{date_pattern})*)\z/i)
         return false unless date
 
         amendment.notes << text
@@ -84,11 +84,24 @@ attribute :notes, :string, collection: true
               next
             elsif fixed_str.match?(/\ANotes common\b/i)
               state.date_actions.clear
+            elsif fixed_str.start_with?('Associated with shared country code ')
+              amendment.notes << fixed_str
+            elsif (country_row = fixed_str.match(/\A(\d{3})\s+(\p{Lu}.*)\z/)) && state.action.action_type
+              entry = E164CCEntry.new
+              entry.country_code = country_row[1]
+              entry.country_area_or_service = MultilingualString.new(en: country_row[2])
+              state.action.entries << entry
+              entries << [index, entry]
             elsif (definition = fixed_str.match(/\A([a-z]) (\S.*)\z/))
               definitions[definition[1]] << [index, fixed_str]
               amendment.notes << fixed_str
             elsif fixed_str.match?(/\A(?:P\s*\d+|Note\s|country code\s|(?:ADD|SUP|REP|LIR)\s+notes?\s)/i)
               amendment.notes << fixed_str if fixed_str.match?(/\A(?:ADD|SUP|REP|LIR)\s+notes?\s+[a-z]\b/i)
+              if state.action.entries.any?
+                state.action = E164CCAction.new
+                state.action.entries = []
+                amendment.actions << state.action
+              end
               state.date_actions.clear unless fixed_str.end_with?('*')
               if state.action.position.to_s.include?('+') && fixed_str.include?('+')
                 state.table_headings << state.action.position

@@ -56,7 +56,7 @@ issue	source	register	rule	text
 961	issues/961/amendments.yaml:3560	q708-ispc	column_header	ISPC | DEC
 961	issues/961/amendments.yaml:4649	f400-admd	column_header_vocabulary	Country | ADMD Name | Country code 1 | Service Name(s) | HELPDESK | AUTOANSWER | Contact Address
 961	issues/961/amendments.yaml:4728	f400-admd	column_header	MT | IPM | other
-961	issues/961/amendments.yaml:4760	f400-admd	column_header	1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+961	issues/961/amendments.yaml:4760	f400-admd	fixed_column_guide	1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 961	issues/961/amendments.yaml:5058	nnp	column_header	Country | Country Code (CC)
 962	issues/962/amendments.yaml:45	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 962	issues/962/amendments.yaml:222	e212-mnc	column_header	Country/geographical  area | MCC + MNC* | Name of Operator/Network
@@ -208,6 +208,7 @@ issue	source	register	rule	text
 976	issues/976/amendments.yaml:916	e212-mnc	glossary_legend	       MNC : Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil
 976	issues/976/amendments.yaml:939	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 976	issues/976/amendments.yaml:977	q708-ispc	column_header	ISPC | DEC
+976	issues/976/amendments.yaml:1397	nnp	column_header	Country | Country Code (CC)
 977	issues/977/amendments.yaml:24	e164-acn	column_header	Country/geographical area | E.164 Country Code | Mobile telephone numbers, first digits after country code
 977	issues/977/amendments.yaml:128	e212-mnc	column_header	Country/geographical  area | MCC + MNC* | Name of Operator/Network
 977	issues/977/amendments.yaml:210	e212-mnc	column_header	Country/geographical  area | MCC + MNC* | Name of Operator/Network
@@ -254,6 +255,7 @@ issue	source	register	rule	text
 981	issues/981/amendments.yaml:873	q708-sanc	ordering_directive	Alphabetical order    ADD
 981	issues/981/amendments.yaml:1014	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 981	issues/981/amendments.yaml:1052	q708-ispc	column_header	ISPC | DEC
+981	issues/981/amendments.yaml:3782	nnp	column_header	Country | Country Code (CC)
 982	issues/982/amendments.yaml:49	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 982	issues/982/amendments.yaml:210	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 982	issues/982/amendments.yaml:368	e164-acn	column_header	Country/geographical area | E.164 Country Code | Mobile telephone numbers, first digits after country code
@@ -273,6 +275,7 @@ issue	source	register	rule	text
 983	issues/983/amendments.yaml:1861	q708-sanc	ordering_directive	Alphabetical order    ADD
 983	issues/983/amendments.yaml:1930	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 983	issues/983/amendments.yaml:1962	q708-ispc	column_header	ISPC | DEC
+983	issues/983/amendments.yaml:2716	nnp	column_header	Country | Country Code (CC)
 984	issues/984/amendments.yaml:24	dp	column_header	Country/ geographical area | Country code | International prefix | National prefix | National (significant) number | UTC/DST | Note
 984	issues/984/amendments.yaml:217	e164-acn	column_header	Country/geographical area | E.164 Country Code | Mobile telephone numbers, first digits after country code
 984	issues/984/amendments.yaml:345	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
@@ -281,6 +284,7 @@ issue	source	register	rule	text
 984	issues/984/amendments.yaml:618	q708-ispc	column_header	ISPC | DEC
 984	issues/984/amendments.yaml:1429	q708-sanc	ordering_directive	Numerical order     ADD
 984	issues/984/amendments.yaml:1483	q708-sanc	ordering_directive	Alphabetical order    ADD
+984	issues/984/amendments.yaml:1589	nnp	column_header	Country | Country Code (CC)
 985	issues/985/amendments.yaml:24	e164-acn	column_header	Country/geographical area | E.164 Country Code | Mobile telephone numbers, first digits after country code
 985	issues/985/amendments.yaml:169	m1400-icc	column_header_vocabulary	Country or area/ISO code            Company Name/Address | Company Code (carrier code) | Contact
 985	issues/985/amendments.yaml:291	q708-sanc	ordering_directive	Numerical order     ADD
@@ -326,6 +330,7 @@ issue	source	register	rule	text
 989	issues/989/amendments.yaml:1123	e212-mnc	glossary_legend	           MNC : Mobile Network Code / Code de réseau mobile / Indicativo de red para el servicio móvil
 989	issues/989/amendments.yaml:1157	f400-admd	column_header	Country | ADMD Name | Country code | Service Name(s) | HELPDESK | AUTOANSWER | Contact Address
 989	issues/989/amendments.yaml:1250	f400-admd	column_header	MT | IPM | other
+989	issues/989/amendments.yaml:1286	f400-admd	fixed_column_guide	1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |  
 989	issues/989/amendments.yaml:1564	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 989	issues/989/amendments.yaml:1602	q708-ispc	column_header	ISPC | DEC
 990	issues/990/amendments.yaml:24	e164-acn	column_header	Country/geographical area | E.164 Country Code | Mobile telephone numbers, first digits after country code
@@ -402,6 +407,7 @@ issue	source	register	rule	text
 993	issues/993/amendments.yaml:1227	q708-ispc	column_header	ISPC | DEC
 993	issues/993/amendments.yaml:3546	q708-sanc	ordering_directive	Numerical order     ADD
 993	issues/993/amendments.yaml:3634	q708-sanc	ordering_directive	Alphabetical order    ADD
+993	issues/993/amendments.yaml:3774	nnp	column_header	Country | Country Code (CC)
 994	issues/994/amendments.yaml:1536	list-viii	column_header	1 | 2 | 3 | 4 | 5a | 5b | 6
 994	issues/994/amendments.yaml:2284	list-viii	column_header	1 | 2 | 3 | 4 | 5a | 5b | 6 | 7
 994	issues/994/amendments.yaml:4730	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
@@ -450,7 +456,6 @@ issue	source	register	rule	text
 997	issues/997/amendments.yaml:2306	nnp	column_header	Country | Country Code (CC)
 998	issues/998/amendments.yaml:145	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 998	issues/998/amendments.yaml:327	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
-998	issues/998/amendments.yaml:503	e164-cc	shared_mcc_intro	Associated with shared country code 882, the following two-digit identification code withdrawal have been made for the international networks of:
 998	issues/998/amendments.yaml:539	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 998	issues/998/amendments.yaml:655	e212-mnc	column_header_vocabulary	Country/geographical area | MCC + MNC* | Name of Network/Operator | Date of withdrawal
 998	issues/998/amendments.yaml:771	e164-acn	column_header	Country/geographical area | E.164 Country Code | Mobile telephone numbers, first digits after country code
@@ -462,7 +467,6 @@ issue	source	register	rule	text
 998	issues/998/amendments.yaml:4569	nnp	column_header	Country | Country Code (CC)
 999	issues/999/amendments.yaml:46	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 999	issues/999/amendments.yaml:220	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
-999	issues/999/amendments.yaml:370	e164-cc	shared_mcc_intro	Associated with shared country code 882, the following two-digit identification has been withdrawn from the international networks of:
 999	issues/999/amendments.yaml:408	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 999	issues/999/amendments.yaml:514	e164-acn	column_header	Country/geographical area | E.164 Country Code | Mobile telephone numbers, first digits after country code
 999	issues/999/amendments.yaml:623	dp	column_header	Country/ geographical area | Country code | International prefix | National prefix | National (significant) number | UTC/DST | Note
@@ -554,6 +558,7 @@ issue	source	register	rule	text
 1006	issues/1006/amendments.yaml:843	e212-mnc	column_header	Country/geographical area | MCC + MNC* | Name of Operator/Network
 1006	issues/1006/amendments.yaml:944	f400-admd	column_header_vocabulary	Country | ADMD Name | Country code 1 | Service Name(s) | HELPDESK | AUTO ANSWER | Contact Address
 1006	issues/1006/amendments.yaml:1026	f400-admd	column_header	  |   | MT | IPM | other |   |   |  
+1006	issues/1006/amendments.yaml:1108	f400-admd	fixed_column_guide	  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 1006	issues/1006/amendments.yaml:1592	m1400-icc	column_header	Country or area/ISO code | Company Code |               Contact
 1006	issues/1006/amendments.yaml:1632	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
 1006	issues/1006/amendments.yaml:1861	q708-sanc	ordering_directive	Numerical order     ADD
@@ -661,6 +666,7 @@ issue	source	register	rule	text
 1014	issues/1014/amendments.yaml:1429	q708-sanc	ordering_directive	Alphabetical order    ADD
 1014	issues/1014/amendments.yaml:1532	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1014	issues/1014/amendments.yaml:1570	q708-ispc	column_header	ISPC | DEC
+1014	issues/1014/amendments.yaml:2923	nnp	column_header	Country | Country Code (CC)
 1015	issues/1015/amendments.yaml:45	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1015	issues/1015/amendments.yaml:227	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1015	issues/1015/amendments.yaml:410	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
@@ -756,6 +762,7 @@ issue	source	register	rule	text
 1023	issues/1023/amendments.yaml:602	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1023	issues/1023/amendments.yaml:774	q708-sanc	ordering_directive	Numerical order     ADD
 1023	issues/1023/amendments.yaml:862	q708-sanc	ordering_directive	Alphabetical order    ADD
+1023	issues/1023/amendments.yaml:1030	x121-dnic	fixed_column_guide	1 | 2 | 3
 1023	issues/1023/amendments.yaml:1156	nnp	column_header	Country | Country Code (CC)
 1023	issues/1023/amendments.yaml:1220	nnp	column_header	Country | Country Code (CC)
 1024	issues/1024/amendments.yaml:15	e212-mnc	column_header	Country/Geographical area                           MCC+MNC *                 Operator/Network
@@ -808,6 +815,7 @@ issue	source	register	rule	text
 1030	issues/1030/amendments.yaml:498	q708-sanc	ordering_directive	Alphabetical order    ADD
 1030	issues/1030/amendments.yaml:569	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1030	issues/1030/amendments.yaml:607	q708-ispc	column_header	ISPC | DEC
+1030	issues/1030/amendments.yaml:959	nnp	column_header	Country | Country Code (CC)
 1031	issues/1031/amendments.yaml:34	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1031	issues/1031/amendments.yaml:225	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1031	issues/1031/amendments.yaml:385	e212-mnc	column_header	Country/Geographical area           MCC+MNC *            Operator/Network
@@ -870,6 +878,7 @@ issue	source	register	rule	text
 1038	issues/1038/amendments.yaml:1674	q708-sanc	ordering_directive	Alphabetical order    ADD
 1038	issues/1038/amendments.yaml:1747	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1038	issues/1038/amendments.yaml:1785	q708-ispc	column_header	ISPC | DEC
+1038	issues/1038/amendments.yaml:3537	nnp	column_header	Country | Country Code (CC)
 1039	issues/1039/amendments.yaml:40	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1039	issues/1039/amendments.yaml:212	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1039	issues/1039/amendments.yaml:367	e212-mnc	column_header	Country/Geographical area           MCC+MNC *            Operator/Network
@@ -960,6 +969,7 @@ issue	source	register	rule	text
 1052	issues/1052/amendments.yaml:418	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
 1052	issues/1052/amendments.yaml:1253	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1052	issues/1052/amendments.yaml:1285	q708-ispc	column_header	ISPC | DEC
+1052	issues/1052/amendments.yaml:1667	nnp	column_header	Country | Country Code (CC)
 1053	issues/1053/amendments.yaml:113	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1053	issues/1053/amendments.yaml:289	e118-iin	column_header_vocabulary	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of withdrawal
 1053	issues/1053/amendments.yaml:441	e212-mnc	column_header	Country/Geographical area       MCC+MNC *        Operator/Network
@@ -1006,6 +1016,7 @@ issue	source	register	rule	text
 1056	issues/1056/amendments.yaml:4245	q708-sanc	ordering_directive	Alphabetical order    ADD
 1056	issues/1056/amendments.yaml:4316	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1056	issues/1056/amendments.yaml:4354	q708-ispc	column_header	ISPC | DEC
+1056	issues/1056/amendments.yaml:5518	nnp	column_header	Country | Country Code (CC)
 1057	issues/1057/amendments.yaml:85	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1057	issues/1057/amendments.yaml:273	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1057	issues/1057/amendments.yaml:380	e212-mnc	column_header	Country/Geographical area       MCC+MNC *        Operator/Network
@@ -1015,6 +1026,7 @@ issue	source	register	rule	text
 1057	issues/1057/amendments.yaml:2279	q708-sanc	ordering_directive	Alphabetical order    ADD
 1057	issues/1057/amendments.yaml:2350	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1057	issues/1057/amendments.yaml:2388	q708-ispc	column_header	ISPC | DEC
+1057	issues/1057/amendments.yaml:3252	nnp	column_header	Country | Country Code (CC)
 1058	issues/1058/amendments.yaml:15	e212-mnc	column_header	Country/Geographical area       MCC+MNC *        Operator/Network
 1058	issues/1058/amendments.yaml:75	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
 1058	issues/1058/amendments.yaml:115	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
@@ -1045,12 +1057,14 @@ issue	source	register	rule	text
 1061	issues/1061/amendments.yaml:1849	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
 1061	issues/1061/amendments.yaml:3960	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1061	issues/1061/amendments.yaml:3998	q708-ispc	column_header	ISPC | DEC
+1061	issues/1061/amendments.yaml:4140	nnp	column_header	Country | Country Code (CC)
 1062	issues/1062/amendments.yaml:3981	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1062	issues/1062/amendments.yaml:4078	e212-mnc	column_header	Country/Geographical area       MCC+MNC *        Operator/Network
 1062	issues/1062/amendments.yaml:4167	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
 1062	issues/1062/amendments.yaml:4207	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
 1062	issues/1062/amendments.yaml:4968	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1062	issues/1062/amendments.yaml:5000	q708-ispc	column_header	ISPC | DEC
+1062	issues/1062/amendments.yaml:5182	nnp	column_header	Country | Country Code (CC)
 1063	issues/1063/amendments.yaml:15	e212-mnc	column_header	Country/Geographical area       MCC+MNC *        Operator/Network
 1063	issues/1063/amendments.yaml:130	q708-sanc	ordering_directive	Numerical order     ADD
 1063	issues/1063/amendments.yaml:182	q708-sanc	ordering_directive	Alphabetical order    ADD
@@ -1170,6 +1184,7 @@ issue	source	register	rule	text
 1079	issues/1079/amendments.yaml:595	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact
 1079	issues/1079/amendments.yaml:725	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1079	issues/1079/amendments.yaml:757	q708-ispc	column_header	ISPC | DEC
+1079	issues/1079/amendments.yaml:901	nnp	column_header	Country | Country Code (CC)
 1080	issues/1080/amendments.yaml:94	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1080	issues/1080/amendments.yaml:274	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of cancellation
 1080	issues/1080/amendments.yaml:427	e212-mnc	column_header	Country/Geographical area       MCC+MNC *        Operator/Network
@@ -1252,9 +1267,7 @@ issue	source	register	rule	text
 1090	issues/1090/amendments.yaml:2448	q708-sanc	ordering_directive	Alphabetical order    ADD
 1090	issues/1090/amendments.yaml:2519	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1090	issues/1090/amendments.yaml:2557	q708-ispc	column_header	ISPC | DEC
-1091	issues/1091/amendments.yaml:20	e164-cc	shared_mcc_intro	Associated with shared country code 882, the following two-digit identification code withdrawal have been made for the international networks of:
 1091	issues/1091/amendments.yaml:58	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
-1091	issues/1091/amendments.yaml:151	e164-cc	shared_mcc_intro	Associated with shared country code 883, the following four-digit identification code withdrawal have been made for the international networks of:
 1091	issues/1091/amendments.yaml:189	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1091	issues/1091/amendments.yaml:296	e212-mnc	column_header	Country/Geographical area              MCC+MNC *       Operator/Network
 1091	issues/1091/amendments.yaml:382	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
@@ -1265,11 +1278,10 @@ issue	source	register	rule	text
 1092	issues/1092/amendments.yaml:202	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of cancellation
 1092	issues/1092/amendments.yaml:384	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact
 1092	issues/1092/amendments.yaml:537	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
-1092	issues/1092/amendments.yaml:699	e164-cc	shared_mcc_intro	Associated with shared country code 882, the following two-digit identification code assignment has been made for the international networks of:
 1092	issues/1092/amendments.yaml:737	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1092	issues/1092/amendments.yaml:933	f400-admd	column_header	Country | ADMD Name | Country code | Service Name(s) | HELPDESK | AUTOANSWER | Contact Address
 1092	issues/1092/amendments.yaml:1149	f400-admd	column_header	  |   |   | MT | IPM | other |   |   |  
-1092	issues/1092/amendments.yaml:1241	f400-admd	column_header	1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+1092	issues/1092/amendments.yaml:1241	f400-admd	fixed_column_guide	1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 1092	issues/1092/amendments.yaml:3996	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
 1092	issues/1092/amendments.yaml:4036	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
 1092	issues/1092/amendments.yaml:4521	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
@@ -1283,7 +1295,7 @@ issue	source	register	rule	text
 1093	issues/1093/amendments.yaml:1646	e212-mnc	column_header	Country/Geographical area       MCC+MNC *        Operator/Network
 1093	issues/1093/amendments.yaml:1795	f400-admd	column_header	Country | ADMD Name | Country code | Service Name(s) | HELPDESK | AUTOANSWER | Contact Address
 1093	issues/1093/amendments.yaml:1939	f400-admd	column_header	  |   |   | MT | IPM | other |   |   |  
-1093	issues/1093/amendments.yaml:2031	f400-admd	column_header	1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+1093	issues/1093/amendments.yaml:2031	f400-admd	fixed_column_guide	1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 1093	issues/1093/amendments.yaml:2941	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
 1093	issues/1093/amendments.yaml:2981	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
 1093	issues/1093/amendments.yaml:3559	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
@@ -1308,7 +1320,6 @@ issue	source	register	rule	text
 1096	issues/1096/amendments.yaml:629	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
 1096	issues/1096/amendments.yaml:1942	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1096	issues/1096/amendments.yaml:1980	q708-ispc	column_header	ISPC | DEC
-1097	issues/1097/amendments.yaml:725	e164-cc	shared_mcc_intro	Associated with shared country code 883, the following three-digit identification code has been assigned for the international network of:
 1097	issues/1097/amendments.yaml:759	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1097	issues/1097/amendments.yaml:892	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1097	issues/1097/amendments.yaml:1066	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
@@ -1323,7 +1334,6 @@ issue	source	register	rule	text
 1098	issues/1098/amendments.yaml:173	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1098	issues/1098/amendments.yaml:211	q708-ispc	column_header	ISPC | DEC
 1098	issues/1098/amendments.yaml:1083	nnp	column_header	Country | Country Code (CC)
-1099	issues/1099/amendments.yaml:62	e164-cc	shared_mcc_intro	Associated with shared country code 883, the following four-digit identification code has been assigned for the international network of:
 1099	issues/1099/amendments.yaml:96	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1099	issues/1099/amendments.yaml:213	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
 1099	issues/1099/amendments.yaml:253	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
@@ -1358,7 +1368,6 @@ issue	source	register	rule	text
 1103	issues/1103/amendments.yaml:532	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1103	issues/1103/amendments.yaml:709	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact
 1103	issues/1103/amendments.yaml:866	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
-1103	issues/1103/amendments.yaml:1026	e164-cc	shared_mcc_intro	Associated with shared country code 882, the following two-digit identification code reservations or assignments have been made for the international networks of:
 1103	issues/1103/amendments.yaml:1060	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1103	issues/1103/amendments.yaml:1170	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
 1103	issues/1103/amendments.yaml:1624	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
@@ -1411,7 +1420,6 @@ issue	source	register	rule	text
 1109	issues/1109/amendments.yaml:589	q708-ispc	column_header	ISPC | DEC
 1110	issues/1110/amendments.yaml:99	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1110	issues/1110/amendments.yaml:269	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
-1110	issues/1110/amendments.yaml:437	e164-cc	shared_mcc_intro	Associated with shared country code 883, the following three-digit identification code has been assigned for the international network of:
 1110	issues/1110/amendments.yaml:471	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1110	issues/1110/amendments.yaml:588	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
 1110	issues/1110/amendments.yaml:892	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
@@ -1496,9 +1504,7 @@ issue	source	register	rule	text
 1120	issues/1120/amendments.yaml:182	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact
 1120	issues/1120/amendments.yaml:338	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1120	issues/1120/amendments.yaml:533	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
-1120	issues/1120/amendments.yaml:626	e164-cc	shared_mcc_intro	Associated with shared country code 882, the following two-digit identification code assignment has been made for the international networks of:
 1120	issues/1120/amendments.yaml:664	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
-1120	issues/1120/amendments.yaml:765	e164-cc	shared_mcc_intro	Associated with shared country code 883, the following three-digit identification code assignment has been made for the international networks of:
 1120	issues/1120/amendments.yaml:803	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1120	issues/1120/amendments.yaml:920	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
 1120	issues/1120/amendments.yaml:1146	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
@@ -1541,7 +1547,6 @@ issue	source	register	rule	text
 1124	issues/1124/amendments.yaml:368	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact
 1124	issues/1124/amendments.yaml:514	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact
 1124	issues/1124/amendments.yaml:667	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of cancellation
-1124	issues/1124/amendments.yaml:893	e164-cc	shared_mcc_intro	Associated with shared country code 883, the following three-digit identification code assignment has been made for the international networks of:
 1124	issues/1124/amendments.yaml:931	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1124	issues/1124/amendments.yaml:1048	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
 1124	issues/1124/amendments.yaml:1349	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
@@ -1557,7 +1562,6 @@ issue	source	register	rule	text
 1125	issues/1125/amendments.yaml:1684	q708-ispc	column_header	ISPC | DEC
 1125	issues/1125/amendments.yaml:2544	nnp	column_header	Country/ Geographical area | Country Code (CC)
 1126	issues/1126/amendments.yaml:41	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
-1126	issues/1126/amendments.yaml:236	e164-cc	shared_mcc_intro	Associated with shared country code 883, the following three-digit identification code assignment has been made for the international networks of:
 1126	issues/1126/amendments.yaml:270	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1126	issues/1126/amendments.yaml:387	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
 1126	issues/1126/amendments.yaml:556	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
@@ -1581,7 +1585,6 @@ issue	source	register	rule	text
 1129	issues/1129/amendments.yaml:5443	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1129	issues/1129/amendments.yaml:5481	q708-ispc	column_header	ISPC | DEC
 1129	issues/1129/amendments.yaml:6276	nnp	column_header	Country/ Geographical area | Country Code (CC)
-1130	issues/1130/amendments.yaml:100	e164-cc	shared_mcc_intro	Associated with shared country code 883, the following three-digit identification code assignment has been made for the international networks of:
 1130	issues/1130/amendments.yaml:132	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1130	issues/1130/amendments.yaml:239	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
 1130	issues/1130/amendments.yaml:465	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
@@ -1737,7 +1740,6 @@ issue	source	register	rule	text
 1146	issues/1146/amendments.yaml:1299	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1146	issues/1146/amendments.yaml:1337	q708-ispc	column_header	ISPC | DEC
 1146	issues/1146/amendments.yaml:1539	nnp	column_header	Country/ Geographical area | Country Code (CC)
-1147	issues/1147/amendments.yaml:20	e164-cc	shared_mcc_intro	Associated with shared country code 883, the following three-digit identification code assignment has been made for the international networks of:
 1147	issues/1147/amendments.yaml:58	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
 1147	issues/1147/amendments.yaml:180	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1147	issues/1147/amendments.yaml:352	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact
@@ -1840,6 +1842,7 @@ issue	source	register	rule	text
 1156	issues/1156/amendments.yaml:1573	e118-iin	column_header	Country/ geographical area | Company Name/Address | Issuer Identifier Number | Contact
 1156	issues/1156/amendments.yaml:2141	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
 1156	issues/1156/amendments.yaml:2263	e212-mnc	column_header_vocabulary	Country/Geographical area | MCC+MNC * | Applicant/Network
+1156	issues/1156/amendments.yaml:2535	e218-trcc	fixed_column_guide	Applicant / Network | Terrestrial trunk radio Mobile Country Code ((T)MCC)* and Terrestrial trunk radio Mobile Network Code ((T)MNC)** | Date of assignment
 1156	issues/1156/amendments.yaml:2628	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
 1156	issues/1156/amendments.yaml:2668	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
 1156	issues/1156/amendments.yaml:2963	nnp	column_header	Country/ Geographical area | Country Code (CC)
@@ -1889,7 +1892,7 @@ issue	source	register	rule	text
 1161	issues/1161/amendments.yaml:2060	e212-mnc	page_cross_reference	See page 6 of the present Operational Bulletin No. 1161 of 1.XII.2018.
 1161	issues/1161/amendments.yaml:2165	f400-admd	column_header	Country | ADMD Name | Country code | Service Name(s) | HELPDESK | AUTOANSWER | Contact Address
 1161	issues/1161/amendments.yaml:2309	f400-admd	column_header	  |   |   | MT | IPM | other |   |   |  
-1161	issues/1161/amendments.yaml:2401	f400-admd	column_header	1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+1161	issues/1161/amendments.yaml:2401	f400-admd	fixed_column_guide	1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 1161	issues/1161/amendments.yaml:3232	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator
 1161	issues/1161/amendments.yaml:3270	q708-ispc	column_header	ISPC | DEC
 1161	issues/1161/amendments.yaml:3654	nnp	column_header	Country/ Geographical area | Country Code (CC)
@@ -2056,6 +2059,7 @@ issue	source	register	rule	text
 1178	issues/1178/amendments.yaml:779	m1400-icc	column_header_vocabulary	Country or area/ISO code Company Name/Address | Company Code (carrier code) | Contact
 1179	issues/1179/amendments.yaml:23	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
 1179	issues/1179/amendments.yaml:161	m1400-icc	column_header_vocabulary	Country or area/ISO code Company Name/Address | Company Code (carrier code) | Contact
+1179	issues/1179/amendments.yaml:485	x121-dnic	fixed_column_guide	1 | 2 | 3
 1180	issues/1180/amendments.yaml:132	e118-iin	column_header	Country/ Geographical area | Company Name/Address | Issuer Identifier Number | Contact | Effective date of usage
 1180	issues/1180/amendments.yaml:277	e164-cc	shared_mcc_intro	Associated with shared country code 882, the following two-digit identification code reservations or assignments have been made for the international networks of:
 1180	issues/1180/amendments.yaml:300	e164-cc	column_header	Applicant | Network | Country Code and Identification Code | Status
@@ -2123,6 +2127,7 @@ issue	source	register	rule	text
 1190	issues/1190/amendments.yaml:231	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
 1190	issues/1190/amendments.yaml:533	e218-trcc	bulletin_reference_banner	(Annex to ITU Operational Bulletin No. 1125 – 1.VI.2017)
 1190	issues/1190/amendments.yaml:536	e218-trcc	amendment_banner	(Amendment No. 2)
+1190	issues/1190/amendments.yaml:583	e218-trcc	fixed_column_guide	Applicant / Network | Terrestrial trunk radio Mobile Country Code ((T)MCC)* and Terrestrial trunk radio Mobile Network Code ((T)MNC)** | Date of assignment
 1190	issues/1190/amendments.yaml:676	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
 1190	issues/1190/amendments.yaml:716	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
 1190	issues/1190/amendments.yaml:1123	nnp	column_header	Country/ Geographical area | Country Code (CC)
@@ -2145,7 +2150,7 @@ issue	source	register	rule	text
 1193	issues/1193/amendments.yaml:657	e212-mnc	column_header	Country/Geographical area | MCC+MNC * | Operator/Network
 1193	issues/1193/amendments.yaml:906	f400-admd	column_header	Country | ADMD Name | Country code | Service Name(s) | HELPDESK | AUTOANSWER | Contact Address
 1193	issues/1193/amendments.yaml:1050	f400-admd	column_header	  |   |   | MT | IPM | other |   |   |  
-1193	issues/1193/amendments.yaml:1142	f400-admd	column_header	1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+1193	issues/1193/amendments.yaml:1142	f400-admd	fixed_column_guide	1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 1193	issues/1193/amendments.yaml:1874	m1400-icc	column_header	Country or area/ISO code | Company Code | Contact
 1193	issues/1193/amendments.yaml:1914	m1400-icc	column_header	  Company Name/Address | (carrier code) |  
 1193	issues/1193/amendments.yaml:2216	q708-ispc	column_header	Country/ Geographical Area | Unique name of the signalling point | Name of the signalling point operator

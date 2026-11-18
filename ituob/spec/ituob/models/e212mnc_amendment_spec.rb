@@ -151,7 +151,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     end
 
     it 'opens one typed action per heading instead of a blank-key entry' do
-      expect(amendment.actions.map(&:action_type)).to eq(%w[ADD REP LIR])
+      expect(amendment.actions.map(&:action_type)).to eq(%w[ADD SUP LIR])
       codes = amendment.actions.flat_map(&:entries).map(&:mcc_mnc_codes)
       expect(codes).to eq(['238 96', '655 04', '655 11', '901 53'])
     end
@@ -166,7 +166,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       second = table(heading('Spain SUP'), pair('214 10', 'Opera'))
       actions = parse(document(first, second)).actions
 
-      expect(actions.map(&:action_type)).to eq(%w[ADD REP])
+      expect(actions.map(&:action_type)).to eq(%w[ADD SUP])
       expect(actions.last.entries.map { |e| e.country_or_area.en }).to eq(['Spain'])
       expect(actions.last.entries.map(&:mcc_mnc_codes)).to eq(['214 10'])
     end
@@ -196,7 +196,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
         heading('Denmark ADD'), heading('Norway SUP'), pair('578 01', 'N')
       )))
 
-      expect(amendment.actions.map(&:action_type)).to eq(%w[REP])
+      expect(amendment.actions.map(&:action_type)).to eq(%w[SUP])
     end
 
     it 'returns nil for an empty segment list' do
@@ -224,7 +224,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     )
     actions = parse(doc).actions
 
-    expect(actions.map(&:action_type)).to eq(%w[REP ADD])
+    expect(actions.map(&:action_type)).to eq(%w[SUP ADD])
     expect(actions.map { |action| action.entries.map { |entry| entry.country_or_area.en } }).to eq(
       [%w[Hungary Hungary], ['Kenya']],
     )
@@ -245,7 +245,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     amendment = parse(doc)
     entries = amendment.actions.flat_map(&:entries)
 
-    expect(amendment.actions.map(&:action_type)).to eq(['REP'])
+    expect(amendment.actions.map(&:action_type)).to eq(['SUP'])
     expect(entries.map(&:mcc_mnc_codes)).to eq(['216 04', '216 05'])
     expect(entries.map { |entry| entry.country_or_area.en }).to eq(%w[Hungary Hungary])
     expect(entries.map(&:networks)).to eq(['Invitech ICT Services Ltd.', 'Another network'])
@@ -342,7 +342,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     )
     actions = parse(doc).actions
 
-    expect(actions.map(&:action_type)).to eq(%w[ADD REP])
+    expect(actions.map(&:action_type)).to eq(%w[ADD SUP])
     expect(actions.map { |action| action.entries.map(&:mcc_mnc_codes) }).to eq([['216 04'], ['432 11', '432 12']])
     expect(actions.last.entries.map { |entry| entry.country_or_area.en }).to eq(
       ['Iran (Islamic Republic of)', 'Iran (Islamic Republic of)'],
@@ -350,7 +350,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     expect(actions.last.entries.map(&:networks)).to eq(['Iranian network', 'Another Iranian network'])
   end
 
-  it 'classifies single-cell editor SUP headings as replacement blocks' do
+  it 'preserves single-cell editor SUP headings' do
     doc = document(
       table(
         row(cell(paragraph('Country / Geographical area'))),
@@ -361,7 +361,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     )
     actions = parse(doc).actions
 
-    expect(actions.map(&:action_type)).to eq(['REP'])
+    expect(actions.map(&:action_type)).to eq(['SUP'])
     expect(actions.first.entries.map(&:mcc_mnc_codes)).to eq(['432 11'])
     expect(actions.first.entries.first.country_or_area.en).to eq('Iran (Islamic Republic of)')
   end
@@ -376,7 +376,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     )
     actions = parse(doc).actions
 
-    expect(actions.map(&:action_type)).to eq(['REP'])
+    expect(actions.map(&:action_type)).to eq(['SUP'])
     expect(actions.first.entries.map(&:mcc_mnc_codes)).to eq(['216 04'])
     expect(actions.first.entries.first.country_or_area.en).to eq('Hungary')
   end
@@ -421,10 +421,31 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entries.map { |entry| entry.country_or_area&.en }).to eq(['Hungary', 'Kenya'])
     end
 
-    it 'replaces the listed codes in country SUP blocks' do
-      expect(amendment.actions.map(&:action_type)).to eq(%w[REP REP])
+    it 'preserves the listed codes and printed country SUP actions' do
+      expect(amendment.actions.map(&:action_type)).to eq(%w[SUP SUP])
       expect(amendment.actions.map { |action| action.entries.map(&:mcc_mnc_codes) }).to eq([['216 04'], ['639 08']])
     end
+  end
+
+  it 'preserves the printed Netherlands actions and seven withdrawn rows in OB 1210' do
+    path = File.expand_path('../../../../itu-ob-data/issues/1210/amendments.yaml', __dir__)
+    data = YAML.load_file(path, permitted_classes: [Date, Time])
+    message = data['messages'].find { |item| item['target']['publication'] == 'E212_MNC' }
+    actions = parse(message['contents']['en']).actions.select do |action|
+      action.position.to_s.start_with?('Netherlands ')
+    end
+
+    expect(actions.map(&:position)).to eq(['Netherlands SUP', 'Netherlands ADD', 'Netherlands LIR'])
+    expect(actions.map(&:action_type)).to eq(%w[SUP ADD LIR])
+    expect(actions.map { |action| action.entries.length }).to eq([7, 11, 7])
+    expect(actions.first.entries.map(&:mcc_mnc_codes)).to eq([
+      '204 06', '204 17', '204 29', '204 60', '204 61', '204 65', '204 68',
+    ])
+    expect(actions.first.entries.map(&:networks)).to eq([
+      'Mundio Mobile (Netherlands) Ltd', 'Intercity Mobile Communications B.V.', 'Private Mobile Ltd',
+      'Nextgen Mobile Ltd', 'BodyTrace Netherlands B.V.', 'AGMS Nederland B.V.', 'Roamware (Netherlands) B.V.',
+    ])
+    expect(actions.first.entries.map { |entry| entry.country_or_area.en }).to all(eq('Netherlands'))
   end
 
   describe 'country-first paragraph layout (no position column)' do
@@ -738,6 +759,54 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(parse(doc).notes).to include('1 As from 31 August 2011')
     end
 
+    it 'keeps reused star dates within their preceding announcement group' do
+      parsed = parse(document(
+        paragraph('P 1 Denmark ADD*'), paragraph('238 01 Operator A'),
+        paragraph('P 2 Malta ADD*'), paragraph('278 11 Operator B'),
+        paragraph('* As from 1 January 2024'),
+        paragraph('P 3 Norway ADD*'), paragraph('242 01 Operator C'),
+        paragraph('* As from 1 February 2024')
+      ))
+      entries = parsed.actions.flat_map(&:entries)
+
+      expect(entries.map(&:effective_date)).to eq(['1 January 2024', '1 January 2024', '1 February 2024'])
+      expect(entries.map { |entry| entry.note.en }).to eq([
+        '* As from 1 January 2024', '* As from 1 January 2024', '* As from 1 February 2024'
+      ])
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['238 01', '278 11', '242 01'])
+    end
+
+    it 'does not use an unmatched date marker as a fallback for an explicitly marked announcement' do
+      parsed = parse(document(paragraph('P 1 Denmark ADD**'), paragraph('238 01 Operator A'),
+                              paragraph('* As from 1 January 2024')))
+      entry = parsed.actions.first.entries.first
+
+      expect(entry.effective_date).to be_nil
+      expect(entry.note).to be_nil
+      expect(parsed.notes).to include('* As from 1 January 2024')
+    end
+
+    it 'matches numeric markers with an optional closing parenthesis' do
+      parsed = parse(document(paragraph('P 1 Denmark ADD 1)'), paragraph('238 01 Operator A'),
+                              paragraph('1 As from 1 January 2024')))
+
+      expect(parsed.actions.first.entries.first.effective_date).to eq('1 January 2024')
+    end
+
+    it 'applies an unmarked numeric date to the preceding populated table announcement' do
+      parsed = parse(document(paragraph('P 4 Australia ADD'),
+                              table(header,
+                                    row(cell(paragraph('Australia')), cell(paragraph('505 62')), cell(paragraph('NBN'))),
+                                    row(cell(paragraph('Australia')), cell(paragraph('505 68')), cell(paragraph('NBN')))),
+                              paragraph('1 As from 30 May 2011'),
+                              paragraph('P 5 Denmark ADD'), paragraph('238 01 Operator A')))
+      entries = parsed.actions.flat_map(&:entries)
+
+      expect(entries.map(&:effective_date)).to eq(['30 May 2011', '30 May 2011', nil])
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['505 62', '505 68', '238 01'])
+      expect(entries.last.note).to be_nil
+    end
+
     it 'matches numbered date markers with optional closing parentheses in separate blocks (OB 983)' do
       path = File.expand_path('../../../../itu-ob-data/issues/983/amendments.yaml', __dir__)
       data = YAML.load_file(path, permitted_classes: [Date, Time])
@@ -894,13 +963,60 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entry.mcc_mnc_codes).to eq('228 01')
     end
 
+    %w[ADD SUP LIR REP].each do |action_type|
+      it "preserves #{action_type} on a code-only extra-territorial heading" do
+        heading = 'Extra-territorial use*** of MCC/MNC, Annex E to Recommendation ITU-T E.212'
+        parsed = parse(document(paragraph(heading), paragraph("270 77 #{action_type}"),
+                                table(header, row(cell(paragraph('Luxembourg')), cell(paragraph('270 77')),
+                                                  cell(paragraph('Proximus Luxembourg S.A.'))))))
+        action = parsed.actions.first
+
+        expect(action.position).to eq(heading)
+        expect(action.action_type).to eq(action_type)
+        expect(action.entries.length).to eq(1)
+        expect(action.entries.first.networks).to eq('Proximus Luxembourg S.A.')
+        expect(action.entries.first.country_or_area.en).to eq('Luxembourg')
+        expect(action.entries.first.extra_territorial_use).to be(true)
+      end
+    end
+
+    it 'opens a separate action when a code-only heading follows populated rows' do
+      heading = 'Extra-territorial use*** of MCC/MNC, Annex E to Recommendation ITU-T E.212'
+      parsed = parse(document(paragraph(heading), paragraph('270 77 ADD'),
+                              table(header, row(cell(paragraph('Luxembourg')), cell(paragraph('270 77')),
+                                                cell(paragraph('First operator')))),
+                              paragraph('270 78 SUP'),
+                              table(header, row(cell(paragraph('Luxembourg')), cell(paragraph('270 78')),
+                                                cell(paragraph('Second operator'))))))
+
+      expect(parsed.actions.map(&:action_type)).to eq(%w[ADD SUP])
+      expect(parsed.actions.map(&:position)).to eq([heading, heading])
+      expect(parsed.actions.map { |action| action.entries.map(&:mcc_mnc_codes) }).to eq([['270 77'], ['270 78']])
+      expect(parsed.actions.flat_map(&:entries).map(&:networks)).to eq(['First operator', 'Second operator'])
+      expect(parsed.actions.flat_map(&:entries).map(&:extra_territorial_use)).to eq([true, true])
+    end
+
     it 'preserves footnotes and extra-territorial details in the real bulletins' do
-      parsed = [989, 1008, 1102, 1280, 1304, 1016].to_h do |issue|
+      parsed = [981, 983, 989, 1008, 1102, 1210, 1280, 1304, 1016].to_h do |issue|
         path = File.expand_path("../../../../itu-ob-data/issues/#{issue}/amendments.yaml", __dir__)
         data = YAML.load_file(path, permitted_classes: [Date, Time])
         message = data['messages'].find { |m| m['target']['publication'] == 'E212_MNC' }
         [issue, parse(message['contents']['en'])]
       end
+      luxembourg = parsed[1210].actions.last.entries
+      expect(luxembourg.length).to eq(1)
+      expect(luxembourg.first.country_or_area.en).to eq('Luxembourg')
+      expect(luxembourg.first.networks).to eq('Proximus Luxembourg S.A.')
+      expect(luxembourg.first.range).to eq('000 x xxx xxx')
+      expect(luxembourg.first.extra_territorial_use).to be(true)
+      expect(luxembourg.first.note.en).to include('Belgium', '800 x xxx xxx', 'Annex E')
+      australia = parsed[981].actions.flat_map(&:entries).select { |entry| ['505 62', '505 68'].include?(entry.mcc_mnc_codes) }
+      shared = parsed[983].actions.last.entries
+      expect(australia.length).to eq(2)
+      expect(australia.map(&:effective_date)).to all(be_nil)
+      expect(parsed[981].actions.last.entries.first.effective_date).to eq('30 May 2011.')
+      expect(shared.map { |entry| entry.note.en }).to all(include('1 June 2011'))
+      expect(shared.map { |entry| entry.note.en }.join).not_to include('30 June 2011')
       first = parsed[989].actions.flat_map(&:entries)
       second = parsed[1008].actions.flat_map(&:entries)
       estonia = parsed[1102].actions.flat_map(&:entries).find { |entry| entry.networks.include?('**') }
