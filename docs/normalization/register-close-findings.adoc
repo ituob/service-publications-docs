@@ -1,0 +1,209 @@
+= Register normalization closure findings
+
+Scope: register-normalization items of ituob/ituob.github.io#107 and
+ituob/service-publications-docs#64, measured from base `8f19d30c`.
+The raw `itu-ob-data` corpus and baseline annexes are unchanged.
+
+== G3: country SUP blocks list their targets
+
+E.212 country headings describe the following printed MCC+MNC entries.
+They do not request suppression of every entry belonging to the country.
+The normalized action serializes `suppression_scope: listed_entries` for SUP;
+the patch builder carries that value into patch `data`. The printed country
+heading remains the action position and each row retains its country and network.
+The marker makes the existing key-based replay meaning explicit; it does not
+introduce a country-wide replay operation.
+
+The existing OB 1170 fixture prints Hungary SUP for `216 04` and Kenya SUP for
+`639 08`. Its focused regression asserts both serialized scopes, both positions,
+the two printed networks and countries, and their separate SUP actions.
+A parser-to-patch replay check starts with those targets plus unlisted `216 01`
+and `639 01` controls in the same countries. Only the targets are deleted;
+the controls retain all fields and seed-only histories. Both targets retain
+their SEED/SUP histories, with no lapse or replay error.
+
+The serialization regression fails against the base parser because its action
+hashes lack `suppression_scope`. Non-SUP actions retain no scope field.
+Stored SUP patches carry only the new scope field; other existing E.212 corpus
+differences, including the separately documented DEL regeneration, are outside
+this update.
+[source,shell]
+----
+BUNDLE_GEMFILE=ituob/Gemfile bundle exec rspec --options /dev/null -I ituob/lib -I ituob/spec ituob/spec/ituob/models/e212mnc_amendment_spec.rb ituob/spec/ituob/registers/del_classification_spec.rb
+----
+
+== G4: the item page consumes replay key history
+
+The site checkout was inspected without modification or fetch. Its local
+`origin/main` ref is `49f704491a730b358c2a8405be0f6876a3408da9`;
+the checked-out HEAD is `e87b414b639ca62db1d55564e4e12dc29706fcc9`.
+The statements below are verified from `git show origin/main:<path>`, so they
+describe the available main ref rather than assuming checkout HEAD is main.
+The GitHub main commit API independently returned the same SHA during this check.
+This does not establish the deployed site version.
+
+`ituob/lib/ituob/projections/key_history.rb` builds a typed
+`RegisterKeyHistory` for one canonical replay key. It reads
+`State#key_history[key]` and emits provenance, membership and entries containing
+`key`, `type`, `ob_issue_no` and the printed identifier. It does not infer event
+ownership from that identifier.
+
+The site's `src/pages/registers/[slug]/items/[key]/index.astro` calls
+`itemHistory(state, item.key)`, from `src/lib/item-history.ts`.
+That function looks up exactly `state.key_history[key]`. The page renders each
+event's action, issue link and printed identifier, and provides an unavailable
+history message for older snapshots lacking this map. Item discovery also
+includes historical, deleted and lapsed keys.
+
+The page consumes the snapshot representation, rather than the standalone typed
+`RegisterKeyHistory` projection. `SnapshotWriter` writes `State#to_snapshot`,
+whose `key_history` maps canonical keys to event arrays with `type`, `ob_issue`
+and `identifier`. Both representations derive from the same replay-owned
+`State#key_history`. Therefore the per-item history consumer exists on the
+inspected site main ref. A direct consumer of the standalone projection's
+provenance, membership and `ob_issue_no` wire shape is not present in that page;
+claiming that specific integration would require a separate change. This check
+does not verify generated snapshot freshness or deployment.
+
+[source,shell]
+----
+cd /private/tmp/ituob-106-codex/site
+git rev-parse HEAD origin/main
+git show 'origin/main:src/pages/registers/[slug]/items/[key]/index.astro'
+git show origin/main:src/lib/item-history.ts
+git show origin/main:src/lib/snapshots.ts
+----
+
+== G8: stored DEL count and its boundary
+
+The local `ob-issues` corpus contains 8,708 YAML files, all 8,708 with mapping
+payloads. Parsing their top-level `type` values finds zero DEL actions;
+there are also zero `-DEL.yaml` filenames and zero top-level `type: DEL` lines.
+This is a measurement of the stored corpus, not a claim
+that printed bulletins contain no DEL announcements. In particular,
+`del-audit.adoc` identifies the printed OB 1335 Sweden DEL block that the stored
+corpus still misclassifies. The parser regression recognizes DEL separately
+from printed SUP; the corpus requires regeneration to reflect that result.
+Natural-language deletion beside SUP remains SUP.
+
+Reproduce the payload count over every YAML file, including metadata and general
+communications. Reading the top-level value excludes nested source prose;
+it is not a count of every mention of the word DEL. Date, time, symbol and alias
+support handles the existing corpus serialization.
+
+[source,shell]
+----
+BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby -ryaml -rdate -e '
+  files = Dir["ob-issues/**/*.yaml"].sort
+  counts = Hash.new(0)
+  files.each do |path|
+    data = YAML.safe_load_file(path, permitted_classes: [Date, Time, Symbol], aliases: true)
+    counts[data["type"]] += 1 if data.is_a?(Hash)
+  end
+  puts "yaml_files=#{files.length}"
+  puts "top_level_payloads=#{counts.values.sum}"
+  puts "DEL_payloads=#{counts["DEL"]}"
+  puts "DEL_filenames=#{files.count { |path| File.basename(path).match?(/-DEL\.yaml\z/) }}"
+'
+----
+
+== G1 / F.32: measured residual and regenerated actions
+
+The previous 202-junk estimate is stale. At the base, stored F.32 action files
+contain 121 rows without an office code: 119 in OB 1017 and one each in OB 1000
+and OB 1148. They are country/network headings and office cross-references.
+The current parser already retains them as context/notes instead of entries;
+regenerating the stored actions and F.32 register changes reduces that count to
+zero. The regenerated actions also carry the parser's existing multilingual
+country and network context. No raw corpus correction is required.
+
+A remaining parser gap allowed a five-column table after a notes separator to
+become entries even though subsequent paragraphs were notes. The parser now
+keeps these table rows as notes too. The regression fails before the guard and
+preserves the preceding real office and all its identifying fields. All 775
+freshly parsed office rows across 12 source amendments remain unchanged.
+
+OB 988 retains all 473 printed rows and 261 distinct Egypt office codes.
+Its curated `replaces_network: true` flag is preserved in the register change
+when regenerating it; that flag is not inferred from the printed description.
+The 212 asserted-add findings are legitimate offices printed after the seed,
+as documented in `f32-completeness.adoc` and pinned by
+`f32_ob988_replacement_spec.rb`. Removing them would hide real replay findings.
+
+== G1 / F.400: Unicode blank separators
+
+The current normalizer is `f400_amendment.rb`; there is no
+`f400admd_amendment.rb` on this base. Its existing blank-row guard handled ASCII
+and NBSP, but an em-space separator could materialize an ADMD entry. Cell cleanup
+now recognizes Unicode whitespace plus zero-width space and BOM before applying
+the guard. Old-red/new-green separator specs preserve neighboring entries,
+translated country names and service/contact values. Existing corpus parser
+output is unchanged, so its baseline needs no content change.
+
+== G5: NBSP policy at rest
+
+Replace U+00A0 with U+0020 in identifiers, catalog primary/fallback keys and
+explicit code fields, including F.32 network codes. Retain NBSP in printed prose,
+notes, captions, descriptions, contact details and other non-key text. Multilingual
+and array-valued keys follow the same rule. The builder and `KeyWhitespace`
+normalizer share the policy. The pipeline runs it before action grouping so
+NBSP-equivalent identifiers merge on the first run; a second run changes nothing.
+
+Measured over `ob-issues/**/*.yaml` before and after this change:
+
+[cols="3,1,1",options="header"]
+|===
+|Measure |Before |After
+|Files containing any literal U+00A0 |1149 |1149
+|Action files with U+00A0 in keys/codes |0 |0
+|===
+
+The previously reported nine key files had already been cleaned at this base.
+The new pass enforces that result on existing and future patches. Regression
+fixtures contain NBSP keys/codes, retain NBSP prose, and assert idempotence.
+The builder regression is red with the previous key-only cleanup because it
+leaves the non-primary network code unchanged.
+
+[source,shell]
+----
+BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby -Iituob/lib -rituob -e '
+  paths = Dir["ob-issues/**/*.yaml"].select { |path| File.read(path).include?("\u00a0") }
+  affected = paths.count do |path|
+    next false unless File.basename(path).match?(/\A\d{3}-[A-Z]+\.yaml\z/)
+    patch = Ituob::Support::Yaml.safe_load_file(path)
+    patch != Ituob::Normalizers::KeyWhitespace.clean_patch(patch, File.basename(File.dirname(path)))
+  end
+  puts "all_nbsp_files=#{paths.size}; key_code_nbsp_files=#{affected}"
+'
+----
+
+== Register-state integrity allowlist
+
+Replayed findings were matched to existing allowlist lines as a multiset; only
+lines with no remaining occurrence were removed. No new line was added and no
+new replay finding appeared. The 29 removed exceptions were already obsolete at
+the base, rather than representing 29 additional rows fixed by this patch.
+F.32's 212 asserted additions remain justified as described above.
+
+[cols="2,1,1",options="header"]
+|===
+|Register |Before |After
+|E118_IIN |552 |552
+|DP |11 |11
+|E164_ACN |87 |87
+|E164_CC |18 |4
+|E164_NOTE_N |1 |1
+|E164_NOTE_O |13 |13
+|E164_NOTE_PQ |16 |16
+|E212_MNC |529 |518
+|E212_SHARED_MCC |40 |40
+|E218_TRCC |1 |1
+|F32_TDI |221 |221
+|F400_ADMD |2 |2
+|M1400_ICC |189 |189
+|Q708_ISPC |811 |807
+|Q708_SANC |298 |298
+|T35_NA |3 |3
+|X121_DNIC |3 |3
+|Total |2795 |2766
+|===

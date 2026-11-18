@@ -12,13 +12,9 @@ data:
   - company_name: Telekom Deutschland GmbH
     carrier_code: DTAG
     contact: Mr. Benjamin Boeling
-  - company_name: Landgrabenweg 151
-    contact: 'Tel:           + 49 228 181 64514'
+    address_line_1: Landgrabenweg 151
     tel: "+ 49 228 181 64514"
-  - company_name: 53227 Bonn
-    contact: 'Fax:'
-  - contact: 'E-mail:     benjamin.boeling @ telekom.de'
-    tel: 'E-mail:     benjamin.boeling @ ekom.de'
+    address_line_2: 53227 Bonn
     email:
     - benjamin.boeling @ telekom.de
   notes: []

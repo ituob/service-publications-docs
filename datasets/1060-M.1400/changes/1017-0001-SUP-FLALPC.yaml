@@ -13,22 +13,10 @@ data:
     company_name: Alpcom AG
     carrier_code: FLALPC
     contact: Patrik Lobergh
-  - iso_code: LIE
-    country_or_area:
-      en: P  48   Liechtenstein (Principality of)
-    company_name: Zollstrasse 3
-    contact: 'Tel:        +423 235 0677'
+    address_line_1: Zollstrasse 3
     tel: "+423 235 0677"
-  - iso_code: LIE
-    country_or_area:
-      en: P  48   Liechtenstein (Principality of)
-    company_name: 9494 SCHAAN
-    contact: 'Fax:       +423 235 0678'
+    address_line_2: 9494 SCHAAN
     fax: "+423 235 0678"
-  - iso_code: LIE
-    country_or_area:
-      en: P  48   Liechtenstein (Principality of)
-    contact: 'E-mail: patrik.lobergh@alpcom.li'
     email:
     - patrik.lobergh@alpcom.li
   - iso_code: LIE
@@ -37,22 +25,9 @@ data:
     company_name: Bill Telecom AG
     carrier_code: FLBILL
     contact: Walter Sturm
-  - iso_code: LIE
-    country_or_area:
-      en: P  48   Liechtenstein (Principality of)
-    company_name: Vorarlbergerstrasse 7
-    contact: 'Tel:        +43 664 393 6067'
+    address_line_1: Vorarlbergerstrasse 7
     tel: "+43 664 393 6067"
-  - iso_code: LIE
-    country_or_area:
-      en: P  48   Liechtenstein (Principality of)
-    company_name: 9486 SCHAANWALD
-    contact: 'Fax:'
-  - iso_code: LIE
-    country_or_area:
-      en: P  48   Liechtenstein (Principality of)
-    contact: 'E-mail: sturm@bill-tele.com'
-    tel: 'E-mail: sturm@bill-e.com'
+    address_line_2: 9486 SCHAANWALD
     email:
     - sturm@bill-tele.com
   notes: []

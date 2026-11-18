@@ -5,19 +5,13 @@ ob_issue_no: '1086'
 identifier:
   code: OBSLUX
 data:
-  _class: M1400Amendment
-  entries:
-  - company_name: Orange Business Luxembourg S.A.
-    carrier_code: OBSLUX
-    contact: Ms. Isabelle Dieltiens
-  - company_name: 201, route de Thionville
-    contact: 'Tel:            +32 26 43 94 72'
-    tel: "+32 26 43 94 72"
-  - company_name: L-5885 HOWALD
-    contact: 'Fax:           +32 26 43 94 01'
-    fax: "+32 26 43 94 01"
-  - contact: 'E-mail:      isabelle.dieltiens@orange.com'
-    email:
-    - isabelle.dieltiens@orange.com
-  notes: []
+  company_name: Orange Business Luxembourg S.A.
+  carrier_code: OBSLUX
+  contact: Ms. Isabelle Dieltiens
+  address_line_1: 201, route de Thionville
+  tel: "+32 26 43 94 72"
+  address_line_2: L-5885 HOWALD
+  fax: "+32 26 43 94 01"
+  email:
+  - isabelle.dieltiens@orange.com
 reference: OB-1086

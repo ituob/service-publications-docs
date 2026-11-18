@@ -5,24 +5,15 @@ ob_issue_no: '1149'
 identifier:
   code: CH4141
 data:
-  _class: M1400Amendment
-  position: Switzerland (Confederation
-  entries:
-  - country_or_area:
-      en: Switzerland
-    company_name: Genza SA
-    carrier_code: CH4141
-    contact: Efe Demir
-  - country_or_area:
-      en: Switzerland
-    company_name: rue de Lausanne 37
-    contact: 'Tel:                        +90 5322333262'
-    tel: "+90 5322333262"
-  - country_or_area:
-      en: Switzerland
-    company_name: CH-1201 Genève
-    contact: 'E-mail:                  ed@genza.ch'
-    email:
-    - ed@genza.ch
-  notes: []
+  iso_code: CHE
+  country_or_area:
+    en: Switzerland (Confederation of)
+  company_name: Genza SA
+  carrier_code: CH4141
+  contact: Efe Demir
+  address_line_1: rue de Lausanne 37
+  tel: "+90 5322333262"
+  address_line_2: CH-1201 Genève
+  email:
+  - ed@genza.ch
 reference: OB-1149

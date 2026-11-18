@@ -5,31 +5,16 @@ ob_issue_no: '1055'
 identifier:
   code: PTY
 data:
-  _class: M1400Amendment
-  entries:
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Portunity GmbH
-    carrier_code: PTY
-    contact: Mr. Bjoern Ruecker
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Werner-Seelenbinder-Strasse 23
-    contact: 'Tel:           +49 202 69555 38'
-    tel: "+49 202 69555 38"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 42477 Radevormwald
-    contact: 'Fax:          +49 202 69555 18'
-    fax: "+49 202 69555 18"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:    portierung@portunity.de'
-    email:
-    - portierung@portunity.de
-  notes: []
+  iso_code: DEU
+  country_or_area:
+    en: Germany (Federal Republic of)
+  company_name: Portunity GmbH
+  carrier_code: PTY
+  contact: Mr. Bjoern Ruecker
+  address_line_1: Werner-Seelenbinder-Strasse 23
+  tel: "+49 202 69555 38"
+  address_line_2: 42477 Radevormwald
+  fax: "+49 202 69555 18"
+  email:
+  - portierung@portunity.de
 reference: OB-1055

@@ -4,15 +4,16 @@ module Ituob
   module Normalizers
     # Orchestrates multiple normalizers in a fixed, idempotent order.
     #
-    # The default order is: phantom cleanup → action splitter → action
-    # merger → filename canonicalizer → orphan phantom to fallback → empty
-    # dir filler → empty amendment placeholder.
+    # Canonicalize filenames and key whitespace before grouping actions;
+    # otherwise NBSP-equivalent identifiers would merge only on a second run.
+    # Then remove phantoms, split/merge actions and fill empty directories.
     #
     # Running the full pipeline twice produces identical output. This is
     # the property that makes the normalization trustworthy.
     class Pipeline
       DEFAULT_STEPS = [
         FilenameCanonicalizer,
+        KeyWhitespace,
         PhantomCleanup,
         ActionSplitter,
         ActionMerger,

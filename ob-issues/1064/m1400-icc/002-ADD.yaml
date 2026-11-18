@@ -15,22 +15,10 @@ data:
     company_name: Globalways AG
     carrier_code: GWXS
     contact: Mr. Matthias Kunz
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Neue Bruecke 8
-    contact: 'Tel:          +49 711 25290 324'
+    address_line_1: Neue Bruecke 8
     tel: "+49 711 25290 324"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 70173 STUTTGART
-    contact: 'Fax:         +49 711 25290 180'
+    address_line_2: 70173 STUTTGART
     fax: "+49 711 25290 180"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:   matthias.kunz@globalways.net'
     email:
     - matthias.kunz@globalways.net
   notes: []

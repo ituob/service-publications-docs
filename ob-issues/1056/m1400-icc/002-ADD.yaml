@@ -14,22 +14,10 @@ data:
     company_name: amisol GmbH
     carrier_code: AMISOL
     contact: Mrs. Marlene Blenk
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Marktstrasse 13
-    contact: 'Tel:          + 49 8365 791 4000'
+    address_line_1: Marktstrasse 13
     tel: "+ 49 8365 791 4000"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 87497 Wertach
-    contact: 'Fax:         + 49 8365 791 4010'
+    address_line_2: 87497 Wertach
     fax: "+ 49 8365 791 4010"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:   mb@allgaeudsl.de'
     email:
     - mb@allgaeudsl.de
   notes: []

@@ -46,11 +46,24 @@ attribute :country, :string
 
         country = nil
         action = nil
+        carrier_section = false
 
         simplified_doc.each_with_index do |c, ci|
           raise "Unexpected non-array item" unless c.is_a?(Array)
 
           first_elem = c[0]
+          if first_elem.is_a?(Array)
+            headers = c.map { |row| Ituob::Helpers.strip_legacy(row.flatten.join(' ')) }
+            # A mislabeled M.1400 section can span several tables and country
+            # paragraphs. Resume only when a Q.708 header identifies a new section.
+            if headers.any? { |header| header.include?('Country or area/ISO code') && header.include?('Company Code') && header.include?('Contact') }
+              carrier_section = true
+            elsif headers.any? { |header| header.match?(/\bISPC\b|\ACountry\/?\s*Geographical Area/) }
+              carrier_section = false
+            end
+          end
+          next if carrier_section
+
           if first_elem.is_a?(String)
             basestr = c.join('')
             fixed_str = Ituob::Helpers.replace_legacy_space(basestr)

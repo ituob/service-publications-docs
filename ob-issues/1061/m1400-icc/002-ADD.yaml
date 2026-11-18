@@ -14,22 +14,10 @@ data:
     company_name: Hofmeir Media GmbH
     carrier_code: BELSIP
     contact: Mr. Stefan Hofmeir
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Kranzhornstrasse 3
-    contact: 'Tel.: +49 89 48951048'
+    address_line_1: Kranzhornstrasse 3
     tel: "+49 89 48951048"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 81825 MUNCHEN
-    contact: 'Fax: +49 89 4487505'
+    address_line_2: 81825 MUNCHEN
     fax: "+49 89 4487505"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail: portierung@bellsip.com'
     email:
     - portierung@bellsip.com
   notes: []

@@ -55,8 +55,8 @@ RSpec.describe Ituob::Normalizers::Pipeline do
   end
 
   describe 'DEFAULT_STEPS' do
-    it 'includes all 7 normalizer classes' do
-      expect(described_class::DEFAULT_STEPS.length).to eq(7)
+    it 'includes all 8 normalizer classes' do
+      expect(described_class::DEFAULT_STEPS.length).to eq(8)
     end
 
     it 'starts with FilenameCanonicalizer' do
