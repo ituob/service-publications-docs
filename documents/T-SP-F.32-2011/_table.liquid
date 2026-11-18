@@ -2,13 +2,9 @@
 {% render "printed_table", data: data, lang: lang %}
 {% else %}
 
-{% case lang %}
-{% when "fr" %}{% assign title = "Indicateurs de destination (ID) attribués aux bureaux télégraphiques" %}{% assign headers = "Pays /zone géographique|Réseau (administration/ER)|Code de réseau|Nom du bureau télégraphique|Code de bureau" | split: "|" %}
-{% when "es" %}{% assign title = "Indicadores de destino (ID) atribuidos a oficinas telegráficas" %}{% assign headers = "País / zona geográfica|Red (administración/EER)|Código de red|Nombre de la oficina telegráfica|Código  de oficina" | split: "|" %}
-{% else %}{% assign title = "Destination Indicators (DI) assigned to telegraph offices" %}{% assign headers = "Country / Geographical Area|Network (administration/ROA)|Network code|Name of Telegraph Office|Office code" | split: "|" %}
-{% endcase %}
 
-== {{ title }}
+
+== {{ metadata.title[lang] }}
 
 {% assign note_present = false %}
 {% assign first_pass = true %}
@@ -47,11 +43,11 @@
 [cols="24,28,12,26,10",options="unnumbered"]
 |===
 
-^h| {{ headers[0] }}
-^h| {{ headers[1] }}
-^h| {{ headers[2] }}
-^h| {{ headers[3] }}
-^h| {{ headers[4] }}
+^h| {{ metadata.locale | where: "key", "country_or_area" | map: lang | first }}
+^h| {{ metadata.locale | where: "key", "network_roa" | map: lang | first }}
+^h| {{ metadata.locale | where: "key", "network_code" | map: lang | first }}
+^h| {{ metadata.locale | where: "key", "telegraph_office_name" | map: lang | first }}
+^h| {{ metadata.locale | where: "key", "office_code" | map: lang | first }}
 
 ^| 1 ^| 2 ^| 3 ^| 4 ^| 5
 

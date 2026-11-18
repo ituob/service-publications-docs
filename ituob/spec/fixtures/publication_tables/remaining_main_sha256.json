@@ -1,0 +1,243 @@
+{
+  "base_sha": "8f19d30cb7264593a90f768de3e32746061225a3",
+  "documents": {
+    "T-SP-E.180-2010-MSW-E.adoc": {
+      "sha256": "23d17c5cce2ea0518a29c33ba9e58422751b25f90137118f459297defb0c6daa",
+      "expected_sha256": "23d17c5cce2ea0518a29c33ba9e58422751b25f90137118f459297defb0c6daa"
+    },
+    "T-SP-E.180-2010-MSW-F.adoc": {
+      "sha256": "671f0acae0ff3a35659163bde0507bd518bbc8a503a82cc39be9291ede40d977",
+      "expected_sha256": "671f0acae0ff3a35659163bde0507bd518bbc8a503a82cc39be9291ede40d977"
+    },
+    "T-SP-E.180-2010-MSW-S.adoc": {
+      "sha256": "f509cc3e290370ed47c0a9623243687b0f165bd3a7ed5b7f9c8bdd6be7e66a08",
+      "expected_sha256": "f509cc3e290370ed47c0a9623243687b0f165bd3a7ed5b7f9c8bdd6be7e66a08"
+    },
+    "T-SP-E.212A-2017-A.adoc": {
+      "sha256": "77d0ff83ea610d1fe7ee706408e72581f781c9cc3129413dddb0ddeed8bcf9ac",
+      "expected_sha256": "77d0ff83ea610d1fe7ee706408e72581f781c9cc3129413dddb0ddeed8bcf9ac"
+    },
+    "T-SP-E.212A-2017-C.adoc": {
+      "sha256": "cbd3c2b389a7cb92560f322c46ff40daebd68d2fec85bc11cc14de31d4a5f6ba",
+      "expected_sha256": "cbd3c2b389a7cb92560f322c46ff40daebd68d2fec85bc11cc14de31d4a5f6ba"
+    },
+    "T-SP-E.212A-2017-E.adoc": {
+      "sha256": "09bd62987becb8b83ddd75a5620acd07659361297ffb24171ab0fd38c11f9fa4",
+      "expected_sha256": "09bd62987becb8b83ddd75a5620acd07659361297ffb24171ab0fd38c11f9fa4"
+    },
+    "T-SP-E.212A-2017-F.adoc": {
+      "sha256": "4e68d5e2afa47d457a5ca8297238c63bae97f3fbc93af485c48b94971385cb2a",
+      "expected_sha256": "4e68d5e2afa47d457a5ca8297238c63bae97f3fbc93af485c48b94971385cb2a"
+    },
+    "T-SP-E.212A-2017-R.adoc": {
+      "sha256": "155cbf430ec42b4b1467340876713bb4de3a87251441e3a3a85e1795a2047006",
+      "expected_sha256": "155cbf430ec42b4b1467340876713bb4de3a87251441e3a3a85e1795a2047006"
+    },
+    "T-SP-E.212A-2017-S.adoc": {
+      "sha256": "bcda09c70f8ab75698d786e510aa4b90a68840dcee2b31c638adda88e883b85b",
+      "expected_sha256": "bcda09c70f8ab75698d786e510aa4b90a68840dcee2b31c638adda88e883b85b"
+    },
+    "T-SP-E.212B-2018-A.adoc": {
+      "sha256": "0fc436ca759fd28da29736fbd920103ae40b91bb59ddcda5decf4713f59664b2",
+      "intended_changes": [
+        {
+          "before": "| | مقدم الطلب/الشبكة | MCC + MNC codes\n",
+          "after": "| | مقدم الطلب/الشبكة | الرموز MCC + MNC\n",
+          "count": 1
+        }
+      ],
+      "expected_sha256": "356bcb0367db0f173ecc70acfb27ee7c33861932a7ddf4e376dcedc6d0a95bb3"
+    },
+    "T-SP-E.212B-2018-C.adoc": {
+      "sha256": "41ffc2f02f60f407a123b0e1b033f5e30d18dc1cc33796886067660f3d8b2892",
+      "intended_changes": [
+        {
+          "before": "| | 申请人/网络 | MCC + MNC codes\n",
+          "after": "| | 申请人/网络 | MCC + MNC代码\n",
+          "count": 1
+        }
+      ],
+      "expected_sha256": "1b6fbd7dd7643508e2701b81a782734e3b365bda6371efd6e594e1ca7f831d39"
+    },
+    "T-SP-E.212B-2018-E.adoc": {
+      "sha256": "991228053459be0df959de4e0cace72c058bfd55b4d6fd077fd027e5cda5ea0c",
+      "intended_changes": [
+        {
+          "before": "// The main MNC table comes from the ituob provider (spd#89 C8 pilot): the\n// register's state as of OB 1162, the issue this annex is published with\n// (also the E.212 seed issue). The other three tables stay on yaml2text.",
+          "after": "// The main MNC table reads the replayed provider edition at the seed issue.\n// Companion tables and notification forms use typed publication snapshots.",
+          "count": 1
+        }
+      ],
+      "expected_sha256": "fbb52f4fe8cdc64429ff7734eb378883d5bda155b429d024cfa43a3752e2d5cb"
+    },
+    "T-SP-E.212B-2018-F.adoc": {
+      "sha256": "44ca73c2bcba192bbeb0499675edadb4eba87a24c28b39453fc0670018a69fad",
+      "intended_changes": [
+        {
+          "before": "| | Demandeur/Réseau | MCC + MNC codes\n",
+          "after": "| | Demandeur/Réseau | Codes MCC + MNC\n",
+          "count": 1
+        }
+      ],
+      "expected_sha256": "cf57642c9da0bc8b9bb02d1e3264db584632590b0271d7e1a079d4fda2c262fa"
+    },
+    "T-SP-E.212B-2018-R.adoc": {
+      "sha256": "7135aa9ee88c54ed369ffecb6e7ef6031731d8855350d3397141c47fa49d39cb",
+      "intended_changes": [
+        {
+          "before": "| | Заявитель/сеть | MCC + MNC codes\n",
+          "after": "| | Заявитель/сеть | Коды MCC + MNC\n",
+          "count": 1
+        }
+      ],
+      "expected_sha256": "3c5f2a1f9acf73699c485feb5841bdc0c8aac9d9b00f720e868525ae1c28b475"
+    },
+    "T-SP-E.212B-2018-S.adoc": {
+      "sha256": "01e7a12459cc496a68ad7e972b4012202583360e38865c64c94578c7b4f3e771",
+      "intended_changes": [
+        {
+          "before": "| | Solicitante/Red | MCC + MNC codes\n",
+          "after": "| | Solicitante/Red | Indicativos MCC + MNC\n",
+          "count": 1
+        }
+      ],
+      "expected_sha256": "17486237818b7c4e392b25df8bf61c7c05f027aa167cf6c3ed560a19c579efe8"
+    },
+    "T-SP-F.1-1998-MSW-E.adoc": {
+      "sha256": "cdde492f5ffafff332c9d2beb71042e179b797bcb61c95a807381cefa4211701",
+      "expected_sha256": "cdde492f5ffafff332c9d2beb71042e179b797bcb61c95a807381cefa4211701"
+    },
+    "T-SP-F.1-1998-MSW-F.adoc": {
+      "sha256": "b89a1852a89653ba241e44972e309368209d37c57f32e1edb5a04476109109c0",
+      "expected_sha256": "b89a1852a89653ba241e44972e309368209d37c57f32e1edb5a04476109109c0"
+    },
+    "T-SP-F.1-1998-MSW-S.adoc": {
+      "sha256": "ccae046a62b46b87c5c8fd62f3041737864d9f26c2ff79e962387e6da820f5b3",
+      "expected_sha256": "ccae046a62b46b87c5c8fd62f3041737864d9f26c2ff79e962387e6da820f5b3"
+    },
+    "T-SP-F.68-2011-MSW-E.adoc": {
+      "sha256": "e16fcaa8cc6f143a2df5be0b239fbc48c234f7249fc372cbd6d93bb997c7520c",
+      "expected_sha256": "e16fcaa8cc6f143a2df5be0b239fbc48c234f7249fc372cbd6d93bb997c7520c"
+    },
+    "T-SP-F.68-2011-MSW-F.adoc": {
+      "sha256": "818340462a2c92bad8be7e498d6c28e51ddcd8ec65d7602c6e202df20d15eac9",
+      "expected_sha256": "818340462a2c92bad8be7e498d6c28e51ddcd8ec65d7602c6e202df20d15eac9"
+    },
+    "T-SP-F.68-2011-MSW-S.adoc": {
+      "sha256": "1360c4bdaa2057434251c0bb56b6dcea28d9d00009b4a58b8ba77ed4cb826b11",
+      "expected_sha256": "1360c4bdaa2057434251c0bb56b6dcea28d9d00009b4a58b8ba77ed4cb826b11"
+    },
+    "T-SP-PP.RES.21-2011-E.adoc": {
+      "sha256": "891969feea5e335122f4031d2894077dc7b6cefe893a105b6adfa615ad7da091",
+      "expected_sha256": "891969feea5e335122f4031d2894077dc7b6cefe893a105b6adfa615ad7da091"
+    },
+    "T-SP-PP.RES.21-2011-F.adoc": {
+      "sha256": "6c6ed44abc16c50c02e3b3e775b05f5e9459776024ed4d805a7a17b5d681ccf2",
+      "expected_sha256": "6c6ed44abc16c50c02e3b3e775b05f5e9459776024ed4d805a7a17b5d681ccf2"
+    },
+    "T-SP-PP.RES.21-2011-S.adoc": {
+      "sha256": "7616c8612398dc9290b257e14a6419b17ba53980b4f298adefa82a5a7add5b32",
+      "expected_sha256": "7616c8612398dc9290b257e14a6419b17ba53980b4f298adefa82a5a7add5b32"
+    },
+    "T-SP-RR.25.1-2018-MSW-E.adoc": {
+      "sha256": "3623af7cc27e13299b89c7d468340ac90ca586051381b0a8941385a51d7b5907",
+      "expected_sha256": "3623af7cc27e13299b89c7d468340ac90ca586051381b0a8941385a51d7b5907"
+    },
+    "T-SP-RR.25.1-2018-MSW-F.adoc": {
+      "sha256": "a6949cba6010e32037795159b7d139beb18848dd80682687c108a38e7576a442",
+      "expected_sha256": "a6949cba6010e32037795159b7d139beb18848dd80682687c108a38e7576a442"
+    },
+    "T-SP-RR.25.1-2018-MSW-S.adoc": {
+      "sha256": "e5f6f670b96b4860b6dc399794b21f7e42a7535c7eea0a49f681a0c5461ebac8",
+      "expected_sha256": "e5f6f670b96b4860b6dc399794b21f7e42a7535c7eea0a49f681a0c5461ebac8"
+    },
+    "T-SP-SR.1-2012-MSW-E.adoc": {
+      "sha256": "5845dbde09a4d39c6de6640cb66971743ccea507e55402c74d7efa5ea747301d",
+      "expected_sha256": "5845dbde09a4d39c6de6640cb66971743ccea507e55402c74d7efa5ea747301d"
+    },
+    "T-SP-SR.1-2012-MSW-F.adoc": {
+      "sha256": "edbb76b8ffd3508f17c91f9d7de048e82425b0f6fd3194666c97d53c9c1ed284",
+      "intended_changes": [
+        {
+          "before": "^.^|Country/geographical area\n",
+          "after": "^.^|Pays/zone géographique\n",
+          "count": 1
+        }
+      ],
+      "expected_sha256": "65fa72e228c3b15b1ee406847fef8f4eb976822bf32b64e5bfac56e5e50194e1"
+    },
+    "T-SP-SR.1-2012-MSW-S.adoc": {
+      "sha256": "f539964d19bd73967708a9644fbd01ab920663aa337b55b9c99e27d0993461dd",
+      "intended_changes": [
+        {
+          "before": "^.^|Country/geographical area\n",
+          "after": "^.^|País/zona geográfica\n",
+          "count": 1
+        }
+      ],
+      "expected_sha256": "dd7f49630a7cc47620ce388144e7fb5be5ca53b526b1528c1229fe02e20d3b7b"
+    },
+    "T-SP-T.35-2012-OAS-MSW-E.adoc": {
+      "sha256": "9e3e01663d31eb6c61d7d751a4d3b13d3c2a3fed73adfaf2c6f3c1c8527442d9",
+      "expected_sha256": "9e3e01663d31eb6c61d7d751a4d3b13d3c2a3fed73adfaf2c6f3c1c8527442d9"
+    },
+    "T-SP-T.35-2012-OAS-MSW-F.adoc": {
+      "sha256": "4cc2341c4be3bce41a6c1648e7d43fe9b630f1cf299d8e87ac8e13cf2bfa3137",
+      "expected_sha256": "4cc2341c4be3bce41a6c1648e7d43fe9b630f1cf299d8e87ac8e13cf2bfa3137"
+    },
+    "T-SP-T.35-2012-OAS-MSW-S.adoc": {
+      "sha256": "76603b2b66a55cf0ee59fcce3cbb7ea2a053da8f7f6d512823594878b5185255",
+      "expected_sha256": "76603b2b66a55cf0ee59fcce3cbb7ea2a053da8f7f6d512823594878b5185255"
+    },
+    "T-SP-T.35B-2012-MSW-E.adoc": {
+      "sha256": "5435cd05ab77b04e284bd8e31a903a15ee572ff290eda09a449c9c47055f30fa",
+      "expected_sha256": "5435cd05ab77b04e284bd8e31a903a15ee572ff290eda09a449c9c47055f30fa"
+    },
+    "T-SP-T.35B-2012-MSW-F.adoc": {
+      "sha256": "c1ee57d7a530a57b9f18887531ab06f343893160f5a9d23127d74071a2debde3",
+      "expected_sha256": "c1ee57d7a530a57b9f18887531ab06f343893160f5a9d23127d74071a2debde3"
+    },
+    "T-SP-T.35B-2012-MSW-S.adoc": {
+      "sha256": "8e5ab3c52e067a2965d6d2841211683805304fd75092f8d036f470fe4680ebe7",
+      "expected_sha256": "8e5ab3c52e067a2965d6d2841211683805304fd75092f8d036f470fe4680ebe7"
+    },
+    "T-SP-X.121A-2011-MSW-E.adoc": {
+      "sha256": "83aa69f1a353e814d2dc3d8ebd646c4c607cc0a607b2f2fb0db1dfd5d4aaf0d5",
+      "expected_sha256": "83aa69f1a353e814d2dc3d8ebd646c4c607cc0a607b2f2fb0db1dfd5d4aaf0d5"
+    },
+    "T-SP-X.121A-2011-MSW-F.adoc": {
+      "sha256": "475a4c679177d2eb2ba316b9f4bb0392e004bc9de6d7895bb26844aeb9bbca14",
+      "intended_changes": [
+        {
+          "before": "| Code | Country or geographical area\n",
+          "after": "| Indicatif | Pays ou zone géographique\n",
+          "count": 6
+        }
+      ],
+      "expected_sha256": "4edbda8fc9ec907aae396ce537600d9bbd922a29569420a07e674ac252c12f21"
+    },
+    "T-SP-X.121A-2011-MSW-S.adoc": {
+      "sha256": "bcd4969d42ea931bcc6cf78dea1f68fc5e648e41b3be58e5aed0a53e734612a0",
+      "intended_changes": [
+        {
+          "before": "| Code | Country or geographical area\n",
+          "after": "| Indicativo | País o zona geográfica\n",
+          "count": 6
+        }
+      ],
+      "expected_sha256": "1677c9b58b1aeaa7c2341f5c09d7f43749ecca5d129244c2978e81f1638384b1"
+    },
+    "T-SP-F.32-2011-E.adoc": {
+      "sha256": "f2cf447bbf5e99ee9024c8c49637d6dbd605db28148284cde69b99771e61ccb9",
+      "expected_sha256": "f2cf447bbf5e99ee9024c8c49637d6dbd605db28148284cde69b99771e61ccb9"
+    },
+    "T-SP-F.32-2011-F.adoc": {
+      "sha256": "f3b88d076c16946d84f37a845c239406207c46e20b60f5bb2f59adfebd372bb6",
+      "expected_sha256": "f3b88d076c16946d84f37a845c239406207c46e20b60f5bb2f59adfebd372bb6"
+    },
+    "T-SP-F.32-2011-S.adoc": {
+      "sha256": "67d6d26e4c7a99ee69b5647d726773a7395574056cbd4e7a202cb7c8cf93639e",
+      "expected_sha256": "67d6d26e4c7a99ee69b5647d726773a7395574056cbd4e7a202cb7c8cf93639e"
+    }
+  }
+}

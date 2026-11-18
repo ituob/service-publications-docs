@@ -42,7 +42,7 @@
 
 [cols="<,<,^",options="unnumbered,header"]
 |===
-| | {{ metadata_shared_mcc_others.locale | where: "key", "applicant" | map: lang | first }} | MCC + MNC codes
+| | {{ metadata_shared_mcc_others.locale | where: "key", "applicant" | map: lang | first }} | {{ metadata_shared_mcc_others.locale | where: "key", "mcc_mnc_codes" | map: lang | first }}
 
 {% for code_data in data_shared_mcc_others %}
     .2+| *{{ code_data.purpose[lang] }}* | |

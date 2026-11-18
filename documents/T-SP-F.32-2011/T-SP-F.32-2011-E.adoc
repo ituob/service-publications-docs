@@ -69,9 +69,9 @@ geographical area, or of its authorities.
 ----
 {% assign lang = "en" %}
 {% if edition.printed_source_rows.size > 0 %}
-{% render "table", data: edition.printed_source_rows, lang: lang %}
+{% render "table", data: edition.printed_source_rows, metadata: edition.metadata, lang: lang %}
 {% else %}
-{% render "table", data: edition.printed_items, lang: lang %}
+{% render "table", data: edition.printed_items, metadata: edition.metadata, lang: lang %}
 {% endif %}
 {% render "appendices", lang: lang %}
 ----

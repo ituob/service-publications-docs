@@ -35,17 +35,17 @@ E-mail: mailto:tsbtson@itu.int[]
 
 . Las denominaciones empleadas en esta Lista y la forma en que aparecen presentados los datos que contiene no implican, por parte de la UIT, juicio alguno sobre la condición jurídica de países o zonas geográficas, o de sus autoridades.
 
-[yaml2text,data=../../datasets/1162-E.212/data.yaml,metadata=../../datasets/1162-E.212/metadata.yaml,data_shared_mcc=../../datasets/1162-E.212-Shared-MCC/data.yaml,metadata_shared_mcc=../../datasets/1162-E.212-Shared-MCC/metadata.yaml,data_shared_mcc_others=../../datasets/1162-E.212-MCC-Others/data.yaml,metadata_shared_mcc_others=../../datasets/1162-E.212-MCC-Others/metadata.yaml,data_et=../../datasets/1162-E.212-ET/data.yaml,metadata_et=../../datasets/1162-E.212-ET/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"datasets":["1162-E.212","1162-E.212-Shared-MCC","1162-E.212-MCC-Others","1162-E.212-ET"],"as_of":1162}}]
 ----
-{% assign lang = "es" %}
+{% assign source = edition.sources | where: "dataset", "1162-E.212" | first %}{% assign data = source.items %}{% assign source = edition.sources | where: "dataset", "1162-E.212" | first %}{% assign metadata = source.metadata %}{% assign source = edition.sources | where: "dataset", "1162-E.212-Shared-MCC" | first %}{% assign data_shared_mcc = source.items %}{% assign source = edition.sources | where: "dataset", "1162-E.212-Shared-MCC" | first %}{% assign metadata_shared_mcc = source.metadata %}{% assign source = edition.sources | where: "dataset", "1162-E.212-MCC-Others" | first %}{% assign data_shared_mcc_others = source.items %}{% assign source = edition.sources | where: "dataset", "1162-E.212-MCC-Others" | first %}{% assign metadata_shared_mcc_others = source.metadata %}{% assign source = edition.sources | where: "dataset", "1162-E.212-ET" | first %}{% assign data_et = source.items %}{% assign source = edition.sources | where: "dataset", "1162-E.212-ET" | first %}{% assign metadata_et = source.metadata %}{% assign lang = "es" %}
 {% render "tables", data: data, metadata: metadata, data_shared_mcc: data_shared_mcc, metadata_shared_mcc: metadata_shared_mcc, data_shared_mcc_others: data_shared_mcc_others, metadata_shared_mcc_others: metadata_shared_mcc_others, data_et: data_et, metadata_et: metadata_et, lang: lang %}
 ----
 
 == {blank}
 
-[yaml2text,data=../../datasets/1162-E.212/data.yaml,metadata=../../datasets/1162-E.212/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"1162-E.212","as_of":1162}}]
 ----
-Remítase a UIT/TSB Fax N.o +41 22 730 5853 / E-mail: mailto:tsbtson@itu.int[]
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign lang = "es" %}Remítase a UIT/TSB Fax N.o +41 22 730 5853 / E-mail: mailto:tsbtson@itu.int[]
 
 [align=center]
 *Formulario de notificación para la asignación/retirada de indicativos de red para el servicio móvil (MNC) del plan de indentificación internacional para redes públicas y suscripciones* +
@@ -98,7 +98,7 @@ Correo-e&#58;:::
 
 [cols="^,^",options="unnumbered"]
 |===
-| MCC + MNC | Nombre de la red/ operador
+| {{ metadata.locale | where: "key", "form_mcc_mnc" | map: lang | first }} | {{ metadata.locale | where: "key", "form_network_name" | map: lang | first }}
 
 {% for i in (1..28) %}
 | |
@@ -111,9 +111,9 @@ MNC: Indicativo de red para el servicio móvil
 
 == {blank}
 
-[yaml2text,data=../../datasets/1162-E.212/data.yaml,metadata=../../datasets/1162-E.212/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"1162-E.212","as_of":1162}}]
 ----
-Remítase al número de Fax UIT/TSB No.: +41 22 730 5853/E-mail: mailto:tsbtson@itu.int[]
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign lang = "es" %}Remítase al número de Fax UIT/TSB No.: +41 22 730 5853/E-mail: mailto:tsbtson@itu.int[]
 
 [align=center]
 *Formulario de notificación de utilización extraterritorial/cancelación de utilización extraterritorial de un MCC/MNC* +
@@ -156,11 +156,11 @@ Las Administraciones emplearán este formulario para notificar al Director de la
 
 [cols="5",options="unnumbered"]
 |===
-^h| MCC/MNC
-^h| Nombre del/de los operador(es)
-h| País B – Donde se utiliza extraterritorialmente el MCC/MNC
-h| Gama de MSIN que se utilizará en el País A
-h| Gama de MSIN que se utilizará en el País B
+^h| {{ metadata.locale | where: "key", "form_extra_mcc_mnc" | map: lang | first }}
+^h| {{ metadata.locale | where: "key", "form_operator_name" | map: lang | first }}
+h| {{ metadata.locale | where: "key", "form_country_b" | map: lang | first }}
+h| {{ metadata.locale | where: "key", "form_country_a_msin" | map: lang | first }}
+h| {{ metadata.locale | where: "key", "form_country_b_msin" | map: lang | first }}
 
 | | | | |
 | | | | |
@@ -170,9 +170,9 @@ h| Gama de MSIN que se utilizará en el País B
 
 [cols="^,^,^",options="header,unnumbered"]
 |===
-| Enmienda N.°
-| Boletín de Explotación N.°
-| País o zona
+| {{ metadata.locale | where: "key", "amendment_number" | map: lang | first }}
+| {{ metadata.locale | where: "key", "bulletin_number" | map: lang | first }}
+| {{ metadata.locale | where: "key", "amendment_country_or_area" | map: lang | first }}
 
 {% for i in (1..30) %}
 | {{ i }} | |

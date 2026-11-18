@@ -4,6 +4,8 @@ module Ituob
   # Typed views built from replayed register state.
   module Projections
     autoload :F32DocumentRows, 'ituob/projections/f32_document_rows'
+    autoload :PublicationLabels, 'ituob/projections/publication_labels'
+    autoload :PublicationDataset, 'ituob/projections/publication_dataset'
     autoload :RegisterItems, 'ituob/projections/register_items'
     autoload :RegisterEdition, 'ituob/projections/register_edition'
     autoload :RegisterLocale, 'ituob/projections/register_locale'

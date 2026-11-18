@@ -63,7 +63,6 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
     end
   end
 
-
   %w[E F S].each do |suffix|
     it "reads the register from the provider, not the legacy data file, in the #{suffix} document" do
       source = File.read(File.join(dir, "T-SP-F.32-2011-#{suffix}.adoc"))

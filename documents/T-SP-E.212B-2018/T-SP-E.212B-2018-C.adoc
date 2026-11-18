@@ -34,17 +34,17 @@
 
 . 本列表所用指称和资料呈现方式不表示国际电联对任何国家、地理区域或其主管部门持有任何意见。
 
-[yaml2text,data=../../datasets/1162-E.212/data.yaml,metadata=../../datasets/1162-E.212/metadata.yaml,data_shared_mcc=../../datasets/1162-E.212-Shared-MCC/data.yaml,metadata_shared_mcc=../../datasets/1162-E.212-Shared-MCC/metadata.yaml,data_shared_mcc_others=../../datasets/1162-E.212-MCC-Others/data.yaml,metadata_shared_mcc_others=../../datasets/1162-E.212-MCC-Others/metadata.yaml,data_et=../../datasets/1162-E.212-ET/data.yaml,metadata_et=../../datasets/1162-E.212-ET/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"datasets":["1162-E.212","1162-E.212-Shared-MCC","1162-E.212-MCC-Others","1162-E.212-ET"],"as_of":1162}}]
 ----
-{% assign lang = "zh" %}
+{% assign source = edition.sources | where: "dataset", "1162-E.212" | first %}{% assign data = source.items %}{% assign source = edition.sources | where: "dataset", "1162-E.212" | first %}{% assign metadata = source.metadata %}{% assign source = edition.sources | where: "dataset", "1162-E.212-Shared-MCC" | first %}{% assign data_shared_mcc = source.items %}{% assign source = edition.sources | where: "dataset", "1162-E.212-Shared-MCC" | first %}{% assign metadata_shared_mcc = source.metadata %}{% assign source = edition.sources | where: "dataset", "1162-E.212-MCC-Others" | first %}{% assign data_shared_mcc_others = source.items %}{% assign source = edition.sources | where: "dataset", "1162-E.212-MCC-Others" | first %}{% assign metadata_shared_mcc_others = source.metadata %}{% assign source = edition.sources | where: "dataset", "1162-E.212-ET" | first %}{% assign data_et = source.items %}{% assign source = edition.sources | where: "dataset", "1162-E.212-ET" | first %}{% assign metadata_et = source.metadata %}{% assign lang = "zh" %}
 {% render "tables", data: data, metadata: metadata, data_shared_mcc: data_shared_mcc, metadata_shared_mcc: metadata_shared_mcc, data_shared_mcc_others: data_shared_mcc_others, metadata_shared_mcc_others: metadata_shared_mcc_others, data_et: data_et, metadata_et: metadata_et, lang: lang %}
 ----
 
 == {blank}
 
-[yaml2text,data=../../datasets/1162-E.212/data.yaml,metadata=../../datasets/1162-E.212/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"1162-E.212","as_of":1162}}]
 ----
-返回ITU/TSB 传真号 +41 22 730 5853 / 电子邮件：mailto:tsbtson@itu.int[]
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign lang = "zh" %}返回ITU/TSB 传真号 +41 22 730 5853 / 电子邮件：mailto:tsbtson@itu.int[]
 
 [align=center]
 *用于公众网络和订户的国际识别规划的移动网络代码（MNC） 的分配或撤销通知* +
@@ -97,7 +97,7 @@ _本表用于向电信标准化局主任通报自前次通知以来成员国分�
 
 [cols="^,^",options="unnumbered"]
 |===
-| MCC + MNC | 网络/运营商名称
+| {{ metadata.locale | where: "key", "form_mcc_mnc" | map: lang | first }} | {{ metadata.locale | where: "key", "form_network_name" | map: lang | first }}
 
 {% for i in (1..28) %}
 | |
@@ -110,9 +110,9 @@ MNC: 移动网络代码
 
 == {blank}
 
-[yaml2text,data=../../datasets/1162-E.212/data.yaml,metadata=../../datasets/1162-E.212/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"1162-E.212","as_of":1162}}]
 ----
-返回ITU/TSB 传真 +41 22 730 5853 / 电子邮件：mailto:tsbtson@itu.int[]
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign lang = "zh" %}返回ITU/TSB 传真 +41 22 730 5853 / 电子邮件：mailto:tsbtson@itu.int[]
 
 [align=center]
 *关于使用或撤销境外使用MCC/MNC的通知* +
@@ -155,11 +155,11 @@ MNC: 移动网络代码
 
 [cols="5",options="unnumbered"]
 |===
-^h| MCC/MNC
-^h| 运营商名称
-h| 国家B – 境外使用MCC/MNC
-h| 国家A中使用的 移动用户识别码号段
-h| 国家B使用的移动用户识别码号段
+^h| {{ metadata.locale | where: "key", "form_extra_mcc_mnc" | map: lang | first }}
+^h| {{ metadata.locale | where: "key", "form_operator_name" | map: lang | first }}
+h| {{ metadata.locale | where: "key", "form_country_b" | map: lang | first }}
+h| {{ metadata.locale | where: "key", "form_country_a_msin" | map: lang | first }}
+h| {{ metadata.locale | where: "key", "form_country_b_msin" | map: lang | first }}
 
 | | | | |
 | | | | |
@@ -169,9 +169,9 @@ h| 国家B使用的移动用户识别码号段
 
 [cols="^,^,^",options="header,unnumbered"]
 |===
-| 修正案编号
-| 操作公报编号
-| 国家/地区
+| {{ metadata.locale | where: "key", "amendment_number" | map: lang | first }}
+| {{ metadata.locale | where: "key", "bulletin_number" | map: lang | first }}
+| {{ metadata.locale | where: "key", "amendment_country_or_area" | map: lang | first }}
 
 {% for i in (1..30) %}
 | {{ i }} | |
