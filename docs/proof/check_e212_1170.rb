@@ -66,9 +66,9 @@ doc = Nokogiri::XML(xml)
 doc.remove_namespaces!
 text = doc.xpath("//sections//p | //preface//p").map { |p| p.text.strip }.join("\n")
 
-check "output provenance line (register_id, as_of_issue, seed_issue)",
+check "output provenance line (register_id, as_of_issue, seed_issue, last_change_issue)",
       text.include?("PROVENANCE register_id=#{prov.register_id} as_of_issue=#{AS_OF} " \
-                    "seed_issue=#{prov.seed_issue}"),
+                    "seed_issue=#{prov.seed_issue} last_change_issue=#{prov.last_change_issue}"),
       text[/PROVENANCE[^\n]*/].inspect
 check "output ROWS count line", text.include?("ROWS #{items.size}"), text[/ROWS[^\n]*/].inspect
 

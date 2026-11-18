@@ -8,8 +8,9 @@ gem "ituob", path: "../../ituob"
 
 # lutaml_data provider support shipped in metanorma-plugin-lutaml 0.7.69
 # (PR #350, feat/lml-loader).
-gem "metanorma-plugin-lutaml", "~> 0.7.69"
+gem "metanorma-plugin-lutaml", "0.7.71"
 
-gem "metanorma-standoc"
+gem "metanorma", "2.5.24"
+gem "metanorma-standoc", "3.5.22"
 gem "nokogiri"
 gem "bigdecimal", "~> 4.0"
