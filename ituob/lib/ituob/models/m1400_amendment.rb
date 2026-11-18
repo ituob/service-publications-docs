@@ -239,8 +239,12 @@ attribute :notes, :string, collection: true
 
               action.entries << entry
             end
+            # A table printed right after another table, with no action label
+            # between them, belongs to the same printed action.
+            previous = action
             action = M1400Action.new
             action.entries = []
+            action.action_type = previous.action_type
             amendment.actions << action
           else
             next if first_elem.nil?
