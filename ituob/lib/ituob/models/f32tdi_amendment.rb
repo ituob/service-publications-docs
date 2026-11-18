@@ -103,7 +103,7 @@ attribute :notes, :string, collection: true
           return
         end
 
-        if (p_line = text.match(/\AP\s*(\d+(?:-\d+)?)?\s+(.*)\z/))
+        if (p_line = text.match(/\AP(?:\s*+(\d+(?:-\d+)?)(?=\s))?\s++(.*)\z/))
           state.country = state.country_note = nil
           state.network_roa = state.network_code = nil
           state.network_codes = []
@@ -112,7 +112,7 @@ attribute :notes, :string, collection: true
           action.position = p_line[1] ? "P #{p_line[1]}" : 'P'
           action.description = text
           action.action_type = action_keyword_in(p_line[2]) || action.action_type
-        elsif (col_line = text.match(/\ACOL\s*(\d+)\s*(.*)\z/))
+        elsif (col_line = text.match(/\ACOL\s*+(\d+)\s*+(.*)\z/))
           action = state.ensure_action
           action.position = "#{action.position} COL #{col_line[1]}".strip
           action.description = "#{action.description} #{text}".strip

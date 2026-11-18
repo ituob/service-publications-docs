@@ -110,7 +110,7 @@ attribute :notes, :string, collection: true
         entry.address_line_3 = addresses[2..].join("\n") if addresses.length >= 3
 
         row[2].each do |text|
-          match = Ituob::Helpers.strip_legacy(text).match(/\A(Tel|Fax|E-?mail)[\s.:]*(.*)\z/i)
+          match = Ituob::Helpers.strip_legacy(text).match(/\A(Tel|Fax|E-?mail)[\s.:]*+(.*)\z/i)
           next unless match
 
           value = match[2].strip
