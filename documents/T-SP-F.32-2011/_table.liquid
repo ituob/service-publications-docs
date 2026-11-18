@@ -1,3 +1,6 @@
+{% if data.first.source_cells.size > 0 %}
+{% render "printed_table", data: data, lang: lang %}
+{% else %}
 
 {% case lang %}
 {% when "fr" %}{% assign title = "Indicateurs de destination (ID) attribués aux bureaux télégraphiques" %}{% assign headers = "Pays /zone géographique|Réseau (administration/ER)|Code de réseau|Nom du bureau télégraphique|Code de bureau" | split: "|" %}
@@ -161,3 +164,5 @@ footnote:[{{ country_data.country_or_area_note[lang] }}]
 {% endfor %}
 
 |===
+
+{% endif %}

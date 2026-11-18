@@ -4,6 +4,11 @@ require "asciidoctor"
 require "asciidoctor/logging"
 
 module F32TableStructure
+  def normalize_f32_source(text, codes)
+    indicators = /--[A-Z]{2}|(?<![[:alpha:]])(?:#{Regexp.union(codes)})(?![[:alpha:]])/
+    text.gsub(indicators) { |code| code[-2, 2] }.downcase.gsub(/[^[:alnum:]]/, "")
+  end
+
   def render_rows(rows, lang = "en")
     environment = Liquid::Environment.build do |env|
       env.file_system = Liquid::LocalFileSystem.new(dir, "_%s.liquid")

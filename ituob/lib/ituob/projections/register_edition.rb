@@ -28,6 +28,7 @@ module Ituob
           items: @items,
           source_contexts: @source_contexts,
           printed_items: printed_items,
+          printed_source_rows: printed_source_rows,
           lapsed_keys: @state.lapsed_keys.to_a.sort,
           deleted_keys: @state.deleted_keys.to_a.sort,
           key_history: key_history
@@ -42,6 +43,22 @@ module Ituob
         return [] unless @register.register_id == "F32_TDI" && @state.at_ob_issue == @register.seed_issue
 
         F32DocumentRows.new(items: @items, contexts: @source_contexts).rows
+      end
+
+      def printed_source_rows
+        return [] unless @register.register_id == "F32_TDI" && @state.at_ob_issue == @register.seed_issue
+
+        @source_contexts.select { |context| context.kind == "printed-row" }.map(&:entry).each_with_object([]) do |entry, rows|
+          previous = rows.last
+          if entry.source_cells.size == 1 && previous&.source_cells&.size == 1 &&
+              entry.source_language == previous.source_language && entry.source_page == previous.source_page
+            joined = Models::F32TDIEntry.from_yaml(previous.to_yaml)
+            joined.source_cells = [previous.source_cells.first + " " + entry.source_cells.first]
+            rows[-1] = joined
+          else
+            rows << entry
+          end
+        end
       end
 
       # Keys follow replay's first-touch order; each key's changes keep

@@ -105,24 +105,28 @@ printed network-relative office rows and 92 shared office rows (1,495 coded
 rows total), aliases, unassigned rows, reserved/telex network notes and country
 headings otherwise absent from the allocation list. Source coordinates place
 these records in printed order; legacy duplicate contexts and continuation
-fragments are not printed twice. The positioned reader also captures all 35
-full-width cessation/reservation paragraphs. It retains network codes that
-Poppler merges into otherwise empty network-name cells (GK, LU and MG).
-Country-heading coordinates anchor legacy reservations even when their own
-rows have no coordinates, keeping them in printed order.
+fragments are not printed twice. The display stream retains the positioned
+source cells independently of allocation inference. This preserves country
+qualifiers, routing descriptions, network rows and full-width notes even when
+Poppler joins neighboring cells or the text has no canonical allocation.
+Language-specific streams come from the pinned official English, French and
+Spanish editions; the canonical allocation list remains separate.
 
 A shared appendix template restores 28 special-origin network entries, eight
 organization indicators with their printed multilingual names, 27 cessation
 records and all 30 blank amendment rows in the English, French and Spanish
 sources. Focused document specs assert those counts and representative official
 values, all canonical office rows, printed order, and missing suffix/alias
-regressions. An independent content fixture pins all 35 complete cessation
-paragraphs and the affected country sequence to the official source. Existing
-French and Spanish translations are retained; the 20 newly recovered notes use
-the official English text where no translation exists. The PDF CI job runs
-link:../../scripts/check_f32_content.py[] against all three editions to reject
-missing note text, network cells or country-order changes regardless of page
-drift. The earlier legacy-dataset truncation is not recreated.
+regressions. The first content gate checked selected cessation paragraphs,
+network cells and country headings as independent substrings. That allowed
+missing non-cessation annotations and accepted a code swap or a note moved to
+another country. The ordered comparison replaces that incomplete protection.
+The PDF CI job runs link:../../scripts/check_f32_content.py[] against every
+edition's official source, with country, network, office and note boundaries.
+It also compares the front matter and appendices in document order. Whitespace,
+line wrapping and page furniture do not grant an exception for missing content.
+The source URLs and SHA-256 digests are pinned in
+link:../../ituob/spec/fixtures/f32/official-sources.json[].
 
 The F.32 shard alone applies link:../../scripts/patch_itu_f32_tables.rb[a guarded
 stylesheet patch]: 8 pt Arial table text, 9 pt leading and minimum row height,

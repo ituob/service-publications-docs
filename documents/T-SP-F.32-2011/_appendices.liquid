@@ -1,14 +1,52 @@
+{% case lang %}
+{% when "fr" %}
+{% assign appendix = "Appendice" %}
+{% assign title1 = "Indicateur spécial d'origine pour le système à retransmission de télégrammes" %}
+{% assign headers1 = "Pays /zone géographique|Réseau (administration/ER)|Code de réseau|Indicateur spécial d'origine" | split: "|" %}
+{% assign title2 = "Indicateurs à utiliser dans la ligne de préambule des télégrammes d'Etat pour désigner des Organismes" %}
+{% assign accordance = "Conformément à la Recommandation UIT-T F.1, A218" %}
+{% assign headers2 = "Code de réseau|Organismes" | split: "|" %}
+{% assign title3 = "Pays ou zones géographiques pour lesquels des renseignements relatifs à la cessation du service des télégrammes ont été publiés dans le bulletin d'exploitation de l'UIT (No)" %}
+{% assign headers3 = "BE No.|Pays / Zones géographiques" | split: "|" %}
+{% assign countries3 = "Antigua et Barbuda|Ascension|Tonga|Fidji|Nouvelle-Zélande|Singapour|Suriname|Groenland|Guyana|Pologne|Gibraltar|Nouvelle-Calédonie|Indonésie|Hong kong, Chine|Curaçao|Féroé (Îles)|Bulgarie|Danemark|Pakistan|Trinité-et-Tobago|Slovaquie|Hongrie|Thailande|Malte|Luxembourg|Vanuatu|Madagascar" | split: "|" %}
+{% assign amendments = "AMENDEMENTS" %}
+{% assign form_headers = "Amendement N°|Bulletin d'exploitation N°.|Pays" | split: "|" %}
+{% when "es" %}
+{% assign appendix = "Apéndice" %}
+{% assign title1 = "Indicador especial de origen para el sistema de retransmisión de telegramas" %}
+{% assign headers1 = "País / zona geográfica|Red (administración/EER)|Código de red|Indicador especial de origen" | split: "|" %}
+{% assign title2 = "Indicadores que han de utilizarse en el renglón de preámbulo de los telegramas de Estado para designar Organismos" %}
+{% assign accordance = "de conformidad con la Recomendación UIT-T F.1, A218" %}
+{% assign headers2 = "Código de red|Organismos" | split: "|" %}
+{% assign title3 = "Países o zonas geográficas para los cuales una información sobre a la cesación de servicio de telegramas ha sido publicada en el Boletín de Explotación de la UIT (N.º):" %}
+{% assign headers3 = "BE N.o|Países / Zonas geográficas" | split: "|" %}
+{% assign countries3 = "Antigua y Barbuda|Ascensión|Tonga|Fiji|Nueva Zelandia|Singapur|Suriname|Groenlandia|Guyana|Polonia|Gibraltar|Nueva Caledonia|Indonesia|Hong kong, China|Curaçao|Feroe (Islas)|Bulgaria|Dinamarca|Pakistán|Trinidad y Tobago|Eslovaquia|Hungria|Tailandia|Malta|Luxemburgo|Vanuatu|Madagascar" | split: "|" %}
+{% assign amendments = "ENMIENDAS" %}
+{% assign form_headers = "Enmienda N.°|Boletín de Explotación N.°|País" | split: "|" %}
+{% else %}
+{% assign appendix = "Appendix" %}
+{% assign title1 = "Special Origin Indicators for the Telegram Retransmission System" %}
+{% assign headers1 = "Country /geographical area|Network (administration/ROA)|Network code|Special origin indicator" | split: "|" %}
+{% assign title2 = "Indicators to be used in the preamble line of Government telegrams to designate Organizations" %}
+{% assign accordance = "In accordance with ITU-T Recommendation F.1, A218" %}
+{% assign headers2 = "Network code|Organizations" | split: "|" %}
+{% assign title3 = "Countries or geographical areas for which information regarding cessation of telegram service has been published in the ITU Operational Bulletin (No.)" %}
+{% assign headers3 = "OB No.|Country / Geographical area" | split: "|" %}
+{% assign countries3 = "Antigua and Barbuda|Ascension|Tonga|Fiji|New Zealand|Singapore|Suriname|Greenland|Guyana|Poland|Gibraltar|New Caledonia|Indonesia|Hong Kong, China|Curaçao|Faroe Islands|Bulgaria|Denmark|Pakistan|Trinidad and Tobago|Slovakia|Hungary|Thailand|Malta|Luxembourg|Vanuatu|Madagascar" | split: "|" %}
+{% assign amendments = "AMENDMENTS" %}
+{% assign form_headers = "Amendment No.|Operational Bulletin No.|Country" | split: "|" %}
+{% endcase %}
 {% comment %}Structured transcription of Appendices 1–3 and amendments, pinned official-2011.pdf pages 41–46 (ituob/spec/fixtures/f32). Country and organization names retain the source multilingual text.{% endcomment %}
 <<<
 
-== Appendix 1: Special Origin Indicators for the Telegram Retransmission System
+== {{ appendix }} 1: {{ title1 }}
 
 [cols="2,1,1,3",options="header,unnumbered"]
 |===
-|Country / geographical area |Network (administration/ROA) |Network code |Special origin indicators
+|{{ headers1[0] }} |{{ headers1[1] }} |{{ headers1[2] }} |{{ headers1[3] }}
 |ARABIE SAOUDITE +
 SAUDI ARABIA +
-ARABIA SAUDITA |GOVT – Ministry of Communications and Information Technology, Riyadh |SJ |JP
+ARABIA SAUDITA |GOVT – Ministry of Communication{% if lang == "en" %}s{% endif %} and Information Technology, Riyadh |SJ |JP
 |AUSTRALIE +
 AUSTRALIA +
 AUSTRALIA |Matrix Omni Solutions Pty. Ltd (Matrix) |AA |SV +
@@ -20,9 +58,9 @@ BARBADOS |C&W BET Ltd – Cable & Wireless BET Ltd, Bridgetown |WB |SV
 |BELGIQUE +
 BELGIUM +
 BÉLGICA |BELGACOM – Société anonyme de droit public, Bruxelles |BE |SV
-|BRÉSIL +
+|{% if lang == "fr" %}BRESIL{% else %}BRÉSIL{% endif %} +
 BRAZIL +
-BRASIL |EMBRATEL – Empresa Brasileira de Telecomunicações S.A., Rio de Janeiro |BR |BQ +
+BRASIL |EMBRATEL – Empresa Brasileira de Telecomunicaç{% if lang == "fr" %}ô{% else %}õ{% endif %}es S.A., Rio de Janeiro |BR |BQ +
 SV +
 XQ
 |CANADA +
@@ -128,7 +166,7 @@ SV +
 TF TL TT TU +
 XQ +
 YL
-|KOWEÏT +
+|{% if lang == "en" %}KOWEÏT{% else %}KOWEIT{% endif %} +
 KUWAIT +
 KUWAIT |GOVT – Ministry of Communications, Safat |KT |SV
 |LETTONIE +
@@ -175,13 +213,13 @@ XQ
 
 <<<
 
-== Appendix 2: Indicators to be used in the preamble line of Government telegrams to designate Organizations
+== {{ appendix }} 2: {{ title2 }}
 
-(In accordance with ITU-T Recommendation F.1, A218)
+({{ accordance }})
 
 [cols="1,3",options="header,unnumbered"]
 |===
-|Network code |Organization (French / English / Spanish)
+|{{ headers2[0] }} |{{ headers2[1] }}
 |XB |Banque interaméricaine de développement / Inter-American Development Bank / Banco Interamericano de Desarrollo
 |XC |Fonds des Nations Unies pour l'enfance / United Nations Children Fund / Fondo de las Naciones Unidas para la Infancia
 |XD |Association internationale de développement / International Development Association / Asociación Internacional de Fomento
@@ -194,45 +232,45 @@ XQ
 
 <<<
 
-== Appendix 3: Countries or geographical areas for which information regarding cessation of telegram service has been published
+== {{ appendix }} 3: {{ title3 }}
 
 [cols="1,2",options="header,unnumbered"]
 |===
-|Operational Bulletin No. |Country / geographical area
-|648 |Antigua and Barbuda
-|686 |Ascension
-|692 |Tonga
-|694 |Fiji
-|718 |New Zealand
-|751 |Singapore
-|754 |Suriname
-|758 |Greenland
-|773 |Guyana
-|773 |Poland
-|776 |Gibraltar
-|789 |New Caledonia
-|792 |Indonesia
-|800 |Hong Kong, China
-|806 |Curaçao
-|814 |Faroe Islands
-|832 |Bulgaria
-|840 |Denmark
-|852 |Pakistan
-|873 |Trinidad and Tobago
-|874 |Slovakia
-|889 |Hungary
-|906 |Thailand
-|919 |Malta
-|926 |Luxembourg
-|957 |Vanuatu
-|958 |Madagascar
+|{{ headers3[0] }} |{{ headers3[1] }}
+|648 |{{ countries3[0] }}
+|686 |{{ countries3[1] }}
+|692 |{{ countries3[2] }}
+|694 |{{ countries3[3] }}
+|718 |{{ countries3[4] }}
+|751 |{{ countries3[5] }}
+|754 |{{ countries3[6] }}
+|758 |{{ countries3[7] }}
+|773 |{{ countries3[8] }}
+|773 |{{ countries3[9] }}
+|776 |{{ countries3[10] }}
+|789 |{{ countries3[11] }}
+|792 |{{ countries3[12] }}
+|800 |{{ countries3[13] }}
+|806 |{{ countries3[14] }}
+|814 |{{ countries3[15] }}
+|832 |{{ countries3[16] }}
+|840 |{{ countries3[17] }}
+|852 |{{ countries3[18] }}
+|873 |{{ countries3[19] }}
+|874 |{{ countries3[20] }}
+|889 |{{ countries3[21] }}
+|906 |{{ countries3[22] }}
+|919 |{{ countries3[23] }}
+|926 |{{ countries3[24] }}
+|957 |{{ countries3[25] }}
+|958 |{{ countries3[26] }}
 |===
 
-=== Appendix 3 amendments form
+=== {{ amendments }}
 
 [cols="1,1,2",options="header,unnumbered"]
 |===
-|Amendment No. |Operational Bulletin No. |Country
+|{{ form_headers[0] }} |{{ form_headers[1] }} |{{ form_headers[2] }}
 |1 | |
 |2 | |
 |3 | |

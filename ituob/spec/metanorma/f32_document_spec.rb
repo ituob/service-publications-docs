@@ -103,7 +103,8 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
     expect(edition.printed_items.count { |entry| entry.office_code.to_s.start_with?('--') }).to eq(311)
     expect(edition.printed_items.filter_map(&:source_row)).to eq(edition.printed_items.filter_map(&:source_row).sort)
     expect(edition.printed_items.count { |entry| entry.telegraph_office_name&.en == 'Dacca --> Dhaka' }).to eq(1)
-    expect(render('en').scan('Manama Diplomatic Area Counter').size).to eq(1)
+    expect(edition.items.find { |entry| entry.office_code == 'BNDP' }.telegraph_office_name.en).to eq('Manama Diplomatic Area Counter')
+    expect(render('en')).to include('Manama Diplomatic', 'Area Counter')
     expect(render('en')).to include('remain reserved', 'Unrouted')
   end
 
@@ -120,7 +121,7 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
   %w[en fr es].each do |lang|
     it "prints the three official appendices and amendment register in #{lang}" do
       table = render(lang)
-      appendix1, appendix2, appendix3 = table.split(/^== Appendix /)[1..]
+      appendix1, appendix2, appendix3 = table.split(/^== (?:Appendix|Appendice|Apéndice) /)[1..]
 
       appendix_tables, messages = parse_f32_tables(appendix1)
       expect(messages).to be_empty
@@ -138,7 +139,7 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
       end
       ui_groups = appendix_tables.first.rows.body.find { |cells| cells[-2].text == 'UI' }.last.text
       expect(ui_groups).to include("AW AX<br>\nBC BQ", "FO FS FU")
-      expect(table.scan(/^<<<\n\n== Appendix [123]:/).size).to eq(3)
+      expect(table.scan(/^<<<\n\n== (?:Appendix|Appendice|Apéndice) [123]:/).size).to eq(3)
       expect(appendix2.lines.count { |line| line.match?(/^\|X[A-Z] /) }).to eq(8)
       expect(appendix2).to include('Indicators to be used in the preamble line', 'F.1, A218', 'Banco Internacional de Reconstrucción y Fomento')
       expect(appendix3.lines.count { |line| line.match?(/^\|\d{3} /) }).to eq(27)
@@ -148,7 +149,7 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
 
   %w[en fr es].each do |lang|
     it "fills five logical columns without dropped cells or escaping rowspans in #{lang}" do
-      tables, messages = parse_f32_tables(render(lang).split(/^== Appendix /).first)
+      tables, messages = parse_f32_tables(render(lang).split(/^== (?:Appendix|Appendice|Apéndice) /).first)
       parsed_codes = tables.flat_map do |table|
         table.rows.body.filter_map { |cells| cells.last.text[/\A(?:[A-Z]{4}|--[A-Z]{2})(?=<|footnote|\z)/] }
       end
@@ -158,6 +159,30 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
       expect(tables.map { |table| table.columns.size }).to all(eq(5))
       expect(tables.flat_map { |table| f32_table_grid_errors(table) }).to be_empty
       expect(parsed_codes.tally).to eq(edition.printed_items.filter_map(&:office_code).tally)
+    end
+  end
+
+  it "retains every destination source text node in its own edition and page order" do
+    codes = edition.items.map(&:office_code)
+    { "en" => "", "fr" => "-F", "es" => "-S" }.each do |language, suffix|
+      source = Nokogiri::XML(File.read(File.join(root, "ituob/spec/fixtures/f32/official-2011#{suffix}.xml")))
+      rows = edition.printed_source_rows.select { |entry| entry.source_language == language }
+      expect(rows).not_to be_empty
+      expect(rows.map(&:source_page)).to eq(rows.map(&:source_page).sort)
+      expect(rows.map(&:source_row)).to eq(rows.map(&:source_row).sort)
+      by_page = rows.group_by(&:source_page)
+      source.xpath("//page").each do |page|
+        next unless by_page.key?(page["number"].to_i)
+
+        retained = normalize_f32_source(by_page.fetch(page["number"].to_i).flat_map(&:source_cells).join(" "), codes)
+        page.xpath("./text").each do |node|
+          next unless node["top"].to_i > 145 && node["top"].to_i < 1180
+          next if node.text.strip.empty?
+
+          expected = normalize_f32_source(node.text.strip, codes)
+          expect(retained).to include(expected), "Missing source #{language} p#{page['number']}: #{node.text}"
+        end
+      end
     end
   end
 
@@ -210,7 +235,7 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
 
     %w[en fr es].each do |lang|
       it "preserves all 35 complete printed cessation notes in #{lang}" do
-        destination = render(lang).split(/^== Appendix /).first
+        destination = render(lang).split(/^== (?:Appendix|Appendice|Apéndice) /).first
         normalized = destination.downcase.gsub(/[^\p{Alnum}]/, '')
 
         printed_content.fetch('notes').each do |note|
@@ -220,13 +245,15 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
       end
 
       it "keeps reservation countries in printed order and network cells in #{lang}" do
-        destination = render(lang).split(/^== Appendix /).first
-        countries = destination.scan(/^\s*\*([^*]+)\*/).flatten
+        destination = render(lang).split(/^== (?:Appendix|Appendice|Apéndice) /).first
+        countries = destination.scan(/^\s*\|\s*\*([^*]+)\*/).flatten
         expected_order = printed_content.fetch('countries')
 
         # Adjacent equal labels are the official three-language heading.
-        ordered = countries.select { |name| expected_order.include?(name) }.chunk(&:itself).map(&:first)
-        expect(ordered).to eq(expected_order)
+        headings = countries.join(' ').gsub(/\s+/, ' ')
+        positions = expected_order.map { |country| headings.index(country) }
+        expect(positions).not_to include(nil)
+        expect(positions).to eq(positions.sort)
         printed_content.fetch('network_codes').each do |code|
           expect(destination).to match(/\| #{code}(?:- -|\s+- -)/)
         end
@@ -249,7 +276,7 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
 
     %w[en fr es].each do |lang|
       it "leaves only the official US coast-station continuation names blank in #{lang}" do
-        tables, messages = parse_f32_tables(render(lang).split(/^== Appendix /).first)
+        tables, messages = parse_f32_tables(render(lang).split(/^== (?:Appendix|Appendice|Apéndice) /).first)
         blank_names = tables.flat_map do |table|
           table.rows.body.filter_map do |cells|
             code = cells.last.text[/\A[A-Z]{4}\z/]
@@ -269,8 +296,8 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
       table = render('en')
 
       expect(edition.items.select { |item| item.telegraph_office_name.nil? || item.telegraph_office_name.en.to_s.strip.empty? }).to be_empty
-      expect(table).to match(%r{\| Palo Alto, California Radio/KFS\s*\| UIMS})
-      expect(table).to match(/\| Mobile, Alabama Radio\s*\| UIMR/)
+      expect(table).to include('Palo Alto, California', 'Radio/KFS', '| UIMS')
+      expect(table).to include('Mobile, Alabama Radio', '| UIMR')
       expect(edition.items.find { |entry| entry.office_code == 'URMO' }.telegraph_office_name.en).to eq('Mobile, Alabama Radio')
       expect(table).to match(/\| ADEN\s*\| YDAN/)
     end

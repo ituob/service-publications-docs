@@ -55,7 +55,10 @@ module Ituob
           @publication.pages << F32PrintedPage.new(number: @page, text: texts.map(&:text).join("\n"))
           next unless texts.any? { |text| text.text.include?("Destination Indicators (DI) assigned to telegraph offices") }
 
-          rows(texts, fonts).each { |row| consume_row(row) }
+          rows(texts, fonts).each do |row|
+            consume_row(row)
+            retain_printed_row(row)
+          end
         end
         flush_cessation_note
         flush_unassigned
@@ -67,6 +70,8 @@ module Ituob
 
         @publication.source_row_count = @source_row
         @publication.source_complete = true
+        retain_other_editions
+        @publication.source_row_count = @source_row
         @publication
       end
 
@@ -81,9 +86,80 @@ module Ituob
 
           baseline = grouped.keys.find { |value| (value - top).abs <= 2 } || top
           grouped[baseline] ||= []
-          grouped[baseline] << [text["left"].to_i, text.text.strip, fonts.fetch(text["font"])]
+          grouped[baseline] << [text["left"].to_i, text.text.strip, fonts.fetch(text["font"]), text["width"].to_i]
         end
         grouped.sort.map { |_top, row| row.sort_by(&:first) }
+      end
+
+      # Keep the positioned display independently of allocation inference. Poppler
+      # can merge neighboring cells, notes span columns, and country-column text
+      # can be a subdivision rather than a new country. None may be discarded.
+      def retain_printed_row(nodes)
+        cells = Array.new(5) { [] }
+        nodes.each do |left, text, _font|
+          column = [225, 430, 530, 700].count { |boundary| left >= boundary }
+          # The PDF extractor sometimes combines ROA and code into one node.
+          if column < 2 && (match = text.match(/\A(?<label>.*?)\s*(?<code>[A-Z]{2}\s*-\s*-?)\z/))
+            cells[column] << match[:label] unless match[:label].empty?
+            cells[2] << match[:code]
+          elsif column == 3 && (match = text.match(/\A(?<name>.*?)\s*(?<code>--[A-Z]{2}|[A-Z]{4})\z/)) &&
+              (match[:code].start_with?("--") || @seen[match[:code]])
+            cells[3] << match[:name] unless match[:name].empty?
+            cells[4] << match[:code]
+          else
+            cells[column] << text
+          end
+        end
+        values = cells.map { |parts| parts.join(" ") }
+        heading = nodes.any? do |left, _text, font, width|
+          left < 225 && left + width < 530 && font["family"].include?("Bold") && font["size"].to_i >= 10
+        end
+        indicator = nodes.any? do |left, text, _font, _width|
+          (left >= 700 && text.match?(OFFICE_CODE)) || (left >= 430 && text.match?(NETWORK_CODE))
+        end
+        full_width = !indicator && nodes.any? do |left, text, _font, width|
+          left < 225 && left + width > 530 && text.split.size >= 8
+        end
+        @printed_note = false if heading || values[1..].any? { |value| !value.empty? }
+        @printed_note = true if full_width || values.first.match?(/\A(?:\d+|!)\)/)
+        values = [nodes.map { |_left, text, _font, _width| text }.join(" ")] if @printed_note
+        unless @source_language || values.length == 1 || values[4].empty?
+          office = @publication.allocations.last
+          office = @publication.contexts.last&.entry unless office&.source_row == @source_row
+          values[4] = office.office_code if office&.source_row == @source_row && office.office_code
+        end
+        entry = F32TDIEntry.new(_class: "F32TDIEntry", country_or_area: @country,
+          source_cells: values, source_language: @source_language || "en", source_heading: heading)
+        context("printed-row", entry, "Positioned source cells in printed reading order.")
+      end
+
+      def retain_other_editions
+        @rules.fetch("printed_editions").each do |language, edition|
+          fixture = File.join(File.dirname(@pdf_path), edition.fetch("fixture"))
+          unless Digest::SHA256.file("#{fixture}.pdf").hexdigest == edition.fetch("source_sha256")
+            raise "F32 #{language} printed source does not match the pinned official PDF"
+          end
+          document = Nokogiri::XML(File.read("#{fixture}.xml")) { |config| config.nonet }
+          unless document.xpath("//page").map { |page| page["number"].to_i } == (1..edition.fetch("source_pages")).to_a
+            raise "F32 #{language} positioned XML does not include every official source page"
+          end
+          fonts = document.xpath("//fontspec").to_h { |font| [font["id"], font] }
+          @source_language = language
+          @country = nil
+          @printed_note = false
+          document.xpath("//page").each do |page|
+            next unless page.xpath("./text").any? { |text| text.text.include?(edition.fetch("title")) }
+
+            @page = page["number"].to_i
+            rows(page.xpath("./text"), fonts).each do |row|
+              @source_row += 1
+              retain_printed_row(row)
+              record = @publication.contexts.last
+              record.source_uri = edition.fetch("source_uri")
+              record.source_path = "T-SP-F.32-2011-PDF-#{language == "fr" ? "F" : "S"}.pdf"
+            end
+          end
+        end
       end
 
       def data_font?(font)
