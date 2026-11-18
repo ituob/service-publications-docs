@@ -140,9 +140,15 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
       expect(ui_groups).to include("AW AX<br>\nBC BQ", "FO FS FU")
       expect(table.scan(/^<<<\n\n== (?:Appendix|Appendice|Apéndice) [123]:/).size).to eq(3)
       expect(appendix2.lines.count { |line| line.match?(/^\|X[A-Z] /) }).to eq(8)
-      expect(appendix2).to include('Indicators to be used in the preamble line', 'F.1, A218', 'Banco Internacional de Reconstrucción y Fomento')
+      # Each official edition prints the appendix titles and country names in its own language.
+      printed = {
+        'en' => ['Indicators to be used in the preamble line', '|648 |Antigua and Barbuda'],
+        'fr' => ['Indicateurs à utiliser dans la ligne de préambule', '|648 |Antigua et Barbuda'],
+        'es' => ['Indicadores que han de utilizarse en el renglón de preámbulo', '|648 |Antigua y Barbuda']
+      }.fetch(lang)
+      expect(appendix2).to include(printed.first, 'F.1, A218', 'Banco Internacional de Reconstrucción y Fomento')
       expect(appendix3.lines.count { |line| line.match?(/^\|\d{3} /) }).to eq(27)
-      expect(appendix3).to include('|648 |Antigua and Barbuda', '|958 |Madagascar', '|30 | |')
+      expect(appendix3).to include(printed.last, '|958 |Madagascar', '|30 | |')
     end
   end
 
@@ -157,7 +163,10 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
       expect(tables).not_to be_empty
       expect(tables.map { |table| table.columns.size }).to all(eq(5))
       expect(tables.flat_map { |table| f32_table_grid_errors(table) }).to be_empty
-      expect(parsed_codes.tally).to eq(edition.printed_items.filter_map(&:office_code).tally)
+      # The F and S prints list offices the E print does not (no en XML node for them).
+      print_only = { 'en' => [], 'fr' => %w[PEMB RUMX], 'es' => %w[PEMB] }.fetch(lang)
+      expected = edition.printed_items.filter_map(&:office_code) + print_only
+      expect(parsed_codes.tally).to eq(expected.tally)
     end
   end
 
@@ -246,7 +255,10 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
       it "keeps reservation countries in printed order and network cells in #{lang}" do
         destination = render(lang).split(/^== (?:Appendix|Appendice|Apéndice) /).first
         countries = destination.scan(/^\s*\|\s*\*([^*]+)\*/).flatten
-        expected_order = printed_content.fetch('countries')
+        # The French and Spanish editions print a few of these English labels differently
+        # (for example "HONGKONG" and "CUHNA" in the Spanish print); the fixture records them.
+        labels = printed_content.fetch('printed_country_labels').fetch(lang, {})
+        expected_order = printed_content.fetch('countries').map { |country| labels.fetch(country, country) }
 
         # Adjacent equal labels are the official three-language heading.
         headings = countries.join(' ').gsub(/\s+/, ' ')
@@ -285,7 +297,10 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
 
         expect(messages).to be_empty
         expect(render(lang)).not_to match(/footnote:\[\s*\]/)
-        expect(blank_names.sort).to eq(%w[UJMR URFS URMO UTFS UTMR])
+        # The official S print leaves the MFLX name node blank ("Todos los otros" sits on the MFLE line).
+        blank = %w[UJMR URFS URMO UTFS UTMR]
+        blank = (blank + %w[MFLX]).sort if lang == 'es'
+        expect(blank_names.sort).to eq(blank)
         expect(render(lang).scan('Mobile, Alabama Radio').size).to eq(1)
         expect(render(lang).scan('Palo Alto, California Radio/KFS').size).to eq(1)
       end

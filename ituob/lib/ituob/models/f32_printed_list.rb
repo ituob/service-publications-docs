@@ -12,6 +12,10 @@ module Ituob
       LANGUAGES = %i[fr en es].freeze
       NETWORK_CODE = /\A([A-Z]{2})(?:\s*-\s*){0,2}\z/
       OFFICE_CODE = /\A(?:[A-Z]{4}|--[A-Z]{2})\z/
+      # As printed: the French and Spanish editions print one relative code
+      # with a single hyphen.
+      PRINTED_CODE_BODY = /(?:[A-Z]{4}|-{1,2}[A-Z]{2})/
+      PRINTED_CODE_WITH_MARK = /\A(?<code>#{PRINTED_CODE_BODY})(?:\s*(?<mark>\d+\)))?\z/
       # Some printed rows carry the office suffix at the end of the name cell.
       INLINE_CODE = /\A(?<name>.*?)\s*(?<code>--[A-Z]{2})\z/
       # Poppler also joins a name cell with the 4-letter office code that follows it
@@ -77,14 +81,15 @@ module Ituob
 
       private
 
-      def rows(texts, fonts)
+      # The other editions print a name a few points off the line of its code.
+      def rows(texts, fonts, tolerance: 2)
         grouped = {}
         texts.each do |text|
           top = text["top"].to_i
           next unless top > 145 && top < 1180
           next if text.text.strip.empty?
 
-          baseline = grouped.keys.find { |value| (value - top).abs <= 2 } || top
+          baseline = grouped.keys.find { |value| (value - top).abs <= tolerance } || top
           grouped[baseline] ||= []
           grouped[baseline] << [text["left"].to_i, text.text.strip, fonts.fetch(text["font"]), text["width"].to_i]
         end
@@ -96,13 +101,16 @@ module Ituob
       # can be a subdivision rather than a new country. None may be discarded.
       def retain_printed_row(nodes)
         cells = Array.new(5) { [] }
+        # A name that ends in a code-shaped word ("UYUNI") is not a joined node
+        # when the row also carries its own code node.
+        code_node = nodes.any? { |left, text, _font| left >= 700 && text.match?(PRINTED_CODE_WITH_MARK) }
         nodes.each do |left, text, _font|
           column = [225, 430, 530, 700].count { |boundary| left >= boundary }
           # The PDF extractor sometimes combines ROA and code into one node.
-          if column < 2 && (match = text.match(/\A(?<label>.*?)\s*(?<code>[A-Z]{2}\s*-\s*-?)\z/))
-            cells[column] << match[:label] unless match[:label].empty?
+          if column < 2 && (match = text.match(/\A(?:(?<label>.*?)\s+)?(?<code>[A-Z]{2}\s*-\s*-?)\z/))
+            cells[column] << match[:label] unless match[:label].to_s.empty?
             cells[2] << match[:code]
-          elsif column == 3 && (match = text.match(/\A(?<name>.*?)\s*(?<code>--[A-Z]{2}|[A-Z]{4})\z/)) &&
+          elsif column == 3 && !code_node && (match = text.match(/\A(?<name>.*?)\s*(?<code>--[A-Z]{2}|[A-Z]{4})\z/)) &&
               (match[:code].start_with?("--") || @seen[match[:code]])
             cells[3] << match[:name] unless match[:name].empty?
             cells[4] << match[:code]
@@ -128,6 +136,18 @@ module Ituob
           office = @publication.contexts.last&.entry unless office&.source_row == @source_row
           values[4] = office.office_code if office&.source_row == @source_row && office.office_code
         end
+        # A footnote marker printed beside the code ("ESTT 1)") is its own row,
+        # as the English edition prints it, so the code cell holds only the code.
+        mark = nil
+        if values.length == 5 && (split = values[4].match(PRINTED_CODE_WITH_MARK)) && split[:mark]
+          values[4] = split[:code]
+          mark = split[:mark]
+        end
+        retain_row(values, heading)
+        retain_row(["", "", "", "", mark], false) if mark
+      end
+
+      def retain_row(values, heading)
         entry = F32TDIEntry.new(_class: "F32TDIEntry", country_or_area: @country,
           source_cells: values, source_language: @source_language || "en", source_heading: heading)
         context("printed-row", entry, "Positioned source cells in printed reading order.")
@@ -151,15 +171,93 @@ module Ituob
             next unless page.xpath("./text").any? { |text| text.text.include?(edition.fetch("title")) }
 
             @page = page["number"].to_i
-            rows(page.xpath("./text"), fonts).each do |row|
+            rows(page.xpath("./text"), fonts, tolerance: 3).each do |row|
               @source_row += 1
+              first = @publication.contexts.size
               retain_printed_row(row)
-              record = @publication.contexts.last
-              record.source_uri = edition.fetch("source_uri")
-              record.source_path = "T-SP-F.32-2011-PDF-#{language == "fr" ? "F" : "S"}.pdf"
+              @publication.contexts[first..].each do |record|
+                record.source_uri = edition.fetch("source_uri")
+                record.source_path = "T-SP-F.32-2011-PDF-#{language == "fr" ? "F" : "S"}.pdf"
+              end
             end
           end
         end
+        join_wrapped_office_names
+        align_printed_codes
+      end
+
+      # A coast-station name printed on two lines, the second carrying the code
+      # ("Palo Alto, California" / "Radio/KFS UIMS"), is one cell. Only a line
+      # that also carries its network's administration text is joined: other
+      # name-only lines are separate printed aliases of the next office.
+      def join_wrapped_office_names
+        records = @publication.contexts.select { |record| record.kind == "printed-row" }
+        joined = []
+        records.each_cons(2) do |first, second|
+          next if joined.include?(first)
+
+          above = first.entry
+          below = second.entry
+          next unless wrapped_office_name?(above, below)
+
+          above.source_cells[3] = "#{above.source_cells[3]} #{below.source_cells[3]}"
+          above.source_cells[4] = below.source_cells[4]
+          joined << second
+        end
+        @publication.contexts.reject! { |record| joined.include?(record) }
+      end
+
+      def wrapped_office_name?(above, below)
+        above.source_language == below.source_language && above.source_page == below.source_page &&
+          above.source_cells.length == 5 && below.source_cells.length == 5 &&
+          !above.source_cells[1].empty? && !above.source_cells[3].empty? && above.source_cells[4].empty? &&
+          below.source_cells[0..2].all?(&:empty?) && !below.source_cells[3].empty? &&
+          below.source_cells[4].match?(PRINTED_CODE_WITH_MARK)
+      end
+
+      # The English edition resolves a network-relative code ("--AC") to the
+      # indicator it stands for. The French and Spanish editions print the same
+      # offices in the same order, so each one takes the English code at its
+      # aligned position. An office only one edition prints keeps its own code.
+      def align_printed_codes
+        entries = @publication.contexts.select { |record| record.kind == "printed-row" }.map(&:entry)
+        office_rows = entries.group_by(&:source_language).transform_values do |rows|
+          rows.select { |row| row.source_cells.length == 5 && row.source_cells[4].match?(PRINTED_CODE_WITH_MARK) }
+        end
+        english = office_rows.fetch("en")
+        %w[fr es].each do |language|
+          printed = office_rows.fetch(language)
+          pairs = longest_common_positions(english.map { |row| row.source_cells[4][-2, 2] },
+            printed.map { |row| row.source_cells[4][-2, 2] })
+          missing = english.size - pairs.size
+          raise "F32 #{language} printed list does not align with the English list (#{missing} offices)" if missing.positive?
+
+          pairs.each { |english_at, printed_at| printed[printed_at].source_cells[4] = english[english_at].source_cells[4] }
+        end
+      end
+
+      def longest_common_positions(left, right)
+        lengths = Array.new(left.size + 1) { Array.new(right.size + 1, 0) }
+        left.each_index do |i|
+          right.each_index do |j|
+            lengths[i + 1][j + 1] = left[i] == right[j] ? lengths[i][j] + 1 : [lengths[i][j + 1], lengths[i + 1][j]].max
+          end
+        end
+        pairs = []
+        i = left.size
+        j = right.size
+        while i.positive? && j.positive?
+          if left[i - 1] == right[j - 1]
+            pairs.unshift([i - 1, j - 1])
+            i -= 1
+            j -= 1
+          elsif lengths[i - 1][j] >= lengths[i][j - 1]
+            i -= 1
+          else
+            j -= 1
+          end
+        end
+        pairs
       end
 
       def data_font?(font)
