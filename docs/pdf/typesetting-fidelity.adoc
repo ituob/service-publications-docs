@@ -174,35 +174,6 @@ Specs cover stylesheet guards, the service-specific override, idempotence,
 numeric note references, workflow isolation, complete office-code preservation
 and exact membership of all 28 special-origin network records.
 
-=== Integrity findings after integrating main
-
-The main merge also brought the register-state integrity gate. Its first run
-reported zero invalid current or historical entries across all 21 registers,
-but rejected eight historical replay findings whose exact identities were
-absent from the reviewed allowlist. The reconciliation keeps register, issue,
-path, finding kind, detail and occurrence count matching intact:
-
-* E.212 pre-seed paths at OB 1016 (`228_01`), 1047 (`240_07`) and shared-MCC
-  OB 1062 (`901_43`) follow the corrected action names or sequence number.
-* OB 1232's SUP of `888` followed by LIR `888: Spare code`, and OB 1252's
-  SUP of `878` followed by LIR `878: Spare code`, explain the two asserted-add
-  findings. Their exact tuples replace stale keyless-note capture identities.
-* OB 1062's Malta `278 11` ADD predates the 1162 seed, which already contains
-  the allocation. One exact pre-seed exception records that intentional exclusion.
-* OB 1190's `+991 001` shared-trial capture already exists in replay and raises
-  duplicate-add. One exact exception preserves that finding; typed shared-trial
-  routing remains a data-model limitation.
-* OB 1349's notes-only E.164 capture raises keyless-row using the legacy
-  synthetic identifier `1349-0002`. One exact exception records this existing
-  notes-routing limitation; it does not certify a country-code allocation.
-
-The corresponding `ob-issues/<issue>/e164-cc` and `e212-mnc` source records
-support these reviews. Only five exact identities are replaced and three added;
-there is no wildcard exemption, verifier change, or source-data rewrite.
-The affected three-register check passes with 383,540 entries and zero errors;
-focused tests retain rejection of unknown paths/findings and excess occurrences.
-Historical corpus limitations remain distinct from F.32 rendering fidelity.
-
 == Scope and reproduction
 
 The initial measurement uses the latest successful `pdf.yml` run on `main`
