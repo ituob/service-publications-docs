@@ -28,7 +28,9 @@ RSpec.describe "dataset LML instance validation" do
                   File.join(root, "scripts"))
       directory = File.join(root, "datasets", slug)
       FileUtils.mkdir_p(directory)
-      File.write(File.join(directory, "data.yaml"), YAML.dump(rows))
+      schema = File.expand_path("../../../datasets/#{slug}/schema-data.yaml", __dir__)
+      FileUtils.cp(schema, directory) if File.file?(schema)
+      File.write(File.join(directory, "data.yaml"), "# yaml-language-server: $schema=schema-data.yaml\n#{YAML.dump(rows)}")
       example.run
     end
   end
@@ -45,7 +47,35 @@ RSpec.describe "dataset LML instance validation" do
     it "exits nonzero and identifies the bad data.yaml and model error" do
       stdout, stderr, status = result
       expect(status.exitstatus).to eq(1), stdout
-      expect(stderr).to include("#{slug}/data.yaml", "row 0", "status")
+      expect(stderr).to include("#{slug}/data.yaml", "#/0/status", "status")
+      expect(stdout).not_to include("DATASET INSTANCE DATA VALID")
+    end
+  end
+
+  context "with a valid model row containing an unknown schema key" do
+    let(:slug) { "1002-T.35" }
+    let(:rows) do
+      [{ "code_bit" => "11111111", "country_or_area" => { "en" => "x", "fr" => "x", "es" => "x", "extra" => "x" } }]
+    end
+
+    it "rejects the row through the dataset JSON Schema" do
+      stdout, stderr, status = result
+      expect(status.exitstatus).to eq(1), stdout
+      expect(stderr).to include("1002-T.35/data.yaml", "additional properties")
+      expect(stdout).not_to include("DATASET INSTANCE DATA VALID")
+    end
+  end
+
+  context "with a valid model row containing a wrong scalar type" do
+    let(:slug) { "1002-T.35" }
+    let(:rows) do
+      [{ "code_bit" => 11111111, "country_or_area" => { "en" => "x", "fr" => "x", "es" => "x" } }]
+    end
+
+    it "rejects the row through the dataset JSON Schema" do
+      stdout, stderr, status = result
+      expect(status.exitstatus).to eq(1), stdout
+      expect(stderr).to include("1002-T.35/data.yaml", "code_bit", "string")
       expect(stdout).not_to include("DATASET INSTANCE DATA VALID")
     end
   end
@@ -81,7 +111,7 @@ RSpec.describe "dataset LML instance validation" do
     it "rejects the row shape" do
       _stdout, stderr, status = result
       expect(status.exitstatus).to eq(1)
-      expect(stderr).to include("row 0: expected an entry mapping")
+      expect(stderr).to include("#/0", "object")
     end
   end
 
@@ -92,6 +122,15 @@ RSpec.describe "dataset LML instance validation" do
       _stdout, stderr, status = result
       expect(status.exitstatus).to eq(1)
       expect(stderr).to include("unmapped-dataset/data.yaml", "no ontology Entry mapping")
+    end
+  end
+
+  context "without the committed schema" do
+    it "fails closed when schema validation cannot run" do
+      FileUtils.rm(File.join(@root, "datasets", slug, "schema-data.yaml"))
+      _stdout, stderr, status = result
+      expect(status.exitstatus).to eq(1)
+      expect(stderr).to include("schema-data.yaml not found")
     end
   end
 

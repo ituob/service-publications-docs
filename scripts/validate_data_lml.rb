@@ -30,6 +30,9 @@ if ARGV.include?('--datasets-only')
     rows = YAML.load_file(path, permitted_classes: [Date, Time], aliases: true)
     raise ArgumentError, 'expected an array of entries' unless rows.is_a?(Array)
 
+    schema_valid, schema_error = Ituob::Dataset.new(File.dirname(path)).validate_data
+    raise ArgumentError, schema_error unless schema_valid
+
     rows.each_with_index do |row, index|
       raise ArgumentError, "row #{index}: expected an entry mapping" unless row.is_a?(Hash)
 

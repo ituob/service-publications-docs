@@ -126,7 +126,7 @@ RSpec.describe "Dataset schema generation coverage" do
     end
   end
 
-  it "validates all complete seeds through model normalization without losing explicit blanks" do
+  it "validates all complete raw seeds and models without losing explicit blanks" do
     mapping = YAML.load_file(File.join(ontology, "data_schemas.yaml"))
     mapping.each_key do |slug|
       dataset = Ituob::Dataset.new(File.join(repo_root, "datasets", slug))
