@@ -251,7 +251,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:     s.doebbe@telemark.de",
-            "tel": "E-mail:     s.doebbe@emark.de",
             "email": [
               "s.doebbe@telemark.de"
             ]
@@ -601,7 +600,9 @@
               "en": "Gibraltar"
             },
             "contact": "E-mai:l     krawlinson@eazitelecom.com",
-            "tel": "E-mai:l     krawlinson@eaziecom.com"
+            "email": [
+              "krawlinson@eazitelecom.com"
+            ]
           }
         ]
       },
@@ -640,7 +641,6 @@
               "en": "Gibraltar"
             },
             "contact": "E-mail:     dwayne.lara@gibtele.com",
-            "tel": "E-mail:     dwayne.lara@gibe.com",
             "email": [
               "dwayne.lara@gibtele.com"
             ]
@@ -928,7 +928,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail     uwe.loewenstein @telefonica.com",
-            "tel": "E-mail     uwe.loewenstein @efonica.com",
             "email": [
               "uwe.loewenstein @telefonica.com"
             ]
@@ -1135,7 +1134,6 @@
               "en": "Liechtenstein (Principality of)"
             },
             "contact": "E-mail: sturm@bill-tele.com",
-            "tel": "E-mail: sturm@bill-e.com",
             "email": [
               "sturm@bill-tele.com"
             ]
@@ -1215,7 +1213,6 @@
               "en": "Liechtenstein (Principality of)"
             },
             "contact": "E-mail: frank.boller@telecom.li",
-            "tel": "E-mail: frank.boller@ecom.li",
             "email": [
               "frank.boller@telecom.li"
             ]
@@ -1264,7 +1261,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail   benjamin.boeling@telekom.de",
-            "tel": "E-mail   benjamin.boeling@ekom.de",
             "email": [
               "benjamin.boeling@telekom.de"
             ]
@@ -1277,23 +1273,42 @@
   "1022": {
     "actions": [
       {
+        "action_type": "ADD",
+        "position": "P 28",
+        "note": "28",
         "entries": [
           {
+            "iso_code": "DEU",
+            "country_or_area": {
+              "en": "Germany (Federal Republic of)"
+            },
             "company_name": "Kabel Deutschland Vertrieb & Service GmbH",
             "carrier_code": "KDVS",
             "contact": "Mr. Christopher Hasenkamp"
           },
           {
+            "iso_code": "DEU",
+            "country_or_area": {
+              "en": "Germany (Federal Republic of)"
+            },
             "company_name": "Betastrasse 6-8",
             "contact": "Tel:      +49 89 960 10 181",
             "tel": "+49 89 960 10 181"
           },
           {
+            "iso_code": "DEU",
+            "country_or_area": {
+              "en": "Germany (Federal Republic of)"
+            },
             "company_name": "85774 Unterföhring",
             "contact": "Fax:     +49 89 960 10 870",
             "fax": "+49 89 960 10 870"
           },
           {
+            "iso_code": "DEU",
+            "country_or_area": {
+              "en": "Germany (Federal Republic of)"
+            },
             "contact": "E-mail: christopher.hasenkamp1@kabeldeutschland.de",
             "email": [
               "christopher.hasenkamp1@kabeldeutschland.de"
@@ -1307,19 +1322,34 @@
   "1028": {
     "actions": [
       {
+        "action_type": "SUP",
+        "position": "P 30",
+        "note": "30",
         "entries": [
           {
+            "iso_code": "GIB",
+            "country_or_area": {
+              "en": "Gibraltar"
+            },
             "company_name": "CTS (Gibraltar) Limited",
             "carrier_code": "GIBCS",
             "contact": "Mr. Alex Caballero"
           },
           {
+            "iso_code": "GIB",
+            "country_or_area": {
+              "en": "Gibraltar"
+            },
             "company_name": "48 Royal Ocean Plaza OCEAN VILLAGE",
             "contact": "Tel:        +350 216 51500 Fax:       +350 216 51502",
-            "tel": "+350 216 51500 Fax:       +350 216 51502",
-            "fax": "Tel:        +350 216 51500 +350 216 51502"
+            "tel": "+350 216 51500",
+            "fax": "+350 216 51502"
           },
           {
+            "iso_code": "GIB",
+            "country_or_area": {
+              "en": "Gibraltar"
+            },
             "company_name": "GIBRALTAR",
             "contact": "E-mail:    alexc@cts-europe.com",
             "email": [
@@ -1329,22 +1359,41 @@
         ]
       },
       {
+        "action_type": "ADD",
+        "position": "P 49",
+        "note": "49",
         "entries": [
           {
+            "iso_code": "LUX",
+            "country_or_area": {
+              "en": "Luxembourg"
+            },
             "company_name": "MTX Connect S.a r.l",
             "carrier_code": "MTX",
             "contact": "Mrs. Alexandra Sevodnyaeva"
           },
           {
+            "iso_code": "LUX",
+            "country_or_area": {
+              "en": "Luxembourg"
+            },
             "company_name": "4, rue A. Graham Bell",
             "contact": "Tel:         +352 20301062",
             "tel": "+352 20301062"
           },
           {
+            "iso_code": "LUX",
+            "country_or_area": {
+              "en": "Luxembourg"
+            },
             "company_name": "L-3235 BETTEMBOURG",
             "contact": "Fax:"
           },
           {
+            "iso_code": "LUX",
+            "country_or_area": {
+              "en": "Luxembourg"
+            },
             "contact": "E-mail:   a.sevodnyaeva@mtxc.eu",
             "email": [
               "a.sevodnyaeva@mtxc.eu"
@@ -1827,7 +1876,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail      susanne.jahn @ ecotel.de",
-            "tel": "E-mail      susanne.jahn @ ecode",
             "email": [
               "susanne.jahn @ ecotel.de"
             ]
@@ -2396,7 +2444,6 @@
               "en": "Germany (República Federal de)"
             },
             "contact": "E-mail :                     info@telego.de",
-            "tel": "E-mail :                     info@ego.de",
             "email": [
               "info@telego.de"
             ]
@@ -2633,7 +2680,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:   heiko.henkelmann@artelis.net",
-            "tel": "E-mail:   heiko.henkelmann@aris.net",
             "email": [
               "heiko.henkelmann@artelis.net"
             ]
@@ -2761,7 +2807,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:    marco.rossi @ versatel.de",
-            "tel": "E-mail:    marco.rossi @ versade",
             "email": [
               "marco.rossi @ versatel.de"
             ]
@@ -2811,7 +2856,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:   jesdinsky@bitel.de",
-            "tel": "E-mail:   jesdinsky@bide",
             "email": [
               "jesdinsky@bitel.de"
             ]
@@ -2915,7 +2959,6 @@
             },
             "company_name": "95028 Hof",
             "contact": "Fax:         + 49 9281 1448 123",
-            "tel": "E-mail:   krause@hfo-ecom.de",
             "fax": "+ 49 9281 1448 123",
             "email": [
               "krause@hfo-telecom.de"
@@ -2953,7 +2996,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail    netzdienste@telcat.de",
-            "tel": "E-mail    netzdienste@cat.de",
             "email": [
               "netzdienste@telcat.de"
             ]
@@ -3003,7 +3045,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:     marco.rossi@versatel.de",
-            "tel": "E-mail:     marco.rossi@versade",
             "email": [
               "marco.rossi@versatel.de"
             ]
@@ -3193,7 +3234,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:   eckitel@stadtwerke-eckernfoerde.de",
-            "tel": "E-mail:   ecki@stadtwerke-eckernfoerde.de",
             "email": [
               "eckitel@stadtwerke-eckernfoerde.de"
             ]
@@ -3307,7 +3347,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:   marco.rossi@versatel.de",
-            "tel": "E-mail:   marco.rossi@versade",
             "email": [
               "marco.rossi@versatel.de"
             ]
@@ -3460,7 +3499,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:    info@telecall24.de",
-            "tel": "E-mail:    info@ecall24.de",
             "email": [
               "info@telecall24.de"
             ]
@@ -4081,7 +4119,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:  welcome@teleflash.com",
-            "tel": "E-mail:  welcome@eflash.com",
             "email": [
               "welcome@teleflash.com"
             ]
@@ -4123,7 +4160,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail: simon.langen@tele-system.de",
-            "tel": "E-mail: simon.langen@e-system.de",
             "email": [
               "simon.langen@tele-system.de"
             ]
@@ -4246,7 +4282,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:  fboekel@vocatel.de",
-            "tel": "E-mail:  fboekel@vocade",
             "email": [
               "fboekel@vocatel.de"
             ]
@@ -5483,7 +5518,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:   mvv@purtel.com",
-            "tel": "E-mail:   mvv@purcom",
             "email": [
               "mvv@purtel.com"
             ]
@@ -5524,7 +5558,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:   info@sip-telefonanlagen.de",
-            "tel": "E-mail:   info@sip-efonanlagen.de",
             "email": [
               "info@sip-telefonanlagen.de"
             ]
@@ -5902,7 +5935,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail: stefanie.donah@tele-ag.de",
-            "tel": "E-mail: stefanie.donah@e-ag.de",
             "email": [
               "stefanie.donah@tele-ag.de"
             ]
@@ -6115,7 +6147,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:     mgerhards@kevag-telekom.de",
-            "tel": "E-mail:     mgerhards@kevag-ekom.de",
             "email": [
               "mgerhards@kevag-telekom.de"
             ]
@@ -6198,7 +6229,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:     hoffmann@telemaxx.de",
-            "tel": "E-mail:     hoffmann@emaxx.de",
             "email": [
               "hoffmann@telemaxx.de"
             ]
@@ -6253,7 +6283,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:     benjamin.boeling @ telekom.de",
-            "tel": "E-mail:     benjamin.boeling @ ekom.de",
             "email": [
               "benjamin.boeling @ telekom.de"
             ]
@@ -6302,7 +6331,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:     simon.langen@tele-system.de",
-            "tel": "E-mail:     simon.langen@e-system.de",
             "email": [
               "simon.langen@tele-system.de"
             ]
@@ -6533,7 +6561,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:     graupe@telta.de",
-            "tel": "E-mail:     graupe@ta.de",
             "email": [
               "graupe@telta.de"
             ]
@@ -6913,7 +6940,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail: philip.hoffmann@hns-telecom.de",
-            "tel": "E-mail: philip.hoffmann@hns-ecom.de",
             "email": [
               "philip.hoffmann@hns-telecom.de"
             ]
@@ -7080,7 +7106,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail: support@telepark-passau.de",
-            "tel": "E-mail: support@epark-passau.de",
             "email": [
               "support@telepark-passau.de"
             ]
@@ -7206,7 +7231,6 @@
             },
             "company_name": "50825 COLOGNE",
             "contact": "E-mail:     fm@in-telegence.net",
-            "tel": "E-mail:     fm@in-egence.net",
             "email": [
               "fm@in-telegence.net"
             ]
@@ -8002,7 +8026,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail: leonhard.bader@lewtelnet.de",
-            "tel": "E-mail: leonhard.bader@lewnet.de",
             "email": [
               "leonhard.bader@lewtelnet.de"
             ]
@@ -8044,7 +8067,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:   jens.pickardt@teliko.de",
-            "tel": "E-mail:   jens.pickardt@iko.de",
             "email": [
               "jens.pickardt@teliko.de"
             ]
@@ -8086,7 +8108,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:   krause@hfo-telecom.de",
-            "tel": "E-mail:   krause@hfo-ecom.de",
             "email": [
               "krause@hfo-telecom.de"
             ]
@@ -8172,7 +8193,6 @@
             },
             "company_name": "France",
             "contact": "E-mail    rpintene@bouyguestelecom.fr",
-            "tel": "E-mail    rpintene@bouyguesecom.fr",
             "email": [
               "rpintene@bouyguestelecom.fr"
             ]
@@ -8218,7 +8238,6 @@
             },
             "company_name": "47301 Petaling Jaya, SELANGOR",
             "contact": "E-mail:   ismail@altel.my",
-            "tel": "E-mail:   ismail@almy",
             "email": [
               "ismail@altel.my"
             ]
@@ -8775,7 +8794,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:   helmut.giger@telsakom.de",
-            "tel": "E-mail:   helmut.giger@sakom.de",
             "email": [
               "helmut.giger@telsakom.de"
             ]
@@ -9355,7 +9373,8 @@
             },
             "contact": "E-mail:  sonmezalp@yahoo.com ;                 hdiabate@caldia.lu",
             "email": [
-              "sonmezalp@yahoo.com ;                 hdiabate@caldia.lu"
+              "sonmezalp@yahoo.com",
+              "hdiabate@caldia.lu"
             ]
           }
         ]
@@ -9596,7 +9615,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail: kontakt@teleport.de",
-            "tel": "E-mail: kontakt@eport.de",
             "email": [
               "kontakt@teleport.de"
             ]
@@ -9932,7 +9950,6 @@
             },
             "company_name": "L-1027 Luxembourg",
             "contact": "E-mail: georges.muller@artelis.net",
-            "tel": "E-mail: georges.muller@aris.net",
             "email": [
               "georges.muller@artelis.net"
             ]
@@ -9982,7 +9999,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail: frank.mohr@telegra.de",
-            "tel": "E-mail: frank.mohr@egra.de",
             "email": [
               "frank.mohr@telegra.de"
             ]
@@ -10065,7 +10081,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail: info@itelco-consult.de",
-            "tel": "E-mail: info@ico-consult.de",
             "email": [
               "info@itelco-consult.de"
             ]
@@ -10181,7 +10196,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail: info@vocatel.de",
-            "tel": "E-mail: info@vocade",
             "email": [
               "info@vocatel.de"
             ]
@@ -10272,7 +10286,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:      peter.zech@enviatel.de",
-            "tel": "E-mail:      peter.zech@enviade",
             "email": [
               "peter.zech@enviatel.de"
             ]
@@ -10318,7 +10331,6 @@
             },
             "company_name": "France",
             "contact": "E-mail:       rpintene@bouyguestelecom.fr",
-            "tel": "E-mail:       rpintene@bouyguesecom.fr",
             "email": [
               "rpintene@bouyguestelecom.fr"
             ]
@@ -10434,7 +10446,6 @@
               "en": "Luxembourg"
             },
             "contact": "E-mail:        georges.muller@artelis.net",
-            "tel": "E-mail:        georges.muller@aris.net",
             "email": [
               "georges.muller@artelis.net"
             ]
@@ -10500,8 +10511,8 @@
             },
             "company_name": "Parc d'activité Syrdall 1 3, rue Henri Tudor",
             "contact": "Tel:              +352 43 31 11 Fax:             +352 43 31 42",
-            "tel": "+352 43 31 11 Fax:             +352 43 31 42",
-            "fax": "Tel:              +352 43 31 11 +352 43 31 42"
+            "tel": "+352 43 31 11",
+            "fax": "+352 43 31 42"
           },
           {
             "iso_code": "LUX",
@@ -10510,7 +10521,6 @@
             },
             "company_name": "L-5366 MUNSBACH",
             "contact": "E-mail:        info@crossingtel.lu",
-            "tel": "E-mail:        info@crossinglu",
             "email": [
               "info@crossingtel.lu"
             ]
@@ -10535,7 +10545,7 @@
             },
             "company_name": "21, Avenue Monterey L-2163 LUXEMBOURG",
             "contact": "Tel:           +90 53 37 74 54 91 Tel.:          +352 26 20 15 43",
-            "tel": "+90 53 37 74 54 91 Tel.:          +352 26 20 15 43"
+            "tel": "+90 53 37 74 54 91 +352 26 20 15 43"
           },
           {
             "iso_code": "LUX",
@@ -10884,7 +10894,6 @@
             },
             "company_name": "B-2800 MECHELEN",
             "contact": "E-mail:      philippe.ronsse@staff.telenet.be",
-            "tel": "E-mail:      philippe.ronsse@staff.enet.be",
             "email": [
               "philippe.ronsse@staff.telenet.be"
             ]
@@ -10998,8 +11007,8 @@
             },
             "company_name": "Claus building Avenue Louise 489",
             "contact": "Tel:               +32 28 08 00 00 Fax:              +32 28 08 00 01",
-            "tel": "+32 28 08 00 00 Fax:              +32 28 08 00 01",
-            "fax": "Tel:               +32 28 08 00 00 +32 28 08 00 01"
+            "tel": "+32 28 08 00 00",
+            "fax": "+32 28 08 00 01"
           },
           {
             "iso_code": "LUX",
@@ -11064,7 +11073,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:    info@sip-telefonanlagen.de",
-            "tel": "E-mail:    info@sip-efonanlagen.de",
             "email": [
               "info@sip-telefonanlagen.de"
             ]
@@ -11394,7 +11402,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:    info@deutschetelenetz.de",
-            "tel": "E-mail:    info@deutscheenetz.de",
             "email": [
               "info@deutschetelenetz.de"
             ]
@@ -12008,7 +12015,6 @@
             },
             "company_name": "86150 AUGSBURG",
             "contact": "E-mail:    info@teleforte.com",
-            "tel": "E-mail:    info@eforte.com",
             "email": [
               "info@teleforte.com"
             ]
@@ -12389,7 +12395,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:       thies.frahm@tkt-teleconsult.de",
-            "tel": "E-mail:       thies.frahm@tkt-econsult.de",
             "email": [
               "thies.frahm@tkt-teleconsult.de"
             ]
@@ -12434,7 +12439,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:       krause@hfo-telecom.de",
-            "tel": "E-mail:       krause@hfo-ecom.de",
             "email": [
               "krause@hfo-telecom.de"
             ]
@@ -12483,7 +12487,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:    home@hfo-telecom.de",
-            "tel": "E-mail:    home@hfo-ecom.de",
             "email": [
               "home@hfo-telecom.de"
             ]
@@ -12651,7 +12654,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:    krause@hfo-telecom.de",
-            "tel": "E-mail:    krause@hfo-ecom.de",
             "email": [
               "krause@hfo-telecom.de"
             ]
@@ -13238,7 +13240,6 @@
               "en": "Japan"
             },
             "contact": "E-mail: 1tsuneo.tatara@japan-telecom.co.jp",
-            "tel": "E-mail: 1tsuneo.tatara@japan-ecom.co.jp",
             "email": [
               "1tsuneo.tatara@japan-telecom.co.jp"
             ]
@@ -13432,8 +13433,7 @@
             },
             "company_name": "TeleData GmbH",
             "carrier_code": "TDGMBH",
-            "contact": "TeleData Network Operation Center",
-            "tel": "eData Network Operation Center"
+            "contact": "TeleData Network Operation Center"
           },
           {
             "iso_code": "DEU",
@@ -13459,7 +13459,6 @@
               "en": "Germany (Federal Republic of)"
             },
             "contact": "E-mail:     noc@teledata.de",
-            "tel": "E-mail:     noc@edata.de",
             "email": [
               "noc@teledata.de"
             ]
@@ -13984,10 +13983,10 @@
             "address_line_1": "48 Royal Ocean Plaza, 16 Glacis Road,",
             "address_line_2": "PO BOX 1108, GIBRALTAR, GX11 1AA",
             "carrier_code": "EAZ629",
-            "contact": "Mr Julian Risso Tel:           +350 21600000 E-mail:    jrisso@limbatelecom.com",
-            "tel": "Mr Julian Risso +350 21600000 E-mail:    jrisso@limbatelecom.com",
+            "contact": "Mr Julian Risso",
+            "tel": "+350 21600000",
             "email": [
-              "Mr Julian Risso Tel:           +350 21600000 jrisso@limbatelecom.com"
+              "jrisso@limbatelecom.com"
             ]
           }
         ]
@@ -14257,10 +14256,10 @@
             "address_line_2": "16 Glacis Road",
             "address_line_3": "Gibraltar GX11 1AA",
             "carrier_code": "EAZ629",
-            "contact": "Mrs Jessica Canepa Tel:         +350 219 000 00 E-mail:   jventura@limbatelecom.com",
-            "tel": "Mrs Jessica Canepa +350 219 000 00 E-mail:   jventura@limbatelecom.com",
+            "contact": "Mrs Jessica Canepa",
+            "tel": "+350 219 000 00",
             "email": [
-              "Mrs Jessica Canepa Tel:         +350 219 000 00 jventura@limbatelecom.com"
+              "jventura@limbatelecom.com"
             ]
           }
         ]
@@ -15047,10 +15046,10 @@
             "address_line_2": "81379 MUENCHEN",
             "carrier_code": "UNIFY",
             "contact": "Mr. Stefan Schmidbauer",
-            "tel": "+49 89 7007-21454 Fax:           +49 89 7007-1421454 E-mail:      stefan.schmidbauer@unify.com",
-            "fax": "Tel:            +49 89 7007-21454 +49 89 7007-1421454 E-mail:      stefan.schmidbauer@unify.com",
+            "tel": "+49 89 7007-21454",
+            "fax": "+49 89 7007-1421454",
             "email": [
-              "Tel:            +49 89 7007-21454 Fax:           +49 89 7007-1421454 stefan.schmidbauer@unify.com"
+              "stefan.schmidbauer@unify.com"
             ]
           }
         ]
@@ -15070,10 +15069,10 @@
             "address_line_2": "60329 FRANKFURT",
             "carrier_code": "TF",
             "contact": "Mr Sascha Brückner",
-            "tel": "+49 69 200090 00 Fax:          +49 69 200090 99 E-mail:     welcome@teleflash.com",
-            "fax": "Tel:           +49 69 200090 00 +49 69 200090 99 E-mail:     welcome@teleflash.com",
+            "tel": "+49 69 200090 00",
+            "fax": "+49 69 200090 99",
             "email": [
-              "Tel:           +49 69 200090 00 Fax:          +49 69 200090 99 welcome@teleflash.com"
+              "welcome@teleflash.com"
             ]
           }
         ]
@@ -15094,10 +15093,10 @@
             "address_line_3": "49078 OSNABRUECK",
             "carrier_code": "DMRZ01",
             "contact": "Mr Phillip Barron",
-            "tel": "+49 3221 4401000 Fax:         +49 3221 4401149 E-mail:    p.barron@dmrz.com",
-            "fax": "Tel:          +49 3221 4401000 +49 3221 4401149 E-mail:    p.barron@dmrz.com",
+            "tel": "+49 3221 4401000",
+            "fax": "+49 3221 4401149",
             "email": [
-              "Tel:          +49 3221 4401000 Fax:         +49 3221 4401149 p.barron@dmrz.com"
+              "p.barron@dmrz.com"
             ]
           }
         ]
@@ -15114,9 +15113,9 @@
             "address_line_2": "21339 LUENEBURG",
             "carrier_code": "GEDIWE",
             "contact": "Mr Heiner Ohm",
-            "tel": "+49 4131 7895350 E-mail:     ho@digitale-werte.com",
+            "tel": "+49 4131 7895350",
             "email": [
-              "Tel:           +49 4131 7895350 ho@digitale-werte.com"
+              "ho@digitale-werte.com"
             ]
           }
         ]
@@ -15153,10 +15152,10 @@
             "address_line_2": "63773 GOLDBACH",
             "carrier_code": "63773",
             "contact": "Mr Daniel Schrod",
-            "tel": "+49 6021 49649 0 Fax:          +49 6021 49649 999 E-mail:     info@its-gruppe.de",
-            "fax": "Tel:           +49 6021 49649 0 +49 6021 49649 999 E-mail:     info@its-gruppe.de",
+            "tel": "+49 6021 49649 0",
+            "fax": "+49 6021 49649 999",
             "email": [
-              "Tel:           +49 6021 49649 0 Fax:          +49 6021 49649 999 info@its-gruppe.de"
+              "info@its-gruppe.de"
             ]
           }
         ]
@@ -17011,7 +17010,7 @@
             "address_line_2": "73033 GOEPPINGEN",
             "carrier_code": "EVFIGP",
             "contact": "Mr Andreas Bantel",
-            "tel": "Mr Andreas Ban",
+            "tel": "+49 7161 6101 140",
             "fax": "+49 7161 6101 255",
             "email": [
               "andreas.bantel@evf.de"
@@ -17409,7 +17408,7 @@
             "address_line_2": "10711 BERLIN",
             "carrier_code": "COMJOO",
             "contact": "Mr Marcus Eitel",
-            "tel": "Mr Marcus Ei",
+            "tel": "+49 160 8066755",
             "fax": "+49 30 216059 99",
             "email": [
               "marcus.eitel@comjoo.com"
@@ -18491,8 +18490,8 @@
             "address_line_1": "Schulstrasse 4",
             "address_line_2": "51588 NUEMBRECHT",
             "carrier_code": "LUZIE",
-            "contact": "Mrs Karina Tuttlies Tel.:         +49 2293 9113 14",
-            "tel": "Mrs Karina Tuttlies +49 2293 9113 14",
+            "contact": "Mrs Karina Tuttlies",
+            "tel": "+49 2293 9113 14",
             "fax": "+49 2293 9113 55",
             "email": [
               "tuttlies@gwn24.de"
@@ -18511,8 +18510,8 @@
             "address_line_1": "In der Steele 23",
             "address_line_2": "40599 DUESSELDORF",
             "carrier_code": "TELBA",
-            "contact": "Mr Robin Goldammer Tel.:         +49 211 9009 6154",
-            "tel": "Mr Robin Goldammer +49 211 9009 6154",
+            "contact": "Mr Robin Goldammer",
+            "tel": "+49 211 9009 6154",
             "fax": "+49 211 9985 85156",
             "email": [
               "rgoldammer@telba.de"
@@ -19033,7 +19032,7 @@
             "company_name": "MCN Telekommunikacios",
             "address_line_1": "Szolgaltato Kortlatolt Feleloesegue Tarsasag",
             "address_line_2": "Kemenes utca 8",
-            "address_line_3": "1114 BUDAPEST",
+            "address_line_3": "1114 BUDAPEST Hungary",
             "carrier_code": "MCNTEL",
             "contact": "Mr Anton Parshin",
             "tel": "+49 69 8039 4999 ext 510",
@@ -20285,10 +20284,10 @@
             },
             "company_name": "Tele Columbus AG, Bulk-Account Kaiserin-Augusta-Allee 108 D-10553 BERLIN",
             "carrier_code": "FLTC",
-            "contact": "Mrs Corinna Jaehneke Tel.:          +49 30 3388 1029 E-mail :    corinna.jaehneke@pyur.com",
-            "tel": "Mrs Corinna Jaehneke +49 30 3388 1029 E-mail :    corinna.jaehneke@pyur.com",
+            "contact": "Mrs Corinna Jaehneke",
+            "tel": "+49 30 3388 1029",
             "email": [
-              "Mrs Corinna Jaehneke Tel.:          +49 30 3388 1029 corinna.jaehneke@pyur.com"
+              "corinna.jaehneke@pyur.com"
             ]
           }
         ]
@@ -20305,10 +20304,10 @@
             },
             "company_name": "Genza SA Rue de Lausanne 37 1201 GENEVE",
             "carrier_code": "CH4141",
-            "contact": "Efe Demir Tel:           +90 5322333262 E-mail:    ed@genza.ch",
-            "tel": "Efe Demir +90 5322333262 E-mail:    ed@genza.ch",
+            "contact": "Efe Demir",
+            "tel": "+90 5322333262",
             "email": [
-              "Efe Demir Tel:           +90 5322333262 ed@genza.ch"
+              "ed@genza.ch"
             ]
           }
         ]
@@ -20589,11 +20588,11 @@
             },
             "company_name": "Netzgesellschaft Herzebrock-Clarholz GmbH & Co.KG Am Rathaus 1 D-33442 HERZEBROCK-CLARHOLZ",
             "carrier_code": "19076",
-            "contact": "Mr Heinz-Dieter Wette Tel.:     +49 5245 444 135 Fax:     +49 5245 444 137 Email: heinz-dieter.wette@gt-net.de",
-            "tel": "Mr Heinz-Dieter Wette +49 5245 444 135 Fax:     +49 5245 444 137 Email: heinz-dieter.wette@gt-net.de",
-            "fax": "Mr Heinz-Dieter Wette Tel.:     +49 5245 444 135 +49 5245 444 137 Email: heinz-dieter.wette@gt-net.de",
+            "contact": "Mr Heinz-Dieter Wette",
+            "tel": "+49 5245 444 135",
+            "fax": "+49 5245 444 137",
             "email": [
-              "Mr Heinz-Dieter Wette Tel.:     +49 5245 444 135 Fax:     +49 5245 444 137 heinz-dieter.wette@gt-net.de"
+              "heinz-dieter.wette@gt-net.de"
             ]
           }
         ]
@@ -22166,10 +22165,10 @@
             },
             "company_name": "EnBW Energie Baden-Württemberg AG Durlacher Allee 93 D-76131 KARLSRUHE",
             "carrier_code": "ENBW97",
-            "contact": "Mrs Kristina Nielsen Tel:         +49 711 28981741 Email:    k.nielsen@enbw.com",
-            "tel": "Mrs Kristina Nielsen +49 711 28981741 Email:    k.nielsen@enbw.com",
+            "contact": "Mrs Kristina Nielsen",
+            "tel": "+49 711 28981741",
             "email": [
-              "Mrs Kristina Nielsen Tel:         +49 711 28981741 k.nielsen@enbw.com"
+              "k.nielsen@enbw.com"
             ]
           }
         ]
@@ -22357,10 +22356,9 @@
             "company_name": "Telnyx Ireland Ltd.",
             "address_line_1": "Level 5, Waterways House",
             "address_line_2": "Grand Canal Quay",
-            "address_line_3": "D02 PD39, DUBLIN",
+            "address_line_3": "D02 PD39, DUBLIN Ireland",
             "carrier_code": "TELNYX",
             "contact": "Mr David Casem",
-            "tel": "Email: regulatory@nyx.com",
             "fax": "+353 1 912 6121",
             "email": [
               "regulatory@telnyx.com"
@@ -22624,10 +22622,11 @@
             "address_line_1": "11/F Udenna Tower, Rizal Drive cor. 4th Avenue",
             "address_line_2": "Bonifacio Global City, Taguig City 1634",
             "carrier_code": "DITO",
-            "contact": "Atty. Holy T. Ampaguey",
-            "tel": "— +63 2 82822888 — E-mail: — holy.ampaguey@dito.ph; nino.cruz@dito.ph",
+            "contact": "Atty. Holy T. Ampaguey; Atty. Niño Martin Cruz",
+            "tel": "+63 2 82822888",
             "email": [
-              "Tel: — +63 2 82822888 — — holy.ampaguey@dito.ph; nino.cruz@dito.ph"
+              "holy.ampaguey@dito.ph",
+              "nino.cruz@dito.ph"
             ]
           }
         ]
@@ -22966,7 +22965,7 @@
             "company_name": "Palau National Communications Corporation",
             "address_line_1": "PNCC Building",
             "address_line_2": "P.O. Box 99",
-            "address_line_3": "One Airport Road, Koror",
+            "address_line_3": "One Airport Road, Koror Palau 96940",
             "carrier_code": "PNCC",
             "contact": "Mr Myers Techitong",
             "tel": "+680 488 9000",
@@ -22990,7 +22989,7 @@
             "company_name": "Palau Communication and Electronics Company",
             "address_line_1": "PECI Building",
             "address_line_2": "P.O. Box 605",
-            "address_line_3": "Malakal, Koror,",
+            "address_line_3": "Malakal, Koror, Palau 96940",
             "carrier_code": "PCEC",
             "contact": "Mr Sebastian Masang",
             "tel": "+680 488 2628",
@@ -23011,7 +23010,7 @@
             "company_name": "Palau Mobile Communications Incorporated",
             "address_line_1": "PDC Building",
             "address_line_2": "P.O. Box 401461",
-            "address_line_3": "Medalaii, Koror",
+            "address_line_3": "Medalaii, Koror Palau 96940",
             "carrier_code": "PMCI",
             "contact": "Mr Billy Takamine",
             "tel": "+680 488 1189",
@@ -24688,7 +24687,7 @@
             "company_name": "Onvoy Communications Limited",
             "address_line_1": "c/o Baker McKenzie Rechtsanwaltsgesellschaft mbH",
             "address_line_2": "von Rechtsanwälten und Steuerberatern",
-            "address_line_3": "Ms. Caroline Heinickel",
+            "address_line_3": "Ms. Caroline Heinickel Bethmannstr. 50-54 60311 FRANKFURT AM MAIN",
             "carrier_code": "OCOMM",
             "contact": "Mr Jeff Slater",
             "tel": "+1 262 357 1344",
@@ -25482,7 +25481,8 @@
             "contact": "Tel:  +387 52 212 000/+387 52 232 143",
             "tel": "+387 52 212 000/+387 52 232 143",
             "email": [
-              "office@alfa-net.com ; info@elektronika.rs.ba"
+              "office@alfa-net.com",
+              "info@elektronika.rs.ba"
             ]
           },
           {
@@ -25497,7 +25497,8 @@
             "tel": "+387 63 028 675",
             "fax": "+387 35 764 415",
             "email": [
-              "ambnetdoo@gmail.com ; ambnetinternet@gmail.com"
+              "ambnetdoo@gmail.com",
+              "ambnetinternet@gmail.com"
             ]
           },
           {
@@ -25509,8 +25510,8 @@
             "address_line_1": "Kralja Tvrtka I bb 75300 Lukavac",
             "carrier_code": "AVAXBH",
             "contact": "Tel: +387 80 020 231 (free phone, Bosnia and Herzegovina only) Fax: +387 35 553 696",
-            "tel": "+387 80 020 231 (free phone, Bosnia and Herzegovina only) Fax: +387 35 553 696",
-            "fax": "Tel: +387 80 020 231 (free phone, Bosnia and Herzegovina only) +387 35 553 696",
+            "tel": "+387 80 020 231 (free phone, Bosnia and Herzegovina only)",
+            "fax": "+387 35 553 696",
             "email": [
               "avaxba@yahoo.com"
             ]
@@ -25923,6 +25924,7 @@
             },
             "company_name": "MISS.NET d.o.o. Bihać",
             "address_line_2": "Sarajevska 24",
+            "address_line_3": "77000 Bihać",
             "carrier_code": "MISNET",
             "contact": "Tel: +387 37 961 000",
             "tel": "+387 37 961 000",
@@ -26027,7 +26029,8 @@
             "contact": "Tel: +387 33 881 118/+387 33 861 010",
             "tel": "+387 33 881 118/+387 33 861 010",
             "email": [
-              "admir.kudic@sgl.ba ; sreta.maric@telekom.si"
+              "admir.kudic@sgl.ba",
+              "sreta.maric@telekom.si"
             ]
           },
           {
@@ -26114,7 +26117,8 @@
             "tel": "+387 51 240 100",
             "fax": "+387 51 211 150",
             "email": [
-              "ts.office@mtel.ba ; korisnicka.podrska@mtel.ba"
+              "ts.office@mtel.ba",
+              "korisnicka.podrska@mtel.ba"
             ]
           },
           {
@@ -26541,8 +26545,15 @@
   "1264": {
     "actions": [
       {
+        "action_type": "ADD",
+        "position": "Germany (Federal Republic of) / DEU",
+        "note": "Germany",
         "entries": [
           {
+            "iso_code": "DEU",
+            "country_or_area": {
+              "en": "Germany (Federal Republic of)"
+            },
             "company_name": "HanseTel Inh. Sven Kruse",
             "address_line_1": "Konstanzer Strasse 15",
             "address_line_2": "D-10707 BERLIN",
@@ -27724,8 +27735,15 @@
   "1288": {
     "actions": [
       {
+        "action_type": "ADD",
+        "position": "Germany (Federal Republic of) / DEU",
+        "note": "Germany",
         "entries": [
           {
+            "iso_code": "DEU",
+            "country_or_area": {
+              "en": "Germany (Federal Republic of)"
+            },
             "company_name": "Connect4Video GmbH",
             "address_line_1": "Nibelungenstrasse 28",
             "address_line_2": "D-65428 RÜSSELSHEIM",
@@ -27742,6 +27760,10 @@
       {
         "entries": [
           {
+            "iso_code": "DEU",
+            "country_or_area": {
+              "en": "Germany (Federal Republic of)"
+            },
             "company_name": "Luiz Fernando Ribeiro Amaral - IP-Fast -",
             "address_line_1": "Ferdinandstrasse 40",
             "address_line_2": "D-21614 BUXTEHUDE",
@@ -27757,6 +27779,10 @@
       {
         "entries": [
           {
+            "iso_code": "DEU",
+            "country_or_area": {
+              "en": "Germany (Federal Republic of)"
+            },
             "company_name": "VISTEC Internet Service GmbH",
             "address_line_1": "Hagenauer Strasse 42",
             "address_line_2": "D-65203 WIESBADEN",
@@ -27773,6 +27799,10 @@
       {
         "entries": [
           {
+            "iso_code": "DEU",
+            "country_or_area": {
+              "en": "Germany (Federal Republic of)"
+            },
             "company_name": "WAHLCOM GmbH",
             "address_line_1": "Hauptstrasse 53",
             "address_line_2": "D-58675 HEMER",
@@ -27802,11 +27832,11 @@
             },
             "company_name": "KuepeliEDV e.K. Hellergasse 24 D-53359 RHEINBACH",
             "carrier_code": "KPEDV",
-            "contact": "Mr Umut Kuepeli Tel.: +49 221 71599940 Fax: +49 221 71599949 Email: cloudphone@kuepeliedv.de",
-            "tel": "Mr Umut Kuepeli +49 221 71599940 Fax: +49 221 71599949 Email: cloudphone@kuepeliedv.de",
-            "fax": "Mr Umut Kuepeli Tel.: +49 221 71599940 +49 221 71599949 Email: cloudphone@kuepeliedv.de",
+            "contact": "Mr Umut Kuepeli",
+            "tel": "+49 221 71599940",
+            "fax": "+49 221 71599949",
             "email": [
-              "Mr Umut Kuepeli Tel.: +49 221 71599940 Fax: +49 221 71599949 cloudphone@kuepeliedv.de"
+              "cloudphone@kuepeliedv.de"
             ]
           }
         ]
@@ -27820,10 +27850,10 @@
             },
             "company_name": "NETMOUNTAINS Group GmbH An der Poent 46 D-40885 RATINGEN",
             "carrier_code": "NETMNT",
-            "contact": "Mr Stephan Reugels Tel.: +49 2324 977024 9 Email: noc-de@netmountains.de",
-            "tel": "Mr Stephan Reugels +49 2324 977024 9 Email: noc-de@netmountains.de",
+            "contact": "Mr Stephan Reugels",
+            "tel": "+49 2324 977024 9",
             "email": [
-              "Mr Stephan Reugels Tel.: +49 2324 977024 9 noc-de@netmountains.de"
+              "noc-de@netmountains.de"
             ]
           }
         ]
@@ -27837,10 +27867,10 @@
             },
             "company_name": "SCARBO CROSSMEDIA e.K. Im Taubental 9 D-41468 NEUSS",
             "carrier_code": "SCARBO",
-            "contact": "Mr Oliver Jurmann Tel.: +49 2131 52512200 Email: oliver.jurmann@scarbo.de",
-            "tel": "Mr Oliver Jurmann +49 2131 52512200 Email: oliver.jurmann@scarbo.de",
+            "contact": "Mr Oliver Jurmann",
+            "tel": "+49 2131 52512200",
             "email": [
-              "Mr Oliver Jurmann Tel.: +49 2131 52512200 oliver.jurmann@scarbo.de"
+              "oliver.jurmann@scarbo.de"
             ]
           }
         ]
@@ -29133,6 +29163,7 @@
             "company_name": "Coolwave Communications Limited",
             "address_line_1": "6th Floor, 2 Grand Canal Square",
             "address_line_2": "IRL-DUBLIN 2, D02 A342",
+            "address_line_3": "Ireland",
             "carrier_code": "COOLWV",
             "contact": "Mr David Williams",
             "tel": "+44 333 240 3070",
@@ -29854,9 +29885,9 @@
             },
             "company_name": "Carrier1 GmbH Fritz-Vomfelde-Straße 34 D-40547 DÜSSELDORF",
             "carrier_code": "CAR1",
-            "contact": "Philipp Hoffmann E-mail:     philipp.hoffmann@carrier1.de",
+            "contact": "Philipp Hoffmann",
             "email": [
-              "Philipp Hoffmann philipp.hoffmann@carrier1.de"
+              "philipp.hoffmann@carrier1.de"
             ]
           }
         ]
@@ -29870,10 +29901,10 @@
             },
             "company_name": "JustBolt GmbH BahnhofstraЯe 7 D-29553 BIENENBÜTTEL",
             "carrier_code": "BOLT25",
-            "contact": "Lukas Lange Tel.:          +49 152 01445123 E-mail:     lukas.lange@just-bolt.de",
-            "tel": "Lukas Lange +49 152 01445123 E-mail:     lukas.lange@just-bolt.de",
+            "contact": "Lukas Lange",
+            "tel": "+49 152 01445123",
             "email": [
-              "Lukas Lange Tel.:          +49 152 01445123 lukas.lange@just-bolt.de"
+              "lukas.lange@just-bolt.de"
             ]
           }
         ]
@@ -29923,11 +29954,11 @@
             },
             "company_name": "Moderne Kommunikationstechnologie Hohentengen Gesellschaft mit beschränkter Haftung Kirchstraße 4 79801 HOHENTENGEN AM HOCHRHEIN",
             "carrier_code": "MKTH",
-            "contact": "Mr Andreas Nauroth Tel.:           +49 7742 853 85 Fax:            +49 7742 853 15 E-mail:      a.nauroth@hohentengen-ah.de",
-            "tel": "Mr Andreas Nauroth +49 7742 853 85 Fax:            +49 7742 853 15 E-mail:      a.nauroth@hohentengen-ah.de",
-            "fax": "Mr Andreas Nauroth Tel.:           +49 7742 853 85 +49 7742 853 15 E-mail:      a.nauroth@hohentengen-ah.de",
+            "contact": "Mr Andreas Nauroth",
+            "tel": "+49 7742 853 85",
+            "fax": "+49 7742 853 15",
             "email": [
-              "Mr Andreas Nauroth Tel.:           +49 7742 853 85 Fax:            +49 7742 853 15 a.nauroth@hohentengen-ah.de"
+              "a.nauroth@hohentengen-ah.de"
             ]
           }
         ]
@@ -29941,11 +29972,11 @@
             },
             "company_name": "newsim GmbH Wehrdaer Straße 12 35041 MARBURG",
             "carrier_code": "NEWSIM",
-            "contact": "Ms Martina Palmovski Tel.:           +49 6421 620 36116 Fax:            +49 6421 690 230 E-mail:      palmovski@newsim.de",
-            "tel": "Ms Martina Palmovski +49 6421 620 36116 Fax:            +49 6421 690 230 E-mail:      palmovski@newsim.de",
-            "fax": "Ms Martina Palmovski Tel.:           +49 6421 620 36116 +49 6421 690 230 E-mail:      palmovski@newsim.de",
+            "contact": "Ms Martina Palmovski",
+            "tel": "+49 6421 620 36116",
+            "fax": "+49 6421 690 230",
             "email": [
-              "Ms Martina Palmovski Tel.:           +49 6421 620 36116 Fax:            +49 6421 690 230 palmovski@newsim.de"
+              "palmovski@newsim.de"
             ]
           }
         ]
@@ -30235,6 +30266,9 @@
         ]
       },
       {
+        "action_type": "ADD",
+        "position": "Germany (Federal Republic of) / DEU",
+        "note": "Germany",
         "entries": [
           {
             "iso_code": "DEU",
@@ -30318,7 +30352,7 @@
             "address_line_2": "45549 SPROCKHÖVEL",
             "carrier_code": "IRIS",
             "contact": "Mr Andreas Bartel",
-            "tel": "Mr Andreas Bar",
+            "tel": "+49 231 1772050",
             "fax": "+49 231 177205599",
             "email": [
               "portierung@antilio.de"
@@ -30380,8 +30414,15 @@
   "1349": {
     "actions": [
       {
+        "action_type": "LIR",
+        "position": "Germany (Federal Republic of) / DEU",
+        "note": "Germany",
         "entries": [
           {
+            "iso_code": "DEU",
+            "country_or_area": {
+              "en": "Germany (Federal Republic of)"
+            },
             "company_name": "Telekom Deutschland GmbH",
             "address_line_1": "Landgrabenweg 149",
             "address_line_2": "53227 BONN",
@@ -30397,6 +30438,10 @@
       {
         "entries": [
           {
+            "iso_code": "DEU",
+            "country_or_area": {
+              "en": "Germany (Federal Republic of)"
+            },
             "company_name": "Telekom Deutschland GmbH",
             "address_line_1": "Landgrabenweg 149",
             "address_line_2": "53227 BONN",
@@ -30533,7 +30578,6 @@
               "en": "Liechtenstein (Principality of) / LIELiechtenstein (Principauté de)"
             },
             "contact": "E-mail:    sturm@bill-tele.com",
-            "tel": "E-mail:    sturm@bill-e.com",
             "email": [
               "sturm@bill-tele.com"
             ]
@@ -30574,7 +30618,6 @@
               "en": "Liechtenstein (Principality of) / LIELiechtenstein (Principauté de)"
             },
             "contact": "E-mail:  alois.widmann@cubictelecom.com",
-            "tel": "E-mail:  alois.widmann@cubicecom.com",
             "email": [
               "alois.widmann@cubictelecom.com"
             ]
@@ -30739,7 +30782,6 @@
               "en": "Liechtenstein (Principality of) / LIELiechtenstein (Principauté de)"
             },
             "contact": "E-mail:  rene.vogt@telecom.li",
-            "tel": "E-mail:  rene.vogt@ecom.li",
             "email": [
               "rene.vogt@telecom.li"
             ]
@@ -30916,11 +30958,11 @@
             },
             "company_name": "ACN Denmark A/S Maxeland 2 GLOSTRUP 3660",
             "carrier_code": "12572",
-            "contact": "Paul Gagnier Tel:           +31 20 346 3800 Fax:           +31 20 346 3940 E-mail:     amslegal@acneuro.com",
-            "tel": "Paul Gagnier +31 20 346 3800 Fax:           +31 20 346 3940 E-mail:     amslegal@acneuro.com",
-            "fax": "Paul Gagnier Tel:           +31 20 346 3800 +31 20 346 3940 E-mail:     amslegal@acneuro.com",
+            "contact": "Paul Gagnier",
+            "tel": "+31 20 346 3800",
+            "fax": "+31 20 346 3940",
             "email": [
-              "Paul Gagnier Tel:           +31 20 346 3800 Fax:           +31 20 346 3940 amslegal@acneuro.com"
+              "amslegal@acneuro.com"
             ]
           }
         ]
@@ -30942,11 +30984,10 @@
             },
             "company_name": "Telecom Egypt Smart Village PO Box 22 GIZA",
             "carrier_code": "TE",
-            "contact": "Seif Mounib Tel:        +20 2 3131 6579 Fax:        E-mail: seif.mounib@telecomegypt.com",
-            "tel": "Seif Mounib +20 2 3131 6579 Fax:        E-mail: seif.mounib@telecomegypt.com",
-            "fax": "Seif Mounib Tel:        +20 2 3131 6579 E-mail: seif.mounib@telecomegypt.com",
+            "contact": "Seif Mounib",
+            "tel": "+20 2 3131 6579",
             "email": [
-              "Seif Mounib Tel:        +20 2 3131 6579 Fax:        seif.mounib@telecomegypt.com"
+              "seif.mounib@telecomegypt.com"
             ]
           }
         ]
@@ -30968,11 +31009,11 @@
             },
             "company_name": "China Broadband Communications   (Hong Kong)    Unit 206, 2/F Mirror Tower   61 Mody Road, Kowloon   Hong Kong",
             "carrier_code": "CBCCOM",
-            "contact": "Ms Kathy Fung Tel:        +852 2730 0933 Fax:        +852 2739 0860 E-mail:  kathy.fung@cbccom.net",
-            "tel": "Ms Kathy Fung +852 2730 0933 Fax:        +852 2739 0860 E-mail:  kathy.fung@cbccom.net",
-            "fax": "Ms Kathy Fung Tel:        +852 2730 0933 +852 2739 0860 E-mail:  kathy.fung@cbccom.net",
+            "contact": "Ms Kathy Fung",
+            "tel": "+852 2730 0933",
+            "fax": "+852 2739 0860",
             "email": [
-              "Ms Kathy Fung Tel:        +852 2730 0933 Fax:        +852 2739 0860 kathy.fung@cbccom.net"
+              "kathy.fung@cbccom.net"
             ]
           }
         ]
@@ -30992,11 +31033,11 @@
             },
             "company_name": "Vitroconnect GmbH               Bonsiepen 9-11               D-45136 Essen",
             "carrier_code": "VITROC",
-            "contact": "Steffen Muller Tel:        +49 5241 30893 19 Fax:       +49 5241 9975 205 E-mail:  steffen.mueller@vitroconnect.de",
-            "tel": "Steffen Muller +49 5241 30893 19 Fax:       +49 5241 9975 205 E-mail:  steffen.mueller@vitroconnect.de",
-            "fax": "Steffen Muller Tel:        +49 5241 30893 19 +49 5241 9975 205 E-mail:  steffen.mueller@vitroconnect.de",
+            "contact": "Steffen Muller",
+            "tel": "+49 5241 30893 19",
+            "fax": "+49 5241 9975 205",
             "email": [
-              "Steffen Muller Tel:        +49 5241 30893 19 Fax:       +49 5241 9975 205 steffen.mueller@vitroconnect.de"
+              "steffen.mueller@vitroconnect.de"
             ]
           }
         ]
@@ -31064,11 +31105,11 @@
             },
             "company_name": "TELENOR Fredrikskaj          DK-1780 KOEBENHAVN",
             "carrier_code": "SONO",
-            "contact": "Steen Th. Pedersen Tel:       +45 7212 7205 Fax:      +45 7212 7224 E-mail: stp@dmt.sonofon.dk",
-            "tel": "Steen Th. Pedersen +45 7212 7205 Fax:      +45 7212 7224 E-mail: stp@dmt.sonofon.dk",
-            "fax": "Steen Th. Pedersen Tel:       +45 7212 7205 +45 7212 7224 E-mail: stp@dmt.sonofon.dk",
+            "contact": "Steen Th. Pedersen",
+            "tel": "+45 7212 7205",
+            "fax": "+45 7212 7224",
             "email": [
-              "Steen Th. Pedersen Tel:       +45 7212 7205 Fax:      +45 7212 7224 stp@dmt.sonofon.dk"
+              "stp@dmt.sonofon.dk"
             ]
           }
         ]
@@ -31084,11 +31125,11 @@
             },
             "company_name": "World Venture Group Telecom S.R.L Camil Ressu #13 BL58B, SC.A#6,Bucharest Romania",
             "carrier_code": "WVGTEL",
-            "contact": "Mr Sathiyagiri Valliappan Tel:       +40 31 780 0158 Fax:      +40 31 710 7343 E-mail: giri@wvg-tele.com",
-            "tel": "Mr Sathiyagiri Valliappan +40 31 780 0158 Fax:      +40 31 710 7343 E-mail: giri@wvg-tele.com",
-            "fax": "Mr Sathiyagiri Valliappan Tel:       +40 31 780 0158 +40 31 710 7343 E-mail: giri@wvg-tele.com",
+            "contact": "Mr Sathiyagiri Valliappan",
+            "tel": "+40 31 780 0158",
+            "fax": "+40 31 710 7343",
             "email": [
-              "Mr Sathiyagiri Valliappan Tel:       +40 31 780 0158 Fax:      +40 31 710 7343 giri@wvg-tele.com"
+              "giri@wvg-tele.com"
             ]
           }
         ]

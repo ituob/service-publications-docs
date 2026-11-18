@@ -224,6 +224,9 @@ RSpec.describe Ituob::Models::M1400Amendment do
 
     {
       'Germany / DEU' => ['Germany', 'DEU', nil],
+      'P 28 Germany (Federal Republic of) / DEU ADD' => ['Germany (Federal Republic of)', 'DEU', 'ADD'],
+      'P 30 Gibraltar /GIB SUP' => ['Gibraltar', 'GIB', 'SUP'],
+      'P 49 Luxembourg/LUX ADD' => ['Luxembourg', 'LUX', 'ADD'],
       'Germany / DEU ADD' => ['Germany', 'DEU', 'ADD'],
       'P 28 to P 29 Germany / DEU ADD' => ['Germany', 'DEU', 'ADD'],
       'P 28 Germany / DEU ADD' => ['Germany', 'DEU', 'ADD'],
@@ -532,6 +535,74 @@ RSpec.describe Ituob::Models::M1400Amendment do
       entry = parse('Germany (Federal Republic of) / DEU ADD', 'E-mail: a@b.net').actions.first.entries.first
 
       expect([entry.country_or_area.en, entry.iso_code]).to eq(['Germany (Federal Republic of)', 'DEU'])
+    end
+  end
+
+  describe 'printed contact and address details' do
+    ['Mr Andreas Bantel', 'Mr Marcus Eitel', 'Mr Andreas Bartel',
+     'TeleData Network Operation Center'].each do |name|
+      it "keeps the telephone separate from #{name}" do
+        amendment = described_class.parse(doc(paragraph('Germany / DEU ADD'),
+          table(row(cell(paragraph('Company')), cell(paragraph('CODE')),
+                    cell(paragraph(name), paragraph('Tel.: +49 7161 6101 140'),
+                         paragraph('Fax: +49 7161 6101 255'), paragraph('E-mail: info@example.test'))))))
+        entry = amendment.actions.first.entries.first
+
+        expect([entry.contact, entry.tel, entry.fax, Array(entry.email)])
+          .to eq([name, '+49 7161 6101 140', '+49 7161 6101 255', ['info@example.test']])
+      end
+    end
+
+    it 'preserves the contact name before inline contact labels' do
+      amendment = described_class.parse(doc(paragraph('Germany / DEU ADD'),
+        table(row(cell(paragraph('Company')), cell(paragraph('CODE')),
+                  cell(paragraph('Mr Umut Kuepeli Tel.: +49 221 71599940 Fax: +49 221 71599949 Email: cloudphone@kuepeliedv.de'))))))
+      entry = amendment.actions.first.entries.first
+
+      expect([entry.contact, entry.tel, entry.fax, Array(entry.email)])
+        .to eq(['Mr Umut Kuepeli', '+49 221 71599940', '+49 221 71599949', ['cloudphone@kuepeliedv.de']])
+    end
+
+    it 'preserves address overflow and its printed addressee in the third address field' do
+      amendment = described_class.parse(doc(paragraph('Germany / DEU ADD'),
+        table(row(cell(paragraph('Onvoy Communications Limited'),
+                       paragraph('c/o Baker McKenzie Rechtsanwaltsgesellschaft mbH'),
+                       paragraph('von Rechtsanwälten und Steuerberatern'),
+                       paragraph('Ms. Caroline Heinickel'), paragraph('Bethmannstr. 50-54'),
+                       paragraph('60311 FRANKFURT AM MAIN')),
+                  cell(paragraph('OCOMM')), cell(paragraph('Mr Jeff Slater'), paragraph('Tel: +1 262 357 1344'))))))
+      entry = amendment.actions.first.entries.first
+
+      expect([entry.address_line_1, entry.address_line_2, entry.address_line_3])
+        .to eq(['c/o Baker McKenzie Rechtsanwaltsgesellschaft mbH',
+                'von Rechtsanwälten und Steuerberatern',
+                'Ms. Caroline Heinickel Bethmannstr. 50-54 60311 FRANKFURT AM MAIN'])
+      expect([entry.contact, entry.tel, entry.carrier_code]).to eq(['Mr Jeff Slater', '+1 262 357 1344', 'OCOMM'])
+    end
+
+    it 'preserves a country after an empty address paragraph' do
+      amendment = described_class.parse(doc(paragraph('Germany / DEU ADD'),
+        table(row(cell(paragraph('Coolwave Communications Limited'), paragraph('6th Floor, 2 Grand Canal Square'),
+                       paragraph('IRL-DUBLIN 2, D02 A342'), paragraph, paragraph('Ireland')),
+                  cell(paragraph('COOLWV')), cell(paragraph('Mr David Williams'))))))
+      entry = amendment.actions.first.entries.first
+
+      expect([entry.address_line_1, entry.address_line_2, entry.address_line_3, entry.contact])
+        .to eq(['6th Floor, 2 Grand Canal Square', 'IRL-DUBLIN 2, D02 A342', 'Ireland', 'Mr David Williams'])
+    end
+
+    it 'extracts nested-table contact labels and preserves both contact names' do
+      contacts = cell(paragraph('Atty. Holy T. Ampaguey'), paragraph('Atty. Niño Martin Cruz'),
+        table(row(cell(paragraph('Tel:')), cell(paragraph('+63 2 82822888'))),
+              row(cell(paragraph('E-mail:')),
+                  cell(paragraph('holy.ampaguey@dito.ph; ', 'nino.cruz@dito.ph')))))
+      amendment = described_class.parse(doc(paragraph('Philippines (Republic of the) / PHL ADD'),
+        table(row(cell(paragraph('Dito Telecommunity Corporation')), cell(paragraph('DITO')), contacts))))
+      entry = amendment.actions.first.entries.first
+
+      expect([entry.contact, entry.tel, Array(entry.email), entry.fax])
+        .to eq(['Atty. Holy T. Ampaguey; Atty. Niño Martin Cruz', '+63 2 82822888',
+                ['holy.ampaguey@dito.ph', 'nino.cruz@dito.ph'], nil])
     end
   end
 

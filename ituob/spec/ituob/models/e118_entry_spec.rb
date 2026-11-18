@@ -112,7 +112,8 @@ RSpec.describe Ituob::Models::E118Entry do
     let(:contact_details) { ['MOBILE PAY LIMITED'] }
 
     it 'preserves the full printed value' do
-      expect(entry.tel).to eq(['MOBILE PAY LIMITED'])
+      expect(entry.tel).to be_nil
+      expect(entry.contact_address).to eq(['Contact Street', 'MOBILE PAY LIMITED'])
     end
   end
 
@@ -225,6 +226,32 @@ RSpec.describe Ituob::Models::E118Entry do
   context 'with no printed address lines' do
     it 'leaves the company address unset' do
       expect(entry.company_address).to be_nil
+    end
+  end
+
+  context 'with multiple international numbers on a labelled line' do
+    let(:contact_details) do
+      ['Tel: +44 1483 802503 (UK) +1 484-935-3130 (USA)',
+       'Fax: +57 1 593 5399; +57 1 593 5206; +57 1 593 5201',
+       'E-mail: contact@example.com', '+41 22 999']
+    end
+
+    it 'retains each number without moving subsequent email content into the phone list' do
+      expect(entry.tel).to eq(['+44 1483 802503 (UK)', '+1 484-935-3130 (USA)'])
+      expect(entry.fax).to eq(['+57 1 593 5399', '+57 1 593 5206', '+57 1 593 5201'])
+      expect(entry.email).to eq(['contact@example.com'])
+      expect(entry.contact).to eq('Contact Person')
+      expect(entry.contact_address).to eq(['Contact Street'])
+    end
+  end
+
+  context 'with an unlabelled fax continuation' do
+    let(:contact_details) { ['Tel: +41 22 123', 'Fax +41 22 456', '+41 22 789', 'E-mail: contact@example.com'] }
+
+    it 'keeps the continuation with the fax and preserves the telephone and address' do
+      expect(entry.tel).to eq(['+41 22 123'])
+      expect(entry.fax).to eq(['+41 22 456', '+41 22 789'])
+      expect(entry.contact_address).to eq(['Contact Street'])
     end
   end
 end

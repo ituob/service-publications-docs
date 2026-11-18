@@ -120,7 +120,7 @@ attribute :notes, :string, collection: true
             page_heading = fixed_str.match(/\A(P \d+)(?: to P \d+)? /)
             heading_text = page_heading ? fixed_str[page_heading.end(0)..] : fixed_str
 
-            if first_elem.length < 3 
+            if fixed_str.length < 3
               next
             else
               next if heading_text.match?(/\ACountry or area \//i)
@@ -221,13 +221,18 @@ attribute :notes, :string, collection: true
               entry.company_name = Ituob::Helpers.strip_legacy(row[0][0]) rescue nil
               entry.address_line_1 = Ituob::Helpers.strip_legacy(row[0][1]) rescue nil
               entry.address_line_2 = Ituob::Helpers.strip_legacy(row[0][2]) rescue nil
-              entry.address_line_3 = Ituob::Helpers.strip_legacy(row[0][3]) rescue nil
+              address_tail = Array(row[0])[3..]
+              if address_tail
+                entry.address_line_3 = address_tail.map { |line| Ituob::Helpers.strip_legacy(line) }.reject(&:empty?).join(' ')
+              end
               entry.carrier_code = Ituob::Helpers.strip_legacy(row[1][0]) rescue nil
-              entry.contact = Ituob::Helpers.strip_legacy(row[2][0]) rescue nil
+              contact_text = Ituob::Helpers.replace_legacy_space(Array(row[2]).join('; '))
+              contact = contact_text.split(Ituob::Helpers::CONTACT_LABEL, 2).first.to_s.strip.sub(/[;\s—]+\z/, '')
+              entry.contact = contact.empty? ? Ituob::Helpers.strip_legacy(row[2]&.first) : contact
               entry.fax = Ituob::Helpers.isolate_key(row[2], 'Fax')
               entry.tel = Ituob::Helpers.isolate_key(row[2], 'Tel')
-              entry.email = Ituob::Helpers.isolate_key(row[2], 'E-mail') ||
-                            Ituob::Helpers.isolate_key(row[2], 'Email')
+              email = Ituob::Helpers.isolate_key(row[2], 'E-mail')
+              entry.email = email.split(';').map(&:strip).reject(&:empty?) if email
 
               action.entries << entry
             end

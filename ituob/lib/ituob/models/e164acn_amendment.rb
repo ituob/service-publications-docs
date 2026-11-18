@@ -29,27 +29,8 @@ attribute :notes, :string, collection: true
       def self.extract_text_from_cell(cell)
         return nil unless cell
 
-        # Try to extract text from the cell's content
-        if cell["content"] && cell["content"].first && cell["content"].first["content"]
-          paragraph = cell["content"].first
-          if paragraph["content"] && paragraph["content"].first && paragraph["content"].first["text"]
-            return paragraph["content"].first["text"]
-          end
-        end
-
-        # If we couldn't extract text using the above method, try a different approach
-        if cell["content"] && cell["content"].first
-          if cell["content"].first["text"]
-            return cell["content"].first["text"]
-          elsif cell["content"].first["content"] && cell["content"].first["content"].first
-            if cell["content"].first["content"].first["text"]
-              return cell["content"].first["content"].first["text"]
-            end
-          end
-        end
-
-        # Return nil if we couldn't extract any text
-        nil
+        text = Prosereflect::Parser.parse_node(cell).text_content
+        Ituob::Helpers.normalize_whitespace(text) unless text.empty?
       end
 
       def self.parse(hash, position_on: nil, dataset_code: nil)
@@ -73,6 +54,11 @@ attribute :notes, :string, collection: true
 
             # Skip empty paragraphs
             next if text_content.empty?
+
+            if text_content.start_with?("*", "___", "Notes common", "See page")
+              amendment.notes << text_content
+              next
+            end
 
             # This is a valid non-empty paragraph
             paragraph_carry = item

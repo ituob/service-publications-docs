@@ -10,15 +10,26 @@ data:
   - company_name: envia TEL GmbH
     carrier_code: ETEL
     contact: Mr. Peter Zech
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   - company_name: Friedrich-Ebert-Strasse 26
     contact: 'Tel:            +49 355 68 1214'
     tel: "+49 355 68 1214"
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   - company_name: 04416 MARKKLEEBERG
     contact: 'Fax:           +49 355 68 2500'
     fax: "+49 355 68 2500"
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   - contact: 'E-mail:      peter.zech@enviatel.de'
-    tel: 'E-mail:      peter.zech@enviade'
     email:
     - peter.zech@enviatel.de
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   notes: []
 reference: OB-1086

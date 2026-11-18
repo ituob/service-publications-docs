@@ -10,16 +10,27 @@ data:
   - company_name: Bouygues Telecom
     carrier_code: BOU
     contact: Mr. Rémy Pintenet
+    country_or_area:
+      en: Luxembourg
+    iso_code: LUX
   - company_name: 37-39, Rue Boissière
     contact: 'Tel:              +33 6 65 73 32 27'
     tel: "+33 6 65 73 32 27"
+    country_or_area:
+      en: Luxembourg
+    iso_code: LUX
   - company_name: 75116 PARIS
     contact: 'Fax:             +33 1 394 5 36 87'
     fax: "+33 1 394 5 36 87"
+    country_or_area:
+      en: Luxembourg
+    iso_code: LUX
   - company_name: France
     contact: 'E-mail:       rpintene@bouyguestelecom.fr'
-    tel: 'E-mail:       rpintene@bouyguesecom.fr'
     email:
     - rpintene@bouyguestelecom.fr
+    country_or_area:
+      en: Luxembourg
+    iso_code: LUX
   notes: []
 reference: OB-1086
