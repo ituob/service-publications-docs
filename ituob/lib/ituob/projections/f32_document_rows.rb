@@ -33,12 +33,41 @@ module Ituob
           positions[key] = [positions[key] || entry.source_row, entry.source_row].min
         end
         # Legacy annotations without print coordinates belong with their country.
-        result.sort_by do |entry|
+        ordered = result.sort_by do |entry|
           [entry.source_row || anchors[country(entry)] || Float::INFINITY, entry.source_page || 0]
         end
+        normalize_saudi_legends(ordered)
       end
 
       private
+
+      # The source prints one shared legend after the five routing notes. The
+      # legacy capture appended it to every note (twice in the Makkah note).
+      def normalize_saudi_legends(rows)
+        rows = rows.map do |entry|
+          country(entry) == "SAUDI ARABIA" && entry.notes ? Models::F32TDIEntry.from_yaml(entry.to_yaml) : entry
+        end
+        notes = rows.select { |entry| country(entry) == "SAUDI ARABIA" && entry.notes }.map(&:notes)
+        {
+          en: /\s*\(i\)\s+Seasonal Opening\.\s+\(ii\)\s+Main Telegraph Office\./,
+          fr: /\s*\(i\)\s+Ouverture saisonnière\.\s+\(ii\)\s+Bureau télégraphique principal\./,
+          es: /\s*\(i\)\s+Apertura estacional\.\s+\(ii\)\s+Oficina telegráfica principal\./
+        }.each do |language, pattern|
+          legend = nil
+          notes.each do |note|
+            value = note.public_send(language)
+            next unless value
+
+            legend ||= value[pattern]&.strip&.gsub(/\s+/, " ")
+            note.public_send("#{language}=", value.gsub(pattern, "").strip)
+          end
+          next unless legend
+
+          last = notes.reverse.find { |note| !note.public_send(language).to_s.empty? }
+          last.public_send("#{language}=", "#{last.public_send(language)} #{legend}")
+        end
+        rows
+      end
 
       def country(entry)
         entry.country_or_area&.en.to_s.upcase.gsub(/[[:space:]]+/, " ").strip.delete_suffix("1)").strip

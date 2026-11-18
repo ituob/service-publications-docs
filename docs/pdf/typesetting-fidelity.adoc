@@ -116,16 +116,63 @@ values, all canonical office rows, printed order, and missing suffix/alias
 regressions. The earlier legacy-dataset truncation is not recreated.
 
 The F.32 shard alone applies link:../../scripts/patch_itu_f32_tables.rb[a guarded
-stylesheet patch]: 8 pt Arial table text, 3.175 mm (9 pt) minimum row height,
-and zero extra top padding instead of 1 mm. Its column proportions are
-24:28:12:26:10, approximating the official point-scale column anchors
-(34, 156, 298, 360 and about 502 pt for the centered office code).
-The page margin and cover/header layout still differ from the official PDF. Other publication
-shards keep their existing stylesheet. Specs cover the patch's exact values,
-structural guards, idempotence, and workflow isolation. This repairs the measured
-template differences; it does not guarantee identical pagination. The official
-47-page baseline stays unchanged, and the hosted `typesetting-report` continues
-to expose any residual page-count difference honestly.
+stylesheet patch]: 8 pt Arial table text, 9 pt leading and minimum row height,
+zero extra cell top padding, and 12 mm horizontal margins. Crucially, the
+service-publication `setTableRowAttributes` template overrides the generic row
+style with a 5 mm minimum; both now use 3.175 mm. The earlier generic-only
+adjustment left ordinary rows about 15 pt apart, versus 9–10 pt in the official.
+Numeric table-note references replace the renderer's alphabetic labels in both
+links and note bodies; note targets and prose remain intact. Other publication
+shards keep their existing stylesheet.
+
+=== F.32 repair measurements
+
+The hosted run at `f8a76080` produced English and Spanish at 51 pages, while
+French failed with an incomplete table row. The French source has Falkland
+Islands labels with inconsistent parentheses. Rowspan lengths used English
+country identity but group boundaries used localized labels. Both now use the
+same English identity, while translated display text is retained. Native
+Asciidoctor regression specs check five-column grids, span boundaries and the
+exact tally of all 1,495 office codes in English, French and Spanish.
+
+The restored content also exposed duplicated display text: the legacy capture
+appended the same Saudi routing legend to every note, and filled continuation
+cells with repeated US station names. The printed view retains the shared
+legend once and leaves those continuation names blank, while canonical entries
+remain unchanged. Appendix 1 retains every indicator, groups indicator lines by
+initial letter, and displays country translations on separate lines. Each
+appendix starts on a fresh page, as in the official edition.
+
+A single-publication local render with these corrections measures *41 English
+pages versus 47 official*. French and Spanish both render successfully at
+42 pages (neither has a repository official PDF baseline). The section evidence is:
+
+[cols="3,1,1,1",options="header"]
+|===
+|Section |Official PDF |Hosted `f8a76080` |Corrected local English
+|Cover and front matter |1–2 |1–3 |1–3
+|Destination indicators |3–40 |4–48 |4–36
+|Appendix 1 |41–43 |49–50 |37–39
+|Appendix 2 |44 |starts 50 |40
+|Appendix 3 and amendment form |45–46 |50–51 |41
+|Blank back page |47 |none |none
+|===
+
+Matched ordinary office-code rows now have a 10 pt baseline pitch, versus 9 pt
+in the official; both use 8 pt Arial. The earlier missing-content render also
+had 41 pages, but omitted printed office context and all appendices. Equal totals
+therefore do not establish equal content. The corrected export includes the
+restored sections and passes the unchanged official-comparison floor locally:
+84.0% word recall, 99.2% precision, 67.1% order, 55.9% row recall, 79.6% cell recall,
+and six pages of drift (the existing maximum). No comparison baseline or tolerance
+was changed. The separate advisory typesetting report still requires exactly
+47 pages and continues to report this residual layout difference. Cover/header,
+page-continuation labels and appendix-form pagination still differ; this is not
+a claim of exact visual equivalence.
+
+Specs cover stylesheet guards, the service-specific override, idempotence,
+numeric note references, workflow isolation, complete office-code preservation
+and exact membership of all 28 special-origin network records.
 
 == Scope and reproduction
 

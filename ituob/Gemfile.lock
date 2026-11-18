@@ -16,6 +16,7 @@ GEM
   specs:
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    asciidoctor (2.0.26)
     base64 (0.3.0)
     bigdecimal (4.1.2)
     canon (0.3.79)
@@ -123,6 +124,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  asciidoctor (= 2.0.26)
   bigdecimal (~> 4.0)
   bundler
   ituob!
