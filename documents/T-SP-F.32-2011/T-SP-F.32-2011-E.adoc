@@ -73,7 +73,7 @@ geographical area, or of its authorities.
 {% else %}
 {% render "table", data: edition.printed_items, lang: lang %}
 {% endif %}
-{% render "appendices" %}
+{% render "appendices", lang: lang %}
 ----
 
 

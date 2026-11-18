@@ -103,7 +103,11 @@ jobs:
       matrix:
         doc: ${{ fromJSON(needs.plan.outputs.docs) }}
     container:
-      image: metanorma/metanorma:latest
+      # Pinned to the 1.18.3 image (the `latest` digest on 2026-11-18; Gemfile.lock
+      # of metanorma-docker f2bf8c16: leptris 1.9.424.0, lutaml-lml 0.3.6).
+      # Newer leptris releases (1.9.427.0) hang ITU RNG validation, so an
+      # unpinned `latest` could silently break every render. Bump deliberately.
+      image: metanorma/metanorma:1.18.3@sha256:b044de420aba4dab2b4a837ec58ee4916d439b85e333ff5bde404efacbf31f8d
     env:
       DOC_ID: ${{ matrix.doc }}
     steps:

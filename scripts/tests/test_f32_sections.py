@@ -62,6 +62,37 @@ class F32SectionTests(unittest.TestCase):
         self.assertNotEqual(source, damaged)
         self.assertTrue(any("appendix 1 network codes" in e for e in self.errors(damaged)))
 
+    def test_appendix1_generated_layout_wraps_header_and_roa_text(self):
+        # Table header over two lines; "– Telkom SA" ends in the code column
+        # without being a network code; a code may follow a dash ("– NU").
+        text = "\n".join([
+            "         Country /          Network       Network             Special origin indicator",
+            "     geographical area (administration/ROA) code",
+            "ARABIE SAOUDITE            GOVT –      SJ                JP",
+            "SAUDI ARABIA               Ministry of",
+            "ARABIA SAUDITA             Communications",
+            "NICARAGUA                  Nicatelsat – NU                XQ",
+            "NICARAGUA                  Compañía",
+            "NICARAGUA                  Nicaragüense",
+            "SUDAFRICAINE (RÉP.)        Telkom SA       SA            SV",
+            "SOUTH AFRICA               – Telkom SA                   XQ",
+            "SUDAFRICANA (REP.)         Ltd, Pretoria",
+        ])
+        columns = sections._appendix1(text, strict=False)
+        self.assertEqual("SJ NU SA", columns[2])
+        self.assertEqual(["SJ", "NU", "SA"], list(columns[4]))
+        self.assertEqual("SV XQ", " ".join(columns[4]["SA"]["origin indicators"]))
+        self.assertIn("– Telkom SA", columns[4]["SA"]["network/ROA"])
+        self.assertEqual("SUDAFRICAINE (RÉP.)", columns[4]["SA"]["country"])
+
+    def test_appendix3_repeated_form_header_is_one_heading(self):
+        form = ["4.1.      AMENDMENTS", "       Amendment No.        Operational        Country",
+                "                            Bulletin No."]
+        one_page = "\n".join(form + ["1", "2", "3"])
+        paged = "\n".join(form + ["1", "2", "Annex to ITU OB No. 32-E  – 71 –"] + form[1:] + ["3"])
+        self.assertEqual(sections._appendix3(one_page)[1], sections._appendix3(paged)[1].replace(
+            "Annex to ITU OB No. 32-E  – 71 –\n", ""))
+
     def test_appendix1_origin_indicator_order_is_preserved(self):
         source = self.sources["en"]
         start = source.index("Appendix 1")

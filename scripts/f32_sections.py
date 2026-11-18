@@ -72,12 +72,15 @@ def _paragraphs(front):
     return paragraphs
 
 
-def _appendix1(text):
+def _appendix1(text, strict=True):
     columns = [[], [], [], []]
     networks = {}
     active = None
     country = ""
     alias_count = 0
+    row_country = ""
+    row_countries = {}
+    started = False
     for chunk in re.split(r"(?=^.*(?:Country\s*/|Pays\s*/|País\s*/))", text, flags=re.M):
         lines = chunk.splitlines()
         header = next((i for i, line in enumerate(lines)
@@ -93,16 +96,35 @@ def _appendix1(text):
                     candidates.append((match.start(1), match.start(2)))
         if not candidates:
             raise ValueError("appendix 1 has no network/indicator cells")
-        code, indicator = min(candidates)
+        # Rendered text drifts by a few columns from row to row, so the code and
+        # indicator columns are medians and each row is matched within a window.
+        code = sorted(c[0] for c in candidates)[len(candidates) // 2]
+        indicator = sorted(c[1] for c in candidates)[len(candidates) // 2]
+        slack = 6
         body = lines[header + 1:]
         continuation = next((i for i, line in enumerate(body) if re.search(rf"{APPENDIX}\s+1\b", line)), len(body))
         body = body[:continuation]
         country_cut = min((m.end() for line in body
                            if (m := re.match(r"^\S.*?\s{2,}(?=\S)", line))
-                           and m.end() < code), default=code // 2)
-        started = False
+                           and m.end() < code - slack), default=code // 2)
+
+        def code_cell(line):
+            """A network code is a lone two-letter cell near the code column,
+            set apart by a gap (or follows a dash); wrapped ROA text may also end there."""
+            for match in re.finditer(r"(?:(?<=\s{2})|(?<=[–-]\s))[A-Z]{2}(?=\s|$)", line):
+                if code - slack <= match.start() <= code + slack:
+                    return match
+            return None
+
+        # A generated table may continue a row across a page; keep its state.
+        if strict:
+            started = False
         for line in body:
-            if re.search(r"[A-Z]{2}", line[code:indicator]):
+            if not strict and started and (
+                    re.search(r"\((?:administration/ROA|administration/ER|administración/EER)\)", line)
+                    or line.strip().lower() in ("réseau", "red", "network", "code", "code de réseau", "código de red")):
+                continue
+            if code_cell(line):
                 started = True
             if not started and re.fullmatch(r"[A-Z ]+", line[indicator:].strip()) and line[indicator:].strip():
                 started = True
@@ -115,16 +137,21 @@ def _appendix1(text):
             if country_value:
                 if alias_count % 3 == 0:
                     country = country_value
+                if code_cell(line):
+                    row_country = country_value
                 alias_count += 1
-            code_value = line[code:indicator].strip()
-            is_code = bool(re.fullmatch(r"[A-Z]{2}", code_value))
+            cell = code_cell(line)
+            is_code = cell is not None
+            code_value = cell[0] if is_code else ""
+            roa_end = cell.start() if is_code else indicator - slack + 2
+            indicator_start = cell.end() if is_code else indicator - slack + 2
             if is_code:
                 active = code_value
                 if active in networks:
                     raise ValueError(f"appendix 1 duplicate network {active}")
                 networks[active] = {"country": country, "network/ROA": [], "origin indicators": []}
-            values = (line[:country_cut], line[country_cut:code if is_code else indicator],
-                      code_value if is_code else "", line[indicator:])
+                row_countries[active] = row_country
+            values = (line[:country_cut], line[country_cut:roa_end], code_value, line[indicator_start:])
             for i, value in enumerate(values):
                 if value.strip():
                     columns[i].append(value.strip())
@@ -136,10 +163,19 @@ def _appendix1(text):
         raise ValueError("appendix 1 table missing")
     # Official continuation pages repeat complete trilingual country headings.
     aliases = columns[0]
-    if len(aliases) % 3:
+    if strict and len(aliases) % 3:
         raise ValueError("appendix 1 incomplete trilingual country heading")
-    groups = [aliases[i:i+3] for i in range(0, len(aliases), 3)]
-    columns[0] = [" ".join(group) for i, group in enumerate(groups) if i == 0 or group != groups[i-1]]
+    if len(aliases) % 3:
+        # Wrapped headings are not three lines each: a network belongs to the
+        # country printed on its own row.
+        for network, label in row_countries.items():
+            networks[network]["country"] = label
+    if not len(aliases) % 3:
+        groups = [aliases[i:i+3] for i in range(0, len(aliases), 3)]
+        columns[0] = [" ".join(group) for i, group in enumerate(groups) if i == 0 or group != groups[i-1]]
+    # The generated table wraps long names ("EMIRATOS ÁRABES / UNIDOS") and may
+    # split a heading across pages, so its lines are not three per country.
+    # Its heading text is still compared in order, as one stream.
     return [" ".join(column) for column in columns] + [networks]
 
 
@@ -196,6 +232,17 @@ def _appendix3(text):
             left.append(line.strip())
     # Keep all form column labels and the complete ordered 1..30 sequence.
     after = re.sub(r"^\s*[\d.]+\.\s*", "", after)
+    # A table whose header row repeats on each page prints its labels again;
+    # the labels are one printed heading, however many pages the rows span.
+    lines = after.splitlines()
+    first_row = next((i for i, line in enumerate(lines) if re.fullmatch(r"\s*1\s*", line)), None)
+    if first_row is not None:
+        squash = lambda line: " ".join(line.split())
+        labels = {squash(line) for line in lines[:first_row] if line.strip()}
+        # The labels read in a different order when wrapped, so compare them as a set of words.
+        heading = " ".join(sorted(re.findall(r"\w+", " ".join(sorted(labels)).lower())))
+        rows = [line for line in lines[first_row:] if squash(line) not in labels]
+        after = heading + "\n" + "\n".join(rows)
     return " ".join(left + right), after, form[0]
 
 
@@ -233,6 +280,10 @@ def _heading(text, number):
     return " ".join(title_lines), labels
 
 
+def _label_words(labels):
+    return " ".join(sorted(re.findall(r"\w+", " ".join(labels).lower())))
+
+
 def compare_sections(official_text, generated_text, language):
     """Return actionable gaps; official_text must be the matching language PDF."""
     errors = []
@@ -240,7 +291,7 @@ def compare_sections(official_text, generated_text, language):
     for label, text in (("official", official_text), ("generated", generated_text)):
         try:
             front, one, two, three = _parts(text)
-            extracted.append((_paragraphs(front), _appendix1(one), _appendix2(two), _appendix3(three)))
+            extracted.append((_paragraphs(front), _appendix1(one, strict=label == "official"), _appendix2(two), _appendix3(three)))
         except ValueError as error:
             errors.append(f"{label} {language} section extraction: {error}")
     if errors:
@@ -251,8 +302,10 @@ def compare_sections(official_text, generated_text, language):
             source_heading = _heading(_parts(official_text)[number], number)
             generated_heading = _heading(_parts(generated_text)[number], number)
             errors.extend(_difference(f"appendix {number} title", source_heading[0], generated_heading[0]))
+            # A heading wrapped over two lines reads in a different order; the
+            # labels themselves must still all be there.
             errors.extend(_difference(f"appendix {number} column headings",
-                                      " ".join(source_heading[1]), " ".join(generated_heading[1])))
+                                      _label_words(source_heading[1]), _label_words(generated_heading[1])))
         except ValueError as error:
             errors.append(f"{language} section extraction: {error}")
     for i, (wanted, actual) in enumerate(zip(source[0], generated[0]), 1):

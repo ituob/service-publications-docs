@@ -90,6 +90,15 @@ def official_countries(language="en"):
     return countries
 
 
+HEADER_LABELS = ("Network (administration/ROA)", "Réseau (administration/ER)", "Red (administración/EER)")
+WRAPPED_LABELS = ("(administration/ROA)", "(administration/ER)", "(administración/EER)")
+
+
+def _is_header(line):
+    """The network column header, on one line or wrapped over two (the label's second line)."""
+    return any(label in line for label in HEADER_LABELS + WRAPPED_LABELS)
+
+
 def layout_rows(text):
     """Keep all destination ink in its printed column or full-width note."""
     rows = []
@@ -100,13 +109,11 @@ def layout_rows(text):
     for line_index, raw in enumerate(lines):
         if re.search(r"(?:^|\s)(?:Appendix|Appendice|Apéndice)\s+1\s*:?(?:\s|$)", raw):
             break
-        header = any(label in raw for label in ("Network (administration/ROA)",
-                                                "Réseau (administration/ER)", "Red (administración/EER)"))
+        header = _is_header(raw)
         if raw == "<page>" or header:
             following_lines = []
             for following in lines[line_index + 1:]:
-                if following == "<page>" or any(label in following for label in
-                        ("Network (administration/ROA)", "Réseau (administration/ER)", "Red (administración/EER)")):
+                if following == "<page>" or _is_header(following):
                     break
                 following_lines.append(following)
             starts = Counter(chunk.start() for following in following_lines
@@ -117,7 +124,11 @@ def layout_rows(text):
                             for match in re.finditer(r"(?:^| {2,})((?:[A-Z]{4}|--[A-Z]{2}))\s*$", following))
             if header or (started and codes):
                 if header:
-                    if "Réseau (administration/ER)" in raw:
+                    if not any(label in raw for label in HEADER_LABELS):
+                        # Wrapped header: the column names sit on the line above.
+                        top = [m.start() for m in re.finditer(r"\S(?:.*?\S)?(?= {2,}|$)", lines[line_index - 1])]
+                        defaults = top[1:5] if len(top) >= 5 else [raw.index("("), 0, 0, 0]
+                    elif "Réseau (administration/ER)" in raw:
                         defaults = [raw.index("Réseau"), raw.index("Code de"), raw.index("Nom du bureau"), raw.rindex("Code de")]
                     elif "Red (administración/EER)" in raw:
                         defaults = [raw.index("Red ("), raw.index("Código de red"), raw.index("Nombre de la oficina"), raw.index("Código de oficina")]

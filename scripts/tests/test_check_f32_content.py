@@ -41,6 +41,16 @@ class F32ContentTests(unittest.TestCase):
         self.assertEqual([], self.errors(PRINTED))
         self.assertEqual([], self.errors(PRINTED + "\f" * 47))
 
+    def test_network_header_wrapped_over_two_lines_still_scopes_the_table(self):
+        wrapped = "\n".join([
+            row("Country /", "Network", "Network", "Name of", "Office"),
+            row("Geographical Area", "(administration/ROA)", "code", "Telegraph Office", "code")])
+        text = PRINTED.replace(HEADER, wrapped)
+        self.assertEqual([], self.errors(text))
+        self.assertEqual([], self.errors(text + "\f" * 3))
+        damaged = text.replace("VU- -", "VQ- -")
+        self.assertTrue(any("VANUATU: network code" in error for error in self.errors(damaged)))
+
     def test_canonical_reflow_preserves_punctuation_and_qualifiers(self):
         self.assertEqual(gate.canonical("Telecommuni-\ncations ‘office’."),
                          gate.canonical("Telecommunications 'office'."))
