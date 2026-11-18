@@ -40,8 +40,8 @@ datos que contiene no implican, de parte de la UIT, juicio alguno sobre la condi
 países o zonas geográficas, o de sus autoridades.
 
 
-[yaml2text,data=../../datasets/991-PP.RES.21.pp/data.yaml,metadata=../../datasets/991-PP.RES.21.pp/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"991-PP.RES.21.pp","as_of":991}}]
 ----
-{% assign lang = "es" %}
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign lang = "es" %}
 {% render "table", data: data, metadata: metadata, lang: lang %}
 ----

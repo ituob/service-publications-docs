@@ -79,13 +79,24 @@ module PdfCoverageMatrix
     mapped, unmapped = slugs.partition { |s| registers.key?(s) }
     providers = provider_sources(text)
     regs = mapped.map { |s| registers.fetch(s) }
+    provider_unmapped = []
     datasets = slugs.filter_map { |s| (n = s[/\A\d+/]) && [s, n.to_i] }
     providers.each do |args|
-      reg = registers.values.find { |r| r.slug == args.fetch('register') }
-      raise ArgumentError, "unknown provider register #{args['register']} in #{path}" unless reg
+      source_datasets = args['datasets'] || args['dataset']
+      if source_datasets
+        Array(source_datasets).each do |dataset|
+          reg = registers[dataset]
+          regs << reg if reg
+          provider_unmapped << dataset unless reg
+          datasets << [dataset, Integer(args.fetch('as_of'))]
+        end
+      else
+        reg = registers.values.find { |r| r.slug == args.fetch('register') }
+        raise ArgumentError, "unknown provider register #{args['register']} in #{path}" unless reg
 
-      regs << reg
-      datasets << [File.basename(reg.seed_path), Integer(args.fetch('as_of'))]
+        regs << reg
+        datasets << [File.basename(reg.seed_path), Integer(args.fetch('as_of'))]
+      end
     end
     regs = regs.uniq(&:slug).sort_by(&:slug)
     datasets = datasets.to_h.sort
@@ -94,7 +105,7 @@ module PdfCoverageMatrix
       standard: meta[:standard], year: meta[:year], language: lang,
       file: File.basename(path), docnumber: head['docnumber'], issue: issue,
       datasets: datasets,
-      published: head['published-date'], registers: regs, unmapped: unmapped,
+      published: head['published-date'], registers: regs, unmapped: (unmapped + provider_unmapped).uniq.sort,
       newest: regs.map(&:newest_issue).max, flag: flag(issue, regs, datasets),
       data_path: providers.empty? ? 'yaml2text' : (slugs.empty? ? 'provider' : 'mixed')
     )

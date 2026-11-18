@@ -38,9 +38,9 @@ E-mail: mailto:tsbtson@itu.int[]
 . The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of the ITU concerning the legal status of any country or geographical area, or of its authorities.
 
 
-[yaml2text,data=../../datasets/955-E.180/data.yaml,metadata=../../datasets/955-E.180/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"955-E.180","as_of":955}}]
 ----
-{% assign lang = "en" %}
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign lang = "en" %}
 {% render "table", data: data, metadata: metadata, lang: lang %}
 
 == Explanation of symbols

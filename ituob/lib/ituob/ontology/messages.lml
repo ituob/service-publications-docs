@@ -1073,4 +1073,364 @@ models Ituob {
   class PublicationManifest {
     attribute publications, PublicationManifestEntry { cardinality 0..n }
   }
+
+  // Published dataset snapshots. Explicit types preserve the stored wire shapes.
+
+  class PublicationText {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class PublicationE180EntryToneDesc {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute notes, PublicationText
+  }
+
+  class PublicationE180Entry {
+    attribute _class, String
+    attribute country_or_area, PublicationText
+    attribute tone_desc, PublicationE180EntryToneDesc
+    attribute frequency_in_hz, String
+    attribute cadence_in_s, PublicationText
+    attribute tone_type, String
+    attribute notes, PublicationText
+  }
+
+  class PublicationMultilingualText {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute ru, String
+    attribute zh, String
+    attribute ar, String
+  }
+
+  class PublicationE212AEntry {
+    attribute _class, String
+    attribute code, String
+    attribute country_or_area, PublicationMultilingualText
+    attribute note, PublicationMultilingualText
+  }
+
+  class PublicationE212AMccMncEntry {
+    attribute _class, String
+    attribute mcc_mnc, String
+    attribute network, String
+    attribute status, String
+    attribute former_name, String
+  }
+
+  class PublicationE212Entry {
+    attribute _class, String
+    attribute mcc_mnc_codes, String
+    attribute country_or_area, PublicationMultilingualText
+    attribute networks, String
+    attribute note, PublicationMultilingualText
+  }
+
+  class PublicationE212EtEntry {
+    attribute _class, String
+    attribute country_or_area, PublicationMultilingualText
+    attribute country_type, String
+    attribute mcc_mnc, String
+    attribute msin_range, String
+    attribute operator_network, String
+  }
+
+  class PublicationE212OthersEntry {
+    attribute _class, String
+    attribute mcc_mnc_codes, String
+    attribute applicant, String
+    attribute purpose, PublicationMultilingualText
+    attribute temporary_assignment_to, String
+  }
+
+  class PublicationE212SharedEntry {
+    attribute _class, String
+    attribute mcc_mnc_codes, String
+    attribute networks, String
+    attribute former_name, String
+  }
+
+  class PublicationF1Entry {
+    attribute _class, String
+    attribute code, String
+    attribute field, String
+    attribute message, PublicationText
+    attribute field_desc, PublicationText
+  }
+
+  class PublicationF68Entry {
+    attribute _class, String
+    attribute number_block, String
+    attribute allocated_to, PublicationText
+    attribute telex_code, String
+    attribute notes, PublicationText
+    attribute integrated_numbering_plan, Boolean
+  }
+
+  class PublicationF68A1Entry {
+    attribute _class, String
+    attribute tnic_code, String
+    attribute telegram_network_codes, String
+    attribute country, PublicationText
+    attribute number_block, String
+    attribute allocated_to, PublicationText
+  }
+
+  class PublicationF68A2Entry {
+    attribute _class, String
+    attribute ob_number, Integer
+    attribute telex_code, String
+    attribute geographic_area, PublicationText
+    attribute number_block, String
+    attribute allocated_to, PublicationText
+  }
+
+  class PublicationPp21Entry {
+    attribute _class, String
+    attribute number, Integer
+    attribute geographic_area, PublicationText
+  }
+
+  class PublicationSr1EntryGeographicArea {
+    attribute fr, String
+    attribute en, String
+    attribute es, String
+  }
+
+  class PublicationSr1EntryRestrictionsNoCollectCalls {
+    attribute mobile, Boolean
+    attribute payphone, Boolean
+    attribute audiotex, Boolean
+    attribute incoming, Boolean
+    attribute outgoing, Boolean
+    attribute virtual, Boolean
+  }
+
+  class PublicationSr1EntryRestrictions {
+    attribute telex_not_provided, Boolean
+    attribute telegram_not_provided, Boolean
+    attribute no_collect_calls, PublicationSr1EntryRestrictionsNoCollectCalls
+    attribute no_messenger_dispatch, Boolean
+  }
+
+  class PublicationSr1EntryNotes {
+    attribute en, String
+    attribute es, String
+    attribute fr, String
+  }
+
+  class PublicationSr1Entry {
+    attribute _class, String
+    attribute name, String
+    attribute geographic_area, PublicationSr1EntryGeographicArea
+    attribute restrictions, PublicationSr1EntryRestrictions
+    attribute notes, PublicationSr1EntryNotes
+  }
+
+  class PublicationRr251EntryGroupsAmateurCriteriaValuesRange {
+    attribute from, String
+    attribute to, String
+    attribute cardinality, String
+  }
+
+  class PublicationRr251EntryGroupsAmateurCriteriaValues {
+    attribute segment_type, String
+    attribute value, String
+    attribute range, PublicationRr251EntryGroupsAmateurCriteriaValuesRange
+  }
+
+  class PublicationRr251EntryGroupsAmateurCriteria {
+    attribute segment_type, String
+    attribute key, String
+    attribute value, String
+    attribute values, PublicationRr251EntryGroupsAmateurCriteriaValues { cardinality 0..n }
+    attribute range, PublicationRr251EntryGroupsAmateurCriteriaValuesRange
+    attribute codelist, String
+  }
+
+  class PublicationRr251EntryGroupsAmateur {
+    attribute regex, String
+    attribute criteria, PublicationRr251EntryGroupsAmateurCriteria { cardinality 0..n }
+    attribute name, String
+  }
+
+  class PublicationRr251EntryGroupsExperimentalCriteria {
+    attribute segment_type, String
+    attribute key, String
+    attribute value, String
+    attribute range, PublicationRr251EntryGroupsAmateurCriteriaValuesRange
+    attribute codelist, String
+  }
+
+  class PublicationRr251EntryGroupsExperimental {
+    attribute regex, String
+    attribute criteria, PublicationRr251EntryGroupsExperimentalCriteria { cardinality 0..n }
+    attribute name, String
+  }
+
+  class PublicationRr251EntryGroupsExperimential {
+    attribute regex, String
+  }
+
+  class PublicationRr251EntryGroups {
+    attribute amateur, PublicationRr251EntryGroupsAmateur { cardinality 0..n }
+    attribute experimental, PublicationRr251EntryGroupsExperimental { cardinality 0..n }
+    attribute experimential, PublicationRr251EntryGroupsExperimential { cardinality 0..n }
+  }
+
+  class PublicationRr251EntryCodelistsListCodeValue {
+    attribute from, String
+    attribute to, String
+  }
+
+  class PublicationRr251EntryCodelistsList {
+    attribute name, String
+    attribute code, String
+  }
+
+  class PublicationRr251EntryCodelists {
+    attribute name, String
+    attribute list, PublicationRr251EntryCodelistsList { cardinality 0..n }
+  }
+
+  class PublicationRr251Entry {
+    attribute _class, String
+    attribute groups, PublicationRr251EntryGroups
+    attribute country_or_area, String
+    attribute codelists, PublicationRr251EntryCodelists { cardinality 0..n }
+    attribute notes, String { cardinality 0..n }
+  }
+
+  class PublicationT35Entry {
+    attribute _class, String
+    attribute code_bit, String
+    attribute country_or_area, PublicationText
+    attribute notes, PublicationText
+  }
+
+  class PublicationT35BEntryAssignmentAuthority {
+    attribute organization, String
+    attribute terminal_type, String { cardinality 0..n }
+    attribute contact_name, String
+    attribute department, String
+    attribute address, String
+    attribute telephone, String
+    attribute fax, String
+    attribute email, String
+    attribute related_links, String { cardinality 0..n }
+    attribute last_updated, String
+  }
+
+  class PublicationT35BEntry {
+    attribute _class, String
+    attribute country, String
+    attribute administration_name, String
+    attribute manufactures_htv, Boolean
+    attribute last_updated, String
+    attribute assignment_authority, PublicationT35BEntryAssignmentAuthority { cardinality 0..n }
+    attribute note, String
+  }
+
+  class PublicationX121AEntry {
+    attribute _class, String
+    attribute code, String
+    attribute zone, String
+    attribute country_or_area, PublicationText
+    attribute reserved, Boolean
+    attribute spare, Boolean
+  }
+
+  class PublicationRr251CountryDataGroupsAmateur {
+    attribute regex, String
+    attribute description, String
+    attribute criteria, PublicationRr251EntryGroupsAmateurCriteria { cardinality 0..n }
+    attribute name, String
+  }
+
+  class PublicationRr251CountryDataGroupsExperimental {
+    attribute regex, String
+    attribute description, String
+    attribute criteria, PublicationRr251EntryGroupsExperimentalCriteria { cardinality 0..n }
+    attribute name, String
+  }
+
+  class PublicationRr251CountryDataGroups {
+    attribute amateur, PublicationRr251CountryDataGroupsAmateur { cardinality 0..n }
+    attribute experimental, PublicationRr251CountryDataGroupsExperimental { cardinality 0..n }
+    attribute experimential, PublicationRr251EntryGroupsExperimential { cardinality 0..n }
+  }
+
+  class PublicationRr251CountryData {
+    attribute groups, PublicationRr251CountryDataGroups
+    attribute codelists, PublicationRr251EntryCodelists { cardinality 0..n }
+    attribute notes, String { cardinality 0..n }
+  }
+
+  class PublicationMetadataLocale {
+    attribute key, String
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute ru, String
+    attribute zh, String
+    attribute ar, String
+  }
+
+  class PublicationMetadata {
+    attribute title, PublicationMultilingualText
+    attribute locale, PublicationMetadataLocale { cardinality 0..n }
+    attribute schema, String
+  }
+
+  class PublicationCountry {
+    attribute key, String
+    attribute name, PublicationText
+    attribute data, PublicationRr251CountryData
+  }
+
+  class PublicationAcronyms {
+    attribute de, PublicationText
+    attribute bw, PublicationText
+    attribute kh, PublicationText
+    attribute cn, PublicationText
+    attribute cw, PublicationText
+    attribute es, PublicationText
+    attribute us, PublicationText
+    attribute fi, PublicationText
+    attribute fr, PublicationText
+    attribute ir, PublicationText
+    attribute it, PublicationText
+    attribute jp, PublicationText
+    attribute kg, PublicationText
+    attribute kw, PublicationText
+    attribute mk, PublicationText
+    attribute mu, PublicationText
+    attribute false, PublicationText
+    attribute pl, PublicationText
+    attribute cz, PublicationText
+    attribute gb, PublicationText
+    attribute si, PublicationText
+    attribute ch, PublicationText
+    attribute sr, PublicationText
+    attribute ve, PublicationText
+    attribute zm, PublicationText
+  }
+
+  class PublicationDataset {
+    attribute dataset, String
+    attribute as_of_issue, Integer
+    attribute items, Entry { cardinality 0..n }
+    attribute metadata, PublicationMetadata
+    attribute countries, PublicationCountry { cardinality 0..n }
+    attribute acronyms, PublicationAcronyms
+  }
+
+  class PublicationDatasets {
+    attribute sources, PublicationDataset { cardinality 0..n }
+  }
 }

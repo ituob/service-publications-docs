@@ -50,8 +50,8 @@ http://www.itu.int/itu-t/bulletin/annex.html[http://www.itu.int/itu-t/bulletin/a
 
 == {blank}
 
-[yaml2text,data=../../datasets/1002-T.35/data.yaml,metadata=../../datasets/1002-T.35/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"1002-T.35","as_of":1002}}]
 ----
-{% assign lang = "en" %}
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign lang = "en" %}
 {% render "table", data: data, metadata: metadata, lang: lang %}
 ----
