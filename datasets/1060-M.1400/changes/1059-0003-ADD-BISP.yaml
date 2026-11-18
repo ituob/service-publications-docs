@@ -6,15 +6,28 @@ identifier:
   code: BISP
 data:
   _class: M1400Amendment
+  position: Germany (Federal Republic of) / DEU
   entries:
-  - company_name: Germany (Federal Republic of) DEU
-  - company_name: Bisping & Bisping GmbH & Co.KG
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Germany (Federal Republic of) DEU
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Bisping & Bisping GmbH & Co.KG
     carrier_code: BISP
     contact: Mr. Johannes Bisping
-  - company_name: Spitalstrasse 21-24-26
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Spitalstrasse 21-24-26
     contact: 'Tel:           + 49 9123 9740 610'
     tel: "+ 49 9123 9740 610"
-  - company_name: 91207 Lauf
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 91207 Lauf
     contact: 'Fax:           + 49 9123 9740 97'
     fax: "+ 49 9123 9740 97"
   notes: []

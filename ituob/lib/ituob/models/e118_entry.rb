@@ -52,22 +52,24 @@ module Ituob
             when Prosereflect::Table
               node.rows.map { |row| row.cells.map { |cell| cell.lines.join(' ') }.join(' ') }
             else
-              []
+              node.type == 'code_block' ? node.text_content.split("\n") : []
             end
           end.flat_map do |line|
             normalized = line.gsub(/[\p{Space}\p{Zs}]/, ' ').strip
             # Some source rows print a contact label after its address on the
             # same line. Split at the label so the address prefix survives.
-            normalized.split(/(?<=\S) +(?=(?:Tel|Tél|Cell|Mobile|Fax|E-?mail)\s*(?:\.|:))/i)
+            normalized.split(/(?<=\S) +(?=(?:(?:Tel|Tél|Cell|Mobile|Fax|E-?mail)\s*(?:\.|:)|Fax\s+(?=\+?\d)))/i)
           end.reject(&:empty?)
+          telephone_label = /\A(?:(?:Tel|Tél|Cell)(?:\s*[.:]|\s)|Mobile(?:\s*[.:]|\s+(?=\+?\d)))/i
+          fax_label = /\AFax(?:\s*[.:]|\s+(?=\+?\d))/i
           contact_lines = []
           tel_fax_email_lines = []
           contact_info_started = false
 
           lines.each do |line|
             if !contact_info_started && (
-              line =~ /^(Tel|Tél|Cell|Mobile)(?:\.|:|\s)/i ||
-              line =~ /^Fax\s*(?:\.|:)/i ||
+              line.match?(telephone_label) ||
+              line.match?(fax_label) ||
               line =~ /^E-?mail\s*(?:\.|:)/i ||
               line =~ /^:/ ||
               line.include?('@')
@@ -102,6 +104,12 @@ module Ituob
               next
             end
 
+            # Unlabelled international numbers continue the preceding phone/fax list.
+            if %i[tel fax].include?(last_label) && line.match?(/\A\+\s*\d[\d ().;\/+\-]*(?:\([A-Za-z]+\))?\z/)
+              numbers.concat(split_contact_numbers(line))
+              next
+            end
+
             # A printed e-mail address wrapped after its "@" continues on the
             # next line ("jerry@" / "marathontelecom.net"): join the two.
             if email.last&.end_with?('@') && line !~ /^(Tel|Tél|Cell|Mobile|Fax|E-?mail)(?:\.|:|\s)/i && line !~ /^:/ &&
@@ -110,14 +118,14 @@ module Ituob
               next
             end
 
-            if line =~ /^(Tel|Tél|Cell|Mobile)(?:\.|:|\s)/i || line =~ /^:/
-              text = line.gsub(/^(?:(Tel|Tél|Cell|Mobile)(?:\.|:|\s)?|:)[[:space:]]*/, '').strip
-              tel << text unless text.empty?
+            if line.match?(telephone_label) || line =~ /^:/
+              text = line.sub(telephone_label, '').sub(/^:/, '').strip
+              tel.concat(split_contact_numbers(text))
               last_label = :tel
 
-            elsif line =~ /^Fax\s*(?:\.|:)/i
-              text = line.gsub(/^Fax\s*(?:\.|:)[[:space:]]*/i, '').strip
-              fax << text unless text.empty?
+            elsif line.match?(fax_label)
+              text = line.sub(fax_label, '').strip.sub(/^:/, '').strip
+              fax.concat(split_contact_numbers(text))
               last_label = :fax
 
             elsif line =~ /^E-?mail\s*(?:\.|:)/i || line.include?('@')
@@ -134,10 +142,10 @@ module Ituob
 
           # Sweep contact address lines for misclassified phone numbers/emails.
           contact_address = contact_address.reject do |addr_field|
-            if addr_field =~ /^(Tel|Tél|Cell|Mobile)(?:\.|:|\s)/i || addr_field =~ /^:/
-              tel << addr_field.gsub(/^(?:(Tel|Tél|Cell|Mobile)(?:\.|:|\s)?|:)[[:space:]]*/, '').strip
-            elsif addr_field =~ /^Fax(?:\.|:)/i
-              fax << addr_field.gsub(/^Fax(?:\.|:)[[:space:]]*/i, '').strip
+            if addr_field.match?(telephone_label) || addr_field =~ /^:/
+              tel << addr_field.sub(telephone_label, '').sub(/^:/, '').strip
+            elsif addr_field.match?(fax_label)
+              fax << addr_field.sub(fax_label, '').sub(/^:/, '').strip
             elsif addr_field.include?('@')
               if addr_field.count('@') > 1
                 email.concat(addr_field.split(/\s+/).select { |e| e.include?('@') })
@@ -173,6 +181,11 @@ module Ituob
 
         entry
       end
+
+      def self.split_contact_numbers(text)
+        text.split(/\s*;\s*|(?<=[\d)])\s+(?=\+\s*\d)/).map(&:strip).reject(&:empty?)
+      end
+      private_class_method :split_contact_numbers
     end
   end
 end

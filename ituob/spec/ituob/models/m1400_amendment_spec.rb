@@ -3,6 +3,7 @@
 require 'spec_helper'
 require 'ituob/models'
 require 'ituob/helpers'
+require 'timeout'
 
 RSpec.describe Ituob::Models::M1400Amendment do
   def text_node(text)
@@ -224,6 +225,9 @@ RSpec.describe Ituob::Models::M1400Amendment do
 
     {
       'Germany / DEU' => ['Germany', 'DEU', nil],
+      'P 28 Germany (Federal Republic of) / DEU ADD' => ['Germany (Federal Republic of)', 'DEU', 'ADD'],
+      'P 30 Gibraltar /GIB SUP' => ['Gibraltar', 'GIB', 'SUP'],
+      'P 49 Luxembourg/LUX ADD' => ['Luxembourg', 'LUX', 'ADD'],
       'Germany / DEU ADD' => ['Germany', 'DEU', 'ADD'],
       'P 28 to P 29 Germany / DEU ADD' => ['Germany', 'DEU', 'ADD'],
       'P 28 Germany / DEU ADD' => ['Germany', 'DEU', 'ADD'],
@@ -535,6 +539,101 @@ RSpec.describe Ituob::Models::M1400Amendment do
     end
   end
 
+  describe 'printed contact and address details' do
+    it 'preserves a long internal separator run and trims the trailing run quickly' do
+      name = "Dr #{';— ' * 30_000}Smith"
+      amendment = Timeout.timeout(2) do
+        described_class.parse(doc(paragraph('Germany / DEU ADD'),
+          table(row(cell(paragraph('Company')), cell(paragraph('CODE')),
+                    cell(paragraph("#{name}; —\t;"))))))
+      end
+
+      expect(amendment.actions.first.entries.first.contact).to eq(name)
+    end
+
+    [
+      ["Dr Smith; —\t;", 'Dr Smith'],
+      ["Dr Smith\nJones; —", 'Dr Smith Jones'],
+      ['Dr; — Smith', 'Dr; — Smith'],
+      ['; — ;', '; — ;'],
+      ['', '']
+    ].each do |printed, expected|
+      it "preserves contact trimming and fallback for #{printed.inspect}" do
+        amendment = described_class.parse(doc(paragraph('Germany / DEU ADD'),
+          table(row(cell(paragraph('Company')), cell(paragraph('CODE')),
+                    cell(paragraph(printed))))))
+
+        expect(amendment.actions.first.entries.first.contact).to eq(expected)
+      end
+    end
+
+    ['Mr Andreas Bantel', 'Mr Marcus Eitel', 'Mr Andreas Bartel',
+     'TeleData Network Operation Center'].each do |name|
+      it "keeps the telephone separate from #{name}" do
+        amendment = described_class.parse(doc(paragraph('Germany / DEU ADD'),
+          table(row(cell(paragraph('Company')), cell(paragraph('CODE')),
+                    cell(paragraph(name), paragraph('Tel.: +49 7161 6101 140'),
+                         paragraph('Fax: +49 7161 6101 255'), paragraph('E-mail: info@example.test'))))))
+        entry = amendment.actions.first.entries.first
+
+        expect([entry.contact, entry.tel, entry.fax, Array(entry.email)])
+          .to eq([name, '+49 7161 6101 140', '+49 7161 6101 255', ['info@example.test']])
+      end
+    end
+
+    it 'preserves the contact name before inline contact labels' do
+      amendment = described_class.parse(doc(paragraph('Germany / DEU ADD'),
+        table(row(cell(paragraph('Company')), cell(paragraph('CODE')),
+                  cell(paragraph('Mr Umut Kuepeli Tel.: +49 221 71599940 Fax: +49 221 71599949 Email: cloudphone@kuepeliedv.de'))))))
+      entry = amendment.actions.first.entries.first
+
+      expect([entry.contact, entry.tel, entry.fax, Array(entry.email)])
+        .to eq(['Mr Umut Kuepeli', '+49 221 71599940', '+49 221 71599949', ['cloudphone@kuepeliedv.de']])
+    end
+
+    it 'preserves address overflow and its printed addressee in the third address field' do
+      amendment = described_class.parse(doc(paragraph('Germany / DEU ADD'),
+        table(row(cell(paragraph('Onvoy Communications Limited'),
+                       paragraph('c/o Baker McKenzie Rechtsanwaltsgesellschaft mbH'),
+                       paragraph('von Rechtsanwälten und Steuerberatern'),
+                       paragraph('Ms. Caroline Heinickel'), paragraph('Bethmannstr. 50-54'),
+                       paragraph('60311 FRANKFURT AM MAIN')),
+                  cell(paragraph('OCOMM')), cell(paragraph('Mr Jeff Slater'), paragraph('Tel: +1 262 357 1344'))))))
+      entry = amendment.actions.first.entries.first
+
+      expect([entry.address_line_1, entry.address_line_2, entry.address_line_3])
+        .to eq(['c/o Baker McKenzie Rechtsanwaltsgesellschaft mbH',
+                'von Rechtsanwälten und Steuerberatern',
+                'Ms. Caroline Heinickel Bethmannstr. 50-54 60311 FRANKFURT AM MAIN'])
+      expect([entry.contact, entry.tel, entry.carrier_code]).to eq(['Mr Jeff Slater', '+1 262 357 1344', 'OCOMM'])
+    end
+
+    it 'preserves a country after an empty address paragraph' do
+      amendment = described_class.parse(doc(paragraph('Germany / DEU ADD'),
+        table(row(cell(paragraph('Coolwave Communications Limited'), paragraph('6th Floor, 2 Grand Canal Square'),
+                       paragraph('IRL-DUBLIN 2, D02 A342'), paragraph, paragraph('Ireland')),
+                  cell(paragraph('COOLWV')), cell(paragraph('Mr David Williams'))))))
+      entry = amendment.actions.first.entries.first
+
+      expect([entry.address_line_1, entry.address_line_2, entry.address_line_3, entry.contact])
+        .to eq(['6th Floor, 2 Grand Canal Square', 'IRL-DUBLIN 2, D02 A342', 'Ireland', 'Mr David Williams'])
+    end
+
+    it 'extracts nested-table contact labels and preserves both contact names' do
+      contacts = cell(paragraph('Atty. Holy T. Ampaguey'), paragraph('Atty. Niño Martin Cruz'),
+        table(row(cell(paragraph('Tel:')), cell(paragraph('+63 2 82822888'))),
+              row(cell(paragraph('E-mail:')),
+                  cell(paragraph('holy.ampaguey@dito.ph; ', 'nino.cruz@dito.ph')))))
+      amendment = described_class.parse(doc(paragraph('Philippines (Republic of the) / PHL ADD'),
+        table(row(cell(paragraph('Dito Telecommunity Corporation')), cell(paragraph('DITO')), contacts))))
+      entry = amendment.actions.first.entries.first
+
+      expect([entry.contact, entry.tel, Array(entry.email), entry.fax])
+        .to eq(['Atty. Holy T. Ampaguey; Atty. Niño Martin Cruz', '+63 2 82822888',
+                ['holy.ampaguey@dito.ph', 'nino.cruz@dito.ph'], nil])
+    end
+  end
+
   describe 'email' do
     ["E-mail: a@b.net", "Email:    a@b.net", 'email: a@b.net'].each do |label|
       it "is read from the label variant #{label.inspect}" do
@@ -551,6 +650,39 @@ RSpec.describe Ituob::Models::M1400Amendment do
                              .actions.first.entries.first
 
       expect(Array(entry.email)).to be_empty
+    end
+  end
+
+  describe 'action label across tables' do
+    def labelled_types(*nodes)
+      described_class.parse(doc(*nodes)).actions.map(&:action_type)
+    end
+
+    it 'keeps one printed label for every table that follows it (bulletin 1349)' do
+      types = labelled_types(paragraph('Germany (Federal Republic of) / DEU                 LIR'),
+                             table(company_row('E-mail: a@b.net')),
+                             table(company_row('E-mail: c@d.net')))
+
+      expect(types).to eq(%w[LIR LIR])
+    end
+
+    it 'keeps a new label printed between tables instead of the earlier one' do
+      types = labelled_types(paragraph('Germany / DEU ADD'),
+                             table(company_row('E-mail: a@b.net')),
+                             paragraph('Germany / DEU LIR'),
+                             table(company_row('E-mail: c@d.net')),
+                             table(company_row('E-mail: e@f.net')))
+
+      expect(types).to eq(%w[ADD LIR LIR])
+    end
+
+    it 'does not carry the label into a table that starts a new unlabelled country' do
+      types = labelled_types(paragraph('Germany / DEU LIR'),
+                             table(company_row('E-mail: a@b.net')),
+                             table(row(cell(paragraph('Djibouti (Republic of) / DJI')), cell, cell),
+                                   company_row('E-mail: c@d.net')))
+
+      expect(types).to eq(['LIR', nil])
     end
   end
 end

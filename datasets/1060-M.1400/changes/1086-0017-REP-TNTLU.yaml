@@ -1,0 +1,34 @@
+type: REP
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1086'
+identifier:
+  code: TNTLU
+data:
+  _class: M1400Amendment
+  entries:
+  - iso_code: LUX
+    country_or_area:
+      en: Luxembourg
+    company_name: Telenet Solutions S.A.
+    carrier_code: TNTLU
+    contact: Mr. Philippe Ronsse
+  - iso_code: LUX
+    country_or_area:
+      en: Luxembourg
+    company_name: Liersesteenweg, 4
+    contact: 'Tel:            +32 15 33 35 61'
+    tel: "+32 15 33 35 61"
+  - iso_code: LUX
+    country_or_area:
+      en: Luxembourg
+    company_name: B-2800 MECHELEN
+    contact: 'E-mail:      philippe.ronsse@staff.telenet.be'
+    email:
+    - philippe.ronsse@staff.telenet.be
+  - iso_code: LUX
+    country_or_area:
+      en: Luxembourg
+    company_name: Belgium
+  notes: []
+reference: OB-1086

@@ -243,6 +243,12 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
       expect(rule_ids.call('* 19 September 2014')).to be_empty
     end
 
+    it 'excludes a bare corrigendum marker while retaining its correction text' do
+      expect(rule_ids.call('Corrigendum1)')).to include('corrigendum_marker')
+      expect(rule_ids.call('Corrigendum1) Sudan 634 99')).to be_empty
+      expect(rule_ids.call('1 As from 31 August 2011')).to be_empty
+    end
+
     it 'excludes the fixed List VIII questionnaire labels and bulletin cross-references only' do
       expect(rule_ids.call(' 2.      Geographical coordinates')).to include('list_viii_questionnaire_label')
       expect(rule_ids.call('12.     Information available for bandwidth measurements'))
@@ -283,6 +289,58 @@ RSpec.describe 'scripts/ob_print_to_patch_coverage.rb' do
     _out, err, status = run_script(@env)
     expect(status.success?).to be(true), err
     expect(tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |row| row['text'] }).to include(*lines)
+  end
+
+  it 'maps label-only phone rows only when the complete number is stored' do
+    lines = ['Fax: | +86 10 8205 4513', 'Telephone: | + 47 22 82 46 00',
+             'Fax: | +86 10 8205 4514', 'Fax:']
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'),
+          "messages:\n#{message('T35_NA', para(*lines))}")
+    write(File.join(@dir, 'ob/701/t35-na/001-ADD.yaml'),
+          "type: ADD\ndata:\n  fax: '+86 10 8205 4513'\n  tel: '+ 47 22 82 46 00'\n")
+
+    _out, err, status = run_script(@env)
+
+    expect(status.success?).to be(true), err
+    unmapped = tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |r| r['text'] }
+    expect(unmapped).to include(lines[2])
+    expect(unmapped).not_to include(*lines.first(2))
+    excluded = tsv(File.join(@out, '100-05-excluded-lines.tsv')).map { |r| r['text'] }
+    expect(excluded).to include('Fax:')
+  end
+
+  it 'maps contact labels under another register only when all values are carried' do
+    lines = ['Example Telecom | Mr Example Tel.: +49 211 90096463 Fax: +49 211 90096463 E-mail: a@example.net',
+             'Example Telecom | Mr Missing Tel.: +49 211 90096463 E-mail: a@example.net']
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'),
+          "messages:\n#{message('Q708_ISPC', para(*lines))}")
+    write(File.join(@dir, 'ob/701/m1400-icc/001-ADD.yaml'),
+          "type: ADD\ndata:\n  company: Example Telecom\n  contact: Mr Example\n  tel: '+49 211 90096463'\n  email: a@example.net\n")
+
+    _out, err, status = run_script(@env)
+
+    expect(status.success?).to be(true), err
+    unmapped = tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |r| r['text'] }
+    expect(unmapped).to include(lines.last)
+    expect(unmapped).not_to include(lines.first)
+    expect(File.read(File.join(@out, '100-05-print-to-patch-coverage.md')))
+      .to include('| q708-ispc | 2 | 1 | 0 | 0 | 0 | 1 |')
+  end
+
+  it 'also matches literal street and company tokens that resemble detached superscripts' do
+    lines = ['Example Telecom | PO Box 366 St Helier | MTX Connect S.a r.l 4, rue Bell',
+             'Missing Telecom | PO Box 366 St Helier | MTX Connect S.a r.l 4, rue Bell']
+    write(File.join(@dir, 'data/issues/701/amendments.yaml'),
+          "messages:\n#{message('E118_IIN', para(*lines))}")
+    write(File.join(@dir, 'ob/701/e118-iin/001-ADD.yaml'),
+          "type: ADD\ndata:\n  company: Example Telecom\n  address:\n  - PO Box 366\n  - St Helier\n  contact_address:\n  - MTX Connect S.a r.l\n  - 4, rue Bell\n")
+
+    _out, err, status = run_script(@env)
+
+    expect(status.success?).to be(true), err
+    unmapped = tsv(File.join(@out, '100-05-unmapped-lines.tsv')).map { |r| r['text'] }
+    expect(unmapped).not_to include(lines.first)
+    expect(unmapped).to include(lines.last)
   end
 
   it 'requires full normalized telephone equality while preserving regrouped numbers' do

@@ -8,18 +8,32 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - company_name: Germany (Federal Republic of) DEU
-  - company_name: TELTA Citynetz GmbH
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Germany (Federal Republic of) DEU
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: TELTA Citynetz GmbH
     carrier_code: TELTA
     contact: Mr. Niels Graupe
-  - company_name: Bergerstrasse 105
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Bergerstrasse 105
     contact: 'Tel:           + 49 3334 277 507'
     tel: "+ 49 3334 277 507"
-  - company_name: 16225 Eberswalde
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 16225 Eberswalde
     contact: 'Fax:           + 49 3334 277 510'
     fax: "+ 49 3334 277 510"
-  - contact: 'E-mail:     graupe@telta.de'
-    tel: 'E-mail:     graupe@ta.de'
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:     graupe@telta.de'
     email:
     - graupe@telta.de
   notes: []

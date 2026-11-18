@@ -279,8 +279,10 @@ attribute :notes, :string, collection: true
             name: texts[0],
             postal_address: texts[1],
             contact: [texts[2], texts[3]].reject(&:empty?).join(' '),
-            part_ii_reference: texts[4],
-            part_iii_reference: texts[5],
+            # Seven-column indexes split Part II into section and page;
+            # the final column remains the Part III page reference.
+            part_ii_reference: texts[4...-1].reject(&:empty?).join(' '),
+            part_iii_reference: texts[-1],
           )
           state.station = station
           state.ensure_action.entries << station

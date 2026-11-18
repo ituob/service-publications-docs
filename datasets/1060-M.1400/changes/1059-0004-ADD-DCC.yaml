@@ -7,16 +7,31 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - company_name: Germany (Federal Republic of) DEU
-  - company_name: DCC GmbH
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Germany (Federal Republic of) DEU
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: DCC GmbH
     carrier_code: DCC
-  - company_name: Brunngartenstrasse 3
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: Brunngartenstrasse 3
     contact: 'Tel.:          + 49 8131 7009 0'
     tel: "+ 49 8131 7009 0"
-  - company_name: 85221 Dachau
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    company_name: 85221 Dachau
     contact: 'Fax:           + 49 8131 7009 60'
     fax: "+ 49 8131 7009 60"
-  - contact: 'E-mail:     info@dachau-citycom.de'
+  - iso_code: DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    contact: 'E-mail:     info@dachau-citycom.de'
     email:
     - info@dachau-citycom.de
   notes: []
