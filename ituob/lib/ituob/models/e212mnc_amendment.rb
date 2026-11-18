@@ -13,6 +13,7 @@ attribute :entries, E212MNCEntry, collection: true
 attribute :description, :string
 attribute :caption, :string
 attribute :country, :string
+attribute :suppression_scope, :string
 
       key_value do
         map '_class', to: :_class, render_default: true
@@ -24,6 +25,7 @@ attribute :country, :string
         map 'description', to: :description
         map 'caption', to: :caption
         map 'country', to: :country
+        map 'suppression_scope', to: :suppression_scope
       end
 
       # "Belarus    SUP": a country line carrying its action, with no
