@@ -255,6 +255,7 @@ models Ituob {
 
   class E212MNCAction {
     attribute action_type, String
+    attribute suppression_scope, String
     attribute position, String
     attribute entries, E212MNCEntry { cardinality 0..n }
     attribute notes, String

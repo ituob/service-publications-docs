@@ -135,8 +135,8 @@ attribute :notes, :string, collection: true
           texts = cells.map { |cell| cell.map { |p| Ituob::Helpers.normalize_whitespace(p) }.reject(&:empty?) }
           next if texts.all?(&:empty?)
 
-          if texts.length == 1
-            state.notes << texts[0].join(' ')
+          if state.in_notes || texts.length == 1
+            state.notes << texts.map { |cell| cell.join(' ') }.reject(&:empty?).join(' — ')
           elsif numbering_header?(texts)
             # Printed header of the embedded numbering-plan table —
             # kept as a note so the printed wording renders.

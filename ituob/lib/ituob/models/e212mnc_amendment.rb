@@ -539,6 +539,9 @@ attribute :country, :string
 
         amendment.actions.each do |parsed_action|
           parsed_action.entries.reject! { |entry| paired_rows.key?(entry) }
+          # A country SUP heading scopes the listed codes; it does not
+          # suppress every code belonging to that country.
+          parsed_action.suppression_scope = 'listed_entries' if parsed_action.action_type == 'SUP'
         end
 
         # Keep the whole printed heading: page numbers alone lose source
