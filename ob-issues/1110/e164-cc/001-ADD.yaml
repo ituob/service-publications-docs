@@ -4,15 +4,19 @@ date_active:
 ob_issue_no: '1110'
 reference: OB-1110
 identifier:
-  code: Note p)
+  code: Note p) +883 200 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 200 ADD*
   entries:
-  - applicant: Manx Telecom Trading Ltd.
+  - notes:
+    - p
+    applicant: Manx Telecom Trading Ltd.
     network: Manx Telecom Trading Ltd.
     cc_ic: "+883 200"
     status: Assigned
+    effective_date: 27 September 2016
   notes:
+  - "* 27 September 2016"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

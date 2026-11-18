@@ -13,12 +13,12 @@ module Ituob
 
       attr_reader :register_id, :at_ob_issue, :entries, :lapsed_keys,
                   :deleted_keys, :history, :error_count, :errors,
-                  :lapse_reasons, :key_history, :reflected_in_seed
+                  :lapse_reasons, :key_history, :reflected_in_seed, :issues
 
       def initialize(register_id:, at_ob_issue:, entries:,
                      lapsed_keys:, deleted_keys:, history:,
                      error_count: 0, errors: [], lapse_reasons: {},
-                     key_history: {}, reflected_in_seed: [])
+                     key_history: {}, reflected_in_seed: [], issues: [])
         @register_id = register_id
         @at_ob_issue = at_ob_issue
         # Deep-freeze: freeze the hash AND every row value inside it.
@@ -31,6 +31,7 @@ module Ituob
         @errors = Array(errors).map(&:freeze).freeze
         @lapse_reasons = deep_freeze(lapse_reasons)
         @reflected_in_seed = Array(reflected_in_seed).map(&:freeze).freeze
+        @issues = Array(issues).map(&:freeze).freeze
         # Compute active_entries BEFORE freezing the State itself.
         @active_entries = @entries.reject { |k, _| @lapsed_keys.include?(k) }
         freeze

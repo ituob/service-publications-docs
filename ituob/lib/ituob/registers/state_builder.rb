@@ -16,7 +16,7 @@ module Ituob
 
       attr_reader :register_id, :entries, :lapsed_keys, :deleted_keys,
                   :supersessions, :lapse_reasons, :history, :key_history, :errors,
-                  :reflected_in_seed
+                  :reflected_in_seed, :issues
 
       def initialize(register_id)
         @register_id = register_id
@@ -30,6 +30,7 @@ module Ituob
         @touched_keys = Set.new
         @errors = []
         @reflected_in_seed = []
+        @issues = []
         @reflected_keys = Set.new
       end
 
@@ -76,6 +77,13 @@ module Ituob
         @errors << message
       end
 
+      # A structured finding: lenient replay behaviour or a skipped change that
+      # a data gate must see. +kind+ is a short stable label, +detail+ is
+      # deterministic text, +change+ the Change involved.
+      def record_issue(kind, change, detail)
+        @issues << { kind: kind, change: change, detail: detail }
+      end
+
       # A seed-issue removal the seed list already embodies: kept out of
       # +errors+ but listed, so it stays visible.
       def record_reflected(change, key)
@@ -117,6 +125,7 @@ module Ituob
           error_count: @errors.length,
           errors: @errors.dup,
           reflected_in_seed: @reflected_in_seed.dup,
+          issues: @issues.dup,
           lapse_reasons: @lapse_reasons.dup,
         )
       end

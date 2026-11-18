@@ -25,12 +25,30 @@ module Ituob
 
       attr_reader :seed_path, :seed_issue
 
+      # Source-level findings the replay cannot see because the file never
+      # became a Change (or was filtered out): a repeated YAML key, a file
+      # with no usable action, an unknown action type, a change dated before
+      # the seed issue. Each is { kind:, file:, ob_issue:, detail: }, unique
+      # per (kind, file, detail). Populated while the source is read.
+      def issues
+        @issues.values
+      end
+
+      # Repository-relative path of the change file a Change was read from,
+      # or nil for the seed batch and for changes not read from a file.
+      def path_for(change)
+        @paths[change]
+      end
+
       def initialize(register_id:, seed_path:, seed_issue:, key_field:, seed_includes_seed_issue: false)
         super(register_id: register_id)
         @seed_path = seed_path.to_s
         @seed_issue = seed_issue&.to_i
         @key_field = key_field.to_s
         @seed_includes_seed_issue = seed_includes_seed_issue == true
+        @issues = {}
+        @paths = {}.compare_by_identity
+        @loaded_path = nil
       end
 
       # The amendment files dated before the seed issue: skipped by
@@ -51,12 +69,14 @@ module Ituob
         end
         replayed_keys = [] if @seed_includes_seed_issue
         each_amendment do |c|
-          # The catalog flag permits exclusion only when the seed proves
-          # the whole amendment redundant, including every nested field.
-          next if @seed_issue && c.ob_issue_no &&
-            (c.ob_issue_no < @seed_issue ||
-             (@seed_includes_seed_issue && c.ob_issue_no == @seed_issue &&
-               seed && (change_keys(c) & replayed_keys).empty? && included_in_seed?(c, seed_rows)))
+          if @seed_issue && c.ob_issue_no && c.ob_issue_no < @seed_issue
+            record_issue('pre-seed', path_for(c), c.ob_issue_no,
+                         'change is dated before the seed issue and is not replayed')
+            next
+          end
+          # Retain main's exclusion of amendments already embodied in a seed.
+          next if @seed_includes_seed_issue && c.ob_issue_no == @seed_issue &&
+            seed && (change_keys(c) & replayed_keys).empty? && included_in_seed?(c, seed_rows)
 
           replayed_keys.concat(change_keys(c)) if replayed_keys && c.ob_issue_no == @seed_issue
           yield c
@@ -98,10 +118,16 @@ module Ituob
 
       def seed_change
         path = File.join(@seed_path, SEED_FILENAME)
-        return nil unless File.file?(path)
+        unless File.file?(path)
+          record_issue('seed-unreadable', path, @seed_issue, 'seed data.yaml is missing')
+          return nil
+        end
 
         data = load_yaml(path)
-        return nil unless data.is_a?(Array)
+        unless data.is_a?(Array)
+          record_issue('seed-unreadable', path, @seed_issue, 'seed data.yaml is not a list of rows')
+          return nil
+        end
 
         Change.new(
           type: 'SEED',
@@ -124,18 +150,47 @@ module Ituob
            .each do |name|
           path = File.join(dir, name)
           hash = load_yaml(path)
-          next unless hash.is_a?(Hash) && hash['type']
+          unless hash.is_a?(Hash) && hash['type']
+            record_issue('unreadable-change', path, nil, 'change file is not a mapping with a type')
+            next
+          end
 
           begin
-            yield Change.from_hash(hash.merge('register' => hash['register'] || @register_id))
+            change = Change.from_hash(hash.merge('register' => hash['register'] || @register_id))
           rescue ArgumentError => e
             warn "skip #{path}: #{e.message}"
+            record_issue('invalid-change', path, hash['ob_issue_no'], e.message)
+            next
           end
+          register_path(change, path)
+          yield change
         end
       end
 
       def load_yaml(path)
+        @loaded_path = path
+        Ituob::Support::Yaml.duplicate_mapping_keys(path).each do |key|
+          record_issue('duplicate-yaml-key', path, nil, "mapping key #{key.inspect} appears more than once")
+        end
         Ituob::Support::Yaml.safe_load_file(path)
+      end
+
+      # Derived changes (a F.32 network replacement) are attributed to the
+      # file being read.
+      def register_path(change, path = @loaded_path)
+        @paths[change] = path && relative_path(path)
+        change
+      end
+
+      def record_issue(kind, path, ob_issue, detail)
+        file = path && relative_path(path)
+        @issues[[kind, file, detail]] ||= { kind: kind, file: file, ob_issue: ob_issue, detail: detail }
+      end
+
+      def relative_path(path)
+        prefix = File.join(File.dirname(File.dirname(File.expand_path(@seed_path))), '')
+        expanded = File.expand_path(path)
+        expanded.start_with?(prefix) ? expanded.delete_prefix(prefix) : path
       end
     end
   end

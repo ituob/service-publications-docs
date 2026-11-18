@@ -4,16 +4,21 @@ date_active: *1
 ob_issue_no: '1264'
 reference: OB-1264
 identifier:
-  code: 1264-003
+  code: International Mobile, shared code ADD*
 data:
   _class: E212MNCAmendment
+  position: International Mobile, shared code ADD*
   entries:
   - mcc_mnc_codes: 901 80
     country_or_area:
-      en: " "
+      en: International Mobile, shared code
     networks: Flo Live Limited
+    note:
+      en: "* See the present ITU Operational Bulletin No. 1264 of 15.III.2023, page
+        4."
   notes:
   - 'MCC:  Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
     para el servicio móvil'
   - 'MNC:  Mobile Network Code / Code de réseau mobile / Indicativo de red para el
     servicio móvil'
+  - "* See the present ITU Operational Bulletin No. 1264 of 15.III.2023, page 4."

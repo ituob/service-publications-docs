@@ -4,20 +4,26 @@ date_active:
 ob_issue_no: '977'
 reference: OB-977
 identifier:
-  code: P 32
+  code: P 32 United Kingdom ADD
 data:
   _class: E212MNCAmendment
-  position: P 32
+  position: P 32 United Kingdom ADD
   entries:
   - mcc_mnc_codes: 234 09
     country_or_area:
       en: United Kingdom
     networks: Tismi BV
   - mcc_mnc_codes: 234 28
+    country_or_area:
+      en: United Kingdom
     networks: Marathon Telecom Limited
   - mcc_mnc_codes: 234 29
+    country_or_area:
+      en: United Kingdom
     networks: "(aq) Limited T/A aql"
   - mcc_mnc_codes: 235 00
+    country_or_area:
+      en: United Kingdom
     networks: Mundlo Mobile Limited
   notes:
   - ______________

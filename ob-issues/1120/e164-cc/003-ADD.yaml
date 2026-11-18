@@ -4,15 +4,20 @@ date_active:
 ob_issue_no: '1120'
 reference: OB-1120
 identifier:
-  code: P 18
+  code: P 18 Note p) +883 220 ADD*
 data:
   _class: E164CCAmendment
-  position: P 18
+  position: P 18 Note p) +883 220 ADD*
   entries:
-  - applicant: Beezz Communication Sol. Ltd.
+  - notes:
+    - p
+    applicant: Beezz Communication Sol. Ltd.
     network: Beezz Communication Sol. Ltd.
     cc_ic: "+883 220"
     status: Assigned
+    effective_date: 7 March 2017
   notes:
+  - "* 16 February 2017"
+  - "* 7 March 2017"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

@@ -4,16 +4,22 @@ date_active:
 ob_issue_no: '989'
 reference: OB-989
 identifier:
-  code: P 17
+  code: P 17 International Mobile, shared code ADD 1
 data:
   _class: E212MNCAmendment
-  position: P 17
+  position: P 17 International Mobile, shared code ADD 1
   entries:
   - mcc_mnc_codes: 901 33
     country_or_area:
       en: International Mobile, shared code
     networks: Smart  Communications , Inc
+    note:
+      en: 1       As from 31 August 2011
+    effective_date: 31 August 2011
   notes:
+  - 1       As from 31 August 2011
+  - 1)     This information cancels and replaces that published in ITU Operational
+    Bulletin No. 987 of 1.IX.2011, page 14.
   - ______________
   - "*         MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil"

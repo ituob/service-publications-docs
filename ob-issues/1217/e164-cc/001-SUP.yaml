@@ -4,16 +4,22 @@ date_active: *1
 ob_issue_no: '1217'
 reference: OB-1217
 identifier:
-  code: Note s)
+  code: Note s) +991 001 SUP
 data:
   _class: E164CCAmendment
-  position: Note s)
+  position: Note s) +991 001 SUP
   entries:
-  - applicant: World’s Global Telecom
-    network: "+991 001"
-    cc_ic: 15.I.2020
-    status: 15.I.2021
+  - notes:
+    - s
+    - s Associated with shared country code 991, no three-digit trial identification
+      code temporarily assigned for the international non-commercial trials.
+    applicant: World’s Global Telecom
+    cc_ic: "+991 001"
+    reclamation_date: 15.I.2021
+    effective_date: 15.I.2020
   notes:
+  - s Associated with shared country code 991, no three-digit trial identification
+    code temporarily assigned for the international non-commercial trials.
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

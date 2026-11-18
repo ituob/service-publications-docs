@@ -4,15 +4,23 @@ date_active: *1
 ob_issue_no: '1061'
 reference: OB-1061
 identifier:
-  code: Note p)
+  code: Note p) +883 160 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 160 ADD*
   entries:
-  - applicant: DCN Hub ehf
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code has been assigned for the international network of:'
+    applicant: DCN Hub ehf
     network: DCN Hub ehf
     cc_ic: "+883 160"
     status: Assigned
+    effective_date: 15 September 2014
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code has been assigned for the international network of:'
+  - "* 15 September 2014"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

@@ -4,15 +4,18 @@ date_active:
 ob_issue_no: '1007'
 reference: OB-1007
 identifier:
-  code: 1007-011
+  code: P Montserrat ADD
 data:
   _class: E212MNCAmendment
+  position: P Montserrat ADD
   entries:
   - mcc_mnc_codes: 354 860
     country_or_area:
       en: Montserrat
     networks: Cable and Wireless (West Indies) Limited trading as LIME
   notes:
+  - For North America three digits MNC have been assigned with MNC with a trailing
+    0
   - ______________
   - "*MCC : Mobile Country Code / Indicatif de pays du mobile / Indicativo de país
     para el servicio móvil  MNC : Mobile Network Code / Code de réseau mobile / Indicativo

@@ -39,10 +39,10 @@
 . Используемые в настоящем Списке обозначения и способ подачи материала не подразумевают выражения какого бы то ни было мнения со стороны МСЭ в отношении правового статуса какой-либо страны или географической зоны либо их властей.
 
 
-[yaml2text,data=../../datasets/1125-E.218/data.yaml,metadata=../../datasets/1125-E.218/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e218-trcc","as_of":1125},"include_path":"."}]
 ----
 {% assign lang = "ru" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 
 == ПОПРАВКИ
 

@@ -4,15 +4,25 @@ date_active:
 ob_issue_no: '1175'
 reference: OB-1175
 identifier:
-  code: Note p)
+  code: Note p) +883 300 ADD*
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 300 ADD*
   entries:
-  - applicant: 1NCE GmbH
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: 1NCE GmbH
     network: 1NCE GmbH
     cc_ic: "+883 300"
     status: Assigned
+    effective_date: 12.VI.2019
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
+  - "* 12.VI.2019"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes

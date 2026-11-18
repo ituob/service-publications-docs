@@ -42,10 +42,10 @@ E-mail: mailto:tsbtson@itu.int[]
 
 == {blank}
 
-[yaml2text,data=../../datasets/1109-Q.708B/data.yaml,metadata=../../datasets/1109-Q.708B/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"q708-ispc","as_of":1109}}]
 ----
 {% assign lang = "es" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 
 == Formulario de notificación para la asignación/retirada de códigos de punto de señalización internacional (ISPC) para el sistema de señalización N.o 7 (Según la Recomendación UIT-T Q.708(03/99))
 

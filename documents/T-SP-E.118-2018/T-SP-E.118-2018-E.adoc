@@ -62,10 +62,10 @@ The designations employed and the presentation of material in this List do not i
 
 == {blank}
 
-[yaml2text,data=../../datasets/1161-E.118/data.yaml,metadata=../../datasets/1161-E.118/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e118-iin","as_of":1161},"include_path":"."}]
 ----
 {% assign lang = "en" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 
 == AMENDMENTS
 

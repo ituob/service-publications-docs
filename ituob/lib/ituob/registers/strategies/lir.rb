@@ -13,7 +13,12 @@ module Ituob
       # worth reporting. Reversible by a subsequent REP.
       class Lir < Base
         def self.validate!(builder, change, key, row = nil)
-          return if builder.entries.key?(key) || row
+          return if builder.entries.key?(key)
+          if row
+            builder.record_issue('asserted-add', change,
+                                 "LIR #{key.inspect} is not in register #{change.register_id}; the printed row is added")
+            return
+          end
 
           raise StrategyError,
                 "LIR conflict: key #{key.inspect} not present in register #{change.register_id}"

@@ -1,0 +1,27 @@
+type: LIR
+date_requested: &1 2016-11-14 23:00:00.000000000 Z
+date_active: *1
+ob_issue_no: '1225'
+reference: OB-1225
+identifier:
+  code: country code 997 LIR
+data:
+  _class: E164CCAmendment
+  position: country code 997 LIR
+  entries:
+  - country_code: '997'
+    country_area_or_service:
+      en: Kazakhstan (Republic of)
+    notes:
+    - f
+    - f Reserved for future use.
+  notes:
+  - f Reserved for future use.
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
+  - "* 15.VII.2021"
+  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
+    assigned country codes
+  - __________
+  - See page 4 of the present Operational Bulletin No. 1225 of 1.VIII.2021.

@@ -12,7 +12,7 @@ numerical order
 == 按数字顺序排列的地面集群无线电列表
 {% endif %}
 
-{% assign notes = data | map: "note" | uniq %}
+{% assign empty_notes = data | where: "note", nil | map: "note" | uniq %}{% assign notes = data | map: "note" | compact | uniq: "en" | concat: empty_notes %}
 
 {% for note_content in notes %}
     {% assign note_first_word = note_content.en | split: " " | first %}
@@ -59,13 +59,15 @@ alphabetical order
 == 按字母顺序排列的地面集群无线电列表
 {% endif %}
 
-{% assign ordered_sequence = data | map: "country_or_area" | sort: lang | uniq %}
+{% assign ordered_sequence = data | map: "country_or_area" | sort: lang %}
 
 [cols="3",options="unnumbered"]
 |===
 | {{ metadata.locale | where: "key", "tmcc_code" | map: lang | first }} | {{ metadata.locale | where: "key", "country_or_area" | map: lang | first }} | {{ metadata.locale | where: "key", "note" | map: lang | first }}
 
-{% for next_country in ordered_sequence -%}
+{% assign country_keys = "" | split: "," %}{% for next_country in ordered_sequence -%}
+    {%- capture country_key -%}{% if next_country[lang] == nil %}nil{% else %}value:{{ next_country[lang] | url_encode }}{% endif %}{%- endcapture -%}
+    {%- unless country_keys contains country_key -%}
     {%- for country_data in data -%}
         {%- if country_data.country_or_area[lang] == next_country[lang] -%}
             | {{ country_data.tmcc_code }} | {{ country_data.country_or_area[lang] }} |
@@ -80,6 +82,9 @@ alphabetical order
             {% endcase %}
         {%- endif -%}
     {%- endfor %}
+    {%- assign country_key_array = country_key | split: " " -%}
+    {%- assign country_keys = country_keys | concat: country_key_array -%}
+    {%- endunless -%}
 {%- endfor %}
 |===
 

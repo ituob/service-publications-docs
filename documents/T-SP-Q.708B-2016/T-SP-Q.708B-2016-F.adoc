@@ -42,10 +42,10 @@ E-mail: mailto:tsbtson@itu.int[]
 
 == {blank}
 
-[yaml2text,data=../../datasets/1109-Q.708B/data.yaml,metadata=../../datasets/1109-Q.708B/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"q708-ispc","as_of":1109}}]
 ----
 {% assign lang = "fr" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 
 == Formulaire de notification pour l’attribution ou le retrait des codes de points sémaphores internationaux (ISPC)pour le système de signalisation No 7 (Selon la Recommandation UIT-T Q.708 (03/99))
 

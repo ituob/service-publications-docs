@@ -4,16 +4,25 @@ date_active:
 ob_issue_no: '1195'
 reference: OB-1195
 identifier:
-  code: Note p)
+  code: Note p) +883 150 LIR
 data:
   _class: E164CCAmendment
-  position: Note p)
+  position: Note p) +883 150 LIR
   entries:
-  - applicant: One Network B.V.
+  - notes:
+    - p
+    - 'p Associated with shared country code 883, the following three-digit identification
+      code reservations or assignments have been made for the international networks
+      of:'
+    applicant: One Network B.V.
     network: One Network B.V.
     cc_ic: "+883 150"
     status: Assigned
   notes:
+  - 'p Associated with shared country code 883, the following three-digit identification
+    code reservations or assignments have been made for the international networks
+    of:'
+  - "* 3.IV.2020"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
   - __________

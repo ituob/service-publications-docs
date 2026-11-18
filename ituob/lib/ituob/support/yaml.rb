@@ -25,6 +25,14 @@ module Ituob
         safe_load_string(File.read(path, encoding: 'utf-8'))
       end
 
+      # Names of mapping keys that appear more than once in one mapping of
+      # the file at +path+. A plain load silently keeps the last value, so a
+      # repeated key hides data. Merge keys (<<) are not duplicates.
+      def duplicate_mapping_keys(path)
+        document = Psych.parse_stream(File.read(path, encoding: 'utf-8'))
+        document.children.flat_map { |root| duplicate_keys_in(root) }
+      end
+
       # Read an OB source file (issues/*/amendments.yaml, general.yaml).
       # ProseMirror text nodes carry printed text, so a bare YES, NO, ON
       # or OFF must stay the string that was printed rather than become
@@ -46,6 +54,17 @@ module Ituob
                        aliases: true,
                        permitted_classes: DEFAULT_PERMITTED_CLASSES)
       end
+
+      def duplicate_keys_in(node)
+        found = Array(node.children).flat_map { |child| duplicate_keys_in(child) }
+        return found unless node.is_a?(Psych::Nodes::Mapping)
+
+        keys = node.children.each_slice(2).filter_map do |key, _|
+          key.value if key.is_a?(Psych::Nodes::Scalar) && key.value != '<<'
+        end
+        found + keys.tally.select { |_, count| count > 1 }.keys
+      end
+      private_class_method :duplicate_keys_in
 
       def preserve_printed_text(node)
         node.children&.each { |child| preserve_printed_text(child) }

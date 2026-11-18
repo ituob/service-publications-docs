@@ -1,0 +1,14 @@
+[cols="<,<,^,^",options="unnumbered,header"]
+|===
+| {{ metadata.locale | where: "key", "applicant" | map: lang | first }}
+| {{ metadata.locale | where: "key", "network" | map: lang | first }}
+| {{ metadata.locale | where: "key", "cc_ic" | map: lang | first }}
+| {{ metadata.locale | where: "key", "status" | map: lang | first }}
+
+{% for applicant_data in data -%}
+    | {{ applicant_data.applicant }}
+    | {{ applicant_data.network }}
+    | {{ applicant_data.cc_ic }}
+    | {{ applicant_data.status }}
+{%- endfor %}
+|===

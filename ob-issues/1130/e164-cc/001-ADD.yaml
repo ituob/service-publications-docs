@@ -4,15 +4,19 @@ date_active:
 ob_issue_no: '1130'
 reference: OB-1130
 identifier:
-  code: P 18
+  code: P 18 Note p) +883 240 ADD*
 data:
   _class: E164CCAmendment
-  position: P 18
+  position: P 18 Note p) +883 240 ADD*
   entries:
-  - applicant: BICS SA
+  - notes:
+    - p
+    applicant: BICS SA
     network: BICS SA
     cc_ic: "+883 240"
     status: Assigned
+    effective_date: 25.VII.2017
   notes:
+  - "* 25.VII.2017"
   - Notes common to Numerical and Alphabetical lists of Recommendation ITU-T E.164
     assigned country codes

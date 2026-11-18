@@ -41,10 +41,10 @@ E-mail: mailto:tsbtson@itu.int[]
 
 == {blank}
 
-[yaml2text,data=../../datasets/1109-Q.708B/data.yaml,metadata=../../datasets/1109-Q.708B/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"q708-ispc","as_of":1109}}]
 ----
 {% assign lang = "en" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 
 == Notification of assignment or withdrawal of International Signalling Point Codes (ISPC) for Signalling System No. 7 (According to Recommendation ITU-T Q.708(03/99))
 

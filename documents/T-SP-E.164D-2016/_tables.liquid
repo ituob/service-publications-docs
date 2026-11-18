@@ -121,7 +121,8 @@ orden alfabético
 в алфавитном порядке
 {%- endcase -%}
 
-{% assign ordered_sequence = data | map: "country_area_or_service" | sort: lang | uniq %}
+{% assign ordered_sequence = data | map: "country_area_or_service" | sort: lang -%}
+{% assign country_keys = "" | split: "," %}
 
 [cols="^,<,^",options="unnumbered,header"]
 |===
@@ -130,6 +131,8 @@ orden alfabético
 | {{ metadata.locale | where: "key", "note" | map: lang | first }}
 
 {% for next_country in ordered_sequence %}
+    {%- capture country_key -%}{{ next_country.en | url_encode }}|{{ next_country.fr | url_encode }}|{{ next_country.es | url_encode }}|{{ next_country.ar | url_encode }}|{{ next_country.ru | url_encode }}|{{ next_country.zh | url_encode }}{%- endcapture -%}
+    {%- unless country_keys contains country_key -%}
     {%- for country_data in data -%}
         {%- if  next_country[lang] == country_data.country_area_or_service[lang] -%}
             | {{ country_data.country_code }} | {{ country_data.country_area_or_service[lang] }} |
@@ -172,6 +175,9 @@ orden alfabético
             {%- endcase -%}
         {%- endif %}
     {%- endfor -%}
+    {%- assign country_key_array = country_key | split: " " -%}
+    {%- assign country_keys = country_keys | concat: country_key_array -%}
+    {%- endunless -%}
 {% endfor %}
 |===
 
@@ -202,68 +208,3 @@ orden alfabético
 . [[note_l]]{{ note_l }}
 
 . [[note_m]]{{ note_m }}
-
-. [[note_n]]{{ note_n }}:
-+
---
-[cols="<,^,^",options="unnumbered,header"]
-|===
-^| {{ metadata_n.locale | where: "key", "network" | map: lang | first }}
-| {{ metadata_n.locale | where: "key", "cc_ic" | map: lang | first }}
-| {{ metadata_n.locale | where: "key", "status" | map: lang | first }}
-
-{% for service_data in file_two.data -%}
-    {% assign one_service = file_two.data | where: "network", service_data.network %}
-    {% if next_network != one_service[0].network %}
-        {% assign next_network = service_data.network %}
-        | {{ one_service[0].network }}
-        | {{ one_service[0].cc_ic }} and {{ one_service[1].cc_ic }}
-        | {{ one_service[0].status }}
-    {% endif %}
-{%- endfor %}
-|===
-
---
-
-. [[note_o]]{{ note_o }}:
-+
---
-[yaml2text,T-SP-E.164D-2016.note-o.yaml,file_three]
----
-[cols="<,<,^,^",options="unnumbered,header"]
-|===
-| {{ metadata_o.locale | where: "key", "applicant" | map: lang | first }}
-| {{ metadata_o.locale | where: "key", "network" | map: lang | first }}
-| {{ metadata_o.locale | where: "key", "cc_ic" | map: lang | first }}
-| {{ metadata_o.locale | where: "key", "status" | map: lang | first }}
-
-{% for applicant_data in file_three.data -%}
-    | {{ applicant_data[1].applicant }}
-    | {{ applicant_data[1].network }}
-    | {{ applicant_data[1].cc_ic }}
-    | {{ applicant_data[1].status }}
-{%- endfor %}
-|===
----
---
-
-. [[note_p]]{{ note_p }}:
-+
---
-[cols="<,<,^,^",options="unnumbered,header"]
-|===
-| {{ metadata_pq.locale | where: "key", "applicant" | map: lang | first }}
-| {{ metadata_pq.locale | where: "key", "network" | map: lang | first }}
-| {{ metadata_pq.locale | where: "key", "cc_ic" | map: lang | first }}
-| {{ metadata_pq.locale | where: "key", "status" | map: lang | first }}
-
-{% for applicant_data in file_four.data -%}
-    | {{ applicant_data[1].applicant }}
-    | {{ applicant_data[1].network }}
-    | {{ applicant_data[1].cc_ic }}
-    | {{ applicant_data[1].status }}
-{%- endfor %}
-|===
---
-
-. [[note_q]]{{ note_q }}

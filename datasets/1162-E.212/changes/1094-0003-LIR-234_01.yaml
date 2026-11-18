@@ -6,6 +6,7 @@ identifier:
   code: 234 01
 data:
   _class: E212MNCAmendment
+  position: United Kingdom LIR
   entries:
   - mcc_mnc_codes: 234 01
     country_or_area:
@@ -148,6 +149,7 @@ data:
         used extra-territorially): Orange/Monaco Télécom; MSIN range 0100000000 -
         0199999999'
     range: 0000000000 - 0099999999; 0200000000 - 9999999999
+    extra_territorial_use: true
   notes:
   - "*        MCC:     Mobile Country Code / Indicatif de pays du mobile / Indicativo
     de país para el servicio móvil            MNC:    Mobile Network Code / Code de

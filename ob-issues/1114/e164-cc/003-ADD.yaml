@@ -4,17 +4,19 @@ date_active:
 ob_issue_no: '1114'
 reference: OB-1114
 identifier:
-  code: Note q)
+  code: Note q) +883 5140 ADD*
 data:
   _class: E164CCAmendment
-  position: Note q)
+  position: Note q) +883 5140 ADD*
   entries:
-  - applicant: Ellipsat Inc
+  - notes:
+    - q
+    applicant: Ellipsat Inc
     network: Ellipsat Inc
     cc_ic: "+883 5140"
     status: assigned
+    effective_date: 15.IV.2014
   notes:
-  - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
-    assigned country codes
+  - "* 15.IV.2014"
   - Notes common to Numerical and Alphabetical lists of ITU-T Recommendation E.164
     assigned country codes
