@@ -21,7 +21,7 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
       environment = Liquid::Environment.build do |env|
         env.file_system = Liquid::LocalFileSystem.new(dir, '_%s.liquid')
       end
-      source = "{% assign lang = \"#{lang}\" %}{% render \"table\", data: edition.items, lang: lang %}"
+      source = "{% assign lang = \"#{lang}\" %}{% render \"table\", data: edition.items, metadata: edition.metadata, lang: lang %}"
       Liquid::Template.parse(source, environment: environment).render('edition' => edition.to_liquid)
     end
   end
@@ -30,8 +30,8 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
     environment = Liquid::Environment.build do |env|
       env.file_system = Liquid::LocalFileSystem.new(dir, '_%s.liquid')
     end
-    source = "{% assign lang = \"#{lang}\" %}{% render \"table\", data: rows, lang: lang %}"
-    Liquid::Template.parse(source, environment: environment).render('rows' => rows)
+    source = "{% assign lang = \"#{lang}\" %}{% render \"table\", data: rows, metadata: metadata, lang: lang %}"
+    Liquid::Template.parse(source, environment: environment).render('rows' => rows, 'metadata' => edition.metadata.to_liquid)
   end
 
   def row(country, code, name: 'Office', **extra)

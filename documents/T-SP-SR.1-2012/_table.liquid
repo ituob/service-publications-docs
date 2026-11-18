@@ -1,6 +1,6 @@
 [%unnumbered,cols="1",options="header"]
 |===
-^.^|Country/geographical area
+^.^|{{ metadata.locale | where: "key", "geographic_area" | map: lang | first }}
 
 {% for country in data %}
 {% assign geoarea = country.geographic_area %}

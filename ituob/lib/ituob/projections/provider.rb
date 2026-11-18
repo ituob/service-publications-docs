@@ -6,6 +6,8 @@ module Ituob
   #   provider = Ituob::Provider.new
   #   provider.edition(register: 'e212-mnc', as_of: 1170)
   #   provider.publication(register: 'm1400-icc', as_of: 1060)
+  #   provider.publication(dataset: '955-E.180', as_of: 955)
+  #   provider.publication(datasets: %w[1117-E.212A 1117-E.212A-MCCMNC], as_of: 1117)
   #   provider.history(register: 'e212-mnc', key: '234 | 15', as_of: 1170)
   #   provider.actions(register: 'e212-mnc', as_of: 1170)
   #   provider.locale(register: 'e212-mnc')
@@ -65,7 +67,23 @@ module Ituob
 
     # The original publication's complete ordered rows, including shared codes.
     # Unlike edition, this does not apply amendments or collapse identifiers.
-    def publication(register:, as_of:)
+    # Select one register, one allowlisted dataset, or an ordered dataset list.
+    # Dataset snapshots expose items/metadata and multi-source queries sources.
+    def publication(register: nil, dataset: nil, datasets: nil, as_of:)
+      selectors = [register, dataset, datasets].count { |value| !value.nil? }
+      raise ArgumentError, 'publication requires exactly one of register, dataset or datasets' unless selectors == 1
+
+      if datasets
+        unless datasets.is_a?(Array) && !datasets.empty? && datasets.uniq.size == datasets.size
+          raise ArgumentError, 'publication datasets must be a nonempty list of distinct dataset names'
+        end
+
+        return Models::PublicationDatasets.new(
+          sources: datasets.map { |name| Projections::PublicationDataset.new(dataset: name, as_of: as_of).to_model }
+        )
+      end
+      return Projections::PublicationDataset.new(dataset: dataset, as_of: as_of).to_model if dataset
+
       catalog = find_register(register)
       issue = validate_issue(catalog, as_of)
       unless catalog.seed_issue == issue

@@ -93,6 +93,52 @@ module Ituob
         T35CodeNotes
         X121CountryCountryOrArea
         X121CountryEntry
+        PublicationText
+        PublicationE180EntryToneDesc
+        PublicationE180Entry
+        PublicationMultilingualText
+        PublicationE212AEntry
+        PublicationE212AMccMncEntry
+        PublicationE212Entry
+        PublicationE212EtEntry
+        PublicationE212OthersEntry
+        PublicationE212SharedEntry
+        PublicationF1Entry
+        PublicationF68Entry
+        PublicationF68A1Entry
+        PublicationF68A2Entry
+        PublicationPp21Entry
+        PublicationSr1EntryGeographicArea
+        PublicationSr1EntryRestrictionsNoCollectCalls
+        PublicationSr1EntryRestrictions
+        PublicationSr1EntryNotes
+        PublicationSr1Entry
+        PublicationRr251EntryGroupsAmateurCriteriaValuesRange
+        PublicationRr251EntryGroupsAmateurCriteriaValues
+        PublicationRr251EntryGroupsAmateurCriteria
+        PublicationRr251EntryGroupsAmateur
+        PublicationRr251EntryGroupsExperimentalCriteria
+        PublicationRr251EntryGroupsExperimental
+        PublicationRr251EntryGroupsExperimential
+        PublicationRr251EntryGroups
+        PublicationRr251EntryCodelistsListCodeValue
+        PublicationRr251EntryCodelistsList
+        PublicationRr251EntryCodelists
+        PublicationRr251Entry
+        PublicationT35Entry
+        PublicationT35BEntryAssignmentAuthority
+        PublicationT35BEntry
+        PublicationX121AEntry
+        PublicationRr251CountryDataGroupsAmateur
+        PublicationRr251CountryDataGroupsExperimental
+        PublicationRr251CountryDataGroups
+        PublicationRr251CountryData
+        PublicationMetadataLocale
+        PublicationMetadata
+        PublicationCountry
+        PublicationAcronyms
+        PublicationDataset
+        PublicationDatasets
         E164ACNEntry
         E164BEntry
         E164CCAction
@@ -180,6 +226,9 @@ module Ituob
       # tracks this as an LML expressiveness gap.
       class Compiler < Lutaml::Lml::ModelCompiler
         UNION_ATTRIBUTES = {
+          %w[PublicationRr251EntryCodelistsList code] => ['PublicationRr251EntryCodelistsListCodeValue', :string],
+          %w[PublicationE180Entry frequency_in_hz] => [:integer, :string],
+
           %w[IssueAuthor name] => ["MultilingualString", :string],
           # Older service-restriction rows key the country by plain name;
           # newer rows carry the multilingual string.
@@ -206,6 +255,18 @@ module Ituob
           super
           map_edition_items
           map_register_changes
+          compiled_classes.each do |name, klass|
+            next unless name.start_with?('Publication') && CLASS_NAMES.include?(name)
+            next if name == 'PublicationDataset'
+
+            fields = klass.attributes.keys
+            klass.key_value do
+              fields.each do |field|
+                wire = name == 'PublicationMetadata' && field == :schema ? '$schema' : field.to_s
+                map wire, to: field, render_empty: true
+              end
+            end
+          end
           RENDER_EMPTY_CLASSES.each do |name|
             klass = compiled_classes.fetch(name)
             names = klass.attributes.keys
@@ -256,7 +317,7 @@ module Ituob
         def build_attributes(klass_def)
           super.map do |attr_name, raw_type, type, options|
             options = projection_options(klass_def, options)
-            if klass_def.name.to_s == 'RegisterEdition' && attr_name == :items
+            if %w[RegisterEdition PublicationDataset].include?(klass_def.name.to_s) && attr_name == :items
               next [attr_name, raw_type, Ituob::Models::Entry, options.merge(polymorphic: true)]
             end
             members = raw_type == 'StringOrNumber' ? [:float, :string] :
@@ -282,18 +343,20 @@ module Ituob
         # The discriminator is the entry's own `_class`; hydration sets it
         # so each item serializes with, and restores, its concrete class.
         def map_edition_items
-          edition = compiled_classes.fetch('RegisterEdition')
           # Compiled entries are not constants yet while compiling.
           names = (CLASS_NAMES + Ituob::Models.constants.map(&:to_s)).grep(/Entry\z/).uniq
           class_map = names.to_h { |name| [name, "Ituob::Models::#{name}"] }
-          attrs = edition.attributes.keys
-          edition.key_value do
-            attrs.each do |attr|
-              if attr == :items
-                map 'items', to: :items,
-                             polymorphic: { attribute: '_class', class_map: class_map }
-              else
-                map attr.to_s, to: attr
+          %w[RegisterEdition PublicationDataset].each do |edition_name|
+            edition = compiled_classes.fetch(edition_name)
+            attrs = edition.attributes.keys
+            edition.key_value do
+              attrs.each do |attr|
+                if attr == :items
+                  map 'items', to: :items,
+                               polymorphic: { attribute: '_class', class_map: class_map }
+                else
+                  map attr.to_s, to: attr
+                end
               end
             end
           end
@@ -315,7 +378,8 @@ module Ituob
           klass.attributes.each_value do |attribute|
             attribute.type.configure_attribute(attribute) if CUSTOM_ATTRIBUTE_TYPES.include?(attribute.type)
           end
-          ensure_collections_default_to_empty(klass)
+          ensure_collections_default_to_empty(klass) unless name.start_with?('Publication')
+          klass.prepend(PublicationLiquid) if %w[PublicationDataset PublicationDatasets].include?(name)
           preserve_empty_strings(name, klass)
           Models.const_set(name, klass)
         end
