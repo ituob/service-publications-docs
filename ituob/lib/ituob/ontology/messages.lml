@@ -110,6 +110,8 @@ models Ituob {
   class E118Action {
     attribute action_type, String
     attribute position, String
+    attribute country, String
+    attribute caption, String
     attribute entries, E118Entry { cardinality 0..n }
   }
 
@@ -146,6 +148,7 @@ models Ituob {
     attribute position, String
     attribute entries, E164ACNEntry { cardinality 0..n }
     attribute notes, String
+    attribute caption, String
   }
 
   class E164ACNAmendment {
@@ -510,6 +513,7 @@ models Ituob {
     attribute entries, M1400Entry { cardinality 0..n }
     attribute notes, String
     attribute note, String
+    attribute caption, String
   }
 
   class M1400Amendment {

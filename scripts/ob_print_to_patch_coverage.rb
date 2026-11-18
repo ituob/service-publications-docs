@@ -431,16 +431,22 @@ module PrintToPatchCoverage
       end
     end
 
+    # A superscript zero ("n" + superscript 0 = "n0", the printed numero/degree
+    # sign) belongs to the text it follows; other text nodes, footnote marker
+    # superscripts included, are separated by a space.
     def cell_text(cell)
-      parts = []
-      each_text(cell) { |t| parts << t }
-      parts.join(' ').gsub(/\s+/, ' ').strip
+      text = +''
+      each_text(cell) { |t, superscript| text << (superscript || text.empty? ? '' : ' ') << t }
+      text.gsub(/\s+/, ' ').strip
     end
 
     def each_text(node, &blk)
       return unless node.is_a?(Hash)
 
-      blk.call(node['text'].to_s) if node['type'] == 'text'
+      if node['type'] == 'text'
+        superscript = node['text'].to_s.strip == '0' && Array(node['marks']).any? { |m| m.is_a?(Hash) && m['type'] == 'superscript' }
+        blk.call(node['text'].to_s, superscript)
+      end
       Array(node['content']).each { |c| each_text(c, &blk) }
     end
 
@@ -699,7 +705,9 @@ module PrintToPatchCoverage
     end
 
     def strip_labels(line, join_detached: true)
-      text = PageHeading.values(line.text)
+      # Page letter with its number left out: "P  United States     ADD".
+      text = line.text.sub(/\A[[:space:]]*P[[:space:]]+(?=\p{Lu}[^|]*\b(?:ADD|SUP|LIR|REP)[[:space:]]*\z)/, '')
+      text = PageHeading.values(text)
       text = text.sub(LIST_VIII_LABEL, '') if line.slug == 'list-viii'
       text = text.gsub(/\(Formerly[[:space:]]+/i, '(') if line.slug == 'e164-cc'
       text = text.sub(/\A[[:space:]]*Country code(?: \(CC\))?[[:space:]]*\|/i, '')

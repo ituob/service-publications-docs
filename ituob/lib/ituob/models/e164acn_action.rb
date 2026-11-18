@@ -8,6 +8,8 @@ module Ituob
       attribute :position, :string
       attribute :entries, E164ACNEntry, collection: true
       attribute :notes, :string
+      # Printed heading words beyond the position and action ("Georgie").
+      attribute :caption, :string
 
       def initialize(attributes = {})
         @entries = []

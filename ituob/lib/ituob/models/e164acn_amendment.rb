@@ -208,6 +208,7 @@ attribute :notes, :string, collection: true
 
           # Add action to amendment if it has entries
           if action.entries.any?
+            action.caption = heading_caption(text, action.entries)
             amendment.actions << action
             puts "DEBUG: Added action to amendment, actions count: #{amendment.actions.size}"
           else
@@ -216,6 +217,16 @@ attribute :notes, :string, collection: true
         end
 
         amendment
+      end
+
+      # Printed heading words beyond the page marker, the action and the
+      # footnote star ("P 9 Georgie LIR *" -> "Georgie"), kept when the
+      # entries' own country cells do not already carry them.
+      def self.heading_caption(text, entries)
+        words = ->(t) { Ituob::Helpers.normalize_whitespace(t).downcase.scan(/[[:alnum:]]+/) }
+        heading = text.sub(/\A[[:space:]]*P?[[:space:]]*\d+/, '').gsub(/\b(?:ADD|SUP|REP|LIR)\b/, ' ').delete('*')
+        extra = words.call(heading) - entries.flat_map { |e| words.call(e.country_or_area&.en) }
+        extra.empty? ? nil : Ituob::Helpers.normalize_whitespace(heading)
       end
     end
   end

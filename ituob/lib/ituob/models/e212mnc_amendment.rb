@@ -231,11 +231,12 @@ attribute :country, :string
         amendment.actions << action
         amendment.notes = []
 
-        # Capture trilingual glossary notes (MCC/MNC definitions).
+        # Capture trilingual glossary notes (MCC/MNC definitions and the
+        # "**MSIN:" definition of the extra-territorial tables).
         simplified_doc.each do |c|
           next unless c[0].is_a?(String)
           text = Ituob::Helpers.replace_legacy_space(c.join(' ')).strip
-          if (text.match?(/MCC:/) || text.match?(/MNC:/)) && !text.empty?
+          if (text.match?(/MCC:/) || text.match?(/MNC:/) || text.match?(/\A\*\*MSIN:/)) && !text.empty?
             amendment.notes << text
           end
         end

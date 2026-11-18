@@ -6,9 +6,10 @@ identifier:
   code: TELE2
 data:
   _class: M1400Amendment
-  position: Sweden /
+  position: Sweden / SWE
   entries:
-  - country_or_area:
+  - iso_code: SWE
+    country_or_area:
       en: Sweden
     company_name: Tele2 Sverige AB
     address_line_1: P.O. Box 62
@@ -18,7 +19,8 @@ data:
     tel: "+46 8 562 000 60"
     email:
     - carljohan.ryden@tele2.com
-  - country_or_area:
+  - iso_code: SWE
+    country_or_area:
       en: Sweden
     company_name: Telia Company AB
     address_line_1: Stjärntorget 1
