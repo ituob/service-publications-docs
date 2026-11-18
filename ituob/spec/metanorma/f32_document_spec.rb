@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'json'
 require_relative '../support/f32_table_structure'
 
 # The F.32 (2011) Service Publication reads the register through the ituob
@@ -197,6 +198,41 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
   end
 
   describe 'content the table must not lose' do
+    let(:printed_content) do
+      JSON.parse(File.read(File.join(root, 'ituob/spec/fixtures/f32/printed-content.json')))
+    end
+
+    it 'pins the independent content oracle to the official PDF' do
+      path = File.join(root, 'ituob/spec/fixtures/f32/official-2011.pdf')
+      expect(Digest::SHA256.file(path).hexdigest).to eq(printed_content.fetch('official_sha256'))
+      expect(printed_content.fetch('notes').size).to eq(35)
+    end
+
+    %w[en fr es].each do |lang|
+      it "preserves all 35 complete printed cessation notes in #{lang}" do
+        destination = render(lang).split(/^== Appendix /).first
+        normalized = destination.downcase.gsub(/[^\p{Alnum}]/, '')
+
+        printed_content.fetch('notes').each do |note|
+          expected = note.fetch(lang).downcase.gsub(/[^\p{Alnum}]/, '')
+          expect(normalized).to include(expected), "Missing complete #{lang} cessation note from official page #{note.fetch('page')}"
+        end
+      end
+
+      it "keeps reservation countries in printed order and network cells in #{lang}" do
+        destination = render(lang).split(/^== Appendix /).first
+        countries = destination.scan(/^\s*\*([^*]+)\*/).flatten
+        expected_order = printed_content.fetch('countries')
+
+        # Adjacent equal labels are the official three-language heading.
+        ordered = countries.select { |name| expected_order.include?(name) }.chunk(&:itself).map(&:first)
+        expect(ordered).to eq(expected_order)
+        printed_content.fetch('network_codes').each do |code|
+          expect(destination).to match(/\| #{code}(?:- -|\s+- -)/)
+        end
+      end
+    end
+
     it 'prints the Saudi Arabia shared-indicator footnotes without changing the canonical notes' do
       canonical_legends = edition.items.sum { |entry| entry.notes&.en.to_s.scan('Seasonal Opening').size }
       expect(canonical_legends).to eq(6)

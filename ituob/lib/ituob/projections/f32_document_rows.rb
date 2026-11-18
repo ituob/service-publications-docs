@@ -26,7 +26,8 @@ module Ituob
         @contexts.select { |context| context.kind == "heading" }.each do |context|
           result << context.entry unless result.any? { |entry| country(entry) == country(context.entry) }
         end
-        anchors = result.each_with_object({}) do |entry, positions|
+        headings = @contexts.select { |context| context.kind == "heading" }.map(&:entry)
+        anchors = (result + headings).each_with_object({}) do |entry, positions|
           next unless entry.source_row
 
           key = country(entry)

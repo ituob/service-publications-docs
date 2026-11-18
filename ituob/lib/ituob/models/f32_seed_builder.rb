@@ -84,6 +84,9 @@ module Ituob
         printed = F32PrintedList.new(xml_path: xml_path, pdf_path: pdf_path).parse
         printed.seed_sha256 = legacy.seed_sha256
         printed.legacy_rows = legacy.legacy_rows
+        cessation_notes = printed.contexts.filter_map do |record|
+          [record.entry, record.entry.network_code_note] if cessation_note?(record.entry.network_code_note)
+        end
         preserve_legacy_annotations(printed, legacy)
         legacy.contexts.each do |record|
           if %w[network reservation telex].include?(record.kind) && record.entry.network_code
@@ -101,10 +104,50 @@ module Ituob
           end
           printed.contexts << record
         end
+        preserve_cessation_notes(printed, legacy, cessation_notes)
         printed
       end
 
       private
+
+      def cessation_note?(note)
+        note&.en.to_s.match?(/The telegrams? service\s*is\s*no longer/)
+      end
+
+      def preserve_cessation_notes(printed, legacy, notes)
+        fields = %i[country_or_area_note network_roa_note network_code_note notes office_code_note]
+        entries = printed.allocations + printed.contexts.map(&:entry)
+        notes.each do |source, note|
+          country = normalized_name(source.country_or_area.en)
+          same_country = entries.select { |entry| normalized_name(entry.country_or_area&.en) == country }
+          annotated = same_country.find do |entry|
+            entry.office_code && fields.any? { |field| cessation_note?(entry.public_send(field)) }
+          end
+          target = annotated || same_country.find do |entry|
+            entry.office_code.nil? && entry.network_code.to_s.start_with?(source.network_code[/[A-Z]{2}/])
+          end || source
+          target_field = fields.find { |field| cessation_note?(target.public_send(field)) } || :network_code_note
+          legacy.legacy_rows.each do |entry|
+            next unless normalized_name(entry.country_or_area&.en) == country
+
+            fields.each do |field|
+              translated = entry.public_send(field)
+              next unless cessation_note?(translated)
+
+              %i[fr es].each do |language|
+                value = translated.public_send(language)
+                note.public_send("#{language}=", value) if present?(value)
+              end
+            end
+          end
+          same_country.each do |entry|
+            fields.each do |field|
+              entry.public_send("#{field}=", nil) if cessation_note?(entry.public_send(field))
+            end
+          end
+          target.public_send("#{target_field}=", note)
+        end
+      end
 
       def context_for(entry, index, rows)
         country = entry.country_or_area&.en

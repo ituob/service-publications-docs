@@ -10,6 +10,7 @@ module Ituob
     # Coordinates describe the five printed columns; the seed/replay are not read.
     class F32PrintedList
       LANGUAGES = %i[fr en es].freeze
+      NETWORK_CODE = /\A([A-Z]{2})(?:\s*-\s*){0,2}\z/
       OFFICE_CODE = /\A(?:[A-Z]{4}|--[A-Z]{2})\z/
       # Some printed rows carry the office suffix at the end of the name cell.
       INLINE_CODE = /\A(?<name>.*?)\s*(?<code>--[A-Z]{2})\z/
@@ -56,6 +57,7 @@ module Ituob
 
           rows(texts, fonts).each { |row| consume_row(row) }
         end
+        flush_cessation_note
         flush_unassigned
         raise "Printed F32 country heading is incomplete: #{@country_parts.inspect}" unless @country_parts.empty?
         represented = @publication.allocations.length + @publication.contexts.count do |context|
@@ -95,24 +97,45 @@ module Ituob
 
       def consume_row(nodes)
         @source_row += 1
+        full_width = nodes.select { |left, _text, font| left < 100 && data_font?(font) }
+        text = full_width.map { |_left, value, _font| value }.join(" ")
+        if text.match?(/The telegrams? service\s*is\s*no longer/)
+          flush_cessation_note
+          @cessation_note = text.sub(/\A\s*(?:1|!)\)\s*/, "")
+          return
+        elsif @cessation_note && !text.empty? && !text.match?(/\A\d+\)/)
+          @cessation_note << " " << text
+          return
+        end
+        flush_cessation_note
         heading = nodes.filter_map do |left, text, font|
           text if left < 225 && font["family"].include?("Bold") && font["size"].to_i >= 10
         end.join(" ")
         consume_country(heading) unless heading.empty?
         nodes.each do |left, text, font|
-          next unless left >= 430 && left < 530 && data_font?(font)
-          match = text.match(/\A([A-Z]{2})(?:\s*-\s*){0,2}\z/)
+          next unless left >= 225 && left < 530 && data_font?(font)
+          # Some country-heading rows merge the code into the empty ROA cell.
+          # Other ROA-column text must not expand the canonical network scope.
+          next if left < 430 && heading.empty?
+
+          match = text.match(NETWORK_CODE)
           next unless match
 
           prefix = match[1]
           @current_network = prefix
           @network_names[prefix] ||= +""
           @networks << prefix unless @networks.include?(prefix)
-          context("network", F32TDIEntry.new(_class: "F32TDIEntry", country_or_area: @country, network_code: text,
+          code = left < 430 ? "#{prefix}- -" : text
+          context("network", F32TDIEntry.new(_class: "F32TDIEntry", country_or_area: @country, network_code: code,
                                            network_roa: @network_names[prefix]),
                   "Printed network code; the first two letters identify the network (source page 2).")
         end
-        roa = nodes.filter_map { |left, text, font| text if left >= 225 && left < 430 && data_font?(font) }.join(" ")
+        roa = nodes.filter_map do |left, text, font|
+          next unless left >= 225 && left < 430 && data_font?(font)
+          next if !heading.empty? && text.match?(NETWORK_CODE)
+
+          text
+        end.join(" ")
         if @current_network && !roa.empty?
           buffer = @network_names.fetch(@current_network)
           unless buffer.include?(roa)
@@ -149,6 +172,18 @@ module Ituob
           @pending_names.concat(names)
         end
         codes.each { |code| consume_office(code) }
+      end
+
+      def flush_cessation_note
+        return unless @cessation_note
+
+        target = @publication.contexts.find do |record|
+          record.kind == "network" && record.entry.country_or_area.equal?(@country)
+        end&.entry
+        raise "Printed F32 cessation note has no network on page #{@page}" unless target
+
+        target.network_code_note = MultilingualString.new(en: @cessation_note, fr: @cessation_note, es: @cessation_note)
+        @cessation_note = nil
       end
 
       def printed_network_prefix?(code)

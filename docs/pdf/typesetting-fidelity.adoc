@@ -105,15 +105,24 @@ printed network-relative office rows and 92 shared office rows (1,495 coded
 rows total), aliases, unassigned rows, reserved/telex network notes and country
 headings otherwise absent from the allocation list. Source coordinates place
 these records in printed order; legacy duplicate contexts and continuation
-fragments are not printed twice. The publication's parsed substantive data is
-unchanged when the added/corrected source coordinates are excluded.
+fragments are not printed twice. The positioned reader also captures all 35
+full-width cessation/reservation paragraphs. It retains network codes that
+Poppler merges into otherwise empty network-name cells (GK, LU and MG).
+Country-heading coordinates anchor legacy reservations even when their own
+rows have no coordinates, keeping them in printed order.
 
 A shared appendix template restores 28 special-origin network entries, eight
 organization indicators with their printed multilingual names, 27 cessation
 records and all 30 blank amendment rows in the English, French and Spanish
 sources. Focused document specs assert those counts and representative official
 values, all canonical office rows, printed order, and missing suffix/alias
-regressions. The earlier legacy-dataset truncation is not recreated.
+regressions. An independent content fixture pins all 35 complete cessation
+paragraphs and the affected country sequence to the official source. Existing
+French and Spanish translations are retained; the 20 newly recovered notes use
+the official English text where no translation exists. The PDF CI job runs
+link:../../scripts/check_f32_content.py[] against all three editions to reject
+missing note text, network cells or country-order changes regardless of page
+drift. The earlier legacy-dataset truncation is not recreated.
 
 The F.32 shard alone applies link:../../scripts/patch_itu_f32_tables.rb[a guarded
 stylesheet patch]: 8 pt Arial table text, 9 pt leading and minimum row height,
@@ -143,13 +152,32 @@ remain unchanged. Appendix 1 retains every indicator, groups indicator lines by
 initial letter, and displays country translations on separate lines. Each
 appendix starts on a fresh page, as in the official edition.
 
-A single-publication local render with these corrections measures *41 English
-pages versus 47 official*. French and Spanish both render successfully at
-42 pages (neither has a repository official PDF baseline). The section evidence is:
+The earlier partial repair at `93e05f6a` measured *41 English pages versus 47
+official*, with French and Spanish at 42 pages. That export still omitted 20
+cessation paragraphs and some network cells, and moved unpositioned reservation
+countries after Zimbabwe. Its passing page-drift floor did not establish
+content completeness. The earlier section evidence is retained below:
+
+After restoring the missing notes, network cells and printed country order, a
+single-publication local render measures *44 English pages versus 47 official*.
+French and Spanish also measure *44 pages* (neither has a repository official
+PDF baseline). The content gate passes all 35 complete cessation paragraphs,
+the checked country sequence and GK/LU/MG network cells in each edition.
+English Appendix 1 starts on physical page 40, Appendix 2 on 43 and Appendix 3
+on 44. These content assertions do not claim identical pagination or layout.
+
+The restored export measures 90.7% word recall, 97.6% precision, 75.0% order,
+57.3% row recall and 82.0% cell recall. Its 35 cessation paragraphs each occur
+once. Notes split the destination tables, so their column headers now repeat
+52 times versus 31 in the partial repair and 38 in the official PDF. Those
+repeated header words lower multiset precision despite the recovered content.
+The precision floor is regenerated from this export; the other comparison
+floors and six-page maximum drift remain unchanged. The independent content
+gate rejects missing or truncated notes regardless of those aggregate scores.
 
 [cols="3,1,1,1",options="header"]
 |===
-|Section |Official PDF |Hosted `f8a76080` |Corrected local English
+|Section |Official PDF |Hosted `f8a76080` |Partial repair English
 |Cover and front matter |1–2 |1–3 |1–3
 |Destination indicators |3–40 |4–48 |4–36
 |Appendix 1 |41–43 |49–50 |37–39
@@ -161,11 +189,13 @@ pages versus 47 official*. French and Spanish both render successfully at
 Matched ordinary office-code rows now have a 10 pt baseline pitch, versus 9 pt
 in the official; both use 8 pt Arial. The earlier missing-content render also
 had 41 pages, but omitted printed office context and all appendices. Equal totals
-therefore do not establish equal content. The corrected export includes the
-restored sections and passes the unchanged official-comparison floor locally:
+therefore do not establish equal content. The partial repair included the
+restored appendices and passed the unchanged official-comparison floor locally:
 84.0% word recall, 99.2% precision, 67.1% order, 55.9% row recall, 79.6% cell recall,
 and six pages of drift (the existing maximum). No comparison baseline or tolerance
-was changed. The separate advisory typesetting report still requires exactly
+was changed. The independent content gate now supplements that floor rather
+than using page tolerance to accept missing prose. The separate advisory
+typesetting report still requires exactly
 47 pages and continues to report this residual layout difference. Cover/header,
 page-continuation labels and appendix-form pagination still differ; this is not
 a claim of exact visual equivalence.
