@@ -26,9 +26,9 @@ The designations employed and the presentation of material in this List do not i
 
 == {blank}
 
-[yaml2text,data=../../datasets/1001-T.35B/data.yaml,metadata=../../datasets/1001-T.35B/metadata.yaml,acronyms=../../datasets/1001-T.35B/acronyms.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"1001-T.35B","as_of":1001}}]
 ----
-{% assign lang = "en" %}
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign acronyms = edition.acronyms %}{% assign lang = "en" %}
 {% render "table", data: data, metadata: metadata, acronyms: acronyms, lang: lang %}
 ----
 

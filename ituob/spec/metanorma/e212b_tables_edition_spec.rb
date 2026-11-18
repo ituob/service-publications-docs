@@ -20,7 +20,8 @@ RSpec.describe 'T-SP-E.212B-2018/_tables_edition.liquid' do
   end
 
   def render(*items)
-    edition = Ituob::Models::RegisterEdition.new(items: items)
+    metadata = Ituob::Provider.new.locale(register: "e212-mnc")
+    edition = Ituob::Models::RegisterEdition.new(items: items, metadata: metadata)
     template.render!('edition' => edition)
   end
 

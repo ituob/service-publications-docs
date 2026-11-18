@@ -89,6 +89,8 @@ module Ituob
     autoload :GeneralServiceRestrictions, 'ituob/models/general_service_restrictions'
     autoload :GeneralTelephoneServices, 'ituob/models/general_telephone_service'
 
+    autoload :PublicationLiquid, 'ituob/models/publication_liquid'
+
     # PDF publication manifest (spd#89)
     autoload :PublicationManifestEntry, 'ituob/models/publication_manifest_entry'
     autoload :PublicationManifest, 'ituob/models/publication_manifest'

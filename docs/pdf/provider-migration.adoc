@@ -1,0 +1,97 @@
+= Typed provider migration preservation proof
+:!sectnums:
+
+All 38 `yaml2text` rows and the one mixed row from the coverage matrix at
+`8f19d30cb7264593a90f768de3e32746061225a3` now use typed provider sources.
+The 22-publication, 87-language-edition inventory has no remaining file-injection data blocks.
+Dataset snapshot queries keep the original issue, every row in order, repeated identifiers,
+nested country sidecars, scalar types and localized metadata. They do not replay later changes.
+
+Column labels are supplied through the provider in English, French and Spanish,
+and Arabic, Russian and Chinese for the six-language E.212 publications.
+Existing F.32 labels also now come from its provider metadata.
+Missing labels and the SR.1 French/Spanish header correction are declared in
+`ituob/lib/ituob/projections/*labels.yaml`; the corpus is unchanged.
+
+== Rendered AsciiDoc comparison
+
+`ituob/spec/metanorma/remaining_provider_documents_spec.rb` expands complete
+AsciiDoc documents using their Liquid partials and data sources. The baseline
+was captured before migration, including the RR.25.1 `loadfile` country rules.
+The committed `remaining_main_sha256.json` fixture records the base commit,
+complete before/after SHA-256 values, exact intended substitutions and occurrence counts.
+It checks every output byte; reversing only the explicit substitutions must recover
+the original digest. There is no whitespace normalization and no PDF rendering.
+
+42 editions pass: the 39 migrated rows and three F.32 editions whose labels moved.
+32 are byte-identical. Nine have only the intended localized column-header changes;
+English E.212B has only an updated source comment. The table below lists every comparison.
+
+[cols="3,1,3",options="header"]
+|===
+| Publication source | Language | Rendered AsciiDoc result
+| `T-SP-E.180-2010-MSW-E.adoc` | en | Byte-identical
+| `T-SP-E.180-2010-MSW-F.adoc` | fr | Byte-identical
+| `T-SP-E.180-2010-MSW-S.adoc` | es | Byte-identical
+| `T-SP-E.212A-2017-A.adoc` | ar | Byte-identical
+| `T-SP-E.212A-2017-C.adoc` | zh | Byte-identical
+| `T-SP-E.212A-2017-E.adoc` | en | Byte-identical
+| `T-SP-E.212A-2017-F.adoc` | fr | Byte-identical
+| `T-SP-E.212A-2017-R.adoc` | ru | Byte-identical
+| `T-SP-E.212A-2017-S.adoc` | es | Byte-identical
+| `T-SP-E.212B-2018-A.adoc` | ar | Localized column headers only
+| `T-SP-E.212B-2018-C.adoc` | zh | Localized column headers only
+| `T-SP-E.212B-2018-E.adoc` | en | Source comment only
+| `T-SP-E.212B-2018-F.adoc` | fr | Localized column headers only
+| `T-SP-E.212B-2018-R.adoc` | ru | Localized column headers only
+| `T-SP-E.212B-2018-S.adoc` | es | Localized column headers only
+| `T-SP-F.1-1998-MSW-E.adoc` | en | Byte-identical
+| `T-SP-F.1-1998-MSW-F.adoc` | fr | Byte-identical
+| `T-SP-F.1-1998-MSW-S.adoc` | es | Byte-identical
+| `T-SP-F.68-2011-MSW-E.adoc` | en | Byte-identical
+| `T-SP-F.68-2011-MSW-F.adoc` | fr | Byte-identical
+| `T-SP-F.68-2011-MSW-S.adoc` | es | Byte-identical
+| `T-SP-PP.RES.21-2011-E.adoc` | en | Byte-identical
+| `T-SP-PP.RES.21-2011-F.adoc` | fr | Byte-identical
+| `T-SP-PP.RES.21-2011-S.adoc` | es | Byte-identical
+| `T-SP-RR.25.1-2018-MSW-E.adoc` | en | Byte-identical
+| `T-SP-RR.25.1-2018-MSW-F.adoc` | fr | Byte-identical
+| `T-SP-RR.25.1-2018-MSW-S.adoc` | es | Byte-identical
+| `T-SP-SR.1-2012-MSW-E.adoc` | en | Byte-identical
+| `T-SP-SR.1-2012-MSW-F.adoc` | fr | Localized column headers only
+| `T-SP-SR.1-2012-MSW-S.adoc` | es | Localized column headers only
+| `T-SP-T.35-2012-OAS-MSW-E.adoc` | en | Byte-identical
+| `T-SP-T.35-2012-OAS-MSW-F.adoc` | fr | Byte-identical
+| `T-SP-T.35-2012-OAS-MSW-S.adoc` | es | Byte-identical
+| `T-SP-T.35B-2012-MSW-E.adoc` | en | Byte-identical
+| `T-SP-T.35B-2012-MSW-F.adoc` | fr | Byte-identical
+| `T-SP-T.35B-2012-MSW-S.adoc` | es | Byte-identical
+| `T-SP-X.121A-2011-MSW-E.adoc` | en | Byte-identical
+| `T-SP-X.121A-2011-MSW-F.adoc` | fr | Localized column headers only
+| `T-SP-X.121A-2011-MSW-S.adoc` | es | Localized column headers only
+| `T-SP-F.32-2011-E.adoc` | en | Byte-identical
+| `T-SP-F.32-2011-F.adoc` | fr | Byte-identical
+| `T-SP-F.32-2011-S.adoc` | es | Byte-identical
+|===
+
+The typed snapshot specs independently compare all 17 source datasets and all 142
+RR.25.1 country sidecars with typed serialization. Regression examples preserve
+Liquid value equality, `map`/`uniq`, array comparison and hash-pair iteration.
+
+== Focused validation and CI
+
+Focused document, template, manifest, dataset, label, ontology and coverage specs pass.
+`scripts/verify_parser_equivalence.rb --verify` reports all 15 parser families equivalent.
+Run focused specs with `--options /dev/null -Iituob/spec -r spec_helper` to avoid
+the repository-wide pattern in `.rspec` expanding a file-selected invocation.
+
+The existing `pdf` workflow still runs its `official-comparison` job after rendering.
+This migration does not weaken the gate or regenerate its official baseline.
+Its reference coverage remains one official PDF, F.32 2011 English; other references
+are absent as documented in `official-comparison.adoc`. CI results must be evaluated
+at the pushed PR head; local AsciiDoc preservation is not a claim of a passing hosted job.
+
+NOT RUN locally: completed full suite, full site build, or PDF rendering.
+RuboCop was unavailable in the required gem bundle; syntax checks and `git diff --check` pass.
+Initial file-selected RSpec commands expanded through `.rspec` and were stopped;
+the reported test evidence uses the explicit focused options above.
