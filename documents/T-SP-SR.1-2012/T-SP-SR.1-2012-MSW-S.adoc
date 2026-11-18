@@ -29,8 +29,8 @@ http://www.itu.int/itu-t/bulletin/annex.html
 . Las denominaciones utilizadas y la presentación del material en esta Lista no entrañan por parte de la UIT, ninguna opinión acerca del estatuto jurídico de un país o zona geográfica o de las autoridades de los mismos.
 
 
-[yaml2text,data=../../datasets/1000-SR.1/data.yaml,metadata=../../datasets/1000-SR.1/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"1000-SR.1","as_of":1000}}]
 ----
-{% assign lang = "es" %}
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign lang = "es" %}
 {% render "table", data: data, metadata: metadata, lang: lang %}
 ----

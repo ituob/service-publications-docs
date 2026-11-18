@@ -48,20 +48,22 @@ RSpec.describe 'PDF fidelity templates' do
          'assignment_authority' => [], 'last_updated' => '2004-08-31' }]
     end
     let(:acronyms) { { 'de' => { 'en' => 'Germany', 'fr' => 'Allemagne', 'es' => 'Alemania' }, 'bw' => { 'en' => 'Botswana', 'fr' => 'Botswana', 'es' => 'Botswana' } } }
+    let(:metadata) { Ituob::Provider.new.publication(dataset: '1001-T.35B', as_of: 1001).metadata }
 
-    def render(lang) = tpl.render!('data' => data, 'acronyms' => acronyms, 'lang' => lang)
+    def render(lang) = tpl.render!('data' => data, 'metadata' => metadata, 'acronyms' => acronyms, 'lang' => lang)
 
     it 'prints the English labels, authority-less administration and date as the official PDF does' do
       out = render('en')
       expect(out).to include('| Name of Administration: |', 'YES', 'NO', 'Assignment authority: None designated',
-                             '| Information updated: | 10 March 2006', '| Information updated: | 31 August 2004')
+                             '| Information updated: | 10 March 2006', '| Information updated: | 31 August 2004',
+                             '| Fax: | F', '| E-mail: | M')
     end
 
     it 'prints French labels, answers, months and the no-authority text' do
       out = render('fr')
       expect(out).to include('| Nom de l’Administration: |', 'OUI', 'NON', "Autorité responsable de l'attribution:",
                              "Aucune n'a été désignée", '| Mise à jour des informations: | 10 mars 2006',
-                             '| Mise à jour des informations: | 31 août 2004')
+                             '| Mise à jour des informations: | 31 août 2004', '| Fax: | F', '| E-mail: | M')
       expect(out).not_to match(/Name of Administration|Information updated|\bYES\b/)
     end
 
@@ -80,7 +82,7 @@ RSpec.describe 'PDF fidelity templates' do
       out = render('es')
       expect(out).to include('| Nombre de la administración: |', 'SÍ', 'Autoridad de asignación:',
                              'No se ha designado ninguna', '| Información actualizada: | 10 de marzo de 2006',
-                             '| Información actualizada: | 31 de agosto de 2004')
+                             '| Información actualizada: | 31 de agosto de 2004', '| Fax: | F', '| E-mail: | M')
       expect(out).not_to match(/Name of Administration|Information updated|\bYES\b/)
     end
   end

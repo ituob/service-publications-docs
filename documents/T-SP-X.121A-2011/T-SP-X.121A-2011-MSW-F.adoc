@@ -38,16 +38,16 @@ Email: tsbmail@itu.int
 . Les appellations employées dans cette Liste et la présentation des données qui y figurent n'impliquent, de la part de l'UIT, aucune prise de position quant au statut juridique des pays ou zones géographiques, ou de leurs autorités.
 
 
-[yaml2text,data=../../datasets/976-X.121A/data.yaml,metadata=../../datasets/976-X.121A/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"976-X.121A","as_of":976}}]
 ----
-{% assign lang = "fr" %}
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign lang = "fr" %}
 {% render "table", data: data, metadata: metadata, lang: lang %}
 
 == AMENDEMENTS
 
 [%unnumbered]
 |===
-h| Amendement N° h| Bulletin d'exploitation N° h| Pays ou zone géographique
+h| {{ metadata.locale | where: "key", "amendment_number" | map: lang | first }} h| {{ metadata.locale | where: "key", "bulletin_number" | map: lang | first }} h| {{ metadata.locale | where: "key", "amendment_country_or_area" | map: lang | first }}
 
 {% for i in (1..30) %}
 ^.^| {{ i }} | |

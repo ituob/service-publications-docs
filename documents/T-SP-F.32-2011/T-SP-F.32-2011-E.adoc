@@ -68,7 +68,7 @@ geographical area, or of its authorities.
 [lutaml_data,provider:ituob.edition,edition,options={"arguments":{"register":"f32-tdi","as_of":980},"include_path":"."}]
 ----
 {% assign lang = "en" %}
-{% render "table", data: edition.items, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 ----
 
 

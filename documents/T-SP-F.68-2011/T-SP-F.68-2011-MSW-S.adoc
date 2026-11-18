@@ -26,21 +26,21 @@
 
 . Las denominaciones utilizadas y la presentación del material en esta lista no entrañan por parte de la UIT, ninguna opinión acerca del estatuto jurídico de los países o zonas geográficas o de las autoridades de los mismos.
 
-[yaml2text,data=../../datasets/978-F.68/data.yaml,metadata=../../datasets/978-F.68/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"978-F.68","as_of":978}}]
 ----
-{% assign lang = "es" %}
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign lang = "es" %}
 {% render "tables", data: data, metadata: metadata, lang: lang %}
 ----
 
-[yaml2text,data=../../datasets/978-F.68-A1/data.yaml,metadata=../../datasets/978-F.68-A1/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"978-F.68-A1","as_of":978}}]
 ----
-{% assign lang = "es" %}
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign lang = "es" %}
 {% render "tables", data: data, metadata: metadata, lang: lang, annex: "1" %}
 ----
 
-[yaml2text,data=../../datasets/978-F.68-A2/data.yaml,metadata=../../datasets/978-F.68-A2/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"dataset":"978-F.68-A2","as_of":978}}]
 ----
-{% assign lang = "es" %}
+{% assign data = edition.items %}{% assign metadata = edition.metadata %}{% assign lang = "es" %}
 {% render "tables", data: data, metadata: metadata, lang: lang, annex: "2" %}
 ----
 
