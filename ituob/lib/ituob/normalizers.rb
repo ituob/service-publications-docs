@@ -12,6 +12,7 @@
 
 module Ituob
   module Normalizers
+    autoload :KeyWhitespace, 'ituob/normalizers/key_whitespace'
     autoload :Base, 'ituob/normalizers/base'
     autoload :Pipeline, 'ituob/normalizers/pipeline'
     autoload :PhantomCleanup, 'ituob/normalizers/phantom_cleanup'

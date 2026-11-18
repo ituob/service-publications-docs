@@ -72,4 +72,79 @@ RSpec.describe "Dataset schema generation coverage" do
     end
   end
 
+  it "covers every dataset schema and keeps all generated files current" do
+    mapping = YAML.load_file(File.join(ontology, "data_schemas.yaml"))
+    slugs = Dir.glob(File.join(repo_root, "datasets/*/schema-data.yaml")).map do |path|
+      File.basename(File.dirname(path))
+    end
+    expect(mapping.keys.sort).to eq(slugs.sort)
+    expect(mapping.size).to eq(40)
+    out, err, status = Open3.capture3(
+      RbConfig.ruby, File.join(repo_root, "scripts/generate_data_schemas.rb"), "--verify",
+    )
+    expect(status.success?).to be(true), err
+    expect(out).to include("Verified 40 generated dataset schemas")
+  end
+
+  it "preserves required fields, code patterns and assignment enums" do
+    examples = {
+      "1002-T.35" => { "code_bit" => "invalid", "country_or_area" => { "en" => "x", "fr" => "x", "es" => "x" } },
+      "1117-E.212A-MCCMNC" => { "mcc_mnc" => "901 01", "network" => "x", "status" => "invalid" },
+      "1162-E.212-ET" => { "country_type" => "C" },
+      "country-names" => { "key" => "x" },
+    }
+    examples.each do |slug, row|
+      schema = YAML.load_file(File.join(repo_root, "datasets", slug, "schema-data.yaml"))
+      schema.delete("$schema")
+      expect(JSON::Validator.fully_validate(schema, [row])).not_to be_empty, slug
+    end
+  end
+
+  it "preserves nullable fields and mixed numeric tone frequencies" do
+    rows = {
+      "roa" => { "country_or_area" => "x", "company_name" => nil },
+      "bureaufax" => { "country_or_area" => "x", "location" => nil },
+      "955-E.180" => { "country_or_area" => { "en" => "x" }, "tone_type" => "dial", "frequency_in_hz" => 440 },
+    }
+    rows.each do |slug, row|
+      schema = YAML.load_file(File.join(repo_root, "datasets", slug, "schema-data.yaml"))
+      schema.delete("$schema")
+      expect(JSON::Validator.fully_validate(schema, [row])).to be_empty, slug
+      row["unexpected"] = "x"
+      expect(JSON::Validator.fully_validate(schema, [row])).not_to be_empty, slug
+    end
+  end
+
+  it "accepts every complete dataset seed, including recursive call-sign groups" do
+    mapping = YAML.load_file(File.join(ontology, "data_schemas.yaml"))
+    mapping.each_key do |slug|
+      schema = YAML.load_file(File.join(repo_root, "datasets", slug, "schema-data.yaml"))
+      seed = YAML.load_file(File.join(repo_root, "datasets", slug, "data.yaml"),
+                            permitted_classes: [Date], aliases: true)
+      schema.delete("$schema")
+      expect(JSON::Validator.fully_validate(schema, seed)).to be_empty, slug
+    end
+  end
+
+  it "validates all complete raw seeds and models without losing explicit blanks" do
+    mapping = YAML.load_file(File.join(ontology, "data_schemas.yaml"))
+    mapping.each_key do |slug|
+      dataset = Ituob::Dataset.new(File.join(repo_root, "datasets", slug))
+      success, error = dataset.validate_data
+      expect(success).to be(true), "#{slug}: #{error}"
+    end
+  end
+
+  it "applies call-sign segment constraints through recursive references" do
+    schema = YAML.load_file(File.join(repo_root, "datasets/1154-RR.25.1/schema-data.yaml"))
+    schema.delete("$schema")
+    nested = { "segment_type" => "string", "value" => "A" }
+    row = { "country_or_area" => "x", "groups" => { "amateur" => [
+      { "regex" => "A", "criteria" => [{ "segment_type" => "enum", "values" => [nested] }] },
+    ] } }
+    expect(JSON::Validator.fully_validate(schema, [row])).to be_empty
+    nested["segment_type"] = "invalid"
+    expect(JSON::Validator.fully_validate(schema, [row])).not_to be_empty
+  end
+
 end

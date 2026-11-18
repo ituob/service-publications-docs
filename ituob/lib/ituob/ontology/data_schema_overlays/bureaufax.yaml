@@ -1,0 +1,20 @@
+---
+description: ITU OB Dataset Schema for bureaufax (Recommendation ITU-T F.170)
+items:
+  required:
+  - country_or_area
+  - location
+  additionalProperties: false
+  properties:
+    country_or_area:
+      description: Country or geographical area where the bureaufax bureau is located.
+    access_code:
+      description: The bureaufax access code (Part III 1a) if assigned.
+    location:
+      description: City or location of the bureaufax bureau (Part III 1b).
+    bureaufax_number:
+      description: The bureaufax number (Part III 2).
+    destination_priority:
+      description: The destination priority code (Part III 3).
+    availability:
+      description: Service availability windows (Part III 4).

@@ -1,0 +1,40 @@
+---
+description: ITU OB Dataset Schema for 978-F.68
+items:
+  required:
+  - number_block
+  - allocated_to
+  additionalProperties: false
+  properties:
+    number_block:
+      description: Telex Destination Code (TDC) - can be a single code or a range
+    telex_code:
+      description: Telex Network Identification Code (TNIC)
+    allocated_to:
+      required:
+      - en
+      - fr
+      - es
+      additionalProperties: false
+      properties:
+        en:
+          description: English description of allocation
+        fr:
+          description: French description of allocation
+        es:
+          description: Spanish description of allocation
+    integrated_numbering_plan:
+      description: Indicates if the numbering plan is integrated with the TNIC
+    notes:
+      required:
+      - en
+      - fr
+      - es
+      additionalProperties: false
+      properties:
+        en:
+          description: Notes in English
+        fr:
+          description: Notes in French
+        es:
+          description: Notes in Spanish

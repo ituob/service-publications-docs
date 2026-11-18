@@ -5,7 +5,7 @@
 # LML Entry classes in ituob/lib/ituob/ontology/messages.lml, for the
 # datasets listed in ituob/lib/ituob/ontology/data_schemas.yaml.
 # The LML is the single source of the property set: never edit a generated file by hand.
-# CI runs this script and fails on any diff (git diff --exit-code).
+# CI uses --verify to reject incomplete, untracked or outdated schemas without writing.
 #
 #   bundle exec ruby scripts/generate_data_schemas.rb
 
@@ -13,6 +13,10 @@ require 'lutaml/lml'
 require 'yaml'
 require 'json-schema'
 require 'json'
+require 'open3'
+
+VERIFY = ARGV.delete('--verify')
+abort "Usage: #{$PROGRAM_NAME} [--verify]" unless ARGV.empty?
 
 ROOT = File.expand_path(ENV.fetch('ITUOB_SCHEMA_ROOT', File.join(__dir__, '..')))
 ONTOLOGY_DIR = File.join(ROOT, 'ituob/lib/ituob/ontology')
@@ -27,6 +31,9 @@ SCALAR = {
   'Float' => { 'type' => 'number' },
   'Date' => { 'type' => 'string', 'format' => 'date' },
   'Hash' => { 'type' => 'object' },
+  'NullableString' => { 'type' => ['string', 'null'] },
+  'StringOrNumber' => { 'type' => ['number', 'string'] },
+  'StringOrObject' => { 'type' => ['string', 'object'] },
 }.freeze
 
 def collection?(attr)
@@ -34,16 +41,21 @@ def collection?(attr)
   max.to_s.match?(/(\*|n)/) || (max.to_i.to_s == max.to_s && max.to_i > 1)
 end
 
-def schema_for(type, owner)
+def schema_for(type, owner, path, ancestors)
   return SCALAR.fetch(type).dup if SCALAR.key?(type)
 
   klass = CLASSES[type] or abort "#{owner}: unknown type #{type}"
-  object_schema(klass)
+  return { '$ref' => ancestors[type] } if ancestors.key?(type)
+
+  object_schema(klass, path, ancestors)
 end
 
-def object_schema(klass)
-  props = klass.attributes.reject { |a| a.name.to_s == '_class' }.to_h do |attr|
-    schema = schema_for(attr.type.to_s, klass.name)
+def object_schema(klass, path = '#/items', ancestors = {})
+  ancestors = ancestors.merge(klass.name.to_s => path)
+  props = Array(klass.attributes).reject { |a| a.name.to_s == '_class' }.to_h do |attr|
+    child_path = "#{path}/properties/#{attr.name}"
+    child_path += '/items' if collection?(attr)
+    schema = schema_for(attr.type.to_s, klass.name, child_path, ancestors)
     schema = { 'type' => 'array', 'items' => schema } if collection?(attr)
     [attr.name.to_s, schema]
   end
@@ -62,7 +74,7 @@ METASCHEMA.delete('$schema')
 METASCHEMA.delete('$id')
 # References replace sibling assertions in draft7, so an overlay reference could
 # bypass the model type even without a literal type override.
-KEYWORDS = %w[type description required properties items additionalProperties format title enum pattern examples
+KEYWORDS = %w[oneOf type description required properties items additionalProperties format title enum pattern examples
               minimum maximum exclusiveMinimum exclusiveMaximum multipleOf minLength maxLength
               minItems maxItems uniqueItems minProperties maxProperties].freeze
 
@@ -140,6 +152,23 @@ def overlay_properties(base, patch, where, errors)
 end
 
 errors = []
+# Coverage is checked before writes in both modes: a new schema must be mapped.
+Dir.glob(File.join(ROOT, 'datasets/*/{schema-data,data}.yaml')).each do |path|
+  slug = File.basename(File.dirname(path))
+  errors << "#{slug}: schema-data.yaml has no entry in data_schemas.yaml" unless MAPPING.key?(slug)
+end
+if VERIFY
+  tracked, error, status = Open3.capture3('git', 'ls-files', '--', 'datasets/*/schema-data.yaml', chdir: ROOT)
+  if status.success?
+    tracked = tracked.lines.map(&:strip)
+    Dir.glob(File.join(ROOT, 'datasets/*/schema-data.yaml')).each do |path|
+      relative = path.delete_prefix("#{ROOT}/")
+      errors << "#{relative}: schema is not tracked by git" unless tracked.include?(relative)
+    end
+  else
+    errors << "cannot verify tracked schemas: #{error.strip}"
+  end
+end
 overlay_dir = File.join(ONTOLOGY_DIR, 'data_schema_overlays')
 Dir.glob(File.join(overlay_dir, '*.yaml')).each do |path|
   slug = File.basename(path, '.yaml')
@@ -171,13 +200,22 @@ MAPPING.sort.each do |slug, class_name|
   validate_references(schema, slug, errors)
   header = "# GENERATED from ituob/lib/ituob/ontology/messages.lml (#{class_name}) - do not edit.\n" \
            "# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb\n"
-  outputs[File.join(dir, 'schema-data.yaml')] = header + YAML.dump(schema)
+  path = File.join(dir, 'schema-data.yaml')
+  outputs[path] = header + YAML.dump(schema)
+  if VERIFY && (!File.file?(path) || File.binread(path) != outputs[path])
+    errors << "#{slug}: schema-data.yaml is missing or outdated; regenerate schemas"
+  end
 end
 
 unless errors.empty?
   warn "generate_data_schemas: #{errors.size} error(s); nothing was written:"
   errors.each { |e| warn "  - #{e}" }
   exit 1
+end
+
+if VERIFY
+  puts "Verified #{outputs.size} generated dataset schemas"
+  exit 0
 end
 
 outputs.each do |path, body|

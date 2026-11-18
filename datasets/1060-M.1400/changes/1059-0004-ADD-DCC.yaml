@@ -13,22 +13,10 @@ data:
     iso_code: DEU
   - company_name: DCC GmbH
     carrier_code: DCC
-    country_or_area:
-      en: Germany (Federal Republic of)
-    iso_code: DEU
-  - company_name: Brunngartenstrasse 3
-    contact: 'Tel.:          + 49 8131 7009 0'
+    address_line_1: Brunngartenstrasse 3
     tel: "+ 49 8131 7009 0"
-    country_or_area:
-      en: Germany (Federal Republic of)
-    iso_code: DEU
-  - company_name: 85221 Dachau
-    contact: 'Fax:           + 49 8131 7009 60'
+    address_line_2: 85221 Dachau
     fax: "+ 49 8131 7009 60"
-    country_or_area:
-      en: Germany (Federal Republic of)
-    iso_code: DEU
-  - contact: 'E-mail:     info@dachau-citycom.de'
     email:
     - info@dachau-citycom.de
     country_or_area:

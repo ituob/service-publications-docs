@@ -15,22 +15,10 @@ data:
     company_name: 1click2 Internet Services GmbH
     carrier_code: 1C2ISG
     contact: Mr. Stefan Damms
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Keplerstrasse 17
-    contact: 'Tel:          + 49 40 23517332'
+    address_line_1: Keplerstrasse 17
     tel: "+ 49 40 23517332"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 22763 Hamburg
-    contact: Fax:+       49 40 23517329
+    address_line_2: 22763 Hamburg
     fax: "+       49 40 23517329"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:   support@1click2.de'
     email:
     - support@1click2.de
   notes: []

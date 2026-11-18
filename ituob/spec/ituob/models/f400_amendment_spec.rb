@@ -6,7 +6,7 @@ require 'ituob/helpers'
 require 'tmpdir'
 
 RSpec.describe Ituob::Models::F400Amendment do
-  ['', " \t ", " \u00a0 "].each do |blank|
+  ['', " \t ", " \u00a0 ", " \u2003 ", " \u200b ", "\ufeff"].each do |blank|
     context "with a #{blank.inspect} separator row" do
       let(:rows) do
         [

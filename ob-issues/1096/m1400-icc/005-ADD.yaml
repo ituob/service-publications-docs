@@ -15,22 +15,10 @@ data:
     company_name: newone GmbH
     carrier_code: NEWONE
     contact: Mr Thomas Thaesler
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Albert-Einstein-Strasse 3
-    contact: 'Tel:             +49 3677 8474 0'
+    address_line_1: Albert-Einstein-Strasse 3
     tel: "+49 3677 8474 0"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 98693 ILMENAU
-    contact: 'Fax:            +49 3677 8474 44'
+    address_line_2: 98693 ILMENAU
     fax: "+49 3677 8474 44"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:       info@newone.de'
     email:
     - info@newone.de
   notes: []

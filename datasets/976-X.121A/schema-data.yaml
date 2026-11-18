@@ -1,15 +1,12 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (X121CountryEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 976 X.121A
-description: ITU OB Dataset Schema for 976 X.121A
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for X.121A (generated from LML X121CountryEntry)
+x-lml-model: X121CountryEntry
 type: array
 items:
   type: object
-  required:
-    - code
-    - zone
-    - country_or_area
   additionalProperties: false
   properties:
     code:
@@ -22,11 +19,6 @@ items:
       pattern: "^[0-9]+$"
     country_or_area:
       type: object
-      description: Country or geographical area names in different languages
-      required:
-        - en
-        - fr
-        - es
       additionalProperties: false
       properties:
         en:
@@ -38,9 +30,19 @@ items:
         es:
           type: string
           description: Country or geographical area name in Spanish
+      description: Country or geographical area names in different languages
+      required:
+      - en
+      - fr
+      - es
     reserved:
       type: boolean
       description: Indicates if the code is reserved
     spare:
       type: boolean
       description: Indicates if the code is reserved
+  required:
+  - code
+  - zone
+  - country_or_area
+description: ITU OB Dataset Schema for 976 X.121A

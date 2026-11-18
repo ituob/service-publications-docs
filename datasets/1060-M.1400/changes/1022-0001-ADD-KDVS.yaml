@@ -5,32 +5,13 @@ ob_issue_no: '1022'
 identifier:
   code: KDVS
 data:
-  _class: M1400Amendment
-  entries:
-  - company_name: Kabel Deutschland Vertrieb & Service GmbH
-    carrier_code: KDVS
-    contact: Mr. Christopher Hasenkamp
-    country_or_area:
-      en: Germany (Federal Republic of)
-    iso_code: DEU
-  - company_name: Betastrasse 6-8
-    contact: 'Tel:      +49 89 960 10 181'
-    tel: "+49 89 960 10 181"
-    country_or_area:
-      en: Germany (Federal Republic of)
-    iso_code: DEU
-  - company_name: 85774 Unterföhring
-    contact: 'Fax:     +49 89 960 10 870'
-    fax: "+49 89 960 10 870"
-    country_or_area:
-      en: Germany (Federal Republic of)
-    iso_code: DEU
-  - contact: 'E-mail: christopher.hasenkamp1@kabeldeutschland.de'
-    email:
-    - christopher.hasenkamp1@kabeldeutschland.de
-    country_or_area:
-      en: Germany (Federal Republic of)
-    iso_code: DEU
-  notes: []
-  position: P 28
+  company_name: Kabel Deutschland Vertrieb & Service GmbH
+  carrier_code: KDVS
+  contact: Mr. Christopher Hasenkamp
+  address_line_1: Betastrasse 6-8
+  tel: "+49 89 960 10 181"
+  address_line_2: 85774 Unterföhring
+  fax: "+49 89 960 10 870"
+  email:
+  - christopher.hasenkamp1@kabeldeutschland.de
 reference: OB-1022

@@ -60,6 +60,12 @@ attribute :country, :string
               rsegs = r.flatten.map{|x|Ituob::Helpers.strip_legacy(x)}
               next if ri == 0
 
+              # Numerical and alphabetical sections can share one source table.
+              # Their spanning headings describe the following rows, not allocations.
+              if rsegs.length == 1 && (heading = rsegs.first.match(/\A(.+ order)\s+(ADD|SUP|LIR|DEL)\*?\z/))
+                segs = [heading[1].split.join(' '), heading[2]]
+                next
+              end
               action = Q708SANCAction.new
               action.order = segs[0..-2].join(' ')
               action.action_type = segs[-1]

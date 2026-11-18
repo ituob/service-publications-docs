@@ -40,6 +40,9 @@ TS_TYPE = {
   'Hash' => 'Record<string, unknown>', # free-form mappings (no LML primitive)
   'HashOrText' => 'Record<string, unknown> | string', # mapping, or a string kept as stored
   'HashOrList' => 'Record<string, unknown> | Record<string, unknown>[]',
+  'NullableString' => 'string', # null/absent is already optional on the wire
+  'StringOrObject' => 'Record<string, unknown> | string', # same shape as HashOrText
+  'StringOrNumber' => 'string | number', # Ruby: Union[:float, :string]
   'DateOrText' => 'string', # date or timestamp as ISO text, or free text; kept as stored
   'AnnexPublicationId' => 'string | number | boolean | null', # mapping keys preserve their YAML scalar kind
 }.freeze
@@ -47,7 +50,7 @@ TS_TYPE = {
 VALIDATOR_RUNTIME_HEADER = <<~'TS'
   export type FieldKind =
     | "string" | "integer" | "float" | "boolean" | "annexPublicationId" | "date" | "time"
-    | "hash" | "hashOrText" | "hashOrList" | "dateOrText" | "enum" | "class";
+    | "hash" | "hashOrText" | "hashOrList" | "dateOrText" | "stringOrNumber" | "enum" | "class";
 
   export interface FieldSpec {
     kind: FieldKind;
@@ -73,7 +76,7 @@ VALIDATOR_RUNTIME_BODY = <<~'TS'
     string: "a string", integer: "an integer", float: "a number", boolean: "a boolean",
     date: "an ISO date string (YYYY-MM-DD)", time: "a timestamp string", hash: "an object",
     hashOrText: "an object or a string", dateOrText: "a string", enum: "an enum member", class: "an object",
-    hashOrList: "an object or a list of objects", annexPublicationId: "a string, number, boolean, or null",
+    hashOrList: "an object or a list of objects", stringOrNumber: "a string or a number", annexPublicationId: "a string, number, boolean, or null",
   };
 
   function scalarOk(kind: FieldKind, v: unknown): boolean {
@@ -89,6 +92,7 @@ VALIDATOR_RUNTIME_BODY = <<~'TS'
       case "hashOrText": return isObj(v) || typeof v === "string";
       case "hashOrList": return isObj(v) || (Array.isArray(v) && v.every(isObj));
       case "dateOrText": return typeof v === "string";
+      case "stringOrNumber": return typeof v === "string" || (typeof v === "number" && Number.isFinite(v));
       default: return false;
     }
   }
@@ -183,7 +187,7 @@ doc.classes.sort_by { |c| c.name.to_s }.each do |klass|
   name = klass.name.to_s
   wire_names = WIRE_NAMES.fetch(name, {})
   lines << "export interface #{name}Wire {"
-  klass.attributes.each do |attr|
+  (klass.attributes || []).each do |attr|
     raw = attr.type.to_s
     ts = if TS_TYPE.key?(raw)
            TS_TYPE[raw]
@@ -209,6 +213,7 @@ VALIDATOR_KIND = {
   'String' => 'string', 'Integer' => 'integer', 'Float' => 'float', 'Boolean' => 'boolean',
   'Date' => 'date', 'Time' => 'time', 'Hash' => 'hash', 'HashOrText' => 'hashOrText',
   'HashOrList' => 'hashOrList',
+  'NullableString' => 'string', 'StringOrObject' => 'hashOrText', 'StringOrNumber' => 'stringOrNumber',
   'DateOrText' => 'dateOrText', 'AnnexPublicationId' => 'annexPublicationId'
 }.freeze
 
@@ -219,7 +224,7 @@ def ts_string(str) = str.to_s.inspect
 specs = doc.classes.sort_by { |c| c.name.to_s }.map do |klass|
   name = klass.name.to_s
   wire_names = WIRE_NAMES.fetch(name, {})
-  fields = klass.attributes.map do |attr|
+  fields = (klass.attributes || []).map do |attr|
     raw = attr.type.to_s
     kind, ref =
       if VALIDATOR_KIND.key?(raw) then [VALIDATOR_KIND[raw], nil]

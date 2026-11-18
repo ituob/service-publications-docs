@@ -1,0 +1,24 @@
+---
+description: ITU OB Dataset Schema for the List of Recognized Operating Agencies (ROAs)
+items:
+  required:
+  - country_or_area
+  - company_name
+  additionalProperties: false
+  properties:
+    country_or_area:
+      description: Country or geographic area where the ROA is registered.
+    company_name:
+      description: The ROA's official company name.
+    address:
+      description: Postal address of the ROA.
+    tel:
+      description: Telephone contact number.
+    fax:
+      description: Fax contact number.
+    email:
+      description: Email contact address.
+    url:
+      description: Public website URL.
+    ob_issue_number:
+      description: The OB issue number in which this ROA was last updated.

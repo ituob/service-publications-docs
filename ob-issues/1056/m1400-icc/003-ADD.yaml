@@ -14,22 +14,10 @@ data:
     company_name: Ackermann & Pfetzing GbR
     carrier_code: APWDSL
     contact: Mr. Marco Ackermann
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Stoelzinger Strasse 52
-    contact: 'Tel:          + 49 5663 9469000'
+    address_line_1: Stoelzinger Strasse 52
     tel: "+ 49 5663 9469000"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 34286 Spangenberg
-    contact: 'Fax:         + 49 5663 9469009'
+    address_line_2: 34286 Spangenberg
     fax: "+ 49 5663 9469009"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:   info@ap-wdsl.de'
     email:
     - info@ap-wdsl.de
   notes: []

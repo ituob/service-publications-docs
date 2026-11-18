@@ -14,23 +14,11 @@ data:
     company_name: Chorus Ltd
     carrier_code: CHORUS
     contact: Richard Read
-  - iso_code: NZL
-    country_or_area:
-      en: P 54    New Zealand
-    company_name: Level 8 Datacom House
-    contact: 'Tel:           +64 4 802 9236'
+    address_line_1: Level 8 Datacom House
     tel: "+64 4 802 9236"
-  - iso_code: NZL
-    country_or_area:
-      en: P 54    New Zealand
-    company_name: 68-86 Jervois Quay
-    contact: 'Fax:           +64 4 472 4795'
+    address_line_2: 68-86 Jervois Quay
     fax: "+64 4 472 4795"
-  - iso_code: NZL
-    country_or_area:
-      en: P 54    New Zealand
-    company_name: WELLINGTON
-    contact: E-mail       richard.read@chorus.co.nz
+    address_line_3: WELLINGTON
     email:
     - richard.read@chorus.co.nz
   notes: []

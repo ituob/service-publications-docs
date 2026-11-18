@@ -5,27 +5,16 @@ ob_issue_no: '1013'
 identifier:
   code: VENC
 data:
-  _class: M1400Amendment
-  entries:
-  - country_or_area:
-      en: to
-    company_name: Vattenfall Europe Netcom GmbH
-    carrier_code: VENC
-    contact: Dr. Carsten Krüger
-  - country_or_area:
-      en: to
-    company_name: Koepenicker Strasse 73
-    contact: 'Tel:            + 49 30 202155 100'
-    tel: "+ 49 30 202155 100"
-  - country_or_area:
-      en: to
-    company_name: 10179 Berlin
-    contact: 'Fax:           + 49 30 202155 101'
-    fax: "+ 49 30 202155 101"
-  - country_or_area:
-      en: to
-    contact: E-mail      info.netcom @ vattenfall.de
-    email:
-    - info.netcom @ vattenfall.de
-  notes: []
+  iso_code: DEU
+  country_or_area:
+    en: Germany (Federal Republic of)
+  company_name: Vattenfall Europe Netcom GmbH
+  carrier_code: VENC
+  contact: Dr. Carsten Krüger
+  address_line_1: Koepenicker Strasse 73
+  tel: "+ 49 30 202155 100"
+  address_line_2: 10179 Berlin
+  fax: "+ 49 30 202155 101"
+  email:
+  - info.netcom @ vattenfall.de
 reference: OB-1013

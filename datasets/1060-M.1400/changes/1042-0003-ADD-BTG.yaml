@@ -5,31 +5,16 @@ ob_issue_no: '1042'
 identifier:
   code: BTG
 data:
-  _class: M1400Amendment
-  entries:
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (República Federal de)
-    company_name: BT (Germany) GmbH & Co. OHG
-    carrier_code: BTG
-    contact: Mrs. Ursula Zillmer
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (República Federal de)
-    company_name: Barthstrasse 4
-    contact: 'Tel:            + 49 89 2600 8772'
-    tel: "+ 49 89 2600 8772"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (República Federal de)
-    company_name: 80339 MUNICH
-    contact: 'Fax:           + 49 89 2600 9972'
-    fax: "+ 49 89 2600 9972"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (República Federal de)
-    contact: 'E-mail:     ursula.zillmer@bt.com'
-    email:
-    - ursula.zillmer@bt.com
-  notes: []
+  iso_code: DEU
+  country_or_area:
+    en: Germany (República Federal de)
+  company_name: BT (Germany) GmbH & Co. OHG
+  carrier_code: BTG
+  contact: Mrs. Ursula Zillmer
+  address_line_1: Barthstrasse 4
+  tel: "+ 49 89 2600 8772"
+  address_line_2: 80339 MUNICH
+  fax: "+ 49 89 2600 9972"
+  email:
+  - ursula.zillmer@bt.com
 reference: OB-1042

@@ -1,20 +1,21 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (T35CodeEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 1002 T.35
-description: ITU OB Dataset Schema for 1002 T.35
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for T.35 (generated from LML T35CodeEntry)
+x-lml-model: T35CodeEntry
 type: array
 items:
   type: object
-  description: Represents a single entry mapping a code bit to a country or area.
+  additionalProperties: false
   properties:
     code_bit:
       type: string
       description: The 8-bit code (b8 to b1) assigned.
-      pattern: '^[01]{8}$'
+      pattern: "^[01]{8}$"
     country_or_area:
       type: object
-      description: The name of the country or geographical area in different languages.
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -25,14 +26,14 @@ items:
         es:
           type: string
           description: Spanish name.
+      description: The name of the country or geographical area in different languages.
       required:
-        - en
-        - fr
-        - es
-      additionalProperties: false
+      - en
+      - fr
+      - es
     notes:
       type: object
-      description: Optional notes related to the code in different languages.
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -43,12 +44,13 @@ items:
         es:
           type: string
           description: Spanish note.
+      description: Optional notes related to the code in different languages.
       required:
-        - en
-        - fr
-        - es
-      additionalProperties: false
+      - en
+      - fr
+      - es
+  description: Represents a single entry mapping a code bit to a country or area.
   required:
-    - code_bit
-    - country_or_area
-  additionalProperties: false
+  - code_bit
+  - country_or_area
+description: ITU OB Dataset Schema for 1002 T.35

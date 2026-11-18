@@ -14,22 +14,10 @@ data:
     company_name: TELE AG
     carrier_code: TELEAG
     contact: Mrs. Stefanie Donah
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Theklaerstrasse 42
-    contact: 'Tel:       +49 341 523801 0'
+    address_line_1: Theklaerstrasse 42
     tel: "+49 341 523801 0"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 04347 Leipzig
-    contact: 'Fax:      +49 341 523801 99'
+    address_line_2: 04347 Leipzig
     fax: "+49 341 523801 99"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail: stefanie.donah@tele-ag.de'
     email:
     - stefanie.donah@tele-ag.de
   notes: []

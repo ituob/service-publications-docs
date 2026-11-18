@@ -5,32 +5,16 @@ ob_issue_no: '1097'
 identifier:
   code: TELSON
 data:
-  _class: M1400Amendment
-  position: Germany (Federal Republic of) / DEU
-  entries:
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: HFO Home GmbH
-    carrier_code: TELSON
-    contact: Mrs Stefanie Krause
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Bahnhofstrasse 18
-    contact: 'Tel:          +49 9281 1448 100'
-    tel: "+49 9281 1448 100"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 95028 HOF
-    contact: 'Fax:         +49 9281 1448 123'
-    fax: "+49 9281 1448 123"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:    krause@hfo-telecom.de'
-    email:
-    - krause@hfo-telecom.de
-  notes: []
+  iso_code: DEU
+  country_or_area:
+    en: Germany (Federal Republic of)
+  company_name: HFO Home GmbH
+  carrier_code: TELSON
+  contact: Mrs Stefanie Krause
+  address_line_1: Bahnhofstrasse 18
+  tel: "+49 9281 1448 100"
+  address_line_2: 95028 HOF
+  fax: "+49 9281 1448 123"
+  email:
+  - krause@hfo-telecom.de
 reference: OB-1097

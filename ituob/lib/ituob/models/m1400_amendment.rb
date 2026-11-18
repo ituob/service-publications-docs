@@ -91,6 +91,42 @@ attribute :notes, :string, collection: true
         nil
       end
 
+      # Blank carrier cells with labeled contact details continue the preceding
+      # carrier in this table. Leave ambiguous unkeyed rows intact.
+      def self.continuation_row?(row, entry)
+        return false unless entry && !entry.carrier_code.to_s.empty?
+        return false unless row.length >= 3 && row[1].all? { |text| Ituob::Helpers.strip_legacy(text).to_s.empty? }
+        return false unless row.drop(3).flatten.all? { |text| Ituob::Helpers.strip_legacy(text).to_s.empty? }
+
+        contacts = row[2].map { |text| Ituob::Helpers.strip_legacy(text) }.reject(&:empty?)
+        !contacts.empty? && contacts.all? { |text| text.match?(/\A(?:Tel|Fax|E-?mail)[\s.:]/i) }
+      end
+
+      def self.append_continuation(entry, row)
+        addresses = [entry.address_line_1, entry.address_line_2, entry.address_line_3]
+                    .compact.reject(&:empty?)
+        addresses.concat(row[0].map { |text| Ituob::Helpers.strip_legacy(text) }.reject(&:empty?))
+        entry.address_line_1, entry.address_line_2 = addresses[0..1]
+        entry.address_line_3 = addresses[2..].join("\n") if addresses.length >= 3
+
+        row[2].each do |text|
+          match = Ituob::Helpers.strip_legacy(text).match(/\A(Tel|Fax|E-?mail)[\s.:]*+(.*)\z/i)
+          next unless match
+
+          value = match[2].strip
+          next if value.empty?
+
+          field = case match[1].downcase
+                  when 'tel' then :tel
+                  when 'fax' then :fax
+                  else :email
+                  end
+          added = field == :email ? value.split(';').map(&:strip) : [value]
+          values = (Array(entry.public_send(field)) + added).reject(&:empty?).uniq
+          entry.public_send("#{field}=", field == :email ? values : values.join("\n"))
+        end
+      end
+
       def self.parse(hash, position_on: nil, dataset_code: nil)
         amendment = new
 
@@ -177,6 +213,7 @@ attribute :notes, :string, collection: true
             # Iterate remaining rows (or all rows when no header was
             # detected — many M1400 amendments emit one data row per
             # table with no header at all).
+            continuation_entry = nil
             c.each do |row|
               rf = Ituob::Helpers.replace_legacy_space(row.flatten.join('')).strip
               single_cell = row.count { |cell| !Ituob::Helpers.normalize_whitespace(cell.flatten.join).empty? } == 1
@@ -188,6 +225,7 @@ attribute :notes, :string, collection: true
               next if rf.match(/^Country/)
               next if rf.match(/Company.Name/)
               if rf.match?(/ \/ [A-Z]{3}$/)
+                continuation_entry = nil
                 heading_country, heading_iso = rf.split(' / ')
                 if heading_iso != country_code
                   action = M1400Action.new
@@ -203,6 +241,7 @@ attribute :notes, :string, collection: true
                 m = heading_without_slash(rf)
               end
               if m
+                continuation_entry = nil
                 # This seems to actually trigger a new action
                 action = M1400Action.new
                 action.entries = []
@@ -214,6 +253,10 @@ attribute :notes, :string, collection: true
                 next
               end
               next if rf.nil? or rf.length == 0
+              if continuation_row?(row, continuation_entry)
+                append_continuation(continuation_entry, row)
+                next
+              end
               segs = row.flatten
               entry = M1400Entry.new
 
@@ -238,6 +281,7 @@ attribute :notes, :string, collection: true
               entry.email = email.split(';').map(&:strip).reject(&:empty?) if email
 
               action.entries << entry
+              continuation_entry = entry
             end
             action = M1400Action.new
             action.entries = []

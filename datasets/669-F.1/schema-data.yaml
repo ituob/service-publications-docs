@@ -1,15 +1,13 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (F1ServiceCodeEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU-T F.1 Service Codes Schema
-description: Schema for ITU-T F.1 telex service codes data
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for F.1 (generated from LML F1ServiceCodeEntry)
+x-lml-model: F1ServiceCodeEntry
 type: array
 items:
   type: object
-  required:
-  - code
-  - field
-  - message
+  additionalProperties: false
   properties:
     code:
       type: string
@@ -19,11 +17,7 @@ items:
       description: The category or field to which the code belongs
     field_desc:
       type: object
-      description: Optional description of the field in multiple languages
-      required:
-      - en
-      - fr
-      - es
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -34,13 +28,14 @@ items:
         es:
           type: string
           description: Spanish description
-    message:
-      type: object
-      description: The message content in multiple languages
+      description: Optional description of the field in multiple languages
       required:
       - en
       - fr
       - es
+    message:
+      type: object
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -51,7 +46,17 @@ items:
         es:
           type: string
           description: Spanish message text
+      description: The message content in multiple languages
+      required:
+      - en
+      - fr
+      - es
+  required:
+  - code
+  - field
+  - message
   description: Schema for Countries or geographical areas for which information regarding
     cessation of telex service has been published in the ITU Operational Bulletin
     (No.) data
+description: Schema for ITU-T F.1 telex service codes data
 additionalProperties: false

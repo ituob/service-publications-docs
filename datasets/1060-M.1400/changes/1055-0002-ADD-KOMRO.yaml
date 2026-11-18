@@ -5,30 +5,15 @@ ob_issue_no: '1055'
 identifier:
   code: KOMRO
 data:
-  _class: M1400Amendment
-  entries:
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: komro GmbH
-    carrier_code: KOMRO
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Am Innreit 2
-    contact: 'Tel:           +49 8031 3652 418'
-    tel: "+49 8031 3652 418"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 83022 Rosenheim
-    contact: 'Fax:          +49 8031 3652 864'
-    fax: "+49 8031 3652 864"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:    info@komro.net'
-    email:
-    - info@komro.net
-  notes: []
+  iso_code: DEU
+  country_or_area:
+    en: Germany (Federal Republic of)
+  company_name: komro GmbH
+  carrier_code: KOMRO
+  address_line_1: Am Innreit 2
+  tel: "+49 8031 3652 418"
+  address_line_2: 83022 Rosenheim
+  fax: "+49 8031 3652 864"
+  email:
+  - info@komro.net
 reference: OB-1055

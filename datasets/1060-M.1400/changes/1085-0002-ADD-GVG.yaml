@@ -5,31 +5,16 @@ ob_issue_no: '1085'
 identifier:
   code: GVG
 data:
-  _class: M1400Amendment
-  entries:
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: GVG Glasfaser GmbH
-    carrier_code: GVG
-    contact: Mr. Klaus Leckelt
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Schwedendamm 16
-    contact: 'Tel.: +49 431 90 7004 20'
-    tel: "+49 431 90 7004 20"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: D-24143 KIEL
-    contact: 'Fax: +49 431 90 7004 99'
-    fax: "+49 431 90 7004 99"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail: klaus.leckelt@glasfaser.co'
-    email:
-    - klaus.leckelt@glasfaser.co
-  notes: []
+  iso_code: DEU
+  country_or_area:
+    en: Germany (Federal Republic of)
+  company_name: GVG Glasfaser GmbH
+  carrier_code: GVG
+  contact: Mr. Klaus Leckelt
+  address_line_1: Schwedendamm 16
+  tel: "+49 431 90 7004 20"
+  address_line_2: D-24143 KIEL
+  fax: "+49 431 90 7004 99"
+  email:
+  - klaus.leckelt@glasfaser.co
 reference: OB-1085

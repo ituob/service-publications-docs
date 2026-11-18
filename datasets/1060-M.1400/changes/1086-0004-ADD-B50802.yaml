@@ -5,31 +5,13 @@ ob_issue_no: '1086'
 identifier:
   code: B50802
 data:
-  _class: M1400Amendment
-  entries:
-  - company_name: Broadcasting Center Europe S.A.
-    carrier_code: B50802
-    contact: Mr. Paul Schmit
-    country_or_area:
-      en: Luxembourg
-    iso_code: LUX
-  - company_name: 45 bd. Pierre Frieden
-    contact: 'Tel:              +352 24 80 61 10'
-    tel: "+352 24 80 61 10"
-    country_or_area:
-      en: Luxembourg
-    iso_code: LUX
-  - company_name: L-1543 LUXEMBOURG
-    contact: 'Fax:             +352 24 80 61 09'
-    fax: "+352 24 80 61 09"
-    country_or_area:
-      en: Luxembourg
-    iso_code: LUX
-  - contact: 'E-mail:        paul_schmit@bce.lu'
-    email:
-    - paul_schmit@bce.lu
-    country_or_area:
-      en: Luxembourg
-    iso_code: LUX
-  notes: []
+  company_name: Broadcasting Center Europe S.A.
+  carrier_code: B50802
+  contact: Mr. Paul Schmit
+  address_line_1: 45 bd. Pierre Frieden
+  tel: "+352 24 80 61 10"
+  address_line_2: L-1543 LUXEMBOURG
+  fax: "+352 24 80 61 09"
+  email:
+  - paul_schmit@bce.lu
 reference: OB-1086

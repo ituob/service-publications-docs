@@ -76,7 +76,7 @@ attribute :notes, :string, collection: true
               next unless row.is_a?(Array)
               flat = row.map do |cell|
                 text = cell.is_a?(Array) ? cell.join(' ') : cell.to_s
-                text.tr("\u00a0", ' ').strip
+                text.gsub(/[\p{Space}\u200b\ufeff]/, ' ').strip
               end
               next if flat.all?(&:empty?)
 

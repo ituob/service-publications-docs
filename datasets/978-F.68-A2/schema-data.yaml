@@ -1,59 +1,61 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (F68Appendix2Entry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 978-F.68 Appendix 2
-description: ITU OB Dataset Schema for 978-F.68 Appendix 2
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for F.68-A2 (generated from LML F68Appendix2Entry)
+x-lml-model: F68Appendix2Entry
 type: array
 items:
   type: object
-  required:
-    - ob_number
-    - telex_code
-    - geographic_area
-    - number_block
-    - allocated_to
   additionalProperties: false
   properties:
     ob_number:
       type: integer
-      description: "ITU Operational Bulletin number"
+      description: ITU Operational Bulletin number
     telex_code:
       type: string
-      description: "Telex Network Identification Code (TNIC)"
+      description: Telex Network Identification Code (TNIC)
     geographic_area:
       type: object
-      required:
-        - en
-        - fr
-        - es
       additionalProperties: false
       properties:
         en:
           type: string
-          description: "Country or geographical area name in English"
+          description: Country or geographical area name in English
         fr:
           type: string
-          description: "Country or geographical area name in French"
+          description: Country or geographical area name in French
         es:
           type: string
-          description: "Country or geographical area name in Spanish"
+          description: Country or geographical area name in Spanish
+      required:
+      - en
+      - fr
+      - es
     number_block:
       type: string
-      description: "Block identifier for the telex code"
+      description: Block identifier for the telex code
     allocated_to:
       type: object
-      required:
-        - en
-        - fr
-        - es
       additionalProperties: false
       properties:
         en:
           type: string
-          description: "Entity allocated to in English"
+          description: Entity allocated to in English
         fr:
           type: string
-          description: "Entity allocated to in French"
+          description: Entity allocated to in French
         es:
           type: string
-          description: "Entity allocated to in Spanish"
+          description: Entity allocated to in Spanish
+      required:
+      - en
+      - fr
+      - es
+  required:
+  - ob_number
+  - telex_code
+  - geographic_area
+  - number_block
+  - allocated_to
+description: ITU OB Dataset Schema for 978-F.68 Appendix 2

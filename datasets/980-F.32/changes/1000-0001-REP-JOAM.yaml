@@ -10,31 +10,40 @@ data:
   description: P 25 Jordan LIR COL 2 REP Jordan Telecom Group, Amman by Unitel
   entries:
   - country_or_area:
+      en: JORDAN
       fr: JORDANIE
-    network_roa: Unitel
-    network_code: JO- -
-  - country_or_area:
-      fr: JORDAN
+      es: JORDANIA
     network_roa: Unitel
     network_code: JO- -
     telegraph_office_name:
       en: Amman
     office_code: JOAM
+    network_codes:
+    - JO
   - country_or_area:
-      fr: JORDANIA
+      en: JORDAN
+      fr: JORDANIE
+      es: JORDANIA
     network_roa: Unitel
     network_code: JO- -
     telegraph_office_name:
       en: Jerusalem Jordan
     office_code: JOJM
+    network_codes:
+    - JO
   - country_or_area:
-      fr: JORDANIA
+      en: JORDAN
+      fr: JORDANIE
+      es: JORDANIA
     network_roa: Unitel
     network_code: JO- -
     telegraph_office_name:
       en: All others
     office_code: JOAX
+    network_codes:
+    - JO
   notes:
+  - Unitel — JO- -
   - "* See Note published in present ITU Operational Bulletin No. 1000 of 15.III.2012,
     page 5."
 reference: OB-1000

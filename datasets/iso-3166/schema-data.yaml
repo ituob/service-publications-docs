@@ -1,25 +1,20 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (ISO3166Entry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for ISO 3166
-description: ITU OB Dataset Schema for ISO 3166
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for iso-3166 (generated from LML ISO3166Entry)
+x-lml-model: ISO3166Entry
 type: array
 items:
   type: object
-  required:
-    - code
-    - name
+  additionalProperties: false
   properties:
     code:
       type: string
       description: Country code (ISO-3166 alpha-2)
     name:
       type: object
-      description: Localized country or geographical area names
-      required:
-        - en
-        - fr
-        - es
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -30,3 +25,12 @@ items:
         es:
           type: string
           description: Spanish name
+      description: Localized country or geographical area names
+      required:
+      - en
+      - fr
+      - es
+  required:
+  - code
+  - name
+description: ITU OB Dataset Schema for ISO 3166
