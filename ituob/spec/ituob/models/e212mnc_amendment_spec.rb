@@ -151,7 +151,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     end
 
     it 'opens one typed action per heading instead of a blank-key entry' do
-      expect(amendment.actions.map(&:action_type)).to eq(%w[ADD REP LIR])
+      expect(amendment.actions.map(&:action_type)).to eq(%w[ADD SUP LIR])
       codes = amendment.actions.flat_map(&:entries).map(&:mcc_mnc_codes)
       expect(codes).to eq(['238 96', '655 04', '655 11', '901 53'])
     end
@@ -166,7 +166,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       second = table(heading('Spain SUP'), pair('214 10', 'Opera'))
       actions = parse(document(first, second)).actions
 
-      expect(actions.map(&:action_type)).to eq(%w[ADD REP])
+      expect(actions.map(&:action_type)).to eq(%w[ADD SUP])
       expect(actions.last.entries.map { |e| e.country_or_area.en }).to eq(['Spain'])
       expect(actions.last.entries.map(&:mcc_mnc_codes)).to eq(['214 10'])
     end
@@ -196,7 +196,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
         heading('Denmark ADD'), heading('Norway SUP'), pair('578 01', 'N')
       )))
 
-      expect(amendment.actions.map(&:action_type)).to eq(%w[REP])
+      expect(amendment.actions.map(&:action_type)).to eq(%w[SUP])
     end
 
     it 'returns nil for an empty segment list' do
@@ -224,7 +224,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     )
     actions = parse(doc).actions
 
-    expect(actions.map(&:action_type)).to eq(%w[REP ADD])
+    expect(actions.map(&:action_type)).to eq(%w[SUP ADD])
     expect(actions.map { |action| action.entries.map { |entry| entry.country_or_area.en } }).to eq(
       [%w[Hungary Hungary], ['Kenya']],
     )
@@ -245,7 +245,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     amendment = parse(doc)
     entries = amendment.actions.flat_map(&:entries)
 
-    expect(amendment.actions.map(&:action_type)).to eq(['REP'])
+    expect(amendment.actions.map(&:action_type)).to eq(['SUP'])
     expect(entries.map(&:mcc_mnc_codes)).to eq(['216 04', '216 05'])
     expect(entries.map { |entry| entry.country_or_area.en }).to eq(%w[Hungary Hungary])
     expect(entries.map(&:networks)).to eq(['Invitech ICT Services Ltd.', 'Another network'])
@@ -342,7 +342,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     )
     actions = parse(doc).actions
 
-    expect(actions.map(&:action_type)).to eq(%w[ADD REP])
+    expect(actions.map(&:action_type)).to eq(%w[ADD SUP])
     expect(actions.map { |action| action.entries.map(&:mcc_mnc_codes) }).to eq([['216 04'], ['432 11', '432 12']])
     expect(actions.last.entries.map { |entry| entry.country_or_area.en }).to eq(
       ['Iran (Islamic Republic of)', 'Iran (Islamic Republic of)'],
@@ -350,7 +350,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     expect(actions.last.entries.map(&:networks)).to eq(['Iranian network', 'Another Iranian network'])
   end
 
-  it 'classifies single-cell editor SUP headings as replacement blocks' do
+  it 'preserves single-cell editor SUP headings' do
     doc = document(
       table(
         row(cell(paragraph('Country / Geographical area'))),
@@ -361,7 +361,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     )
     actions = parse(doc).actions
 
-    expect(actions.map(&:action_type)).to eq(['REP'])
+    expect(actions.map(&:action_type)).to eq(['SUP'])
     expect(actions.first.entries.map(&:mcc_mnc_codes)).to eq(['432 11'])
     expect(actions.first.entries.first.country_or_area.en).to eq('Iran (Islamic Republic of)')
   end
@@ -376,7 +376,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     )
     actions = parse(doc).actions
 
-    expect(actions.map(&:action_type)).to eq(['REP'])
+    expect(actions.map(&:action_type)).to eq(['SUP'])
     expect(actions.first.entries.map(&:mcc_mnc_codes)).to eq(['216 04'])
     expect(actions.first.entries.first.country_or_area.en).to eq('Hungary')
   end
@@ -421,10 +421,31 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entries.map { |entry| entry.country_or_area&.en }).to eq(['Hungary', 'Kenya'])
     end
 
-    it 'replaces the listed codes in country SUP blocks' do
-      expect(amendment.actions.map(&:action_type)).to eq(%w[REP REP])
+    it 'preserves the listed codes and printed country SUP actions' do
+      expect(amendment.actions.map(&:action_type)).to eq(%w[SUP SUP])
       expect(amendment.actions.map { |action| action.entries.map(&:mcc_mnc_codes) }).to eq([['216 04'], ['639 08']])
     end
+  end
+
+  it 'preserves the printed Netherlands actions and seven withdrawn rows in OB 1210' do
+    path = File.expand_path('../../../../itu-ob-data/issues/1210/amendments.yaml', __dir__)
+    data = YAML.load_file(path, permitted_classes: [Date, Time])
+    message = data['messages'].find { |item| item['target']['publication'] == 'E212_MNC' }
+    actions = parse(message['contents']['en']).actions.select do |action|
+      action.position.to_s.start_with?('Netherlands ')
+    end
+
+    expect(actions.map(&:position)).to eq(['Netherlands SUP', 'Netherlands ADD', 'Netherlands LIR'])
+    expect(actions.map(&:action_type)).to eq(%w[SUP ADD LIR])
+    expect(actions.map { |action| action.entries.length }).to eq([7, 11, 7])
+    expect(actions.first.entries.map(&:mcc_mnc_codes)).to eq([
+      '204 06', '204 17', '204 29', '204 60', '204 61', '204 65', '204 68',
+    ])
+    expect(actions.first.entries.map(&:networks)).to eq([
+      'Mundio Mobile (Netherlands) Ltd', 'Intercity Mobile Communications B.V.', 'Private Mobile Ltd',
+      'Nextgen Mobile Ltd', 'BodyTrace Netherlands B.V.', 'AGMS Nederland B.V.', 'Roamware (Netherlands) B.V.',
+    ])
+    expect(actions.first.entries.map { |entry| entry.country_or_area.en }).to all(eq('Netherlands'))
   end
 
   describe 'country-first paragraph layout (no position column)' do
@@ -786,6 +807,21 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entries.last.note).to be_nil
     end
 
+    it 'matches numbered date markers with optional closing parentheses in separate blocks (OB 983)' do
+      path = File.expand_path('../../../../itu-ob-data/issues/983/amendments.yaml', __dir__)
+      data = YAML.load_file(path, permitted_classes: [Date, Time])
+      message = data['messages'].find { |item| item['target']['publication'] == 'E212_MNC' }
+      entries = parse(message['contents']['en']).actions.flat_map(&:entries)
+      first = entries.find { |entry| entry.mcc_mnc_codes == '901 30' }
+      later = entries.select { |entry| ['901 31', '901 32'].include?(entry.mcc_mnc_codes) }
+
+      expect(first.effective_date).to eq('30 June 2011')
+      expect(first.note.en.split.join(' ')).to eq('1) As from 30 June 2011')
+      expect(later.map(&:mcc_mnc_codes)).to eq(['901 31', '901 32'])
+      expect(later.map(&:effective_date)).to eq(['1 June 2011', '1 June 2011'])
+      expect(later.map { |entry| entry.note.en.split.join(' ') }).to eq(['1) As from 1 June 2011', '1) As from 1 June 2011'])
+    end
+
     it 'keeps an inline country-first announcement separate from the following country (OB 1062)' do
       parsed = parse(document(paragraph('Malta ADD 278 11 YOM'),
                               paragraph('International Mobile, shared code ADD'),
@@ -840,6 +876,45 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entry.effective_date).to eq('1 June 2024')
       expect(entry.note.en).to eq('* As from 1 June 2024')
       expect(entry.extra_territorial_use).to be_nil
+    end
+
+    it 'binds repeated date markers to their preceding announcement blocks' do
+      doc = document(paragraph('P 1 Denmark ADD*'), paragraph('238 01 Operator A'),
+                     paragraph('P 2 Malta ADD*'), paragraph('278 11 Operator B'),
+                     paragraph('* As from 1 January 2024'),
+                     paragraph('P 3 Norway ADD*'), paragraph('242 01 Operator C'),
+                     paragraph('* As from 1 February 2024'))
+      parsed = parse(doc)
+      entries = parsed.actions.flat_map(&:entries)
+
+      expect(entries.map(&:effective_date)).to eq(['1 January 2024', '1 January 2024', '1 February 2024'])
+      expect(entries.map { |entry| entry.note.en }).to eq([
+        '* As from 1 January 2024', '* As from 1 January 2024', '* As from 1 February 2024'
+      ])
+      expect(entries.map(&:mcc_mnc_codes)).to eq(['238 01', '278 11', '242 01'])
+      expect(parsed.notes).to eq(['* As from 1 January 2024', '* As from 1 February 2024'])
+    end
+
+    it 'does not apply a single-star date to a double-star announcement through fallback' do
+      doc = document(paragraph('P 1 Denmark ADD**'), paragraph('238 01 Operator A'),
+                     paragraph('* As from 1 January 2024'))
+      parsed = parse(doc)
+      entry = parsed.actions.first.entries.first
+
+      expect(entry.effective_date).to be_nil
+      expect(entry.note).to be_nil
+      expect(entry.mcc_mnc_codes).to eq('238 01')
+      expect(parsed.notes).to eq(['* As from 1 January 2024'])
+    end
+
+    it 'preserves the date fallback for an unmarked preceding announcement' do
+      doc = document(paragraph('P 1 Denmark ADD'), paragraph('238 01 Operator A'),
+                     paragraph('* As from 1 January 2024'))
+      entry = parse(doc).actions.first.entries.first
+
+      expect(entry.effective_date).to eq('1 January 2024')
+      expect(entry.note.en).to eq('* As from 1 January 2024')
+      expect(entry.networks).to eq('Operator A')
     end
 
     it 'retains a keyed country note without applying it to unrelated countries (OB 1280)' do
@@ -950,6 +1025,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       switzerland = parsed[1016].actions.flat_map(&:entries).find { |entry| entry.mcc_mnc_codes == '228 01' }
 
       expect(first.find { |entry| entry.mcc_mnc_codes == '901 33' }.effective_date).to eq('31 August 2011')
+      expect(first.find { |entry| entry.mcc_mnc_codes == '901 33' }.note.en).not_to include('cancels and replaces')
       expect(first.reject { |entry| entry.mcc_mnc_codes == '901 33' }.map(&:effective_date)).to all(be_nil)
       expect(second.first.effective_date).to eq('15 June 2012')
       expect(estonia.note.en).to include('19 April 2007', '15 March 2011', '15 March 2013')

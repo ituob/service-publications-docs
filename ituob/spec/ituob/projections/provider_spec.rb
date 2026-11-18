@@ -39,9 +39,9 @@ RSpec.describe Ituob::Provider do
 
   describe '#lutaml_data_queries' do
     it 'names only the supported queries and each is a public method' do
-      expect(provider.lutaml_data_queries).to eq(%i[edition history actions locale])
+      expect(provider.lutaml_data_queries).to eq(%i[edition publication history actions locale])
       expect(provider.lutaml_data_queries).to all(satisfy { |q| provider.respond_to?(q) })
-      expect(provider.public_methods(false)).to contain_exactly(:lutaml_data_queries, :edition, :history, :actions, :locale)
+      expect(provider.public_methods(false)).to contain_exactly(:lutaml_data_queries, :edition, :publication, :history, :actions, :locale)
     end
   end
 
@@ -51,6 +51,34 @@ RSpec.describe Ituob::Provider do
       expect(edition.items).to all(be_a(Ituob::Models::E212MNCEntry))
       expect(edition.items.map(&:mcc_mnc_codes)).to eq(state.active_entries.keys)
       expect(edition.items.size).to eq(state.active_entries.size)
+    end
+
+    it 'carries the current localized labels with the edition' do
+      expect(edition.metadata).to be_a(Ituob::Models::RegisterLocale)
+      expect(edition.metadata.to_hash).to eq(provider.locale(register: 'e212-mnc').to_hash)
+      restored = Ituob::Models::RegisterEdition.from_yaml(edition.to_yaml)
+      expect(restored.metadata.to_hash).to eq(edition.metadata.to_hash)
+      template = Liquid::Template.parse('{{ e.metadata.title.en }}')
+      expect(template.render!('e' => edition)).to eq(edition.metadata.title.en)
+    end
+
+    it 'keeps editions available when the register has no metadata file' do
+      Dir.mktmpdir do |root|
+        %w[catalogs ob-issues].each do |directory|
+          File.symlink(Ituob::DataRoot.join(directory), File.join(root, directory))
+        end
+        seed = File.join(root, register.seed_path)
+        FileUtils.mkdir_p(seed)
+        %w[data.yaml changes].each do |name|
+          File.symlink(Ituob::DataRoot.join(register.seed_path, name), File.join(seed, name))
+        end
+        without_metadata = described_class.new(data_root: root).edition(register: 'e212-mnc', as_of: 1170)
+
+        expect(without_metadata.items).not_to be_empty
+        expect(without_metadata.metadata).to be_nil
+      ensure
+        Ituob::DataRoot.configure(nil)
+      end
     end
 
     it 'maps the slug and the catalog id to the same register' do

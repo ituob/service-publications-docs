@@ -49,10 +49,10 @@ E-mail: mailto:tsbmail@itu.int[]
 
 == {blank}
 
-[yaml2text,data=../../datasets/1125-Q.708A/data.yaml,metadata=../../datasets/1125-Q.708A/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"q708-sanc","as_of":1125},"include_path":"."}]
 ----
 {% assign lang = "en" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 
 == Number of spare ITU-T Q.708 Signalling Area Network Codes (SANCs)
 

@@ -172,6 +172,7 @@ attribute :country, :string
       end
 
       def self.apply_footnotes(amendment, definitions, headings)
+        date_offsets = {}
         previous_limits = Hash.new(0)
         definitions.each do |definition|
           text, key, limit = definition.values_at(:text, :key, :action_count)
@@ -180,19 +181,30 @@ attribute :country, :string
           # definition closes the preceding group, including shared markers.
           candidates = amendment.actions[previous_limits[key]...limit]
           previous_limits[key] = limit
-          preceding_action = candidates.reverse.find { |candidate| candidate.entries.any? }
           amendment.notes << text
           date = text.match(/\A(?:\*+|\d{1,2}\)?)\s+As from\s+(\S.*)\z/i)
-          candidates.each do |parsed_action|
+          if date
+            # Reusing a marker starts a new date block after its prior definition.
+            date_entries = {}.compare_by_identity
+            definition[:entries].drop(date_offsets.fetch(key, 0)).each { |entry| date_entries[entry] = true }
+            date_offsets[key] = definition[:entries].length
+            preceding_action = amendment.actions.reverse.find do |candidate|
+              candidate.entries.any? { |entry| date_entries.key?(entry) }
+            end
+          end
+          footnote_actions = date ? amendment.actions : candidates
+          footnote_actions.each do |parsed_action|
             parsed_action.entries.each do |entry|
+              next if date && !date_entries.key?(entry)
+
               reference = [headings[parsed_action], entry.country_or_area&.en,
                            entry.mcc_mnc_codes, entry.networks].compact.join(' ')
               markers = reference.scan(/\*+/)
-              numeric_marker = headings[parsed_action].to_s[/\b(?:ADD|SUP|LIR|REP)\s+(\d{1,2}\)?)\z/, 1]
-              markers << numeric_marker.delete_suffix(')') if numeric_marker
+              numbered = headings[parsed_action].to_s[/\b(?:ADD|SUP|LIR|REP)\s+(\d{1,2}\)?)\z/, 1]
+              numbered = numbered.delete_suffix(')') if numbered
+              markers << numbered if numbered
               marked = markers.include?(key)
-              unmarked_preceding = markers.empty? && parsed_action.equal?(preceding_action)
-              next unless marked || (date && unmarked_preceding)
+              next unless marked || (date && markers.empty? && parsed_action.equal?(preceding_action))
 
               entry.note = MultilingualString.new(en: [entry.note&.en, text].compact.join("\n"))
               entry.effective_date = date[1].strip if date
@@ -252,7 +264,8 @@ attribute :country, :string
             end
 
             if (definition = footnote_definition(stripped))
-              definitions << { text: stripped, key: definition[:key], action_count: amendment.actions.length }
+              definitions << { text: stripped, key: definition[:key], action_count: amendment.actions.length,
+                               entries: amendment.actions.flat_map(&:entries) }
               next
             end
             if definitions.any? && stripped.match?(/\A(?:Then\b|["“]\d{3}\s\d+)/)
@@ -413,7 +426,8 @@ attribute :country, :string
               block = rowspan_heading([Array(row[0]).join(' ')] + row.drop(1).flatten)
               if row.drop(1).flatten.all? { |cell| cell.to_s.match?(BLANK_CELL) } &&
                   (definition = footnote_definition(printed))
-                definitions << { text: printed, key: definition[:key], action_count: amendment.actions.length }
+                definitions << { text: printed, key: definition[:key], action_count: amendment.actions.length,
+                                 entries: amendment.actions.flat_map(&:entries) }
                 next
               end
               # Title and column header rows are not data unless they open a country block.
@@ -424,10 +438,10 @@ attribute :country, :string
               if block
                 # "«country» ACTION" opens an action for the code/network
                 # rows below it; its own code and network cells are blank.
-                # It is not an entry. A country SUP block replaces the
-                # listed codes with the rows printed below it.
+                # It is not an entry; preserve the printed action for
+                # the code/network rows below it.
                 action = open_heading_action(amendment, action)
-                action.action_type = block[:action] == 'SUP' ? 'REP' : block[:action]
+                action.action_type = block[:action]
                 last_country = block[:country]
                 headings[action] = printed
                 next

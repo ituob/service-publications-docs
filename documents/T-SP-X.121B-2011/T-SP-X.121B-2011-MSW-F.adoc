@@ -38,10 +38,10 @@ link:https://www.itu.int/itu-t/bulletin/annex.html[]
 
 == {blank}
 
-[data2text,data=../../datasets/977-X.121B/data.yaml,metadata=../../datasets/977-X.121B/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"x121-dnic","as_of":977}}]
 ----
 {% assign lang = "fr" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 
 == AMENDMENTS
 

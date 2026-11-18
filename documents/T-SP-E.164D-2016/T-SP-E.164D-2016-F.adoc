@@ -38,10 +38,48 @@ E-mail: mailto:tsbmail@itu.int[]
 
 
 
-[yaml2text,data=../../datasets/1114-E.164D/data.yaml,metadata=../../datasets/1114-E.164D/metadata.yaml,data_n=../../datasets/1114-E.164D-Note-N/data.yaml,metadata_n=../../datasets/1114-E.164D-Note-N/metadata.yaml,data_o=../../datasets/1114-E.164D-Note-O/data.yaml,metadata_o=../../datasets/1114-E.164D-Note-O/metadata.yaml,data_pq=../../datasets/1114-E.164D-Note-PQ/data.yaml,metadata_pq=../../datasets/1114-E.164D-Note-PQ/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e164-cc","as_of":1114},"include_path":"."}]
 ----
 {% assign lang = "fr" %}
-{% render "tables", data: data, metadata: metadata, metadata_n: metadata_n, metadata_o: metadata_o, metadata_pq: metadata_pq, lang: lang %}
+{% render "tables", data: edition.items, metadata: edition.metadata, lang: lang %}
+----
+
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e164-cc","as_of":1114},"include_path":"."}]
+----
+{% render "note_heading", data: edition.items, lang: "fr", letter: "n", note_prefix: "Associated with shared country code 881" %}
+----
+
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e164-note-n","as_of":1114},"include_path":"."}]
+----
+{% render "note_n", data: edition.items, metadata: edition.metadata, lang: "fr" %}
+----
+--
+
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e164-cc","as_of":1114},"include_path":"."}]
+----
+{% render "note_heading", data: edition.items, lang: "fr", letter: "o", note_prefix: "Associated with shared country code 882" %}
+----
+
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e164-note-o","as_of":1114},"include_path":"."}]
+----
+{% render "note_o", data: edition.items, metadata: edition.metadata, lang: "fr" %}
+----
+--
+
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e164-cc","as_of":1114},"include_path":"."}]
+----
+{% render "note_heading", data: edition.items, lang: "fr", letter: "p", note_prefix: "Associated with shared country code 883" %}
+----
+
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e164-note-pq","as_of":1114},"include_path":"."}]
+----
+{% render "note_p", data: edition.items, metadata: edition.metadata, lang: "fr" %}
+----
+--
+
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e164-cc","as_of":1114},"include_path":"."}]
+----
+{% render "note_heading", data: edition.items, lang: "fr", letter: "q", note_prefix: "This designation is without prejudice t" %}
 
 == Indicatifs de réserve qui peuvent être attribués comme indicatifs de pays ou indicatifs du service mondial
 

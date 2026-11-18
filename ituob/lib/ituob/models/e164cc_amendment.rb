@@ -29,21 +29,29 @@ attribute :notes, :string, collection: true
       # Walk state for one document parse — the active action. Held in
       # a plain object so parse keeps no class-level state (reentrant).
       class State
-        attr_accessor :action, :pending_actions
+        attr_accessor :action, :date_actions, :table_headings
+
+        def initialize
+          @date_actions = []
+          @table_headings = []
+        end
       end
 
-      def self.apply_date_footnote(text, amendment, pending_actions)
-        printed_date = /(?:\d{1,2}\s+[A-Za-z]+\s+\d{4}|\d{1,2}\.[IVX]+\.\d{4})/
-        date = text.match(/\A(\*+)\s*(?:As from\s+)?(#{printed_date}(?:;\s*#{printed_date})*)\z/i)
+      def self.apply_date_footnote(text, amendment, actions)
+        date_pattern = /\d{1,2}(?:\s+[A-Za-z]+\s+|\.[IVXLCDM]+\.)\d{4}/
+        date = text.match(/\A(\*+)\s*(?:As from\s+)?(#{date_pattern}(?:;\s*#{date_pattern})*)\z/i)
         return false unless date
 
         amendment.notes << text
-        pending_actions.delete_if do |action|
-          next false unless action.position.to_s[/\*+\z/] == date[1]
-
-          action.entries.each { |entry| entry.effective_date = date[2] }
-          true
+        matching = actions.select { |position, _entries| position.to_s.reverse[/\A\*+/] == date[1] }
+        # A list of dates does not identify which date belongs to which row.
+        # Keep the printed footnote rather than inventing that association.
+        unless date[2].include?(';')
+          matching.each do |_position, entries|
+            entries.each { |entry| entry.effective_date = date[2] }
+          end
         end
+        actions.reject! { |action| matching.include?(action) }
         true
       end
 
@@ -56,7 +64,6 @@ attribute :notes, :string, collection: true
         doc = Prosereflect::Parser.parse_document(hash)
 
         state = State.new
-        state.pending_actions = []
         state.action = E164CCAction.new
         state.action.entries = []
         amendment.actions << state.action
@@ -73,8 +80,10 @@ attribute :notes, :string, collection: true
           if first_elem.is_a?(String)
             fixed_str = Ituob::Helpers.normalize_whitespace(c.join(' '))
 
-            if apply_date_footnote(fixed_str, amendment, state.pending_actions)
+            if apply_date_footnote(fixed_str, amendment, state.date_actions)
               next
+            elsif fixed_str.match?(/\ANotes common\b/i)
+              state.date_actions.clear
             elsif fixed_str.start_with?('Associated with shared country code ')
               amendment.notes << fixed_str
             elsif (country_row = fixed_str.match(/\A(\d{3})\s+(\p{Lu}.*)\z/)) && state.action.action_type
@@ -89,10 +98,13 @@ attribute :notes, :string, collection: true
             elsif fixed_str.match?(/\A(?:P\s*\d+|Note\s|country code\s|(?:ADD|SUP|REP|LIR)\s+notes?\s)/i)
               amendment.notes << fixed_str if fixed_str.match?(/\A(?:ADD|SUP|REP|LIR)\s+notes?\s+[a-z]\b/i)
               if state.action.entries.any?
-                state.pending_actions << state.action
                 state.action = E164CCAction.new
                 state.action.entries = []
                 amendment.actions << state.action
+              end
+              state.date_actions.clear unless fixed_str.end_with?('*')
+              if state.action.position.to_s.include?('+') && fixed_str.include?('+')
+                state.table_headings << state.action.position
               end
               state.action.position = fixed_str
               state.action.note = fixed_str[/Note\s+([a-z])\)/i, 1]
@@ -100,13 +112,20 @@ attribute :notes, :string, collection: true
             end
 
           elsif first_elem.is_a?(Array) # table
-            state.pending_actions << state.action
+            date_groups = (state.table_headings + [state.action.position]).map { |position| [position, []] }
+            state.date_actions.concat(date_groups.select { |position, _entries| position.to_s.end_with?('*') })
             trial_table = c[0].flatten.join(' ').include?('Trial Identification Code')
             c[1..].each do |row|
               segs = row.map { |cell| cell.is_a?(Array) ? cell.join(' ').strip : cell.to_s.strip }
               footnote = Ituob::Helpers.normalize_whitespace(segs.join(' '))
-              next if apply_date_footnote(footnote, amendment, state.pending_actions)
+              next if apply_date_footnote(footnote, amendment, state.date_actions)
               next unless row.length >= 3
+              # Several headings can share one table; each heading explicitly
+              # lists the codes governed by its action and footnote marker.
+              row_code = trial_table || row.length == 3 ? segs[1] : segs[2]
+              date_group = date_groups.find do |position, _entries|
+                position.to_s.scan(/\+\d{3}\s*\d+/).include?(row_code)
+              end || date_groups.last
               entry = E164CCEntry.new
               if row.length == 3 && segs[0].match?(/\A\d{3}\z/)
                 entry.country_code = segs[0]
@@ -139,8 +158,10 @@ attribute :notes, :string, collection: true
                 entry.notes << state.action.note if state.action.note
               end
               state.action.entries << entry
+              date_group.last << entry
               entries << [index, entry]
             end
+            state.table_headings.clear
             state.action = E164CCAction.new
             state.action.entries = []
             amendment.actions << state.action

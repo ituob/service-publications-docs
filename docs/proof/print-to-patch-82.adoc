@@ -57,8 +57,8 @@ dependency. Remaining unrelated unmapped lines are retained in the report.
   their printed strings. A shared marker applies to all pending matching
   actions; consuming a definition prevents a later reused marker overwriting it.
 * OB 1161 prints two dates in a single footnote without per-row keys. The exact
-  two-date string is retained with the marked rows and amendment notes; no
-  unprinted per-row date assignment is inferred.
+  two-date string is retained in amendment notes without assigning a date
+  to either marked row; no unprinted per-row date assignment is inferred.
 * Both numerical/alphabetical South Sudan announcements retain code 211,
   country name and their printed action positions. The withdrawal introduction
   remains register amendment metadata in the action patches.
@@ -116,3 +116,47 @@ Hosted RSpec found one stale OB 989 characterization expectation: the old
 page-only `P 17` value omitted the printed note, codes, operator and marker.
 The expectation now pins that complete heading. The affected registered-parser
 behavior file passes all nine focused examples; parser/data output is unchanged.
+
+== Integration with merged PR 131
+
+Merged `origin/main` at `3657ca75`, which contains PR 131 through `24fb5647`,
+into this branch with a merge commit. Parser/spec conflicts retain the
+82-line work and main's marker-block, ambiguous-date and anchored-scan fixes.
+Generated conflicts are resolved by rebuilding and normalizing all 75 E.164
+source issue trees and the affected E.212 issue trees, then regenerating
+their routed changes, parser baselines and coverage evidence.
+
+OB 1161 retains the ambiguous two-date footnote only in amendment notes.
+OB 1240 binds each row to the date for its printed code heading.
+The post-merge recount remains 56 unmapped, including zero E.164 and two
+E.212 lines. All original 88 resolution rows remain accounted for:
+80 structured, two values-only and six excluded layout rows.
+
+The prepared integrity correction removes OB 1349's empty E.164 action
+and its keyless derived change, and applies the reviewed allowlist
+correction for the preserved historical changes. Normalizing the affected
+E.164 issue trees also removes the remaining empty glossary-only actions.
+
+Regeneration exposed a parser-only SUP-to-REP remapping of E.212 country
+headings. Removing it preserves the printed action and reproduces the
+existing certified SUP patches, including OB 1210's seven Netherlands rows.
+The baseline records this action-type correction in 116 E.212 issues;
+their certified patch rows and printed action labels are preserved.
+
+Final focused checks after integration: parser and registered behavior,
+140 examples; normalizers and coverage, 49; patch integration and schema,
+nine. All pass. Parser `--verify` returns `EQUIVALENT`. The 116 E.212
+issue trees regenerated after the action-type correction reproduce the
+certified SUP patches exactly. No entry data changes in that recapture.
+
+Final direct integrity replay: 21 registers, 2,766 replay findings, all
+2,766 allowlisted, zero errors. The coverage recount is 56 unmapped.
+The repository's global `.rspec` pattern expanded an initial targeted
+invocation; that run was interrupted. The focused results above use
+`--options /dev/null`. No full suite was completed and no PDF was rendered
+locally. RuboCop is unavailable in the bundle.
+
+focused-quality: final assigned diff and combined parser/normalizer/data
+interactions; resolved the OB 1210 printed-SUP remapping found during
+regeneration, with a red-before/green-after regression; no remaining
+actionable finding.

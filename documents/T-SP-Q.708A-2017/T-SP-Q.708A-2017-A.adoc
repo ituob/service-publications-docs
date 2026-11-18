@@ -62,10 +62,10 @@ Switzerland +
 
 == {blank}
 
-[yaml2text,data=../../datasets/1125-Q.708A/data.yaml,metadata=../../datasets/1125-Q.708A/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"q708-sanc","as_of":1125},"include_path":"."}]
 ----
 {% assign lang = "ar" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 
 == ITU T Q.708 وفقاً للتوصية (SANC) عدد الرموز الدليلية الاحتياطية لمناطق/شبكات التشوير
 

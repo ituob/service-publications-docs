@@ -10,7 +10,12 @@ module Ituob
       class Add < Base
         def self.validate!(builder, change, key, row = nil)
           return unless builder.entries.key?(key)
-          return unless row.nil?
+
+          unless row.nil?
+            builder.record_issue('duplicate-add', change,
+                                 "ADD #{key.inspect} re-publishes a key already in register #{change.register_id}")
+            return
+          end
 
           raise StrategyError,
                 "ADD conflict: key #{key.inspect} already exists in register #{change.register_id}"

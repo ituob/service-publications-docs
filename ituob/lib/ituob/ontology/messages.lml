@@ -1013,6 +1013,7 @@ models Ituob {
   }
 
   class RegisterEdition {
+    attribute metadata, RegisterLocale { cardinality 0..1 }
     attribute provenance, ProjectionProvenance { cardinality 1 }
     attribute items, Entry { cardinality 0..n }
     attribute source_contexts, F32SeedContext { cardinality 0..n }
