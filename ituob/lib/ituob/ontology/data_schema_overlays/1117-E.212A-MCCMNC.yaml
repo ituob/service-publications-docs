@@ -1,0 +1,19 @@
+---
+description: Schema for ITU Operational Bulletin E.212A MCC/MNC data
+items:
+  required:
+  - mcc_mnc
+  - network
+  - status
+  additionalProperties: false
+  properties:
+    mcc_mnc:
+      description: Mobile Country Code (MCC) and Mobile Network Code (MNC)
+    network:
+      description: Name of the network operator or service provider
+    status:
+      description: Assignment status of the MCC/MNC combination
+      enum:
+      - assigned
+    former_name:
+      description: Previous name of the network operator, if applicable

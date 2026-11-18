@@ -1,56 +1,58 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (F68Entry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 978-F.68
-description: ITU OB Dataset Schema for 978-F.68
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for F.68 (generated from LML F68Entry)
+x-lml-model: F68Entry
 type: array
 items:
   type: object
-  required:
-    - number_block
-    - allocated_to
   additionalProperties: false
   properties:
     number_block:
       type: string
-      description: "Telex Destination Code (TDC) - can be a single code or a range"
+      description: Telex Destination Code (TDC) - can be a single code or a range
     telex_code:
       type: string
-      description: "Telex Network Identification Code (TNIC)"
+      description: Telex Network Identification Code (TNIC)
     allocated_to:
       type: object
-      required:
-        - en
-        - fr
-        - es
       additionalProperties: false
       properties:
         en:
           type: string
-          description: "English description of allocation"
+          description: English description of allocation
         fr:
           type: string
-          description: "French description of allocation"
+          description: French description of allocation
         es:
           type: string
-          description: "Spanish description of allocation"
+          description: Spanish description of allocation
+      required:
+      - en
+      - fr
+      - es
     integrated_numbering_plan:
       type: boolean
-      description: "Indicates if the numbering plan is integrated with the TNIC"
+      description: Indicates if the numbering plan is integrated with the TNIC
     notes:
       type: object
-      required:
-        - en
-        - fr
-        - es
       additionalProperties: false
       properties:
         en:
           type: string
-          description: "Notes in English"
+          description: Notes in English
         fr:
           type: string
-          description: "Notes in French"
+          description: Notes in French
         es:
           type: string
-          description: "Notes in Spanish"
+          description: Notes in Spanish
+      required:
+      - en
+      - fr
+      - es
+  required:
+  - number_block
+  - allocated_to
+description: ITU OB Dataset Schema for 978-F.68

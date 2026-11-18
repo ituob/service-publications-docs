@@ -1,0 +1,38 @@
+---
+description: ITU OB Dataset Schema for 1162 E.212 Shared MCC/MNC Others
+items:
+  required:
+  - mcc_mnc_codes
+  - applicant
+  - purpose
+  additionalProperties: false
+  properties:
+    mcc_mnc_codes:
+      description: Mobile Country Code (MCC) and Mobile Network Code (MNC)
+    applicant:
+      description: Applicant or Network name
+    purpose:
+      additionalProperties: false
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
+      properties:
+        en:
+          description: Purpose description in English
+        fr:
+          description: Purpose description in French
+        es:
+          description: Purpose description in Spanish
+        ru:
+          description: Purpose description in Russian
+        zh:
+          description: Purpose description in Chinese
+        ar:
+          description: Purpose description in Arabic
+    temporary_assignment_to:
+      format: date
+      description: Optional end date for temporary assignments (YYYY-MM-DD)

@@ -1,0 +1,42 @@
+---
+description: Schema for ITU-T F.1 telex service codes data
+additionalProperties: false
+items:
+  required:
+  - code
+  - field
+  - message
+  description: Schema for Countries or geographical areas for which information regarding
+    cessation of telex service has been published in the ITU Operational Bulletin
+    (No.) data
+  properties:
+    code:
+      description: The unique service code identifier
+    field:
+      description: The category or field to which the code belongs
+    field_desc:
+      description: Optional description of the field in multiple languages
+      required:
+      - en
+      - fr
+      - es
+      properties:
+        en:
+          description: English description
+        fr:
+          description: French description
+        es:
+          description: Spanish description
+    message:
+      description: The message content in multiple languages
+      required:
+      - en
+      - fr
+      - es
+      properties:
+        en:
+          description: English message text
+        fr:
+          description: French message text
+        es:
+          description: Spanish message text

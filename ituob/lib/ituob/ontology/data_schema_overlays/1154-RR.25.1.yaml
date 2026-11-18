@@ -1,0 +1,141 @@
+---
+description: ITU OB Dataset Schema for 1154-RR.25.1
+items:
+  required:
+  - groups
+  - country_or_area
+  additionalProperties: false
+  properties:
+    country_or_area:
+      description: Country or geographical area the row applies to
+    groups:
+      description: Groups information
+      required:
+      - amateur
+      properties:
+        amateur:
+          description: Amateur group information
+          items:
+            required:
+            - regex
+            additionalProperties: false
+            properties:
+              name:
+                description: Name of the group
+              regex:
+                description: Regular expression for group
+              description:
+                description: English prose form of the call signs, as printed in the
+                  official publication (rendered instead of the regex in English)
+              criteria:
+                description: Criteria for group
+                items:
+                  required:
+                  - segment_type
+                  additionalProperties: false
+                  properties:
+                    segment_type:
+                      description: Type of segment
+                      enum:
+                      - enum
+                      - range
+                      - string
+                      - codelist
+                    cardinality:
+                      description: Cardinality for the segment
+                    key:
+                      description: Key for the segment type
+                    value:
+                      description: Value for the "string" segment type
+                    values:
+                      description: Values for the "enum" segment type
+                      items: {}
+                    range:
+                      description: Range for the "range" segment type
+                      additionalProperties: false
+                      properties:
+                        from:
+                          description: Starting value of the range
+                        to:
+                          description: Ending value of the range
+                        cardinality:
+                          description: Cardinality for the "range" segment
+                    codelist:
+                      description: Codelist for the "codelist" segment type
+        experimental:
+          description: Experimental group information
+          items:
+            required:
+            - regex
+            additionalProperties: false
+            properties:
+              name:
+                description: Name of the group
+              regex:
+                description: Regular expression for group
+              description:
+                description: English prose form of the call signs, as printed in the
+                  official publication (rendered instead of the regex in English)
+              criteria:
+                description: Criteria for group
+                items:
+                  required:
+                  - segment_type
+                  additionalProperties: false
+                  properties:
+                    segment_type:
+                      description: Type of segment
+                      enum:
+                      - enum
+                      - range
+                      - string
+                      - codelist
+                    cardinality:
+                      description: Cardinality for the segment
+                    key:
+                      description: Key for the segment type
+                    value:
+                      description: Value for the "string" segment type
+                    values:
+                      description: Values for the "enum" segment type
+                      items: {}
+                    range:
+                      description: Range for the "range" segment type
+                      additionalProperties: false
+                      properties:
+                        from:
+                          description: Starting value of the range
+                        to:
+                          description: Ending value of the range
+                        cardinality:
+                          description: Cardinality for the "range" segment
+                    codelist:
+                      description: Codelist for the "codelist" segment type
+    codelists:
+      items:
+        required:
+        - name
+        additionalProperties: false
+        properties:
+          name:
+            description: Name of the codelist
+          list:
+            items:
+              required:
+              - code
+              properties:
+                code:
+                  oneOf:
+                  - type: string
+                  - type: object
+                    properties:
+                      from:
+                        type: string
+                        description: Starting value of the code
+                      to:
+                        type: string
+                        description: Ending value of the code
+                    additionalProperties: false
+    notes:
+      description: Notes for the dataset
+      items: {}

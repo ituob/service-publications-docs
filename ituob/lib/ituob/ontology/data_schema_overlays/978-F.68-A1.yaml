@@ -1,0 +1,44 @@
+---
+description: ITU OB Dataset Schema for 978-F.68 Appendix 1
+items:
+  required:
+  - tnic_code
+  - telegram_network_codes
+  - country
+  - number_block
+  - allocated_to
+  additionalProperties: false
+  properties:
+    tnic_code:
+      description: Telex Network Identification Code (TNIC), single letter
+    telegram_network_codes:
+      description: Two-letter telegram network codes, may contain multiple codes separated
+        by commas
+    country:
+      required:
+      - en
+      - fr
+      - es
+      additionalProperties: false
+      properties:
+        en:
+          description: Country name in English
+        fr:
+          description: Country name in French
+        es:
+          description: Country name in Spanish
+    number_block:
+      description: Block identifier for the TNIC code
+    allocated_to:
+      required:
+      - en
+      - fr
+      - es
+      additionalProperties: false
+      properties:
+        en:
+          description: Entity allocated to in English
+        fr:
+          description: Entity allocated to in French
+        es:
+          description: Entity allocated to in Spanish

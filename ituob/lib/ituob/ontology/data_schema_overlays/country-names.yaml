@@ -1,0 +1,23 @@
+---
+description: ITU OB Dataset Schema for ITU country names
+items:
+  required:
+  - key
+  - name
+  additionalProperties: false
+  properties:
+    key:
+      description: Short key for country
+    name:
+      description: Localized country or geographical area names
+      required:
+      - en
+      - fr
+      - es
+      properties:
+        en:
+          description: English name
+        fr:
+          description: French name
+        es:
+          description: Spanish name
