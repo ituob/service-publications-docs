@@ -15,17 +15,9 @@ data:
     company_name: Compax Software Development GmbH
     carrier_code: COMPAX
     contact: Mr. Thorsten Muerell
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Friedensstrasse 20
-    contact: 'Tel.: +49 175 8373158'
+    address_line_1: Friedensstrasse 20
     tel: "+49 175 8373158"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 63179 OBERTSHAUSEN
-    contact: 'E-mail: thorsten.muerell@compax.at'
+    address_line_2: 63179 OBERTSHAUSEN
     email:
     - thorsten.muerell@compax.at
   - iso_code: DEU
@@ -35,17 +27,9 @@ data:
     carrier_code: SEWKOM
     contact: 'Tel.: +49 5273 3676400'
     tel: "+49 5273 3676400"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Unter der Schirmeke 3
-    contact: 'Fax: +49 5273 3676330'
+    address_line_1: Unter der Schirmeke 3
     fax: "+49 5273 3676330"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 37688 BEVERUNGEN
-    contact: 'E-mail: info@sewikom.de'
+    address_line_2: 37688 BEVERUNGEN
     email:
     - info@sewikom.de
   - iso_code: DEU
@@ -54,22 +38,10 @@ data:
     company_name: Unify Deutschland GmbH & Co.KG
     carrier_code: UNIFY
     contact: Mr. Stefan Schmidbauer
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Hofmannstrasse 63
-    contact: 'Tel.: +49 89 7007-21454'
+    address_line_1: Hofmannstrasse 63
     tel: "+49 89 7007-21454"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 81379 MUENCHEN
-    contact: 'Fax: +49 89 7007-1421454'
+    address_line_2: 81379 MUENCHEN
     fax: "+49 89 7007-1421454"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail: stefan.schmidbauer@unify.com'
     email:
     - stefan.schmidbauer@unify.com
   notes: []

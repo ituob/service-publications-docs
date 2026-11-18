@@ -14,22 +14,10 @@ data:
     company_name: outbox AG
     carrier_code: OUTBOX
     contact: Mike Behrendt
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (República Federal de)
-    company_name: Emil-Hoffmann-Strasse 1 a
-    contact: 'Tel:         + 49 2236 303 7000'
+    address_line_1: Emil-Hoffmann-Strasse 1 a
     tel: "+ 49 2236 303 7000"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (República Federal de)
-    company_name: 50996 KOLN
-    contact: 'Fax:        + 49 2236 303 7001'
+    address_line_2: 50996 KOLN
     fax: "+ 49 2236 303 7001"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (República Federal de)
-    contact: 'E-mail:  noc@outbox.de'
     email:
     - noc@outbox.de
   notes: []

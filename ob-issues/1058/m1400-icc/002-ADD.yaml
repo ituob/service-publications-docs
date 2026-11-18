@@ -14,22 +14,10 @@ data:
     company_name: DNS:NET Internet Service GmbH
     carrier_code: D N S N E T
     contact: Mr. Henrik Martens-Erbach
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Zimmerstrasse 23
-    contact: 'Tel:           + 49 30 66765 167'
+    address_line_1: Zimmerstrasse 23
     tel: "+ 49 30 66765 167"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 10969  Berlin
-    contact: 'Fax:           + 49 30 66765 499'
+    address_line_2: 10969  Berlin
     fax: "+ 49 30 66765 499"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:     henrik.martens-erbach@dns-net.de'
     email:
     - henrik.martens-erbach@dns-net.de
   notes: []

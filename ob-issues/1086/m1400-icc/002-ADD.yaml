@@ -11,14 +11,10 @@ data:
   - company_name: envia TEL GmbH
     carrier_code: ETEL
     contact: Mr. Peter Zech
-  - company_name: Friedrich-Ebert-Strasse 26
-    contact: 'Tel:            +49 355 68 1214'
+    address_line_1: Friedrich-Ebert-Strasse 26
     tel: "+49 355 68 1214"
-  - company_name: 04416 MARKKLEEBERG
-    contact: 'Fax:           +49 355 68 2500'
+    address_line_2: 04416 MARKKLEEBERG
     fax: "+49 355 68 2500"
-  - contact: 'E-mail:      peter.zech@enviatel.de'
-    tel: 'E-mail:      peter.zech@enviade'
     email:
     - peter.zech@enviatel.de
   notes: []

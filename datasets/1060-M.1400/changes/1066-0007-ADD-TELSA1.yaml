@@ -5,32 +5,16 @@ ob_issue_no: '1066'
 identifier:
   code: TELSA1
 data:
-  _class: M1400Amendment
-  entries:
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: telsakom GmbH
-    carrier_code: TELSA1
-    contact: Dr. Helmut Giger
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Talstrasse 39
-    contact: 'Tel:          +49 170 9118189'
-    tel: "+49 170 9118189"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 77887 SASBACHWALDEN
-    contact: 'Fax:         +49 6032 970180'
-    fax: "+49 6032 970180"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:   helmut.giger@telsakom.de'
-    tel: 'E-mail:   helmut.giger@sakom.de'
-    email:
-    - helmut.giger@telsakom.de
-  notes: []
+  iso_code: DEU
+  country_or_area:
+    en: Germany (Federal Republic of)
+  company_name: telsakom GmbH
+  carrier_code: TELSA1
+  contact: Dr. Helmut Giger
+  address_line_1: Talstrasse 39
+  tel: "+49 170 9118189"
+  address_line_2: 77887 SASBACHWALDEN
+  fax: "+49 6032 970180"
+  email:
+  - helmut.giger@telsakom.de
 reference: OB-1066

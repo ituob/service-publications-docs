@@ -5,27 +5,16 @@ ob_issue_no: '1013'
 identifier:
   code: GIBCS
 data:
-  _class: M1400Amendment
-  entries:
-  - country_or_area:
-      en: Gibraltar
-    company_name: CTS (Gibraltar) Limited
-    carrier_code: GIBCS
-    contact: Mr. Alex CABALLERO
-  - country_or_area:
-      en: Gibraltar
-    company_name: 48 Royal Ocean Plaza
-    contact: 'Tel:            +350 216 51 500'
-    tel: "+350 216 51 500"
-  - country_or_area:
-      en: Gibraltar
-    company_name: OCEAN VILLAGE
-    contact: 'Fax:           +350 216 51 502'
-    fax: "+350 216 51 502"
-  - country_or_area:
-      en: Gibraltar
-    contact: 'E-mail:     alexc@cts-europe.com'
-    email:
-    - alexc@cts-europe.com
-  notes: []
+  iso_code: GIB
+  country_or_area:
+    en: Gibraltar
+  company_name: CTS (Gibraltar) Limited
+  carrier_code: GIBCS
+  contact: Mr. Alex CABALLERO
+  address_line_1: 48 Royal Ocean Plaza
+  tel: "+350 216 51 500"
+  address_line_2: OCEAN VILLAGE
+  fax: "+350 216 51 502"
+  email:
+  - alexc@cts-europe.com
 reference: OB-1013

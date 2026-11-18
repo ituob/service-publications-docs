@@ -14,22 +14,10 @@ data:
     company_name: Versorgungsbetriebe Bordesholm GmbH
     carrier_code: VBBGFA
     contact: Mr. Christian Herold
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Bahnhofstrasse 13
-    contact: 'Tel.:           +49 4322 697737'
+    address_line_1: Bahnhofstrasse 13
     tel: "+49 4322 697737"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 24582 BORDESHOLM
-    contact: 'Fax:           +49 4322 697763'
+    address_line_2: 24582 BORDESHOLM
     fax: "+49 4322 697763"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:      herold@vb-bordesholm-gmbh.de'
     email:
     - herold@vb-bordesholm-gmbh.de
   notes: []

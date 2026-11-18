@@ -42,22 +42,10 @@ data:
     company_name: QSC AG
     carrier_code: QSC
     contact: Carrier Management
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Matthias-Brueggen-Strasse 55
-    contact: 'Tel:           +49 221 6698 000'
+    address_line_1: Matthias-Brueggen-Strasse 55
     tel: "+49 221 6698 000"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: D-50829 COLOGNE
-    contact: 'Fax:          +49 221 6698 009'
+    address_line_2: D-50829 COLOGNE
     fax: "+49 221 6698 009"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:     info@qsc.de'
     email:
     - info@qsc.de
   - iso_code: DEU
@@ -66,23 +54,10 @@ data:
     company_name: Telemark Telekommunikationsgesellschaft         Mark mbH (Telemark)
     carrier_code: TELEMK
     contact: Stefan Doebbe
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Lennestrasse 2
-    contact: 'Tel:           +49 235 1157 21307'
+    address_line_1: Lennestrasse 2
     tel: "+49 235 1157 21307"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: D-58507 LUEDENSCHEID
-    contact: 'Fax:          +49 235 1157 11363'
+    address_line_2: D-58507 LUEDENSCHEID
     fax: "+49 235 1157 11363"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:     s.doebbe@telemark.de'
-    tel: 'E-mail:     s.doebbe@emark.de'
     email:
     - s.doebbe@telemark.de
   notes: []

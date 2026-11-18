@@ -15,22 +15,10 @@ data:
     company_name: BWnet GmbH
     carrier_code: BWNET
     contact: Mr Dirk Jentzsch
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Goethestrasse 5
-    contact: 'Tel.:          +49 71189471000'
+    address_line_1: Goethestrasse 5
     tel: "+49 71189471000"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 73525 SCHWAEBISCH GMUEND
-    contact: 'Fax:          +49 71189471095'
+    address_line_2: 73525 SCHWAEBISCH GMUEND
     fax: "+49 71189471095"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:    Dirk.Jentzsch@ropa.de'
     email:
     - Dirk.Jentzsch@ropa.de
   notes: []
