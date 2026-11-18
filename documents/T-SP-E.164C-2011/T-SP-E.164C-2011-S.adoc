@@ -74,10 +74,10 @@ contiene no implican, de parte de la UIT, juicio alguno sobre la condición jur�
 geográficas, o de sus autoridades.
 
 
-[yaml2text,data=../../datasets/994-E.164C/data.yaml,metadata=../../datasets/994-E.164C/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"dp","as_of":994}}]
 ----
 {% assign lang = "es" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 
 == ENMIENDAS
 

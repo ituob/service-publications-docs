@@ -27,6 +27,11 @@ jobs:
       - name: Cache Metanorma assets
         uses: actions-mn/cache@v1
 
+      - name: Prepare Metanorma data provider
+        run: |
+          METANORMA_GEMFILE="${BUNDLE_GEMFILE:-/setup/Gemfile}" \
+          env -u RUBYOPT -u BUNDLE_GEMFILE ruby scripts/prepare_metanorma_provider.rb
+
       - name: Metanorma generate site
         uses: actions-mn/build-and-publish@main
         with:

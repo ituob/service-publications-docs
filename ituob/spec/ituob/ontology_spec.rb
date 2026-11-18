@@ -301,8 +301,9 @@ RSpec.describe 'Ituob model ontology (ituob/ontology/messages.lml)' do
         end)
           .to eq([['001 | 01', 'SEED', 669, 'seed'], ['002 | 01', 'ADD', 700, '002 | 01'],
                   ['003 | 01', 'ADD', 701, '003 | 01'], ['002 | 01', 'DEL', 702, '002 | 01']])
+        expect(restored.metadata).to be_nil
         expect(restored.class.attributes.keys).to contain_exactly(
-          :provenance, :items, :source_contexts, :lapsed_keys, :deleted_keys, :key_history
+          :metadata, :provenance, :items, :source_contexts, :lapsed_keys, :deleted_keys, :key_history
         )
       end
     end

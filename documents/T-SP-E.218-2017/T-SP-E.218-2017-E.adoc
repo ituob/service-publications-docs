@@ -38,10 +38,10 @@ Email: mailto:tsbmail@itu.int[]
 . The designations employed and the presentation of material in this List do not imply the expression of any opinion whatsoever on the part of ITU concerning the legal status of any country or geographical area, or of its authorities.
 
 
-[yaml2text,data=../../datasets/1125-E.218/data.yaml,metadata=../../datasets/1125-E.218/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"e218-trcc","as_of":1125},"include_path":"."}]
 ----
 {% assign lang = "en" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 
 == AMENDMENTS
 

@@ -12,6 +12,8 @@ module Ituob
     # class, including textual/external registers.
     class RegisterItems
       class UnsupportedRegisterError < ArgumentError; end
+      class MissingSeedError < ArgumentError; end
+      class InvalidSeedError < ArgumentError; end
 
       def initialize(register:)
         @register = register
@@ -19,6 +21,32 @@ module Ituob
 
       def at_issue(issue)
         hydrate(state_at(issue))
+      end
+
+      # The published seed is an ordered list: shared identifiers are distinct
+      # printed rows, even though replay groups active membership by key.
+      def seed_items
+        model = entry_class
+        seed = change_source.each_sorted.find(&:seed?)
+        raise MissingSeedError, "Register #{@register.register_id} has no publication seed" unless seed
+
+        unless seed.data.is_a?(Array) && !seed.data.empty?
+          raise InvalidSeedError, "Register #{@register.register_id} publication seed must contain rows"
+        end
+
+        seed.data.each_with_index.map do |row, index|
+          unless row.is_a?(Hash) && !row.empty?
+            raise InvalidSeedError, "Register #{@register.register_id} publication seed row #{index + 1} must be a nonempty mapping"
+          end
+
+          item = model.from_hash(row.merge('_class' => model.name.split('::').last))
+          projected = item.to_hash
+          validate_publication_fields!(row, projected, "row #{index + 1}")
+          unless publication_content?(projected.reject { |key, _| key == '_class' })
+            raise InvalidSeedError, "Register #{@register.register_id} publication seed row #{index + 1} has no content"
+          end
+          item
+        end
       end
 
       # Replayed register state at the end of OB issue +issue+.
@@ -45,6 +73,39 @@ module Ituob
       end
 
       private
+
+      # Typed hydration must not silently discard a new publication column or
+      # nested language. Nulls and empty collections may be omitted by LML.
+      def validate_publication_fields!(source, result, path)
+        case source
+        when Hash
+          source.each do |key, value|
+            next if value.nil? || value == [] || value == {}
+
+            field = "#{path}.#{key}"
+            unless result.is_a?(Hash) && result.key?(key)
+              raise InvalidSeedError, "Register #{@register.register_id} publication seed loses #{field}"
+            end
+            validate_publication_fields!(value, result[key], field)
+          end
+        when Array
+          unless result.is_a?(Array) && source.size == result.size
+            raise InvalidSeedError, "Register #{@register.register_id} publication seed loses #{path}"
+          end
+          source.zip(result).each_with_index do |(value, projected), index|
+            validate_publication_fields!(value, projected, "#{path}[#{index}]")
+          end
+        end
+      end
+
+      def publication_content?(value)
+        case value
+        when Hash then value.any? { |_, field| publication_content?(field) }
+        when Array then value.any? { |field| publication_content?(field) }
+        when String then !value.strip.empty?
+        else !value.nil?
+        end
+      end
 
       def entry_class
         parser = Catalogs::Registers.parser_class_for(@register.register_id)

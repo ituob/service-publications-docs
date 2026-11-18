@@ -33,6 +33,8 @@ on:
       - 'ituob/spec/scripts/check_official_pdfs_spec.rb'
       - 'ituob/spec/scripts/pdf_fidelity_report_spec.rb'
       - 'ituob/lib/**'
+      - 'ituob/ituob.gemspec'
+      - 'scripts/prepare_metanorma_provider.rb'
       - '.github/workflows/pdf.yml'
     # The site fetches only push/workflow_dispatch runs on main, so the PDFs
     # reach ituob.org only from this trigger.
@@ -101,36 +103,10 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install the manifest gems
+      - name: Prepare Metanorma data provider
         run: |
-          set -eu
-          # The image has no working C compiler out of the box and already ships current
-          # builds of every native gem ituob needs (nokogiri, json,
-          # bigdecimal, ffi, parsanol) plus lutaml-model, lutaml-lml, thor,
-          # rubyzip and liquid. Installing ituob/Gemfile.lock instead would
-          # compile older pinned native gems and fail. Add only the
-          # pure-Ruby gems the image lacks, with the image's RUBYOPT and
-          # BUNDLE_GEMFILE (-rbundler/setup of /setup/Gemfile) removed so
-          # plain rubygems can resolve them.
-          env -u RUBYOPT -u BUNDLE_GEMFILE gem install --no-document json-schema colorize prosereflect
-          # metanorma restores the image's /setup/Gemfile bundle. Globally
-          # installed gems are hidden by Bundler until that bundle declares
-          # them too. Resolve locally to keep the image's native gems.
-          cat >> "$BUNDLE_GEMFILE" <<'GEMS'
-
-          gem "json-schema"
-          gem "colorize"
-          gem "prosereflect"
-          GEMS
-          bundle install --local
-          env -u RUBYOPT -u BUNDLE_GEMFILE ruby -I ituob/lib -e 'require "ituob"; require "ituob/models"; puts "ituob loads"'
-          # Exercise the lazy amendment models inside the render bundle;
-          # merely requiring ituob does not load their prosereflect dependency.
-          ruby -I ituob/lib -r liquid -r ituob -e '
-            edition = Ituob::Provider.new.edition(register: "e212-mnc", as_of: 1162)
-            abort "E.212 edition has no items" if edition.items.empty?
-            puts "E.212 render bundle: #{edition.items.size} items"
-          '
+          METANORMA_GEMFILE="${BUNDLE_GEMFILE:-/setup/Gemfile}" \
+          env -u RUBYOPT -u BUNDLE_GEMFILE ruby scripts/prepare_metanorma_provider.rb
 
       # The image embeds only Noto Sans/Serif and Arial, so Chinese prints as `#`
       # and Arabic loses glyphs. The A and C sources name their font in a

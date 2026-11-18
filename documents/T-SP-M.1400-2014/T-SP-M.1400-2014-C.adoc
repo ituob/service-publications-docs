@@ -58,10 +58,10 @@ E-mail: mailto:tsbtson@itu.int[]
 
 == {blank}
 
-[yaml2text,data=../../datasets/1060-M.1400/data.yaml,metadata=../../datasets/1060-M.1400/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"register":"m1400-icc","as_of":1060},"include_path":"."}]
 ----
 {% assign lang = "zh" %}
-{% render "table", data: data, metadata: metadata, lang: lang %}
+{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
 
 [%portrait]
 <<<
