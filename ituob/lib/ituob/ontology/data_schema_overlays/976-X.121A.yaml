@@ -1,0 +1,33 @@
+---
+description: ITU OB Dataset Schema for 976 X.121A
+items:
+  required:
+  - code
+  - zone
+  - country_or_area
+  additionalProperties: false
+  properties:
+    code:
+      description: Data country or geographical area code
+      pattern: "^[0-9]+$"
+    zone:
+      description: Zone number
+      pattern: "^[0-9]+$"
+    country_or_area:
+      description: Country or geographical area names in different languages
+      required:
+      - en
+      - fr
+      - es
+      additionalProperties: false
+      properties:
+        en:
+          description: Country or geographical area name in English
+        fr:
+          description: Country or geographical area name in French
+        es:
+          description: Country or geographical area name in Spanish
+    reserved:
+      description: Indicates if the code is reserved
+    spare:
+      description: Indicates if the code is reserved

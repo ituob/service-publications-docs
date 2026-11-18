@@ -1,0 +1,43 @@
+---
+description: ITU OB Dataset Schema for 978-F.68 Appendix 2
+items:
+  required:
+  - ob_number
+  - telex_code
+  - geographic_area
+  - number_block
+  - allocated_to
+  additionalProperties: false
+  properties:
+    ob_number:
+      description: ITU Operational Bulletin number
+    telex_code:
+      description: Telex Network Identification Code (TNIC)
+    geographic_area:
+      required:
+      - en
+      - fr
+      - es
+      additionalProperties: false
+      properties:
+        en:
+          description: Country or geographical area name in English
+        fr:
+          description: Country or geographical area name in French
+        es:
+          description: Country or geographical area name in Spanish
+    number_block:
+      description: Block identifier for the telex code
+    allocated_to:
+      required:
+      - en
+      - fr
+      - es
+      additionalProperties: false
+      properties:
+        en:
+          description: Entity allocated to in English
+        fr:
+          description: Entity allocated to in French
+        es:
+          description: Entity allocated to in Spanish

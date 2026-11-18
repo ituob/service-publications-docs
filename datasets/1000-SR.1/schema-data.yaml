@@ -1,21 +1,20 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (SR1Entry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 1000-SR.1
-description: ITU OB Dataset Schema for 1000-SR.1
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for SR.1 (generated from LML SR1Entry)
+x-lml-model: SR1Entry
 type: array
 items:
   type: object
-  required:
-    - geographic_area
-    - name
+  additionalProperties: false
   properties:
     name:
       type: string
       description: The name of the country or geographical area.
     geographic_area:
       type: object
-      description: Information about geographic area restrictions and service availability
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -26,13 +25,17 @@ items:
         es:
           type: string
           description: Spanish description of the geographic area.
+      description: Information about geographic area restrictions and service availability
       required:
-        - en
-        - fr
-        - es
+      - en
+      - fr
+      - es
     restrictions:
       type: object
+      additionalProperties: false
       properties:
+        no_messenger_dispatch:
+          type: boolean
         telex_not_provided:
           type: boolean
           description: Indicates if telex service is not provided.
@@ -41,20 +44,28 @@ items:
           description: Indicates if telegram service is not provided.
         no_collect_calls:
           type: object
+          additionalProperties: false
           properties:
+            virtual:
+              type: boolean
+            incoming:
+              type: boolean
+            outgoing:
+              type: boolean
             mobile:
               type: boolean
               description: Indicates if collect calls are not allowed for mobile services.
             payphone:
               type: boolean
-              description: Indicates if collect calls are not allowed for payphone services.
+              description: Indicates if collect calls are not allowed for payphone
+                services.
             audiotex:
               type: boolean
-              description: Indicates if collect calls are not allowed for audiotex services.
-
+              description: Indicates if collect calls are not allowed for audiotex
+                services.
     notes:
       type: object
-      description: Notes related to the service restrictions. This field is optional.
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -65,8 +76,12 @@ items:
         es:
           type: string
           description: Spanish note related to the service restrictions.
+      description: Notes related to the service restrictions. This field is optional.
       required:
-        - en
-        - fr
-        - es
-  additionalProperties: false
+      - en
+      - fr
+      - es
+  required:
+  - geographic_area
+  - name
+description: ITU OB Dataset Schema for 1000-SR.1

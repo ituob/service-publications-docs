@@ -210,14 +210,41 @@ module Ituob
 
       model_class = Models.const_get(model_name, false)
       data.map.with_index do |row, index|
-        model = model_class.from_yaml(YAML.dump(row))
+        model = model_class.from_hash(row)
         errors = model.validate
         unless errors.empty?
           raise ArgumentError, "row #{index}: #{errors.map(&:message).join(', ')}"
         end
 
-        model.to_hash.reject { |key, _value| key == "_class" }
+        normalize_model_row(model, row)
       end
+    end
+
+    # Model serialization omits blank values, but a seed may explicitly supply
+    # an empty string, object or nullable field required by its schema. Restore
+    # those supplied fields while retaining model coercion and ignoring unknowns.
+    def normalize_model_row(model, source)
+      normalized = model.to_hash.reject { |key, _value| key == "_class" }
+      source.each do |key, value|
+        name = key.to_s
+        next if name == "_class" || !model.class.attributes.key?(name.to_sym)
+
+        converted = model.public_send(name)
+        if value.is_a?(Hash) && converted.is_a?(Lutaml::Model::Serializable)
+          normalized[name] = normalize_model_row(converted, value)
+        elsif value.is_a?(Array) && converted.is_a?(Array)
+          normalized[name] = converted.each_with_index.map do |item, index|
+            if item.is_a?(Lutaml::Model::Serializable) && value[index].is_a?(Hash)
+              normalize_model_row(item, value[index])
+            else
+              item
+            end
+          end
+        elsif !normalized.key?(name) && (value.nil? || (value.respond_to?(:empty?) && value.empty?))
+          normalized[name] = value
+        end
+      end
+      normalized
     end
 
     # Validate all files in data directory

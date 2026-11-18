@@ -50,12 +50,17 @@ RSpec.describe "generated seed schema and model acceptance" do
     expect(dataset.data.first.fetch("country_code")).to eq(42)
   end
 
-  it "accepts missing fields, extra keys, and discriminators accepted by every mapped model" do
+  it "preserves optional fields and required seed constraints after model normalization" do
     @mapping.each do |slug, name|
       [{}, { "unknown" => "ignored", "_class" => name }].each do |row|
         model = Ituob::Models.const_get(name).from_yaml(YAML.dump(row))
         expect(model.validate).to be_empty
-        expect(validate_parity_seed(@root, slug, [row])).to eq([true, nil]), slug
+        schema = YAML.load_file(File.join(@root, "datasets", slug, "schema-data.yaml"))
+        if schema.fetch("items").fetch("required", []).empty?
+          expect(validate_parity_seed(@root, slug, [row])).to eq([true, nil]), slug
+        else
+          expect(validate_parity_seed(@root, slug, [row]).first).to be(false), slug
+        end
       end
     end
   end

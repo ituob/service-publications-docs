@@ -1,14 +1,13 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (BureaufaxEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for bureaufax
-description: ITU OB Dataset Schema for bureaufax (Recommendation ITU-T F.170)
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for bureaufax (generated from LML BureaufaxEntry)
+x-lml-model: BureaufaxEntry
 type: array
 items:
   type: object
-  required:
-    - country_or_area
-    - location
+  additionalProperties: false
   properties:
     country_or_area:
       type: string
@@ -18,8 +17,8 @@ items:
       description: The bureaufax access code (Part III 1a) if assigned.
     location:
       type:
-        - string
-        - 'null'
+      - string
+      - 'null'
       description: City or location of the bureaufax bureau (Part III 1b).
     bureaufax_number:
       type: string
@@ -29,7 +28,7 @@ items:
       description: The destination priority code (Part III 3).
     availability:
       type: object
-      description: Service availability windows (Part III 4).
+      additionalProperties: false
       properties:
         monday_friday:
           type: string
@@ -37,8 +36,10 @@ items:
           type: string
         sunday_public_holidays:
           type: string
+      description: Service availability windows (Part III 4).
     hours:
       type: object
+      additionalProperties: false
       properties:
         monday:
           type: string
@@ -56,4 +57,7 @@ items:
           type: string
         public_holidays:
           type: string
-  additionalProperties: false
+  required:
+  - country_or_area
+  - location
+description: ITU OB Dataset Schema for bureaufax (Recommendation ITU-T F.170)

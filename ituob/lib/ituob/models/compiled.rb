@@ -38,6 +38,61 @@ module Ituob
       CUSTOM_ATTRIBUTE_TYPES = [HashOrList].freeze
 
       CLASS_NAMES = %w[
+        BureaufaxAvailability
+        BureaufaxEntry
+        BureaufaxHours
+        CoastStationEntry
+        CountryNameEntry
+        CountryNameName
+        E180ToneCadenceInS
+        E180ToneCountryOrArea
+        E180ToneEntry
+        E180ToneNotes
+        E180ToneToneDesc
+        E180ToneToneDescNotes
+        E212ACountryCountryOrArea
+        E212ACountryEntry
+        E212ACountryNote
+        E212AMCCMNCEntry
+        E212ExtraTerritorialCountryOrArea
+        E212ExtraTerritorialEntry
+        E212OtherAssignmentEntry
+        E212OtherAssignmentPurpose
+        F1ServiceCodeEntry
+        F1ServiceCodeFieldDesc
+        F1ServiceCodeMessage
+        F68AllocatedTo
+        F68Appendix1AllocatedTo
+        F68Appendix1Country
+        F68Appendix1Entry
+        F68Appendix2AllocatedTo
+        F68Appendix2Entry
+        F68Appendix2GeographicArea
+        F68Entry
+        F68Notes
+        ISO3166Entry
+        ISO3166Name
+        ListVEntry
+        PPResolution21Entry
+        PPResolution21GeographicArea
+        ROAEntry
+        RR251SeedCode
+        RR251SeedCodelists
+        RR251SeedEntry
+        RR251SeedGroup
+        RR251SeedGroups
+        RR251SeedSegment
+        RR251SeedSegmentRange
+        SR1Entry
+        SR1GeographicArea
+        SR1Notes
+        SR1Restrictions
+        SR1RestrictionsNoCollectCalls
+        T35CodeCountryOrArea
+        T35CodeEntry
+        T35CodeNotes
+        X121CountryCountryOrArea
+        X121CountryEntry
         E164ACNEntry
         E164BEntry
         E164CCAction
@@ -170,6 +225,9 @@ module Ituob
         end
 
         def resolve_type(type_name)
+          return :string if type_name == "NullableString"
+          return HashOrText if type_name == "StringOrObject"
+          return :string if type_name == "StringOrNumber"
           return :hash if type_name == "Hash"
           return Object.const_get(LOSSLESS_TYPES.fetch(type_name)) if LOSSLESS_TYPES.key?(type_name)
 
@@ -201,7 +259,8 @@ module Ituob
             if klass_def.name.to_s == 'RegisterEdition' && attr_name == :items
               next [attr_name, raw_type, Ituob::Models::Entry, options.merge(polymorphic: true)]
             end
-            members = UNION_ATTRIBUTES[[klass_def.name.to_s, attr_name.to_s]]
+            members = raw_type == 'StringOrNumber' ? [:float, :string] :
+              UNION_ATTRIBUTES[[klass_def.name.to_s, attr_name.to_s]]
             next [attr_name, raw_type, type, options] unless members
 
             resolved = members.map do |m|

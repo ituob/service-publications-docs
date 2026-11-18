@@ -1,14 +1,12 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (E212ACountryEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 1117 E.212A
-description: Schema for ITU Operational Bulletin E.212A data
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for E.212A (generated from LML E212ACountryEntry)
+x-lml-model: E212ACountryEntry
 type: array
 items:
   type: object
-  required:
-    - code
-    - country_or_area
   additionalProperties: false
   properties:
     code:
@@ -16,14 +14,6 @@ items:
       description: Mobile Country or Geographical Area Code
     country_or_area:
       type: object
-      description: Country or geographical area name in different languages
-      required:
-        - en
-        - fr
-        - es
-        - ru
-        - zh
-        - ar
       additionalProperties: false
       properties:
         en:
@@ -44,16 +34,16 @@ items:
         ar:
           type: string
           description: Country or geographical area name in Arabic
+      description: Country or geographical area name in different languages
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
     note:
       type: object
-      description: Additional notes and information in different languages
-      required:
-        - en
-        - fr
-        - es
-        - ru
-        - zh
-        - ar
       additionalProperties: false
       properties:
         en:
@@ -74,3 +64,15 @@ items:
         ar:
           type: string
           description: Note in Arabic
+      description: Additional notes and information in different languages
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
+  required:
+  - code
+  - country_or_area
+description: Schema for ITU Operational Bulletin E.212A data

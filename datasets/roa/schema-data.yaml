@@ -1,22 +1,21 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (ROAEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for roa
-description: ITU OB Dataset Schema for the List of Recognized Operating Agencies (ROAs)
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for roa (generated from LML ROAEntry)
+x-lml-model: ROAEntry
 type: array
 items:
   type: object
-  required:
-    - country_or_area
-    - company_name
+  additionalProperties: false
   properties:
     country_or_area:
       type: string
       description: Country or geographic area where the ROA is registered.
     company_name:
       type:
-        - string
-        - 'null'
+      - string
+      - 'null'
       description: The ROA's official company name.
     address:
       type: string
@@ -36,4 +35,7 @@ items:
     ob_issue_number:
       type: string
       description: The OB issue number in which this ROA was last updated.
-  additionalProperties: false
+  required:
+  - country_or_area
+  - company_name
+description: ITU OB Dataset Schema for the List of Recognized Operating Agencies (ROAs)

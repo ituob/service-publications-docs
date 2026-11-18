@@ -1,0 +1,56 @@
+---
+description: Schema for ITU Operational Bulletin E.212A data
+items:
+  required:
+  - code
+  - country_or_area
+  additionalProperties: false
+  properties:
+    code:
+      description: Mobile Country or Geographical Area Code
+    country_or_area:
+      description: Country or geographical area name in different languages
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
+      additionalProperties: false
+      properties:
+        en:
+          description: Country or geographical area name in English
+        fr:
+          description: Country or geographical area name in French
+        es:
+          description: Country or geographical area name in Spanish
+        ru:
+          description: Country or geographical area name in Russian
+        zh:
+          description: Country or geographical area name in Chinese
+        ar:
+          description: Country or geographical area name in Arabic
+    note:
+      description: Additional notes and information in different languages
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
+      additionalProperties: false
+      properties:
+        en:
+          description: Note in English
+        fr:
+          description: Note in French
+        es:
+          description: Note in Spanish
+        ru:
+          description: Note in Russian
+        zh:
+          description: Note in Chinese
+        ar:
+          description: Note in Arabic
