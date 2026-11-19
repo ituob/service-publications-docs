@@ -27,20 +27,19 @@ module OfficialPdfComparison
     end
 
     # The preface of these publications is the "Note from TSB/BR" up to the first
-    # running head after it (the table starts on the next page). The comparator
-    # ends the prose at a "Country/geographical" header, which these tables do
-    # not have, so the shape cuts the line list itself: it is the caller's own
-    # array, and the comparator reads its size after this call.
+    # running head after it (the table starts on the next page). The tables have
+    # no "Country/geographical" header, so prose_stop ends the preface itself.
     module G4Prose
-      NOTE = /\A\s*(?:Note from (?:the )?[TB]SB?|Note du [TB]SB?|Nota de(?: la)? [TB]SB?)\b/
+      NOTE = /\A\s*(?:\d+(?:\.\d+)*\.?\s+)?(?:Note from (?:the )?[TB]SB?|Note du [TB]SB?|Nota de(?: la)? [TB]SB?)\b/
 
       # A PDF without the note has no preface: the empty range, so the other
       # PDF's preface shows as a delta.
       def prose_start(lines, _lang)
-        start = lines.index { |l| l.match?(NOTE) } or return lines.size
-        stop = lines.each_index.find { |i| i > start && G4Text.furniture?(lines[i]) }
-        lines.slice!(stop..) if stop
-        start
+        lines.index { |l| l.match?(NOTE) } || lines.size
+      end
+
+      def prose_stop(lines, start)
+        lines.each_index.find { |i| i > start && G4Text.furniture?(lines[i]) } || lines.size
       end
     end
   end

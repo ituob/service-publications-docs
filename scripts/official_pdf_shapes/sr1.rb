@@ -33,17 +33,62 @@ module OfficialPdfComparison
         out
       end
 
+      # The preface ends at the first running head or table header after it.
+      def prose_stop(lines, start)
+        header = lines.each_index.find { |i| i > start && lines[i].match?(HEADER) }
+        [super, header].compact.min
+      end
+
       private
 
       # Chunks of squished lines after the first table header, furniture and
-      # repeated page headings removed.
+      # repeated page headings removed. A chunk that follows a page break is
+      # tagged (see Chunk) so a block split by the break can be rejoined.
       def body(text)
         lines = G4Text.lines_of(text)
         start = lines.index { |l| l.match?(HEADER) }
         return [] unless start
 
-        cleaned = lines.drop(start + 1).map { |l| skip?(l) ? '' : G4Text.squish(l) }
-        cleaned.slice_when { |a, b| a.empty? != b.empty? }.reject { |c| c.first.empty? }
+        join_stubs(chunks_of(lines.drop(start + 1)))
+      end
+
+      Chunk = Struct.new(:lines, :after_break)
+
+      def chunks_of(lines)
+        chunks = []
+        open_chunk = false
+        broke = false
+        lines.each do |l|
+          if skip?(l)
+            broke = true
+            open_chunk = false
+          elsif l.strip.empty?
+            open_chunk = false
+          else
+            chunks << Chunk.new([], broke) unless open_chunk
+            chunks.last.lines << G4Text.squish(l)
+            open_chunk = true
+            broke = false
+          end
+        end
+        chunks
+      end
+
+      # A page break can split the three name lines of a block: the first one
+      # or two sit at the foot of a page, the rest follow the next page head.
+      # Such a stub is joined to the chunk after the break.
+      def join_stubs(chunks)
+        chunks.each_with_object([]) do |chunk, out|
+          if out.last && chunk.after_break && stub?(out.last)
+            out.last.lines.concat(chunk.lines)
+          else
+            out << Chunk.new(chunk.lines.dup, chunk.after_break)
+          end
+        end.map(&:lines)
+      end
+
+      def stub?(chunk)
+        chunk.lines.size < 3 && chunk.lines.all? { |l| l.size <= NAME_MAX && !l.match?(SENTENCE_END) }
       end
 
       def skip?(line) = G4Text.furniture?(line) || line.match?(HEADER) || line.match?(TITLE)

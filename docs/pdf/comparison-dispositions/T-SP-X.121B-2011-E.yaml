@@ -1,0 +1,1733 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-X.121B-2011-E, generated PDF from the
+# #89 generation run against the official ITU PDF, shape X121B. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: generated_only
+  text: 213 5 ANDORPAC
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 213 5 ANDORPAC
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: both
+  text: '232 2: generated "Dataswitch (DATAKOM)" vs official "Dataswitch (DATAKOM)
+    1)"'
+  disposition: bug
+  reason: The row carries the footnote marker "1)" in the official PDF (footnote "use
+    internally, see OB ..."); the generated PDF prints the footnote text on the page
+    but drops the marker from the row.
+- layer: rows
+  side: official_only
+  text: 257 0 BELPAK
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 257 0 BELPAK
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 460 200-207 China CAAC privileged data network
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 612 2 SYTRANPAC
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 612 2 SYTRANPAC
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 602 6 EGYPTNET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 424 1 EMDAN Teletex Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 424 3 EMDAN X.25 and X.28 Terminals
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 542 0 FIJPAK
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 542 1 FIJINET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 244 2 Sonera Carrier Networks Oy
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 244 3 Elisa Oyj
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 244 4 Song Networks Oy
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 208 0 Réseau de transmission de données à commutation par paquets TRANSPAC
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 208 1 France de transit international
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 208 2 Grands services publics
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 208 3 Administrations
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 208 4 Air France
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 208 5 SIRIS
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 208 6 BT France
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 208 9 Interconnexion entre le réseau public de transmission de données Transpac
+    et d'autres réseaux publics français, pour des services offerts en mode synchrone
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 310 1 PTN-1 Western Union Packet Switching Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 310 2 MCI Public Data Network (ResponseNet)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 310 3 ITT UDTS Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 310 4 MCI Public Data Network (International Gateway)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 310 5 WUI Leased Channel Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 310 6 Tymnet Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 310 7 ITT Datel Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 310 8 ITT Short Term Voice/Data Transmission Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 310 9 RCAG DATEL II
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 311 0 Telenet Communications Corporation
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 311 1 RCAG DATEL I (Switched Alternate Voice-Data Service)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 311 2 Western Union Teletex Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 311 3 RCAG Remote Global Computer Access Service (Low Speed)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 311 4 Western Union Infomaster
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 311 5 Graphnet Interactive Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 311 6 Graphnet Store and Forward Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 311 7 WUI Telex Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 311 8 Graphnet Data Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 311 9 TRT Packet Switching Network (IPSS)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 312 0 ITT Low Speed Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 312 1 FTCC Circuit Switched Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 312 2 FTCC Telex
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 312 3 FTCC Domestic Packet Switched Transmission (PST) Service (suite – continued
+    – continúa)
+  disposition: layout
+  reason: The official PDF repeats "(suite – continued – continúa)" at a page break
+    inside this row; the generated PDF does not. The network name is the same.
+- layer: rows
+  side: official_only
+  text: 312 4 FTCC International PST Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 312 5 UNINET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 312 6 ADP Autonet
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 312 7 GTE Telenet Communications Corporation
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 312 8 TRT Mail/Telex Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 312 9 TRT Circuit Switch Data (ICSS)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 313 0 TRT Digital Data Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 313 1 RCAG Telex Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 313 2 Compuserve Network Services
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 313 3 RCAG XNET Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 313 4 AT+T/ACCUNET Packet Switched Capability
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 313 5 ALASCOM/ALASKANET Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 313 6 Geisco Data Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 313 7 International Information Network Services – INFONET Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 313 8 Fedex International Transmission Corporation – International Document
+    Transmission Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 313 9 KDD America, Inc. – Public Data Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 314 0 Southern New England Telephone Company – Public Packet Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 314 1 Bell Atlantic Telephone Companies – Advance Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 314 2 Bellsouth Corporation – Pulselink Servie
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 314 3 Ameritech Operating Companies – Public Packet Data Networks
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 314 4 Nynex Telephone Companies – Nyex Infopath Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 314 5 Pacific Telesis Public Packet Switching Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 314 6 Southwestern Bell Telephone Co. – Microlink II Public Packet Switching
+    Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 314 7 U.S. West, Inc. – Public Packet Switching Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 314 8 United States Telephone Association – to be shared by local exchange
+    telephone companies
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 314 9 Cable & Wireless Communications, Inc. – Public Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 315 0 Globenet, Inc. – Globenet Network Packet Switching Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 315 1 Cable & Wireless Communications, Inc. – Public Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 315 2 GTE Hawaiian Telephone Company, Inc. – Public Data Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 315 3 JAIS USA-NET Public Packet Switching Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 315 4 Nomura Computer Systems America, Inc. – NCC-A VAN public packet switching
+    service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 315 5 Aeronautical Radio, Inc. – GLOBALINK
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 315 6 American Airlines, Inc. – AANET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 315 7 COMSAT Mobile Communications – C-LINK
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 315 8 Schlumberger Information Network (SINET)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 315 9 Westinghouse Communications – Westinghouse Packet Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 316 0 Network Users Group, Ltd. – WDI NET packet
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 316 1 United States Department of State, Diplomatic Telecommunications Service
+    Black Packet Switched Data Network
+  disposition: layout
+  reason: The row is in both PDFs; only punctuation (a comma) differs and the country
+    blocks are in a different order, so the in-order comparison reports it as inserted
+    and deleted.
+- layer: rows
+  side: official_only
+  text: 316 2 Transaction Network Services, Inc. – TNS Public Packet-switched Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 316 6 U.S. Department of Treasury Wide Area Data Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 316 8 BT North America packet-switched data network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 316 9 Tenzing Communications Inc. – Inflight Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 542 0 FIJPAK
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 542 1 FIJINET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 244 2 Sonera Carrier Networks Oy
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 244 3 Elisa Oyj
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 244 4 Song Networks Oy
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 208 0 Réseau de transmission de données à commutation par paquets TRANSPAC
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 208 1 France de transit international
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 208 2 Grands services publics
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 208 3 Administrations
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 208 4 Air France
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 208 5 SIRIS
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 208 6 BT France
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 208 9 Interconnexion entre le réseau public de transmission de données Transpac
+    et d'autres réseaux publics français, pour des services offerts en mode synchrone
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 282 1 IBERIAPAC
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 352 2 CARIBNET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 290 1 DATAPAK (Packet Switched Network)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 352 2 CARIBNET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 290 1 DATAPAK (Packet Switched Network)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 282 1 IBERIAPAC
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: both
+  text: '216 1: generated "Packet Switched Data Service" vs official "Packet Switched
+    Data Service 1)"'
+  disposition: bug
+  reason: The row carries the footnote marker "1)" in the official PDF (footnote "use
+    internally, see OB ..."); the generated PDF prints the footnote text on the page
+    but drops the marker from the row.
+- layer: rows
+  side: generated_only
+  text: 294 0 MAKPAK
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 294 0 MAKPAK
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 429 0 NEPPAK (Nepal Packet Switched Public Data Network)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 429 0 NEPPAK (Nepal Packet Switched Public Data Network)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 716 0 MEGANET (PERUNET)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 716 1 MEGANET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: both
+  text: '260 4: generated "POLPAK-T 260 DATACOM 621 260 MNI 622 260 INTERNET GROUP
+    6301 260 INTERNET TECHNOLOGIES 6303 260 INTERTELE 6304 260 PAGI 641 260 CROWLEY
+    DATA POLAND 642 260 MEDIATEL 651 260 KOLPAK 661 260 ENERGIS POLSKA 662 260 VPN
+    SERVICE 672 260 EXATEL 681 260 NETIA 691" vs official "POLPAK-T"'
+  disposition: bug
+  reason: The generated PDF wraps the multi-digit network codes of the Polish sub-rows
+    (260 621, 260 6301 ...) over two lines (code cell too narrow), so each reads as
+    a separate "260" line plus a bare number and the sub-rows run into the 260 4 row;
+    the official PDF prints each as one row.
+- layer: rows
+  side: official_only
+  text: 260 621 DATACOM
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 260 622 MNI
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 260 6301 INTERNET GROUP
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 260 6303 INTERNET TECHNOLOGIES
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 260 6304 INTERTELE
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 260 641 PAGI
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 260 642 CROWLEY DATA POLAND
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 260 651 MEDIATEL
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 260 661 KOLPAK
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 260 662 ENERGIS POLSKA
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 260 672 VPN SERVICE
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 260 681 EXATEL
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: official_only
+  text: 260 691 NETIA
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: generated_only
+  text: 716 0 MEGANET (PERUNET)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 716 1 MEGANET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 230 1 Telefónica O2 Czech Repubic
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 230 30 G-NET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 230 40-44 RadioNET
+  disposition: bug
+  reason: 'The generated PDF wraps this multi-digit or ranged network code over two
+    lines (code cell too narrow: "230 40-" / "44", "260" / "621", "460" / "200-207"),
+    so no single row carries the code; the official PDF prints the code on one line.'
+- layer: rows
+  side: both
+  text: '235 0: generated "C&W X.25 Service, International Packet Gateway" vs official
+    "C&W X.25 Service, International Packet Gateway 1)"'
+  disposition: bug
+  reason: The row carries the footnote marker "1)" in the official PDF (footnote "use
+    internally, see OB ..."); the generated PDF prints the footnote text on the page
+    but drops the marker from the row.
+- layer: rows
+  side: both
+  text: '235 1: generated "C & W X.25 Service" vs official "C & W X.25 Service 1)"'
+  disposition: bug
+  reason: The row carries the footnote marker "1)" in the official PDF (footnote "use
+    internally, see OB ..."); the generated PDF prints the footnote text on the page
+    but drops the marker from the row.
+- layer: rows
+  side: generated_only
+  text: 230 1 Telefónica O2 Czech Repubic
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 230 30 G-NET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 608 1 SENPAC
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 240 2 WM-data Infrastructur
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 240 3 Datapak (Packet Switched Public Data Network) – TeliaSonera AB
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 240 6 Flex25 (Public Packet Switched Data Network)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: official_only
+  text: 240 7 Private X.25 Networks (DNIC allocated for a group of private networks)
+    – TeliaSonera AB
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 240 2 WM-data Infrastructur
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 240 3 Datapak (Packet Switched Public Data Network) – TeliaSonera AB
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 240 6 Flex25 (Public Packet Switched Data Network)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 240 7 Private X.25 Networks (DNIC allocated for a group of private networks)
+    – TeliaSonera AB
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 608 1 SENPAC
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 602 6 EGYPTNET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 424 1 EMDAN Teletex Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 424 3 EMDAN X.25 and X.28 Terminals
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 310 1 PTN-1 Western Union Packet Switching Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 310 2 MCI Public Data Network (ResponseNet)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 310 3 ITT UDTS Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 310 4 MCI Public Data Network (International Gateway)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 310 5 WUI Leased Channel Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 310 6 Tymnet Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 310 7 ITT Datel Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 310 8 ITT Short Term Voice/Data Transmission Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 310 9 RCAG DATEL II
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 311 0 Telenet Communications Corporation
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 311 1 RCAG DATEL I (Switched Alternate Voice-Data Service)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 311 2 Western Union Teletex Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 311 3 RCAG Remote Global Computer Access Service (Low Speed)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 311 4 Western Union Infomaster
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 311 5 Graphnet Interactive Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 311 6 Graphnet Store and Forward Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 311 7 WUI Telex Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 311 8 Graphnet Data Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 311 9 TRT Packet Switching Network (IPSS)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 312 0 ITT Low Speed Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 312 1 FTCC Circuit Switched Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 312 2 FTCC Telex
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 312 3 FTCC Domestic Packet Switched Transmission (PST) Service
+  disposition: layout
+  reason: The official PDF repeats "(suite – continued – continúa)" at a page break
+    inside this row; the generated PDF does not. The network name is the same.
+- layer: rows
+  side: generated_only
+  text: 312 4 FTCC International PST Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 312 5 UNINET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 312 6 ADP Autonet
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 312 7 GTE Telenet Communications Corporation
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 312 8 TRT Mail/Telex Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 312 9 TRT Circuit Switch Data (ICSS)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 313 0 TRT Digital Data Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 313 1 RCAG Telex Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 313 2 Compuserve Network Services
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 313 3 RCAG XNET Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 313 4 AT+T/ACCUNET Packet Switched Capability
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 313 5 ALASCOM/ALASKANET Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 313 6 Geisco Data Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 313 7 International Information Network Services – INFONET Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 313 8 Fedex International Transmission Corporation – International Document
+    Transmission Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 313 9 KDD America, Inc. – Public Data Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 314 0 Southern New England Telephone Company – Public Packet Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 314 1 Bell Atlantic Telephone Companies – Advance Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 314 2 Bellsouth Corporation – Pulselink Servie
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 314 3 Ameritech Operating Companies – Public Packet Data Networks
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 314 4 Nynex Telephone Companies – Nyex Infopath Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 314 5 Pacific Telesis Public Packet Switching Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 314 6 Southwestern Bell Telephone Co. – Microlink II Public Packet Switching
+    Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 314 7 U.S. West, Inc. – Public Packet Switching Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 314 8 United States Telephone Association – to be shared by local exchange
+    telephone companies
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 314 9 Cable & Wireless Communications, Inc. – Public Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 315 0 Globenet, Inc. – Globenet Network Packet Switching Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 315 1 Cable & Wireless Communications, Inc. – Public Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 315 2 GTE Hawaiian Telephone Company, Inc. – Public Data Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 315 3 JAIS USA-NET Public Packet Switching Service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 315 4 Nomura Computer Systems America, Inc. – NCC-A VAN public packet switching
+    service
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 315 5 Aeronautical Radio, Inc. – GLOBALINK
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 315 6 American Airlines, Inc. – AANET
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 315 7 COMSAT Mobile Communications – C-LINK
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 315 8 Schlumberger Information Network (SINET)
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 315 9 Westinghouse Communications – Westinghouse Packet Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 316 0 Network Users Group, Ltd. – WDI NET packet
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 316 1 United States Department of State, Diplomatic Telecommunications Service,
+    Black Packet Switched Data Network
+  disposition: layout
+  reason: The row is in both PDFs; only punctuation (a comma) differs and the country
+    blocks are in a different order, so the in-order comparison reports it as inserted
+    and deleted.
+- layer: rows
+  side: generated_only
+  text: 316 2 Transaction Network Services, Inc. – TNS Public Packet-switched Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 316 6 U.S. Department of Treasury Wide Area Data Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 316 8 BT North America packet-switched data network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: rows
+  side: generated_only
+  text: 316 9 Tenzing Communications Inc. – Inflight Network
+  disposition: layout
+  reason: The row is in both PDFs with identical text but the country blocks are in
+    a different order (the generated PDF does not follow the official sort of the
+    country names), so the in-order comparison reports it once as inserted and once
+    as deleted.
+- layer: prose
+  side: both
+  text: generated "https://www.itu.int/itu-t/bulletin/annex.html" vs official "http://www.itu.int/itu-t/bulletin/annex.html"
+  disposition: layout
+  reason: Only the URL scheme differs (generated https://, official http://); host
+    and path are the same.

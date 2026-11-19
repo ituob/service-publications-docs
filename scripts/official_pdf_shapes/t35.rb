@@ -34,7 +34,7 @@ module OfficialPdfComparison
       # A name continues on the very next line, indented under the name column.
       # A blank line, page furniture or the column header ends it.
       def wrap?(line)
-        line.match?(/\A {40,}\S/) && !G4Text.furniture?(line)
+        line.match?(/\A {28,}\S/) && !G4Text.furniture?(line)
       end
     end
   end

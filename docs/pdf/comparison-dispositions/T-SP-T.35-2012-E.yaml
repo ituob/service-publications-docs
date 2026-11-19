@@ -1,0 +1,12 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-T.35-2012-E, generated PDF from the
+# #89 generation run against the official ITU PDF, shape T35. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: '11111111: generated "Escape code to extension list (currently empty). See
+    Note." vs official "Escape code to extension list (currently empty). See NOTE
+    1."'
+  disposition: bug
+  reason: The escape-code row of the generated PDF refers to the note without its
+    number ("See Note." where the official PDF has "See NOTE 1."); the note below
+    the table is likewise printed "NOTE –" instead of "NOTE 1 –".

@@ -1,0 +1,195 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-T.35B-2012-F, generated PDF from the
+# #89 generation run against the official ITU PDF, shape T35B. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: generated_only
+  text: 'Iran, République islamique d'' Nom de l''Administration: Telecommunication
+    Company of Iran (TCI) Existe t-il, dans votre pays, des fabricants d''équipements
+    conformes aux Recommandations des séries H, T ou V ? NON Autorité responsable
+    de l''attribution: Aucune n''a été désignée Mise à jour des informations: 13 septembre
+    2004'
+  disposition: data
+  reason: The generated heading uses the ISO country name from the dataset (acronyms.yaml);
+    the official PDF uses the ITU short name or translation. The block text is otherwise
+    identical.
+- layer: rows
+  side: official_only
+  text: 'Iran (République islamique d'') Nom de l''Administration: Telecommunication
+    Company of Iran (TCI) Existe t-il, dans votre pays, des fabricants d''équipements
+    conformes aux Recommandations des séries H, T ou V ? NON Autorité responsable
+    de l''attribution: Aucune n''a été désignée Mise à jour des informations: 13 septembre
+    2004'
+  disposition: data
+  reason: The generated heading uses the ISO country name from the dataset (acronyms.yaml);
+    the official PDF uses the ITU short name or translation. The block text is otherwise
+    identical.
+- layer: rows
+  side: both
+  text: 'Japon: generated "Nom de l''Administration: Ministry of Internal Affairs
+    and Communications Existe t-il, dans votre pays, des fabricants d''équipements
+    conformes aux Recommandations des séries H, T ou V ? OUI Autorité responsable
+    de l''attribution: Type de terminal: H-, T- and V-Series Contact: Mr Manabu Kanaya,
+    Director of Standardization Division Organisation: Ministry of Internal Affairs
+    and Communications Département: Information and Communications Policy Bureau Adresse:
+    1-2 Kasumigaseki 2-chome Chiyoda-ku, Tokyo 100- 8926, Japan Téléphone: +81 3 5353
+    5763 Fax: +81 3 5253 5764 E-mail: istd@soumu.go.jp Liens correspondants: Mise
+    à jour des informations: 27 octobre 2003" vs official "Nom de l''Administration:
+    Ministry of Internal Affairs and Communications Existe t-il, dans votre pays,
+    des fabricants d''équipements conformes aux Recommandations des séries H, T ou
+    V ? OUI Autorité responsable de l''attribution: Type de terminal: H, T and V-Series
+    Contact: Mr Manabu Kanaya, Director of Standardization Division Organisation:
+    Ministry of Internal Affairs and Communications Département: Information and Communications
+    Policy Bureau Adresse: 1-2 Kasumigaseki 2-chome Chiyoda-ku, Tokyo 100-8926, Japan
+    Téléphone: +81 3 5353 5763 Fax: +81 3 5253 5764 E-mail: istd@soumu.go.jp Liens
+    correspondants: N/A Mise à jour des informations: 27 octobre 2003"'
+  disposition: bug
+  reason: 'Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides. The dataset field is empty and the generated PDF leaves
+    the value blank; the official form prints "N/A" for an empty field (checked on
+    Japan: related_links is an empty string, official shows N/A).'
+- layer: rows
+  side: both
+  text: 'Kirghizistan: generated "Nom de l''Administration: State Communications Agency
+    at Government of Kyrgyz Republic Existe t-il, dans votre pays, des fabricants
+    d''équipements conformes aux Recommandations des séries H, T ou V ? NON Autorité
+    responsable de l''attribution: Type de terminal: H-, T- and V-Series Contact:
+    Dergacheva Ekaterina Alexandrovna Organisation: State Communications Agency at
+    Government of Kyrgyz Republic Département: Department of Standardization and Certification
+    Adresse: Kyrgyzstan, Bishkek, Sovetskaya str. 7b Téléphone: +996 312 54 41 07
+    Fax: +996 312 54 41 05 E-mail: nta@infotel.kg Liens correspondants: Mise à jour
+    des informations: 8 octobre 2003" vs official "Nom de l''Administration: State
+    Communications Agency at Government of Kyrgyz Republic Existe t-il, dans votre
+    pays, des fabricants d''équipements conformes aux Recommandations des séries H,
+    T ou V ? NON Autorité responsable de l''attribution: Type de terminal: H, T and
+    V-Series Contact: Dergacheva Ekaterina Alexandrovna Organisation: State Communications
+    Agency at Government of Kyrgyz Republic Département: Department of Standardization
+    and Certification Adresse: Kyrgyzstan, Bishkek, Sovetskaya str. 7b Téléphone:
+    +996 312 54 41 07 Fax: +996 312 54 41 05 E-mail: nta@infotel.kg Liens correspondants:
+    N/A Mise à jour de l''information: 8 octobre 2003"'
+  disposition: bug
+  reason: 'Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides. The dataset field is empty and the generated PDF leaves
+    the value blank; the official form prints "N/A" for an empty field (checked on
+    Japan: related_links is an empty string, official shows N/A). The generated PDF
+    prints the French label "Date des informations:" where the official PDF has "Date
+    de l''information:" (label wording from the generator departs from the official
+    ITU wording).'
+- layer: rows
+  side: both
+  text: 'Koweït: generated "Nom de l''Administration: Ministry of Communications Existe
+    t-il, dans votre pays, des fabricants d''équipements conformes aux Recommandations
+    des séries H, T ou V ? NON Autorité responsable de l''attribution: Aucune n''a
+    été désignée Mise à jour des informations: 5 janvier 2004" vs official "Nom de
+    l''Administration: Ministry of Communications Existe t-il, dans votre pays, des
+    fabricants d''équipements conformes aux Recommandations des séries H, T ou V ?
+    NON Autorité responsable de l''attribution: Aucune n''a été désignée Mise à jour
+    de l''information: 5 janvier 2004"'
+  disposition: bug
+  reason: The generated PDF prints the French label "Date des informations:" where
+    the official PDF has "Date de l'information:" (label wording from the generator
+    departs from the official ITU wording).
+- layer: rows
+  side: both
+  text: 'Maurice: generated "Nom de l''Administration: Information and Communication
+    Technologies Authority Existe t-il, dans votre pays, des fabricants d''équipements
+    conformes aux Recommandations des séries H, T ou V ? NON Autorité responsable
+    de l''attribution: Type de terminal: H-, T- and V-Series Contact: The Chairman
+    Organisation: Information and Communication Technologies Authority Département:
+    N/A Adresse: Jade House,1st Floor, Cnr Jummah Mosque & Remy Ollier Streets, Port
+    Louis, Mauritius Téléphone: +230 217 2222 Fax: +230 217 7777 E-mail: icta@intnet.mu
+    Liens correspondants: Mise à jour des informations: 28 octobre 2003" vs official
+    "Nom de l''Administration: Information and Communication Technologies Authority
+    Existe t-il, dans votre pays, des fabricants d''équipements conformes aux Recommandations
+    des séries H, T ou V ? NON Autorité responsable de l''attribution: Type de terminal:
+    H, T and V-Series Contact: The Chairman Organisation: Information and Communication
+    Technologies Authority Département: N/A Adresse: Jade House,1st Floor, Cnr Jummah
+    Mosque & Remy Ollier Streets, Port-Louis, Mauritius Téléphone: +230 217 2222 Fax:
+    +230 217 7777 E-mail: icta@intnet.mu Liens correspondants: N/A Mise à jour de
+    l''information: 28 octobre 2003"'
+  disposition: bug
+  reason: 'Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides. The dataset field is empty and the generated PDF leaves
+    the value blank; the official form prints "N/A" for an empty field (checked on
+    Japan: related_links is an empty string, official shows N/A). The generated PDF
+    prints the French label "Date des informations:" where the official PDF has "Date
+    de l''information:" (label wording from the generator departs from the official
+    ITU wording).'
+- layer: rows
+  side: both
+  text: 'Pologne: generated "Nom de l''Administration: Office of Electronic Communications
+    (UKE) Existe t-il, dans votre pays, des fabricants d''équipements conformes aux
+    Recommandations des séries H, T ou V ? NON Autorité responsable de l''attribution:
+    Type de terminal: H-, T- and V-Series Contact: Tomasz Karamon Organisation: UKE
+    Département: Department of Technology Adresse: Kasprzaka 18/20, 01-211 Warsaw,
+    Poland Téléphone: +48 (0) 22 53 49 325 Fax: +48 (0) 22 53 49 327 E-mail: t.karamon@uke.gov.pl
+    Liens correspondants: Mise à jour des informations: 23 février 2007" vs official
+    "Nom de l''Administration: Office of Electronic Communications (UKE) Existe t-il,
+    dans votre pays, des fabricants d''équipements conformes aux Recommandations des
+    séries H, T ou V ? NON Autorité responsable de l''attribution: Type de terminal:
+    All Contact: Tomasz Karamon Organisation: UKE Département: Department of Technology
+    Adresse: Kasprzaka 18/20, 01-211 Warsaw, Poland Téléphone: +48 (0) 22 53 49 325
+    Fax: +48 (0) 22 53 49 327 E-mail: t.karamon@uke.gov.pl Liens correspondants: N/A
+    Mise à jour de l''information: 23 février 2007"'
+  disposition: bug
+  reason: 'The dataset lists the terminal types as the H, T and V series; the official
+    PDF prints "All" for this authority. The generated PDF shows the dataset value.
+    The dataset field is empty and the generated PDF leaves the value blank; the official
+    form prints "N/A" for an empty field (checked on Japan: related_links is an empty
+    string, official shows N/A). The generated PDF prints the French label "Date des
+    informations:" where the official PDF has "Date de l''information:" (label wording
+    from the generator departs from the official ITU wording).'
+- layer: rows
+  side: both
+  text: 'Slovénie: generated "Nom de l''Administration: Post and Electronic Communications
+    Agency of the Republic of Slovenia Existe t-il, dans votre pays, des fabricants
+    d''équipements conformes aux Recommandations des séries H, T ou V ? OUI Autorité
+    responsable de l''attribution: Type de terminal: H-Series Contact: Anton Kovacic
+    Organisation: Post and Electronic Communications Agency Département: Numbering
+    Adresse: Stegne 7, P.O. Box 418, SI-1001 Ljubljana, Slovenia Téléphone: +386 1
+    583 63 00 Fax: +386 1 511 11 01 E-mail: anton.kovacic@apek.si Liens correspondants:
+    http://www.apek.si/ Mise à jour des informations: 12 novembre 2004" vs official
+    "Nom de l''Administration: Post and Electronic Communications Agency of the Republic
+    of Slovenia Existe t-il, dans votre pays, des fabricants d''équipements conformes
+    aux Recommandations des séries H, T ou V ? OUI Autorité responsable de l''attribution:
+    Type de terminal: H-Series Contact: Anton Kovacic Organisation: Post and Electronic
+    Communications Agency Département: Numbering Adresse: Stegne 7, P.O. Box 418,
+    SI-1001 Ljubljana, Slovenia Téléphone: +386 1 583 63 00 Fax: +386 1 511 11 01
+    E-mail: anton.kovacic@apek.si Liens correspondants: http://www.apek.si Mise à
+    jour de l''information: 12 novembre 2004"'
+  disposition: bug
+  reason: Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides. The generated PDF prints the French label "Date des
+    informations:" where the official PDF has "Date de l'information:" (label wording
+    from the generator departs from the official ITU wording).
+- layer: rows
+  side: both
+  text: 'Suriname: generated "Nom de l''Administration: TELESUR – Paramaribo, Suriname
+    Existe t-il, dans votre pays, des fabricants d''équipements conformes aux Recommandations
+    des séries H, T ou V ? NON Autorité responsable de l''attribution: Aucune n''a
+    été désignée Mise à jour des informations: 28 octobre 2003" vs official "Nom de
+    l''Administration: TELESUR – Paramaribo, Suriname Existe t-il, dans votre pays,
+    des fabricants d''équipements conformes aux Recommandations des séries H, T ou
+    V ? NON Autorité responsable de l''attribution: Aucune n''a été désignée Mise
+    à jour de l''information: 28 octobre 2003"'
+  disposition: bug
+  reason: The generated PDF prints the French label "Date des informations:" where
+    the official PDF has "Date de l'information:" (label wording from the generator
+    departs from the official ITU wording).
+- layer: rows
+  side: both
+  text: 'Venezuela: generated "Nom de l''Administration: Comisión Nacional de Telecomunicaciones
+    (Conatel) Existe t-il, dans votre pays, des fabricants d''équipements conformes
+    aux Recommandations des séries H, T ou V ? NON Autorité responsable de l''attribution:
+    Aucune n''a été désignée Mise à jour des informations: 24 décembre 2004" vs official
+    "Nom de l''Administration: Comisión Nacional de Telecomunicaciones (Conatel) Existe
+    t-il, dans votre pays, des fabricants d''équipements conformes aux Recommandations
+    des séries H, T ou V ? NON Autorité responsable de l''attribution: Aucune n''a
+    été désignée Mise à jour de l''information: 24 décembre 2004"'
+  disposition: bug
+  reason: The generated PDF prints the French label "Date des informations:" where
+    the official PDF has "Date de l'information:" (label wording from the generator
+    departs from the official ITU wording).

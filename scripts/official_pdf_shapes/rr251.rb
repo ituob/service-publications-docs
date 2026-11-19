@@ -22,6 +22,7 @@ module OfficialPdfComparison
       NOTE = /\A(?:\d+|[a-z])\)\z/
       PAGES = /\A\d+(?:\s*[-–,]\s*\d+)*\z/
       PART2_TITLE = /\A\s*[[:upper:]' ’]{30,}\z/
+      FORBIDDEN_GAP = 3
       TOKEN_ORDER = %w[permitted forbidden note pages].freeze
       OPEN_END = /(?:\b(?:and|of|the|et|de|du|des|y|del|la|los|las|gran)|[,-])\z/i
 
@@ -45,13 +46,12 @@ module OfficialPdfComparison
       def part1(all)
         rule = all.index { |l| l.match?(/\A\s*_{5,}/) } || all.size
         lines = all.first(rule)
-        header = lines.find { |l| l.match?(/\S\s{2,}\S+\s{2,}\S/) && l =~ /(Permit|Permis)/ }
-        forbidden_col = header && forbidden_column(header)
         out = []
         cells = [] # the non-name cells of each row, in any line order
         skip = header_lines(lines)
+        forbidden_cols = forbidden_columns(lines)
         lines.each_with_index do |line, i|
-          take(out, cells, line, forbidden_col) unless skip.include?(i) || line.strip.empty?
+          take(out, cells, line, forbidden_cols[i]) unless skip.include?(i) || line.strip.empty?
         end
         out.zip(cells) { |row, toks| row.text = toks.grep(String).sort_by { |t| TOKEN_ORDER.index(t.split.first) || 9 }.join(' ') }
         out + footnotes(all.drop(rule + 1))
@@ -78,10 +78,19 @@ module OfficialPdfComparison
         skip
       end
 
-      # The column where the second of the two x columns' header word starts.
-      def forbidden_column(header)
-        words = header.to_enum(:scan, /\S+/).map { Regexp.last_match.begin(0) }
-        words[words.size >= 3 ? -2 : -1]
+      # The x columns drift from page to page in the pdftotext layout (and the
+      # generated PDF prints the column header on the first page only), so the
+      # permitted column is the leftmost x column of the page and an x at least
+      # FORBIDDEN_GAP columns to its right is in the forbidden column. Returns,
+      # per line index, the column from which an x counts as forbidden.
+      def forbidden_columns(lines)
+        page = 0
+        pages = lines.map { |l| page += 1 if G4Text.furniture?(l); page }
+        leftmost = Hash.new { |h, k| h[k] = Float::INFINITY }
+        lines.each_with_index do |l, i|
+          l.to_enum(:scan, /(?<=\s|\A)x(?=\s|\z)/).each { leftmost[pages[i]] = [leftmost[pages[i]], Regexp.last_match.begin(0)].min }
+        end
+        pages.map { |pg| leftmost[pg] + FORBIDDEN_GAP }
       end
 
       # Feeds one line to the row being built: a name fragment either opens a
@@ -122,7 +131,7 @@ module OfficialPdfComparison
 
       def tokens(cells, forbidden_col)
         cells.map do |t, c|
-          if t == 'x' then forbidden_col && c >= forbidden_col - 3 ? 'forbidden' : 'permitted'
+          if t == 'x' then c >= forbidden_col ? 'forbidden' : 'permitted'
           elsif t.match?(NOTE) then 'note'
           elsif t.match?(PAGES) then "pages #{t.delete(' ')}"
           else t
