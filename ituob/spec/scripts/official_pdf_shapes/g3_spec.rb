@@ -143,7 +143,7 @@ RSpec.describe 'G3 official PDF shapes' do
     it 'makes one bag-of-words row per company keyed by ISO code, keeping street numbers' do
       rows = sh.rows(text)
       expect(rows.map(&:key)).to eq(%w[ALB BRB CHL])
-      expect(rows[0].reading(0, 0)).to eq('01 albania albtelecom alb alb01 of republic rruga 1'.split.sort.join(' '))
+      expect(rows[0].reading(0, 0)).to eq('albania albtelecom alb alb01 of republic rruga 1'.split.sort.join(' '))
       expect(rows[2].text).to include('21-24-26')
     end
 
