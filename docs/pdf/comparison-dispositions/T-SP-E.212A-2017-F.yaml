@@ -1,0 +1,351 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-E.212A-2017-F, generated PDF (89-gen run, group G2)
+# against the official ITU PDF. Settles only the open (bug or unreviewed) deltas by rules checked on
+# samples (see README-g2.adoc); data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: official_only
+  text: alpha:257 Bélarus (République du)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:616 Bénin (République du)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:528 Brunéi Darussalam
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:528 Brunéi Darussalam
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:257 Bélarus (République du)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:616 Bénin (République du)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:346 Caïmanes (Iles)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:346 Caïmanes (Iles)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:612 Côte d'Ivoire (République de)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:612 Côte d'Ivoire (République de)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:288 Féroé (Iles)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:288 Féroé (Iles)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:282 Géorgie
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:202 Grèce
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:202 Grèce
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:282 Géorgie
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:606 Libye
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:606 Libye
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:354 Montserrat
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:354 Montserrat
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:429 Népal (République fédérale démocratique du)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:429 Népal (République fédérale démocratique du)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:716 Pérou
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:716 Pérou
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:226 Roumanie
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:234 Royaume-Uni de Grande-Bretagne et d'Irlande du Nord
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:235 Royaume-Uni de Grande-Bretagne et d'Irlande du Nord
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:250 Russie (Fédération de)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:635 Rwanda (République du)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:226 Roumanie
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:234 Royaume-Uni de Grande-Bretagne et d'Irlande du Nord
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:235 Royaume-Uni de Grande-Bretagne et d'Irlande du Nord
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:250 Russie (Fédération de)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:635 Rwanda (République du)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:658 Sainte-Hélène, Ascension et Tristan da Cunha
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:658 Sainte-Hélène, Ascension et Tristan da Cunha
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:608 Sénégal (République du)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: official_only
+  text: alpha:240 Suède
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:240 Suède
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: generated_only
+  text: alpha:608 Sénégal (République du)
+  disposition: bug
+  reason: The generated alphabetical list is sorted by code point (capitals before
+    lower case, accented letters after z), so this row is out of alphabetical order;
+    the official PDF sorts ignoring case and accents (the row sits between alphabetical
+    neighbours there).
+- layer: rows
+  side: both
+  text: 'shared:901 13: generated "BebbiCell AG | Attribué" vs official "BebbiCell
+    AG (Formerly Global Networks Switzerland AG) | Attribué"'
+  disposition: bug
+  reason: The generated PDF drops the "(Formerly ...)" annotation the official PDF
+    prints after this network name.
+- layer: rows
+  side: both
+  text: 'shared:901 16: generated "Jasper Technologies Inc. | Attribué" vs official
+    "Jasper Technologies Inc. [formerly Jasper Wireless, Inc] | Attribué"'
+  disposition: bug
+  reason: The generated PDF drops the "(Formerly ...)" annotation the official PDF
+    prints after this network name.
+- layer: rows
+  side: both
+  text: 'shared:901 21: generated "Wins Limited | Attribué" vs official "Wins Limited
+    (Formerly Seanet Maritime Communications AB) | Attribué"'
+  disposition: bug
+  reason: The generated PDF drops the "(Formerly ...)" annotation the official PDF
+    prints after this network name.
+- layer: rows
+  side: both
+  text: 'shared:901 31: generated "Orange | Attribué" vs official "Orange [formerly
+    France Telecom Orange] | Attribué"'
+  disposition: bug
+  reason: The generated PDF drops the "(Formerly ...)" annotation the official PDF
+    prints after this network name.

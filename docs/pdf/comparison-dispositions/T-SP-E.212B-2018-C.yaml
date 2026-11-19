@@ -1,0 +1,33 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-E.212B-2018-C, generated PDF (89-gen run, group G2)
+# against the official ITU PDF. Settles only the open (bug or unreviewed) deltas by rules checked on
+# samples (see README-g2.adoc); data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'shared:901 13: generated "BebbiCell AG" vs official "BebbiCell AG (Formerly
+    Global Networks Switzerland AG)"'
+  disposition: bug
+  reason: The generated PDF drops the "(Formerly ...)" annotation the official PDF
+    prints after this network name.
+- layer: rows
+  side: both
+  text: 'shared:901 15: generated "OnAir N.V." vs official "OnAir N.V. (Formerly SITA
+    on behalf of Onair)"'
+  disposition: bug
+  reason: The generated PDF drops the "(Formerly ...)" annotation the official PDF
+    prints after this network name.
+- layer: rows
+  side: both
+  text: 'shared:901 21: generated "Wins Limited" vs official "Wins Limited (Formerly
+    Seanet Maritime Communications AB)"'
+  disposition: bug
+  reason: The generated PDF drops the "(Formerly ...)" annotation the official PDF
+    prints after this network name.
+- layer: prose
+  side: both
+  text: generated "这份移动网络代码（MNC）列表作为15.XII.2018第1162期国际电联《操作公报》附件予 以出版。请主管部门核实列表中的资料并将希望所做修改通知国际电联。通知格式见国际电联网
+    站http://www.itu.int/en/ITU-T/inr/forms/Pages/mnc.aspx。" vs official "这份移动网络代码（MNC）列表作为
+    15.XII.2018 第 1162 期国际电联《操作公报》附件予以出 版。请主管部门核实列表中的资料并将希望所做修改通知国际电联。通知格式见国际电联网站
+    http://www.itu.int/en/ITU-T/inr/forms/Pages/mnc.aspx。"
+  disposition: layout
+  reason: Only spaces, line breaks or a hyphen at a line end differ (a justified or
+    wrapped line puts a space inside a word in one PDF); same words.
