@@ -97,5 +97,24 @@ RSpec.describe 'G1 official PDF shapes' do
       load File.expand_path('../../../../scripts/g1_row_dispositions.rb', __dir__) unless defined?(G1RowDispositions)
       expect(G1RowDispositions.words('كتاب')).to eq(G1RowDispositions.words('تكاب'))
     end
+
+    describe 'layout rule per column' do
+      before { load File.expand_path('../../../../scripts/g1_row_dispositions.rb', __dir__) unless defined?(G1RowDispositions) }
+
+      def verdict(gen, off) = G1RowDispositions.verdict('T-SP-E.180-2010', 'E', 'Cuba', gen, off, nil)
+
+      it 'is layout when every column holds the same words (a wrap inside a cell)' do
+        v = verdict('Cuba | Busy tone Dial tone | 425 425', 'Cuba | Dial tone Busy tone | 425 425')
+        expect(v&.disposition).to eq(:layout)
+      end
+
+      it 'is not layout when the row bag is equal but a word sits in another column' do
+        expect(verdict('Cuba | Busy tone | 425 Dial', 'Cuba | Busy tone Dial | 425')).to be_nil
+      end
+
+      it 'is not layout when the column count differs' do
+        expect(verdict('Cuba | Busy tone | 425', 'Cuba | Busy tone 425')).to be_nil
+      end
+    end
   end
 end

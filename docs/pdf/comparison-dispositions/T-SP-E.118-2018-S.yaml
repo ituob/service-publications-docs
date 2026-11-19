@@ -444,14 +444,6 @@
     the official PDF has belice
 - layer: rows
   side: both
-  text: '89 229 05: generated "Benin | Glomobile Benin Ltd COTONOU | 89 229 05 Fax:
-    E-mail: | + Tel:" vs official "Benin | Glomobile Benin Ltd COTONOU | 89 229 05
-    Tel: Fax: E-mail:"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
-- layer: rows
-  side: both
   text: '89 1 013: generated "Bermuda | Cable and Wireless plc PO Box HM151, 20 Church
     Street HAMILTON HMAX | 89 1 013 PO Box HM151 HAMILTON Tel: +1 441 297 7060 Fax:
     +1 441 295 4541 E-mail: | John D. Tibbles" vs official "Bermudas | Cable and Wireless
@@ -1127,32 +1119,6 @@
     for this row in es (cyprus); the official PDF has chipre
 - layer: rows
   side: both
-  text: '89 57 002: generated "Colombia | Edatel S.A. Calle 41 No 52 – 28 Piso 18
-    MEDELLIN | 89 57 002 Representante Legal Calle 41 No 52 – 28 Piso 18 MEDELLIN
-    Tel: +57 4 384 6341 Fax: +57 4 384 6403 E-mail: gerencia_general@edatel.com.co
-    | Diego Andrés Salazar Montealegre," vs official "Colombia | Edatel S.A. Calle
-    41 No 52 – 28 Piso 18 MEDELLIN | 89 57 002 Legal Calle 41 No 52 – 28 Piso 18 MEDELLIN
-    Tel: +57 4 384 6341 Fax: +57 4 384 6403 E-mail: gerencia_general@edatel.com.co
-    | Diego Andrés Salazar Montealegre, Representante"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
-- layer: rows
-  side: both
-  text: '89 57 123: generated "Colombia | Colombia Telecomunicaciones SA ESP (Movistar)
-    Transversal 60 # 114A - 55 BOGOTÁ D.C. | 89 57 123 Representante Legal Transversal
-    60 # 114A - 55 BOGOTÁ D.C. Tel: +57 1 7050000 Fax: E-mail: natalia.guerra@telefonica.com;
-    diana. arias@telefonica.com; emilio.santofimio@ telefonica.com | Fabián Andrés
-    Hernández Ramirez," vs official "Colombia | Colombia Telecomunicaciones SA ESP
-    (Movistar) Transversal 60 # 114A - 55 BOGOTÁ D.C. | 89 57 123 Legal Transversal
-    60 # 114A - 55 BOGOTÁ D.C. Tel: +57 1 7050000 Fax: E-mail: natalia.guerra@telefonica.com;
-    diana.arias@telefonica.com; emilio.santofimio@telefonica.com | Fabián Andrés Hernández
-    Ramirez, Representante"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
-- layer: rows
-  side: both
   text: '89 269 01: generated "Comoros | Société nationale des télécommunications
     (Comores Telecom) BP 5000 MORONI | 89 269 01 BP 5000 MORONI Tel: +269 774 4300
     Fax: +269 773 1079 E-mail: mgomrio@snpt.km | Mgomri Oumara" vs official "Comoras
@@ -1209,16 +1175,6 @@
   reason: the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); the generated PDF prints what the dataset holds
     for this row in es (korea of); the official PDF has corea de
-- layer: rows
-  side: both
-  text: '89 506 01: generated "Costa Rica | Instituto Costarricense de Electricidad
-    - ICE PO Box 10032 1000 SAN JOSE | 89 506 01 Fax: +506 2220 1555 E-mail: | + Tel:
-    +506 2220 7422" vs official "Costa Rica | Instituto Costarricense de Electricidad
-    - ICE PO Box 10032 1000 SAN JOSE | 89 506 01 Tel: +506 2220 7422 Fax: +506 2220
-    1555 E-mail: | -"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
 - layer: rows
   side: both
   text: '89 385 91: generated "Croatia | VIPnet d.o.o. Vrtni put 1 HR-10000 ZAGREB
@@ -4178,8 +4134,8 @@
     P.O.Box 4693 VIENTIANE Tel: +856 21 213 570 Fax: +856 21 213 572 E-mail: rome@bigpond.com.kh
     | Ronny Melander"'
   disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
+  reason: 'same words in every column on both sides: the two PDFs wrap a cell or place
+    a continuation line differently'
 - layer: rows
   side: generated_only
   text: '89 371 01 Latvia | Latvian Mobile Telephone Co. Ltd. PO Box 116, 29 Unijas
@@ -4406,8 +4362,8 @@
     +265 1 644022 Tel: +265 1 644775 Fax: E-mail: | Mats Bergström'
   disposition: layout
   reason: 'the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
-    or place a continuation line differently'
+    lists are sorted differently); same words in every column on both sides: the two
+    PDFs wrap a cell or place a continuation line differently'
 - layer: rows
   side: both
   text: '89 60 00: generated "Malaysia | Telekom Malaysia Berhad TM Menara TM, Jalan
@@ -4480,8 +4436,8 @@
     Tel: +265 1 644022 Fax: +265 1 644775 E-mail: | Mats Bergström'
   disposition: layout
   reason: 'the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
-    or place a continuation line differently'
+    lists are sorted differently); same words in every column on both sides: the two
+    PDFs wrap a cell or place a continuation line differently'
 - layer: rows
   side: both
   text: '89 960 01: generated "Maldives | Dhivehi Raajjey Ge Gulhun Private Ltd. (DHIRAAGU)
@@ -5386,18 +5342,6 @@
   disposition: data
   reason: the generated PDF prints what the dataset holds for this row in es (poland);
     the official PDF has polonia
-- layer: rows
-  side: both
-  text: '89 351 04: generated "Portugal | Lycamobile Portugal, Lda Avenida João Crisóstomo
-    24 1050-127 LISBOA | 89 351 04 Arnaut Avenida João Crisóstomo 24 1050-127 LISBOA
-    Tel: +351 210 990 582 Fax: E-mail: antonio.arnaut@lycamobile.pt | António Maria
-    Spínola Brito Mendes" vs official "Portugal | Lycamobile Portugal, Lda Avenida
-    João Crisóstomo 24 1050-127 LISBOA | 89 351 04 Avenida João Crisóstomo 24 1050-127
-    LISBOA Tel: +351 210 990 582 Fax: E-mail: antonio.arnaut@lycamobile.pt | António
-    Maria Spínola Brito Mendes Arnaut"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
 - layer: rows
   side: both
   text: '89 351 07: generated "Portugal | Mundio Mobile (Portugal) Limited 54 Marsh
