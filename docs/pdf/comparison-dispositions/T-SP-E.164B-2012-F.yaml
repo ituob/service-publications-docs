@@ -1,0 +1,137 @@
+- layer: rows
+  side: generated_only
+  text: 1(684)|Samoa Samoa américaines | 1(684) | NXXs = 258, 733
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 1(284)|Vierges Vierges britanniques (Iles) | 1(284) | NXXs = 300 – 303, 440
+    – 445, 468, 4966 – 4969, 499, 540 – 544
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 1(767)|Dominique Dominique (Commonwealth de la) | 1(767) | NXXs = 225, 235,
+    245, 265, 275 – 277, 315 – 317, 614 – 616
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 1(767)|Dominique Dominique (Commonwealth de la) | 1(767) | NXXs = 225, 235,
+    245, 265, 275 – 277, 315 – 317, 614 – 616
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 1|Etats Etats-Unis d'Amérique | 1 | Pas de NPAs particulière pour les réseaux
+    mobiles
+  disposition: data
+  reason: the official row has words (etats unis d amérique) that the dataset records
+    of 1 in fr do not hold, so the generated PDF cannot print it
+- layer: rows
+  side: generated_only
+  text: 1(664)|Montserrat Montserrat | 1(664) | NXX = 492
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 1(664)|Montserrat Montserrat | 1(664) | NXX = 492
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 1(869)|Saint Saint-Kitts-et-Nevis | 1(869) | NXXs = 556 – 558, 565 – 567,
+    662 – 669, 762 – 765
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 1(721)|Saint Saint Martin (partie neérlandaise) | 1(721) | NXXs= 520 – 524,
+    526 – 529, 550, 553, 554, 556, 557, 559, 580, 581, 584 – 588
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 1(869)|Saint Saint-Kitts-et-Nevis | 1(869) | NXXs = 556 – 558, 565 – 567,
+    662 – 669, 762 – 765
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 1(721)|Saint Saint Martin (partie neérlandaise) | 1(721) | NXXs= 520 – 524,
+    526 – 529, 550, 553, 554, 556, 557, 559, 580, 581, 584 – 588
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 1(684)|Samoa Samoa américaines | 1(684) | NXXs = 258, 733
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 1|Canada#2 Canada | 1 | Pas de NPAs particulière pour les réseaux mobiles
+  disposition: data
+  reason: the generated row is what the dataset holds for 1 in fr; the official list
+    has no row of that name under this code (the dataset differs from the official
+    list)
+- layer: rows
+  side: official_only
+  text: 1(284)|Vierges Vierges britanniques (Iles) | 1(284) | NXXs = 300 – 303, 440
+    – 445, 468, 4966 – 4969, 499, 540 – 544
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 599|Bonaire,#2 Bonaire, Saint Eustache et Saba | 599 | 3181, 3184 – 3186,
+    4161, 4165 – 4167, 700, 701, 78, 79
+  disposition: data
+  reason: the generated row is what the dataset holds for 599 in fr; the official
+    list has no row of that name under this code (the dataset differs from the official
+    list)
+- layer: rows
+  side: official_only
+  text: 599|Curaçao Curaçao | 599 | 51, 52, 530, 531, 54, 56, 61, 630, 631, 66, 67,
+    69
+  disposition: data
+  reason: the official row has words (curaçao 51 52 530 531 54) that the dataset records
+    of 599 in fr do not hold, so the generated PDF cannot print it
+- layer: rows
+  side: generated_only
+  text: 7|Kazakhstan#2 Kazakhstan (République du) | 7 | 700, 701, 705, 707, 712 90,
+    712 91, 713 90, 713 91, 714 90, 714 91, 715 90, 715 91, 717 90, 717 91, 718 90,
+    71891, 721 90, 721 91, 723 90, 723 91, 724 90, 725 90, 72591, 726 90, 726 91,
+    727 90, 727 91, 764, 771, 775, 777, 778, 785
+  disposition: data
+  reason: the generated row is what the dataset holds for 7 in fr; the official list
+    has no row of that name under this code (the dataset differs from the official
+    list)
+- layer: rows
+  side: official_only
+  text: 7|Russie Russie (Fédération de) | 7 | 9XX (excepté 954)
+  disposition: data
+  reason: the official row has words (russie fédération de 9xx excepté 954) that the
+    dataset records of 7 in fr do not hold, so the generated PDF cannot print it

@@ -1,0 +1,221 @@
+- layer: rows
+  side: both
+  text: '89 229 05: generated "Benin | Glomobile Benin Ltd COTONOU | 89 229 05 Fax:
+    E-mail: | + Tel:" vs official "Benin | Glomobile Benin Ltd COTONOU | 89 229 05
+    Tel: Fax: E-mail:"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: '89 975 77: generated "Bhutan | Tashi Infocomm Ltd Norzin Lam, P.O. Box 176
+    THIMPHU | 89 975 77 Norzin Lam, P.O. Box 176 THIMPHU Tel: +975 2 335 476 Fax:
+    +975 2 324 440 E-mail: tashicell@gmail.com; info@tashicell.com | Ganga R. Sharma"
+    vs official "Bhutan | Tashi Infocomm Ltd Norzin Lam, P.O. Box 176 THIMPHU | 89
+    975 77 Norzin Lam, P.O. Box 176 THIMPHU Tel: +975 2 335 476 Fax: +975 2 324 440
+    E-mail: tashicell@gmail.com; | Ganga R. Sharma info@tashicell.com"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: '89 1 660: generated "Canada | Allstream Business Inc. 18810 SE 34th St, Building
+    One, Suite 100 VANCOUVER, WASHINGTON 98683 | 89 1 660 18810 SE 34th St, Building
+    One, Suite 100 VANCOUVER, WASHINGTON 98683 (United States) Tel: +1 360 558 4318
+    Fax: E-mail: doug.denney@allstream.com | Douglas Denney" vs official "Canada |
+    Allstream Business Inc. 18810 SE 34th St, Building One, Suite 100 VANCOUVER, WASHINGTON
+    98683 (United States) | 89 1 660 18810 SE 34th St, Building One, Suite 100 VANCOUVER,
+    WASHINGTON 98683 (United States) Tel: +1 360 558 4318 Fax: E-mail: doug.denney@allstream.com
+    | Douglas Denney"'
+  disposition: data
+  reason: the official PDF prints united states once more than the dataset record
+    holds (in en); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: '89 506 01: generated "Costa Rica | Instituto Costarricense de Electricidad
+    - ICE PO Box 10032 1000 SAN JOSE | 89 506 01 Fax: +506 2220 1555 E-mail: | + Tel:
+    +506 2220 7422" vs official "Costa Rica | Instituto Costarricense de Electricidad
+    - ICE PO Box 10032 1000 SAN JOSE | 89 506 01 Tel: +506 2220 7422 Fax: +506 2220
+    1555 E-mail: | -"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: '89 423 01: generated "Liechtenstein | Swisscom Schweiz AG Alte Tiefenaufstrasse
+    6 CH-3050 BERN | 89 423 01 Alte Tiefenaustrasse 6 CH-3050 BERN (Switzerland) Tel:
+    +41 79 394 03 50 Fax: E-mail: marc.furrer@swisscom.com | Marc Furrer" vs official
+    "Liechtenstein | Swisscom Schweiz AG Alte Tiefenaufstrasse 6 CH-3050 BERN (Switzerland)
+    | 89 423 01 Alte Tiefenaustrasse 6 CH-3050 BERN (Switzerland) Tel: +41 79 394
+    03 50 Fax: E-mail: marc.furrer@swisscom.com | Marc Furrer"'
+  disposition: data
+  reason: the official PDF prints switzerland once more than the dataset record holds
+    (in en); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: '89 352 07: generated "Luxembourg | Bouygues Telecom 37-39, Rue Boissière
+    75116 PARIS | 89 352 07 Bouygues Telecom, 13-15 avenue du Maréchal Juin 92366
+    MEUDON-LA-FORET Cedex (France) Tel: +33 6 65 73 32 27 Fax: +33 1 39 45 36 87 E-mail:
+    patrick.biget@arm.com | Rémy Pintenet" vs official "Luxembourg | Bouygues Telecom
+    37-39, Rue Boissière 75116 PARIS (France) | 89 352 07 Bouygues Telecom, 13-15
+    avenue du Maréchal Juin 92366 MEUDON-LA-FORET Cedex (France) Tel: +33 6 65 73
+    32 27 Fax: +33 1 39 45 36 87 E-mail: rpintene@bouyguestelecom.fr | Rémy Pintenet"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (patrick
+    biget arm com); the official PDF has france rpintene bouyguestelecom fr
+- layer: rows
+  side: both
+  text: '89 352 81: generated "Luxembourg | e-LUX Mobile Telecommunication Services
+    S.A. 21, Avenue Monterey L-2163 Luxembourg | 89 352 81 Hassane Diabate 21, Avenue
+    Monterey L-2163 Luxembourg Tel: +90 5337745491+352 26201543 Fax: E-mail: tsonmezalp@eluxmobile.com;
+    hdiabate@ caldia.lu | Mr Ibrahim Tolga Sönmezalp / Mr" vs official "Luxembourg
+    | e-LUX Mobile Telecommunication Services S.A. 21, Avenue Monterey L-2163 Luxembourg
+    | 89 352 81 Diabate 21, Avenue Monterey L-2163 Luxembourg Tel: +90 5337745491/+352
+    26201543 Fax: E-mail: tsonmezalp@eluxmobile.com; hdiabate@caldia.lu | Mr Ibrahim
+    Tolga Sönmezalp / Mr Hassane"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: '89 265 02: generated "Malawi | Celtel Malawi Ltd. PO Box 1235 BLANTYRE |
+    89 265 02 BLANTYRE +265 1 644022 Tel: +265 1 644775 Fax: E-mail: | Mats Bergström"
+    vs official "Malawi | Celtel Malawi Ltd. PO Box 1235 BLANTYRE | 89 265 02 BLANTYRE
+    Tel: +265 1 644022 Fax: +265 1 644775 E-mail: | Mats Bergström"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: '89 31 05: generated "Netherlands | Elephant Talk Communication Holding AG
+    Gurtenstrasse 105 4052 BASEL | 89 31 05 Schipol Boulevard 249 1118 BY SCHIPOL
+    Tel: +31 653 243 798 Fax: +31 206 535 916 E-mail: simon.tang@elephanttalk.com
+    | Simon Tang" vs official "Netherlands | Elephant Talk Communication Holding AG
+    Gurtenstrasse 105 4052 BASEL (Switzerland) | 89 31 05 Schipol Boulevard 249 1118
+    BY SCHIPOL Tel: +31 653 243 798 Fax: +31 206 535 916 E-mail: simon.tang@elephanttalk.com
+    | Simon Tang"'
+  disposition: data
+  reason: the official PDF prints switzerland once more than the dataset record holds
+    (in en); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: '89 31 09: generated "Netherlands | Lycamobile Netherlands 40-41 Dominik Street
+    Lower DUBLIN 1 | 89 31 09 40-41 Dominik Street Lower DUBLIN 1 (Ireland) Tel: +353
+    1 879 2362 Fax: +353 1 879 2336 E-mail: ctooley@lycamobile.com | Chris Tooley"
+    vs official "Netherlands | Lycamobile Netherlands 40-41 Dominik Street Lower DUBLIN
+    1 (Ireland) | 89 31 09 40-41 Dominik Street Lower DUBLIN 1 (Ireland) Tel: +353
+    1 879 2362 Fax: +353 1 879 2336 E-mail: ctooley@lycamobile.com | Chris Tooley"'
+  disposition: data
+  reason: the official PDF prints ireland once more than the dataset record holds
+    (in en); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: '89 351 04: generated "Portugal | Lycamobile Portugal, Lda Avenida João Crisóstomo
+    24 1050-127 LISBOA | 89 351 04 Arnaut Avenida João Crisóstomo 24 1050-127 LISBOA
+    Tel: +351 210 990 582 Fax: E-mail: antonio.arnaut@lycamobile.pt | António Maria
+    Spínola Brito Mendes" vs official "Portugal | Lycamobile Portugal, Lda Avenida
+    João Crisóstomo 24 1050-127 LISBOA | 89 351 04 Avenida João Crisóstomo 24 1050-127
+    LISBOA Tel: +351 210 990 582 Fax: E-mail: antonio.arnaut@lycamobile.pt | António
+    Maria Spínola Brito Mendes Arnaut"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: '89 351 07: generated "Portugal | Mundio Mobile (Portugal) Limited 54 Marsh
+    Wall LONDON E14 9TP | 89 351 07 Mundio Mobile Limited, 54 Marsh Wall, LONDON E14
+    9TP (United Kingdom) Tel: +44 2035364800 Fax: +44 2070050562 E-mail: legal@mundio.com
+    | Alkesh Dave" vs official "Portugal | Mundio Mobile (Portugal) Limited 54 Marsh
+    Wall LONDON E14 9TP (United Kingdom) | 89 351 07 Mundio Mobile Limited, 54 Marsh
+    Wall, LONDON E14 9TP (United Kingdom) Tel: +44 2035364800 Fax: +44 2070050562
+    E-mail: legal@mundio.com | Alkesh Dave"'
+  disposition: data
+  reason: the official PDF prints united kingdom once more than the dataset record
+    holds (in en); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: '89 65 05: generated "Singapore | StarHub Pte Ltd 51 Cuppage Road, StarHub
+    Centre #07-00 SINGAPORE 229469 | 89 65 05 SINGAPORE +65 6825 5000 Tel: +65 6821
+    6018 Fax: E-mail: | Lim Eng. Huat" vs official "Singapore | StarHub Pte Ltd 51
+    Cuppage Road, StarHub Centre #07-00 SINGAPORE 229469 | 89 65 05 SINGAPORE Tel:
+    +65 6825 5000 Fax: +65 6821 6018 E-mail: | Lim Eng. Huat"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: '89 46 01: generated "Sweden | Telia Sverige AB SE-169 94 SOLNA 0 | 89 46
+    01 SE-169 94 SOLNA Tel: +46 70 300 68 83 Fax: E-mail: andreas.howe@teliacompany.com
+    | Andreas Howe" vs official "Sweden | Telia Sverige AB SE-169 94 SOLNA | 89 46
+    01 SE-169 94 SOLNA Tel: +46 70 300 68 83 Fax: E-mail: andreas.howe@teliacompany.com
+    | Andreas Howe"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has other text
+- layer: rows
+  side: both
+  text: '89 46 06: generated "Sweden | Abbla Mobile S.A. c/Saturno, 1 Pozuelo de Alarcón
+    E-28224 MADRID | 89 46 06 c/Saturno, 1 Poluezo de Alarcón E-28224 MADRID (Spain)
+    Tel: +34 678 52 6699 Fax: +34 913 51 8074 E-mail: dstuebe@abbla.com | Detlef Stube"
+    vs official "Sweden | Abbla Mobile S.A. c/Saturno, 1 Pozuelo de Alarcón E-28224
+    MADRID (Spain) | 89 46 06 c/Saturno, 1 Poluezo de Alarcón E-28224 MADRID (Spain)
+    Tel: +34 678 52 6699 Fax: +34 913 51 8074 E-mail: dstuebe@abbla.com | Detlef Stube"'
+  disposition: data
+  reason: the official PDF prints spain once more than the dataset record holds (in
+    en); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: '89 46 08: generated "Sweden | Telenor Sverige AB SE-116 88 STOCKHOLM 0 |
+    89 46 08 SE-116 88 STOCKHOLM Tel: +46 70 933 55 15 Fax: E-mail: | Stefan Wahlstedt"
+    vs official "Sweden | Telenor Sverige AB SE-116 88 STOCKHOLM | 89 46 08 SE-116
+    88 STOCKHOLM Tel: +46 70 933 55 15 Fax: E-mail: stefan.wahlstedt@telenor.se |
+    Stefan Wahlstedt"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has telenor se stefan wahlstedt
+- layer: rows
+  side: both
+  text: '89 44 13: generated "United Kingdom | Tismi B.V. Radboudkwarter 245B 3511
+    GK UTRECHT | 89 44 13 PO Box 19092 3501 DB UTRECHT (Netherlands) Tel: +31 62 700
+    7000 Fax: E-mail: johan@tismi.com | Jan Willem Bogert" vs official "United Kingdom
+    | Tismi B.V. Radboudkwarter 245B 3511 GK UTRECHT (Netherlands) | 89 44 13 PO Box
+    19092 3501 DB UTRECHT (Netherlands) Tel: +31 62 700 7000 Fax: E-mail: johan@tismi.com
+    | Jan Willem Bogert"'
+  disposition: data
+  reason: the official PDF prints netherlands once more than the dataset record holds
+    (in en); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: '89 1 432: generated "United States | LiTel Telecommunications Corporation
+    200 Old Wilson Bridge Road WORTHINGTON, OH | 89 1 432 200 Old Wilson Bridge Rd.
+    WORTHINGTON, OH 43085 Tel: +1 614 433 9243 Fax: E-mail: | Gerald D. Anglin" vs
+    official "United States | LiTel Telecommunications Corporation 200 Old Wilson
+    Bridge Road WORTHINGTON, OH 43085 | 89 1 432 200 Old Wilson Bridge Rd. WORTHINGTON,
+    OH 43085 Tel: +1 614 433 9243 Fax: E-mail: | Gerald D. Anglin"'
+  disposition: bug
+  reason: the dataset record holds 43085 (in en) once more than the generated row
+    prints it, and the official row prints it
+- layer: rows
+  side: both
+  text: '89 1 470: generated "United States | Ntelos, Inc. 1154 Shenandoah Village
+    Dr. Waynesboro, VA 22980 | 89 1 470 Relations 1154 Shenandoah Village Dr. Waynesboro,
+    VA 22980 Tel: +1 540 941 4614 Fax: +1 540 943 5001 E-mail: roamingcoord@ntelos.com
+    | Philip L. Nelson, Director of Carrier" vs official "United States | Ntelos,
+    Inc. 1154 Shenandoah Village Dr. Waynesboro, VA 22980 | 89 1 470 1154 Shenandoah
+    Village Dr. Waynesboro, VA 22980 Tel: +1 540 941 4614 Fax: +1 540 943 5001 E-mail:
+    roamingcoord@ntelos.com | Philip L. Nelson, Director of Carrier Relations"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: '89 1 610: generated "United States | Ntelos, Inc. 1154 Shenandoah Village
+    Dr. Waynesboro, VA 22980 | 89 1 610 Relations 1154 Shenandoah Village Dr. Waynesboro,
+    VA 22980 Tel: +1 540 941 4614 Fax: +1 540 943 5001 E-mail: roamingcoord@ntelos.com
+    | Philip L. Nelson, Director of Carrier" vs official "United States | Ntelos,
+    Inc. 1154 Shenandoah Village Dr. Waynesboro, VA 22980 | 89 1 610 1154 Shenandoah
+    Village Dr. Waynesboro, VA 22980 Tel: +1 540 941 4614 Fax: +1 540 943 5001 E-mail:
+    roamingcoord@ntelos.com | Philip L. Nelson, Director of Carrier Relations"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'

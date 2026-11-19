@@ -1,0 +1,1752 @@
+- layer: rows
+  side: both
+  text: 'Albanie (République: generated "Albanie (République d'') | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité de retour d''appel
+    - Tonalité d''appel en attente - | 425 425 425 425 425 | 0.5 on 0.5 off 0.2 on
+    0.2 off continu 1.0 on 4.0 off 0.2 on 0.2 off 0.2 on 1.4 off" vs official "Albanie
+    (République d'') | Tonalité d''occupation - Tonalité d''encombrement - Tonalité
+    de numérotation - Tonalité de retour d''appel - Tonalité d''appel en attente -
+    démocratique et populaire) | 425 425 425 425 425 | 0.5 on 0.5 off 0.2 on 0.2 off
+    continu 1.0 on 4.0 off 0.2 on 0.2 off 0.2 on 1.4 off"'
+  disposition: data
+  reason: the official PDF prints démocratique et populaire once more than the dataset
+    record holds (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Algérie (République: generated "Algérie (République algérienne démocratique
+    et populaire) | Tonalité d''occupation - Tonalité de retour d''appel - | 425 425
+    | 0.5 on 0.5 off 1.5 on 3.5 off" vs official "Algérie (République algérienne |
+    Tonalité d''occupation - Tonalité de retour d''appel - | 425 425 | 0.5 on 0.5
+    off 1.5 on 3.5 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (démocratique
+    et populaire); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Anguilla: generated "Anguilla | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité d''invitation à répéter l''appel - Tonalité
+    d''abonné inaccessible - Tonalité d''identification de publiphone - Tonalité de
+    retour d''appel - Tonalité spéciale d''information - Tonalité d''avertissement
+    - intervention d''opératrice Tonalité d''attente - | 480+620 480+620 350+440 350+440
+    480+620 1600/1143 440+480 950/1400/1800 operator 440 | 0.5 on 0.5 off 0.25 on
+    0.25 off continu 3x(0.1 on 0.1 off) + continu 0.25 on 0.25 off 0.2 on 0.2 off
+    0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on 0.2 off
+    1x(0.5 on 10.0 off 0.5 on)" vs official "Anguilla | Tonalité d''occupation - Tonalité
+    d''encombrement - Tonalité de numérotation - Tonalité d''invitation à répéter
+    l''appel - Tonalité d''abonné inaccessible - Tonalité d''identification de publiphone
+    - Tonalité de retour d''appel - Tonalité spéciale d''information - Tonalité d''avertissement
+    - intervention d''opératrice Tonalité d''attente - | 480+620 480+620 350+440 350+440
+    480+620 1600/1143 440+480 950/1400/1800 450 440 | 0.5 on 0.5 off 0.25 on 0.25
+    off continu 3x(0.1 on 0.1 off) + continu 0.25 on 0.25 off 0.2 on 0.2 off 0.2 on
+    2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5
+    on 10.0 off 0.5 on)"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 450
+- layer: rows
+  side: both
+  text: 'Antigua-et-Barbuda: generated "Antigua-et-Barbuda | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité de paiement -
+    Tonalité de retour d''appel - d''information - Tonalité d''appel en attente -
+    | 480+620 480+620 350+440 622 440+480 480 | 0.5 on 0.5 off 0.25 on 0.25 off continu
+    0.136 on 0.136 off 2.0 on 4.0 off 1x(0.6 on 10.0 off)" vs official "Antigua-et-Barbuda
+    | Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité de paiement - Tonalité de retour d''appel - Tonalité d''appel en attente
+    - | 480+620 480+620 350+440 622 440+480 480 | 0.5 on 0.5 off 0.25 on 0.25 off
+    continu 0.136 on 0.136 off 2.0 on 4.0 off 1x(0.6 on 10.0 off)"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (information
+    d); the official PDF has other text
+- layer: rows
+  side: official_only
+  text: Arabie saoudite Arabie saoudite (Royaume d') | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de conférence - Tonalité de numérotation - Tonalité
+    d'identification de publiphone - Tonalité de retour d'appel - Tonalité d'appel
+    en attente - | 425 425 425 425 1600/1200 425 425 | 0.5 on 0.5 off 0.25 on 0.25
+    off 0.5 on 2.0 off 0.5 on 15.0 off continu 0.2 on 0.2 off 0.2 on 4.0 off 1.2 on
+    4.6 off 0.15 on 0.2 off 0.15 on 10.0 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: 'Argentine (République): generated "Argentine (République) | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité de fin de service
+    triangulaire - Tonalité de retour d''appel - Tonalité de service activité - Tonalité
+    d''avertissement - intervention d''opératrice Tonalité d''attente - Tonalité d''appel
+    en attente - | 425 425 425 950/1400/1800 425 425 operator 425 425 | 0.3 on 0.2
+    off 0.3 on 0.4 off continu 1x(3x0.33 on) 1.0 on 4.0 off 1.0 on 0.25 off 5x0.1
+    on 1.9 off 0.4 on 0.2 off 0.4 on 4.0 off 0.3 on 10.0 off" vs official "Argentine
+    (République) | Tonalité d''occupation - Tonalité d''encombrement - Tonalité de
+    numérotation - Tonalité de fin de service triangulaire - Tonalité de retour d''appel
+    - Tonalité de service activité - Tonalité d''avertissement - intervention d''opératrice
+    Tonalité d''attente - Tonalité d''appel en attente - | 425 425 425 950/1400/1800
+    425 425 1400 425 425 | 0.3 on 0.2 off 0.3 on 0.4 off continu 1x(3x0.33 on) 1.0
+    on 4.0 off 1.0 on 0.25 off 5x0.1 on 1.9 off 0.4 on 0.2 off 0.4 on 4.0 off 0.3
+    on 10.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 1400
+- layer: rows
+  side: both
+  text: 'Autriche: generated "Autriche | Tonalité d''occupation -I Tonalité d''occupation
+    - II Tonalité d''encombrement - I Tonalité d''encombrement - II Tonalité de numérotation
+    - Tonalité d''invitation à répéter l''appel - Tonalité de numérotation spéciale
+    - Tonalité d''indication negative - Tonalité d''abonné inaccessible - Tonalité
+    de paiement - Tonalité d''indication positive - Tonalité d''identification de
+    publiphone - Tonalité de retour d''appel - Tonalité spéciale d''information -
+    Tonalité d''avertissement - intervention d''opératrice Tonalité d''attente - |
+    420 450 420 450 420//450 420 380+420 380+420 950/1400/1800 852 380+420 1633/1336
+    420//450 950/1400/1800 operator 420 | 0.4 on 0.4 off 0.3 on 0.3 off 0.2 on 0.2
+    off 0.3 on 0.3 off continu continu continu 0.4 on 0.4 off 3x0.33 on 1.0 off 1.5
+    on 1.0 on 5.0 off 0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 5.0 off 3x0.33 on 1.0 off
+    0.15 on 0.15 off 0.15 on 1.95 off 0.04 on 1.95 off" vs official "Autriche | Tonalité
+    d''occupation - I Tonalité d''occupation - II (5) Tonalité d''encombrement - I
+    Tonalité d''encombrement - II (5) Tonalité de numérotation - Tonalité d''invitation
+    à répéter l''appel - Tonalité de numérotation spéciale - Tonalité d''indication
+    negative - Tonalité d''abonné inaccessible - Tonalité de paiement - Tonalité d''indication
+    positive - Tonalité d''identification de publiphone - Tonalité de retour d''appel
+    - Tonalité spéciale d''information - Tonalité d''avertissement - intervention
+    d''opératrice Tonalité d''attente - | 420 450 420 450 420//450 420 380+420 380+420
+    950/1400/1800 852 380+420 1633/1336 420//450 950/1400/1800 420//450 420 | 0.4
+    on 0.4 off 0.3 on 0.3 off 0.2 on 0.2 off 0.3 on 0.3 off continu continu continu
+    0.4 on 0.4 off 3x0.33 on 1.0 off 1.5 on 1.0 on 5.0 off 0.2 on 0.2 off 0.2 on 2.0
+    off 1.0 on 5.0 off 3x0.33 on 1.0 off 0.15 on 0.15 off 0.15 on 1.95 off 0.04 on
+    1.95 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 450 420 5 5
+- layer: rows
+  side: both
+  text: 'Bahreïn (Royaume: generated "Bahreïn (Royaume de) | Tonalité d''acceptation
+    - Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité d''abonné inaccessible - Tonalité de paiement - Tonalité de retour
+    d''appel - Tonalité d''acheminement - Tonalité d''appel en attente - | 425 425
+    425 330x440 425 816/1209 425 425 425 | 0.06 on 0.06 off 0.375 on 0.375 off 0.40
+    on 0.35 off 0.225 on 0.525 off continu continu O.125 on 1.5 off 0.4 on 0.2 off
+    0.4 on 2.0 off 0.06 on 0.06 off 0.2 on 0.6 off 0.2 on 5.0 off" vs official "Bahreïn
+    (Royaume de) | Tonalité d''acceptation - Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité d''abonné inaccessible - Tonalité de paiement
+    - Tonalité de retour d''appel - Tonalité d''acheminement - Tonalité d''appel en
+    attente - du) | 425 425 425 330x440 425 816/1209 425 425 425 | 0.06 on 0.06 off
+    0.375 on 0.375 off 0.40 on 0.35 off 0.225 on 0.525 off continu continu O.125 on
+    1.5 off 0.4 on 0.2 off 0.4 on 2.0 off 0.06 on 0.06 off 0.2 on 0.6 off 0.2 on 5.0
+    off"'
+  disposition: data
+  reason: the official PDF prints du once more than the dataset record holds (in fr);
+    the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Bangladesh (République: generated "Bangladesh (République populaire du) |
+    Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation -
+    Tonalité de numérotation spéciale - Tonalité d''hurlement - Tonalité de paiement
+    - Tonalité de retour d''appel - Tonalité d''avertissement - intervention d''opératrice
+    Tonalité d''appel en attente - | 450 450 450 450 3000 800/1900 450 operator 450
+    | 0.2 on 0.3 off 0.7 on 0.8 off 0.25 on 0.25 off continu 0.4 on 0.4 off continu
+    continu 1.0 on 4.0 off 0.20 on 0.02 off 0.20 on 1.40 off 3.0 on 10.0 off" vs official
+    "Bangladesh (République populaire | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité d''hurlement
+    - Tonalité de paiement - Tonalité de retour d''appel - Tonalité d''avertissement
+    - intervention d''opératrice Tonalité d''appel en attente - | 450 450 450 450
+    3000 800/1900 450 450 450 | 0.2 on 0.3 off 0.7 on 0.8 off 0.25 on 0.25 off continu
+    0.4 on 0.4 off continu continu 1.0 on 4.0 off 0.20 on 0.02 off 0.20 on 1.40 off
+    3.0 on 10.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (du operator);
+    the official PDF has 450
+- layer: rows
+  side: both
+  text: 'Bénin (République: generated "Bénin (République du) | Tonalité d''occupation
+    - d''encombrement - Tonalité de numérotation - Tonalité de numérotation spéciale
+    - Tonalité de retour d''appel - Tonalité d''acheminement - d''information - Tonalité
+    d''appel en attente - | 440//425 440//425 330+440 440//425 440//425 440 | 0.5
+    on 0.5 off continu continu 1.7 on 3.3 off 0.05 on 0.05 off continu" vs official
+    "Bénin (République du) | Tonalité d''occupation - Tonalité de numérotation - Tonalité
+    de numérotation spéciale - Tonalité de retour d''appel - Tonalité d''acheminement
+    - Tonalité d''appel en attente - | 440//425 440//425 330+440 440//425 440//425
+    440 | 0.5 on 0.5 off continu continu 1.7 on 3.3 off 0.05 on 0.05 off continu"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (encombrement
+    d information d); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Bermudes: generated "Bermudes | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de retour d''appel - Tonalité spéciale d''information
+    - attente - | 480+620 480+620 350+440 440+480 913/1428/1776 a) | 0.5 on 0.5 off
+    0.25 on 0.25 off continu 2.0 on 4.0 off 0.27 on 0.38 on 0.38 on" vs official "Bermudes
+    | Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité de retour d''appel - Tonalité spéciale d''information - | 480+620 480+620
+    350+440 440+480 913/1428/1776 | 0.5 on 0.5 off 0.25 on 0.25 off continu 2.0 on
+    4.0 off 0.27 on 0.38 on 0.38 on"'
+  disposition: bug
+  reason: the generated PDF prints the dataset's text of another language than fr
+    (attente a)
+- layer: rows
+  side: generated_only
+  text: Vierges britanniques Vierges britanniques (Iles) | Tonalité d'occupation -
+    Tonalité d'encombrement - Tonalité de numérotation - Tonalité d'invitation à répéter
+    l'appel - Tonalité d'abonné inaccessible - Tonalité d'identification de publiphone
+    - Tonalité de retour d'appel - Tonalité spéciale d'information - Tonalité d'avertissement
+    - intervention d'opératrice Tonalité d'appel en attente - | 480+620 480+620 350+440
+    350+440 480+620 1600/1143 440+480 950/1400/1800 operator 440 | 0.5 on 0.5 off
+    0.25 on 0.25 off continu 3x(0.1 on 0.1 off) + continu 0.25 on 0.25 off 0.2 on
+    0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on
+    0.2 off 1x(0.5 on 10.0 off 0.5 on)
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (operator); the official PDF has d outre mer 450
+- layer: rows
+  side: both
+  text: 'Brunéi Darussalam: generated "Brunéi Darussalam | Tonalité d''occupation
+    - Tonalité de confirmation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité de numérotation spéciale - Tonalité de garde - Tonalité d''abonné inaccessible
+    - Tonalité de retour d''appel - Tonalité d''avertissement – fin de la période
+    Tonalité d''avertissement - intervention d''opératrice Tonalité d''avertissement
+    – tonalité pip Tonalité d''attente - Tonalité d''appel en attente - | 400 400x24
+    400 400x50 400x24 400x24 400 400+450 end operator pip 400 400x24 | 0.375 on 0.375
+    off 0.1 on 0.1 off 0.3 on 0.3 off 0.375 on 0.375 off continu 0.1 on 0.1 off 0.5
+    on 2.5 off continu 0.4 on 0.2 off 0.4 on 0.2 off 0.624 on 4.376 off 0.25 on 2.0
+    off 0.25 on 0.25 off 0.3 on 0.25 off 0.5 on 0.25 off" vs official "Brunéi Darussalam
+    | Tonalité d''occupation - Tonalité de confirmation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité de garde
+    - Tonalité d''abonné inaccessible - Tonalité de retour d''appel - Tonalité d''avertissement
+    – fin de la période Tonalité d''avertissement - intervention d''opératrice Tonalité
+    d''avertissement – tonalité pip Tonalité d''attente - Tonalité d''appel en attente
+    - | 400 400x24 400 400x50 400x24 400x24 400 400+450 400 400 900 400 400x24 | 0.375
+    on 0.375 off 0.1 on 0.1 off 0.3 on 0.3 off 0.375 on 0.375 off continu 0.1 on 0.1
+    off 0.5 on 2.5 off continu 0.4 on 0.2 off 0.4 on 0.2 off 0.624 on 4.376 off 0.25
+    on 2.0 off 0.25 on 0.25 off 0.3 on 0.25 off 0.5 on 0.25 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (end
+    operator pip); the official PDF has 400 900 400
+- layer: rows
+  side: generated_only
+  text: Tchad (République Tchad (République du) | Tonalité d'occupation - Tonalité
+    de numérotation - Deuxième tonalité de numérotation - Tonalité de retour d'appel
+    - Tonalité spéciale d'information - | 440 440 330+400 440 950/1400/1800 | 0.5
+    on 0.5 off continu continu 1.7 on 3.3 off (3x0.33 on 2x0.03 off) 1.0 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 'Iles anglo-normandes: Iles anglo-normandes: Guernesey | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité de numérotation
+    spéciale - Tonalité de paiement - Tonalité de retour d''appel - Tonalité spéciale
+    d''information - Tonalité d''appel en attente - | 400 400  350+450 350+450 400
+    400+450 950/1400/1800 400 | 0.375 on 0.375 off 0.40 on 0.35 off 0.25 on 0.52 off
+    continu 0.75 on 0.75 off 0.125 on 0.125 off 0.4 on 0.2 off 3x0.33 on 1.0 off 8x(0.1
+    on 4.9 off)'
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 'Iles anglo-normandes:#2 Iles anglo-normandes: Jersey | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité d''abonné inaccessible
+    - Tonalité de paiement - Tonalité de retour d''appel - Tonalité d''attente - |
+    400 400  350+450 400 400 400+450 400 | 0.375 on 0.375 off 0.4 on 0.35 off 0.225
+    on 0.525 off continu continu 0.125 on 0.125 off 0.4 on 0.2 off 0.4 on 2.0 off
+    0.1 on 2.5 off 0.1 on'
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: 'Chili: generated "Chili | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Deuxième tonalité de numérotation - Tonalité d''identification
+    - Tonalité d''identification de publiphone - Tonalité de retour d''appel - Tonalité
+    spéciale d''information - Tonalité d''avertissement - fin de la période Tonalité
+    d''avertissement - intervention d''opératrice Tonalité d''attente - | 400 400
+    400 330+440 800/1200 1100+1750/750+1450 400 950/1400/1800 end operator 900+1300
+    | 0.5 on 0.5 off 0.2 on 0.2 off continu continu 0.6 on 2.0 off 0.6 on 2.0 off
+    0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 3.0 off 3x0.333 on 1.0 off 2.0 on 0.5 on
+    15.0 off 0.5 on 0.5 off" vs official "Chili | Tonalité d''occupation - Tonalité
+    d''encombrement - Tonalité de numérotation - Deuxième tonalité de numérotation
+    - Tonalité d''identification - Tonalité d''identification de publiphone - Tonalité
+    de retour d''appel - Tonalité spéciale d''information - Tonalité d''avertissement
+    - fin de la période Tonalité d''avertissement - intervention d''opératrice Tonalité
+    d''attente - | 400 400 400 330+440 800/1200 1100+1750/750+1450 400 950/1400/1800
+    800 1400 900+1300 | 0.5 on 0.5 off 0.2 on 0.2 off continu continu 0.6 on 2.0 off
+    0.6 on 2.0 off 0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 3.0 off 3x0.333 on 1.0 off
+    2.0 on 0.5 on 15.0 off 0.5 on 0.5 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (end
+    operator); the official PDF has 800 1400
+- layer: rows
+  side: official_only
+  text: Chypre (République Chypre (République de) | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité d'abonné inaccessible - Tonalité
+    de paiement - Tonalité de retour d'appel - Tonalité spéciale d'information - Tonalité
+    d'avertissement - intervention d’opératrice Tonalité d'appel en attente - | 425
+    425 350+450 425 1638/1206/943 425 950/1400/1800 1400 425 | 0.5 on 0.5 off 0.25
+    on 0.25 off continu 2.5 on 0.5 off 3x(0.068 on 0.068 off) 1.5 on 3.0 off 3x0.33
+    on 1.0 off 0.5 on 14.0 off 0.1 on 0.1 off 0.1 on 5.0 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (operator); the official PDF has 1400
+- layer: rows
+  side: official_only
+  text: Corée (République Corée (République de) | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité d'invitation à répéter l'appel
+    - I Tonalité d'invitation à répéter l'appel - II Tonalité d'interception - Tonalité
+    d'abonné inaccessible - Tonalité de retour d'appel - Tonalité d'avertissement
+    - intervention d’opératrice Tonalité d'attente - | 480+620 480+620 350+440 400//450
+    400//450 350+440 450 440+480 392/494/587 350+440 | 0.5 on 0.5 off 0.3 on 0.2 off
+    continu 1.0 on 4.0 off 1.0 on 2.0 off 0.125 on 0.25 off 0.125 on 1.5 off 0.2 on
+    0.1 off 0.2 on 1.5 off 1.0 on 2.0 off 2x(0.5 on 0.5 on 1.5 on) 0.25 on 0.25 off
+    0.25 on 3.25 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (operator); the official PDF has 392 494 587
+- layer: rows
+  side: both
+  text: 'Costa Rica: generated "Costa Rica | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de retour d''appel - Tonalité d''avertissement
+    - intervention d''opératrice Tonalité d''appel en attente - | 450 450 450 450
+    operator 450 | 0.33 on 0.33 off 0.33 on 0.33 off continu 1.2 on 4.9 off 0.17 on
+    0.17 off 0.5 on 0.17 off 0.15 on 0.15 off 0.15 on 8.0 off" vs official "Costa
+    Rica | Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité de retour d''appel - Tonalité d''avertissement - intervention d''opératrice
+    Tonalité d''appel en attente - | 450 450 450 450 425 450 | 0.33 on 0.33 off 0.33
+    on 0.33 off continu 1.2 on 4.9 off 0.17 on 0.17 off 0.5 on 0.17 off 0.15 on 0.15
+    off 0.15 on 8.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 425
+- layer: rows
+  side: both
+  text: 'Cuba: generated "Cuba | Tonalité d''acceptation - Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - I Tonalité de numérotation
+    - II Tonalité d''indication negative - Tonalité de retour d''appel - I Tonalité
+    de retour d''appel - II Tonalité de retour d''appel - III Tonalité de retour d''appel
+    - IV Tonalité spéciale d''information - I Tonalité spéciale d''information - II
+    Tonalité d''avertissement - I, intervention d''opératrice Tonalité d''avertissement
+    - II, intervention d''opératrice Tonalité d''appel en attente - I Tonalité d''appel
+    en attente - II | 425 600x120//620+480//425//400 600x120//425//400 600x120//425
+    425 425 425 440+480//440+620//480+620 420x40 400+450 950/1400/1800 (3x0.33 on
+    400 425 425 425 400 | continu 0.5 on 0.5 off 0.25 on 0.25 off continu 0.75 on
+    0.75 off 0.25 on 0.25 off 0.5 on 0.5 off 1.0 on 4.0 off 2.0 on 4.0 off 1.0 on
+    2.0 off 0.4 on 0.2 off 0.4 on 2.0 off (3x0.33 on 2x0.33 off) 1.0 off 4x(0.075
+    on 0.10 off) 0.30 off 0.1 on 4.9 off 0.5 on 0.2 off 0.2 on 0.6 off 0.2 on 0.5
+    on 0.5 off" vs official "Cuba | Tonalité d''acceptation - Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - I Tonalité de numérotation
+    - II Tonalité d''indication negative - Tonalité de retour d''appel - I Tonalité
+    de retour d''appel - II Tonalité de retour d''appel - III Tonalité de retour d''appel
+    - IV Tonalité spéciale d''information - I Tonalité spéciale d''information - II
+    Tonalité d''avertissement - I, intervention d''opératrice Tonalité d''avertissement
+    - II, intervention d''opératrice Tonalité d''appel en attente - I Tonalité d''appel
+    en attente - II | 425 600x120//620+480//425//400 600x120//425//400 600x120//425
+    425 425 425 440+480//440+620//480+620 420x40 400+450 950/1400/1800 400 425 425
+    425 400 | continu 0.5 on 0.5 off 0.25 on 0.25 off continu 0.75 on 0.75 off 0.25
+    on 0.25 off 0.5 on 0.5 off 1.0 on 4.0 off 2.0 on 4.0 off 1.0 on 2.0 off 0.4 on
+    0.2 off 0.4 on 2.0 off (3x0.33 on 2x0.33 off) 1.0 off 4x(0.075 on 0.10 off) 0.30
+    off 0.1 on 4.9 off 0.5 on 0.2 off 0.2 on 0.6 off 0.2 on 0.5 on 0.5 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (3x0
+    33 on); the official PDF has other text
+- layer: rows
+  side: generated_only
+  text: Chypre (République Chypre (République de) | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité d'abonné inaccessible - Tonalité
+    de paiement - Tonalité de retour d'appel - Tonalité spéciale d'information - Tonalité
+    d'avertissement - intervention d'opératrice Tonalité d'appel en attente - | 425
+    425 350+450 425 1638/1206/943 425 950/1400/1800 operator 425 | 0.5 on 0.5 off
+    0.25 on 0.25 off continu 2.5 on 0.5 off 3x(0.068 on 0.068 off) 1.5 on 3.0 off
+    3x0.33 on 1.0 off 0.5 on 14.0 off 0.1 on 0.1 off 0.1 on 5.0 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (operator); the official PDF has 1400
+- layer: rows
+  side: generated_only
+  text: République tchèque République tchèque | Tonalité d'occupation - Tonalité d'encombrement
+    - Tonalité de numérotation - Tonalité de retour d'appel - Tonalité spéciale d'information
+    - Tonalité d'appel en attente - Tonalité de demandeur en attente - | 425 425 425  425
+    950/1400/1800 425 425  | 0.33 on 0.33 off 0.165 on 0.165 off 0.33 on 0.33 off
+    0.66 on 0.66 off 1.0 on 4.0 off (3x0.33 on 2x0.03 off) 1.0 off 0.33 on 9.0 off
+    1.00 on 0.17 off 0.33 on 3.50 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: République démocratique République démocratique du Congo | Tonalité d'occupation
+    - Tonalité d'encombrement - Tonalité de numérotation - Tonalité de retour d'appel
+    - | 450 450 450 450 | 0.5 on 0.5 off 0.5 on 0.5 off continu 2.0 on 4.0 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: 'Diego Garcia: generated "Diego Garcia | Tonalité de numérotation - inaccessible
+    - Tonalité de retour d''appel - | 350/440 440/480 | continu 1.0 on 3.0 off" vs
+    official "Diego Garcia | Tonalité de numérotation - Tonalité de retour d''appel
+    - | 350/440 440/480 | continu 1.0 on 3.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (inaccessible);
+    the official PDF has other text
+- layer: rows
+  side: generated_only
+  text: Dominique (Commonwealth Dominique (Commonwealth de la) | Tonalité d'occupation
+    - Tonalité d'encombrement - Tonalité de numérotation - Tonalité de retour d'appel
+    - Tonalité spéciale d'information - Tonalité d'appel en attente - | 480+620 480+620
+    350+440 440+480 950/1400/1800 440 | 0.5 on 0.5 off 0.25 on 0.25 off continu 2.0
+    on 4.0 off 3x0.33 on 1.0 off 1x(0.5 on 10.0 off 0.5 on)
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: Equateur Equateur | Tonalité d'occupation - Tonalité d'encombrement - Tonalité
+    de numérotation - Tonalité de retour d'appel - Tonalité d'appel en attente - |
+    425 425 425 425 425 | 0.33 on 0.33 off 0.33 on 0.33 off continu 1.2 on 4.65 off
+    0.2 on 0.6 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: Dominique (Commonwealth Dominique (Commonwealth de la) | Tonalité d'occupation
+    - Tonalité d'encombrement - Tonalité de numérotation - Tonalité de retour d'appel
+    - Tonalité spéciale d'information - Tonalité d'appel en attente - | 480+620 480+620
+    350+440 440+480 950/1400/1800 440 | 0.5 on 0.5 off 0.25 on 0.25 off continu 2.0
+    on 4.0 off 3x0.33 on 1.0 off 1x(0.5 on 10.0 off 0.5 on)
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: Emirats arabes Emirats arabes unis | Tonalité d'occupation - Tonalité d'encombrement
+    - Tonalité de numérotation - Tonalité d'abonné inaccessible - Tonalité de retour
+    d'appel - | 400//425 400//425 350+440 400//425 400+450//425 | 0.375 on 0.375 off
+    0.4 on 0.35 off 0.225 on 0.525 off continu continu 0.4 on 0.2 off 0.4 on 2.0 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: Equateur Equateur | Tonalité d'occupation - Tonalité d'encombrement - Tonalité
+    de numérotation - Tonalité de retour d'appel - Tonalité d'appel en attente - |
+    425 425 425 425 425 | 0.33 on 0.33 off 0.33 on 0.33 off continu 1.2 on 4.65 off
+    0.2 on 0.6 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: Espagne Espagne | Tonalité d'occupation - I Tonalité d'occupation - II Tonalité
+    d'encombrement - I Tonalité d'encombrement - II Tonalité de numérotation - Tonalité
+    de numérotation spéciale - I Tonalité de numérotation spéciale - II Tonalité d'abonné
+    inaccessible - I Tonalité d'abonné inaccessible - II Tonalité d'identification
+    de publiphone -I Tonalité d'identification de publiphone - II Tonalité de retour
+    d'appel - I Tonalité de retour d'appel - II Tonalité spéciale d'information -
+    Tonalité d'avertissement - intervention d’opératrice Tonalité d'appel en attente
+    - | 425 425 425 425 425 425 425 425 425 1600 1600  425 425 950/1400/1800 1400
+    425 | 0.2 on 0.2 off 0.5 on 0.5 off 2x(0.2 on 0.2 off) 0.2 on 0.6 off 0.25 on
+    0.25 off continu 1.0 on 0.1 off 0.5 on 0.05 off 0.2 on 0.2 off 0.2 on 0.6 off
+    0.5 on 2.5 off 0.05 on 0.05 off 0.05 on 1.5 off 0.05 on 0.05 off 0.05 on 0.05
+    off 0.05 on 1.5 off 1.5 on 3.0 off 1.0 on 4.0 off 3x0.33 on 1.0 off 0.4 on 5.0
+    off 0.175 on 0.175 off 0.175 on 3.5 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (operator); the official PDF has 1400
+- layer: rows
+  side: both
+  text: 'Ethiopie (République: generated "Ethiopie (République fédérale démocratique
+    d'') | Tonalité d''acceptation - Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité d''intrusion
+    - Tonalité de neutralisation de ligne - Tonalité de refus - Tonalité de retour
+    d''appel - Tonalité spéciale d''information - Tonalité d''avertissement - Tonalité
+    d''appel en attente - | 425 425 425 425 425 425 425 425 425 950/1400/1800 1400
+    425 | continu 0.4 on 0.4 off 0.4 on 0.4 off continu 0.4 on 0.04 off 0.5 on 0.2
+    off 0.4 on 0.4 off 0.4 on 0.4 off 1.0 on 4.0 off 3x0.33 on 1.0 off 0.5 on 11.5
+    off 0.2 on 0.6 off" vs official "Ethiopie (République fédérale | Tonalité d''acceptation
+    - Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité de numérotation spéciale - Tonalité d''intrusion - Tonalité de neutralisation
+    de ligne - Tonalité de refus - Tonalité de retour d''appel - Tonalité spéciale
+    d''information - Tonalité d''avertissement - Tonalité d''appel en attente - |
+    425 425 425 425 425 425 425 425 425 950/1400/1800 1400 425 | continu 0.4 on 0.4
+    off 0.4 on 0.4 off continu 0.4 on 0.04 off 0.5 on 0.2 off 0.4 on 0.4 off 0.4 on
+    0.4 off 1.0 on 4.0 off 3x0.33 on 1.0 off 0.5 on 11.5 off 0.2 on 0.6 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (démocratique
+    d); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Falkland (Iles): generated "Falkland (Iles) (Malvinas) | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité d''abonné inaccessible
+    - Tonalité de retour d''appel - Tonalité spéciale d''information - Tonalité d''avertissement
+    - intervention d''opératrice | 400 400 350+450 400 400+450 950/1400/1800 operator
+    | 0.375 on 0.375 off 0.4 on 0.35 off 0.255 on 0.525 off continu continu 0.4 on
+    0.2 off 3x0.33 on 1.0 off 0.1 on 0.1 off" vs official "Falkland (Iles) (Malvinas)
+    | Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité d''abonné inaccessible - Tonalité de retour d''appel - Tonalité spéciale
+    d''information - Tonalité d''avertissement - intervention d''opératrice | 400
+    400 350+450 400 400+450 950/1400/1800 1000 | 0.375 on 0.375 off 0.4 on 0.35 off
+    0.255 on 0.525 off continu continu 0.4 on 0.2 off 3x0.33 on 1.0 off 0.1 on 0.1
+    off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 1000
+- layer: rows
+  side: both
+  text: 'Finlande: generated "Finlande | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité de file
+    d''attente - | 425 425 425 425 950/950/1400 | 0.3 on 0.3 off 0.2 on 0.2 off continu
+    0.65 on 0.025 off 0.65 on 0.325 off 0.325 on 1.3 on 2.6 off" vs official "Finlande
+    | Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité de numérotation spéciale - Tonalité de file d''attente - Tonalité de
+    retour d''appel - (11) Tonalité spéciale d''information - Tonalité d''avertissement
+    - intervention d''opératrice Tonalité d''appel en attente - | 425 425 425 425
+    950/950/1400 425 950/1400/1800 425 425 | 0.3 on 0.3 off 0.2 on 0.2 off continu
+    0.65 on 0.025 off 0.65 on 0.325 off 0.325 on 1.3 on 2.6 off 1.0 on 4.0 off 3x0.333
+    on 1.0 off 0.2 on 0.3 off 0.2 on 1.3 off 0.15 on 0.15 off 0.15 on 8.0 off"'
+  disposition: data
+  reason: the official PDF prints tonalité de retour d appel 11 tonalité spéciale
+    d information tonalité d avertissement intervention d opératrice tonalité d appel
+    en attente 425 950 1400 1800 425 425 1 0 on 4 0 off 3x0 333 on 1 0 off 0 2 on
+    0 3 off 0 2 on 1 3 off 0 15 on 0 15 off 0 15 on 8 0 off once more than the dataset
+    record holds (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: generated_only
+  text: Guyane française Guyane française (Département français de la) | Tonalité
+    d'occupation - Tonalité de numérotation - Tonalité de retour d'appel - Tonalité
+    spéciale d'information - Tonalité d'appel en attente - | 440 440 440 950/1400/1800
+    440 | 0.5 on 0.5 off continu 1.5 on 3.5 off 3x(0.3 on 0.03 off) 1.0 off 0.3 on
+    10.0 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (français la de); the official PDF has other text
+- layer: rows
+  side: generated_only
+  text: Polynésie française Polynésie française (Territoire français d'outre-mer)
+    | Tonalité d'acceptation - Tonalité d'occupation - Tonalité d'encombrement - Tonalité
+    de numérotation - Deuxième tonalité de numérotation - Tonalité d'hurlement - Tonalité
+    de paiement - Tonalité de retour d'appel - Tonalité spéciale d'information - Tonalité
+    d'appel en attente - | 440 440 440 440 440+330 3000 440 440 950/1400/1800 440
+    | 1.7 on 3.3 off 0.5 on 0.5 off 0.5 on 0.5 off continu continu continu continu
+    1.7 on 3.3 off 3x0.33 on 1.0 off 1.7 on 3.3 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (français outre mer d); the official PDF has other text
+- layer: rows
+  side: generated_only
+  text: Groenland (Danemark) Groenland (Danemark) | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Deuxième tonalité de numérotation
+    - Tonalité d'abonné inaccessible - I Tonalité d'abonné inaccessible - II Tonalité
+    de paiement - Tonalité de retour d'appel - | 445//425 445//425 445//425 445//425
+    950/1400/1800 425 950/1400/1800 445//425 | 0.25 on 0.25 off 0.25 on 0.25 off continu
+    continu 3x0.33 on 1.0 off 0.25 on 0.25 off 3x0.22 on 1.0 off 1.0 on 4.0 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the official PDF prints de la once more than the
+    dataset record holds (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Grenade: generated "Grenade | Tonalité d''occupation - d''encombrement -
+    Tonalité de retour d''appel - | 460+620 440+480 | 0.5 on 0.5 off 2.0 on 4.0 off"
+    vs official "Grenade | Tonalité d''occupation - Tonalité de retour d''appel -
+    | 460+620 440+480 | 0.5 on 0.5 off 2.0 on 4.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (encombrement
+    d); the official PDF has other text
+- layer: rows
+  side: official_only
+  text: Groenland (Danemark) Groenland (Danemark) | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Deuxième tonalité de numérotation
+    - Tonalité d'abonné inaccessible - I Tonalité d'abonné inaccessible - II Tonalité
+    de paiement - Tonalité de retour d'appel - de la) | 445//425 445//425 445//425
+    445//425 950/1400/1800 425 950/1400/1800 445//425 | 0.25 on 0.25 off 0.25 on 0.25
+    off continu continu 3x0.33 on 1.0 off 0.25 on 0.25 off 3x0.22 on 1.0 off 1.0 on
+    4.0 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the official PDF prints de la once more than the
+    dataset record holds (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Guadeloupe (Département: generated "Guadeloupe (Département français de la)
+    | Tonalité d''occupation - Tonalité de numérotation - Tonalité de retour d''appel
+    - Tonalité spéciale d''information - Tonalité d''appel en attente - | 440 440
+    440 950/1400/1800 440 | 0.5 on 0.5 off continu 1.5 on 3.5 off 3x(0.3 on 0.03 off)
+    1.0 off 0.3 on 10.0 off" vs official "Guadeloupe (Département français | Tonalité
+    d''occupation - Tonalité de numérotation - Tonalité de retour d''appel - Tonalité
+    spéciale d''information - Tonalité d''appel en attente - | 440 440 440 950/1400/1800
+    440 | 0.5 on 0.5 off continu 1.5 on 3.5 off 3x(0.3 on 0.03 off) 1.0 off 0.3 on
+    10.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (la de);
+    the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Guyana: generated "Guyana | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de retour d''appel - Tonalité d''attente
+    - | 425 425 360/400 425 480 | 0.5 on 0.5 off 0.5 on 0.5 off 1.3 on 0.3 off 0.2
+    on 0.5 off 1.75 on 3.25 off 0.5 on 18.0 off" vs official "Guyana | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité de retour d''appel
+    - Tonalité d''attente - français de la) | 425 425 360/400 425 480 | 0.5 on 0.5
+    off 0.5 on 0.5 off 1.3 on 0.3 off 0.2 on 0.5 off 1.75 on 3.25 off 0.5 on 18.0
+    off"'
+  disposition: data
+  reason: the official PDF prints français de la once more than the dataset record
+    holds (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: official_only
+  text: Guyane française Guyane française (Département | Tonalité d'occupation - Tonalité
+    de numérotation - Tonalité de retour d'appel - Tonalité spéciale d'information
+    - Tonalité d'appel en attente - | 440 440 440 950/1400/1800 440 | 0.5 on 0.5 off
+    continu 1.5 on 3.5 off 3x(0.3 on 0.03 off) 1.0 off 0.3 on 10.0 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (français la de); the official PDF has other text
+- layer: rows
+  side: generated_only
+  text: Islande Islande | Tonalité d'occupation - Tonalité d'encombrement - Tonalité
+    de numérotation - Tonalité de numérotation spéciale d) - inaccessible - Tonalité
+    d'identification de publiphone - Tonalité de retour d'appel - Tonalité d'avertissement
+    - Tonalité d'attente - | 425 425 425 425 1633/1209 425 425 425 | 0.25 on 0.25
+    off 0.25 on 0.25 off continu 0.4 on 0.04 off 0.2 on 0.2 off 0.2 on 2.0 off 1.0
+    on 4.0 off 0.4 on 15.0 off 4x(0.2 on 0.2 off 0.2 on 3.6 off 0.2 on 0.2 off 0.2
+    on)
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (inaccessible d); the official PDF has 7
+- layer: rows
+  side: official_only
+  text: 'Iles anglo-normandes: Iles anglo-normandes: Guernesey | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité de numérotation
+    spéciale - Tonalité de paiement - Tonalité de retour d''appel - Tonalité spéciale
+    d''information - Tonalité d''appel en attente - | 400 400 350+450 350+450 400
+    400+450 950/1400/1800 400 | 0.375 on 0.375 off 0.40 on 0.35 off 0.25 on 0.52 off
+    continu 0.75 on 0.75 off 0.125 on 0.125 off 0.4 on 0.2 off 3x0.33 on 1.0 off 8x(0.1
+    on 4.9 off)'
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 'Iles anglo-normandes:#2 Iles anglo-normandes: Jersey | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité d''abonné inaccessible
+    - Tonalité de paiement - Tonalité de retour d''appel - Tonalité d''attente - |
+    400 400 350+450 400 400 400+450 400 | 0.375 on 0.375 off 0.4 on 0.35 off 0.225
+    on 0.525 off continu continu 0.125 on 0.125 off 0.4 on 0.2 off 0.4 on 2.0 off
+    0.1 on 2.5 off 0.1 on'
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: 'Inde (République: generated "Inde (République de l'') | Tonalité d''acceptation
+    - Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité de numérotation spéciale - Tonalité de garde - Tonalité d''intrusion
+    - Tonalité de refus - Tonalité de retour d''appel - I (appels local ) Tonalité
+    de retour d''appel - II (appels | 400 400 400 400x25 400 400 400 400 400x25 400x25
+    | 1.0 on 4.0 off 0.75 on 0.75 off 0.25 on 0.25 off continu 2.8 on 0.2 off 0.25
+    on 0.25 off 0.25 on 3.25 off 0.15 on 4.85 off 0.25 on 0.25 off 0.4 on 0.2 off
+    0.4 on 2..0 off 1.0 on 2.0 off" vs official "Inde (République de l'') | Tonalité
+    d''acceptation - Tonalité d''occupation - Tonalité d''encombrement - Tonalité
+    de numérotation - Tonalité de numérotation spéciale - Tonalité de garde - Tonalité
+    d''intrusion - Tonalité de refus - Tonalité de retour d''appel - I (appels local
+    ) Tonalité de retour d''appel - II (appels Tonalité d''acheminement - Tonalité
+    d''appel en attente - | 400 400 400 400x25 400 400 400 400 400x25 400x25 400 400
+    | 1.0 on 4.0 off 0.75 on 0.75 off 0.25 on 0.25 off continu 2.8 on 0.2 off 0.25
+    on 0.25 off 0.25 on 3.25 off 0.15 on 4.85 off 0.25 on 0.25 off 0.4 on 0.2 off
+    0.4 on 2..0 off 1.0 on 2.0 off 0.1 on 0.9 off 0.2 on 0.1 off 0.2 on 7.5 off"'
+  disposition: bug
+  reason: the dataset record holds tonalité d acheminement tonalité d appel en attente
+    400 400 0 1 on 0 9 off 0 2 on 0 1 off 0 2 on 7 5 off (in fr) once more than the
+    generated row prints it, and the official row prints it
+- layer: rows
+  side: official_only
+  text: Islande Islande | Tonalité d'occupation - Tonalité d'encombrement - Tonalité
+    de numérotation - Tonalité de numérotation spéciale - (7) Tonalité d'identification
+    de publiphone - Tonalité de retour d'appel - Tonalité d'avertissement - Tonalité
+    d'attente - | 425 425 425 425 1633/1209 425 425 425 | 0.25 on 0.25 off 0.25 on
+    0.25 off continu 0.4 on 0.04 off 0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 4.0 off
+    0.4 on 15.0 off 4x(0.2 on 0.2 off 0.2 on 3.6 off 0.2 on 0.2 off 0.2 on)
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (inaccessible d); the official PDF has 7
+- layer: rows
+  side: both
+  text: 'Kenya (République: generated "Kenya (République du) | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité de paiement -I
+    Tonalité de paiement - II Tonalité d''identification de publiphone - Tonalité
+    de retour d''appel - Tonalité spéciale d''information - Tonalité d''avertissement
+    - intervention d''opératrice Tonalité d''appel en attente - | 425 425 425 941
+    800/1600 1633 425 900/1400/1800 operator 425 | 0.2 on 0.6 off 0.2 on 0.6 off 0.2
+    on 0.6 off continu 0.2 on 0.2 off 0.08 on 0.08 off 0.08 on 1.5 off 0.67 on 3.0
+    off 1.5 on 5.0 off 3x0.75 on 1.25 off 0.2 on 0.2 off continu" vs official "Kenya
+    (République du) | Tonalité d''occupation - Tonalité d''encombrement - Tonalité
+    de numérotation - Tonalité de paiement - I Tonalité de paiement - II Tonalité
+    d''identification de publiphone - Tonalité de retour d''appel - Tonalité spéciale
+    d''information - Tonalité d''avertissement - intervention d''opératrice Tonalité
+    d''appel en attente - | 425 425 425 941 800/1600 1633 425 900/1400/1800 425 425
+    | 0.2 on 0.6 off 0.2 on 0.6 off 0.2 on 0.6 off continu 0.2 on 0.2 off 0.08 on
+    0.08 off 0.08 on 1.5 off 0.67 on 3.0 off 1.5 on 5.0 off 3x0.75 on 1.25 off 0.2
+    on 0.2 off continu"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 425
+- layer: rows
+  side: generated_only
+  text: Corée (République Corée (République de) | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité d'invitation à répéter l'appel
+    - I Tonalité d'invitation à répéter l'appel - II Tonalité d'interception - Tonalité
+    d'abonné inaccessible - Tonalité de retour d'appel - Tonalité d'avertissement
+    - intervention d'opératrice Tonalité d'attente - | 480+620 480+620 350+440 400//450
+    400//450 350+440  450 440+480 operator 350+440 | 0.5 on 0.5 off 0.3 on 0.2 off
+    continu 1.0 on 4.0 off 1.0 on 2.0 off 0.125 on 0.25 off 0.125 on 1.5 off 0.2 on
+    0.1 off 0.2 on 1.5 off 1.0 on 2.0 off 2x(0.5 on 0.5 on 1.5 on) 0.25 on 0.25 off
+    0.25 on 3.25 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (operator); the official PDF has 392 494 587
+- layer: rows
+  side: both
+  text: 'Koweït (Etat: generated "Koweït (Etat du) | Tonalité d''acceptation - Tonalité
+    d''occupation - Tonalité d''encombrement - Tonalité de numérotation - Deuxième
+    tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité de neutralisation
+    de ligne - Tonalité de refus - Tonalité de retour d''appel - Tonalité d''acheminement
+    - Tonalité spéciale d''information - Tonalité d''avertissement - Tonalité d''appel
+    en attente - | 425 425 425 425 425 425 425 425 425 425 950/1400/1800 425 425 |
+    continu 0.5 on 0.5 off 0.25 on 0.25 off continu continu 0.40 on 0.04 off 0.32
+    on 0.32 off 0.1 on 0.4 off 1.0 on 4.0 off 0.1 on 0.1 off 3x0.33 on 1.00 off 0.34
+    on 5.0 off 1.0 on 4.0 off" vs official "Koweït (Etat du) | Tonalité d''acceptation
+    - Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Deuxième tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité
+    de neutralisation de ligne - Tonalité de refus - Tonalité de retour d''appel -
+    Tonalité d''acheminement - Tonalité spéciale d''information - Tonalité d''avertissement
+    - Tonalité d''appel en attente - populaire) | 425 425 425 425 425 425 425 425
+    425 425 950/1400/1800 425 425 | continu 0.5 on 0.5 off 0.25 on 0.25 off continu
+    continu 0.40 on 0.04 off 0.32 on 0.32 off 0.1 on 0.4 off 1.0 on 4.0 off 0.1 on
+    0.1 off 3x0.33 on 1.00 off 0.34 on 5.0 off 1.0 on 4.0 off"'
+  disposition: data
+  reason: the official PDF prints populaire once more than the dataset record holds
+    (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Lao (République: generated "Lao (République démocratique populaire) | Tonalité
+    d''occupation - Tonalité de confirmation - Tonalité d''encombrement - Tonalité
+    de numérotation - Tonalité de numérotation spéciale - Tonalité d''abonné inaccessible
+    - Tonalité de retour d''appel - Tonalité d''attente - | 425 950 425 425 425 425
+    425 425 | 1.0 on 1.0 off continu 0.375 on 0.375 off continu 0.4 on 0.04 off 2.5
+    on 0.5 off 1.0 on 4.0 off 0.4 on 0.4 off" vs official "Lao (République démocratique
+    | Tonalité d''occupation - Tonalité de confirmation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité d''abonné
+    inaccessible - Tonalité de retour d''appel - Tonalité d''attente - | 425 950 425
+    425 425 425 425 425 | 1.0 on 1.0 off continu 0.375 on 0.375 off continu 0.4 on
+    0.04 off 2.5 on 0.5 off 1.0 on 4.0 off 0.4 on 0.4 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (populaire);
+    the official PDF has other text
+- layer: rows
+  side: official_only
+  text: Lesotho (Royaume Lesotho (Royaume du) | Tonalité d'occupation - I Tonalité
+    d'occupation - II Tonalité d'encombrement - I Tonalité d'encombrement - II Tonalité
+    de numérotation - Tonalité de paiement - Tonalité de retour d'appel - Tonalité
+    spéciale d'information - I Tonalité spéciale d'information - II Tonalité d'appel
+    en attente - I Tonalité d'appel en attente - II | 425 425 425 425 425 16000 400/425
+    425 900/1400/1800 425 425 | 1.0 on 1.0 off 0.5 on 0.5 off 0.5 on 0.5 off 0.2 on
+    0.2 off continu 0.7 on 3.0 off 1.0 on 4.0 off 0.16 on 2.0 off 3x0.3 on 1.0 off
+    1.0 on 3.0 off 0.15 on 0.15 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: L'ex-République yougoslave L'ex-République yougoslave de Macédoine | Tonalité
+    d'occupation - Tonalité de confirmation - Tonalité d'encombrement - Tonalité de
+    numérotation - Tonalité de numérotation spéciale - Tonalité d'intrusion - Tonalité
+    de paiement - Tonalité de retour d'appel - Tonalité d'acheminement - Tonalité
+    spéciale d'information - Tonalité d'appel en attente - | 425 425 425 425 425 425
+    425 425 425 950/1400/1800 425 | 0.5 on 0.5 off continu 0.2 on 0.2 off 0.2 on 0.3
+    off 0.7 on 0.8 off 0.4 on 0.04 off 0.2 on 0.3 off 0.7 on 0.8 off 0.5 on 10.0~15.0
+    off 1.0 on 4.0 off 0.4 on 1.5 off 3x0.33 on 1.0 off 0.3 on 8.0~10.0 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: Lesotho (Royaume Lesotho (Royaume du) | Tonalité d'occupation -I Tonalité
+    d'occupation - II Tonalité d'encombrement - I Tonalité d'encombrement - II Tonalité
+    de numérotation - Tonalité de paiement - Tonalité de retour d'appel - Tonalité
+    spéciale d'information - I Tonalité spéciale d'information - II Tonalité d'appel
+    en attente - I Tonalité d'appel en attente - II | 425 425 425 425 425 16000 400/425
+    425 900/1400/1800 425 425 | 1.0 on 1.0 off 0.5 on 0.5 off 0.5 on 0.5 off 0.2 on
+    0.2 off continu 0.7 on 3.0 off 1.0 on 4.0 off 0.16 on 2.0 off 3x0.3 on 1.0 off
+    1.0 on 3.0 off 0.15 on 0.15 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: 'Madagascar (République: generated "Madagascar (République de) | Tonalité
+    d''occupation - d''encombrement - Tonalité de numérotation - Tonalité de numérotation
+    spéciale - Tonalité de service complémentaire - Tonalité de retour d''appel -
+    Tonalité d''acheminement - Tonalité spéciale d''information - Tonalité d''appel
+    en attente - | 440//425 440//425 330+440 950 440//425 440//425 440 440 | 0.5 on
+    0.5 off continu continu continu 1.7 on 3.3 off 0.05 on 0.05 off 0.40 on 0.04 off
+    0.1 on 1.9 off" vs official "Madagascar (République de) | Tonalité d''occupation
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité de service
+    complémentaire - Tonalité de retour d''appel - Tonalité d''acheminement - Tonalité
+    spéciale d''information - Tonalité d''appel en attente - | 440//425 440//425 330+440
+    950 440//425 440//425 440 440 | 0.5 on 0.5 off continu continu continu 1.7 on
+    3.3 off 0.05 on 0.05 off 0.40 on 0.04 off 0.1 on 1.9 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (encombrement
+    d); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Mali (République: generated "Mali (République du) | Tonalité d''occupation
+    - d''encombrement - Tonalité de numérotation - Tonalité de retour d''appel - Tonalité
+    d''acheminement - Tonalité spéciale d''information - Tonalité d''appel en attente
+    - | 425 425 425 425 900/1400/1800 425 | 0.5 on 0.5 off continu 1.5 on 3.0 off
+    0.05 on 0.05 off 0.35 on 0.30 on 0.35 on 1.0 off 0.3 on 10.0 off" vs official
+    "Mali (République du) | Tonalité d''occupation - Tonalité de numérotation - Tonalité
+    de retour d''appel - Tonalité d''acheminement - Tonalité spéciale d''information
+    - Tonalité d''appel en attente - | 425 425 425 425 900/1400/1800 425 | 0.5 on
+    0.5 off continu 1.5 on 3.0 off 0.05 on 0.05 off 0.35 on 0.30 on 0.35 on 1.0 off
+    0.3 on 10.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (encombrement
+    d); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Malte: generated "Malte | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité d''interception
+    - Tonalité de retour d''appel - d''information - Tonalité d''appel en attente
+    - | 425 425 425 425 950/1400/1800 425 1400 | 0.5 on 0.5 off 0.5 on 0.5 off 0.2
+    on 0.2 off 0.6 on 1.0 off 0.4 on 0.04 off 3x0.24 on 1.0 off 1.0 on 4.0 off 0.34
+    on 1.5 off" vs official "Malte | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité d''interception
+    - Tonalité de retour d''appel - Tonalité d''appel en attente - | 425 425 425 425
+    950/1400/1800 425 1400 | 0.5 on 0.5 off 0.5 on 0.5 off 0.2 on 0.2 off 0.6 on 1.0
+    off 0.4 on 0.04 off 3x0.24 on 1.0 off 1.0 on 4.0 off 0.34 on 1.5 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (information
+    d); the official PDF has other text
+- layer: rows
+  side: official_only
+  text: Maroc (Royaume Maroc (Royaume du) | Tonalité d'occupation - I Tonalité d'occupation
+    - II Tonalité d'encombrement - I Tonalité d'encombrement - II Tonalité de numérotation
+    - Tonalité de retour d'appel - I Tonalité de retour d'appel - II Tonalité de retour
+    d'appel - III de la) | 425 425 425 425 425 425 425 425 | 0.5 on 0.5 off 0.4 on
+    0.4 off 0.5 on 0.5 off 0.4 on 0.4 off continu 1.7 on 3.3 off 1.0 on 4.0 off 2.0
+    on 2.0 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the official PDF prints de la once more than the
+    dataset record holds (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Martinique (Département: generated "Martinique (Département français de la)
+    | Tonalité d''occupation - Tonalité de numérotation - Tonalité de retour d''appel
+    - Tonalité spéciale d''information - Tonalité d''appel en attente - | 440 440
+    440 950/1400/1800 440 | 0.5 on 0.5 off continu 1.5 on 3.5 off 3x(0.3 on 0.03 off)
+    1.0 off 0.3 on 10.0 off" vs official "Martinique (Département français | Tonalité
+    d''occupation - Tonalité de numérotation - Tonalité de retour d''appel - Tonalité
+    spéciale d''information - Tonalité d''appel en attente - | 440 440 440 950/1400/1800
+    440 | 0.5 on 0.5 off continu 1.5 on 3.5 off 3x(0.3 on 0.03 off) 1.0 off 0.3 on
+    10.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (la de);
+    the official PDF has other text
+- layer: rows
+  side: generated_only
+  text: Mauritanie (République Mauritanie (République islamique de) | Tonalité d'occupation
+    - Tonalité de numérotation - Tonalité de retour d'appel - Tonalité d'acheminement
+    - | 425 425 425 425 | 0.5 on 0.5 off continu 1.5 on 3.5 off 0.05 on 0.05 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (de); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Maurice (République: generated "Maurice (République de) | Tonalité d''occupation
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité de retour
+    d''appel - Tonalité d''acheminement - Tonalité d''appel en attente - | 425 425
+    425 425 425 425 | 0.75 on 0.75 off continu 0.4 on 0.04 off 1.0 on 4.0 off 0.05
+    on 0.05 off 1.0 on 3.0 off" vs official "Maurice (République de) | Tonalité d''occupation
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité de retour
+    d''appel - Tonalité d''acheminement - Tonalité d''appel en attente - de) | 425
+    425 425 425 425 425 | 0.75 on 0.75 off continu 0.4 on 0.04 off 1.0 on 4.0 off
+    0.05 on 0.05 off 1.0 on 3.0 off"'
+  disposition: bug
+  reason: the dataset record holds de (in fr) once more than the generated row prints
+    it, and the official row prints it
+- layer: rows
+  side: official_only
+  text: Mauritanie (République Mauritanie (République islamique | Tonalité d'occupation
+    - Tonalité de numérotation - Tonalité de retour d'appel - Tonalité d'acheminement
+    - | 425 425 425 425 | 0.5 on 0.5 off continu 1.5 on 3.5 off 0.05 on 0.05 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (de); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Mexique: generated "Mexique | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de retour d''appel - Tonalité d''avertissement
+    - intervention d''opératrice | 425 425 425 425 operator | 0.25 on 0.25 off 0.25
+    on 0.25 off continu 1.0 on 4.0 off 0.5 on 0.17 off 0.17 on 0.17 off" vs official
+    "Mexique | Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité de retour d''appel - Tonalité d''avertissement - intervention d''opératrice
+    | 425 425 425 425 425 | 0.25 on 0.25 off 0.25 on 0.25 off continu 1.0 on 4.0 off
+    0.5 on 0.17 off 0.17 on 0.17 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 425
+- layer: rows
+  side: both
+  text: 'Monaco (Principauté: generated "Monaco (Principauté de) | Tonalité d''occupation
+    - d''encombrement - Tonalité de numérotation - Tonalité de retour d''appel - Tonalité
+    d''appel en attente - | 440 440 440 440 | 0.5 on 0.5 off continu 1.7 on 3.3 off
+    0.3 on 10.0 off" vs official "Monaco (Principauté de) | Tonalité d''occupation
+    - Tonalité de numérotation - Tonalité de retour d''appel - Tonalité d''appel en
+    attente - | 440 440 440 440 | 0.5 on 0.5 off continu 1.7 on 3.3 off 0.3 on 10.0
+    off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (encombrement
+    d); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Montserrat: generated "Montserrat | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité d''invitation à répéter l''appel - Tonalité
+    d''abonné inaccessible - Tonalité d''identification de publiphone - Tonalité de
+    retour d''appel - Tonalité spéciale d''information - Tonalité d''avertissement
+    - intervention d''opératrice Tonalité d''attente - | 480+620 480+620 350+440 350+440
+    480+620 1600/1143 440+480 950/1400/1800 operator 440 | 0.5 on 0.5 off 0.25 on
+    0.25 off continu 3x(0.1 on 0.1 off) + continu 0.25 on 0.25 off 0.2 on 0.2 off
+    0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on 0.2 off
+    1x(0.5 on 10.0 off 0.5 on)" vs official "Montserrat | Tonalité d''occupation -
+    Tonalité d''encombrement - Tonalité de numérotation - Tonalité d''invitation à
+    répéter l''appel - Tonalité d''abonné inaccessible - Tonalité d''identification
+    de publiphone - Tonalité de retour d''appel - Tonalité spéciale d''information
+    - Tonalité d''avertissement - intervention d''opératrice Tonalité d''attente -
+    | 480+620 480+620 350+440 350+440 480+620 1600/1143 440+480 950/1400/1800 450
+    440 | 0.5 on 0.5 off 0.25 on 0.25 off continu 3x(0.1 on 0.1 off) + continu 0.25
+    on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2
+    on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 450
+- layer: rows
+  side: generated_only
+  text: Maroc (Royaume Maroc (Royaume du) | Tonalité d'occupation -I Tonalité d'occupation
+    - II Tonalité d'encombrement - I Tonalité d'encombrement - II Tonalité de numérotation
+    - Tonalité de retour d'appel - I Tonalité de retour d'appel - II Tonalité de retour
+    d'appel - III | 425 425 425 425 425 425 425 425 | 0.5 on 0.5 off 0.4 on 0.4 off
+    0.5 on 0.5 off 0.4 on 0.4 off continu 1.7 on 3.3 off 1.0 on 4.0 off 2.0 on 2.0
+    off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the official PDF prints de la once more than the
+    dataset record holds (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Nauru (République: generated "Nauru (République de) | Tonalité d''occupation
+    - Tonalité d''occupation - pabx Tonalité d''encombrement - pabx Tonalité de numérotation
+    - Tonalité de numérotation - pabx Tonalité d''invitation à répéter l''appel -
+    pabx Tonalité d''abonné inaccessible - Tonalité de retour d''appel - Tonalité
+    de retour d''appel - pabx | 400 425 425 400 33 33 400 400 425x25 | 0.5 on 0.5
+    off 0.375 on 0.375 off 0.375 on 0.375 off continu continu continu 0.75 on 0.25
+    off 0.25 on 0.25 off 1.0 on 4.0 off 0.4 on 0.2 off 0.4 on 2.0 off" vs official
+    "Nauru (République de) | Tonalité d''occupation - Tonalité d''occupation - pabx
+    Tonalité d''encombrement - pabx Tonalité de numérotation - Tonalité de numérotation
+    - pabx Tonalité d''invitation à répéter l''appel - pabx Tonalité d''abonné inaccessible
+    - Tonalité de retour d''appel - Tonalité de retour d''appel - pabx démocratique
+    du) | 400 425 425 400 33 33 400 400 425x25 | 0.5 on 0.5 off 0.375 on 0.375 off
+    0.375 on 0.375 off continu continu continu 0.75 on 0.25 off 0.25 on 0.25 off 1.0
+    on 4.0 off 0.4 on 0.2 off 0.4 on 2.0 off"'
+  disposition: data
+  reason: the official PDF prints démocratique du once more than the dataset record
+    holds (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Népal (République: generated "Népal (République fédérale démocratique du)
+    | Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité d''abonné inaccessible - Tonalité de retour d''appel - | 425 425 425
+    425 425 | 0.25 on 0.25 off 0.175 on 0.175 off continu 0.25 on 0.5 off 1.1 on 3.1
+    off" vs official "Népal (République fédérale | Tonalité d''occupation - Tonalité
+    d''encombrement - Tonalité de numérotation - Tonalité d''abonné inaccessible -
+    Tonalité de retour d''appel - | 425 425 425 425 425 | 0.25 on 0.25 off 0.175 on
+    0.175 off continu 0.25 on 0.5 off 1.1 on 3.1 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (démocratique
+    du); the official PDF has other text
+- layer: rows
+  side: generated_only
+  text: Pays-Bas (Royaume Pays-Bas (Royaume des) | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité de numérotation spéciale
+    - Tonalité de retour d'appel - Tonalité spéciale d'information - Tonalité d'attente
+    - | 425 425 425 425 425 950/1400/1800 425 | 0.5 on 0.5 off 0.25 on 0.25 off continu
+    0.5 on 0.05 off 1.0 on 4.0 off 3x0.333 on 1.0 off 0.5 on 9.5 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: Nouvelle-Calédonie (Territoire Nouvelle-Calédonie (Territoire français d'outre-mer)
+    | Tonalité d'occupation - Tonalité d'encombrement - Tonalité de numérotation -
+    Tonalité de retour d'appel - Tonalité spéciale d'information - Tonalité d'appel
+    en attente - | 440 950/1400/1800 440//330+440 440 950/1400/1800 440 | 0.5 on 0.5
+    off 2x[3x0.33 on + annonce] continu 1.7 on 3.3 off 2x[3x0.33 on + annonce] 4x(0.5
+    on 0.5 off 0.5 on)
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (français outre mer d); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Nigéria (République: generated "Nigéria (République fédérale du) | Tonalité
+    d''occupation - Tonalité d''encombrement - Tonalité de numérotation - Tonalité
+    d''invitation à répéter l''appel - Tonalité de numérotation spéciale - Tonalité
+    de garde - Tonalité d''abonné inaccessible - Tonalité de retour d''appel - Tonalité
+    spéciale d''information - Tonalité d''avertissement - intervention d''opératrice
+    Tonalité d''appel en attente - | 400 400 400//450 400//425 425 950/950/1400 450
+    400//450 400//33 operator 400 | 0.5 on 0.5 off 0.25 on 0.25 off continu continu
+    0.5 on 0.5 off 0.65 on 0.325 off 0.325 on 1.3 on 2.6 off 0.5 on 0.5 off 2.0 on
+    4.0 off 0.2 on 1.5 off 0.15 on 0.25 off 0.15 on 1.45 off 0.2 on 0.2 off" vs official
+    "Nigéria (République fédérale du) | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité d''invitation à répéter l''appel - Tonalité
+    de numérotation spéciale - Tonalité de garde - Tonalité d''abonné inaccessible
+    - Tonalité de retour d''appel - Tonalité spéciale d''information - Tonalité d''avertissement
+    - intervention d''opératrice Tonalité d''appel en attente - | 400 400 400//450
+    400//425 425 950/950/1400 450 400//450 400//33 400 400 | 0.5 on 0.5 off 0.25 on
+    0.25 off continu continu 0.5 on 0.5 off 0.65 on 0.325 off 0.325 on 1.3 on 2.6
+    off 0.5 on 0.5 off 2.0 on 4.0 off 0.2 on 1.5 off 0.15 on 0.25 off 0.15 on 1.45
+    off 0.2 on 0.2 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 400
+- layer: rows
+  side: official_only
+  text: Nouvelle-Calédonie (Territoire Nouvelle-Calédonie (Territoire | Tonalité d'occupation
+    - Tonalité d'encombrement - Tonalité de numérotation - Tonalité de retour d'appel
+    - Tonalité spéciale d'information - Tonalité d'appel en attente - | 440 950/1400/1800
+    440//330+440 440 950/1400/1800 440 | 0.5 on 0.5 off 2x[3x0.33 on + annonce] continu
+    1.7 on 3.3 off 2x[3x0.33 on + annonce] 4x(0.5 on 0.5 off 0.5 on)
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (français outre mer d); the official PDF has other text
+- layer: rows
+  side: official_only
+  text: Ouganda (République Ouganda (République de l') | Tonalité d'occupation - I
+    Tonalité d'occupation - II Tonalité d'encombrement - Tonalité de numérotation
+    - Tonalité de numérotation spéciale - Tonalité d'hurlement - Tonalité d'abonné
+    inaccessible - Tonalité de proposition, interurbain - Tonalité de retour d'appel
+    - I Tonalité de retour d'appel - II Tonalité de retour d'appel - III Tonalité
+    d'acheminement - Tonalité d'appel en attente - I Tonalité d'appel en attente -
+    II | 425 400 425 425 900/1400/1800 1400 900/1400/1800 425 425 425//440 450 425//440
+    425 450//440 | 0.5 on 0.5 off 0.4 on 0.2 off 0.25 on 0.25 off continu 3x0.33 on
+    1.0 off continu 3x0.33 on 1.00 off 0.1 on 4.9 off 1.0 on 4.0 off 0.4 on 0.2 off
+    0.4 on 2.0 off 0.4 on 0.2 off 0.5 on 0.5 off 0.15 on 0.15 off 0.15 on 8.0 off
+    0.5 on 0.5 off + continu
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: 'Panama (République: generated "Panama (République du) | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité d''abonné inaccessible
+    - Tonalité de retour d''appel - Tonalité spéciale d''information - Tonalité d''avertissement
+    - intervention d''opératrice Tonalité d''appel en attente - | 425 425 425 425
+    425 425 operator 425 | 0.32 on 0.32 off 0.32 on 0.32 off continu 0.18 on 0.18
+    off 0.5 on 0.18 off 1.2 on 4.65 off 0.4 on 0.4 off 0.18 on 0.18 off 0.5 on 0.18
+    off 0.18 on 0.18 off 0.18 on" vs official "Panama (République du) | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité d''abonné inaccessible
+    - Tonalité de retour d''appel - Tonalité spéciale d''information - Tonalité d''avertissement
+    - intervention d''opératrice Tonalité d''appel en attente - | 425 425 425 425
+    425 425 425 425 | 0.32 on 0.32 off 0.32 on 0.32 off continu 0.18 on 0.18 off 0.5
+    on 0.18 off 1.2 on 4.65 off 0.4 on 0.4 off 0.18 on 0.18 off 0.5 on 0.18 off 0.18
+    on 0.18 off 0.18 on"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 425
+- layer: rows
+  side: both
+  text: 'Papouasie-Nouvelle-Guinée: generated "Papouasie-Nouvelle-Guinée | Tonalité
+    d''occupation - Tonalité d''encombrement - Tonalité de numérotation - Tonalité
+    de numérotation spéciale - Tonalité d''abonné inaccessible - Tonalité d''identification
+    de publiphone - I Tonalité d''identification de publiphone - II Tonalité d''identification
+    de publiphone - III Tonalité de retour d''appel - Tonalité spéciale d''information
+    - Tonalité d''avertissement - intervention d''opératrice Tonalité d''attente -
+    | 425//400 425//400 425//400x25//350+440 425 425//400 1209/852 1336/941 900 425//400x25//400x16
+    950/1400/1800 operator 425 | 0.375 on 0.375 off 0.375 on 0.375 off continu 0.4
+    on 0.04 off 2.5 on 0.5 off 4x(0.2 on 0.2 off 0.2 on 2.0 off) 2x(0.2 on 0.2 off
+    0.2 on 2.0 off) 2x(0.075 on 0.15 off 0.075 on 2.7 off) 2/3//400+450//410x20 0.4
+    on 0.2 off 0.4 on 2.0 off 3x0.33 on 1.01 off 0.5 on 11.5 off 0.04 on 10.0 off
+    0.04 on 20.0 off 0.04 on 20.0 off" vs official "Papouasie-Nouvelle-Guinée | Tonalité
+    d''occupation - Tonalité d''encombrement - Tonalité de numérotation - Tonalité
+    de numérotation spéciale - Tonalité d''abonné inaccessible - Tonalité d''identification
+    de publiphone -I Tonalité d''identification de publiphone - II Tonalité d''identification
+    de publiphone - III Tonalité de retour d''appel - Tonalité spéciale d''information
+    - Tonalité d''avertissement - intervention d''opératrice Tonalité d''attente -
+    | 425//400 425//400 425//400x25//350+440 425 425//400 1209/852 1336/941 900 425//400x25//400x16
+    2/3//400+450//410x20 950/1400/1800 1400 425 | 0.375 on 0.375 off 0.375 on 0.375
+    off continu 0.4 on 0.04 off 2.5 on 0.5 off 4x(0.2 on 0.2 off 0.2 on 2.0 off) 2x(0.2
+    on 0.2 off 0.2 on 2.0 off) 2x(0.075 on 0.15 off 0.075 on 2.7 off) 0.4 on 0.2 off
+    0.4 on 2.0 off 3x0.33 on 1.01 off 0.5 on 11.5 off 0.04 on 10.0 off 0.04 on 20.0
+    off 0.04 on 20.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 1400
+- layer: rows
+  side: official_only
+  text: Pays-Bas (Royaume Pays-Bas (Royaume des) | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité de numérotation spéciale
+    - Tonalité de retour d'appel - Tonalité spéciale d'information - Tonalité d'attente
+    - | 425 425 425 425 425 950/1400/1800 425 | 0.5 on 0.5 off 0.25 on 0.25 off continu
+    0.5 on 0.05 off 1.0 on 4.0 off 3x0.333 on 1.0 off 0.5 on 9.5 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: 'Pérou: generated "Pérou | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité d''hurlement
+    - inaccessible - Tonalité de retour d''appel - Tonalité spéciale d''information
+    - Tonalité d''appel en attente - | 425 425 425 425 1500+3200 425 950/1400/1800
+    425 | 0.5 on 0.5 off 0.2 on 0.2 off 0.2 on 0.2 off 0.2 on 0.6 off continu 1.0
+    on 0.1 off 0.5 on 0.15 on 0.30 off 3x0.33 on 1.0 off 0.175 on 0.175 off 0.175
+    on 3.5 off" vs official "Pérou | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité d''hurlement
+    - Tonalité de retour d''appel - Tonalité spéciale d''information - Tonalité d''appel
+    en attente - | 425 425 425 425 1500+3200 425 950/1400/1800 425 | 0.5 on 0.5 off
+    0.2 on 0.2 off 0.2 on 0.2 off 0.2 on 0.6 off continu 1.0 on 0.1 off 0.5 on 0.15
+    on 0.30 off 3x0.33 on 1.0 off 0.175 on 0.175 off 0.175 on 3.5 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (inaccessible);
+    the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Pologne (République: generated "Pologne (République de) | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Deuxième tonalité de numérotation
+    - Tonalité de retour d''appel - Tonalité d''acheminement - Tonalité spéciale d''information
+    - Tonalité d''attente - | 425 425 425 425+350 425 425 950/1400/1800 425 | 0.5
+    on 0.5 off 0.5 on 0.5 off continu continu 1.0 on 4.0 off 0.05 on 0.05 off 3x0.33
+    on 1.0 off 0.15 on 0.15 off 0.15 on 4.0 off" vs official "Pologne (République
+    de) | Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Deuxième tonalité de numérotation - Tonalité de retour d''appel - Tonalité d''acheminement
+    - Tonalité spéciale d''information - Tonalité d''attente - français d''outre-mer)
+    | 425 425 425 425+350 425 425 950/1400/1800 425 | 0.5 on 0.5 off 0.5 on 0.5 off
+    continu continu 1.0 on 4.0 off 0.05 on 0.05 off 3x0.33 on 1.0 off 0.15 on 0.15
+    off 0.15 on 4.0 off"'
+  disposition: data
+  reason: the official PDF prints français d outre mer once more than the dataset
+    record holds (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: official_only
+  text: Polynésie française Polynésie française (Territoire | Tonalité d'acceptation
+    - Tonalité d'occupation - Tonalité d'encombrement - Tonalité de numérotation -
+    Deuxième tonalité de numérotation - Tonalité d'hurlement - Tonalité de paiement
+    - Tonalité de retour d'appel - Tonalité spéciale d'information - Tonalité d'appel
+    en attente - | 440 440 440 440 440+330 3000 440 440 950/1400/1800 440 | 1.7 on
+    3.3 off 0.5 on 0.5 off 0.5 on 0.5 off continu continu continu continu 1.7 on 3.3
+    off 3x0.33 on 1.0 off 1.7 on 3.3 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (français outre mer d); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Portugal: generated "Portugal | Tonalité d''acceptation -I Tonalité d''acceptation
+    - II Tonalité d''occupation -I Tonalité d''occupation - | 425 425 425 400 | 1.0
+    on 0.2 off 1.0 on 1.0 off 1.0 on 5.0 off 0.5 on 0.5 off 0.36 on 0.36 off" vs official
+    "Portugal | Tonalité d''acceptation - I Tonalité d''acceptation - II Tonalité
+    d''occupation - I Tonalité d''occupation - II (mobile) Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - (mobile) Tonalité
+    de garde - Tonalité d''intrusion - Tonalité de refus - I Tonalité de refus - II
+    Tonalité de retour d''appel - I Tonalité de retour d''appel - II (mobile à deux
+    participants) Tonalité de retour d''appel - III (mobile à trois participants)
+    Tonalité de retour d''appel - IV Tonalité spéciale d''information - Tonalité d''appel
+    en attente - I Tonalité d''appel en attente - II Tonalité d''appel en attente
+    - III Tonalité d''appel en attente - IV Tonalité d''appel en attente - V Tonalité
+    d''appel en attente - VI | 425 425 425 400 425 425 425 425 425 450/1400/1800 950/1400/1800
+    425 440 425 425 950/1400/1800 425 425 425 425 425 425 | 1.0 on 0.2 off 1.0 on
+    1.0 off 1.0 on 5.0 off 0.5 on 0.5 off 0.36 on 0.36 off 0.2 on 0.2 off continu
+    1.0 on 0.2 off 1.5 on 5.12 off 3x(0.2 on 1.4 off) 3x0.33 on 1.0 off 3x0.33 on
+    1.0 off 1.0 on 5.0 off 1.0 on 4.0 off 1.5 on 3.5 off 1.0 on 1.0 off 1.0 on 5.0
+    off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.2 on 5.0 off 0.2 on 0.6 off 0.2 on 3.0
+    off 0.2 on 0.2 off 0.2 on 10.0 off 0.2 on 0.6 off 0.2 on 0.6 off 0.2 on 1.0 off
+    0.2 on 3.0 off 1.0 on 1.0 off 1.0 on 5.0 off"'
+  disposition: bug
+  reason: the dataset record holds ii mobile tonalité d encombrement tonalité de numérotation
+    tonalité de numérotation spéciale mobile tonalité de garde tonalité d intrusion
+    tonalité de refus i tonalité de refus ii tonalité de retour d appel i tonalité
+    de retour d appel ii mobile à deux participants tonalité de retour d appel iii
+    mobile à trois participants tonalité de retour d appel iv tonalité spéciale d
+    information tonalité d appel en attente i tonalité d appel en attente ii tonalité
+    d appel en attente iii tonalité d appel en attente iv tonalité d appel en attente
+    v tonalité d appel en attente vi 425 425 425 425 425 450 1400 1800 950 1400 1800
+    425 440 425 425 950 1400 1800 425 425 425 425 425 425 0 2 on 0 2 off continu 1
+    0 on 0 2 off 1 5 on 5 12 off 3x 0 2 on 1 4 off 3x0 33 on 1 0 off 3x0 33 on 1 0
+    off 1 0 on 5 0 off 1 0 on 4 0 off 1 5 on 3 5 off 1 0 on 1 0 off 1 0 on 5 0 off
+    3x0 33 on 1 0 off 0 2 on 0 2 off 0 2 on 5 0 off 0 2 on 0 6 off 0 2 on 3 0 off
+    0 2 on 0 2 off 0 2 on 10 0 off 0 2 on 0 6 off 0 2 on 0 6 off 0 2 on 1 0 off 0
+    2 on 3 0 off 1 0 on 1 0 off 1 0 on 5 0 off (in fr) once more than the generated
+    row prints it, and the official row prints it
+- layer: rows
+  side: official_only
+  text: République arabe République arabe syrienne | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité de retour d'appel - Tonalité
+    spéciale d'information - Tonalité d'appel en attente - | 450 450 450 400//450
+    950/1400/1800 450 | 0.5 on 0.5 off 0.25 on 0.25 off continu 1.0 on 0.5 off (3x0.33
+    on 2x0.03 off) 1.0 off 0.1 on 0.2 off 0.1 on 9.5 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: République démocratique République démocratique du Congo | Tonalité d'occupation
+    - Tonalité d'encombrement - Tonalité de numérotation - Tonalité de retour d'appel
+    - | 450 450 450 450 | 0.5 on 0.5 off 0.5 on 0.5 off continu 2.0 on 4.0 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: République slovaque République slovaque | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de conférence - Tonalité de numérotation - I Tonalité
+    de numérotation - II (pabx) Tonalité de numérotation spéciale - Tonalité de proposition,
+    interurbain - Tonalité de paiement - I (cartes) Tonalité de paiement - II (monnaies)
+    Tonalité de retour d'appel - Tonalité spéciale d'information - Tonalité d'appel
+    en attente - Tonalité de demandeur en attente - | 425 425 425 425 425 425 425
+    622 941 425 950/1400/1800 425 425 | 0.33 on 0.33 off 0.165 on 0.165 off 0.66 on
+    0.33 on 0.33 off 0.66 on 0.66 off continu 3x(0.165 on 0.165 off) 0.660 on 0.660
+    off 0.33 on 0.33 off 0.33 on 1.50 off 0.125 on 0.125 off 0.2 on 0.2 off 0.2 on
+    3.6 off 1.0 on 4.0 off (3x0.33 on 2x0.03 off) 1.00 off 0.33 on 9.0 off 1.00 on
+    0.17 off 0.33 on 3.50 off
+  disposition: bug
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the dataset record holds i cartes tonalité de paiement
+    ii monnaies tonalité de retour d appel tonalité spéciale d information tonalité
+    d appel en attente tonalité de demandeur en attente 941 425 950 1400 1800 425
+    425 0 2 on 0 2 off 0 2 on 3 6 off 1 0 on 4 0 off 3x0 33 on 2x0 03 off 1 00 off
+    0 33 on 9 0 off 1 00 on 0 17 off 0 33 on 3 50 off (in fr) once more than the generated
+    row prints it, and the official row prints it
+- layer: rows
+  side: official_only
+  text: République tchèque République tchèque | Tonalité d'occupation - Tonalité d'encombrement
+    - Tonalité de numérotation - Tonalité de retour d'appel - Tonalité spéciale d'information
+    - Tonalité d'appel en attente - Tonalité de demandeur en attente - | 425 425 425
+    425 950/1400/1800 425 425 | 0.33 on 0.33 off 0.165 on 0.165 off 0.33 on 0.33 off
+    0.66 on 0.66 off 1.0 on 4.0 off (3x0.33 on 2x0.03 off) 1.0 off 0.33 on 9.0 off
+    1.00 on 0.17 off 0.33 on 3.50 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: 'Roumanie: generated "Roumanie | Tonalité d''occupation - | 450 | 0.15 on
+    0.18 off" vs official "Roumanie | Tonalité d''occupation - I (analogue) Tonalité
+    d''occupation - II (numérique) Tonalité de numérotation - Tonalité d''abonné inaccessible
+    - I (analogue) Tonalité d''abonné inaccessible - II (numérique) Tonalité de retour
+    d''appel - I Tonalité de retour d''appel - II et d''Irlande du Nord | 450 450
+    450 450 450 450x25 450 | 0.15 on 0.18 off 0.17 on 0.17 off continu 6x(0.11 on
+    0.092 off) 0.362 on 0.11 off 3x(0.092 on 0.11 off) 0.362 on 0.11 off 1.85 on 4.15
+    off 1.5 on 4.5 off"'
+  disposition: data
+  reason: the official PDF prints i analogue tonalité d occupation ii numérique tonalité
+    de numérotation tonalité d abonné inaccessible i analogue tonalité d abonné inaccessible
+    ii numérique tonalité de retour d appel i tonalité de retour d appel ii et d irlande
+    du nord 450 450 450 450 450x25 450 0 17 on 0 17 off continu 6x 0 11 on 0 092 off
+    0 362 on 0 11 off 3x 0 092 on 0 11 off 0 362 on 0 11 off 1 85 on 4 15 off 1 5
+    on 4 5 off once more than the dataset record holds (in fr); the generated PDF
+    prints the dataset
+- layer: rows
+  side: both
+  text: 'Rwanda (République: generated "Rwanda (République du) | Tonalité d''occupation
+    - d''encombrement - Tonalité de numérotation - Deuxième tonalité de numérotation
+    - Tonalité de paiement - Tonalité de retour d''appel - Tonalité d''acheminement
+    - Tonalité spéciale d''information - | 440 440 340 12000 440 440 950/1400/1800
+    | 0.5 on 0.5 off continu continu 0.125 on 1.7 on 3.3 off 0.05 on 0.05 off 3x0.33
+    on 1.0 off" vs official "Rwanda (République du) | Tonalité d''occupation - Tonalité
+    de numérotation - Deuxième tonalité de numérotation - Tonalité de paiement - Tonalité
+    de retour d''appel - Tonalité d''acheminement - Tonalité spéciale d''information
+    - | 440 440 340 12000 440 440 950/1400/1800 | 0.5 on 0.5 off continu continu 0.125
+    on 1.7 on 3.3 off 0.05 on 0.05 off 3x0.33 on 1.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (encombrement
+    d); the official PDF has other text
+- layer: rows
+  side: generated_only
+  text: Saint-Pierre-et-Miquelon (Collectivité Saint-Pierre-et-Miquelon (Collectivité
+    territoriale de la République française) | Tonalité d'occupation - Tonalité de
+    numérotation - Tonalité de retour d'appel - Tonalité spéciale d'information -
+    Tonalité d'appel en attente - | 440 440 440 950/1400/1800 440 | 0.5 on 0.5 off
+    continu 1.5 on 3.5 off 3x(0.3 on 0.03 off) 1.0 off 0.3 on 10.0 off
+  disposition: data
+  reason: the generated row is what the dataset holds for Saint-Pierre-et-Miquelon
+    (Collectivité in fr; the official list has no row of that name under this code
+    (the dataset differs from the official list)
+- layer: rows
+  side: official_only
+  text: Saint-Marin (République Saint-Marin (République de) | Tonalité d'occupation
+    - Tonalité de numérotation - Tonalité de retour d'appel - (Collectivité territoriale
+    de la | 425 425 425 | 0.2 on 0.2 off 0.6 on 1.0 off 0.2 on 0.2 off 1.0 on 4.0
+    off
+  disposition: bug
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the dataset record holds collectivité territoriale
+    de la (in fr) once more than the generated row prints it, and the official row
+    prints it
+- layer: rows
+  side: official_only
+  text: Salomon (Iles) Salomon (Iles) | Tonalité d'occupation - Tonalité d'encombrement
+    - Tonalité de numérotation - Tonalité d'abonné inaccessible - Tonalité de paiement
+    - Tonalité de retour d'appel - Tonalité d'attente - | 400 400 400 400 852 400+450
+    400+450/400 | 0.5 on 0.5 off 0.1 on 0.1 off continu 0.075 on 0.1 off 0.2 on 2.0
+    off 0.4 on 0.2 off 0.5 on 0.5 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: 'Samoa (Etat: generated "Samoa (Etat indépendant du) | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité de neutralisation
+    de ligne - Tonalité de retour d''appel - | 425x25 425x25 425x25 425x25 425x25
+    | 0.375 on 0.375 off 0.375 on 0.375 off continu 0.5 on 0.5 off 0.4 on 0.2 off"
+    vs official "Samoa (Etat indépendant du) | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de neutralisation de ligne - Tonalité de
+    retour d''appel - démocratique de) | 425x25 425x25 425x25 425x25 425x25 | 0.375
+    on 0.375 off 0.375 on 0.375 off continu 0.5 on 0.5 off 0.4 on 0.2 off"'
+  disposition: data
+  reason: the official PDF prints démocratique de once more than the dataset record
+    holds (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: generated_only
+  text: Saint-Marin (République Saint-Marin (République de) | Tonalité d'occupation
+    - Tonalité de numérotation - Tonalité de retour d'appel - | 425 425 425 | 0.2
+    on 0.2 off 0.6 on 1.0 off 0.2 on 0.2 off 1.0 on 4.0 off
+  disposition: bug
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the dataset record holds collectivité territoriale
+    de la (in fr) once more than the generated row prints it, and the official row
+    prints it
+- layer: rows
+  side: both
+  text: 'Sao Tomé-et-Principe: generated "Sao Tomé-et-Principe (République démocratique
+    de) | Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité de paiement - Tonalité de retour d''appel - Tonalité spéciale d''information
+    - Tonalité d''appel en attente - | 400 400 425 12000 400 950/1400/1800 425 | 0.5
+    on 0.5 off 0.2 on 0.2 off continu continu 1.0 on 5.0 off 3x0.33 on 1.0 off 0.2
+    on 1.0 off" vs official "Sao Tomé-et-Principe (République | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité de paiement -
+    Tonalité de retour d''appel - Tonalité spéciale d''information - Tonalité d''appel
+    en attente - | 400 400 425 12000 400 950/1400/1800 425 | 0.5 on 0.5 off 0.2 on
+    0.2 off continu continu 1.0 on 5.0 off 3x0.33 on 1.0 off 0.2 on 1.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (démocratique
+    de); the official PDF has other text
+- layer: rows
+  side: generated_only
+  text: Arabie saoudite Arabie saoudite (Royaume d') | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de conférence - Tonalité de numérotation - Tonalité
+    d'identification de publiphone - Tonalité de retour d'appel - Tonalité d'appel
+    en attente - | 425 425 425 425 1600/1200 425 425 | 0.5 on 0.5 off 0.25 on 0.25
+    off 0.5 on 2.0 off 0.5 on 15.0 off continu 0.2 on 0.2 off 0.2 on 4.0 off 1.2 on
+    4.6 off 0.15 on 0.2 off 0.15 on 10.0 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: République slovaque République slovaque | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de conférence - Tonalité de numérotation - I Tonalité
+    de numérotation - II (pabx) Tonalité de numérotation spéciale - Tonalité de proposition,
+    interurbain - Tonalité de paiement - | 425 425 425 425  425 425  425  622 | 0.33
+    on 0.33 off 0.165 on 0.165 off 0.66 on 0.33 on 0.33 off 0.66 on 0.66 off continu
+    3x(0.165 on 0.165 off) 0.660 on 0.660 off 0.33 on 0.33 off 0.33 on 1.50 off 0.125
+    on 0.125 off
+  disposition: bug
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the dataset record holds i cartes tonalité de paiement
+    ii monnaies tonalité de retour d appel tonalité spéciale d information tonalité
+    d appel en attente tonalité de demandeur en attente 941 425 950 1400 1800 425
+    425 0 2 on 0 2 off 0 2 on 3 6 off 1 0 on 4 0 off 3x0 33 on 2x0 03 off 1 00 off
+    0 33 on 9 0 off 1 00 on 0 17 off 0 33 on 3 50 off (in fr) once more than the generated
+    row prints it, and the official row prints it
+- layer: rows
+  side: generated_only
+  text: Salomon (Iles) Salomon (Iles) | Tonalité d'occupation - Tonalité d'encombrement
+    - Tonalité de numérotation - Tonalité d'abonné inaccessible - Tonalité de paiement
+    - Tonalité de retour d'appel - Tonalité d'attente - | 400 400 400 400 852 400+450
+    400+450/400 | 0.5 on 0.5 off 0.1 on 0.1 off continu 0.075 on 0.1 off 0.2 on 2.0
+    off 0.4 on 0.2 off 0.5 on 0.5 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: Soudan (République Soudan (République du) | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité de retour d'appel - Tonalité
+    spéciale d'information - Tonalité d'appel en attente - démocratique de) | 425
+    425 425 425 950/1400/1800 425 | 1.0 on 1.0 off 0.375 on 0.375 off continu 1.0
+    on 4.0 off 3x0.33 on 1.0 off 0.15 on 0.15 off 0.15 on 4.0 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the official PDF prints démocratique de once more
+    than the dataset record holds (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: official_only
+  text: Sri Lanka Sri Lanka (République socialiste | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité de garde - Tonalité d'intrusion
+    - Tonalité d'abonné inaccessible - Tonalité de retour d'appel - Tonalité d'acheminement
+    - Tonalité spéciale d'information - Tonalité d'avertissement - Tonalité d'appel
+    en attente - | 425 425 425 425 425 425+330 425 425 950/1400/1800 425 425 | 0.75
+    on 0.75 off 0.25 on 0.25 off continu 0.5 on 2.5 off 0.5 on 0.75 off continu 0.4
+    on 0.2 off 0.4 on 2.0 off 0.05 on 0.05 off (3x0.33 on 2x 0.03 off) 0.5 on 4.5
+    off 0.5 on 2.5 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (démocratique de); the official PDF has other text
+- layer: rows
+  side: generated_only
+  text: Espagne Espagne | Tonalité d'occupation -I Tonalité d'occupation - II Tonalité
+    d'encombrement - I Tonalité d'encombrement - II Tonalité de numérotation - Tonalité
+    de numérotation spéciale -I Tonalité de numérotation spéciale - II Tonalité d'abonné
+    inaccessible - I Tonalité d'abonné inaccessible - II Tonalité d'identification
+    de publiphone - I Tonalité d'identification de publiphone - II Tonalité de retour
+    d'appel - I Tonalité de retour d'appel - II Tonalité spéciale d'information -
+    Tonalité d'avertissement - intervention d'opératrice Tonalité d'appel en attente
+    - | 425 425 425 425 425 425 425 425 425 1600 1600  425 425 950/1400/1800 operator
+    425  | 0.2 on 0.2 off 0.5 on 0.5 off 2x(0.2 on 0.2 off) 0.2 on 0.6 off 0.25 on
+    0.25 off continu 1.0 on 0.1 off 0.5 on 0.05 off 0.2 on 0.2 off 0.2 on 0.6 off
+    0.5 on 2.5 off 0.05 on 0.05 off 0.05 on 1.5 off 0.05 on 0.05 off 0.05 on 0.05
+    off 0.05 on 1.5 off 1.5 on 3.0 off 1.0 on 4.0 off 3x0.33 on 1.0 off 0.4 on 5.0
+    off 0.175 on 0.175 off 0.175 on 3.5 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (operator); the official PDF has 1400
+- layer: rows
+  side: generated_only
+  text: Sri Lanka Sri Lanka (République socialiste démocratique de) | Tonalité d'occupation
+    - Tonalité d'encombrement - Tonalité de numérotation - Tonalité de garde - Tonalité
+    d'intrusion - Tonalité d'abonné inaccessible - Tonalité de retour d'appel - Tonalité
+    d'acheminement - Tonalité spéciale d'information - Tonalité d'avertissement -
+    Tonalité d'appel en attente - | 425 425 425 425 425 425+330 425 425 950/1400/1800
+    425 425 | 0.75 on 0.75 off 0.25 on 0.25 off continu 0.5 on 2.5 off 0.5 on 0.75
+    off continu 0.4 on 0.2 off 0.4 on 2.0 off 0.05 on 0.05 off (3x0.33 on 2x 0.03
+    off) 0.5 on 4.5 off 0.5 on 2.5 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (démocratique de); the official PDF has other text
+- layer: rows
+  side: generated_only
+  text: Soudan (République Soudan (République du) | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité de retour d'appel - Tonalité
+    spéciale d'information - Tonalité d'appel en attente - | 425 425 425 425 950/1400/1800
+    425 | 1.0 on 1.0 off 0.375 on 0.375 off continu 1.0 on 4.0 off 3x0.33 on 1.0 off
+    0.15 on 0.15 off 0.15 on 4.0 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the official PDF prints démocratique de once more
+    than the dataset record holds (in fr); the generated PDF prints the dataset
+- layer: rows
+  side: official_only
+  text: Suisse (Confédération) Suisse (Confédération) | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité de numérotation spéciale
+    - I Tonalité de numérotation spéciale - II Tonalité de retour d'appel - Tonalité
+    spéciale d'information - Tonalité d'appel en attente - | 425 425 425 425+340 425
+    425 950/1400/1800 425 | 0.5 on 0.5 off 0.2 on 0.2 off continu 1.1 on 1.1 off 0.5
+    on 0.05 off 1.0 on 4.0 off 3x0.333 on 1.0 off 0.2 on 0.2 off 0.2 on 4.0 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: Suisse (Confédération) Suisse (Confédération) | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité de numérotation spéciale
+    -I Tonalité de numérotation spéciale - II Tonalité de retour d'appel - Tonalité
+    spéciale d'information - Tonalité d'appel en attente - | 425 425 425 425+340 425
+    425 950/1400/1800 425 | 0.5 on 0.5 off 0.2 on 0.2 off continu 1.1 on 1.1 off 0.5
+    on 0.05 off 1.0 on 4.0 off 3x0.333 on 1.0 off 0.2 on 0.2 off 0.2 on 4.0 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: République arabe République arabe syrienne | Tonalité d'occupation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité de retour d'appel - Tonalité
+    spéciale d'information - Tonalité d'appel en attente - | 450 450 450 400//450
+    950/1400/1800 450 | 0.5 on 0.5 off 0.25 on 0.25 off continu 1.0 on 0.5 off (3x0.33
+    on 2x0.03 off) 1.0 off 0.1 on 0.2 off 0.1 on 9.5 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: Tchad (République Tchad (République du) | Tonalité d'occupation - Tonalité
+    de numérotation - Deuxième tonalité de numérotation - Tonalité de retour d'appel
+    - Tonalité spéciale d'information - | 440 440 330+400 440 950/1400/1800 | 0.5
+    on 0.5 off continu continu 1.7 on 3.3 off (3x0.33 on 2x0.03 off) 1.0 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: 'Thaïlande: generated "Thaïlande | Tonalité d''occupation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité d''abonné
+    inaccessible - Tonalité de proposition, interurbain - Tonalité de retour d''appel
+    - d''information - Tonalité d''appel en attente - | 400 400 400x50 400x50 400
+    400 400 400 | 0.5 on 0.5 off 0.3 on 0.3 off continu 0.4 on 0.1 off 0.4 on 0.1
+    off + continu 0.1 on 0.1 off 0.1 on 0.1 off 0.1 on 0.1 off 0.3 on 0.17 on 0.17
+    off 0.15 on 0.17 off 1.0 on 4.0 off 1.0 on 10.0 off 1.0 on" vs official "Thaïlande
+    | Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité de numérotation spéciale - Tonalité d''abonné inaccessible - Tonalité
+    de proposition, interurbain - Tonalité de retour d''appel - Tonalité d''appel
+    en attente - | 400 400 400x50 400x50 400 400 400 400 | 0.5 on 0.5 off 0.3 on 0.3
+    off continu 0.4 on 0.1 off 0.4 on 0.1 off + continu 0.1 on 0.1 off 0.1 on 0.1
+    off 0.1 on 0.1 off 0.3 on 0.17 on 0.17 off 0.15 on 0.17 off 1.0 on 4.0 off 1.0
+    on 10.0 off 1.0 on"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (information
+    d); the official PDF has other text
+- layer: rows
+  side: generated_only
+  text: L'ex-République yougoslave L'ex-République yougoslave de Macédoine | Tonalité
+    d'occupation - Tonalité de confirmation - Tonalité d'encombrement - Tonalité de
+    numérotation - Tonalité de numérotation spéciale - Tonalité d'intrusion - Tonalité
+    de paiement - Tonalité de retour d'appel - Tonalité d'acheminement - Tonalité
+    spéciale d'information - Tonalité d'appel en attente - | 425 425 425 425 425 425
+    425 425 425 950/1400/1800 425 | 0.5 on 0.5 off continu 0.2 on 0.2 off 0.2 on 0.3
+    off 0.7 on 0.8 off 0.4 on 0.04 off 0.2 on 0.3 off 0.7 on 0.8 off 0.5 on 10.0~15.0
+    off 1.0 on 4.0 off 0.4 on 1.5 off 3x0.33 on 1.0 off 0.3 on 8.0~10.0 off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: 'Trinité-et-Tobago: generated "Trinité-et-Tobago | Tonalité d''occupation
+    - Tonalité de numérotation - Tonalité de retour d''appel - Tonalité de renumérotation
+    - I Tonalité de renumérotation - II Tonalité d''attente - | 480+620 350+440 440+480
+    480+620 480+620 i) 440 | 0.5 on 0.5 off continu 2.0 on 4.0 off 0.3 on 0.2 off
+    0.2 on 0.3 off 0.3 on 10.0 off" vs official "Trinité-et-Tobago | Tonalité d''occupation
+    - Tonalité de numérotation - Tonalité de retour d''appel - Tonalité de renumérotation
+    - I Tonalité de renumérotation - II (8) Tonalité d''attente - | 480+620 350+440
+    440+480 480+620 480+620 440 | 0.5 on 0.5 off continu 2.0 on 4.0 off 0.3 on 0.2
+    off 0.2 on 0.3 off 0.3 on 10.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (i);
+    the official PDF has 8
+- layer: rows
+  side: generated_only
+  text: Turquie Turquie | Tonalité d'occupation - Tonalité de confirmation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité de numérotation spéciale
+    - Tonalité d'hurlement - Tonalité d'abonné inaccessible - Tonalité de retour d'appel
+    - Tonalité spéciale d'information - Tonalité d'avertissement - intervention d'opératrice
+    Tonalité d'attente - I Tonalité d'attente - II Tonalité d'appel en attente - |
+    450 450 450 450 450 1400/2060/2460/2600 450 450 950/1400/1800 operator 350+450
+    450 450 | 0.5 on 0.5 off 0.04 on 0.04 off 3x(0.2 on 0.2 off) 0.6 on 0.2 off continu
+    1.0 on 0.25 off 0.1 on 0.1 off 0.2 on 0.2 off 2.0 on 4.0 off 3x0.3 on 1.0 off
+    0.2 on 0.2 off 0.6 on 0.2 off 0.5 on 0.5 off 0.5 on 2.5 off 0.2 on 0.6 off 0.2
+    on 8.0 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (operator); the official PDF has 450
+- layer: rows
+  side: both
+  text: 'Turks et: generated "Turks et Caicos (Iles) | Tonalité d''occupation - Tonalité
+    d''encombrement - Tonalité de numérotation - Tonalité d''invitation à répéter
+    l''appel - Tonalité d''abonné inaccessible - Tonalité d''identification de publiphone
+    - Tonalité de retour d''appel - Tonalité spéciale d''information - Tonalité d''avertissement
+    - intervention d''opératrice Tonalité d''attente - | 480+620 480+620 350+440 350+440
+    480+620 1600/1143 440+480 950/1400/1800 operator 440 | 0.5 on 0.5 off 0.25 on
+    0.25 off continu 3x(0.1 on 0.1 off) + continu 0.25 on 0.25 off 0.2 on 0.2 off
+    0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on 0.2 off
+    1x(0.5 on 10.0 off 0.5 on)" vs official "Turks et Caicos (Iles) | Tonalité d''occupation
+    - Tonalité d''encombrement - Tonalité de numérotation - Tonalité d''invitation
+    à répéter l''appel - Tonalité d''abonné inaccessible - Tonalité d''identification
+    de publiphone - Tonalité de retour d''appel - Tonalité spéciale d''information
+    - Tonalité d''avertissement - intervention d''opératrice Tonalité d''attente -
+    | 480+620 480+620 350+440 350+440 480+620 1600/1143 440+480 950/1400/1800 450
+    440 | 0.5 on 0.5 off 0.25 on 0.25 off continu 3x(0.1 on 0.1 off) + continu 0.25
+    on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2
+    on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 450
+- layer: rows
+  side: official_only
+  text: Turquie Turquie | Tonalité d'occupation - Tonalité de confirmation - Tonalité
+    d'encombrement - Tonalité de numérotation - Tonalité de numérotation spéciale
+    - Tonalité d'hurlement - Tonalité d'abonné inaccessible - Tonalité de retour d'appel
+    - Tonalité spéciale d'information - Tonalité d'avertissement - intervention d’opératrice
+    Tonalité d'attente - I Tonalité d'attente - II Tonalité d'appel en attente - |
+    450 450 450 450 450 1400/2060/2460/2600 450 450 950/1400/1800 450 350+450 450
+    450 | 0.5 on 0.5 off 0.04 on 0.04 off 3x(0.2 on 0.2 off) 0.6 on 0.2 off continu
+    1.0 on 0.25 off 0.1 on 0.1 off 0.2 on 0.2 off 2.0 on 4.0 off 3x0.3 on 1.0 off
+    0.2 on 0.2 off 0.6 on 0.2 off 0.5 on 0.5 off 0.5 on 2.5 off 0.2 on 0.6 off 0.2
+    on 8.0 off
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (operator); the official PDF has 450
+- layer: rows
+  side: generated_only
+  text: Ouganda (République Ouganda (République de l') | Tonalité d'occupation -I
+    Tonalité d'occupation - II Tonalité d'encombrement - Tonalité de numérotation
+    - Tonalité de numérotation spéciale - Tonalité d'hurlement - Tonalité d'abonné
+    inaccessible - Tonalité de proposition, interurbain - Tonalité de retour d'appel
+    - I Tonalité de retour d'appel - II Tonalité de retour d'appel - III Tonalité
+    d'acheminement - Tonalité d'appel en attente - I Tonalité d'appel en attente -
+    II | 425 400 425 425 900/1400/1800 1400 900/1400/1800 425 425 425//440 450 425//440
+    425 450//440 | 0.5 on 0.5 off 0.4 on 0.2 off 0.25 on 0.25 off continu 3x0.33 on
+    1.0 off continu 3x0.33 on 1.00 off 0.1 on 4.9 off 1.0 on 4.0 off 0.4 on 0.2 off
+    0.4 on 2.0 off 0.4 on 0.2 off 0.5 on 0.5 off 0.15 on 0.15 off 0.15 on 8.0 off
+    0.5 on 0.5 off + continu
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: Emirats arabes Emirats arabes unis | Tonalité d'occupation - Tonalité d'encombrement
+    - Tonalité de numérotation - Tonalité d'abonné inaccessible - Tonalité de retour
+    d'appel - | 400//425 400//425  350+440 400//425 400+450//425 | 0.375 on 0.375
+    off 0.4 on 0.35 off 0.225 on 0.525 off continu continu 0.4 on 0.2 off 0.4 on 2.0
+    off
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: 'Uruguay (République: generated "Uruguay (République orientale de l'') | Tonalité
+    d''occupation - Tonalité d''encombrement - Tonalité de numérotation - I Tonalité
+    de numérotation - II Tonalité d''indication negative - Tonalité d''indication
+    positive - Tonalité de retour d''appel - Tonalité spéciale d''information - Tonalité
+    d''avertissement - intervention d''opératrice Tonalité d''attente - | 425 425
+    425 450 425 425 425 950/1400/1800 operator 425 | 0.5 on 0.5 off 0.25 on 0.25 off
+    continu 0.7 on 0.8 off 0.2 on 0.3 off 0.5 on 0.5 off 2x(0.1 on 0.2 off) 0.1 on
+    1.3 off 1.0 on 4.0 off 3x0.333 on 1.0 off 0.15 on 0.25 off 0.15 on 1.45 off 0.2
+    on 0.2 off 0.2 on 4.4 off" vs official "Uruguay (République orientale de l'')
+    | Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - I Tonalité de numérotation - II Tonalité d''indication negative - Tonalité d''indication
+    positive - Tonalité de retour d''appel - Tonalité spéciale d''information - Tonalité
+    d''avertissement - intervention d''opératrice Tonalité d''attente - | 425 425
+    425 450 425 425 425 950/1400/1800 425 425 | 0.5 on 0.5 off 0.25 on 0.25 off continu
+    0.7 on 0.8 off 0.2 on 0.3 off 0.5 on 0.5 off 2x(0.1 on 0.2 off) 0.1 on 1.3 off
+    1.0 on 4.0 off 3x0.333 on 1.0 off 0.15 on 0.25 off 0.15 on 1.45 off 0.2 on 0.2
+    off 0.2 on 4.4 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (operator);
+    the official PDF has 425
+- layer: rows
+  side: both
+  text: 'Vanuatu (République: generated "Vanuatu (République de) | Tonalité d''acceptation
+    - Tonalité d''occupation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité de numérotation spéciale - Tonalité d''hurlement - Tonalité de proposition,
+    interurbain - Tonalité de retour d''appel - Tonalité d''acheminement - Tonalité
+    spéciale d''information - Tonalité d''appel en attente - | 950 425 425 425 425
+    3000 425 425 425 950/1400/1800 425 | continu 0.5 on 0.5 off 0.5 on 0.5 off continu
+    0.4 on 0.04 off continu 0.3 on 10.0 off 1.0 on 4.0 off 0.05 on 0.05 off 3x0.33
+    on 2x0.03 off 1.0 off 0.3 on 10.0 off" vs official "Vanuatu (République de) |
+    Tonalité d''acceptation - Tonalité d''occupation - Tonalité d''encombrement -
+    Tonalité de numérotation - Tonalité de numérotation spéciale - Tonalité d''hurlement
+    - Tonalité de proposition, interurbain - Tonalité de retour d''appel - Tonalité
+    d''acheminement - Tonalité spéciale d''information - Tonalité d''appel en attente
+    - du) | 950 425 425 425 425 3000 425 425 425 950/1400/1800 425 | continu 0.5 on
+    0.5 off 0.5 on 0.5 off continu 0.4 on 0.04 off continu 0.3 on 10.0 off 1.0 on
+    4.0 off 0.05 on 0.05 off 3x0.33 on 2x0.03 off 1.0 off 0.3 on 10.0 off"'
+  disposition: data
+  reason: the official PDF prints du once more than the dataset record holds (in fr);
+    the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Venezuela (République: generated "Venezuela (République bolivarienne du)
+    | Tonalité d''occupation - Tonalité de confirmation - Tonalité d''encombrement
+    - Tonalité de numérotation - Tonalité d''hurlement - Tonalité de paiement - Tonalité
+    de retour d''appel - Tonalité spéciale d''information - Tonalité d''appel en attente
+    - Tonalité de demandeur en attente - | 425 425 425 425 1440 800 425 950/1440/1800
+    400/450 425 | 0.5 on 0.5 off 0.1 on 0.1 off 0.3 on 0.1 off 0.25 on 0.25 off continu
+    0.5 on 0.5 off 1.0 on 15.0 off 1.0 on 4.0 off 3x0.33 on 1.0 off 0.3 on 6.0 off
+    1.0 on 4.0 off" vs official "Venezuela (République bolivarienne | Tonalité d''occupation
+    - Tonalité de confirmation - Tonalité d''encombrement - Tonalité de numérotation
+    - Tonalité d''hurlement - Tonalité de paiement - Tonalité de retour d''appel -
+    Tonalité spéciale d''information - Tonalité d''appel en attente - Tonalité de
+    demandeur en attente - | 425 425 425 425 1440 800 425 950/1440/1800 400/450 425
+    | 0.5 on 0.5 off 0.1 on 0.1 off 0.3 on 0.1 off 0.25 on 0.25 off continu 0.5 on
+    0.5 off 1.0 on 15.0 off 1.0 on 4.0 off 3x0.33 on 1.0 off 0.3 on 6.0 off 1.0 on
+    4.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (du);
+    the official PDF has other text
+- layer: rows
+  side: official_only
+  text: Vierges britanniques Vierges britanniques (Iles) | Tonalité d'occupation -
+    Tonalité d'encombrement - Tonalité de numérotation - Tonalité d'invitation à répéter
+    l'appel - Tonalité d'abonné inaccessible - Tonalité d'identification de publiphone
+    - Tonalité de retour d'appel - Tonalité spéciale d'information - Tonalité d'avertissement
+    - intervention d’opératrice Tonalité d'appel en attente - d'outre-mer) | 480+620
+    480+620 350+440 350+440 480+620 1600/1143 440+480 950/1400/1800 450 440 | 0.5
+    on 0.5 off 0.25 on 0.25 off continu 3x(0.1 on 0.1 off) + continu 0.25 on 0.25
+    off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2
+    off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (operator); the official PDF has d outre mer 450
+- layer: rows
+  side: both
+  text: 'Wallis-et-Futuna (Territoire: generated "Wallis-et-Futuna (Territoire français
+    d''outre-mer) | Tonalité d''occupation - Tonalité de numérotation - Tonalité de
+    paiement - Tonalité de retour d''appel - Tonalité d''acheminement - Tonalité spéciale
+    d''information - | 440 440//330 12000 440 440 950/1400/1800 | 0.5 on 0.5 off continu
+    0.1 on 1.5 on 3.5 off 0.05 on 0.05 off (3x0.3 on 2x0.03 off) 1.0 off" vs official
+    "Wallis-et-Futuna (Territoire français | Tonalité d''occupation - Tonalité de
+    numérotation - Tonalité de paiement - Tonalité de retour d''appel - Tonalité d''acheminement
+    - Tonalité spéciale d''information - | 440 440//330 12000 440 440 950/1400/1800
+    | 0.5 on 0.5 off continu 0.1 on 1.5 on 3.5 off 0.05 on 0.05 off (3x0.3 on 2x0.03
+    off) 1.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (outre
+    mer d); the official PDF has other text

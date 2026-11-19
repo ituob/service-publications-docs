@@ -1,0 +1,137 @@
+- layer: rows
+  side: generated_only
+  text: 1(684)|Samoa Samoa norteamericanas | 1(684) | NXXs = 258, 733
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 1(284)|Vírgenes Vírgenes británicas (Islas) | 1(284) | NXXs = 300 - 303, 440
+    - 445, 468, 4966 - 4969, 499, 540 - 544
+  disposition: bug
+  reason: 'the alphabetical list puts Vírgenes at another place than the official
+    list: the generated PDF sorts accented letters after the unaccented ones, the
+    official list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 1|Canadá Canadá | 1 | Ninguna NPA especifica para las redes móviles
+  disposition: bug
+  reason: 'the alphabetical list puts Canadá at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: official_only
+  text: 1|Canadá Canadá | 1 | Ninguna NPA especifica para las redes móviles
+  disposition: bug
+  reason: 'the alphabetical list puts Canadá at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: official_only
+  text: 1|Estados Estados Unidos de América | 1 | Ninguna NPA especifica para las
+    redes móviles
+  disposition: data
+  reason: the official row has words (estados unidos de américa) that the dataset
+    records of 1 in es do not hold, so the generated PDF cannot print it
+- layer: rows
+  side: generated_only
+  text: 1(664)|Montserrat Montserrat | 1(664) | NXX = 492
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 1(664)|Montserrat Montserrat | 1(664) | NXX = 492
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 1(684)|Samoa Samoa norteamericanas | 1(684) | NXXs = 258, 733
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: '1(869)|San: generated "San Kitts y Nevis | 1(869) | NXXs = 556 – 558, 565
+    – 567, 662 – 669, 762 – 765" vs official "San Kitts y Nevis San Maarten (parte
+    neerlandesas) | 1(869) 1 (721) | NXXs = 556 – 558, 565 – 567, 662 – 669, 762 –
+    765 NXXs= 520 – 524, 526 - 529, 550, 553, 554, 556, 557, 559, 580, 581, 584 –
+    588"'
+  disposition: data
+  reason: the official PDF prints san maarten parte neerlandesas 1 721 nxxs 520 524
+    526 529 550 553 554 556 557 559 580 581 584 588 once more than the dataset record
+    holds (in es); the generated PDF prints the dataset
+- layer: rows
+  side: generated_only
+  text: 1(758)|Santa Santa Lucía | 1(758) | NXXs = 284 – 287, 384, 460 – 461, 484
+    – 489, 518 – 520, 584, 712 – 724
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 1(721)|Uzbekistán Uzbekistán (República de) | 1(721) | 91, 92, 93, 97, 98
+  disposition: data
+  reason: the generated row is what the dataset holds for 1(721) in es; the official
+    list has no row of that name under this code (the dataset differs from the official
+    list)
+- layer: rows
+  side: official_only
+  text: 1(758)|Santa Santa Lucía | 1(758) | NXXs = 284 – 287, 384, 460 – 461, 484
+    – 489, 518 – 520, 584, 712 – 724
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 1|Canadá#2 Canadá | 1 | Ninguna NPA especifica para las redes móviles
+  disposition: data
+  reason: the generated row is what the dataset holds for 1 in es; the official list
+    has no row of that name under this code (the dataset differs from the official
+    list)
+- layer: rows
+  side: official_only
+  text: 1(284)|Vírgenes Vírgenes británicas (Islas) | 1(284) | NXXs = 300 - 303, 440
+    - 445, 468, 4966 - 4969, 499, 540 - 544
+  disposition: bug
+  reason: 'the alphabetical list puts Vírgenes at another place than the official
+    list: the generated PDF sorts accented letters after the unaccented ones, the
+    official list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 599|Bonaire,#2 Bonaire, San Eustatius y Saba | 599 | 3181, 3184 – 3186, 4161,
+    4165 – 4167, 700, 701, 78, 79
+  disposition: data
+  reason: the generated row is what the dataset holds for 599 in es; the official
+    list has no row of that name under this code (the dataset differs from the official
+    list)
+- layer: rows
+  side: official_only
+  text: 599|Curaçao Curaçao | 599 | 51, 52, 530, 531, 54, 56, 61, 630, 631, 66, 67,
+    69
+  disposition: data
+  reason: the official row has words (curaçao 51 52 530 531 54) that the dataset records
+    of 599 in es do not hold, so the generated PDF cannot print it
+- layer: rows
+  side: generated_only
+  text: 7|Kazajstán#2 Kazajstán (República de) | 7 | 700, 701, 705, 707, 712 90, 712
+    91, 713 90, 713 91, 714 90, 714 91, 715 90, 715 91, 717 90, 717 91, 718 90, 71891,
+    721 90, 721 91, 723 90, 723 91, 724 90, 725 90, 72591, 726 90, 726 91, 727 90,
+    727 91, 764, 771, 775, 777, 778, 785
+  disposition: data
+  reason: the generated row is what the dataset holds for 7 in es; the official list
+    has no row of that name under this code (the dataset differs from the official
+    list)
+- layer: rows
+  side: official_only
+  text: 7|Rusia Rusia (Federación de) | 7 | 9XX (excepto 954)
+  disposition: data
+  reason: the official row has words (rusia federación 9xx excepto 954) that the dataset
+    records of 7 in es do not hold, so the generated PDF cannot print it

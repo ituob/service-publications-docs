@@ -1,0 +1,845 @@
+- layer: rows
+  side: both
+  text: 'Anguilla: generated "Anguilla | Busy tone - Congestion tone - Dial tone -
+    Recall dial tone - Number unobtainable tone - Payphone recognition tone - Ringing
+    tone - Special information tone - Warning tone - Waiting tone - | 480+620 480+620
+    350+440 350+440 480+620 1600/1143 440+480 950/1400/1800 operator 440 | 0.5 on
+    0.5 off 0.25 on 0.25 off continuous 3x(0.1 on 0.1 off) + continuous 0.25 on 0.25
+    off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off intervening
+    450 0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)" vs official "Anguilla
+    | Busy tone - Congestion tone - Dial tone - Recall dial tone - Number unobtainable
+    tone - Payphone recognition tone - Ringing tone - Special information tone - Warning
+    tone - operator intervening Waiting tone - | 480+620 480+620 350+440 350+440 480+620
+    1600/1143 440+480 950/1400/1800 450 440 | 0.5 on 0.5 off 0.25 on 0.25 off continuous
+    3x(0.1 on 0.1 off) + continuous 0.25 on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off
+    2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0
+    off 0.5 on)"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Argentine Republic: generated "Argentine Republic | Busy tone - Congestion
+    tone - Dial tone - End of three party service tone - Ringing tone - Service activated
+    tone - Warning tone - Waiting tone - Call waiting tone - | 425 425 425 950/1400/1800
+    425 425 operator 425 425 | 0.3 on 0.2 off 0.3 on 0.4 off continuous 1x(3x0.33
+    on) 1.0 on 4.0 off 1.0 on 0.25 off intervening 1400 5x0.1 on 1.9 off 0.4 on 0.2
+    off 0.4 on 4.0 off 0.3 on 10.0 off" vs official "Argentine Republic | Busy tone
+    - Congestion tone - Dial tone - End of three party service tone - Ringing tone
+    - Service activated tone - Warning tone - operator intervening Waiting tone -
+    Call waiting tone - | 425 425 425 950/1400/1800 425 425 1400 425 425 | 0.3 on
+    0.2 off 0.3 on 0.4 off continuous 1x(3x0.33 on) 1.0 on 4.0 off 1.0 on 0.25 off
+    5x0.1 on 1.9 off 0.4 on 0.2 off 0.4 on 4.0 off 0.3 on 10.0 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Austria: generated "Austria | Busy tone - I Busy tone - II Congestion tone
+    - I Congestion tone - II Dial tone - Recall dial tone - Special dial tone - Negative
+    indication tone - Number unobtainable tone - Pay tone - Positive indication tone
+    - Payphone recognition tone - Ringing tone - Special information tone - Warning
+    tone - Waiting tone - | 420 450 420 450 420//450 420 380+420 380+420 950/1400/1800
+    852 380+420 1633/1336 420//450 950/1400/1800 operator 420 | 0.4 on 0.4 off 0.3
+    on 0.3 off 0.2 on 0.2 off 0.3 on 0.3 off continuous continuous continuous 0.4
+    on 0.4 off 3x0.33 on 1.0 off 1.5 on 1.0 on 5.0 off 0.2 on 0.2 off 0.2 on 2.0 off
+    1.0 on 5.0 off 3x0.33 on 1.0 off intervening 420//450 0.15 on 0.15 off 0.15 on
+    1.95 off 0.04 on 1.95 off" vs official "Austria | Busy tone - I Busy tone - II
+    (5) Congestion tone - I Congestion tone - II (5) Dial tone - Recall dial tone
+    - Special dial tone - Negative indication tone - Number unobtainable tone - Pay
+    tone - Positive indication tone - Payphone recognition tone - Ringing tone - Special
+    information tone - Warning tone - operator intervening Waiting tone - | 420 450
+    420 450 420//450 420 380+420 380+420 950/1400/1800 852 380+420 1633/1336 420//450
+    950/1400/1800 420//450 420 | 0.4 on 0.4 off 0.3 on 0.3 off 0.2 on 0.2 off 0.3
+    on 0.3 off continuous continuous continuous 0.4 on 0.4 off 3x0.33 on 1.0 off 1.5
+    on 1.0 on 5.0 off 0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 5.0 off 3x0.33 on 1.0 off
+    0.15 on 0.15 off 0.15 on 1.95 off 0.04 on 1.95 off"'
+  disposition: data
+  reason: the official PDF prints 5 5 once more than the dataset record holds (in
+    en); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Bangladesh (People''s: generated "Bangladesh (People''s Republic of) | Busy
+    tone - Congestion tone - Dial tone - Special dial tone - Howler tone - Pay tone
+    - Ringing tone - Warning tone - Call waiting tone - | 450 450 450 450 3000 800/1900
+    450 operator 450 | 0.2 on 0.3 off 0.7 on 0.8 off 0.25 on 0.25 off continuous 0.4
+    on 0.4 off continuous continuous 1.0 on 4.0 off intervening 450 0.20 on 0.02 off
+    0.20 on 1.40 off 3.0 on 10.0 off" vs official "Bangladesh (People''s Republic
+    of) | Busy tone - Congestion tone - Dial tone - Special dial tone - Howler tone
+    - Pay tone - Ringing tone - Warning tone - operator intervening Call waiting tone
+    - | 450 450 450 450 3000 800/1900 450 450 450 | 0.2 on 0.3 off 0.7 on 0.8 off
+    0.25 on 0.25 off continuous 0.4 on 0.4 off continuous continuous 1.0 on 4.0 off
+    0.20 on 0.02 off 0.20 on 1.40 off 3.0 on 10.0 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Bermuda: generated "Bermuda | Busy tone - Congestion tone - Dial tone - Ringing
+    tone - Special information tone - a) | 480+620 480+620 350+440 440+480 913/1428/1776
+    | 0.5 on 0.5 off 0.25 on 0.25 off continuous 2.0 on 4.0 off 0.27 on 0.38 on 0.38
+    on" vs official "Bermuda | Busy tone - Congestion tone - Dial tone - Ringing tone
+    - Special information tone - | 480+620 480+620 350+440 440+480 913/1428/1776 |
+    0.5 on 0.5 off 0.25 on 0.25 off continuous 2.0 on 4.0 off 0.27 on 0.38 on 0.38
+    on"'
+  disposition: bug
+  reason: the generated PDF prints the dataset's text of another language than en
+    (a)
+- layer: rows
+  side: both
+  text: 'British Virgin: generated "British Virgin Islands | Busy tone - Congestion
+    tone - Dial tone - Recall dial tone - Number unobtainable tone - Payphone recognition
+    tone - Ringing tone - Special information tone - Warning tone - Call waiting tone
+    - | 480+620 480+620 350+440 350+440 480+620 1600/1143 440+480 950/1400/1800 operator
+    440 | 0.5 on 0.5 off 0.25 on 0.25 off continuous 3x(0.1 on 0.1 off) + continuous
+    0.25 on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off
+    intervening 450 0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)" vs
+    official "British Virgin Islands | Busy tone - Congestion tone - Dial tone - Recall
+    dial tone - Number unobtainable tone - Payphone recognition tone - Ringing tone
+    - Special information tone - Warning tone - operator intervening Call waiting
+    tone - | 480+620 480+620 350+440 350+440 480+620 1600/1143 440+480 950/1400/1800
+    450 440 | 0.5 on 0.5 off 0.25 on 0.25 off continuous 3x(0.1 on 0.1 off) + continuous
+    0.25 on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off
+    0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Brunei Darussalam: generated "Brunei Darussalam | Busy tone - Confirmation
+    tone - Congestion tone - Dial tone - Special dial tone - Holding tone - Number
+    unobtainable tone - Ringing tone - Warning tone - Warning tone - Warning tone
+    - Waiting tone - Call waiting tone - | 400 400x24 400 400x50 400x24 400x24 400
+    400+450 end operator pip 400 400x24 | 0.375 on 0.375 off 0.1 on 0.1 off 0.3 on
+    0.3 off 0.375 on 0.375 off continuous 0.1 on 0.1 off 0.5 on 2.5 off continuous
+    0.4 on 0.2 off 0.4 on 0.2 off of period 400 0.624 on 4.376 off intervening 400
+    0.25 on 2.0 off tone 900 0.25 on 0.25 off 0.3 on 0.25 off 0.5 on 0.25 off" vs
+    official "Brunei Darussalam | Busy tone - Confirmation tone - Congestion tone
+    - Dial tone - Special dial tone - Holding tone - Number unobtainable tone - Ringing
+    tone - Warning tone - end of period Warning tone - operator intervening Warning
+    tone - pip tone Waiting tone - Call waiting tone - | 400 400x24 400 400x50 400x24
+    400x24 400 400+450 400 400 900 400 400x24 | 0.375 on 0.375 off 0.1 on 0.1 off
+    0.3 on 0.3 off 0.375 on 0.375 off continuous 0.1 on 0.1 off 0.5 on 2.5 off continuous
+    0.4 on 0.2 off 0.4 on 0.2 off 0.624 on 4.376 off 0.25 on 2.0 off 0.25 on 0.25
+    off 0.3 on 0.25 off 0.5 on 0.25 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Chile: generated "Chile | Busy tone - Congestion tone - Dial tone - Second
+    dial tone - Identification tone - Payphone recognition tone - Ringing tone - Special
+    information tone - Warning tone - Warning tone - Waiting tone - | 400 400 400
+    330+440 800/1200 1100+1750/750+1450 400 950/1400/1800 end operator 900+1300 |
+    0.5 on 0.5 off 0.2 on 0.2 off continuous continuous 0.6 on 2.0 off 0.6 on 2.0
+    off 0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 3.0 off 3x0.333 on 1.0 off of period
+    800 2.0 on intervening 1400 0.5 on 15.0 off 0.5 on 0.5 off" vs official "Chile
+    | Busy tone - Congestion tone - Dial tone - Second dial tone - Identification
+    tone - Payphone recognition tone - Ringing tone - Special information tone - Warning
+    tone - end of period Warning tone - operator intervening Waiting tone - | 400
+    400 400 330+440 800/1200 1100+1750/750+1450 400 950/1400/1800 800 1400 900+1300
+    | 0.5 on 0.5 off 0.2 on 0.2 off continuous continuous 0.6 on 2.0 off 0.6 on 2.0
+    off 0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 3.0 off 3x0.333 on 1.0 off 2.0 on 0.5
+    on 15.0 off 0.5 on 0.5 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Costa Rica: generated "Costa Rica | Busy tone - Congestion tone - Dial tone
+    - Ringing tone - Warning tone - Call waiting tone - | 450 450 450 450 operator
+    450 | 0.33 on 0.33 off 0.33 on 0.33 off continuous 1.2 on 4.9 off intervening
+    425 0.17 on 0.17 off 0.5 on 0.17 off 0.15 on 0.15 off 0.15 on 8.0 off" vs official
+    "Costa Rica | Busy tone - Congestion tone - Dial tone - Ringing tone - Warning
+    tone - operator intervening Call waiting tone - | 450 450 450 450 425 450 | 0.33
+    on 0.33 off 0.33 on 0.33 off continuous 1.2 on 4.9 off 0.17 on 0.17 off 0.5 on
+    0.17 off 0.15 on 0.15 off 0.15 on 8.0 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Côte d''Ivoire: generated "Côte d''Ivoire (Republic of) | Busy tone - Congestion
+    tone - Dial tone - Second dial tone - Line lock-out tone - Ringing tone - Special
+    information tone - a) | 425 425 440+330 425 425 | 0.5 on 0.5 off announcement
+    continuous continuous 0.4 on 0.04 off 1.7 on 3.3 off announcement" vs official
+    "Côte d''Ivoire (Republic of) | Busy tone - Congestion tone - Dial tone - Second
+    dial tone - Line lock-out tone - Ringing tone - Special information tone - | 425
+    425 440+330 425 425 | 0.5 on 0.5 off announcement continuous continuous 0.4 on
+    0.04 off 1.7 on 3.3 off announcement"'
+  disposition: bug
+  reason: the generated PDF prints the dataset's text of another language than en
+    (a)
+- layer: rows
+  side: both
+  text: 'Cuba: generated "Cuba | Acceptance tone - Busy tone - Congestion tone - Dial
+    tone - I Dial tone - II Negative indication tone - Ringing tone - I Ringing tone
+    - II Ringing tone - III Ringing tone - IV Special information tone -I Special
+    information tone - II Warning tone - I, operator intervening Warning tone - II,
+    operator intervening Call waiting tone - I Call waiting tone - II | 425 600x120//620+480//425//400
+    600x120//425//400 600x120//425 425 425 425 440+480//440+620//480+620 420x40 400+450
+    950/1400/1800 (3x0.33 on 400 425 425 425 400 | continuous 0.5 on 0.5 off 0.25
+    on 0.25 off continuous 0.75 on 0.75 off 0.25 on 0.25 off 0.5 on 0.5 off 1.0 on
+    4.0 off 2.0 on 4.0 off 1.0 on 2.0 off 0.4 on 0.2 off 0.4 on 2.0 off 2x0.33 off)
+    1.0 off 4x(0.075 on 0.10 off) 0.30 off 0.1 on 4.9 off 0.5 on 0.2 off 0.2 on 0.6
+    off 0.2 on 0.5 on 0.5 off" vs official "Cuba | Acceptance tone - Busy tone - Congestion
+    tone - Dial tone - I Dial tone - II Negative indication tone - Ringing tone -
+    I Ringing tone - II Ringing tone - III Ringing tone - IV Special information tone
+    - I Special information tone - II Warning tone - I, operator intervening Warning
+    tone - II, operator intervening Call waiting tone - I Call waiting tone - II |
+    425 600x120//620+480//425//400 600x120//425//400 600x120//425 425 425 425 440+480//440+620//480+620
+    420x40 400+450 950/1400/1800 400 425 425 425 400 | continuous 0.5 on 0.5 off 0.25
+    on 0.25 off continuous 0.75 on 0.75 off 0.25 on 0.25 off 0.5 on 0.5 off 1.0 on
+    4.0 off 2.0 on 4.0 off 1.0 on 2.0 off 0.4 on 0.2 off 0.4 on 2.0 off (3x0.33 on
+    2x0.33 off) 1.0 off 4x(0.075 on 0.10 off) 0.30 off 0.1 on 4.9 off 0.5 on 0.2 off
+    0.2 on 0.6 off 0.2 on 0.5 on 0.5 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Cyprus (Republic: generated "Cyprus (Republic of) | Busy tone - Congestion
+    tone - Dial tone - Number unobtainable tone - Pay tone - Ringing tone - Special
+    information tone - Warning tone - Call waiting tone - | 425 425 350+450 425 1638/1206/943
+    425 950/1400/1800 operator 425 | 0.5 on 0.5 off 0.25 on 0.25 off continuous 2.5
+    on 0.5 off 3x(0.068 on 0.068 off) 1.5 on 3.0 off 3x0.33 on 1.0 off intervening
+    1400 0.5 on 14.0 off 0.1 on 0.1 off 0.1 on 5.0 off" vs official "Cyprus (Republic
+    of) | Busy tone - Congestion tone - Dial tone - Number unobtainable tone - Pay
+    tone - Ringing tone - Special information tone - Warning tone - operator intervening
+    Call waiting tone - | 425 425 350+450 425 1638/1206/943 425 950/1400/1800 1400
+    425 | 0.5 on 0.5 off 0.25 on 0.25 off continuous 2.5 on 0.5 off 3x(0.068 on 0.068
+    off) 1.5 on 3.0 off 3x0.33 on 1.0 off 0.5 on 14.0 off 0.1 on 0.1 off 0.1 on 5.0
+    off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Denmark: generated "Denmark | Busy tone - I | 425 | 0.25 on 0.25 off" vs
+    official "Denmark | Busy tone - I Busy tone - II (1) Congestion tone - I Congestion
+    tone - II (1) Dial tone - Ringing tone - Special information tone - Call waiting
+    tone - I Call waiting tone - II (1) | 425 425 425 425 425 425 950/1400/1800 425
+    0.2 on 425 | 0.25 on 0.25 off 0.5 on 0.5 off 0.25 on 0.25 off 0.2 on 0.2 off continuous
+    1.0 on 4.0 off 3x0.33 on 1.00 off 0.2 on 0.2 off 0.2 on 3.6 off 0.2 on 0.2 off
+    0.2 on 0.6 off 0.2 on 3.0 off 0.2 on 0.6 off 0.2 on"'
+  disposition: data
+  reason: the official PDF prints busy tone ii 1 congestion tone i congestion tone
+    ii 1 dial tone ringing tone special information tone call waiting tone i call
+    waiting tone ii 1 425 425 425 425 425 950 1400 1800 425 2 425 on 0 0 5 on 0 5
+    off 0 25 on 0 25 off 0 2 on 0 2 off continuous 1 0 on 4 0 off 3x0 33 on 1 00 off
+    0 2 on 0 2 off 0 2 on 3 6 off 0 2 on 0 2 off 0 2 on 0 6 off 0 2 on 3 0 off 0 2
+    on 0 6 off 0 2 on once more than the dataset record holds (in en); the generated
+    PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Diego Garcia: generated "Diego Garcia | Dial tone - unobtainable tone - Ringing
+    tone - | 350/440 440/480 | continuous 1.0 on 3.0 off" vs official "Diego Garcia
+    | Dial tone - Ringing tone - | 350/440 440/480 | continuous 1.0 on 3.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (unobtainable
+    tone); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Falkland Islands: generated "Falkland Islands (Malvinas) | Busy tone - Congestion
+    tone - Dial tone - Number unobtainable tone - Ringing tone - Special information
+    tone - Warning tone - | 400 400 350+450 400 400+450 950/1400/1800 operator | 0.375
+    on 0.375 off 0.4 on 0.35 off 0.255 on 0.525 off continuous continuous 0.4 on 0.2
+    off 3x0.33 on 1.0 off intervening 1000 0.1 on 0.1 off" vs official "Falkland Islands
+    (Malvinas) | Busy tone - Congestion tone - Dial tone - Number unobtainable tone
+    - Ringing tone - Special information tone - Warning tone - operator intervening
+    | 400 400 350+450 400 400+450 950/1400/1800 1000 | 0.375 on 0.375 off 0.4 on 0.35
+    off 0.255 on 0.525 off continuous continuous 0.4 on 0.2 off 3x0.33 on 1.0 off
+    0.1 on 0.1 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Finland: generated "Finland | Busy tone - Congestion tone - Dial tone - Special
+    dial tone - Queue tone - | 425 425 425 425 950/950/1400 | 0.3 on 0.3 off 0.2 on
+    0.2 off continuous 0.65 on 0.025 off 0.65 on 0.325 off 0.325 on 1.3 on 2.6 off"
+    vs official "Finland | Busy tone - Congestion tone - Dial tone - Special dial
+    tone - Queue tone - Ringing tone – (11) Special information tone - Warning tone
+    - operator intervening Call waiting tone - | 425 425 425 425 950/950/1400 425
+    950/1400/1800 425 425 | 0.3 on 0.3 off 0.2 on 0.2 off continuous 0.65 on 0.025
+    off 0.65 on 0.325 off 0.325 on 1.3 on 2.6 off 1.0 on 4.0 off 3x0.333 on 1.0 off
+    0.2 on 0.3 off 0.2 on 1.3 off 0.15 on 0.15 off 0.15 on 8.0 off"'
+  disposition: data
+  reason: the official PDF prints ringing tone 11 special information tone warning
+    tone operator intervening call waiting tone 425 950 1400 1800 425 425 1 0 on 4
+    0 off 3x0 333 on 1 0 off 0 2 on 0 3 off 0 2 on 1 3 off 0 15 on 0 15 off 0 15 on
+    8 0 off once more than the dataset record holds (in en); the generated PDF prints
+    the dataset
+- layer: rows
+  side: both
+  text: 'France: generated "France | Busy tone - Dial tone - Ringing tone - Special
+    information tone - Call waiting tone - | 440 440 440 950/1400/1800 440 | 0.5 on
+    0.5 off continuous 1.5 on 3.5 off 3x(0.3 on 0.03 off) 1.0 off 0.3 on 10.0 off"
+    vs official "France | Busy tone - Dial tone - Ringing tone - Special information
+    tone - Call waiting tone - in the Indian Ocean | 440 440 440 950/1400/1800 440
+    | 0.5 on 0.5 off continuous 1.5 on 3.5 off 3x(0.3 on 0.03 off) 1.0 off 0.3 on
+    10.0 off"'
+  disposition: bug
+  reason: the dataset record holds in the indian ocean (in en) once more than the
+    generated row prints it, and the official row prints it
+- layer: rows
+  side: both
+  text: 'French Polynesia: generated "French Polynesia (Territoire français d''outre-mer)
+    | Acceptance tone - Busy tone - Congestion tone - Dial tone - Second dial tone
+    - Howler tone - Pay tone - Ringing tone - Special information tone - Call waiting
+    tone - | 440 440 440 440 440+330 3000 440 440 950/1400/1800 440 | 1.7 on 3.3 off
+    0.5 on 0.5 off 0.5 on 0.5 off continuous continuous continuous continuous 1.7
+    on 3.3 off 3x0.33 on 1.0 off 1.7 on 3.3 off" vs official "French Polynesia (Territoire
+    | Acceptance tone - Busy tone - Congestion tone - Dial tone - Second dial tone
+    - Howler tone - Pay tone - Ringing tone - Special information tone - Call waiting
+    tone - | 440 440 440 440 440+330 3000 440 440 950/1400/1800 440 | 1.7 on 3.3 off
+    0.5 on 0.5 off 0.5 on 0.5 off continuous continuous continuous continuous 1.7
+    on 3.3 off 3x0.33 on 1.0 off 1.7 on 3.3 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (français
+    d outre mer); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Iceland: generated "Iceland | Busy tone - Congestion tone - Dial tone - Special
+    dial tone - d) Number unobtainable tone - Payphone recognition tone - Ringing
+    tone - Warning tone - Waiting tone - | 425 425 425 425 1633/1209 425 425 425 |
+    0.25 on 0.25 off 0.25 on 0.25 off continuous 0.4 on 0.04 off announcement 0.2
+    on 0.2 off 0.2 on 2.0 off 1.0 on 4.0 off 0.4 on 15.0 off 4x(0.2 on 0.2 off 0.2
+    on 3.6 off 0.2 on 0.2 off 0.2 on)" vs official "Iceland | Busy tone - Congestion
+    tone - Dial tone - Special dial tone - (7) Number unobtainable tone - Payphone
+    recognition tone - Ringing tone - Warning tone - Waiting tone - | 425 425 425
+    425 1633/1209 425 425 425 | 0.25 on 0.25 off 0.25 on 0.25 off continuous 0.4 on
+    0.04 off announcement 0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 4.0 off 0.4 on 15.0
+    off 4x(0.2 on 0.2 off 0.2 on 3.6 off 0.2 on 0.2 off 0.2 on)"'
+  disposition: bug
+  reason: the generated PDF prints the dataset's text of another language than en
+    (d)
+- layer: rows
+  side: official_only
+  text: Japan Japan | Busy tone - (3) Dial tone - I Dial tone - II, pabx Dial tone
+    - III Second dial tone - (3) Pay tone - Positive indication tone - I Positive
+    indication tone - II Ringing tone - I Ringing tone - II, pabx Call waiting tone
+    - I Call waiting tone - II Call waiting tone - III Call waiting tone - IV Call
+    waiting tone - V Call waiting tone - VI | 400 400 400 400 400 250 400 400 400x(15~20)
+    400x20 400x16/400 400x16/400 400x16/400 400x16/400 400x16/400 400x16/400 | 0.5
+    on 0.5 off continuous 0.25 on 0.25 off 0.125 on 0.125 off 0.125 on 0.125 off 0.125
+    on 0.125 off 0.125 on 0.125 off 0.75 on 0.25 off 0.125~0.15 on 0.1~0.125 off 0.5
+    on 0.125 on 0.125 off 0.125 on 0.625 off 0.125 on 0.125 off 0.625 on 0.125 off
+    1.0 on 2.0 off 1.0 on 2.0 off 0.5 on 0.0~4.0 off 0.05 on 0.45 off 0.05 on 3.45
+    off 0.1 on 0.1 off 0.1 on 3.0 off 0.064 on 0.436 off 0.064 on 3.436 off 0.25 on
+    0.25 off 0.25 on 3.25 off 0.5 on 0.5 off 0.5 on 2.5 off 0.5 on 0.0~4.0 off 0.05
+    on 0.45 off 0.05 on 0.45 off 0.05 on 0.45 off 0.05 on 2.45 off
+  disposition: data
+  reason: the official row has words (3 3) that the dataset records of Japan in en
+    do not hold, so the generated PDF cannot print it
+- layer: rows
+  side: both
+  text: 'Kenya (Republic: generated "Kenya (Republic of) | Busy tone - Congestion
+    tone - Dial tone - Pay tone - I Pay tone - II Payphone recognition tone - Ringing
+    tone - Special information tone - Warning tone - Call waiting tone - | 425 425
+    425 941 800/1600 1633 425 900/1400/1800 operator 425 | 0.2 on 0.6 off 0.2 on 0.6
+    off 0.2 on 0.6 off continuous 0.2 on 0.2 off 0.08 on 0.08 off 0.08 on 1.5 off
+    0.67 on 3.0 off 1.5 on 5.0 off 3x0.75 on 1.25 off intervening 425 0.2 on 0.2 off
+    continuous" vs official "Kenya (Republic of) | Busy tone - Congestion tone - Dial
+    tone - Pay tone - I Pay tone - II Payphone recognition tone - Ringing tone - Special
+    information tone - Warning tone - operator intervening Call waiting tone - | 425
+    425 425 941 800/1600 1633 425 900/1400/1800 425 425 | 0.2 on 0.6 off 0.2 on 0.6
+    off 0.2 on 0.6 off continuous 0.2 on 0.2 off 0.08 on 0.08 off 0.08 on 1.5 off
+    0.67 on 3.0 off 1.5 on 5.0 off 3x0.75 on 1.25 off 0.2 on 0.2 off continuous"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Korea (Republic: generated "Korea (Republic of) | Busy tone - Congestion
+    tone - Dial tone - Recall dial tone - I Recall dial tone - II Intercept tone -
+    Number unobtainable tone - Ringing tone - Warning tone - Waiting tone - | 480+620
+    480+620 350+440 400//450 400//450 350+440 450 440+480 operator 350+440 | 0.5 on
+    0.5 off 0.3 on 0.2 off continuous 1.0 on 4.0 off 1.0 on 2.0 off 0.125 on 0.25
+    off 0.125 on 1.5 off 0.2 on 0.1 off 0.2 on 1.5 off 1.0 on 2.0 off intervening
+    392/494/587 2x(0.5 on 0.5 on 1.5 on) 0.25 on 0.25 off 0.25 on 3.25 off" vs official
+    "Korea (Republic of) | Busy tone - Congestion tone - Dial tone - Recall dial tone
+    - I Recall dial tone - II Intercept tone - Number unobtainable tone - Ringing
+    tone - Warning tone - operator intervening Waiting tone - | 480+620 480+620 350+440
+    400//450 400//450 350+440 450 440+480 392/494/587 350+440 | 0.5 on 0.5 off 0.3
+    on 0.2 off continuous 1.0 on 4.0 off 1.0 on 2.0 off 0.125 on 0.25 off 0.125 on
+    1.5 off 0.2 on 0.1 off 0.2 on 1.5 off 1.0 on 2.0 off 2x(0.5 on 0.5 on 1.5 on)
+    0.25 on 0.25 off 0.25 on 3.25 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Kyrgyz Republic: generated "Kyrgyz Republic | Busy tone - Congestion tone
+    - Dial tone - Second dial tone - Special dial tone - Howler tone - Negative indication
+    tone - Number unobtainable tone - Positive indication tone - Ringing tone - Route
+    tone - Special information tone - Warning tone - Call waiting tone - Caller waiting
+    tone - | 425 425 425 425 425 1000 425 950/1400/1800 425 425 50 950/1400/1800 voice
+    425 425 | 0.4 on 0.4 off 0.2 on 0.2 off continuous continuous 1.0 on 0.2 off continuous
+    1x(0.2 on 0.2 off 0.2 on 0.2 off 0.2 on) 3x0.33 on 1.0 off 1x(0.2 on) 0.8 on 3.2
+    off 0.1 on 1.5 off 3x0.33 on 1.0 off mail 425 1x(0.2 on 0.6 off 0.2 on 0.6 off
+    0.2 on) 1x(0.2 on 0.6 off 0.2 on 3.0 off 0.2 on 0.6 off 0.2 on) 0.2 on 5.0 off"
+    vs official "Kyrgyz Republic | Busy tone - Congestion tone - Dial tone - Second
+    dial tone - Special dial tone - Howler tone - Negative indication tone - Number
+    unobtainable tone - Positive indication tone - Ringing tone - Route tone - Special
+    information tone - Warning tone - voice mail Call waiting tone - Caller waiting
+    tone - | 425 425 425 425 425 1000 425 950/1400/1800 425 425 50 950/1400/1800 425
+    425 425 | 0.4 on 0.4 off 0.2 on 0.2 off continuous continuous 1.0 on 0.2 off continuous
+    1x(0.2 on 0.2 off 0.2 on 0.2 off 0.2 on) 3x0.33 on 1.0 off 1x(0.2 on) 0.8 on 3.2
+    off 0.1 on 1.5 off 3x0.33 on 1.0 off 1x(0.2 on 0.6 off 0.2 on 0.6 off 0.2 on)
+    1x(0.2 on 0.6 off 0.2 on 3.0 off 0.2 on 0.6 off 0.2 on) 0.2 on 5.0 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Mexico: generated "Mexico | Busy tone - Congestion tone - Dial tone - Ringing
+    tone - Warning tone - | 425 425 425 425 operator | 0.25 on 0.25 off 0.25 on 0.25
+    off continuous 1.0 on 4.0 off intervening 425 0.5 on 0.17 off 0.17 on 0.17 off"
+    vs official "Mexico | Busy tone - Congestion tone - Dial tone - Ringing tone -
+    Warning tone - operator intervening | 425 425 425 425 425 | 0.25 on 0.25 off 0.25
+    on 0.25 off continuous 1.0 on 4.0 off 0.5 on 0.17 off 0.17 on 0.17 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Montserrat: generated "Montserrat | Busy tone - Congestion tone - Dial tone
+    - Recall dial tone - Number unobtainable tone - Payphone recognition tone - Ringing
+    tone - Special information tone - Warning tone - Waiting tone - | 480+620 480+620
+    350+440 350+440 480+620 1600/1143 440+480 950/1400/1800 operator 440 | 0.5 on
+    0.5 off 0.25 on 0.25 off continuous 3x(0.1 on 0.1 off) + continuous 0.25 on 0.25
+    off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off intervening
+    450 0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)" vs official "Montserrat
+    | Busy tone - Congestion tone - Dial tone - Recall dial tone - Number unobtainable
+    tone - Payphone recognition tone - Ringing tone - Special information tone - Warning
+    tone - operator intervening Waiting tone - | 480+620 480+620 350+440 350+440 480+620
+    1600/1143 440+480 950/1400/1800 450 440 | 0.5 on 0.5 off 0.25 on 0.25 off continuous
+    3x(0.1 on 0.1 off) + continuous 0.25 on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off
+    2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0
+    off 0.5 on)"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Nauru (Republic: generated "Nauru (Republic of) | Busy tone - Busy tone -
+    pabx Congestion tone - pabx Dial tone - Dial tone - pabx Recall dial tone - pabx
+    Number unobtainable tone - Ringing tone - Ringing tone - pabx | 400 425 425 400
+    33 33 400 400 425x25 | 0.5 on 0.5 off 0.375 on 0.375 off 0.375 on 0.375 off continuous
+    continuous continuous 0.75 on 0.25 off 0.25 on 0.25 off 1.0 on 4.0 off 0.4 on
+    0.2 off 0.4 on 2.0 off" vs official "Nauru (Republic of) | Busy tone - Busy tone
+    - pabx Congestion tone - pabx Dial tone - Dial tone - pabx Recall dial tone -
+    pabx Number unobtainable tone - Ringing tone - Ringing tone - pabx of) | 400 425
+    425 400 33 33 400 400 425x25 | 0.5 on 0.5 off 0.375 on 0.375 off 0.375 on 0.375
+    off continuous continuous continuous 0.75 on 0.25 off 0.25 on 0.25 off 1.0 on
+    4.0 off 0.4 on 0.2 off 0.4 on 2.0 off"'
+  disposition: bug
+  reason: the dataset record holds of (in en) once more than the generated row prints
+    it, and the official row prints it
+- layer: rows
+  side: both
+  text: 'Nepal (Federal: generated "Nepal (Federal Democratic Republic of) | Busy
+    tone - Congestion tone - Dial tone - Number unobtainable tone - Ringing tone -
+    | 425 425 425 425 425 | 0.25 on 0.25 off 0.175 on 0.175 off continuous 0.25 on
+    0.5 off 1.1 on 3.1 off" vs official "Nepal (Federal Democratic Republic | Busy
+    tone - Congestion tone - Dial tone - Number unobtainable tone - Ringing tone -
+    | 425 425 425 425 425 | 0.25 on 0.25 off 0.175 on 0.175 off continuous 0.25 on
+    0.5 off 1.1 on 3.1 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (of);
+    the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Netherlands (Kingdom: generated "Netherlands (Kingdom of the) | Busy tone
+    - Congestion tone - Dial tone - Special dial tone - Ringing tone - Special information
+    tone - Waiting tone - | 425 425 425 425 425 950/1400/1800 425 | 0.5 on 0.5 off
+    0.25 on 0.25 off continuous 0.5 on 0.05 off 1.0 on 4.0 off 3x0.333 on 1.0 off
+    0.5 on 9.5 off" vs official "Netherlands (Kingdom of the) | Busy tone - Congestion
+    tone - Dial tone - Special dial tone - Ringing tone - Special information tone
+    - Waiting tone - d''outre-mer) | 425 425 425 425 425 950/1400/1800 425 | 0.5 on
+    0.5 off 0.25 on 0.25 off continuous 0.5 on 0.05 off 1.0 on 4.0 off 3x0.333 on
+    1.0 off 0.5 on 9.5 off"'
+  disposition: data
+  reason: the official PDF prints d outre mer once more than the dataset record holds
+    (in en); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'New Caledonia: generated "New Caledonia (Territoire français d''outre-mer)
+    | Busy tone - Congestion tone - Dial tone - Ringing tone - Special information
+    tone - Call waiting tone - | 440 950/1400/1800 440//330+440 440 950/1400/1800
+    440 | 0.5 on 0.5 off 2x[3x0.33 on + announcement] continuous 1.7 on 3.3 off 2x[3x0.33
+    on + announcement] 4x(0.5 on 0.5 off 0.5 on)" vs official "New Caledonia (Territoire
+    français | Busy tone - Congestion tone - Dial tone - Ringing tone - Special information
+    tone - Call waiting tone - | 440 950/1400/1800 440//330+440 440 950/1400/1800
+    440 | 0.5 on 0.5 off 2x[3x0.33 on + announcement] continuous 1.7 on 3.3 off 2x[3x0.33
+    on + announcement] 4x(0.5 on 0.5 off 0.5 on)"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (d outre
+    mer); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'New Zealand: generated "New Zealand | Busy tone - Congestion tone - | 400
+    400 | 0.5 on 0.5 off 0.25 on 0.25 off" vs official "New Zealand | Busy tone -
+    Congestion tone - Dial tone - I (3) Dial tone - II (message waiting) Recall dial
+    tone - Holding tone - Number unobtainable tone - Pay tone - Ringing tone - I Ringing
+    tone - II (call waiting) Call waiting tone - I Call waiting tone - II Call waiting
+    tone - III | 400 400 400 400 400 400+450 400 1209/852 400+450 400+450 400 400
+    400 | 0.5 on 0.5 off 0.25 on 0.25 off continuous 12x(0.1 on 0.1 off) + continuous
+    3x(0.1 on 0.1 off) + continuous 0.5 on 0.5 off 0.5 on 2.5 off 3x(0.75 on 0.1 off)
+    0.75 on 0.4 off 0.2 on 0.2 off 0.4 on 0.2 off 0.4 on 2.0 off 0.4 on 0.2 off 0.4
+    on 0.2 off 0.4 on 1.2 off 3x(0.2 on 3.0 off) 0.2 on 3x(0.1 on 0.1 off 0.1 on 3.0
+    off) 3x(0.1 on 0.1 off 0.1 on 0.1 off 0.1 on 3.0 off)"'
+  disposition: bug
+  reason: the dataset record holds dial tone i 3 dial tone ii message waiting recall
+    dial tone holding tone number unobtainable tone pay tone ringing tone i ringing
+    tone ii call waiting call waiting tone i call waiting tone ii call waiting tone
+    iii 400 400 400 400 450 400 1209 852 400 450 400 450 400 400 400 continuous 12x
+    0 1 on 0 1 off continuous 3x 0 1 on 0 1 off continuous 0 5 on 0 5 off 0 5 on 2
+    5 off 3x 0 75 on 0 1 off 0 75 on 0 4 off 0 2 on 0 2 off 0 4 on 0 2 off 0 4 on
+    2 0 off 0 4 on 0 2 off 0 4 on 0 2 off 0 4 on 1 2 off 3x 0 2 on 3 0 off 0 2 on
+    3x 0 1 on 0 1 off 0 1 on 3 0 off 3x 0 1 on 0 1 off 0 1 on 0 1 off 0 1 on 3 0 off
+    (in en) once more than the generated row prints it, and the official row prints
+    it
+- layer: rows
+  side: both
+  text: 'Nigeria (Federal: generated "Nigeria (Federal Republic of) | Busy tone -
+    Congestion tone - Dial tone - Recall dial tone - Special dial tone - Holding tone
+    - Number unobtainable tone - Ringing tone - Special information tone - Warning
+    tone - Call waiting tone - | 400 400 400//450 400//425 425 950/950/1400 450 400//450
+    400//33 operator 400 | 0.5 on 0.5 off 0.25 on 0.25 off continuous continuous 0.5
+    on 0.5 off 0.65 on 0.325 off 0.325 on 1.3 on 2.6 off 0.5 on 0.5 off 2.0 on 4.0
+    off 0.2 on 1.5 off intervening 400 0.15 on 0.25 off 0.15 on 1.45 off 0.2 on 0.2
+    off" vs official "Nigeria (Federal Republic of) | Busy tone - Congestion tone
+    - Dial tone - Recall dial tone - Special dial tone - Holding tone - Number unobtainable
+    tone - Ringing tone - Special information tone - Warning tone - operator intervening
+    Call waiting tone - | 400 400 400//450 400//425 425 950/950/1400 450 400//450
+    400//33 400 400 | 0.5 on 0.5 off 0.25 on 0.25 off continuous continuous 0.5 on
+    0.5 off 0.65 on 0.325 off 0.325 on 1.3 on 2.6 off 0.5 on 0.5 off 2.0 on 4.0 off
+    0.2 on 1.5 off 0.15 on 0.25 off 0.15 on 1.45 off 0.2 on 0.2 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Panama (Republic: generated "Panama (Republic of) | Busy tone - Congestion
+    tone - Dial tone - Number unobtainable tone - Ringing tone - Special information
+    tone - Warning tone - Call waiting tone - | 425 425 425 425 425 425 operator 425
+    | 0.32 on 0.32 off 0.32 on 0.32 off continuous 0.18 on 0.18 off 0.5 on 0.18 off
+    1.2 on 4.65 off 0.4 on 0.4 off intervening 425 0.18 on 0.18 off 0.5 on 0.18 off
+    0.18 on 0.18 off 0.18 on" vs official "Panama (Republic of) | Busy tone - Congestion
+    tone - Dial tone - Number unobtainable tone - Ringing tone - Special information
+    tone - Warning tone - operator intervening Call waiting tone - | 425 425 425 425
+    425 425 425 425 | 0.32 on 0.32 off 0.32 on 0.32 off continuous 0.18 on 0.18 off
+    0.5 on 0.18 off 1.2 on 4.65 off 0.4 on 0.4 off 0.18 on 0.18 off 0.5 on 0.18 off
+    0.18 on 0.18 off 0.18 on"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Papua New: generated "Papua New Guinea | Busy tone - Congestion tone - Dial
+    tone - Special dial tone - Number unobtainable tone - Payphone recognition tone
+    - I Payphone recognition tone - II Payphone recognition tone - III Ringing tone
+    - Special information tone - Warning tone - Waiting tone - | 425//400 425//400
+    425//400x25//350+440 425 425//400 1209/852 1336/941 900 425//400x25//400x16 950/1400/1800
+    operator 425 | 0.375 on 0.375 off 0.375 on 0.375 off continuous 0.4 on 0.04 off
+    2.5 on 0.5 off 4x(0.2 on 0.2 off 0.2 on 2.0 off) 2x(0.2 on 0.2 off 0.2 on 2.0
+    off) 2x(0.075 on 0.15 off 0.075 on 2.7 off) 2/3//400+450//410x20 0.4 on 0.2 off
+    0.4 on 2.0 off 3x0.33 on 1.01 off intervening 1400 0.5 on 11.5 off 0.04 on 10.0
+    off 0.04 on 20.0 off 0.04 on 20.0 off" vs official "Papua New Guinea | Busy tone
+    - Congestion tone - Dial tone - Special dial tone - Number unobtainable tone -
+    Payphone recognition tone - I Payphone recognition tone - II Payphone recognition
+    tone - III Ringing tone - Special information tone - Warning tone - operator intervening
+    Waiting tone - | 425//400 425//400 425//400x25//350+440 425 425//400 1209/852
+    1336/941 900 425//400x25//400x16 2/3//400+450//410x20 950/1400/1800 1400 425 |
+    0.375 on 0.375 off 0.375 on 0.375 off continuous 0.4 on 0.04 off 2.5 on 0.5 off
+    4x(0.2 on 0.2 off 0.2 on 2.0 off) 2x(0.2 on 0.2 off 0.2 on 2.0 off) 2x(0.075 on
+    0.15 off 0.075 on 2.7 off) 0.4 on 0.2 off 0.4 on 2.0 off 3x0.33 on 1.01 off 0.5
+    on 11.5 off 0.04 on 10.0 off 0.04 on 20.0 off 0.04 on 20.0 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Portugal: generated "Portugal | Acceptance tone - I Acceptance tone - II
+    Busy tone - I Busy tone - II (mobile) Congestion tone - Dial tone - Special dial
+    tone - (mobile) Holding tone - Intrusion tone - Refusal tone - I Refusal tone
+    - II Ringing tone - I Ringing tone - II (two party mobiles) Ringing tone - mobiles)
+    | 425 425 425 400 425 425 425 425 425 450/1400/1800 950/1400/1800 425 440 425
+    | 1.0 on 0.2 off 1.0 on 1.0 off 1.0 on 5.0 off 0.5 on 0.5 off 0.36 on 0.36 off
+    0.2 on 0.2 off continuous 1.0 on 0.2 off 1.5 on 5.12 off 3x(0.2 on 1.4 off) 3x0.33
+    on 1.0 off 3x0.33 on 1.0 off 1.0 on 5.0 off 1.0 on 4.0 off 1.5 on 3.5 off" vs
+    official "Portugal | Acceptance tone - I Acceptance tone - II Busy tone - I Busy
+    tone - II (mobile) Congestion tone - Dial tone - Special dial tone - (mobile)
+    Holding tone - Intrusion tone - Refusal tone - I Refusal tone - II Ringing tone
+    - I Ringing tone - II (two party mobiles) Ringing tone - III (three party mobiles)
+    Ringing tone - IV Special information tone - Call waiting tone - I Call waiting
+    tone - II Call waiting tone - III Call waiting tone - IV Call waiting tone - V
+    Call waiting tone - VI | 425 425 425 400 425 425 425 425 425 450/1400/1800 950/1400/1800
+    425 440 425 425 950/1400/1800 425 425 425 425 425 425 | 1.0 on 0.2 off 1.0 on
+    1.0 off 1.0 on 5.0 off 0.5 on 0.5 off 0.36 on 0.36 off 0.2 on 0.2 off continuous
+    1.0 on 0.2 off 1.5 on 5.12 off 3x(0.2 on 1.4 off) 3x0.33 on 1.0 off 3x0.33 on
+    1.0 off 1.0 on 5.0 off 1.0 on 4.0 off 1.5 on 3.5 off 1.0 on 1.0 off 1.0 on 5.0
+    off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.2 on 5.0 off 0.2 on 0.6 off 0.2 on 3.0
+    off 0.2 on 0.2 off 0.2 on 10.0 off 0.2 on 0.6 off 0.2 on 0.6 off 0.2 on 1.0 off
+    0.2 on 3.0 off 1.0 on 1.0 off 1.0 on 5.0 off"'
+  disposition: bug
+  reason: the dataset record holds iii three party ringing tone iv special information
+    tone call waiting tone i call waiting tone ii call waiting tone iii call waiting
+    tone iv call waiting tone v call waiting tone vi 425 950 1400 1800 425 425 425
+    425 425 425 1 0 on 1 0 off 1 0 on 5 0 off 3x0 33 on 1 0 off 0 2 on 0 2 off 0 2
+    on 5 0 off 0 2 on 0 6 off 0 2 on 3 0 off 0 2 on 0 2 off 0 2 on 10 0 off 0 2 on
+    0 6 off 0 2 on 0 6 off 0 2 on 1 0 off 0 2 on 3 0 off 1 0 on 1 0 off 1 0 on 5 0
+    off (in en) once more than the generated row prints it, and the official row prints
+    it
+- layer: rows
+  side: both
+  text: 'Saint Kitts: generated "Saint Kitts and Nevis | Busy tone - Congestion tone
+    - Dial tone - Recall dial tone - Number unobtainable tone - Payphone recognition
+    tone - Ringing tone - Special information tone - Warning tone - Waiting tone -
+    | 480+620 480+620 350+440 350+440 480+620 1600/1143 440+480 950/1400/1800 operator
+    440 | 0.5 on 0.5 off 0.25 on 0.25 off continuous 3x(0.1 on 0.1 off) + continuous
+    0.25 on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off
+    intervening 450 0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)" vs
+    official "Saint Kitts and Nevis | Busy tone - Congestion tone - Dial tone - Recall
+    dial tone - Number unobtainable tone - Payphone recognition tone - Ringing tone
+    - Special information tone - Warning tone - operator intervening Waiting tone
+    - | 480+620 480+620 350+440 350+440 480+620 1600/1143 440+480 950/1400/1800 450
+    440 | 0.5 on 0.5 off 0.25 on 0.25 off continuous 3x(0.1 on 0.1 off) + continuous
+    0.25 on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off
+    0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Saint Lucia: generated "Saint Lucia | Busy tone - Congestion tone - Dial
+    tone - Special dial tone - Pay tone - Ringing tone - Route tone - Warning tone
+    - Call waiting tone - | 425 425 425 425+330 622 425 425 425 425 | 0.5 on 0.5 off
+    0.25 on 0.25 off continuous continuous 0.136 on 0.136 off 0.375 on 0.25 off 0.375
+    on 2.0 off 0.05 on 0.05 off 0.1 on 4.9 off 0.2 on 0.2 off 0.2 on 4.0 off" vs official
+    "Saint Lucia | Busy tone - Congestion tone - Dial tone - Special dial tone - Pay
+    tone - Ringing tone - Route tone - Warning tone - Call waiting tone - (Collectivité
+    territoriale de la | 425 425 425 425+330 622 425 425 425 425 | 0.5 on 0.5 off
+    0.25 on 0.25 off continuous continuous 0.136 on 0.136 off 0.375 on 0.25 off 0.375
+    on 2.0 off 0.05 on 0.05 off 0.1 on 4.9 off 0.2 on 0.2 off 0.2 on 4.0 off"'
+  disposition: bug
+  reason: the dataset record holds collectivité territoriale de la (in en) once more
+    than the generated row prints it, and the official row prints it
+- layer: rows
+  side: both
+  text: 'Saint Pierre: generated "Saint Pierre and Miquelon (Collectivité territoriale
+    de la République française) | Busy tone - Dial tone - Ringing tone - Special information
+    tone - Call waiting tone - | 440 440 440 950/1400/1800 440 | 0.5 on 0.5 off continuous
+    1.5 on 3.5 off 3x(0.3 on 0.03 off) 1.0 off 0.3 on 10.0 off" vs official "Saint
+    Pierre and Miquelon République française) | Busy tone - Dial tone - Ringing tone
+    - Special information tone - Call waiting tone - | 440 440 440 950/1400/1800 440
+    | 0.5 on 0.5 off continuous 1.5 on 3.5 off 3x(0.3 on 0.03 off) 1.0 off 0.3 on
+    10.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (collectivité
+    territoriale de la); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'Spain: generated "Spain | Busy tone - I Busy tone - II Congestion tone -
+    I Congestion tone - II Dial tone - Special dial tone - I Special dial tone - II
+    Number unobtainable tone - I Number unobtainable tone - II Payphone recognition
+    tone - I Payphone recognition tone - II Ringing tone - I Ringing tone - II Special
+    information tone - Warning tone - Call waiting tone - | 425 425 425 425 425 425
+    425 425 425 1600 1600 425 425 950/1400/1800 operator 425 | 0.2 on 0.2 off 0.5
+    on 0.5 off 2x(0.2 on 0.2 off) 0.2 on 0.6 off 0.25 on 0.25 off continuous 1.0 on
+    0.1 off 0.5 on 0.05 off 0.2 on 0.2 off 0.2 on 0.6 off 0.5 on 2.5 off 0.05 on 0.05
+    off 0.05 on 1.5 off 0.05 on 0.05 off 0.05 on 0.05 off 0.05 on 1.5 off 1.5 on 3.0
+    off 1.0 on 4.0 off 3x0.33 on 1.0 off intervening 1400 0.4 on 5.0 off 0.175 on
+    0.175 off 0.175 on 3.5 off" vs official "Spain | Busy tone - I Busy tone - II
+    Congestion tone - I Congestion tone - II Dial tone - Special dial tone - I Special
+    dial tone - II Number unobtainable tone - I Number unobtainable tone - II Payphone
+    recognition tone - I Payphone recognition tone - II Ringing tone - I Ringing tone
+    - II Special information tone - Warning tone - operator intervening Call waiting
+    tone - | 425 425 425 425 425 425 425 425 425 1600 1600 425 425 950/1400/1800 1400
+    425 | 0.2 on 0.2 off 0.5 on 0.5 off 2x(0.2 on 0.2 off) 0.2 on 0.6 off 0.25 on
+    0.25 off continuous 1.0 on 0.1 off 0.5 on 0.05 off 0.2 on 0.2 off 0.2 on 0.6 off
+    0.5 on 2.5 off 0.05 on 0.05 off 0.05 on 1.5 off 0.05 on 0.05 off 0.05 on 0.05
+    off 0.05 on 1.5 off 1.5 on 3.0 off 1.0 on 4.0 off 3x0.33 on 1.0 off 0.4 on 5.0
+    off 0.175 on 0.175 off 0.175 on 3.5 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Sweden: generated "Sweden | Busy tone - I | 425 | 0.25 on 0.25 off" vs official
+    "Sweden | Busy tone - I Busy tone - II (1) Congestion tone - I Congestion tone
+    - II (1) Dial tone - Special dial tone - Pay tone - Payphone recognition tone
+    - Ringing tone - I Ringing tone - II (1) Special information tone - Warning tone
+    - at time limit barring Warning tone - operator intervening Warning tone - three
+    party conference Call waiting tone - I Call waiting tone - II (1) | 425 425 425
+    425 425 425 941 1477/941 425 425 950/1400/1800 425 1400 1400 425 425 | 0.25 on
+    0.25 off 0.5 on 0.5 off 0.25 on 0.75 off 0.2 on 0.2 off continuous 0.32 on 0.02
+    off 2x(0.2 on 0.2 off 0.2 on 3.6 off) 11x(0.2 on 0.2 off 0.2 on 2.0 off) 1.0 on
+    5.0 off 1.0 on 4.0 off 3x0.33 on 1.0 off + announcement 2.0 on 5.0 off + continuous
+    0.1 on 1.5 off 0.35 on 15.0 off 1x(0.2 on 0.5 off 0.2 on) 0.2 on 0.6 off 0.2 on
+    3.0 off 0.2 on 0.6 off 0.2 on"'
+  disposition: data
+  reason: the official PDF prints busy tone ii 1 congestion tone i congestion tone
+    ii 1 dial tone special dial tone pay tone payphone recognition tone ringing tone
+    i ringing tone ii 1 special information tone warning tone at time limit barring
+    warning tone operator intervening warning tone three party conference call waiting
+    tone i call waiting tone ii 1 425 425 425 425 425 941 1477 941 425 425 950 1400
+    1800 425 1400 1400 425 425 0 5 on 0 5 off 0 25 on 0 75 off 0 2 on 0 2 off continuous
+    0 32 on 0 02 off 2x 0 2 on 0 2 off 0 2 on 3 6 off 11x 0 2 on 0 2 off 0 2 on 2
+    0 off 1 0 on 5 0 off 1 0 on 4 0 off 3x0 33 on 1 0 off announcement 2 0 on 5 0
+    off continuous 0 1 on 1 5 off 0 35 on 15 0 off 1x 0 2 on 0 5 off 0 2 on 0 2 on
+    0 6 off 0 2 on 3 0 off 0 2 on 0 6 off 0 2 on once more than the dataset record
+    holds (in en); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Trinidad and: generated "Trinidad and Tobago | Busy tone - Dial tone - Ringing
+    tone - Re-order tone - I | 480+620 350+440 440+480 480+620 | 0.5 on 0.5 off continuous
+    2.0 on 4.0 off 0.3 on 0.2 off" vs official "Trinidad and Tobago | Busy tone -
+    Dial tone - Ringing tone - Re-order tone - I Re-order tone - II (8) Waiting tone
+    - | 480+620 350+440 440+480 480+620 480+620 440 | 0.5 on 0.5 off continuous 2.0
+    on 4.0 off 0.3 on 0.2 off 0.2 on 0.3 off 0.3 on 10.0 off"'
+  disposition: data
+  reason: the official PDF prints re order tone ii 8 waiting tone 480 620 440 0 2
+    on 0 3 off 0 3 on 10 0 off once more than the dataset record holds (in en); the
+    generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Turkey: generated "Turkey | Busy tone - Confirmation tone - Congestion tone
+    - Dial tone - Special dial tone - Howler tone - Number unobtainable tone - Ringing
+    tone - Special information tone - Warning tone - Waiting tone - I Waiting tone
+    - II Call waiting tone - | 450 450 450 450 450 1400/2060/2460/2600 450 450 950/1400/1800
+    operator 350+450 450 450 | 0.5 on 0.5 off 0.04 on 0.04 off 3x(0.2 on 0.2 off)
+    0.6 on 0.2 off continuous 1.0 on 0.25 off 0.1 on 0.1 off 0.2 on 0.2 off 2.0 on
+    4.0 off 3x0.3 on 1.0 off intervening 450 0.2 on 0.2 off 0.6 on 0.2 off 0.5 on
+    0.5 off 0.5 on 2.5 off 0.2 on 0.6 off 0.2 on 8.0 off" vs official "Turkey | Busy
+    tone - Confirmation tone - Congestion tone - Dial tone - Special dial tone - Howler
+    tone - Number unobtainable tone - Ringing tone - Special information tone - Warning
+    tone - operator intervening Waiting tone - I Waiting tone - II Call waiting tone
+    - | 450 450 450 450 450 1400/2060/2460/2600 450 450 950/1400/1800 450 350+450
+    450 450 | 0.5 on 0.5 off 0.04 on 0.04 off 3x(0.2 on 0.2 off) 0.6 on 0.2 off continuous
+    1.0 on 0.25 off 0.1 on 0.1 off 0.2 on 0.2 off 2.0 on 4.0 off 3x0.3 on 1.0 off
+    0.2 on 0.2 off 0.6 on 0.2 off 0.5 on 0.5 off 0.5 on 2.5 off 0.2 on 0.6 off 0.2
+    on 8.0 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Turks and: generated "Turks and Caicos Islands | Busy tone - Congestion tone
+    - Dial tone - Recall dial tone - Number unobtainable tone - Payphone recognition
+    tone - Ringing tone - Special information tone - Warning tone - Waiting tone -
+    | 480+620 480+620 350+440 350+440 480+620 1600/1143 440+480 950/1400/1800 operator
+    440 | 0.5 on 0.5 off 0.25 on 0.25 off continuous 3x(0.1 on 0.1 off) + continuous
+    0.25 on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off
+    intervening 450 0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)" vs
+    official "Turks and Caicos Islands | Busy tone - Congestion tone - Dial tone -
+    Recall dial tone - Number unobtainable tone - Payphone recognition tone - Ringing
+    tone - Special information tone - Warning tone - operator intervening Waiting
+    tone - | 480+620 480+620 350+440 350+440 480+620 1600/1143 440+480 950/1400/1800
+    450 440 | 0.5 on 0.5 off 0.25 on 0.25 off continuous 3x(0.1 on 0.1 off) + continuous
+    0.25 on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off
+    0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'United Arab: generated "United Arab Emirates | Busy tone - Congestion tone
+    - Dial tone - Number unobtainable tone - Ringing tone - | 400//425 400//425 350+440
+    400//425 400+450//425 | 0.375 on 0.375 off 0.4 on 0.35 off 0.225 on 0.525 off
+    continuous continuous 0.4 on 0.2 off 0.4 on 2.0 off" vs official "United Arab
+    Emirates | Busy tone - Congestion tone - Dial tone - Number unobtainable tone
+    - Ringing tone - and Northern Ireland | 400//425 400//425 350+440 400//425 400+450//425
+    | 0.375 on 0.375 off 0.4 on 0.35 off 0.225 on 0.525 off continuous continuous
+    0.4 on 0.2 off 0.4 on 2.0 off"'
+  disposition: bug
+  reason: the dataset record holds and northern ireland (in en) once more than the
+    generated row prints it, and the official row prints it
+- layer: rows
+  side: both
+  text: 'United Kingdom: generated "United Kingdom of Great Britain and Northern Ireland
+    | Busy tone - Congestion tone - Dial tone - Number unobtainable tone - Pay tone
+    - Payphone recognition tone - Ringing tone - | 400 400 50//350+440 400 400 1200/800
+    400+450//400x25//400x16 | 0.375 on 0.375 off 0.4 on 0.35 off 0.225 on 0.525 off
+    continuous continuous 0.125 on 0.125 off 0.2 on 0.2 off 0.2 on 2.0 off 2/3 0.4
+    on 0.2 off 0.4 on 2.0 off" vs official "United Kingdom of Great Britain | Busy
+    tone - Congestion tone - Dial tone - Number unobtainable tone - Pay tone - Payphone
+    recognition tone - Ringing tone - | 400 400 50//350+440 400 400 1200/800 400+450//400x25//400x16
+    2/3 | 0.375 on 0.375 off 0.4 on 0.35 off 0.225 on 0.525 off continuous continuous
+    0.125 on 0.125 off 0.2 on 0.2 off 0.2 on 2.0 off 0.4 on 0.2 off 0.4 on 2.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (and
+    northern ireland); the official PDF has other text
+- layer: rows
+  side: both
+  text: 'United States: generated "United States of America | Busy tone - Confirmation
+    tone - Dial tone - Recall dial tone - Intrusion tone - Number unobtainable tone
+    - Permanent signal tone - Record tone - Ringing tone - Re-order tone - Warning
+    tone - message Call waiting tone - | 600x120//600x133//600x140//600x160//480+620
+    350+440 600x120//600x133//600x140//600x160//350+440 350+440 600x120//600x133//600x140//600x160//480+620
+    200//400 480//400//500 440 420x40//500x40//440+480 600x120//600x133//600x140//600x160//480+620
+    1400 e) 440 | 0.5 on 0.5 off 3x(0.1 on 0.1 off) continuous 3x(0.1 on 0.1 off)
+    + continuous 0.5 on 0.5 off 0.5 on 6.0 off continuous 0.5 on 5.0 off 2.0 on 4.0
+    off 0.3 on 0.2 off 0.5 on 2x(0.3 on 10.0 off)" vs official "United States of America
+    | Busy tone - Confirmation tone - Dial tone - Recall dial tone - Intrusion tone
+    - Number unobtainable tone - Permanent signal tone - Record tone - Ringing tone
+    - Re-order tone - Warning tone - message (4) Call waiting tone - | 600x120//600x133//600x140//600x160//480+620
+    350+440 600x120//600x133//600x140//600x160//350+440 350+440 600x120//600x133//600x140//600x160//480+620
+    200//400 480//400//500 440 420x40//500x40//440+480 600x120//600x133//600x140//600x160//480+620
+    1400 440 | 0.5 on 0.5 off 3x(0.1 on 0.1 off) continuous 3x(0.1 on 0.1 off) + continuous
+    0.5 on 0.5 off 0.5 on 6.0 off continuous 0.5 on 5.0 off 2.0 on 4.0 off 0.3 on
+    0.2 off 0.5 on 2x(0.3 on 10.0 off)"'
+  disposition: bug
+  reason: the generated PDF prints the dataset's text of another language than en
+    (e)
+- layer: rows
+  side: both
+  text: 'Uruguay (Eastern: generated "Uruguay (Eastern Republic of) | Busy tone -
+    Congestion tone - Dial tone - I Dial tone - II Negative indication tone - Positive
+    indication tone - Ringing tone - Special information tone - Warning tone - Waiting
+    tone - | 425 425 425 450 425 425 425 950/1400/1800 operator 425 | 0.5 on 0.5 off
+    0.25 on 0.25 off continuous 0.7 on 0.8 off 0.2 on 0.3 off 0.5 on 0.5 off 2x(0.1
+    on 0.2 off) 0.1 on 1.3 off 1.0 on 4.0 off 3x0.333 on 1.0 off intervening 425 0.15
+    on 0.25 off 0.15 on 1.45 off 0.2 on 0.2 off 0.2 on 4.4 off" vs official "Uruguay
+    (Eastern Republic of) | Busy tone - Congestion tone - Dial tone - I Dial tone
+    - II Negative indication tone - Positive indication tone - Ringing tone - Special
+    information tone - Warning tone - operator intervening Waiting tone - | 425 425
+    425 450 425 425 425 950/1400/1800 425 425 | 0.5 on 0.5 off 0.25 on 0.25 off continuous
+    0.7 on 0.8 off 0.2 on 0.3 off 0.5 on 0.5 off 2x(0.1 on 0.2 off) 0.1 on 1.3 off
+    1.0 on 4.0 off 3x0.333 on 1.0 off 0.15 on 0.25 off 0.15 on 1.45 off 0.2 on 0.2
+    off 0.2 on 4.4 off"'
+  disposition: layout
+  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
+    line differently'
+- layer: rows
+  side: both
+  text: 'Venezuela (Bolivarian: generated "Venezuela (Bolivarian Republic of) | Busy
+    tone - Confirmation tone - Congestion tone - Dial tone - Howler tone - Pay tone
+    - Ringing tone - Special information tone - Call waiting tone - Caller waiting
+    tone - | 425 425 425 425 1440 800 425 950/1440/1800 400/450 425 | 0.5 on 0.5 off
+    0.1 on 0.1 off 0.3 on 0.1 off 0.25 on 0.25 off continuous 0.5 on 0.5 off 1.0 on
+    15.0 off 1.0 on 4.0 off 3x0.33 on 1.0 off 0.3 on 6.0 off 1.0 on 4.0 off" vs official
+    "Venezuela (Bolivarian Republic of) | Busy tone - Confirmation tone - Congestion
+    tone - Dial tone - Howler tone - Pay tone - Ringing tone - Special information
+    tone - Call waiting tone - Caller waiting tone - français d''outre-mer) | 425
+    425 425 425 1440 800 425 950/1440/1800 400/450 425 | 0.5 on 0.5 off 0.1 on 0.1
+    off 0.3 on 0.1 off 0.25 on 0.25 off continuous 0.5 on 0.5 off 1.0 on 15.0 off
+    1.0 on 4.0 off 3x0.33 on 1.0 off 0.3 on 6.0 off 1.0 on 4.0 off"'
+  disposition: data
+  reason: the official PDF prints français d outre mer once more than the dataset
+    record holds (in en); the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: 'Wallis and: generated "Wallis and Futuna (Territoire français d''outre-mer)
+    | Busy tone - Dial tone - Pay tone - Ringing tone - Route tone - Special information
+    tone - | 440 440//330 12000 440 440 950/1400/1800 | 0.5 on 0.5 off continuous
+    0.1 on 1.5 on 3.5 off 0.05 on 0.05 off (3x0.3 on 2x0.03 off) 1.0 off" vs official
+    "Wallis and Futuna (Territoire | Busy tone - Dial tone - Pay tone - Ringing tone
+    - Route tone - Special information tone - | 440 440//330 12000 440 440 950/1400/1800
+    | 0.5 on 0.5 off continuous 0.1 on 1.5 on 3.5 off 0.05 on 0.05 off (3x0.3 on 2x0.03
+    off) 1.0 off"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (français
+    d outre mer); the official PDF has other text

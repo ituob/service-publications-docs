@@ -1,0 +1,2509 @@
+- layer: rows
+  side: both
+  text: '93|Afghanistan: generated "Afghanistan | 93 | 00 | 0 | 9 digits | +4.5" vs
+    official "Afghanistan | 93 | 00 | 0 | 9 chiffres | +4.30"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits
+    5); the official PDF has chiffres 30
+- layer: rows
+  side: both
+  text: '355|Albanie: generated "Albanie | 355 | 00 | 0 | 3 to 9 digits | +1; +2"
+    vs official "Albanie | 355 | 00 | 0 | 3 à 9 chiffres | +1/+2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '213|Algérie: generated "Algérie | 213 | 00 | 0 | 8, 9 digits | +1" vs official
+    "Algérie | 213 | 00 | 0 | 8, 9 chiffres | +1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 1|Samoa Samoa | 1 | 011 | 1 | (684)+7 digits | -11
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has américaines chiffres
+- layer: rows
+  side: official_only
+  text: 49|Allemagne Allemagne | 49 | 00 | 0 | 6 à 13 chiffres | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '376|Andorre: generated "Andorre | 376 | 00 | ... | 6, 8, 9 digits | +1; +2"
+    vs official "Andorre | 376 | 00 | ... | 6, 8, 9 chiffres | +1/+2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '244|Angola: generated "Angola | 244 | 00 | 0 | 9 digits | +1" vs official
+    "Angola | 244 | 00 | 0 | 9 chiffres | +1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '1|Anguilla: generated "Anguilla | 1 | 011 | 1 | (264)+7 digits | -4" vs official
+    "Anguilla | 1 | 011 | 1 | (264)+7 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '1|Antigua: generated "Antigua-et-Barbuda | 1 | 011 | 1 | (268)+7 digits |
+    -4" vs official "Antigua-et-Barbuda | 1 | 011 | 1 | (268)+7 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 966|Arabie Arabie saoudite | 966 | 00 | 0 | 8 à 9 chiffres | +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '54|Argentine: generated "Argentine | 54 | 00 | 0 | 10 digits | -3" vs official
+    "Argentine | 54 | 00 | 0 | 10 chiffres | -3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '374|Arménie: generated "Arménie | 374 | 00 | 0 | 8 digits | +4; +5" vs official
+    "Arménie | 374 | 00 | 0 | 8 chiffres | +4/+5"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '297|Aruba: generated "Aruba | 297 | 00 | ... | 7 digits | -4" vs official
+    "Aruba | 297 | 00 | ... | 7 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '61|Australie: generated "Australie | 61 | 0011 | 0 | 5 to 15 digits | +10;
+    +11 | 12" vs official "Australie | 61 | 0011 | 0 | 5 à 15 chiffres | +10/+11 |
+    12"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 672|Territoires Territoires ext. de l'Australie | 672 | 00 | 0 | 6 digits
+    | +11.30 | 8
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '43|Autriche: generated "Autriche | 43 | 00 | 0 | 4 to 13 digits | +1; +2"
+    vs official "Autriche | 43 | 00 | 0 | 4 à 13 chiffres | +1/+2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '994|Azerbaïdjan: generated "Azerbaïdjan | 994 | 00 | 0 | 8 to 9 digits |
+    +4; +5" vs official "Azerbaïdjan | 994 | 00 | 0 | 8 à 9 chiffres | +4/+5"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '1|Bahamas: generated "Bahamas | 1 | 011 | 1 | (242)+7 digits | -5; -4" vs
+    official "Bahamas | 1 | 011 | 1 | (242)+7 chiffres | -5/-4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '973|Bahreïn: generated "Bahreïn | 973 | 00 | ... | 8 digits | +3" vs official
+    "Bahreïn | 973 | 00 | ... | 8 chiffres | +3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '880|Bangladesh: generated "Bangladesh | 880 | 00 | 0 | 6 to 10 digits | +6"
+    vs official "Bangladesh | 880 | 00 | 0 | 6 à 10 chiffres | +6"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '1|Barbade: generated "Barbade | 1 | 011 | 1 | (246)+7 digits | -4" vs official
+    "Barbade | 1 | 011 | 1 | (246)+7 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '375|Bélarus: generated "Bélarus | 375 | 810 | 8 | 9 to 10 digits | +2; +3"
+    vs official "Bélarus | 375 | 810 | 8 | 9 à 10 chiffres | +2/+3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '32|Belgique: generated "Belgique | 32 | 00 | 0 | 8 to 9 digits | +1; +2 |
+    2" vs official "Belgique | 32 | 00 | 0 | 8 à 9 chiffres | +1/+2 | 2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '501|Belize: generated "Belize | 501 | 00 | ... | 7 digits | -6" vs official
+    "Belize | 501 | 00 | ... | 7 chiffres | -6"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '229|Bénin: generated "Bénin | 229 | 00 | ... | 8 digits | +1" vs official
+    "Bénin | 229 | 00 | ... | 8 chiffres | +1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '1|Bermudes: generated "Bermudes | 1 | 011 | 1 | (441)+7 digits | -4; -3"
+    vs official "Bermudes | 1 | 011 | 1 | (441)+7 chiffres | -4/-3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '975|Bhoutan: generated "Bhoutan | 975 | 00 | ... | 7 to 8 digits | +6" vs
+    official "Bhoutan | 975 | 00 | ... | 7 à 8 chiffres | +6"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '591|Bolivie: generated "Bolivie (État Plurinational de) | 591 | 00 | 0 |
+    8 digits | -4" vs official "Bolivie (État Plurinational de) | 591 | 00 | 0 | 8
+    chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '599|Bonaire,: generated "Bonaire, Saint Eustatius et Saba | 599 | 00 | 0
+    | 7 digits | -4" vs official "Bonaire, Saint Eustatius et Saba | 599 | 00 | 0
+    | 7 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '387|Bosnie: generated "Bosnie-Herzégovine | 387 | 00 | 0 | 8 digits | +1;
+    +2" vs official "Bosnie-Herzégovine | 387 | 00 | 0 | 8 chiffres | +1/+2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '267|Botswana: generated "Botswana | 267 | 00 | ... | 7 to 8 digits | +2"
+    vs official "Botswana | 267 | 00 | ... | 7 à 8 chiffres | +2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '55|Brésil: generated "Brésil | 55 | 00 | 0 | 10 digits | -3; -2 | 18" vs
+    official "Brésil | 55 | 00 | 0 | 10 chiffres | -3/-2 | 18"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 1|Vierges Vierges britanniques (Iles) | 1 | 011 | 1 | (284)+7 digits | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (britanniques 284 digits); the official PDF has américaines
+    340 chiffres
+- layer: rows
+  side: both
+  text: '673|Brunéi: generated "Brunéi Darussalam | 673 | 00 | ... | 7 digits | +8"
+    vs official "Brunéi Darussalam | 673 | 00 | ... | 7 chiffres | +8"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '359|Bulgarie: generated "Bulgarie | 359 | 00 | 0 | 7 to 9 digits | +2; +3
+    | 2" vs official "Bulgarie | 359 | 00 | 0 | 7 à 9 chiffres | +2/+3 | 2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '226|Burkina: generated "Burkina Faso | 226 | 00 | ... | 8 digits | 0" vs
+    official "Burkina Faso | 226 | 00 | ... | 8 chiffres | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits
+    0); the official PDF has chiffres utc
+- layer: rows
+  side: both
+  text: '257|Burundi: generated "Burundi | 257 | 00 | ... | 8 digits | +2" vs official
+    "Burundi | 257 | 00 | ... | 8 chiffres | +2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '855|Cambodge: generated "Cambodge | 855 | 001; 007 | 0 | 8 digits | +7" vs
+    official "Cambodge | 855 | 001, 007 | 0 | 8 chiffres | +7"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '237|Cameroun: generated "Cameroun | 237 | 00 | ... | 8 digits | +1" vs official
+    "Cameroun | 237 | 00 | ... | 8 chiffres | +1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '1|Canada: generated "Canada | 1 | 011 | 1 | 10 digits | -5; -4 | 11" vs official
+    "Canada | 1 | 011 | 1 | 10 chiffres | -5/-4 | 11"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '238|Cap: generated "Cap-Vert | 238 | 00 | ... | 7 digits | -1" vs official
+    "Cap-Vert | 238 | 00 | ... | 7 chiffres | -1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '1|Cayman: generated "Cayman (Iles) | 1 | 011 | 1 | (345)+7 digits | -5" vs
+    official "Cayman (Iles) | 1 | 011 | 1 | (345)+7 chiffres | -5"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '236|Centrafricaine: generated "Centrafricaine (Rép.) | 236 | 00 | ... | 8
+    digits | +1" vs official "Centrafricaine (Rép.) | 236 | 00 | ... | 8 chiffres
+    | +1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 235|Tchad Tchad | 235 | 00 | ... | 8 digits | +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '56|Chili: generated "Chili | 56 | 1YZ0 | 1YZ | 8 to 9 digits | -4; -3 | 14"
+    vs official "Chili | 56 | 1YZ0 | 1YZ | 8 à 9 chiffres | -4/-3 | 14"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '86|Chine: generated "Chine | 86 | 00 | 0 | 5 to 12 digits | +8" vs official
+    "Chine | 86 | 00 | 0 | 5 à 12 chiffres | +8"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 357|Chypre Chypre | 357 | 00 | ... | 8, 11 chiffres | +2/+3 | 20
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '57|Colombie: generated "Colombie | 57 | 009; 007; 005 | 09; 07; 05 | 8, 10
+    digits | -5 | 1" vs official "Colombie | 57 | 009/007/005 | 09/07/05 | 8, 10 chiffres
+    | -5 | 1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '269|Comores: generated "Comores | 269 | 00 | ... | 7 digits | +3" vs official
+    "Comores | 269 | 00 | ... | 7 chiffres | +3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '242|Congo: generated "Congo | 242 | 00 | ... | 9 digits | +1" vs official
+    "Congo | 242 | 00 | ... | 9 chiffres | +1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '682|Cook: generated "Cook (Iles) | 682 | 00 | ... | 5 digits | -10" vs official
+    "Cook (Iles) | 682 | 00 | ... | 5 chiffres | -10"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 82|Corée Corée (Rép. de) | 82 | 001,002 | 0,082 | 8 à 11 chiffres | +9
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (1002 to digits); the official PDF has 001 002 à chiffres
+- layer: rows
+  side: both
+  text: '506|Costa: generated "Costa Rica | 506 | 00 | ... | 8 digits | -6" vs official
+    "Costa Rica | 506 | 00 | ... | 8 chiffres | -6"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '225|Côte: generated "Côte d''Ivoire | 225 | 00 | ... | 8 digits | 0" vs official
+    "Côte d''Ivoire | 225 | 00 | ... | 8 chiffres | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits
+    0); the official PDF has chiffres utc
+- layer: rows
+  side: both
+  text: '385|Croatie: generated "Croatie | 385 | 00 | 0 | 8 to 12 digits | +1; +2"
+    vs official "Croatie | 385 | 00 | 0 | 8 à 12 chiffres | +1/+2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '53|Cuba: generated "Cuba | 53 | 119 | 0 | 6 to 8 digits | -5; -4" vs official
+    "Cuba | 53 | 119 | 0 | 6 à 8 chiffres | -5/-4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '599|Curaçao: generated "Curaçao | 599 | 00 | 0 | 7 to 8 digits | -4" vs official
+    "Curaçao | 599 | 00 | 0 | 7 à 8 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 357|Chypre Chypre | 357 | 00 | ... | 8, 11 digits | +2; +3 | 20
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 420|Rép. Rép. tchèque | 420 | 00 | ... | 4 to 12 digits | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 850|Rép. Rép. pop. dém. de Corée | 850 | 00 | 0 | 6 to 17 digits | +9
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 243|Rép. Rép. dém. du Congo | 243 | 00 | 0 | 5 to 9 digits | +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '45|Danemark: generated "Danemark | 45 | 00 | ... | 8 digits | +1; +2" vs
+    official "Danemark | 45 | 00 | ... | 8 chiffres | +1/+2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '246|Diego: generated "Diego Garcia | 246 | 00 | ... | 7 digits | +6" vs official
+    "Diego Garcia | 246 | 00 | ... | 7 chiffres | +6"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '253|Djibouti: generated "Djibouti | 253 | 00 | ... | 6 digits | +3" vs official
+    "Djibouti | 253 | 00 | ... | 6 chiffres | +3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '1|Dominicaine: generated "Dominicaine (Rép.) | 1 | 011 | 1 | (767)+7 digits
+    | -4" vs official "Dominicaine (Rép.) | 1 | 011 | 1 | (809/829)+7 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (767
+    digits); the official PDF has 809 829 chiffres
+- layer: rows
+  side: both
+  text: '1|Dominique: generated "Dominique | 1 | 011 | 1 | (809/829)+7 digits | -4"
+    vs official "Dominique | 1 | 011 | 1 | (767)+7 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (809
+    829 digits); the official PDF has 767 chiffres
+- layer: rows
+  side: generated_only
+  text: 593|Equateur Equateur | 593 | 00 | 0 | 8 digits | -5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '20|Egypte: generated "Egypte | 20 | 00 | 0 | 7 to 9 digits | +2; +3" vs official
+    "Egypte | 20 | 00 | 0 | 7 à 9 chiffres | +2/+3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '503|El: generated "El Salvador | 503 | 00 | ... | 7, 8, 11 digits | -6 |
+    15" vs official "El Salvador | 503 | 00 | ... | 7, 8, 11 chiffres | -6 | 15"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 240|Guinée Guinée équatoriale | 240 | 00 | ... | 9 digits | +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 971|Emirats Emirats arabes unis | 971 | 00 | 0 | 8 à 9 chiffres | +4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 593|Equateur Equateur | 593 | 00 | 0 | 8 chiffres | -5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '291|Erythrée: generated "Erythrée | 291 | 00 | 0 | 7 digits | +3" vs official
+    "Erythrée | 291 | 00 | 0 | 7 chiffres | +3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 34|Espagne Espagne | 34 | 00 | ... | 9 chiffres | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 991|Essai Essai d'un nouveau service international proposé, indicatif partagé
+    | 991
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: '372|Estonie: generated "Estonie | 372 | 00 | ... | 7 to 10 digits | +2; +3"
+    vs official "Estonie | 372 | 00 | ... | 7 à 10 chiffres | +2/+3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 1|Etats Etats-Unis | 1 | 011 | 1 | 10 chiffres | -5/-4 | 21
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '251|Ethiopie: generated "Ethiopie | 251 | 00 | 0 | 9 digits | +3" vs official
+    "Ethiopie | 251 | 00 | 0 | 9 chiffres | +3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '500|Falkland: generated "Falkland (Iles) (Malvinas) | 500 | 00 | ... | 5
+    digits | -4; -3" vs official "Falkland (Iles) (Malvinas) | 500 | 00 | ... | 5
+    chiffres | -4/-3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 7|Fédération Fédération de Russie | 7 | 810 | 8 | 10 chiffres | +4 | 17
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '298|Féroé: generated "Féroé (Iles) | 298 | 00 | ... | 6 digits | 0; +1" vs
+    official "Féroé (Iles) | 298 | 00 | ... | 6 chiffres | UTC/+1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits
+    0); the official PDF has chiffres utc
+- layer: rows
+  side: both
+  text: '679|Fidji: generated "Fidji | 679 | 00 | ... | 7 digits | +12; +13" vs official
+    "Fidji | 679 | 00 | ... | 7 chiffres | +12/+13"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '358|Finlande: generated "Finlande | 358 | 00; 99X | 0 | 5 to 12 digits |
+    +2; +3" vs official "Finlande | 358 | 00,99X | 0 | 5 à 12 chiffres | +2/+3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '33|France: generated "France | 33 | 00 | 0 | 9 digits | +1; +2 | 2" vs official
+    "France | 33 | 00 | 0 | 9 chiffres | +1/+2 | 2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '262|France: generated "France de l''Océan indien | 262 | 00 | ... | 9 digits
+    | +3" vs official "France de l''Océan indien | 262 | 00 | ... | 9 chiffres | +3,
+    +4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres 4
+- layer: rows
+  side: generated_only
+  text: 594|Guyane Guyane française | 594 | 00 | ... | 9 digits | -3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 689|Polynésie Polynésie française | 689 | 00 | ... | 6 digits | -10
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '241|Gabon: generated "Gabon | 241 | 00 | ... | 6, 7 digits | +1" vs official
+    "Gabon | 241 | 00 | ... | 6, 7 chiffres | +1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '220|Gambie: generated "Gambie | 220 | 00 | ... | 7 digits | 0" vs official
+    "Gambie | 220 | 00 | ... | 7 chiffres | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits
+    0); the official PDF has chiffres utc
+- layer: rows
+  side: both
+  text: '995|Géorgie: generated "Géorgie | 995 | 00 | 0 | 9 digits | +4" vs official
+    "Géorgie | 995 | 00 | 0 | 9 chiffres | +4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 49|Allemagne Allemagne | 49 | 00 | 0 | 6 to 13 digits | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '233|Ghana: generated "Ghana | 233 | 00 | 0 | 5 to 9 digits | 0" vs official
+    "Ghana | 233 | 00 | 0 | 5 à 9 chiffres | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits
+    0); the official PDF has à chiffres utc
+- layer: rows
+  side: both
+  text: '350|Gibraltar: generated "Gibraltar | 350 | 00 | ... | 8 digits | +1; +2"
+    vs official "Gibraltar | 350 | 00 | ... | 8 chiffres | +1/+2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 881|Service Service mobile mondial par satellite (GMSS), indicatif partagé
+    | 881
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: '30|Grèce: generated "Grèce | 30 | 00 | 0 | 10 digits | +2; +3 | 2" vs official
+    "Grèce | 30 | 00 | 0 | 10 chiffres | +2/+3 | 2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 299|Groenland Groenland | 299 | 00 | ... | 6 digits | -3; -2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '1|Grenade: generated "Grenade | 1 | 11 | 1 | (473)+7 digits | -4" vs official
+    "Grenade | 1 | 011 | 1 | (473)+7 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (11 digits);
+    the official PDF has 011 chiffres
+- layer: rows
+  side: official_only
+  text: 299|Groenland Groenland | 299 | 00 | ... | 6 chiffres | -3/-2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '590|Guadeloupe: generated "Guadeloupe | 590 | 00 | ... | 9 digits | -4" vs
+    official "Guadeloupe | 590 | 00 | ... | 9 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '1|Guam: generated "Guam | 1 | 11 | 1 | (671)+7 digits | +10" vs official
+    "Guam | 1 | 011 | 1 | (671)+7 chiffres | +10"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (11 digits);
+    the official PDF has 011 chiffres
+- layer: rows
+  side: both
+  text: '502|Guatemala: generated "Guatemala | 502 | 00 | ... | 8 digits | -6" vs
+    official "Guatemala | 502 | 00 | ... | 8 chiffres | -6"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '224|Guinée: generated "Guinée | 224 | 00 | ... | 8 digits | 0" vs official
+    "Guinée | 224 | 00 | ... | 8 chiffres | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits
+    0); the official PDF has chiffres utc
+- layer: rows
+  side: official_only
+  text: 240|Guinée Guinée équatoriale | 240 | 00 | ... | 9 chiffres | +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '245|Guinée: generated "Guinée-Bissau | 245 | 00 | ... | 7 digits | 0" vs
+    official "Guinée-Bissau | 245 | 00 | ... | 7 chiffres | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits
+    0); the official PDF has chiffres utc
+- layer: rows
+  side: both
+  text: '592|Guyana: generated "Guyana | 592 | 001 | ... | 7 digits | -4" vs official
+    "Guyana | 592 | 001 | ... | 7 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 594|Guyane Guyane française | 594 | 00 | ... | 9 chiffres | -3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '509|Haïti: generated "Haïti | 509 | 00 | ... | 8 digits | -5" vs official
+    "Haïti | 509 | 00 | ... | 8 chiffres | -5"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '504|Honduras: generated "Honduras | 504 | 00 | ... | 8 digits | -6" vs official
+    "Honduras | 504 | 00 | ... | 8 chiffres | -6"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '852|Hong: generated "Hong Kong, Chine | 852 | 001 | ... | 4, 8 to 9 digits
+    | +8" vs official "Hong Kong, Chine | 852 | 001 | ... | 4, 8 à 9 chiffres | +8"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '36|Hongrie: generated "Hongrie | 36 | 00 | 06 | 8 to 9 digits | +1; +2 |
+    7" vs official "Hongrie | 36 | 00 | 06 | 8 à 9 chiffres | +1/+2 | 7"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 354|Islande Islande | 354 | 00 | ... | 7, 9 digits | 0
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits 0); the official PDF has chiffres utc
+- layer: rows
+  side: both
+  text: '91|Inde: generated "Inde | 91 | 00 | 0 | 7 to 10 digits | +5.30" vs official
+    "Inde | 91 | 00 | 0 | 7 à 10 chiffres | +5.30"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '62|Indonésie: generated "Indonésie | 62 | 001; 008 | 0 | 5 to 10 digits |
+    +7 | 6" vs official "Indonésie | 62 | 001,008 | 0 | 5 à 10 chiffres | +7 | 6"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '870|Inmarsat: generated "Inmarsat SNAC | 870 | 00 | ... | 9 digits" vs official
+    "Inmarsat SNAC | 870 | 00 | ... | 9 chiffres"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 98|Iran Iran (République islamique d') | 98 | 00 | 0 | 6 à 10 chiffres | +3.30/+4.30
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 964|Iraq Iraq | 964 | 00 | 0 | 8 à 10 chiffres | +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 353|Irlande Irlande | 353 | 00 | 0 | 7 à 11 chiffres | UTC/+1 | 3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits 0); the official PDF has à chiffres utc
+- layer: rows
+  side: official_only
+  text: 354|Islande Islande | 354 | 00 | ... | 7, 9 chiffres | UTC
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits 0); the official PDF has chiffres utc
+- layer: rows
+  side: official_only
+  text: 972|Israël Israël | 972 | 00,012,013, 014 | 0 | 8 à 9 chiffres | +2/+3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 39|Italie Italie | 39 | 00 | ... | Jusqu’à 11 chiffres | +1/+2 | 5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (up to digits); the official PDF has jusqu à chiffres
+- layer: rows
+  side: official_only
+  text: 1|Jamaïque Jamaïque | 1 | 011 | 1 | (876)+7 chiffres | -5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 81|Japon Japon | 81 | 010 | 0 | 5 à 13 chiffres | +9
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 962|Jordanie Jordanie | 962 | 00 | 0 | 5 à 9 chiffres | +2/+3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 7|Kazakhstan Kazakhstan | 7 | 810 | 8 | 10 chiffres | +6
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 254|Kenya Kenya | 254 | 000 | 0 | 6 à 10 chiffres | +3 | 19
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 996|Kirghizistan Kirghizistan | 996 | 00 | 0 | 9 chiffres | +6
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 686|Kiribati Kiribati | 686 | 00 | ... | 5 chiffres | +12
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 965|Koweït Koweït | 965 | 00 | ... | 7, 8 chiffres | +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 856|Lao Lao (R.d.p.) | 856 | 00 | 0 | 8 à 10 chiffres | +7
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 266|Lesotho Lesotho | 266 | 00 | ... | 8 chiffres | +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 371|Lettonie Lettonie | 371 | 00 | ... | 7, 8 chiffres | +2/+3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 389|L'ex L'ex-République yougoslave de Macédoine | 389 | 00 | 0 | 8 chiffres
+    | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 961|Liban Liban | 961 | 00 | 0 | 7 à 8 chiffres | +2/+3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 231|Libéria Libéria | 231 | 00 | ... | 7 à 8 chiffres | UTC
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits 0); the official PDF has à chiffres utc
+- layer: rows
+  side: both
+  text: '800|Libre: generated "Libre-appel international | 800 | ... | ... | 8 digits"
+    vs official "Libre-appel international | 800 | ... | ... | 8 chiffres"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 218|Libye Libye | 218 | 00 | 0 | 8 à 9 chiffres | +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 423|Liechtenstein Liechtenstein | 423 | 00 | ... | 7 à 9 chiffres | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 370|Lituanie Lituanie | 370 | 00 | 0 | 8 chiffres | +2/+3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 352|Luxembourg Luxembourg | 352 | 00 | ... | 4 à 11 chiffres | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 853|Macao, Macao, Chine | 853 | 00 | ... | 7 à 8 chiffres | +8
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 261|Madagascar Madagascar | 261 | 00 | ... | 9 à 10 chiffres | +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 60|Malaisie Malaisie | 60 | 00 | 0 | 7 à 9 chiffres | +8 | 9
+  disposition: data
+  reason: the official row has words (malaisie à chiffres) that the dataset records
+    of 60 in fr do not hold, so the generated PDF cannot print it
+- layer: rows
+  side: official_only
+  text: 265|Malawi Malawi | 265 | 00 | ... | 7, 8 chiffres | +2
+  disposition: data
+  reason: the official row has words (malawi chiffres) that the dataset records of
+    265 in fr do not hold, so the generated PDF cannot print it
+- layer: rows
+  side: official_only
+  text: 960|Maldives Maldives | 960 | 00 | ... | 7 chiffres | +5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 223|Mali Mali | 223 | 00 | ... | 8 chiffres | UTC
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits 0); the official PDF has chiffres utc
+- layer: rows
+  side: official_only
+  text: 356|Malte Malte | 356 | 00 | ... | 8 chiffres | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 1|Mariannes Mariannes du Nord | 1 | 011 | 1 | (670)+7 chiffres | +10
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 212|Maroc Maroc | 212 | 00 | 0 | 9 chiffres | UTC | 2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (0 digits 0); the official PDF has 00 chiffres utc
+- layer: rows
+  side: official_only
+  text: 692|Marshall Marshall (Iles) | 692 | 011 | 1 | 7 chiffres | +12
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 596|Martinique Martinique | 596 | 00 | ... | 9 chiffres | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 230|Maurice Maurice | 230 | 00 | ... | 7 chiffres | +4 | 22
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 222|Mauritanie Mauritanie | 222 | 00 | ... | 7 chiffres | UTC
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits 0); the official PDF has chiffres utc
+- layer: rows
+  side: official_only
+  text: 52|Mexique Mexique | 52 | 00 | 01 | 10 chiffres | -6/-5 | 10
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 691|Micronésie Micronésie | 691 | 011 | 1 | 7 chiffres | +11
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 373|Moldova Moldova (République de) | 373 | 00 | 0 | 8 chiffres | +2/+3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 377|Monaco Monaco | 377 | 00 | ... | 5 à 9 chiffres | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 976|Mongolie Mongolie | 976 | 001 | 0 | 7 à 8 chiffres | +8
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 382|Monténégro Monténégro | 382 | 00 | 0 | 4 à 12 chiffres | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 1|Montserrat Montserrat | 1 | 011 | 1 | (664)+7 chiffres | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 258|Mozambique Mozambique | 258 | 00 | ... | 8 à 9 chiffres | +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 95|Myanmar Myanmar | 95 | 00 | 0 | 7 à 9 chiffres | +6.30
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 264|Namibie Namibie | 264 | 00 | 0 | 6 à 10 chiffres | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 674|Nauru Nauru | 674 | 00 | ... | 4, 7 chiffres | +12
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 977|Népal Népal | 977 | 00 | 0 | 8 à 9 chiffres | +5.45
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 505|Nicaragua Nicaragua | 505 | 00 | ... | 8 chiffres | -6
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 227|Niger Niger | 227 | 00 | ... | 8 chiffres | +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 234|Nigéria Nigéria | 234 | 009 | 0 | 7 à 10 chiffres | +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 683|Niue Niue | 683 | 00 | ... | 4 chiffres | -11
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 47|Norvège Norvège | 47 | 00 | ... | 5, 8 chiffres | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 687|Nouvelle Nouvelle-Calédonie | 687 | 00 | ... | 6 chiffres | +11
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 64|Nouvelle Nouvelle-Zélande | 64 | 00 | 0 | 3 à 10 chiffres | +12/+13
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 968|Oman Oman | 968 | 00 | ... | 7 à 8 chiffres | +4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 256|Ouganda Ouganda | 256 | 000 | 0 | 9 chiffres | +3 | 19
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (00 digits); the official PDF has 000 chiffres
+- layer: rows
+  side: official_only
+  text: 998|Ouzbékistan Ouzbékistan | 998 | 810 | 8 | 9 chiffres | +5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 92|Pakistan Pakistan | 92 | 00 | 0 | 8 à 11 chiffres | +5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 680|Palau Palau | 680 | 011 | ... | 7 chiffres | +9
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 507|Panama Panama | 507 | 00 | ... | 7, 8 chiffres | -5 | 23
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 675|Papouasie Papouasie-Nouvelle-Guinée | 675 | 00 | ... | 4 à 11 chiffres
+    | +10
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 595|Paraguay Paraguay | 595 | 00 | 0 | 5 à 9 chiffres | -4/-3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 31|Pays Pays-Bas | 31 | 00 | 0 | 9 chiffres | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 51|Pérou Pérou | 51 | 00 | 0 | 8 à 11 chiffres | -5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 63|Philippines Philippines | 63 | 00 | 0 | 8 à 10 chiffres | +8
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 48|Pologne Pologne | 48 | 00 | 0 | 6 à 9 chiffres | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 689|Polynésie Polynésie française | 689 | 00 | ... | 6 chiffres | -10
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 351|Portugal Portugal | 351 | 00 | ... | 9, 11 chiffres | UTC/+1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits 0); the official PDF has chiffres utc
+- layer: rows
+  side: official_only
+  text: 1|Puerto Puerto Rico | 1 | 011 | 1 | (787/939)+7 chiffres | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 974|Qatar Qatar | 974 | 00 | ... | 3 à 8 chiffres | +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 243|Rép. Rép. dém. du Congo | 243 | 00 | 0 | 5 à 9 chiffres | +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 850|Rép. Rép. pop. dém. de Corée | 850 | 00 | 0 | 6 à 17 chiffres | +9
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 420|Rép. Rép. tchèque | 420 | 00 | ... | 4 à 12 chiffres | +1/+2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 963|République République arabe syrienne | 963 | 00 | 0 | 8 à 10 chiffres
+    | +2/+3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 979|Service Service kiosque international (IPRS) | 979 | ... | ... | 9 digits
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 808|Service Service de coût partagé international (ISCS) | 808 | ... | ...
+    | 8 digits
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 98|Iran Iran (République islamique d') | 98 | 00 | 0 | 6 to 10 digits | +3.30;
+    +4.30
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 964|Iraq Iraq | 964 | 00 | 0 | 8 to 10 digits | +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 353|Irlande Irlande | 353 | 00 | 0 | 7 to 11 digits | 0; +1 | 3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits 0); the official PDF has à chiffres utc
+- layer: rows
+  side: generated_only
+  text: 972|Israël Israël | 972 | 00; 012; 013; 014 | 0 | 8 to 9 digits | +2; +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 39|Italie Italie | 39 | 00 | ... | up to 11 digits | +1; +2 | 5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (up to digits); the official PDF has jusqu à chiffres
+- layer: rows
+  side: generated_only
+  text: 1|Jamaïque Jamaïque | 1 | 011 | 1 | (876)+7 digits | -5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 81|Japon Japon | 81 | 010 | 0 | 5 to 13 digits | +9
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 962|Jordanie Jordanie | 962 | 00 | 0 | 5 to 9 digits | +2; +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 7|Kazakhstan Kazakhstan | 7 | 810 | 8 | 10 digits | +6
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 254|Kenya Kenya | 254 | 000 | 0 | 6 to 10 digits | +3 | 19
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 686|Kiribati Kiribati | 686 | 00 | ... | 5 digits | +12
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 82|Corée Corée (Rép. de) | 82 | 1002 | 0; 082 | 8 to 11 digits | +9
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (1002 to digits); the official PDF has 001 002 à chiffres
+- layer: rows
+  side: generated_only
+  text: 965|Koweït Koweït | 965 | 00 | ... | 7, 8 digits | +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 996|Kirghizistan Kirghizistan | 996 | 00 | 0 | 9 digits | +6
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 856|Lao Lao (R.d.p.) | 856 | 00 | 0 | 8 to 10 digits | +7
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 371|Lettonie Lettonie | 371 | 00 | ... | 7, 8 digits | +2; +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 961|Liban Liban | 961 | 00 | 0 | 7 to 8 digits | +2; +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 266|Lesotho Lesotho | 266 | 00 | ... | 8 digits | +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 231|Libéria Libéria | 231 | 00 | ... | 7 to 8 digits | 0
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits 0); the official PDF has à chiffres utc
+- layer: rows
+  side: generated_only
+  text: 218|Libye Libye | 218 | 00 | 0 | 8 to 9 digits | +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 423|Liechtenstein Liechtenstein | 423 | 00 | ... | 7 to 9 digits | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 370|Lituanie Lituanie | 370 | 00 | 0 | 8 digits | +2; +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 352|Luxembourg Luxembourg | 352 | 00 | ... | 4 to 11 digits | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 853|Macao, Macao, Chine | 853 | 00 | ... | 7 to 8 digits | +8
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 261|Madagascar Madagascar | 261 | 00 | ... | 9 to 10 digits | +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 265|Malaisie Malaisie | 265 | 00 | ... | 7, 8 digits | +2
+  disposition: data
+  reason: the generated row is what the dataset holds for 265 in fr; the official
+    list has no row of that name under this code (the dataset differs from the official
+    list)
+- layer: rows
+  side: generated_only
+  text: 60|Malawi Malawi | 60 | 00 | 0 | 7 to 9 digits | +8 | 9
+  disposition: data
+  reason: the generated row is what the dataset holds for 60 in fr; the official list
+    has no row of that name under this code (the dataset differs from the official
+    list)
+- layer: rows
+  side: generated_only
+  text: 960|Maldives Maldives | 960 | 00 | ... | 7 digits | +5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 223|Mali Mali | 223 | 00 | ... | 8 digits | 0
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits 0); the official PDF has chiffres utc
+- layer: rows
+  side: generated_only
+  text: 356|Malte Malte | 356 | 00 | ... | 8 digits | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 692|Marshall Marshall (Iles) | 692 | 011 | 1 | 7 digits | +12
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 596|Martinique Martinique | 596 | 00 | ... | 9 digits | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 222|Mauritanie Mauritanie | 222 | 00 | ... | 7 digits | 0
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits 0); the official PDF has chiffres utc
+- layer: rows
+  side: generated_only
+  text: 230|Maurice Maurice | 230 | 00 | ... | 7 digits | +4 | 22
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 52|Mexique Mexique | 52 | 00 | 01 | 10 digits | -6; -5 | 10
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 691|Micronésie Micronésie | 691 | 011 | 1 | 7 digits | +11
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 373|Moldova Moldova (République de) | 373 | 00 | 0 | 8 digits | +2; +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 377|Monaco Monaco | 377 | 00 | ... | 5 to 9 digits | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 976|Mongolie Mongolie | 976 | 001 | 0 | 7 to 8 digits | +8
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 382|Monténégro Monténégro | 382 | 00 | 0 | 4 to 12 digits | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 1|Montserrat Montserrat | 1 | 011 | 1 | (664)+7 digits | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 212|Maroc Maroc | 212 | 0 | 0 | 9 digits | 0 | 2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (0 digits 0); the official PDF has 00 chiffres utc
+- layer: rows
+  side: generated_only
+  text: 258|Mozambique Mozambique | 258 | 00 | ... | 8 to 9 digits | +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 95|Myanmar Myanmar | 95 | 00 | 0 | 7 to 9 digits | +6.30
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 264|Namibie Namibie | 264 | 00 | 0 | 6 to 10 digits | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 674|Nauru Nauru | 674 | 00 | ... | 4, 7 digits | +12
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 977|Népal Népal | 977 | 00 | 0 | 8 to 9 digits | +5.45
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 31|Pays Pays-Bas | 31 | 00 | 0 | 9 digits | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 687|Nouvelle Nouvelle-Calédonie | 687 | 00 | ... | 6 digits | +11
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 64|Nouvelle Nouvelle-Zélande | 64 | 00 | 0 | 3 to 10 digits | +12; +13
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 505|Nicaragua Nicaragua | 505 | 00 | ... | 8 digits | -6
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 227|Niger Niger | 227 | 00 | ... | 8 digits | +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 234|Nigéria Nigéria | 234 | 009 | 0 | 7 to 10 digits | +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 683|Niue Niue | 683 | 00 | ... | 4 digits | -11
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 1|Mariannes Mariannes du Nord | 1 | 011 | 1 | (670)+7 digits | +10
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 47|Norvège Norvège | 47 | 00 | ... | 5, 8 digits | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 968|Oman Oman | 968 | 00 | ... | 7 to 8 digits | +4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 92|Pakistan Pakistan | 92 | 00 | 0 | 8 to 11 digits | +5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 680|Palau Palau | 680 | 011 | ... | 7 digits | +9
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 507|Panama Panama | 507 | 00 | ... | 7, 8 digits | -5 | 23
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 675|Papouasie Papouasie-Nouvelle- Guinée | 675 | 00 | ... | 4 to 11 digits
+    | +10
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 595|Paraguay Paraguay | 595 | 00 | 0 | 5 to 9 digits | -4; -3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 51|Pérou Pérou | 51 | 00 | 0 | 8 to 11 digits | -5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 63|Philippines Philippines | 63 | 00 | 0 | 8 to 10 digits | +8
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 48|Pologne Pologne | 48 | 00 | 0 | 6 to 9 digits | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 351|Portugal Portugal | 351 | 00 | ... | 9, 11 digits | 0; +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits 0); the official PDF has chiffres utc
+- layer: rows
+  side: generated_only
+  text: 1|Puerto Puerto Rico | 1 | 011 | 1 | (787/939)+7 digits | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 974|Qatar Qatar | 974 | 00 | ... | 3 to 8 digits | +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '40|Roumanie: generated "Roumanie | 40 | 00 | 0 | 9 digits | +2; +3" vs official
+    "Roumanie | 40 | 00 | 0 | 9 chiffres | +2/+3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 7|Fédération Fédération de Russie | 7 | 810 | 8 | 10 digits | +4 | 17
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 44|Royaume Royaume-Uni | 44 | 00 | 0 | 7 à 10 chiffres | UTC/+1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits 0); the official PDF has à chiffres utc
+- layer: rows
+  side: both
+  text: '250|Rwanda: generated "Rwanda | 250 | 00 | ... | 9 digits | +2" vs official
+    "Rwanda | 250 | 00 | ... | 9 chiffres | +2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '247|Sainte: generated "Sainte-Hélène, Ascension et Tristan da Cunha | 247
+    | 00 | ... | 4 digits | 0" vs official "Sainte-Hélène, Ascension et Tristan da
+    Cunha | 247 | 00 | ... | 4 chiffres | UTC | 4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits
+    0); the official PDF has chiffres utc 4
+- layer: rows
+  side: both
+  text: '290|Sainte: generated "Sainte-Hélène, Ascension et Tristan da Cunha | 290
+    | 00 | ... | 4 digits | 0 | 4" vs official "Sainte-Hélène, Ascension et Tristan
+    da Cunha | 290 | 00 | ... | 4 chiffres | UTC | 4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits
+    0); the official PDF has chiffres utc
+- layer: rows
+  side: generated_only
+  text: 1|Saint Saint-Kitts-et-Nevis | 1 | 011 | 1 | (869)+7 digits | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '1|Sainte: generated "Sainte-Lucie | 1 | 011 | 1 | (758)+7 digits | -4" vs
+    official "Sainte-Lucie | 1 | 011 | 1 | (758)+7 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 1|Saint Saint-Kitts-et-Nevis | 1 | 011 | 1 | (869)+7 chiffres | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 378|Saint Saint-Marin | 378 | 00 | ... | 6 à 10 chiffres | +1/+2 | 5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '508|Saint: generated "Saint-Pierre-et-Miquelon | 508 | 00 | ... | 6 digits
+    | -3; -2" vs official "Saint-Pierre-et-Miquelon | 508 | 00 | ... | 6 chiffres
+    | -3/-2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '1|Saint#2: generated "Saint-Vincent-et- Grenadines | 1 | 011 | 1 | (784)+7
+    digits | -4" vs official "Saint-Vincent-et-Grenadines | 1 | 011 | 1 | (784)+7
+    chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 677|Salomon Salomon (Iles) | 677 | 00 | ... | 5 chiffres | +11
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '685|Samoa: generated "Samoa américaines | 685 | 00 | ... | 3 to 7 digits
+    | -11; -10" vs official "Samoa | 685 | 0 | ... | 3 à 7 chiffres | -11/-10"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (américaines
+    00 to digits); the official PDF has 0 à chiffres
+- layer: rows
+  side: generated_only
+  text: 378|Saint Saint-Marin | 378 | 00 | ... | 6 to 10 digits | +1; +2 | 5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 1|Samoa Samoa américaines | 1 | 011 | 1 | (684)+7 chiffres | -11
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has américaines chiffres
+- layer: rows
+  side: both
+  text: '239|Sao: generated "Sao Tomé-et-Principe | 239 | 00 | ... | 7 digits | 0"
+    vs official "Sao Tomé-et-Principe | 239 | 00 | ... | 7 chiffres | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits
+    0); the official PDF has chiffres utc
+- layer: rows
+  side: generated_only
+  text: 966|Arabie Arabie saoudite | 966 | 00 | 0 | 8 to 9 digits | +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '221|Sénégal: generated "Sénégal | 221 | 00 | ... | 9 digits | 0" vs official
+    "Sénégal | 221 | 00 | ... | 9 chiffres | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits
+    0); the official PDF has chiffres utc
+- layer: rows
+  side: both
+  text: '381|Serbie: generated "Serbie | 381 | 00 | 0 | 4 to 12 digits | +1; +2" vs
+    official "Serbie | 381 | 00 | 0 | 4 à 12 chiffres | +1/+2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 808|Service Service de coût partagé international (ISCS) | 808 | ... | ...
+    | 8 chiffres
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 979|Service Service kiosque international (IPRS) | 979 | ... | ... | 9 chiffres
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 881|Service Service mobile mondial par satellite (GMSS), indicatif partagé
+    | 881
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: both
+  text: '248|Seychelles: generated "Seychelles | 248 | 00 | ... | 7 digits | +4" vs
+    official "Seychelles | 248 | 00 | ... | 7 chiffres | +4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '232|Sierra: generated "Sierra Leone | 232 | 00 | 0 | 8 digits | 0" vs official
+    "Sierra Leone | 232 | 00 | 0 | 8 chiffres | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits
+    0); the official PDF has chiffres utc
+- layer: rows
+  side: both
+  text: '65|Singapour: generated "Singapour | 65 | 1008 | ... | 8 to 12 digits | +8
+    | 9" vs official "Singapour | 65 | 001,008 | ... | 8 à 12 chiffres | +8 | 9"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (1008
+    to digits); the official PDF has 001 008 à chiffres
+- layer: rows
+  side: both
+  text: '1|Sint: generated "Sint Maarten (partie neérlandaise) | 1 | 001; 008 | 1
+    | (721) + 7 digits | -4" vs official "Sint Maarten (partie neérlandaise) | 1 |
+    011 | 1 | (721) + 7 chiffres | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (001
+    008 digits); the official PDF has 011 chiffres
+- layer: rows
+  side: both
+  text: '421|Slovaquie: generated "Slovaquie | 421 | 00 | 0 | 4 to 9 digits | +1;
+    +2" vs official "Slovaquie | 421 | 00 | 0 | 4 à 9 chiffres | +1/+2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '386|Slovénie: generated "Slovénie | 386 | 00 | 0 | 8 digits | +1; +2" vs
+    official "Slovénie | 386 | 00 | 0 | 8 chiffres | +1/+2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 677|Salomon Salomon (Iles) | 677 | 00 | ... | 5 digits | +11
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '252|Somalie: generated "Somalie | 252 | 00 | ... | 5 to 8 digits | +3" vs
+    official "Somalie | 252 | 00 | ... | 5 à 8 chiffres | +3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 27|Sudafricaine Sudafricaine (Rép.) | 27 | 00 | 0 | 9 digits | +2 | 2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 249|Soudan Soudan | 249 | 00 | 0 | 9 chiffres | +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 34|Espagne Espagne | 34 | 00 | ... | 9 digits | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '94|Sri: generated "Sri Lanka | 94 | 00 | 0 | 9 digits | +5.30" vs official
+    "Sri Lanka | 94 | 00 | 0 | 9 chiffres | +5.30"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 249|Soudan Soudan | 249 | 00 | 0 | 9 digits | +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 597|Suriname Suriname | 597 | 00 | 0 | 6 to 7 digits | -3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 268|Swaziland Swaziland | 268 | 00 | ... | 7 to 8 digits | +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 27|Sudafricaine Sudafricaine (Rép.) | 27 | 00 | 0 | 9 chiffres | +2 | 2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '46|Suède: generated "Suède | 46 | 00 | 0 | 7 to 13 digits | +1; +2" vs official
+    "Suède | 46 | 00 | 0 | 7 à 13 chiffres | +1/+2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '41|Suisse: generated "Suisse | 41 | 00 | 0 | 4 to 12 digits | +1; +2 | 2"
+    vs official "Suisse | 41 | 00 | 0 | 4 à 12 chiffres | +1/+2 | 2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 963|République République arabe syrienne | 963 | 00 | 0 | 8 to 10 digits |
+    +2; +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 886|Taiwan, Taiwan, Chine | 886 | 002 | 0 | 8 to 9 digits | +8
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 597|Suriname Suriname | 597 | 00 | 0 | 6 à 7 chiffres | -3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: official_only
+  text: 268|Swaziland Swaziland | 268 | 00 | ... | 7 à 8 chiffres | +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '992|Tadjikistan: generated "Tadjikistan | 992 | 810 | 8 | 9 digits | +5"
+    vs official "Tadjikistan | 992 | 810 | 8 | 9 chiffres | +5"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 886|Taiwan, Taiwan, Chine | 886 | 002 | 0 | 8 à 9 chiffres | +8
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '255|Tanzanie: generated "Tanzanie | 255 | 00 | 0 | 9 digits | +3 | 19" vs
+    official "Tanzanie | 255 | 000 | 0 | 9 chiffres | +3 | 19"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (00 digits);
+    the official PDF has 000 chiffres
+- layer: rows
+  side: official_only
+  text: 235|Tchad Tchad | 235 | 00 | ... | 8 chiffres | +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 66|Thaïlande Thaïlande | 66 | 001 | 0 | 8, 9 digits | +7 | 2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 389|L'ex L'ex-République yougoslave de Macédoine | 389 | 00 | 0 | 8 digits
+    | +1; +2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 670|Timor Timor-Leste | 670 | 00 | ... | 7 digits | +9
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 228|Togo Togo | 228 | 00 | ... | 8 digits | 0
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits 0); the official PDF has chiffres utc
+- layer: rows
+  side: generated_only
+  text: 690|Tokélau Tokélau | 690 | 00 | ... | 4 digits | -10
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 676|Tonga Tonga | 676 | 00 | ... | 5, 7 digits | +13
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 991|Essai Essai d'un nouveau service international proposé, indicatif partagé
+    | 991
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 1|Trinité Trinité-et-Tobago | 1 | 011 | 1 | (868)+7 digits | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 216|Tunisie Tunisie | 216 | 00 | ... | 8 digits | +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 90|Turquie Turquie | 90 | 00 | 0 | 10 digits | +2; +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 993|Turkménistan Turkménistan | 993 | 810 | 8 | 8 digits | +5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 1|Turks Turks et Caicos (Iles) | 1 | 00 | 1 | (649)+7 digits | -5; -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (00 digits); the official PDF has 0 chiffres
+- layer: rows
+  side: generated_only
+  text: 688|Tuvalu Tuvalu | 688 | 00 | ... | 5, 6 digits | +12
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 256|Ouganda Ouganda | 256 | 00 | 0 | 9 digits | +3 | 19
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (00 digits); the official PDF has 000 chiffres
+- layer: rows
+  side: generated_only
+  text: 380|Ukraine Ukraine | 380 | 00 | 0 | 9 digits | +2; +3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 971|Emirats Emirats arabes unis | 971 | 00 | 0 | 8 to 9 digits | +4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits); the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 44|Royaume Royaume-Uni | 44 | 00 | 0 | 7 to 10 digits | 0; +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (to digits 0); the official PDF has à chiffres utc
+- layer: rows
+  side: generated_only
+  text: 1|Etats Etats-Unis | 1 | 011 | 1 | 10 digits | -5; -4 | 21
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: generated_only
+  text: 1|Vierges#2 Vierges américaines (Iles) | 1 | 011 | 1 | (340)+7 digits | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (américaines 340 digits); the official PDF has britanniques
+    284 chiffres
+- layer: rows
+  side: official_only
+  text: 672|Territoires Territoires ext. de l'Australie | 672 | 00 | 0 | 6 chiffres
+    | +11.30 | 8
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 66|Thaïlande Thaïlande | 66 | 001 | 0 | 8, 9 chiffres | +7 | 2
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 670|Timor Timor-Leste | 670 | 00 | ... | 7 chiffres | +9
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 228|Togo Togo | 228 | 00 | ... | 8 chiffres | UTC
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits 0); the official PDF has chiffres utc
+- layer: rows
+  side: official_only
+  text: 690|Tokélau Tokélau | 690 | 00 | ... | 4 chiffres | -10
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 676|Tonga Tonga | 676 | 00 | ... | 5, 7 chiffres | +13
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 1|Trinité Trinité-et-Tobago | 1 | 011 | 1 | (868)+7 chiffres | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 216|Tunisie Tunisie | 216 | 00 | ... | 8 chiffres | +1
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 993|Turkménistan Turkménistan | 993 | 810 | 8 | 8 chiffres | +5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 1|Turks Turks et Caicos (Iles) | 1 | 0 | 1 | (649)+7 chiffres | -5/-4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (00 digits); the official PDF has 0 chiffres
+- layer: rows
+  side: official_only
+  text: 90|Turquie Turquie | 90 | 00 | 0 | 10 chiffres | +2/+3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 688|Tuvalu Tuvalu | 688 | 00 | ... | 5, 6 chiffres | +12
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 380|Ukraine Ukraine | 380 | 00 | 0 | 9 chiffres | +2/+3
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '598|Uruguay: generated "Uruguay | 598 | 00 | 0 | 4 to 11 digits | -3; -2"
+    vs official "Uruguay | 598 | 00 | 0 | 4 à 11 chiffres | -3/-2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: generated_only
+  text: 998|Ouzbékistan Ouzbékistan | 998 | 810 | 8 | 9 digits | +5
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (digits); the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '678|Vanuatu: generated "Vanuatu | 678 | 00 | ... | 5, 7 digits | +11" vs
+    official "Vanuatu | 678 | 00 | ... | 5, 7 chiffres | +11"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '39|Vatican: generated "Vatican | 39 | 00 | ... | up to 11 digits | +1; +2"
+    vs official "Vatican | 39 | 00 | ... | jusqu''à 11 chiffres | +1/+2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (up to
+    digits); the official PDF has jusqu à chiffres
+- layer: rows
+  side: both
+  text: '58|Venezuela: generated "Venezuela (République bolivarienne du) | 58 | 00
+    | 0 | 10 digits | -4.30" vs official "Venezuela (République bolivarienne du) |
+    58 | 00 | 0 | 10 chiffres | -4.30"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: official_only
+  text: 1|Vierges Vierges américaines (Iles) | 1 | 011 | 1 | (340)+7 chiffres | -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (britanniques 284 digits); the official PDF has américaines
+    340 chiffres
+- layer: rows
+  side: official_only
+  text: 1|Vierges#2 Vierges britanniques (Iles) | 1 | 011 | 1 | (284)+7 chiffres |
+    -4
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the generated PDF prints what the dataset holds
+    for this row in fr (américaines 340 digits); the official PDF has britanniques
+    284 chiffres
+- layer: rows
+  side: both
+  text: '84|Viet: generated "Viet Nam | 84 | 00 | 0 | 7 to 10 digits | +7" vs official
+    "Viet Nam | 84 | 00 | 0 | 7 à 10 chiffres | +7"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '681|Wallis: generated "Wallis-et-Futuna | 681 | 00 | ... | 6 digits | +12"
+    vs official "Wallis-et-Futuna | 681 | 00 | ... | 6 chiffres | +12"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '967|Yémen: generated "Yémen | 967 | 00 | 0 | 6 to 9 digits | +3" vs official
+    "Yémen | 967 | 00 | 0 | 6 à 9 chiffres | +3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres
+- layer: rows
+  side: both
+  text: '260|Zambie: generated "Zambie | 260 | 00 | 0 | 9 digits | +2" vs official
+    "Zambie | 260 | 00 | 0 | 9 chiffres | +2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (digits);
+    the official PDF has chiffres
+- layer: rows
+  side: both
+  text: '263|Zimbabwe: generated "Zimbabwe | 263 | 00 | 0 | 5 to 10 digits | +2" vs
+    official "Zimbabwe | 263 | 00 | 0 | 5 à 10 chiffres | +2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in fr (to digits);
+    the official PDF has à chiffres

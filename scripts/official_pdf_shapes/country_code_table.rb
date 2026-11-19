@@ -26,7 +26,8 @@ module OfficialPdfComparison
         # the short last page of a table has few rows: it keeps the column of the
         # table's other pages (the preface's own pages have none of it)
         table_col = cols.values.then { |v| v.any? ? mode(v) : nil }
-        by_page.each_key { |page| cols[page] ||= table_col if table_col && by_page[page].count { |_, _, st| (st - table_col).abs <= 6 } >= 2 }
+        first_page = cols.keys.min
+        by_page.each_key { |page| cols[page] ||= table_col if table_col && page > first_page && by_page[page].count { |_, _, st| (st - table_col).abs <= 6 } >= 2 }
         accepted = cands.select { |l, _, start| cols[l.page] && (start - cols[l.page]).abs <= 6 }.to_h { |l, key, _| [l, key] }
         rows = []
         gap = 0

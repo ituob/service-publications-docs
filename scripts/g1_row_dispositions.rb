@@ -43,7 +43,10 @@ module G1RowDispositions
 
   module_function
 
-  def words(str) = str.to_s.unicode_normalize(:nfkc).downcase.scan(/[[:alnum:]]+/)
+  # Arabic words have their letters sorted, as the shape's mirror_letters does
+  def words(str)
+    str.to_s.unicode_normalize(:nfkc).downcase.gsub(/[\u0600-\u06FF]+/) { |w| w.chars.sort.join }.scan(/[[:alnum:]]+/)
+  end
 
   # words of left that right lacks, counting repeats
   def minus(left, right)
