@@ -18,7 +18,8 @@
 # settles what a measurement can settle; a human disposition lives in the
 # checked-in --dispositions file (matched on the exact delta text, so a stale
 # entry is an error). Anything left over is "unreviewed". The exit status is
-# non-zero while any bug, unreviewed delta or stale disposition remains: 1 for
+# non-zero while any bug or unreviewed delta that no dispositions entry has
+# settled, or any stale entry, remains (an entry may confirm a bug): 1 for
 # an open delta, 2 for a usage or config error (bad option, unreadable file,
 # malformed dispositions).
 require 'open3'
@@ -373,10 +374,12 @@ module OfficialPdfComparison
     }
   end
 
-  # What stops the run from passing: a bug or unreviewed delta, or a bad entry
-  # in the dispositions file.
+  # What stops the run from passing: a bug or unreviewed delta no dispositions
+  # entry has settled, or a bad entry in the dispositions file. A bug that a
+  # human entry confirms (disposition: bug, with its reason) is dispositioned:
+  # it stays in the report and the bug count, but does not fail the run.
   def failures(result)
-    open = result[:deltas].select { |d| %i[bug unreviewed].include?(d.disposition) }
+    open = result[:deltas].select { |d| %i[bug unreviewed].include?(d.disposition) && !d.manual }
     open.map { |d| "#{d.disposition}: #{d.text}" } + result.fetch(:problems, [])
   end
 
@@ -389,7 +392,9 @@ module OfficialPdfComparison
       lines << "[#{d.layer}/#{d.side}] #{d.disposition}#{" (#{d.reason})" if d.reason}: #{d.text}"
     end
     lines.concat(result.fetch(:problems, []).map { |p| "problem: #{p}" })
-    lines << (failures(result).empty? ? 'RESULT: PASS' : "RESULT: FAIL (#{failures(result).size} open)")
+    confirmed = result[:deltas].count { |d| d.manual && d.disposition == :bug }
+    pass = confirmed.zero? ? 'RESULT: PASS' : "RESULT: PASS (#{confirmed} confirmed bugs)"
+    lines << (failures(result).empty? ? pass : "RESULT: FAIL (#{failures(result).size} open)")
     lines.join("\n")
   end
 

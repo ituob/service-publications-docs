@@ -517,4 +517,31 @@ RSpec.describe OfficialPdfComparison do
       end
     end
   end
+
+  describe 'confirmed bugs and shipped dispositions' do
+    let(:root) { File.expand_path('../../..', __dir__) }
+
+    it 'passes a bug that a dispositions entry confirms, and still counts it' do
+      gen = [OfficialPdfComparison::Shapes::Row.new('A', 'one')]
+      off = [OfficialPdfComparison::Shapes::Row.new('A', 'two')]
+      _eq, deltas = mod.compare_rows(gen, off)
+      entry = { 'layer' => 'rows', 'side' => 'both', 'disposition' => 'bug', 'reason' => 'real defect',
+                'text' => deltas.first.text }
+      result = { deltas: deltas, counts: {}, problems: mod.apply_dispositions(deltas, [entry]) }
+      expect(mod.failures(result)).to be_empty
+      expect(mod.report(result)).to include('RESULT: PASS (1 confirmed bugs)')
+      expect(mod.failures(deltas: mod.compare_rows(gen, off).last, counts: {})).not_to be_empty
+    end
+
+    it 'ships well-formed dispositions with a reason per entry for every row it covers' do
+      files = Dir[File.join(root, 'docs/pdf/comparison-dispositions/*.yaml')]
+      expected = %w[E F S].map { |l| "T-SP-F.32-2011-#{l}.yaml" }
+      expect(files.map { |f| File.basename(f) }).to include(*expected)
+      files.each do |f|
+        entries = mod.load_dispositions(f)
+        expect(entries).to all(include('reason' => a_string_matching(/\S/),
+                                       'disposition' => a_string_matching(/\A(data|layout|bug)\z/)))
+      end
+    end
+  end
 end
