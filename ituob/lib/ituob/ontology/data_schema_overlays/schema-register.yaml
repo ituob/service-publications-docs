@@ -1,0 +1,60 @@
+description: >-
+  Schema for the static identity of a register. A register is a named
+  dataset mandated by an ITU-T Recommendation. One Recommendation can
+  create multiple registers (e.g., E.212 -> E212_MCC, E212_MNC,
+  E212_ICC). The register catalog file (catalogs/registers.yaml) is a
+  list of objects conforming to this schema.
+required: [register_id, slug, recommendation, title, key_field, classification]
+properties:
+  register_id:
+    description: >-
+      Identifier used in source YAML target.publication (e.g. "E212_MNC");
+      external publications use the publication's printed title.
+  slug:
+    description: Filesystem-safe directory name.
+    pattern: '^[a-z0-9][a-z0-9-]*$'
+  recommendation:
+    description: Code of the parent ITU-T Recommendation (e.g. "E.212").
+  title:
+    description: Human-readable register title in multiple languages.
+    required: [en]
+  key_field:
+    description: Name of the primary identifier field in register rows.
+  fallback_key_fields:
+    description: Field names tried in order when a row lacks key_field.
+  classification:
+    description: >-
+      "structured" if rows conform to a JSON Schema in schema-data.yaml;
+      "textual" for freeform registers rendered from ProseMirror docs.
+    enum: [structured, textual]
+  parser_class:
+    description: Fully-qualified Ruby class name that parses amendments for this register. Optional.
+  renderer:
+    description: Astro renderer component name. Optional.
+  seed_issue:
+    description: OB issue number where the register was first annexed.
+  seed_path:
+    description: >-
+      Repository-relative path to the seed directory
+      (e.g. "datasets/669-F.1").
+  seed_includes_seed_issue:
+    description: True when the seed already contains the amendments of seed_issue.
+  source_slug:
+    description: Directory under ob-issues/ holding this register's amendments, when it differs from slug.
+  route:
+    description: Routes printed rows to this register by a field prefix, for registers sharing a source.
+    required: [field, prefix]
+    properties:
+      field: { description: Row field the prefix is matched against. }
+      prefix: { description: Prefix that assigns the row to this register. }
+  external:
+    description: True for external publications not formally annexed to the OB.
+    default: false
+  url:
+    description: Authoritative external resource for an external publication.
+  supplementary:
+    description: >-
+      Slugs of related sub-registers that share this register's
+      recommendation but track a distinct slice (e.g., E.212
+      extra-territorial table). Empty by default.
+    default: []

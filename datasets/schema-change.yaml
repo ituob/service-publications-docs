@@ -1,70 +1,66 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (RegisterChangeFile) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-$id: https://github.com/ituob/service-publications-docs/datasets/schema-change
+"$schema": http://json-schema.org/draft-07/schema#
+"$id": https://github.com/ituob/service-publications-docs/datasets/schema-change
 title: ITU OB Register Change Object Schema
-description: >-
-  Schema for validating change objects (patches) against an ITU OB
-  register. A change is a single mutation identified by an OB action
-  type (ADD, SUP, REP, LIR, MOD, DEL) plus a SEED batch type for the
-  initial publication. Every change belongs to exactly one register
-  and references its parent recommendation.
-
+x-lml-model: RegisterChangeFile
 type: object
-
-required:
-  - type
-  - register
-  - ob_issue_no
-  - identifier
-
+additionalProperties: false
 properties:
   type:
     type: string
+    enum:
+    - ADD
+    - SUP
+    - REP
+    - LIR
+    - MOD
+    - DEL
+    - SEED
     description: The action type this change performs against the register.
-    enum: [ADD, SUP, REP, LIR, MOD, DEL, SEED]
-
   register:
     type: string
     description: The machine identifier of the register being patched (e.g. "E212_MNC").
-
   recommendation:
     type: string
-    description: The parent ITU-T Recommendation code (e.g. "E.212"). Denormalised for display.
-
+    description: The parent ITU-T Recommendation code (e.g. "E.212"). Denormalised
+      for display.
   date_requested:
     type: string
     description: ISO 8601 datetime when the change was requested.
     format: date-time
-
   date_active:
     type: string
-    description: ISO 8601 datetime when the change became effective.
-    format: date-time
-
+    description: ISO 8601 date or datetime when the change became effective.
   ob_issue_no:
     type: string
     description: The OB Issue number where the change was published.
-
   reference:
     type: string
     description: Reference to authorising document (e.g. "OB-1180").
-
   description:
     type: object
-    description: Human-readable description of the change.
+    additionalProperties: false
     properties:
-      en: { type: string }
-      fr: { type: string }
-      es: { type: string }
-    required: [en]
-
+      en:
+        type: string
+      fr:
+        type: string
+      es:
+        type: string
+      zh:
+        type: string
+      ru:
+        type: string
+      ar:
+        type: string
+    description: Human-readable description of the change.
+    required:
+    - en
   identifier:
     type: object
-    description: Identifier for the affected record(s).
-    oneOf:
-      - required: [code]
-      - required: [query]
+    additionalProperties: false
     properties:
       code:
         type: string
@@ -72,116 +68,171 @@ properties:
       query:
         type: object
         description: Query-style identifier for complex record selection.
-        required: [field, value]
+        required:
+        - field
+        - value
         properties:
-          field: { type: string }
+          field:
+            type: string
           value: {}
           operator:
             type: string
-            enum: [equals, contains, startsWith, endsWith, greaterThan, lessThan, in]
+            enum:
+            - equals
+            - contains
+            - startsWith
+            - endsWith
+            - greaterThan
+            - lessThan
+            - in
             default: equals
-
-  data:
-    description: >-
-      The dataset-specific payload. For ADD/REP/MOD/SEED this conforms
-      to the register's schema-data. For SUP/LIR/DEL data may be
-      omitted. For SEED it is an array of register rows.
+    description: Identifier for the affected record(s).
     oneOf:
-      - type: object
-      - type: array
-
+    - required:
+      - code
+    - required:
+      - query
+  data:
+    type:
+    - array
+    - object
+    description: The dataset-specific payload. For ADD/REP/MOD/SEED this conforms
+      to the register's schema-data. For SUP/LIR/DEL data may be omitted. For SEED
+      it is an array of register rows.
   superseded_by:
     type: object
-    description: Reference to replacing data (SUP only).
-    required: [identifier]
+    additionalProperties: false
     properties:
-      reference: { type: string }
+      reference:
+        type: string
+        description: Reference to the document that supersedes the data.
       identifier:
         type: object
-        required: [code]
+        additionalProperties: false
         properties:
-          code: { type: string }
-
+          code:
+            type: string
+        required:
+        - code
+    description: Reference to replacing data (SUP only).
+    required:
+    - identifier
   reason:
     type: object
-    description: Reason metadata (LIR only).
+    additionalProperties: false
     properties:
-      en: { type: string }
-      fr: { type: string }
-      es: { type: string }
-    required: [en]
-
+      en:
+        type: string
+      fr:
+        type: string
+      es:
+        type: string
+      zh:
+        type: string
+      ru:
+        type: string
+      ar:
+        type: string
+    description: Reason metadata (LIR only).
+    required:
+    - en
   merge_strategy:
     type: string
-    description: >-
-      How MOD merges its data into the existing entry.
-      "replace_fields" merges top-level fields (default); "replace_full"
-      wholesale-replaces the entry.
-    enum: [replace_fields, replace_full]
+    enum:
+    - replace_fields
+    - replace_full
+    description: How MOD merges its data into the existing entry. "replace_fields"
+      merges top-level fields (default); "replace_full" wholesale-replaces the entry.
     default: replace_fields
-
-# Per-action-type conditional requirements.
+description: Schema for validating change objects (patches) against an ITU OB register.
+  A change is a single mutation identified by an OB action type (ADD, SUP, REP, LIR,
+  MOD, DEL) plus a SEED batch type for the initial publication. Every change belongs
+  to exactly one register and references its parent recommendation.
+required:
+- type
+- register
+- ob_issue_no
+- identifier
 allOf:
-  # ADD requires data.
-  - if:
-      properties:
-        type: { const: ADD }
-    then:
-      required: [data]
-      not:
-        required: [superseded_by, reason]
-
-  # SUP allows superseded_by; never data.
-  - if:
-      properties:
-        type: { const: SUP }
-    then:
-      not:
-        required: [data, reason, merge_strategy]
-
-  # REP requires data (full row); never superseded_by or reason.
-  - if:
-      properties:
-        type: { const: REP }
-    then:
-      required: [data]
-      not:
-        required: [superseded_by, reason, merge_strategy]
-
-  # LIR requires reason; never data or superseded_by.
-  - if:
-      properties:
-        type: { const: LIR }
-    then:
-      required: [reason]
-      not:
-        required: [data, superseded_by, merge_strategy]
-
-  # MOD requires data; can have merge_strategy; never superseded_by/reason.
-  - if:
-      properties:
-        type: { const: MOD }
-    then:
-      required: [data]
-      not:
-        required: [superseded_by, reason]
-
-  # DEL is irreversible hard-delete; no payload.
-  - if:
-      properties:
-        type: { const: DEL }
-    then:
-      not:
-        required: [data, superseded_by, reason, merge_strategy]
-
-  # SEED requires data as an array of rows; only valid at the register's seed_issue.
-  - if:
-      properties:
-        type: { const: SEED }
-    then:
-      required: [data]
-      properties:
-        data:
-          type: array
-      not:
-        required: [superseded_by, reason, merge_strategy]
+- if:
+    properties:
+      type:
+        const: ADD
+  then:
+    required:
+    - data
+    not:
+      required:
+      - superseded_by
+      - reason
+- if:
+    properties:
+      type:
+        const: SUP
+  then:
+    not:
+      required:
+      - data
+      - reason
+      - merge_strategy
+- if:
+    properties:
+      type:
+        const: REP
+  then:
+    required:
+    - data
+    not:
+      required:
+      - superseded_by
+      - reason
+      - merge_strategy
+- if:
+    properties:
+      type:
+        const: LIR
+  then:
+    required:
+    - reason
+    not:
+      required:
+      - data
+      - superseded_by
+      - merge_strategy
+- if:
+    properties:
+      type:
+        const: MOD
+  then:
+    required:
+    - data
+    not:
+      required:
+      - superseded_by
+      - reason
+- if:
+    properties:
+      type:
+        const: DEL
+  then:
+    not:
+      required:
+      - data
+      - superseded_by
+      - reason
+      - merge_strategy
+- if:
+    properties:
+      type:
+        const: SEED
+  then:
+    required:
+    - data
+    properties:
+      data:
+        type: array
+    not:
+      required:
+      - superseded_by
+      - reason
+      - merge_strategy

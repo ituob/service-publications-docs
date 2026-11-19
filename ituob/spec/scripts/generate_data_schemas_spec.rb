@@ -131,6 +131,78 @@ RSpec.describe 'scripts/generate_data_schemas.rb' do
     expect_failure('2-V: schema-data.yaml has no entry in data_schemas.yaml')
   end
 
+  context 'with a document schema' do
+    let(:lml) do
+      <<~LML
+        models Fixture {
+          enum Kind {
+            member_fields {
+              description String
+            }
+            alpha {
+              description "first"
+            }
+            beta {
+              description "second"
+            }
+          }
+          class WidgetEntry {
+            attribute name, String
+          }
+          class DocumentRow {
+            attribute kind, Kind
+            attribute label, String
+            attribute schema, String
+            attribute data, HashOrList
+            mapping yaml {
+              map "$schema", to: "schema"
+            }
+          }
+        }
+      LML
+    end
+    let(:document_path) { File.join(@root, 'datasets/doc.yaml') }
+
+    before do
+      File.write(File.join(@root, 'ituob/lib/ituob/ontology/document_schemas.yaml'),
+                 YAML.dump('doc' => { 'model' => 'DocumentRow', 'path' => 'datasets/doc.yaml',
+                                      'root' => 'object', 'id' => 'https://example.test/doc', 'title' => 'Doc' }))
+      write_overlay('doc', 'description' => 'Caf\u00e9 document', 'required' => ['kind'], 'allOf' => [{ 'if' => { 'required' => ['kind'] } }])
+    end
+
+    it 'generates an object root with LML enums, wire keys and overlay conditionals' do
+      _out, err, status = run_generator
+      expect(status.exitstatus).to eq(0), err
+      schema = YAML.load_file(document_path)
+      expect(schema).to include('$id' => 'https://example.test/doc', 'type' => 'object', 'required' => ['kind'])
+      expect(schema['properties']['kind']).to eq('type' => 'string', 'enum' => %w[alpha beta])
+      expect(schema['properties'].keys).to eq(%w[kind label $schema data])
+      expect(schema['properties']['data']).to eq('type' => %w[array object])
+      expect(schema['allOf']).to eq([{ 'if' => { 'required' => ['kind'] } }])
+    end
+
+    it 'verifies and rejects an outdated document schema' do
+      run_generator
+      Open3.capture3('git', 'init', '--quiet', chdir: @root)
+      Open3.capture3('git', 'add', 'datasets/doc.yaml', 'datasets/1-W/schema-data.yaml', chdir: @root)
+      out, err, status = run_generator('--verify')
+      expect(status.success?).to be(true), err
+      expect(out).to include('Verified 2 generated data schemas')
+      File.write(document_path, 'outdated')
+      _out, err, status = run_generator('--verify')
+      expect(status.exitstatus).to eq(1)
+      expect(err).to include('doc: doc.yaml is missing or outdated')
+    end
+
+    it 'rejects a document schema with an unknown model' do
+      File.write(File.join(@root, 'ituob/lib/ituob/ontology/document_schemas.yaml'),
+                 YAML.dump('doc' => { 'model' => 'Gone', 'path' => 'datasets/doc.yaml', 'root' => 'object', 'title' => 'Doc' }))
+      _out, err, status = run_generator
+      expect(status.exitstatus).to eq(1)
+      expect(err).to include('doc: no LML class Gone')
+    end
+  end
+
   context 'with verification enabled' do
     before do
       _out, err, status = run_generator
@@ -145,7 +217,7 @@ RSpec.describe 'scripts/generate_data_schemas.rb' do
       before = File.stat(schema_path).mtime
       out, err, status = run_generator('--verify')
       expect(status.success?).to be(true), err
-      expect(out).to include('Verified 1 generated dataset schemas')
+      expect(out).to include('Verified 1 generated data schemas')
       expect(File.stat(schema_path).mtime).to eq(before)
     end
 

@@ -14,6 +14,15 @@ All 40 datasets now have an Entry mapping in
 nullable fields, numeric/string tone frequencies and recursive RR.25.1 segments.
 The complete seeds are checked against the generated schemas in focused specs.
 
+Five data schemas that are not a dataset's `schema-data.yaml` are generated the
+same way from `ituob/lib/ituob/ontology/document_schemas.yaml`:
+`datasets/schema-change.yaml` (`RegisterChangeFile`), `schema-metadata.yaml`
+(`DatasetMetadata`), `schema-recommendation.yaml` (`CatalogRecommendation`),
+`schema-register.yaml` (`CatalogRegister`) and
+`datasets/1154-RR.25.1/schema-countries.yaml` (`RR251Country`). Their overlays
+carry descriptions, patterns and the per-action `if`/`then` rules of the change
+schema. `--verify` covers all 45 generated files.
+
 The Test workflow runs two gates:
 
 ```sh
