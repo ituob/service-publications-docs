@@ -1,0 +1,53 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-E.212B-2018-A, generated PDF (89-gen run, group G2)
+# against the official ITU PDF. Settles only the open (bug or unreviewed) deltas by rules checked on
+# samples (see README-g2.adoc); data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'main:454 22: generated "Mobile Communications (HongKong) Limited 263" vs
+    official "263 Mobile Communications (HongKong) Limited"'
+  disposition: layout
+  reason: 'The official Arabic PDF extracts with the letters of a name in a different
+    order (a ligature or glyph order artefact: the same letters, reordered); the generated
+    PDF extracts the dictionary order.'
+- layer: rows
+  side: both
+  text: 'main:425 11: generated "(Telecom (MVNO 365" vs official "365 Telecom (MVNO)"'
+  disposition: layout
+  reason: 'The official Arabic PDF extracts with the letters of a name in a different
+    order (a ligature or glyph order artefact: the same letters, reordered); the generated
+    PDF extracts the dictionary order.'
+- layer: rows
+  side: both
+  text: 'main:425 24: generated ".Telecom Ltd 012" vs official "012 Telecom Ltd."'
+  disposition: layout
+  reason: 'The official Arabic PDF extracts with the letters of a name in a different
+    order (a ligature or glyph order artefact: the same letters, reordered); the generated
+    PDF extracts the dictionary order.'
+- layer: rows
+  side: both
+  text: 'main:437 03: generated "Mobile 7" vs official "7 Mobile"'
+  disposition: layout
+  reason: 'The official Arabic PDF extracts with the letters of a name in a different
+    order (a ligature or glyph order artefact: the same letters, reordered); the generated
+    PDF extracts the dictionary order.'
+- layer: rows
+  side: both
+  text: 'main:240 16: generated "Telecom AB 42" vs official "42 Telecom AB"'
+  disposition: layout
+  reason: 'The official Arabic PDF extracts with the letters of a name in a different
+    order (a ligature or glyph order artefact: the same letters, reordered); the generated
+    PDF extracts the dictionary order.'
+- layer: rows
+  side: both
+  text: 'main:240 35: generated "Telecom LTD 42" vs official "42 Telecom LTD"'
+  disposition: layout
+  reason: 'The official Arabic PDF extracts with the letters of a name in a different
+    order (a ligature or glyph order artefact: the same letters, reordered); the generated
+    PDF extracts the dictionary order.'
+- layer: rows
+  side: both
+  text: 'main:312 650: generated "Wireless LLC 365" vs official "365 Wireless LLC"'
+  disposition: layout
+  reason: 'The official Arabic PDF extracts with the letters of a name in a different
+    order (a ligature or glyph order artefact: the same letters, reordered); the generated
+    PDF extracts the dictionary order.'

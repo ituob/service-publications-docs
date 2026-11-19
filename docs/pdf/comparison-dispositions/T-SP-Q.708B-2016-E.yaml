@@ -1,0 +1,11 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-Q.708B-2016-E, generated PDF (89-gen run, group G2)
+# against the official ITU PDF. Settles only the open (bug or unreviewed) deltas by rules checked on
+# samples (see README-g2.adoc); data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: '7-020-1: generated "10000000000000 14497 A ENITEL S" vs official "1000E10
+    14497 A ENITEL S"'
+  disposition: data
+  reason: The dataset (datasets/1109-Q.708B) has the full number 10000000000000 as
+    the signalling point name; the official PDF prints it as 1000E10 (a spreadsheet
+    exponent form).
