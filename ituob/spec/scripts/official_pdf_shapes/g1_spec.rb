@@ -115,6 +115,14 @@ RSpec.describe 'G1 official PDF shapes' do
       it 'is not layout when the column count differs' do
         expect(verdict('Cuba | Busy tone | 425', 'Cuba | Busy tone 425')).to be_nil
       end
+
+      it 'is not layout when only a trailing empty column differs' do
+        expect(verdict('Cuba | Busy tone | 425', 'Cuba | Busy tone | 425 | ')).to be_nil
+      end
+
+      it 'is not layout when columns hold equal word counts but different words' do
+        expect(verdict('Cuba | Busy Dial | tone 425', 'Cuba | Busy tone | Dial 425')).to be_nil
+      end
     end
   end
 end
