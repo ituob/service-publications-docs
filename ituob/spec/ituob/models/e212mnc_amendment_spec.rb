@@ -469,6 +469,33 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(state.key_history.fetch('216 01').map(&:type)).to eq(%w[SEED])
       expect(state.key_history.fetch('639 01').map(&:type)).to eq(%w[SEED])
     end
+
+    it 'deletes Hungary 216 04 when the SUP reprints the name an earlier LIR already stored' do
+      row = lambda do |name|
+        { 'mcc_mnc_codes' => '216 04', 'country_or_area' => { 'en' => 'Hungary' }, 'networks' => name }
+      end
+      build = lambda do |type, issue, data, code|
+        Ituob::Registers::Change.from_hash(
+          'type' => type, 'register' => 'E212_MNC', 'ob_issue_no' => issue.to_s,
+          'identifier' => { 'code' => code }, 'data' => data,
+        )
+      end
+      seed = Ituob::Registers::Change.new(
+        type: 'SEED', register_id: 'E212_MNC', ob_issue_no: 1162,
+        identifier: { 'code' => '__seed__' }, data: [row.call('Invitech Solutions')],
+      )
+      lir = build.call('LIR', 1166, row.call('Invitech ICT Services Ltd.'), '216 04')
+      sup = build.call('SUP', 1170, { 'entries' => amendment.actions.first.entries.map(&:to_hash) }, 'Hungary SUP')
+      source = Ituob::Registers::InlineChangeSource.new(register_id: 'E212_MNC', changes: [seed, lir, sup])
+      state = Ituob::Registers::Replay.new(
+        register_id: 'E212_MNC', key_field: 'mcc_mnc_codes', source: source,
+      ).current
+
+      expect(state.active_keys).to be_empty
+      expect(state.deleted_keys).to contain_exactly('216 04')
+      expect(state.error_count).to eq(0)
+      expect(state.key_history.fetch('216 04').map(&:type)).to eq(%w[SEED LIR SUP])
+    end
   end
 
   it 'preserves the printed Netherlands actions and seven withdrawn rows in OB 1210' do

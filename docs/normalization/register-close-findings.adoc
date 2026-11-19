@@ -14,13 +14,28 @@ heading remains the action position and each row retains its country and network
 The marker makes the existing key-based replay meaning explicit; it does not
 introduce a country-wide replay operation.
 
-The existing OB 1170 fixture prints Hungary SUP for `216 04` and Kenya SUP for
-`639 08`. Its focused regression asserts both serialized scopes, both positions,
-the two printed networks and countries, and their separate SUP actions.
-A parser-to-patch replay check starts with those targets plus unlisted `216 01`
-and `639 01` controls in the same countries. Only the targets are deleted;
-the controls retain all fields and seed-only histories. Both targets retain
-their SEED/SUP histories, with no lapse or replay error.
+=== No proven replacements
+
+A replay of E.212 found 198 SUP rows: 190 reprint the stored row verbatim, 7
+differ in spelling or notes (one of them, Estonia `248 33`, a rename left
+unproven below), 1 names an absent key
+(`BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/measure_e212_sup_rows.rb`).
+The printed legend is `SUP:: Delete`, and every row whose key exists is deleted;
+replay skips the absent key with a SUP conflict. The heading
+token alone never means replacement, so the parser and replay keep SUP as a
+withdrawal and add no replacement scope.
+
+* Hungary `216 04` at OB 1170 looked like a rename only against the 2018
+  consolidated seed ("Invitech Solutions"). OB 1166 LIR already set the name to
+  "Invitech ICT Services Ltd." (`1166-0002-LIR-216_04.yaml`), so the OB 1170 row
+  reprints the stored row: a deletion. Kenya `639 08` is the same.
+* Estonia `248 33` at OB 1314 ("J-Mobile OU (formerly Crowdfaster OU)" for stored
+  "Crowdfaster OU") is also unproven: the block withdraws `248 21` Tismi beside it.
+
+The OB 1170 regressions assert both targets are deleted with their SEED/SUP
+histories and the unlisted `216 01` and `639 01` controls untouched. A further
+example seeds `216 04` as "Invitech Solutions", applies the OB 1166 LIR, then the
+OB 1170 SUP, and asserts `216 04` is in `deleted_keys` with history SEED/LIR/SUP.
 
 The serialization regression fails against the base parser because its action
 hashes lack `suppression_scope`. Non-SUP actions retain no scope field.
