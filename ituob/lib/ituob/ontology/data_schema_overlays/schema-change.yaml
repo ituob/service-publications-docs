@@ -1,0 +1,121 @@
+description: >-
+  Schema for validating change objects (patches) against an ITU OB
+  register. A change is a single mutation identified by an OB action
+  type (ADD, SUP, REP, LIR, MOD, DEL) plus a SEED batch type for the
+  initial publication. Every change belongs to exactly one register
+  and references its parent recommendation.
+required: [type, register, ob_issue_no, identifier]
+properties:
+  type:
+    description: The action type this change performs against the register.
+  register:
+    description: The machine identifier of the register being patched (e.g. "E212_MNC").
+  recommendation:
+    description: The parent ITU-T Recommendation code (e.g. "E.212"). Denormalised for display.
+  date_requested:
+    description: ISO 8601 datetime when the change was requested.
+    format: date-time
+  date_active:
+    description: ISO 8601 date or datetime when the change became effective.
+  ob_issue_no:
+    description: The OB Issue number where the change was published.
+  reference:
+    description: Reference to authorising document (e.g. "OB-1180").
+  description:
+    description: Human-readable description of the change.
+    required: [en]
+  identifier:
+    description: Identifier for the affected record(s).
+    oneOf:
+      - required: [code]
+      - required: [query]
+    properties:
+      code:
+        description: Direct identifier (the register's key value).
+      query:
+        description: Query-style identifier for complex record selection.
+        required: [field, value]
+        properties:
+          field:
+            type: string
+          value: {}
+          operator:
+            type: string
+            enum: [equals, contains, startsWith, endsWith, greaterThan, lessThan, in]
+            default: equals
+  data:
+    description: >-
+      The dataset-specific payload. For ADD/REP/MOD/SEED this conforms
+      to the register's schema-data. For SUP/LIR/DEL data may be
+      omitted. For SEED it is an array of register rows.
+  superseded_by:
+    description: Reference to replacing data (SUP only).
+    required: [identifier]
+    properties:
+      reference:
+        description: Reference to the document that supersedes the data.
+      identifier:
+        required: [code]
+  reason:
+    description: Reason metadata (LIR only).
+    required: [en]
+  merge_strategy:
+    description: >-
+      How MOD merges its data into the existing entry.
+      "replace_fields" merges top-level fields (default); "replace_full"
+      wholesale-replaces the entry.
+    default: replace_fields
+# The json-schema gem the validators use does not enforce if/then, so these
+# conditionals are enforced by the replay strategies; they stay here as the
+# authoritative statement of the per-action requirements.
+allOf:
+  - if:
+      properties:
+        type: { const: ADD }
+    then:
+      required: [data]
+      not:
+        required: [superseded_by, reason]
+  - if:
+      properties:
+        type: { const: SUP }
+    then:
+      not:
+        required: [data, reason, merge_strategy]
+  - if:
+      properties:
+        type: { const: REP }
+    then:
+      required: [data]
+      not:
+        required: [superseded_by, reason, merge_strategy]
+  - if:
+      properties:
+        type: { const: LIR }
+    then:
+      required: [reason]
+      not:
+        required: [data, superseded_by, merge_strategy]
+  - if:
+      properties:
+        type: { const: MOD }
+    then:
+      required: [data]
+      not:
+        required: [superseded_by, reason]
+  - if:
+      properties:
+        type: { const: DEL }
+    then:
+      not:
+        required: [data, superseded_by, reason, merge_strategy]
+  - if:
+      properties:
+        type: { const: SEED }
+    then:
+      required: [data]
+      properties:
+        data:
+          type: array
+      not:
+        required: [superseded_by, reason, merge_strategy]

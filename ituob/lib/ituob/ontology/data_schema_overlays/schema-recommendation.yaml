@@ -1,0 +1,29 @@
+description: >-
+  Schema for the static identity of an ITU-T Recommendation that
+  mandates one or more registers. The recommendation catalog
+  (catalogs/recommendations.yaml) is a list of objects conforming to
+  this schema.
+required: [code, bureau, title]
+properties:
+  code:
+    description: ITU-T Recommendation code (e.g. "E.212", "M.1400", "F.1", or the Radio Regulations article "RR.25.1").
+    pattern: '^(RR|[A-Z])\.\d+(\.\d+)?$'
+  bureau:
+    description: ITU bureau that owns the recommendation.
+    enum: [ITU-T, ITU-R, ITU-D]
+  title:
+    description: Human-readable recommendation title.
+    required: [en]
+  version:
+    description: >-
+      Current version of the recommendation: year and optional month
+      (e.g. "2016-09", "2004-5", "2000/10"), or the bare year as a number.
+    pattern: '^\d{4}([-/]\d{1,2})?$'
+  document_path:
+    description: Repository-relative path to Metanorma source directory (e.g. "documents/T-SP-E.212B-2018").
+  url:
+    description: External URL on the ITU website for the authoritative publication.
+    format: uri
+  registers:
+    description: List of register IDs created by this recommendation. Informational; the canonical mapping is registers.yaml.
+    default: []

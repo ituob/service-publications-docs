@@ -1001,6 +1001,138 @@ models Ituob {
     }
   }
 
+  enum MergeStrategy {
+    member_fields {
+      description String
+    }
+    replace_fields {
+      description "Merge the change's top-level fields into the existing entry (default)"
+    }
+    replace_full {
+      description "Replace the existing entry wholesale"
+    }
+  }
+
+  // The wire shape of a change file under datasets/<slug>/changes/, the
+  // source of datasets/schema-change.yaml. Distinct from RegisterChange,
+  // which holds the runtime shape: the files print ob_issue_no as the
+  // issue string, and RegisterChange coerces it to an Integer.
+  class ChangeCode {
+    attribute code, String
+  }
+
+  class ChangeSupersession {
+    attribute reference, String
+    attribute identifier, ChangeCode
+  }
+
+  class RegisterChangeFile {
+    attribute type, ActionType
+    attribute register, String
+    attribute recommendation, String
+    attribute date_requested, String
+    attribute date_active, String
+    attribute ob_issue_no, String
+    attribute reference, String
+    attribute description, MultilingualString
+    attribute identifier, Identifier
+    attribute data, HashOrList
+    attribute superseded_by, ChangeSupersession
+    attribute reason, MultilingualString
+    attribute merge_strategy, MergeStrategy
+  }
+
+  // Dataset metadata (datasets/<slug>/metadata.yaml), the source of
+  // datasets/schema-metadata.yaml.
+  class DatasetRecommendationRef {
+    attribute body, String
+    attribute code, String
+    attribute version, String
+  }
+
+  // Metadata files still spell Chinese `ch` in places; the projections
+  // alias it to `zh` (Projections::RegisterLocale), so the wire shape
+  // accepts both.
+  class DatasetText {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute zh, String
+    attribute ch, String
+    attribute ru, String
+    attribute ar, String
+  }
+
+  class DatasetLocaleLabel {
+    attribute key, String
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute zh, String
+    attribute ch, String
+    attribute ru, String
+    attribute ar, String
+  }
+
+  class DatasetMetadata {
+    attribute schema, String
+    attribute title, DatasetText
+    attribute recommendation, DatasetRecommendationRef
+    attribute url, String
+    attribute source, String
+    attribute note, DatasetText
+    attribute external, Boolean
+    attribute alias_of, String
+    attribute locale, DatasetLocaleLabel { cardinality 0..n }
+    mapping yaml {
+      map "$schema", to: "schema"
+    }
+  }
+
+  // Catalog rows (catalogs/recommendations.yaml and catalogs/registers.yaml),
+  // the sources of datasets/schema-recommendation.yaml and
+  // datasets/schema-register.yaml.
+  class CatalogRecommendation {
+    attribute code, String
+    attribute bureau, String
+    attribute title, MultilingualString
+    attribute version, StringOrNumber
+    attribute document_path, String
+    attribute url, String
+    attribute registers, String { cardinality 0..n }
+  }
+
+  class CatalogRegisterRoute {
+    attribute field, String
+    attribute prefix, String
+  }
+
+  class CatalogRegister {
+    attribute register_id, String
+    attribute slug, String
+    attribute recommendation, String
+    attribute title, MultilingualString
+    attribute key_field, String
+    attribute fallback_key_fields, String { cardinality 0..n }
+    attribute classification, String
+    attribute parser_class, String
+    attribute renderer, String
+    attribute seed_issue, Integer
+    attribute seed_path, String
+    attribute seed_includes_seed_issue, Boolean
+    attribute source_slug, String
+    attribute route, CatalogRegisterRoute
+    attribute external, Boolean
+    attribute url, String
+    attribute supplementary, String { cardinality 0..n }
+  }
+
+  // One row of datasets/1154-RR.25.1/countries.yaml.
+  class RR251Country {
+    attribute key, String
+    attribute name, MultilingualString
+  }
+
   // Projection fields decided by PM, pending the design note.
   // Ordering belongs to the provider: items and history follow replay;
   // lapsed/deleted keys are sorted. Only clean projections are rendered.

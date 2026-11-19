@@ -1,58 +1,69 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (CatalogRecommendation) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-$id: https://github.com/ituob/service-publications-docs/datasets/schema-recommendation
+"$schema": http://json-schema.org/draft-07/schema#
+"$id": https://github.com/ituob/service-publications-docs/datasets/schema-recommendation
 title: ITU OB Recommendation Schema
-description: >-
-  Schema for the static identity of an ITU-T Recommendation that
-  mandates one or more registers. The recommendation catalog
-  (catalogs/recommendations.yaml) is a list of objects conforming to
-  this schema.
-
+x-lml-model: CatalogRecommendation
 type: object
 additionalProperties: false
-
-required:
-  - code
-  - bureau
-  - title
-
 properties:
   code:
     type: string
-    description: ITU-T Recommendation code (e.g. "E.212", "M.1400", "F.1").
-    pattern: '^[A-Z]\.\d+(\.\d+)?$'
-
+    description: ITU-T Recommendation code (e.g. "E.212", "M.1400", "F.1", or the
+      Radio Regulations article "RR.25.1").
+    pattern: "^(RR|[A-Z])\\.\\d+(\\.\\d+)?$"
   bureau:
     type: string
     description: ITU bureau that owns the recommendation.
-    enum: [ITU-T, ITU-R, ITU-D]
-
+    enum:
+    - ITU-T
+    - ITU-R
+    - ITU-D
   title:
     type: object
-    description: Human-readable recommendation title.
-    required: [en]
+    additionalProperties: false
     properties:
-      en: { type: string }
-      fr: { type: string }
-      es: { type: string }
-
+      en:
+        type: string
+      fr:
+        type: string
+      es:
+        type: string
+      zh:
+        type: string
+      ru:
+        type: string
+      ar:
+        type: string
+    description: Human-readable recommendation title.
+    required:
+    - en
   version:
-    type: string
-    description: Current version of the recommendation (e.g. "2016-09").
-    pattern: '^\d{4}(-\d{2})?$'
-
+    type:
+    - number
+    - string
+    description: 'Current version of the recommendation: year and optional month (e.g.
+      "2016-09", "2004-5", "2000/10"), or the bare year as a number.'
+    pattern: "^\\d{4}([-/]\\d{1,2})?$"
   document_path:
     type: string
     description: Repository-relative path to Metanorma source directory (e.g. "documents/T-SP-E.212B-2018").
-
   url:
     type: string
     description: External URL on the ITU website for the authoritative publication.
     format: uri
-
   registers:
     type: array
-    description: List of register IDs created by this recommendation. Informational; the canonical mapping is registers.yaml.
-    items: { type: string }
+    items:
+      type: string
+    description: List of register IDs created by this recommendation. Informational;
+      the canonical mapping is registers.yaml.
     default: []
+description: Schema for the static identity of an ITU-T Recommendation that mandates
+  one or more registers. The recommendation catalog (catalogs/recommendations.yaml)
+  is a list of objects conforming to this schema.
+required:
+- code
+- bureau
+- title

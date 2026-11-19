@@ -1,11 +1,45 @@
 = Dataset schema generation coverage
 
-`scripts/generate_data_schemas.rb` generates 20 of the 40 dataset data schemas
-from `ituob/lib/ituob/ontology/messages.lml`. The executable dataset-to-model
-mapping is `ituob/lib/ituob/ontology/data_schemas.yaml`; datasets outside that
-mapping retain hand-maintained schemas. Register seed shape, rather than a
-similar recommendation number or similarly named attribute, determines whether
-a model can be reused.
+`scripts/generate_data_schemas.rb` generates every schema in the repository
+from `ituob/lib/ituob/ontology/messages.lml`: the 40 dataset `schema-data.yaml`
+files, listed with their model in `ituob/lib/ituob/ontology/data_schemas.yaml`,
+and five document schemas, listed in `ituob/lib/ituob/ontology/document_schemas.yaml`.
+`--verify` covers all 45. No hand-maintained schema file remains, and there are
+no excluded schemas. Register seed shape, rather than a similar recommendation
+number or similarly named attribute, determines whether a model can be reused.
+
+== Document schemas
+
+[cols="2,2,3",options="header"]
+|===
+|Schema |LML class |Notes
+|datasets/schema-change.yaml |RegisterChangeFile
+|Wire shape of a change file. Not RegisterChange: files print ob_issue_no as a
+string and RegisterChange coerces it to an Integer. The per-action if/then rules
+(ADD requires data, LIR requires reason, ...) are conditional behaviour, not
+shape, so they live in the overlay; the json-schema gem used by the validators
+does not enforce if/then, and the replay strategies enforce them.
+|datasets/schema-metadata.yaml |DatasetMetadata
+|Dataset metadata.yaml. Carries `ch`, a legacy spelling of `zh` that the
+projections alias, because Q.708B metadata uses it. The `$schema` key is mapped
+with `mapping yaml`.
+|datasets/schema-recommendation.yaml |CatalogRecommendation
+|Rows of catalogs/recommendations.yaml.
+|datasets/schema-register.yaml |CatalogRegister
+|Rows of catalogs/registers.yaml.
+|datasets/1154-RR.25.1/schema-countries.yaml |RR251Country
+|Rows of the RR.25.1 countries.yaml.
+|===
+
+The hand-written recommendation and register schemas had drifted from their
+catalogs and were never run against them: 13 of 26 register rows and 5 of 14
+recommendation rows failed. The generated schemas describe the data as it is
+(optional seed fields for external publications, the RR.25.1 code, versions such
+as `2004-5`, `2000/10` and a bare `2005`, and a prose register_id for one
+external publication). `data_schema_coverage_spec.rb` validates every catalog
+row, every metadata file, the country list and every change file against them.
+Generated schemas also reject unknown properties, which the hand-written change,
+metadata, recommendation and register schemas did not at every level.
 
 == Additional model coverage
 
@@ -55,11 +89,11 @@ set or language structure. Generation coverage does not assert that every legacy
 field was required by the LML, or that an external publication now has local
 records.
 
-== Remaining datasets
+== Datasets whose models were added to the ontology
 
-These 20 datasets have no existing LML model matching their register seed shape.
-They cannot yet be generated from the current ontology without inventing fields,
-misusing another publication's model, or changing the ontology:
+These 20 datasets had no existing LML model matching their register seed shape
+when this inventory was first written. Their models are now in the ontology and
+their schemas are generated; the blockers below are historical:
 
 [cols="1,4",options="header"]
 |===

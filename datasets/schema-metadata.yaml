@@ -1,19 +1,18 @@
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (DatasetMetadata) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: https://json-schema.org/draft/2020-12/schema
+"$schema": http://json-schema.org/draft-07/schema#
 title: ITU Operational Bulletin Document Metadata
-description: Schema for metadata of ITU Operational Bulletin service publications
+x-lml-model: DatasetMetadata
 type: object
-required:
-  - title
+additionalProperties: false
 properties:
-  $schema:
+  "$schema":
     type: string
     description: The schema file for this metadata
   title:
     type: object
-    description: The title of the document in multiple languages
-    required:
-      - en
+    additionalProperties: false
     properties:
       en:
         type: string
@@ -24,11 +23,24 @@ properties:
       es:
         type: string
         description: Spanish title
+      zh:
+        type: string
+        description: Chinese title
+      ch:
+        type: string
+        description: Chinese title (legacy alias of zh)
+      ru:
+        type: string
+        description: Russian title
+      ar:
+        type: string
+        description: Arabic title
+    description: The title of the document in multiple languages
+    required:
+    - en
   recommendation:
     type: object
-    description: The ITU Recommendation this dataset's publication belongs to
-    required:
-      - code
+    additionalProperties: false
     properties:
       body:
         type: string
@@ -39,6 +51,9 @@ properties:
       version:
         type: string
         description: Version/date of the referenced edition
+    description: The ITU Recommendation this dataset's publication belongs to
+    required:
+    - code
   url:
     type: string
     description: Authoritative external resource for this publication
@@ -47,9 +62,7 @@ properties:
     description: Source file within service-publications-data
   note:
     type: object
-    description: Editorial note about this dataset
-    required:
-      - en
+    additionalProperties: false
     properties:
       en:
         type: string
@@ -57,6 +70,17 @@ properties:
         type: string
       es:
         type: string
+      zh:
+        type: string
+      ch:
+        type: string
+      ru:
+        type: string
+      ar:
+        type: string
+    description: Editorial note about this dataset
+    required:
+    - en
   external:
     type: boolean
     description: True when the publication is maintained outside the OB pipeline
@@ -65,12 +89,9 @@ properties:
     description: Canonical dataset this directory aliases
   locale:
     type: array
-    description: Localized terms used in the document
     items:
       type: object
-      required:
-        - key
-        - en
+      additionalProperties: false
       properties:
         key:
           type: string
@@ -84,4 +105,22 @@ properties:
         es:
           type: string
           description: Spanish translation
-additionalProperties: false
+        zh:
+          type: string
+          description: Chinese translation
+        ch:
+          type: string
+          description: Chinese translation (legacy alias of zh)
+        ru:
+          type: string
+          description: Russian translation
+        ar:
+          type: string
+          description: Arabic translation
+      required:
+      - key
+      - en
+    description: Localized terms used in the document
+description: Schema for metadata of ITU Operational Bulletin service publications
+required:
+- title

@@ -83,7 +83,82 @@ RSpec.describe "Dataset schema generation coverage" do
       RbConfig.ruby, File.join(repo_root, "scripts/generate_data_schemas.rb"), "--verify",
     )
     expect(status.success?).to be(true), err
-    expect(out).to include("Verified 40 generated dataset schemas")
+    expect(out).to include("Verified 45 generated data schemas")
+  end
+
+  describe "document schemas" do
+    let(:documents) { YAML.load_file(File.join(ontology, "document_schemas.yaml")) }
+
+    def document_schema(name)
+      YAML.load_file(File.join(repo_root, documents.fetch(name).fetch("path"))).tap do |schema|
+        schema.delete("$schema")
+        schema.delete("$id")
+      end
+    end
+
+    def validation_errors(name, data)
+      JSON::Validator.fully_validate(document_schema(name), JSON.parse(data.to_json))
+    end
+
+    def catalog(file, key)
+      YAML.load_file(File.join(repo_root, "catalogs", file), aliases: true).fetch(key)
+    end
+
+    it "lists the five schemas that are not dataset seeds, each generated from its LML class" do
+      expect(documents.keys).to contain_exactly(
+        "schema-change", "schema-metadata", "schema-recommendation", "schema-register", "schema-countries",
+      )
+      documents.each_value do |spec|
+        header = File.foreach(File.join(repo_root, spec.fetch("path"))).first
+        expect(header).to include("GENERATED from ituob/lib/ituob/ontology/messages.lml (#{spec.fetch('model')})")
+      end
+    end
+
+    it "validates every registers catalog row" do
+      catalog("registers.yaml", "registers").each do |row|
+        expect(validation_errors("schema-register", row)).to be_empty, row["register_id"]
+      end
+    end
+
+    it "validates every recommendations catalog row" do
+      catalog("recommendations.yaml", "recommendations").each do |row|
+        expect(validation_errors("schema-recommendation", row)).to be_empty, row["code"]
+      end
+    end
+
+    it "validates every dataset metadata file" do
+      Dir.glob(File.join(repo_root, "datasets/*/metadata.yaml")).each do |path|
+        data = YAML.load_file(path, permitted_classes: [Date], aliases: true)
+        expect(validation_errors("schema-metadata", data)).to be_empty, path
+      end
+    end
+
+    it "validates the RR.25.1 country list" do
+      path = File.join(repo_root, "datasets/1154-RR.25.1/countries.yaml")
+      expect(validation_errors("schema-countries", YAML.load_file(path))).to be_empty
+    end
+
+    it "validates every change file structurally" do
+      # 976-X.121A/changes holds four illustrative patches without a register.
+      paths = Dir.glob(File.join(repo_root, "datasets/*/changes/*.yaml")).grep_v(%r{976-X\.121A/changes/})
+      failures = paths.filter_map do |path|
+        data = YAML.load_file(path, permitted_classes: [Date, Time], aliases: true)
+        errors = validation_errors("schema-change", data)
+        "#{path}: #{errors.first}" unless errors.empty?
+      end
+      expect(failures).to be_empty
+    end
+
+    it "rejects what the catalogs and change files may not contain" do
+      expect(validation_errors("schema-register", { "register_id" => "X" })).not_to be_empty
+      expect(validation_errors("schema-register", catalog("registers.yaml", "registers").first.merge("x" => 1))).not_to be_empty
+      expect(validation_errors("schema-recommendation", { "code" => "E.1", "bureau" => "ITU-X", "title" => { "en" => "t" } })).not_to be_empty
+      change = { "type" => "ADD", "register" => "F1", "ob_issue_no" => "700", "identifier" => { "code" => "A" } }
+      expect(validation_errors("schema-change", change)).to be_empty
+      expect(validation_errors("schema-change", change.merge("type" => "BAD"))).not_to be_empty
+      expect(validation_errors("schema-change", change.merge("ob_issue_no" => 700))).not_to be_empty
+      expect(validation_errors("schema-change", change.merge("unknown" => 1))).not_to be_empty
+    end
   end
 
   it "preserves required fields, code patterns and assignment enums" do

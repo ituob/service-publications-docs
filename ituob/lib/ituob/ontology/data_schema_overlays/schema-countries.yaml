@@ -1,0 +1,12 @@
+description: ITU OB Dataset Schema for 1154-RR.25.1 countries list
+items:
+  properties:
+    key:
+      description: The key of the country.
+      examples: [algeria]
+    name:
+      description: The name of the country.
+      properties:
+        en: { description: The name of the country in English., examples: [Algeria] }
+        fr: { description: The name of the country in French., examples: ["Algérie"] }
+        es: { description: The name of the country in Spanish., examples: [Argelia] }

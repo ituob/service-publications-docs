@@ -39,6 +39,17 @@ module Ituob
 
       CLASS_NAMES = %w[
         BureaufaxAvailability
+        CatalogRecommendation
+        CatalogRegister
+        CatalogRegisterRoute
+        ChangeCode
+        ChangeSupersession
+        DatasetLocaleLabel
+        DatasetMetadata
+        DatasetRecommendationRef
+        DatasetText
+        RegisterChangeFile
+        RR251Country
         BureaufaxEntry
         BureaufaxHours
         CoastStationEntry

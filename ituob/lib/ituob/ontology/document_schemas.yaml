@@ -1,0 +1,32 @@
+# Data schemas that are not a dataset's schema-data.yaml; each is generated
+# from the named LML class. Dataset seed schemas are listed in data_schemas.yaml.
+# Overlays live in data_schema_overlays/<name>.yaml.
+---
+schema-change:
+  model: RegisterChangeFile
+  path: datasets/schema-change.yaml
+  root: object
+  id: https://github.com/ituob/service-publications-docs/datasets/schema-change
+  title: ITU OB Register Change Object Schema
+schema-metadata:
+  model: DatasetMetadata
+  path: datasets/schema-metadata.yaml
+  root: object
+  title: ITU Operational Bulletin Document Metadata
+schema-recommendation:
+  model: CatalogRecommendation
+  path: datasets/schema-recommendation.yaml
+  root: object
+  id: https://github.com/ituob/service-publications-docs/datasets/schema-recommendation
+  title: ITU OB Recommendation Schema
+schema-register:
+  model: CatalogRegister
+  path: datasets/schema-register.yaml
+  root: object
+  id: https://github.com/ituob/service-publications-docs/datasets/schema-register
+  title: ITU OB Register Schema
+schema-countries:
+  model: RR251Country
+  path: datasets/1154-RR.25.1/schema-countries.yaml
+  root: array
+  title: ITU OB Dataset Schema for 1154-RR.25.1 countries list

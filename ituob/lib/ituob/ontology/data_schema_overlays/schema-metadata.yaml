@@ -1,0 +1,47 @@
+description: Schema for metadata of ITU Operational Bulletin service publications
+required: [title]
+properties:
+  "$schema":
+    description: The schema file for this metadata
+  title:
+    description: The title of the document in multiple languages
+    required: [en]
+    properties:
+      en: { description: English title }
+      fr: { description: French title }
+      es: { description: Spanish title }
+      zh: { description: Chinese title }
+      ch: { description: Chinese title (legacy alias of zh) }
+      ru: { description: Russian title }
+      ar: { description: Arabic title }
+  recommendation:
+    description: The ITU Recommendation this dataset's publication belongs to
+    required: [code]
+    properties:
+      body: { description: "Issuing body (ITU-T, ITU-R)" }
+      code: { description: "Recommendation code (e.g. F.170, E.118)" }
+      version: { description: Version/date of the referenced edition }
+  url:
+    description: Authoritative external resource for this publication
+  source:
+    description: Source file within service-publications-data
+  note:
+    description: Editorial note about this dataset
+    required: [en]
+  external:
+    description: True when the publication is maintained outside the OB pipeline
+  alias_of:
+    description: Canonical dataset this directory aliases
+  locale:
+    description: Localized terms used in the document
+    items:
+      required: [key, en]
+      properties:
+        key: { description: The term identifier }
+        en: { description: English translation }
+        fr: { description: French translation }
+        es: { description: Spanish translation }
+        zh: { description: Chinese translation }
+        ch: { description: Chinese translation (legacy alias of zh) }
+        ru: { description: Russian translation }
+        ar: { description: Arabic translation }

@@ -10,11 +10,13 @@ module DataSchemaParity
   def build_parity_schemas(root, repo_root)
     ontology = "ituob/lib/ituob/ontology"
     FileUtils.mkdir_p(File.join(root, ontology))
-    %w[messages.lml data_schemas.yaml data_schema_overlays].each do |name|
+    %w[messages.lml data_schemas.yaml document_schemas.yaml data_schema_overlays].each do |name|
       FileUtils.cp_r(File.join(repo_root, ontology, name), File.join(root, ontology))
     end
     mapping = YAML.load_file(File.join(root, ontology, "data_schemas.yaml"))
     mapping.each_key { |slug| FileUtils.mkdir_p(File.join(root, "datasets", slug)) }
+    documents = YAML.load_file(File.join(root, ontology, "document_schemas.yaml"))
+    documents.each_value { |spec| FileUtils.mkdir_p(File.dirname(File.join(root, spec.fetch("path")))) }
     _out, err, status = Open3.capture3(
       { "ITUOB_SCHEMA_ROOT" => root }, RbConfig.ruby,
       File.join(repo_root, "scripts/generate_data_schemas.rb")
