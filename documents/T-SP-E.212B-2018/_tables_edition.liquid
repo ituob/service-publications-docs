@@ -3,7 +3,7 @@
   provider:ituob.edition). Replaces the `data`/`metadata` section of _tables.liquid
   for documents migrated off yaml2text (spd#89 C8, English only).
 
-  Labels are English literals until locale(register:) (spd#102) is on main.
+  Localized title and column headers come from the provider metadata.
 
   The country cell spans a RUN of consecutive items with the same country. The
   old section counted every item of that country in the whole list, which is only
@@ -16,13 +16,13 @@
   and do not break a country run. The country label is the first non-blank of
   en, fr, es, ru, zh, ar. Every cell escapes "|" so it cannot split a table cell.
 {% endcomment %}
-== Mobile Network Codes (MNC) for the international identification plan for public networks and subscriptions (According to Recommendation ITU-T E.212 (09/2016))
+== {{ edition.metadata.title.en }}
 
 [cols="25%,55%,20%",options="header,unnumbered"]
 |===
-| Country or Geographical Area
-| Networks
-^| MCC + MNC codes
+| {{ edition.metadata.locale | where: "key", "country_or_area" | map: "en" | first }}
+| {{ edition.metadata.locale | where: "key", "networks" | map: "en" | first }}
+^| {{ edition.metadata.locale | where: "key", "mcc_mnc_codes" | map: "en" | first }}
 
 {% assign items = edition.items %}
 {% assign previous = "-" %}

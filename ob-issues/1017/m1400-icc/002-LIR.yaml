@@ -14,22 +14,10 @@ data:
     company_name: Cubic AG
     carrier_code: FLCUBI
     contact: Markus Wanger
-  - iso_code: LIE
-    country_or_area:
-      en: Liechtenstein (Principality of)
-    company_name: Auelestrasse 45
-    contact: 'Tel:        +423 237 5232'
+    address_line_1: Auelestrasse 45
     tel: "+423 237 5232"
-  - iso_code: LIE
-    country_or_area:
-      en: Liechtenstein (Principality of)
-    company_name: 9490 VADUZ
-    contact: 'Fax:       +423 237 5233'
+    address_line_2: 9490 VADUZ
     fax: "+423 237 5233"
-  - iso_code: LIE
-    country_or_area:
-      en: Liechtenstein (Principality of)
-    contact: 'E-mail:    markus.wanger@wanger.net'
     email:
     - markus.wanger@wanger.net
   - iso_code: LIE
@@ -38,22 +26,10 @@ data:
     company_name: Telecom Liechtenstein AG
     carrier_code: FLTLI
     contact: Frank Boller
-  - iso_code: LIE
-    country_or_area:
-      en: Liechtenstein (Principality of)
-    company_name: Schaanerstrasse 1
-    contact: 'Tel:        +423 235 5600'
+    address_line_1: Schaanerstrasse 1
     tel: "+423 235 5600"
-  - iso_code: LIE
-    country_or_area:
-      en: Liechtenstein (Principality of)
-    company_name: 9490 VADUZ
-    contact: 'Fax:       +423 235 5663'
+    address_line_2: 9490 VADUZ
     fax: "+423 235 5663"
-  - iso_code: LIE
-    country_or_area:
-      en: Liechtenstein (Principality of)
-    contact: 'E-mail: frank.boller@telecom.li'
     email:
     - frank.boller@telecom.li
   notes: []

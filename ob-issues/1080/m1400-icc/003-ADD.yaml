@@ -18,22 +18,10 @@ data:
     company_name: Operator Telekommunikation International AG
     carrier_code: OPAG
     contact: Mr. Dirk Opfinger
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Am Weinhaus 6
-    contact: 'Tel.: +49 2102 5658 501'
+    address_line_1: Am Weinhaus 6
     tel: "+49 2102 5658 501"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 40882 RATINGEN
-    contact: 'Fax: +49 2102 5658 9501'
+    address_line_2: 40882 RATINGEN
     fax: "+49 2102 5658 9501"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail: d.opfinger@operator.de'
     email:
     - d.opfinger@operator.de
   notes: []

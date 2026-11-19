@@ -15,23 +15,11 @@ data:
     company_name: Broadband Gibraltar Limited Sapphire Networks
     carrier_code: SAPNET
     contact: Mr. Jimmy Imossi
-  - iso_code: GIB
-    country_or_area:
-      en: Gibraltar
-    company_name: Suite 3.0.3 Eurotowers
-    contact: 'Tel:            +350 2004 7204'
+    address_line_1: Suite 3.0.3 Eurotowers
     tel: "+350 2004 7204"
-  - iso_code: GIB
-    country_or_area:
-      en: Gibraltar
-    company_name: PO Box 797
-    contact: 'Fax:           +350 2004 7272'
+    address_line_2: PO Box 797
     fax: "+350 2004 7272"
-  - iso_code: GIB
-    country_or_area:
-      en: Gibraltar
-    company_name: Gibraltar
-    contact: 'E-mail:     jimossi@sapphire.gi'
+    address_line_3: Gibraltar
     email:
     - jimossi@sapphire.gi
   notes: []

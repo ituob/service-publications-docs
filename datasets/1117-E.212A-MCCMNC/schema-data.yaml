@@ -1,15 +1,12 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (E212AMCCMNCEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 1117 E.212A MCC/MNC
-description: Schema for ITU Operational Bulletin E.212A MCC/MNC data
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for E.212A-MCCMNC (generated from LML E212AMCCMNCEntry)
+x-lml-model: E212AMCCMNCEntry
 type: array
 items:
   type: object
-  required:
-    - mcc_mnc
-    - network
-    - status
   additionalProperties: false
   properties:
     mcc_mnc:
@@ -22,7 +19,12 @@ items:
       type: string
       description: Assignment status of the MCC/MNC combination
       enum:
-        - assigned
+      - assigned
     former_name:
       type: string
       description: Previous name of the network operator, if applicable
+  required:
+  - mcc_mnc
+  - network
+  - status
+description: Schema for ITU Operational Bulletin E.212A MCC/MNC data

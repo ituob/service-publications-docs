@@ -4,7 +4,7 @@
 
 [cols="2",options="header,unnumbered"]
 |===
-| Code | Country or geographical area
+| {{ metadata.locale | where: "key", "code" | map: lang | first }} | {{ metadata.locale | where: "key", "country_or_area" | map: lang | first }}
 
 {% assign szone = "" | append: n %}
 {% assign specific_zone = data | where: "zone", szone %}

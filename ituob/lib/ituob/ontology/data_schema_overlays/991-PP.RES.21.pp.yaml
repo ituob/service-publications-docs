@@ -1,0 +1,23 @@
+---
+description: ITU OB Dataset Schema for 991-PP.RES.21
+items:
+  required:
+  - number
+  additionalProperties: false
+  properties:
+    number:
+      description: The sequential number of the entry.
+    geographic_area:
+      description: The geographic area associated with the entry.
+      required:
+      - en
+      - fr
+      - es
+      additionalProperties: false
+      properties:
+        en:
+          description: Geographic area name in English.
+        fr:
+          description: Geographic area name in French.
+        es:
+          description: Geographic area name in Spanish.

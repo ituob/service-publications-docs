@@ -117,6 +117,21 @@ RSpec.describe PdfCoverageMatrix do
     expect([row.issue, row.data_path, row.registers.map(&:slug)]).to eq([1161, 'mixed', %w[e118-iin f1]])
   end
 
+  it 'tracks dataset-based provider sources, mapping known seeds and retaining unknown datasets' do
+    path = 'documents/T-SP-E.118-2018/T-SP-E.118-2018-E.adoc'
+    File.open(File.join(@root, path), 'a') do |file|
+      file.puts('[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"datasets":["669-F.1","955-E.180"],"as_of":955}}]')
+    end
+    row = row_for('E.118', 'E')
+
+    expect([row.issue, row.datasets, row.data_path]).to eq(
+      [1161, [['1161-E.118', 1161], ['669-F.1', 955], ['955-E.180', 955]], 'mixed']
+    )
+    expect(row.registers.map(&:slug)).to eq(%w[e118-iin f1])
+    expect(row.unmapped).to eq(['955-E.180'])
+    expect(row.flag).to eq('outdated: e118-iin at 1342')
+  end
+
   it 'emits one row per publication and language, sorted, ignoring non-documents' do
     expect(rows.map { |r| [r.standard, r.year, r.language] }).to eq(
       [%w[E.118 2018 E], %w[E.118 2018 F], %w[F.1 1998 E], %w[SR.1 2012 S]]

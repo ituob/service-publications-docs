@@ -5,32 +5,17 @@ ob_issue_no: '1050'
 identifier:
   code: VTHH
 data:
-  _class: M1400Amendment
+  iso_code: DEU
+  country_or_area:
+    en: Germany (Federal Republic of)
+  company_name: Versatel Hanse GmbH
+  carrier_code: VTHH
+  contact: Mr. Marco Rossi
+  address_line_1: Niederkasseler Lohweg 181 - 183
+  tel: "+ 49 461 9090 546"
+  address_line_2: 40547 Duesseldorf
+  fax: "+ 49 461 9090 60546"
+  email:
+  - marco.rossi@versatel.de
   position: Germany (Federal Republic of) / DEU
-  entries:
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Versatel Hanse GmbH
-    carrier_code: VTHH
-    contact: Mr. Marco Rossi
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Niederkasseler Lohweg 181 - 183
-    contact: 'Tel:           + 49 461 9090 546'
-    tel: "+ 49 461 9090 546"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 40547 Duesseldorf
-    contact: 'Fax:          + 49 461 9090 60546'
-    fax: "+ 49 461 9090 60546"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:     marco.rossi@versatel.de'
-    email:
-    - marco.rossi@versatel.de
-  notes: []
 reference: OB-1050

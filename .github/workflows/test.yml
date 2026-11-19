@@ -67,9 +67,12 @@ jobs:
     - name: Check generated data schemas are in sync with the LML
       env:
         BUNDLE_GEMFILE: ituob/Gemfile
-      run: |
-        bundle exec ruby scripts/generate_data_schemas.rb
-        git diff --exit-code -- datasets
+      run: bundle exec ruby scripts/generate_data_schemas.rb --verify
+
+    - name: Validate every dataset seed through its LML Entry class
+      env:
+        BUNDLE_GEMFILE: ituob/Gemfile
+      run: bundle exec ruby scripts/validate_data_lml.rb --datasets-only
 
     - name: Run the ituob gem suite
       env:

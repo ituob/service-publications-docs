@@ -1,28 +1,17 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (E212ExtraTerritorialEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 1162 E.212 Extra-Territorial Use
-description: Schema for ITU Operational Bulletin E.212 Extra-Territorial Use data
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for E.212-ET (generated from LML E212ExtraTerritorialEntry)
+x-lml-model: E212ExtraTerritorialEntry
 type: array
 items:
   type: object
   additionalProperties: false
-  required:
-  - country_or_area
-  - country_type
-  - mcc_mnc
-  - operator_network
   properties:
     country_or_area:
       type: object
       additionalProperties: false
-      required:
-      - en
-      - fr
-      - es
-      - ru
-      - zh
-      - ar
       properties:
         en:
           type: string
@@ -36,16 +25,32 @@ items:
           type: string
         ar:
           type: string
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
     country_type:
       type: string
-      enum: ["A", "B"]
-      description: "Country A is where MCC+MNC is assigned, Country B is where it's used extra-territorially"
+      enum:
+      - A
+      - B
+      description: Country A is where MCC+MNC is assigned, Country B is where it's
+        used extra-territorially
     mcc_mnc:
       type: string
-      description: "Mobile Country Code + Mobile Network Code"
+      description: Mobile Country Code + Mobile Network Code
     msin_range:
       type: string
-      description: "Mobile Subscription Identification Number range"
+      description: Mobile Subscription Identification Number range
     operator_network:
       type: string
-      description: "Name of the operator/network"
+      description: Name of the operator/network
+  required:
+  - country_or_area
+  - country_type
+  - mcc_mnc
+  - operator_network
+description: Schema for ITU Operational Bulletin E.212 Extra-Territorial Use data

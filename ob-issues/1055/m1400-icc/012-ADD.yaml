@@ -14,22 +14,10 @@ data:
     company_name: net.art communications GmbH
     carrier_code: NETART
     contact: Mrs. Sandra Braun
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Mannheimer Strasse 212
-    contact: 'Tel:           + 49 671 88908 0'
+    address_line_1: Mannheimer Strasse 212
     tel: "+ 49 671 88908 0"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 55543 Bad Kreuznach
-    contact: 'Fax:          + 49 671 8962690'
+    address_line_2: 55543 Bad Kreuznach
     fax: "+ 49 671 8962690"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:    s.braun@na-gmbh.de'
     email:
     - s.braun@na-gmbh.de
   notes: []

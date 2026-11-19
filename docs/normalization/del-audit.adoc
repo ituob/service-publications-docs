@@ -1,5 +1,12 @@
 = Printed deletion classification audit
 
+Follow-up to correctness review F1 on PR #135: the OB 1335 Q.708 ISPC
+rebuild is now complete. `001-ADD.yaml` retains Spain's `2-027-4`;
+`002-DEL.yaml` carries Sweden's `2-080-2`, `2-080-3` and `2-081-6`.
+`q708ispc_stored_deletion_spec.rb` checks the stored actions and replay against
+official OB 1335, printed page 17. The inventory below records the original
+audit snapshot; its OB 1335 rebuild status is superseded by this follow-up.
+
 == Result and boundary
 
 The local source contains one genuine printed `DEL` action: Sweden in OB 1335,

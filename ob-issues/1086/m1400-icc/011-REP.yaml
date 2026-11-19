@@ -8,28 +8,16 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: Join Experience S.A.
+  - company_name: Join Experience S.A.
     carrier_code: JOINLU
     contact: Mr. Luc Van den Bogaert
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: 11, rue de Bitbourg
-    contact: 'Tel:           +352 671 880 100'
+    address_line_1: 11, rue de Bitbourg
     tel: "+352 671 880 100"
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: L-1273 LUXEMBOURG
-    contact: 'Fax:          +352 28 89 90 21'
+    address_line_2: L-1273 LUXEMBOURG
     fax: "+352 28 89 90 21"
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    contact: 'E-mail:     luc.vdbogaert@joinexperience.com'
     email:
     - luc.vdbogaert@joinexperience.com
+    country_or_area:
+      en: Luxembourg
+    iso_code: LUX
   notes: []

@@ -1,0 +1,52 @@
+---
+description: ITU OB Dataset Schema for 1000-SR.1
+items:
+  required:
+  - geographic_area
+  - name
+  additionalProperties: false
+  properties:
+    name:
+      description: The name of the country or geographical area.
+    geographic_area:
+      description: Information about geographic area restrictions and service availability
+      required:
+      - en
+      - fr
+      - es
+      properties:
+        en:
+          description: English description of the geographic area.
+        fr:
+          description: French description of the geographic area.
+        es:
+          description: Spanish description of the geographic area.
+    restrictions:
+      properties:
+        telex_not_provided:
+          description: Indicates if telex service is not provided.
+        telegram_not_provided:
+          description: Indicates if telegram service is not provided.
+        no_collect_calls:
+          properties:
+            mobile:
+              description: Indicates if collect calls are not allowed for mobile services.
+            payphone:
+              description: Indicates if collect calls are not allowed for payphone
+                services.
+            audiotex:
+              description: Indicates if collect calls are not allowed for audiotex
+                services.
+    notes:
+      description: Notes related to the service restrictions. This field is optional.
+      required:
+      - en
+      - fr
+      - es
+      properties:
+        en:
+          description: English note related to the service restrictions.
+        fr:
+          description: French note related to the service restrictions.
+        es:
+          description: Spanish note related to the service restrictions.

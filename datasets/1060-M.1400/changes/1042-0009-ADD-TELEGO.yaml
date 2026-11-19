@@ -5,30 +5,15 @@ ob_issue_no: '1042'
 identifier:
   code: TELEGO
 data:
-  _class: M1400Amendment
-  entries:
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (República Federal de)
-    company_name: telego! GmbH
-    carrier_code: TELEGO
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (República Federal de)
-    company_name: Mehlbeerenstrasse 2
-    contact: 'Tel:            + 49 89 273747 0'
-    tel: "+ 49 89 273747 0"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (República Federal de)
-    company_name: 82024 TAUFKIRCHEN
-    contact: 'Fax:           + 49 89 273747 400'
-    fax: "+ 49 89 273747 400"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (República Federal de)
-    contact: 'E-mail :                     info@telego.de'
-    email:
-    - info@telego.de
-  notes: []
+  iso_code: DEU
+  country_or_area:
+    en: Germany (República Federal de)
+  company_name: telego! GmbH
+  carrier_code: TELEGO
+  address_line_1: Mehlbeerenstrasse 2
+  tel: "+ 49 89 273747 0"
+  address_line_2: 82024 TAUFKIRCHEN
+  fax: "+ 49 89 273747 400"
+  email:
+  - info@telego.de
 reference: OB-1042

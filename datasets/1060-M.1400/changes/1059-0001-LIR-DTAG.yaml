@@ -6,34 +6,22 @@ identifier:
   code: DTAG
 data:
   _class: M1400Amendment
-  position: Germany (Federal Republic of) / DEU
   entries:
-  - iso_code: DEU
+  - company_name: Germany (Federal Republic of) DEU
     country_or_area:
       en: Germany (Federal Republic of)
-    company_name: Germany (Federal Republic of) DEU
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Telekom Deutschland GmbH
+    iso_code: DEU
+  - company_name: Telekom Deutschland GmbH
     carrier_code: DTAG
     contact: Mr. Benjamin Boeling
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Landgrabenweg 151
-    contact: 'Tel:           + 49 228 181 64514'
+    address_line_1: Landgrabenweg 151
     tel: "+ 49 228 181 64514"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 53227 Bonn
-    contact: 'Fax:'
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:     benjamin.boeling @ telekom.de'
+    address_line_2: 53227 Bonn
     email:
     - benjamin.boeling @ telekom.de
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   notes: []
+  position: Germany (Federal Republic of) / DEU
 reference: OB-1059

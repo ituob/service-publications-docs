@@ -20,6 +20,8 @@ data:
       en: BARCELONA MADRID Telegrams with service indication TFx Toutes destinations
         All destinations - Todos los destinos
     office_code: ESBX ESMX ESTT 1 ESXX
+    network_codes:
+    - ES
   notes:
   - 1 The destination indicator "ESTT" will be used in telegrams with service indication
     =TFx= (telephone delivery, x = telephone number) to facilitate communication with

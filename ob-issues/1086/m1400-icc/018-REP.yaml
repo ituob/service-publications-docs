@@ -8,28 +8,16 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: Visual Online S.A.
+  - company_name: Visual Online S.A.
     carrier_code: VO
     contact: Mr. Christian Gatti
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: 6, rue Goell
-    contact: 'Tel:            +352 42 44 11'
+    address_line_1: 6, rue Goell
     tel: "+352 42 44 11"
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: L-5326 CONTERN
-    contact: 'Fax:           +352 42 44 11 44'
+    address_line_2: L-5326 CONTERN
     fax: "+352 42 44 11 44"
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    contact: 'E-mail:      cgatti@visual-online.lu'
     email:
     - cgatti@visual-online.lu
+    country_or_area:
+      en: Luxembourg
+    iso_code: LUX
   notes: []

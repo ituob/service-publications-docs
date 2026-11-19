@@ -1,9 +1,8 @@
-# Which LML Entry class is the data schema of which register dataset.
-# scripts/generate_data_schemas.rb writes datasets/<slug>/schema-data.yaml
-# from the class in messages.lml; CI regenerates and fails on any diff.
-# Datasets not listed here keep their hand-maintained schema-data.yaml
-# (their LML Entry class is missing or does not match the dataset yet).
+# Complete dataset schema inventory; every schema-data.yaml is generated from LML.
+---
+1000-SR.1: SR1Entry
 1001-T.35B: T35NAEntry
+1002-T.35: T35CodeEntry
 1015-E.164B: E164BEntry
 1060-M.1400: M1400Entry
 1109-Q.708B: Q708ISPCEntry
@@ -11,15 +10,33 @@
 1114-E.164D-Note-N: E164DNoteNEntry
 1114-E.164D-Note-O: E164DNoteOEntry
 1114-E.164D-Note-PQ: E164DNotePQEntry
+1117-E.212A: E212ACountryEntry
+1117-E.212A-MCCMNC: E212AMCCMNCEntry
 1125-E.218: E218TRCCEntry
 1125-Q.708A: Q708SANCEntry
+1154-RR.25.1: RR251SeedEntry
 1161-E.118: E118Entry
 1162-E.212: E212MNCEntry
+1162-E.212-ET: E212ExtraTerritorialEntry
+1162-E.212-MCC-Others: E212OtherAssignmentEntry
 1162-E.212-Shared-MCC: E212MNCEntry
+669-F.1: F1ServiceCodeEntry
+955-E.180: E180ToneEntry
 974-F.400: F400Entry
+976-X.121A: X121CountryEntry
 977-X.121B: X121DNICEntry
+978-F.68: F68Entry
+978-F.68-A1: F68Appendix1Entry
+978-F.68-A2: F68Appendix2Entry
 980-F.32: F32TDIEntry
+991-PP.RES.21.pp: PPResolution21Entry
 994-E.164C: DPEntry
+bureaufax: BureaufaxEntry
+coast-stations: CoastStationEntry
+country-names: CountryNameEntry
 icc: M1400Entry
+iso-3166: ISO3166Entry
+list-v: ListVEntry
 list-viii: ListVIIIStation
 nnp: NumberingPlanEntry
+roa: ROAEntry

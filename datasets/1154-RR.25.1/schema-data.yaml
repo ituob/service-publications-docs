@@ -1,131 +1,204 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (RR251SeedEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 1154-RR.25.1
-description: ITU OB Dataset Schema for 1154-RR.25.1
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for RR.25.1 (generated from LML RR251SeedEntry)
+x-lml-model: RR251SeedEntry
 type: array
-$defs:
-  segment:
-    type: object
-    required:
-    - segment_type
-    additionalProperties: false
-    properties:
-      segment_type:
-        type: string
-        description: Type of segment
-        enum:
-        - enum
-        - range
-        - string
-        - codelist
-      cardinality:
-        type: string
-        description: Cardinality for the segment
-      key:
-        type: string
-        description: Key for the segment type
-      value:
-        type: string
-        description: Value for the "string" segment type
-      values:
-        type: array
-        description: Values for the "enum" segment type
-        items:
-          $ref: '#/$defs/segment'
-      range:
-        type: object
-        description: Range for the "range" segment type
-        properties:
-          from:
-            type: string
-            description: Starting value of the range
-          to:
-            type: string
-            description: Ending value of the range
-          cardinality:
-            type: string
-            description: Cardinality for the "range" segment
-        additionalProperties: false
-      codelist:
-        type: string
-        description: Codelist for the "codelist" segment type
-  group:
-    type: object
-    required:
-    - regex
-    additionalProperties: false
-    properties:
-      name:
-        description: Name of the group
-        type: string
-      regex:
-        description: Regular expression for group
-        type: string
-      description:
-        description: English prose form of the call signs, as printed in the official publication (rendered instead of the regex in English)
-        type: string
-      criteria:
-        description: Criteria for group
-        type: array
-        items:
-          $ref: '#/$defs/segment'
-  code:
-    type: object
-    required:
-    - code
-    # - name
-    properties:
-      code:
-        oneOf:
-        - type: string
-        - type: object
-          properties:
-            from:
-              type: string
-              description: Starting value of the code
-            to:
-              type: string
-              description: Ending value of the code
-          additionalProperties: false
-          name:
-            type: string
-            description: Name of the code
-
 items:
   type: object
-  required:
-  - groups
-  - country_or_area
   additionalProperties: false
   properties:
     country_or_area:
       type: string
       description: Country or geographical area the row applies to
     groups:
-      description: Groups information
       type: object
+      additionalProperties: false
       properties:
+        experimential:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              name:
+                type: string
+              regex:
+                type: string
+              description:
+                type: string
+              criteria:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    segment_type:
+                      type: string
+                    cardinality:
+                      type: string
+                    key:
+                      type: string
+                    value:
+                      type: string
+                    values:
+                      type: array
+                      items:
+                        "$ref": "#/items/properties/groups/properties/experimential/items/properties/criteria/items"
+                    range:
+                      type: object
+                      additionalProperties: false
+                      properties:
+                        from:
+                          type: string
+                        to:
+                          type: string
+                        cardinality:
+                          type: string
+                    codelist:
+                      type: string
         amateur:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              name:
+                type: string
+                description: Name of the group
+              regex:
+                type: string
+                description: Regular expression for group
+              description:
+                type: string
+                description: English prose form of the call signs, as printed in the
+                  official publication (rendered instead of the regex in English)
+              criteria:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    segment_type:
+                      type: string
+                      description: Type of segment
+                      enum:
+                      - enum
+                      - range
+                      - string
+                      - codelist
+                    cardinality:
+                      type: string
+                      description: Cardinality for the segment
+                    key:
+                      type: string
+                      description: Key for the segment type
+                    value:
+                      type: string
+                      description: Value for the "string" segment type
+                    values:
+                      type: array
+                      items:
+                        "$ref": "#/items/properties/groups/properties/amateur/items/properties/criteria/items"
+                      description: Values for the "enum" segment type
+                    range:
+                      type: object
+                      additionalProperties: false
+                      properties:
+                        from:
+                          type: string
+                          description: Starting value of the range
+                        to:
+                          type: string
+                          description: Ending value of the range
+                        cardinality:
+                          type: string
+                          description: Cardinality for the "range" segment
+                      description: Range for the "range" segment type
+                    codelist:
+                      type: string
+                      description: Codelist for the "codelist" segment type
+                  required:
+                  - segment_type
+                description: Criteria for group
+            required:
+            - regex
           description: Amateur group information
-          type: array
-          items:
-            $ref: '#/$defs/group'
-
         experimental:
-          description: Experimental group information
           type: array
           items:
-            $ref: '#/$defs/group'
+            type: object
+            additionalProperties: false
+            properties:
+              name:
+                type: string
+                description: Name of the group
+              regex:
+                type: string
+                description: Regular expression for group
+              description:
+                type: string
+                description: English prose form of the call signs, as printed in the
+                  official publication (rendered instead of the regex in English)
+              criteria:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    segment_type:
+                      type: string
+                      description: Type of segment
+                      enum:
+                      - enum
+                      - range
+                      - string
+                      - codelist
+                    cardinality:
+                      type: string
+                      description: Cardinality for the segment
+                    key:
+                      type: string
+                      description: Key for the segment type
+                    value:
+                      type: string
+                      description: Value for the "string" segment type
+                    values:
+                      type: array
+                      items:
+                        "$ref": "#/items/properties/groups/properties/experimental/items/properties/criteria/items"
+                      description: Values for the "enum" segment type
+                    range:
+                      type: object
+                      additionalProperties: false
+                      properties:
+                        from:
+                          type: string
+                          description: Starting value of the range
+                        to:
+                          type: string
+                          description: Ending value of the range
+                        cardinality:
+                          type: string
+                          description: Cardinality for the "range" segment
+                      description: Range for the "range" segment type
+                    codelist:
+                      type: string
+                      description: Codelist for the "codelist" segment type
+                  required:
+                  - segment_type
+                description: Criteria for group
+            required:
+            - regex
+          description: Experimental group information
+      description: Groups information
       required:
       - amateur
-
     codelists:
       type: array
       items:
         type: object
-        required:
-        - name
         additionalProperties: false
         properties:
           name:
@@ -134,9 +207,36 @@ items:
           list:
             type: array
             items:
-              $ref: '#/$defs/code'
+              type: object
+              additionalProperties: false
+              properties:
+                name:
+                  type: string
+                code:
+                  type:
+                  - string
+                  - object
+                  oneOf:
+                  - type: string
+                  - type: object
+                    properties:
+                      from:
+                        type: string
+                        description: Starting value of the code
+                      to:
+                        type: string
+                        description: Ending value of the code
+                    additionalProperties: false
+              required:
+              - code
+        required:
+        - name
     notes:
       type: array
       items:
         type: string
       description: Notes for the dataset
+  required:
+  - groups
+  - country_or_area
+description: ITU OB Dataset Schema for 1154-RR.25.1

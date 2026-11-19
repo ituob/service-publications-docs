@@ -1,0 +1,22 @@
+---
+description: ITU OB Dataset Schema for ISO 3166
+items:
+  required:
+  - code
+  - name
+  properties:
+    code:
+      description: Country code (ISO-3166 alpha-2)
+    name:
+      description: Localized country or geographical area names
+      required:
+      - en
+      - fr
+      - es
+      properties:
+        en:
+          description: English name
+        fr:
+          description: French name
+        es:
+          description: Spanish name

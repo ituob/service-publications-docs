@@ -5,32 +5,17 @@ ob_issue_no: '1087'
 identifier:
   code: DGKSMB
 data:
-  _class: M1400Amendment
+  iso_code: DEU
+  country_or_area:
+    en: Germany (Federal Republic of)
+  company_name: Deutsche Gesellschaft für Kommunikation und Service mbH
+  carrier_code: DGKSMB
+  contact: Mr. Torsten Becker
+  address_line_1: Scheerengasse 10-12
+  tel: "+49 69 173201 112"
+  address_line_2: 60599 FRANKFURT
+  fax: "+49 69 173201 199"
+  email:
+  - info@sip-telefonanlagen.de
   position: Germany (Federal Republic of) / DEU
-  entries:
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Deutsche Gesellschaft für Kommunikation und Service mbH
-    carrier_code: DGKSMB
-    contact: Mr. Torsten Becker
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Scheerengasse 10-12
-    contact: 'Tel:           +49 69 173201 112'
-    tel: "+49 69 173201 112"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 60599 FRANKFURT
-    contact: 'Fax:          +49 69 173201 199'
-    fax: "+49 69 173201 199"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:    info@sip-telefonanlagen.de'
-    email:
-    - info@sip-telefonanlagen.de
-  notes: []
 reference: OB-1087

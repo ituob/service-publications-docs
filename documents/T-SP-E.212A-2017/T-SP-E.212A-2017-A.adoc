@@ -42,17 +42,17 @@ link:http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/ann
 . التسميات المستخدمة والمواد المعروضة في هذه القائمة لا تعبّر عن أي رأي من جانب الاتحاد بشأن الوضع القانوني
 لأي بلد أو منطقة جغرافية أو لسلطات أيّ منهما.
 
-[yaml2text,data=../../datasets/1117-E.212A/data.yaml,metadata=../../datasets/1117-E.212A/metadata.yaml,data_mcc_mnc=../../datasets/1117-E.212A-MCCMNC/data.yaml,metadata_mcc_mnc=../../datasets/1117-E.212A-MCCMNC/metadata.yaml]
+[lutaml_data,provider:ituob.publication,edition,options={"arguments":{"datasets":["1117-E.212A","1117-E.212A-MCCMNC"],"as_of":1117}}]
 ----
-{% assign lang = "ar" %}
+{% assign source = edition.sources | where: "dataset", "1117-E.212A" | first %}{% assign data = source.items %}{% assign source = edition.sources | where: "dataset", "1117-E.212A" | first %}{% assign metadata = source.metadata %}{% assign source = edition.sources | where: "dataset", "1117-E.212A-MCCMNC" | first %}{% assign data_mcc_mnc = source.items %}{% assign source = edition.sources | where: "dataset", "1117-E.212A-MCCMNC" | first %}{% assign metadata_mcc_mnc = source.metadata %}{% assign lang = "ar" %}
 {% render "tables", data: data, metadata: metadata, data_mcc_mnc: data_mcc_mnc, metadata_mcc_mnc: metadata_mcc_mnc, lang: lang %}
 
 == وفقاً للتوصية ITU-T E.212 عدد الرموز الدليلية الاحتياطية للبلدان أو للمناطق الجغرافية من أجل الاتصالات المتنقلة (MCC)
 
 [cols="^,^",options="unnumbered"]
 |===
-| الرموز الدليلية للبلدان أو للمناطق الجغرافيةمن أجل الاتصالات المنتقلة، سلسلة الأرقام
-| عدد الرموز الدليلية الاحتياطية
+| {{ metadata.locale | where: "key", "spare_code_range" | map: lang | first }}
+| {{ metadata.locale | where: "key", "spare_code_count" | map: lang | first }}
 
 | 000 - 099 | محجاوز
 | 100 - 199 | محجاوز
@@ -70,9 +70,9 @@ link:http://www.itu.int/itu-t/bulletin/annex.html[www.itu.int/itu-t/bulletin/ann
 
 [cols="^,^,^",options="unnumbered"]
 |===
-| رقم التعديل
-| رقم النشرة التشغيلية
-| البلد
+| {{ metadata.locale | where: "key", "amendment_number" | map: lang | first }}
+| {{ metadata.locale | where: "key", "bulletin_number" | map: lang | first }}
+| {{ metadata.locale | where: "key", "country" | map: lang | first }}
 
 {% for i in (1..30) %}
 | {{ i }} | |

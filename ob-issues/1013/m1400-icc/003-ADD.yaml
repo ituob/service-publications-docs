@@ -14,22 +14,10 @@ data:
     company_name: Vattenfall Europe Netcom GmbH
     carrier_code: VENC
     contact: Dr. Carsten Krüger
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Koepenicker Strasse 73
-    contact: 'Tel:            + 49 30 202155 100'
+    address_line_1: Koepenicker Strasse 73
     tel: "+ 49 30 202155 100"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 10179 Berlin
-    contact: 'Fax:           + 49 30 202155 101'
+    address_line_2: 10179 Berlin
     fax: "+ 49 30 202155 101"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: E-mail      info.netcom @ vattenfall.de
     email:
     - info.netcom @ vattenfall.de
   notes: []

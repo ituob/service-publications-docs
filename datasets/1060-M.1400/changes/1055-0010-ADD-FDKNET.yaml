@@ -5,30 +5,15 @@ ob_issue_no: '1055'
 identifier:
   code: FDKNET
 data:
-  _class: M1400Amendment
-  entries:
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Freenet Datenkommunikations GmbH
-    carrier_code: FDKNET
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Deelboegenkamp 4 c
-    contact: 'Tel:           + 49 211 53087 100'
-    tel: "+ 49 211 53087 100"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 22297 Hamburg
-    contact: 'Fax:          + 49 211 53087 111'
-    fax: "+ 49 211 53087 111"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:    service@freenet-business.de'
-    email:
-    - service@freenet-business.de
-  notes: []
+  iso_code: DEU
+  country_or_area:
+    en: Germany (Federal Republic of)
+  company_name: Freenet Datenkommunikations GmbH
+  carrier_code: FDKNET
+  address_line_1: Deelboegenkamp 4 c
+  tel: "+ 49 211 53087 100"
+  address_line_2: 22297 Hamburg
+  fax: "+ 49 211 53087 111"
+  email:
+  - service@freenet-business.de
 reference: OB-1055

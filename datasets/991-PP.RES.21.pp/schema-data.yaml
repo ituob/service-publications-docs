@@ -1,18 +1,20 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (PPResolution21Entry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 991-PP.RES.21
-description: ITU OB Dataset Schema for 991-PP.RES.21
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for PP.RES.21.pp (generated from LML PPResolution21Entry)
+x-lml-model: PPResolution21Entry
 type: array
 items:
   type: object
+  additionalProperties: false
   properties:
     number:
       type: integer
       description: The sequential number of the entry.
     geographic_area:
       type: object
-      description: The geographic area associated with the entry.
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -23,11 +25,11 @@ items:
         es:
           type: string
           description: Geographic area name in Spanish.
+      description: The geographic area associated with the entry.
       required:
-        - en
-        - fr
-        - es
-      additionalProperties: false
+      - en
+      - fr
+      - es
   required:
-    - number
-  additionalProperties: false
+  - number
+description: ITU OB Dataset Schema for 991-PP.RES.21

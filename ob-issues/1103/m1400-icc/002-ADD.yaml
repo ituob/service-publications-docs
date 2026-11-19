@@ -14,22 +14,10 @@ data:
     company_name: Schoenenberg-Computer GmbH
     carrier_code: RSBNET
     contact: Mr Karl Sonnleitner
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Wilhelmshoehe 12
-    contact: 'Tel.: +49 220691799900'
+    address_line_1: Wilhelmshoehe 12
     tel: "+49 220691799900"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 53797 LOHMAR
-    contact: 'Fax: +49 220682756'
+    address_line_2: 53797 LOHMAR
     fax: "+49 220682756"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail: ks@lohmar.com'
     email:
     - ks@lohmar.com
   notes: []
