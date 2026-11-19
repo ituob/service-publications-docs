@@ -19,7 +19,14 @@
     },
     "T-SP-E.212A-2017-C.adoc": {
       "sha256": "cbd3c2b389a7cb92560f322c46ff40daebd68d2fec85bc11cc14de31d4a5f6ba",
-      "expected_sha256": "cbd3c2b389a7cb92560f322c46ff40daebd68d2fec85bc11cc14de31d4a5f6ba"
+      "expected_sha256": "40cf8a5578702c70e4ef3b4dce00a939e2af9a34bbfd54f8f3088f449b48e8d9",
+      "intended_changes": [
+        {
+          "before": ":fonts: Noto Sans CJK SC\n",
+          "after": ":fonts: Noto Sans SC\n",
+          "count": 1
+        }
+      ]
     },
     "T-SP-E.212A-2017-E.adoc": {
       "sha256": "09bd62987becb8b83ddd75a5620acd07659361297ffb24171ab0fd38c11f9fa4",
@@ -55,9 +62,14 @@
           "before": "| | 申请人/网络 | MCC + MNC codes\n",
           "after": "| | 申请人/网络 | MCC + MNC代码\n",
           "count": 1
+        },
+        {
+          "before": ":fonts: Noto Sans CJK SC\n",
+          "after": ":fonts: Noto Sans SC\n",
+          "count": 1
         }
       ],
-      "expected_sha256": "1b6fbd7dd7643508e2701b81a782734e3b365bda6371efd6e594e1ca7f831d39"
+      "expected_sha256": "a85b9215fbe9a3d45c86e7065ec434e0dc98ca5960d6f24f65530a3b903c89fc"
     },
     "T-SP-E.212B-2018-E.adoc": {
       "sha256": "991228053459be0df959de4e0cace72c058bfd55b4d6fd077fd027e5cda5ea0c",
@@ -228,16 +240,17 @@
       "expected_sha256": "1677c9b58b1aeaa7c2341f5c09d7f43749ecca5d129244c2978e81f1638384b1"
     },
     "T-SP-F.32-2011-E.adoc": {
-      "sha256": "f2cf447bbf5e99ee9024c8c49637d6dbd605db28148284cde69b99771e61ccb9",
-      "expected_sha256": "f2cf447bbf5e99ee9024c8c49637d6dbd605db28148284cde69b99771e61ccb9"
+      "sha256": "b8ee95516f0a01c050d38f04871b35b1ee0417ae419b34ec3c18b4204ddf4e29",
+      "expected_sha256": "b8ee95516f0a01c050d38f04871b35b1ee0417ae419b34ec3c18b4204ddf4e29"
     },
     "T-SP-F.32-2011-F.adoc": {
-      "sha256": "f3b88d076c16946d84f37a845c239406207c46e20b60f5bb2f59adfebd372bb6",
-      "expected_sha256": "f3b88d076c16946d84f37a845c239406207c46e20b60f5bb2f59adfebd372bb6"
+      "sha256": "46b86fcfe73cac5f4262e761925b9dd3fd2be5c1773e00cb06350ee42479f3f8",
+      "expected_sha256": "46b86fcfe73cac5f4262e761925b9dd3fd2be5c1773e00cb06350ee42479f3f8"
     },
     "T-SP-F.32-2011-S.adoc": {
-      "sha256": "67d6d26e4c7a99ee69b5647d726773a7395574056cbd4e7a202cb7c8cf93639e",
-      "expected_sha256": "67d6d26e4c7a99ee69b5647d726773a7395574056cbd4e7a202cb7c8cf93639e"
+      "sha256": "89ea262c67f2d6f21517fc4ce549b3d2a16c7df395416a2e7486b5f0564b24fe",
+      "expected_sha256": "89ea262c67f2d6f21517fc4ce549b3d2a16c7df395416a2e7486b5f0564b24fe"
     }
-  }
+  },
+  "digest_refresh": "E.212A-C and E.212B-C: the Chinese editions now name the font Noto Sans SC (intended change, reversed above). F.32 E/F/S: digests recomputed from provider-rendered AsciiDoc after the printed-layout rewrite of the F.32 data (the F.32 rendering is pinned by scripts/check_f32_content.py against the official PDFs, not by this byte digest)."
 }

@@ -133,5 +133,27 @@ RSpec.describe Ituob::Models::F32SeedBuilder do
     it "accounts for every printed office row" do
       expect(complete.allocations.length).to eq(1088)
     end
+
+    describe "printed-row cells" do
+      let(:printed) { complete.contexts.select { |context| context.kind == "printed-row" }.map { |context| context.entry } }
+
+      it "keeps the full network code when a footnote mark follows it (GIBRALTAR GK- -)" do
+        codes = printed.select { |entry| entry.source_language == "en" && entry.source_cells[0] == "GIBRALTAR" }
+                       .map { |entry| entry.source_cells[2] }
+        expect(codes.reject(&:empty?)).to all(start_with("GK- -"))
+        expect(codes.reject(&:empty?)).not_to be_empty
+        expect(complete.contexts.map { |context| context.entry.network_code }.compact).not_to include("GK-")
+      end
+
+      it "gives the first word of an office name to the name cell, not the code cell (RE / All destinations)" do
+        rows = printed.select { |entry| entry.source_language == "en" && entry.source_cells[4] == "REXX" }
+        expect(rows.map(&:source_cells).map { |cells| cells.values_at(2, 3) }).to eq([["RE", "All destinations"]])
+      end
+
+      it "does not glue the second line of a name continued after a slash to the next office (HONDURAS)" do
+        rows = printed.select { |entry| entry.source_language == "fr" && entry.source_cells[4] == "HOPC" }
+        expect(rows.map { |entry| entry.source_cells[3] }).to eq(["Puerto Cortes"])
+      end
+    end
   end
 end

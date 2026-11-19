@@ -96,6 +96,28 @@ class F32ContentTests(unittest.TestCase):
         damaged = PRINTED.replace("1) " + NOTE, "") + "\nAppendix 1: Codes\n1) " + NOTE
         self.assertTrue(any("VANUATU" in error for error in self.errors(damaged)))
 
+    def test_blanked_office_name_is_still_reported_next_to_a_centred_heading(self):
+        # Last office rows of one country, then the next country's label printed
+        # one row below its network row: the office rows are not that country's.
+        generated = "\n".join([
+            HEADER,
+            row("GIBRALTAR", "Printed operator", "GK- -"), row("GIBRALTAR"), row("GIBRALTAR"),
+            row("", "", "", "Madeira", "GKMA"),
+            row("", "", "", "All others", "GKXX"),
+            row("", "Printed operator", "LU- -"), row("LUXEMBOURG"), row("LUXEMBOURG"),
+            row("LUXEMBOURG", "", "", "All destinations", "LUXX"),
+            country("VANUATU", "VU- -", NOTE), country("ZIMBABWE", "ZW- -")])
+        printed = "\n".join([
+            HEADER,
+            row("GIBRALTAR", "Printed operator", "GK- -"), row("GIBRALTAR"), row("GIBRALTAR"),
+            row("", "", "", "Madeira", "GKMA"),
+            row("", "", "", "All others", "GKXX"),
+            country("LUXEMBOURG", "LU- -"),
+            country("VANUATU", "VU- -", NOTE), country("ZIMBABWE", "ZW- -")])
+        self.assertEqual(self.errors(generated, source=printed), [])
+        blanked = generated.replace(row("", "", "", "Madeira", "GKMA"), row("", "", "", "", "GKMA"))
+        self.assertNotEqual(self.errors(blanked, source=printed), [])
+
     def test_official_pdfs_are_fully_scoped_and_self_preserving(self):
         for language in gate.LANGUAGES.values():
             with self.subTest(language=language):

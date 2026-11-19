@@ -271,7 +271,8 @@ def _country_sections(text, countries):
         # In generated tables vertically centered country labels can follow the
         # first network row. Move only to that adjacent row, not earlier offices.
         for before in range(start - 1, max(-1, start - 5), -1):
-            if rows[before][0] or rows[before][5]:
+            # An office name or code belongs to the previous country's rows.
+            if rows[before][0] or rows[before][3] or rows[before][4] or rows[before][5]:
                 break
             if re.search(r"[A-Z]{2}\s*-", rows[before][2]):
                 start = before

@@ -133,8 +133,14 @@ module Ituob
         code_node = nodes.any? { |left, text, _font| left >= 700 && text.match?(PRINTED_CODE_WITH_MARK) }
         nodes.each do |left, text, _font|
           column = [225, 430, 530, 700].count { |boundary| left >= boundary }
+          # Poppler also folds the first word of the office name into the code
+          # node ("RE All" + "destinations"): the word belongs to the name cell.
+          if column == 2 && (match = text.match(/\A(?<code>[A-Z]{2}(?:\s*-){0,2})\s+(?<name>\p{Lu}\p{Ll}.*)\z/)) &&
+              nodes.any? { |left, other| left >= 530 && left < 700 && other != text }
+            cells[2] << match[:code]
+            cells[3] << match[:name]
           # The PDF extractor sometimes combines ROA and code into one node.
-          if column < 2 && (match = text.match(/\A(?:(?<label>.*?)\s+)?(?<code>[A-Z]{2}\s*-\s*-?)\z/))
+          elsif column < 2 && (match = text.match(/\A(?:(?<label>.*?)\s+)?(?<code>[A-Z]{2}\s*-\s*-?)\z/))
             cells[column] << match[:label] unless match[:label].to_s.empty?
             cells[2] << match[:code]
           elsif column == 3 && !code_node && (match = text.match(/\A(?<name>.*?)\s*(?<code>--[A-Z]{2}|[A-Z]{4})\z/)) &&
@@ -220,18 +226,27 @@ module Ituob
       def join_wrapped_office_names
         records = @publication.contexts.select { |record| record.kind == "printed-row" }
         joined = []
-        records.each_cons(2) do |first, second|
+        [nil, *records].each_cons(3) do |before, first, second|
           next if joined.include?(first)
 
           above = first.entry
           below = second.entry
-          next unless wrapped_office_name?(above, below)
+          next unless wrapped_office_name?(above, below) && !(before && continues_name?(before.entry, above))
 
           above.source_cells[3] = "#{above.source_cells[3]} #{below.source_cells[3]}"
           above.source_cells[4] = below.source_cells[4]
           joined << second
         end
         @publication.contexts.reject! { |record| joined.include?(record) }
+      end
+
+      # A name ending in "/" ("La Ceiba Honduras /") continues on the next line,
+      # where its code is already printed beside the first line: that next line
+      # is the rest of a finished cell, not the first half of another name.
+      def continues_name?(before, above)
+        before.source_language == above.source_language && before.source_page == above.source_page &&
+          before.source_cells.length == 5 && before.source_cells[3].end_with?("/") &&
+          !before.source_cells[4].empty?
       end
 
       def wrapped_office_name?(above, below)
@@ -326,7 +341,7 @@ module Ituob
           @current_network = prefix
           @network_names[prefix] ||= +""
           @networks << prefix unless @networks.include?(prefix)
-          code = left < 430 ? "#{prefix}- -" : text
+          code = left < 430 || text.match?(/\A[A-Z]{2}\s*-\z/) ? "#{prefix}- -" : text
           context("network", F32TDIEntry.new(_class: "F32TDIEntry", country_or_area: @country, network_code: code,
                                            network_roa: @network_names[prefix]),
                   "Printed network code; the first two letters identify the network (source page 2).")
