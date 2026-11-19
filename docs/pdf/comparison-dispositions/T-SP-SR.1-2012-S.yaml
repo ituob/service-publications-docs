@@ -1,0 +1,329 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-SR.1-2012-S, generated PDF from the
+# #89 generation run against the official ITU PDF, shape SR1. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'Antigua-et-Barbuda: generated "Antigua and Barbuda Antigua y Barbuda El servicio
+    de telegramas está suprimido. No se aceptan llamadas de cobro revertido efectuadas
+    a números de teléfonos móviles No se aceptan llamadas de cobro revertido efectuadas
+    a números de teléfonos públicos No se aceptan llamadas de cobro revertido efectuadas
+    a números de audiotex" vs official "Antigua and Barbuda Antigua y Barbuda El servicio
+    de telegramas está suprimido No se aceptan llamadas de cobro revertido efectuadas
+    a números de teléfonos móviles, teléfonos públicos y audiotex"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Belize: generated "Belize Belice No se aceptan llamadas de cobro revertido
+    efectuadas a números de teléfonos móviles No se aceptan llamadas de cobro revertido
+    efectuadas a números de teléfonos públicos" vs official "Belize Belice No se aceptan
+    llamadas de cobro revertido efectuadas a números de teléfonos móviles o de teléfonos
+    públicos"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Bulgarie: generated "Bulgaria Bulgaria El servicio télex está suprimido El
+    servicio de telegramas está suprimido. Sólo se admiten llamadas telefónicas de
+    cobro revertido y con tarjetas de crédito con los países cuyas administraciones
+    hayan confirmado por escrito su acuerdo a la Administración búlgara. El servicio
+    de telegramas está suprimido. El servicio télex está suprimido" vs official "Bulgaria
+    Bulgaria Sólo se admiten llamadas telefónicas de cobro revertido y con tarjetas
+    de crédito con los países cuyas administraciones hayan confirmado por escrito
+    su acuerdo a la Administración búlgara El servicio de telegramas está suprimido
+    El servicio télex está suprimido"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Curaçao, Sint Maarten, Bonaire, Saint Eustatius et Saba: generated "Curaçao,
+    Sint Maarten, Bonaire, Sint Eustatius and Saba Curaçao, Sint Maarten, Bonaire,
+    San Eustatius y Saba El servicio télex está suprimido El servicio de telegramas
+    está suprimido. No se aceptan llamadas de cobro revertido entrantes. No se aceptan
+    llamadas de cobro revertido salientes." vs official "Curaçao, Sint Maarten, Bonaire,
+    Sint Eustatius and Saba Curaçao, Sint Maarten, Bonaire, San Eustatius y Saba No
+    se aceptan llamadas de cobro revertido entrantes ni salientes El servicio de telegramas
+    está suprimido El servicio télex está suprimido"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Chypre: generated "Cyprus Chipre No se aceptan llamadas de cobro revertido
+    efectuadas a números de teléfonos móviles CYTA no encamina ni acepta tráfico telefónico
+    procedente de operadores de tránsito. Se invita a los operadores de telecomunicaciones
+    que utilicen un método de concentración para el encaminamiento de su tráfico a
+    la CYTA. Tchèque (Rép.) Czech Rep. Checa (Rep.) El servicio télex está suprimido"
+    vs official "Cyprus Chipre CYTA no encamina ni acepta tráfico telefónico procedente
+    de operadores de tránsito. Se invita a los operadores de telecomunicaciones que
+    utilicen un método de concentración para el encaminamiento de su tráfico a la
+    CYTA No se aceptan llamadas de cobro revertido efectuadas a números de teléfonos
+    móviles Tchèque (Rép.) Czech Rep. Checa (Rep.) El servicio télex está suprimido"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Gibraltar: generated "Gibraltar Gibraltar El servicio de telegramas está
+    suprimido. No se aceptan llamadas de cobro revertido efectuadas a números de teléfonos
+    móviles" vs official "Gibraltar Gibraltar No se aceptan llamadas de cobro revertido
+    efectuadas a números de teléfonos móviles El servicio de telegramas está suprimido"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Hong Kong, Chine: generated "Hong Kong, China Hong Kong, China El servicio
+    de telegramas está suprimido. El servicio CT2 están suprimidos" vs official "Hong
+    Kong, China Hong Kong, China El servicio de telegramas y el servicio CT2 están
+    suprimidos"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Hongrie: generated "Hungary Hungría El servicio télex está suprimido El servicio
+    de telegramas está suprimido. No se aceptan llamadas de cobro revertido efectuadas
+    a números de teléfonos móviles No se aceptan llamadas de cobro revertido entrantes.
+    No se aceptan llamadas de cobro revertido salientes." vs official "Hungary Hungría
+    El servicio télex está suprimido El servicio de telegramas está suprimido No se
+    aceptan llamadas de cobro revertido entrantes ni salientes"'
+  disposition: data
+  reason: The generated PDF names exactly the restrictions of the dataset entry; the
+    official PDF names a different set of restrictions for this country (verified
+    against datasets/1000-SR.1/data.yaml).
+- layer: rows
+  side: both
+  text: 'Islande: generated "Iceland Islandia El servicio télex está suprimido No
+    se aceptan llamadas de cobro revertido efectuadas a números de teléfonos móviles
+    No se aceptan llamadas de cobro revertido entrantes. No se aceptan llamadas de
+    cobro revertido salientes." vs official "Iceland Islandia El servicio télex está
+    suprimido No se aceptan llamadas de cobro revertido entrantes ni salientes"'
+  disposition: data
+  reason: The generated PDF names exactly the restrictions of the dataset entry; the
+    official PDF names a different set of restrictions for this country (verified
+    against datasets/1000-SR.1/data.yaml).
+- layer: rows
+  side: both
+  text: 'Indonésie: generated "Indonesia Indonesia El servicio de telegramas está
+    suprimido. No se aceptan llamadas de cobro revertido efectuadas a números de teléfonos
+    móviles PT Indosat no encamina ni acepta tráfico telefónico procedente de operadores
+    de tránsito. Se invita a los operadores de telecomunicaciones que utilicen un
+    método de concentración para el encaminamiento de su tráfico a PT Indosat" vs
+    official "Indonesia Indonesia No se aceptan llamadas de cobro revertido efectuadas
+    a números de teléfonos móviles El servicio de telegramas está suprimido PT Indosat
+    no encamina ni acepta tráfico telefónico procedente de operadores de tránsito.
+    Se invita a los operadores de telecomunicaciones que utilicen un método de concentración
+    para el encaminamiento de su tráfico a PT Indosat"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Maldives: generated "Maldives Maldivas No se aceptan llamadas de cobro revertido
+    entrantes. No se aceptan llamadas de cobro revertido salientes." vs official "Maldives
+    Maldivas No se aceptan llamadas de cobro revertido entrantes ni salientes"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Malte: generated "Malta Malta El servicio télex está suprimido El servicio
+    de telegramas está suprimido." vs official "Malta Malta El servicio de telegramas
+    está suprimido El servicio télex está suprimido"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Maroc: generated "Morocco Marruecos No se aceptan llamadas de cobro revertido
+    efectuadas a números de teléfonos móviles No se aceptan llamadas de cobro revertido
+    efectuadas a números de teléfonos públicos" vs official "Morocco Marruecos No
+    se aceptan llamadas de cobro revertido efectuadas a números de teléfonos móviles
+    o de teléfonos públicos"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Nouvelle-Calédonie: generated "New Caledonia Nueva Caledonia El servicio
+    télex está suprimido El servicio de telegramas está suprimido. No se aceptan llamadas
+    de cobro revertido entrantes. No se aceptan llamadas de cobro revertido salientes."
+    vs official "New Caledonia Nueva Caledonia El servicio télex está suprimido El
+    servicio de telegramas está suprimido No se aceptan llamadas de cobro revertido
+    entrantes ni salientes"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Pakistan: generated "Pakistan Pakistán El servicio télex está suprimido El
+    servicio de telegramas está suprimido. El servicio de telecomunicaciones con Israel
+    está suspendido." vs official "Pakistan Pakistán El servicio de telecomunicaciones
+    con Israel está suspendido El servicio télex está suprimido El servicio de telegramas
+    está suprimido"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Papouasie-Nouvelle-Guinée: generated "Papua New Guinea Papua Nueva Guinea
+    El servicio télex está suprimido No se aceptan llamadas de cobro revertido efectuadas
+    a números de teléfonos móviles" vs official "Papua New Guinea Papua Nueva Guinea
+    No se aceptan llamadas de cobro revertido efectuadas a números de teléfonos móviles
+    El servicio télex está suprimido"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Pérou: generated "Peru Perú No se aceptan llamadas de cobro revertido entrantes.
+    No se aceptan llamadas de cobro revertido salientes." vs official "Peru Perú No
+    se aceptan llamadas de cobro revertido entrantes ni salientes"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Pologne: generated "Poland Polonía El servicio télex está suprimido El servicio
+    de telegramas está suprimido." vs official "Poland Polonía El servicio de telegramas
+    está suprimido El servicio télex está suprimido"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Arabie saoudite: generated "Saudi Arabia Arabia Saudita No se aceptan llamadas
+    de cobro revertido entrantes. No se aceptan llamadas de cobro revertido salientes."
+    vs official "Saudi Arabia Arabia Saudita No se aceptan llamadas de cobro revertido
+    entrantes ni salientes"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Serbie: generated "Serbia Serbia El servicio télex está suprimido No se aceptan
+    llamadas de cobro revertido efectuadas a números de teléfonos móviles No se admiten
+    llamadas semiautomáticas (de entrada y de salida) del servicio telefónico con
+    asistencia de operadora" vs official "Serbia Serbia No se aceptan llamadas de
+    cobro revertido efectuadas a números de teléfonos móviles El servicio télex está
+    suprimido No se admiten llamadas semiautomáticas (de entrada y de salida) del
+    servicio telefónico con asistencia de operadora"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Slovaquie: generated "Slovakia Eslovaquia El servicio télex está suprimido
+    El servicio de telegramas está suprimido. No se aceptan llamadas de cobro revertido
+    entrantes. No se aceptan llamadas de cobro revertido salientes." vs official "Slovakia
+    Eslovaquia No se aceptan llamadas de cobro revertido entrantes ni salientes El
+    servicio télex está suprimido El servicio de telegramas está suprimido."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Sri Lanka: generated "Sri Lanka Sri Lanka No se aceptan llamadas de cobro
+    revertido efectuadas a números de teléfonos públicos No se aceptan llamadas de
+    cobro revertido entrantes. No se aceptan llamadas de cobro revertido salientes.
+    No se autorizan llamadas efectuadas a teléfonos públicos" vs official "Sri Lanka
+    Sri Lanka No se autorizan llamadas efectuadas a teléfonos públicos"'
+  disposition: data
+  reason: The generated PDF names exactly the restrictions of the dataset entry; the
+    official PDF names a different set of restrictions for this country (verified
+    against datasets/1000-SR.1/data.yaml).
+- layer: rows
+  side: both
+  text: 'Suriname: generated "Suriname Suriname El servicio télex está suprimido El
+    servicio de telegramas está suprimido." vs official "Suriname Suriname El servicio
+    de telegramas está suprimido El servicio télex está suprimido"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Swaziland: generated "Swaziland Swazilandia No se aceptan llamadas de cobro
+    revertido efectuadas a números de teléfonos móviles No se aceptan llamadas de
+    cobro revertido efectuadas a números de telefonía virtual" vs official "Swaziland
+    Swazilandia No se aceptan llamadas de cobro revertido efectuadas a números de
+    teléfonos móviles ni de telefonía virtual"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Tonga: generated "Tonga Tonga El servicio télex está suprimido El servicio
+    de telegramas está suprimido." vs official "Tonga Tonga El servicio de telegramas
+    está suprimido El servicio télex está suprimido"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Trinité-et-Tobago: generated "Trinidad and Tobago Trinidad y Tabago El servicio
+    télex está suprimido El servicio de telegramas está suprimido. No se aceptan llamadas
+    de cobro revertido efectuadas a números de teléfonos móviles No se aceptan llamadas
+    de cobro revertido efectuadas a números de telefonía virtual" vs official "Trinidad
+    and Tobago Trinidad y Tabago El servicio de telegramas está suprimido El servicio
+    télex está suprimido No se aceptan llamadas de cobro revertido efectuadas a números
+    de teléfonos móviles ni de telefonía virtual"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Vanuatu: generated "Vanuatu Vanuatu El servicio télex está suprimido El servicio
+    de telegramas está suprimido. No se aceptan llamadas de cobro revertido entrantes.
+    No se aceptan llamadas de cobro revertido salientes." vs official "Vanuatu Vanuatu
+    No se aceptan llamadas de cobro revertido entrantes ni salientes El servicio télex
+    está suprimido El servicio de telegramas está suprimido"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Yémen: generated "Yemen Yemen El servicio télex está suprimido El servicio
+    de telecomunicaciones con Israel está suspendido." vs official "Yemen Yemen El
+    servicio de telecomunicaciones con Israel está suspendido El servicio télex está
+    suprimido"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: prose
+  side: both
+  text: generated "1.1." vs official ""
+  disposition: layout
+  reason: The generated PDF numbers the preface heading ("1.1. Note from the TSB");
+    the official PDF prints the heading without a number.

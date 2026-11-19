@@ -1,0 +1,840 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-RR.25.1-2018-E, generated PDF from the
+# #89 generation run against the official ITU PDF, shape RR251. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'remark note: generated "a) This administration has not explicitly given its
+    position. In terms of the consultation procedure, it is assumed that this administration
+    has no objections to radiocommunications between amateur stations of its country
+    and stations of other countries (see Circular Letter CR/430 of 14 May 2018)."
+    vs official "This administration has not explicitly given its position. In terms
+    of the consultation procedure, it is assumed that this administration has no objections
+    to radiocommunications between amateur stations of its country and stations of
+    other countries (see Circular Letter CR/430 of 14 May 2018)."'
+  disposition: layout
+  reason: Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides.
+- layer: rows
+  side: both
+  text: 'forms: Algeria (People''s Democratic Republic of): generated "Amateur stations
+    7X0, 7X2, 7X3, 7X4 and 7X5 followed by 2 or 3 letters Experimental 7X6 and 7X7
+    followed by 2 or 3 letters stations" vs official "Amateur stations: 7X0, 7X2,
+    7X3, 7X4 and 7X5 followed by 2 or 3 letters Experimental stations: 7X6 and 7X7
+    followed by 2 or 3 letters"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Aruba: generated "Amateur stations Amateur stations P4[39][A-Z]{2,3}
+    Special events (see Note 2) P4[01][A-Z]{1,3} NOTE a) Foreign amateurs will use
+    the call sign assigned to them by their administration followed by a stroke (/)
+    and then P4 for a duration of one year. b) The prefix P40 or P41 followed by a
+    group of not more than 3 letters is assigned during special events for not more
+    than one month." vs official "Amateur stations: P43 or P49 followed by a group
+    of not more than 3 letters Notes: i) Foreign amateurs will use the call sign assigned
+    to them by their administration followed by a stroke (/) and then P4 for a duration
+    of one year. ii) The prefix P40 or P41 followed by a group of not more than 3
+    letters is assigned during special events for not more than one month."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Australia: generated "Amateur stations Advanced license (VK|AX|VI)[amateur_area][A-GI-KS-UW-Z][A-
+    Z]{2,3} Standard license (VK|AX|VI)[amateur_area][HLMNPV][A-Z]{2} Foundation (VK|AX|VI)[amateur_area][F][A-Z]{3}
+    license Digits indicating the amateur area 1 — Australian Capital Territory 2
+    — New South Wales 3 — Victoria 4 — Queensland 5 — South Australia 6 — Western
+    Australia 7 — Tasmania 8 — Northern Territory 9 — Australian External Territories
+    Experimental AX followed by a digit (2-9) and by 3 letters, the first one indicating
+    the state stations or territory in which the station is situated. Letters indicating
+    the experimental area A — Australian Capital Territory N — New South Wales V —
+    Victoria Q — Queensland S — South Australia W — Western Australia T — Tasmania
+    D — Northern Territory" vs official "Amateur stations: VK, AX* or VI* followed
+    by a digit (indicating the state or territory in which the station is situated)
+    and by 2, 3 or 4 letters. For call signs with suffixes of 3 or 4 letters, the
+    first letter indicates the licence category. Australia (continued) \"Advanced\"
+    amateur stations are indicated by call signs with suffixes of 2 letters and suffixes
+    of 3 letters where the first letter is A, B, C, D, E, F, G, I, J, K, S, T, U,
+    W, X, Y or Z. \"Standard\" amateur stations are indicated by call signs with suffixes
+    of 3 letters where the first letter is H, L, M, N, P or V. \"Foundation\" amateur
+    stations are indicated by call signs with suffixes of 4 letters where the first
+    letter is F. * For occasions of special national or state/local significance.
+    Experimental stations: AX followed by a digit (2-9) and by 3 letters, the first
+    one indicating the state or territory in which the station is situated. State
+    or territory Station Australian New Australian South Western Northern Capital
+    South Victoria Queensland Tasmania External Antarctic Australia Australia Territory
+    Territory Wales Territories Amateur 1 2 3 4 5 6 7 8 9 – Experimental A N V Q S
+    W T D – –"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Bahamas (Commonwealth of the): generated "Amateur stations C62AA-C69ZZ
+    and experimental stations" vs official "Amateur stations and experimental stations:
+    C62AA-C69ZZ"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Belarus (Republic of): generated "Amateur stations class A (operator
+    with CEPT licence, E[UVW][city_region][A- HAREC certificate) Z]{1} Class A and
+    class B (operator with CEPT E[UVW][city_region][A- licence, HAREC certificate)
+    Z]{2} Class C (operator with novice licence, E[UVW][city_region][A- ARNEC certificate)
+    Z]{3} Club stations E[UVW][city_ region](W|X|Z)[A-Z]{1} Foreign radio amateurs
+    EW/.* Digits indicating the city region 1 — City of Minsk 2 — Minsk Region 3 —
+    Brest Region 4 — Grodno Region 5 — Vitebsk Region 6 — Mogilev Region 7 — Gomel
+    Region Experimental repeaters EU[1-4|6-8][1- stations 9]{2}R radiobeacons EU[1-4|6-8][1-
+    9]{2}B satellites EU[1-8][1-9]S stations operating in radio contests EV[1-9][A-Z]{2}
+    expeditions to space-based facilities EV[1-8][1- 9]ISS stations operating in the
+    Antartic EV0AN[A-Z] stations operating on days of special national and EV[1-9]{1-4}[A-
+    international events Z] participants in international SW and USW radio E[UVW]5[A-Z]
+    communication competitions (up to one year) NOTE – Foreign radio amateurs with
+    a licence must use EW followed by slash (/) and their own call sign." vs official
+    "Amateur stations: EU, EV, or EW, followed by a digit (1-4, 6-8 indicating the
+    city or region (oblast) where the station is located) and one, two or three letters.
+    Numbers indicating city or region: 1. City of Minsk 2. Minsk Region 3. Brest Region
+    4. Grodno Region 5. Vitebsk Region 6. Mogilev Region 7. Gomel Region Call sign
+    containing: 4 characters – class A (operator with CEPT licence, HAREC certificate)
+    5 characters – class A and class B (operator with CEPT licence, HAREC certificate)
+    6 characters – class C (operator with novice licence, ARNEC certificate) 5 characters
+    – the fourth symbol is W, X, Z for club stations Experimental stations: EU1A00R-EU8Z99R
+    (except EU5A00R–EU5Z99R) – repeaters EU1A00B-EU8Z99B (except EU5A00B–EU5Z99B)
+    – radiobeacons EU10S-EU89S – satellites EV0AA-EV9ZZ – for stations operating in
+    radio contests EV10ISS-EV89ISS – for expeditions to space-based facilities EV0ANA-EV0ANZ
+    – for stations operating in the Antartic EV0A-EV9999Z – for stations operating
+    on days of special national and international events EU5, EV5, EW5 followed by
+    one letter – only for participants in international SW and USW radio communication
+    competitions (up to one year). Note: Foreign radio amateurs with a licence must
+    use EW followed by slash (/) and their own call sign."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Belgium: generated "Amateur stations Automatic stations ON0[A-Z]{2,3}
+    Class 2 stations ON1[A-Z]{2,3} Currently not in use ON2[A-Z]{2,3} Class 3 stations
+    ON3[A-Z]{2,3} Class 1 stations ON[4-8][A-Z]{2,3} Class 3 stations for foreigners
+    ON9A[A-Z]{2} Class 2 stations for foreigners ON9B[A-Z]{2} Class 1 stations for
+    foreigners ON9C[A-Z]{2} Club stations in Antarctica OP0(LE|OL) Temporary class
+    3 stations in Antarctica OR3C[A-Z]{2,3} Temporary class 1 stations in Antarctica
+    OR4C[A-Z]{2,3} On board ISS OR4ISS Supplementary call signs for class 1 stations
+    O[OPQS]0[A-Z] Supplementary call signs for class 1 stations O[RT][0-46-9][A-Z]
+    Stations for high power contests O[RT]5[A-Z]" vs official "Amateur stations ON0AA-ON0ZZ
+    Automatic stations ON0AAA-ON0ZZZ ON1AA-ON1ZZ Class 2 stations ON1AAA-ON1ZZZ ON2AA-ON2ZZ
+    Currently not in use ON2AAA-ON2ZZZ ON3AA-ON3ZZ Class 3 stations ON3AAA-ON3ZZZ
+    ON4AA-ON4ZZ ON4AAA-ON4ZZZ ON5AA-ON5ZZ ON5AAA-ON5ZZZ ON6AA-ON6ZZ Class 1 stations
+    ON6AAA-ON6ZZZ ON7AA-ON7ZZ ON7AAA-ON7ZZZ ON8AA-ON8ZZ ON8AAA-ON8ZZZ ON9AAA-ON9AZZ
+    Class 3 stations for foreigners ON9BAA-ON9BZZ Class 2 stations for foreigners
+    ON9CAA-ON9CZZ Class 1 stations for foreigners OP0LE and OP0OL Club stations in
+    Antarctica Belgium (continued) OR3AA-OR3ZZ Temporary class 3 stations in Antarctica
+    OR3AAA-OR3ZZZ OR4AA-OR4ZZ Temporary class 1 stations in Antarctica OR4AAA-OR4ZZZ
+    OR4ISS On board ISS OO0A-OO9Z OP0A-OP9Z OQ0A-OQ9Z OR0A-OR4Z Supplementary call
+    signs for class 1 stations OR6A-OR9Z OS0A-OS9Z OT0A-OT4Z OT6A-OT9Z OR5A-OR5Z Stations
+    for high power contests OT5A-OT5Z"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Belize: generated "Amateur stations Class 1 licence V31[A-Z]{2} Class
+    2 licence V32[A-Z]{2}" vs official "Amateur stations: V31AA-V31ZZ – Class 1 licence
+    V32AA-V32ZZ – Class 2 licence"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Bhutan (Kingdom of): generated "Amateur stations amateur clubs and
+    stations A50[A-Z]{2} national radio amateurs A51[A-Z]{2} visiting radio amateurs
+    A52[A-Z]{2}" vs official "Amateur stations: A50AA-A50ZZ* A51AA-A51ZZ** A52AA-A52ZZ***
+    * For amateur clubs and stations. ** For national radio amateurs. *** For visiting
+    radio amateurs."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Bonaire, Sint Eustatius and Saba: generated "Amateur stations Bonaire
+    PJ4[A-Z]{2,3} S. Eustatius PJ5[A-Z]{2,3} Saba PJ6[A-Z]{2,3}" vs official "Amateur
+    stations: PJ4AA-PJ4ZZZ – Bonaire PJ5AA-PJ5ZZZ – S. Eustatius PJ6AA-PJ6ZZZ – Saba"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Brunei Darussalam: generated "Amateur stations communications HF and
+    VHF V85[A-Z]{2,3} communications VHF only V85[A-Z]" vs official "Amateur stations:
+    V85 followed by 2 or 3 letters for the communications HF and VHF V85 followed
+    by 1 letter for the communications VHF only"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Burkina Faso: generated "Amateur stations XT2 or XT3 followed by 2
+    letters and experimental stations" vs official "Amateur stations and experimental
+    stations: XT2 or XT3 followed by 2 letters"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Chile: generated "Amateur stations Chile (CE|XQ)[1-9][A-Z]{2,3} Mainland
+    Chile CE[1-8][A-Z]{2,3} Antarctic CE9[A-Z]{2,3} Easter Island CE0Y[A-Z]{2,3} Juan
+    Fernández and San Félix Islands CE0Z[A-Z]{2}" vs official "Amateur stations: CE
+    or XQ followed by a digit (indicating the zone in which the station is situated)
+    and by 2 or 3 letters CE1-CE8 followed by 2 or 3 letters – Mainland Chile CE9
+    followed by 2 or 3 letters – Antarctic CE0Y followed by 2 or 3 letters – Easter
+    Island CE0Z followed by 2 letters – Juan Fernández and San Félix Islands"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Colombia (Republic of): generated "Amateur stations Amateur stations
+    H[JK][zone][A- Z]{1,3} Amateur stations operating during contests or 5[JK][zone][A-
+    special events Z]{1,3} Digits indicating 0 — Insular Colombian Territory and mobile
+    the zone maritime service 1 — Departments of Atlántico, Bolívar, Córdoba and Sucre
+    2 — Departments of Guajira, Magdalena, Cesar and North of Santander 3 — Departments
+    of Cundinamarca, Meta and Vichada 4 — Departments of Antioquia and Chocó 5 — Departments
+    of Cauca and Valle del Cauca 6 — Departments of Caldas, Tolima, Risaralda, Quindío
+    and Huila 7 — Departments of Santander, Boyacá, Arauca and Casanare 8 — Departments
+    of Nariño, Caquetá and Putumayo 9 — Departments of Amazonas, Vaupés, Guainía and
+    Guaviare NOTE – 5J or 5K followed by a digit (0-9) and by 1, 2 or 3 letters is
+    authorised on a temporary basis to amateur stations operating during contests
+    or special events." vs official "Amateur stations: HJ or HK followed by a digit
+    (0-9, indicating the zone to which belongs the radio amateur) and by 1, 2 or 3
+    letters Digits indicating the zones: 0 – Insular Colombian Territory and mobile
+    maritime service 1 – Departments of Atlántico, Bolívar, Córdoba and Sucre 2 –
+    Departments of Guajira, Magdalena, Cesar and North of Santander 3 – Departments
+    of Cundinamarca, Meta and Vichada 4 – Departments of Antioquia and Chocó 5 – Departments
+    of Cauca and Valle del Cauca 6 – Departments of Caldas, Tolima, Risaralda, Quindío
+    and Huila 7 – Departments of Santander, Boyacá, Arauca and Casanare 8 – Departments
+    of Nariño, Caquetá and Putumayo 9 – Departments of Amazonas, Vaupés, Guainía and
+    Guaviare Note: 5J or 5K followed by a digit (0-9) and by 1, 2 or 3 letters is
+    authorised on a temporary basis to amateur stations operating during contests
+    or special events. Comoros (Union of the) Amateur stations: D68 followed by 2
+    letters* * The 2 letters are the operator identity."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Congo (Republic of the): generated "Amateur stations TN8AA-TN8ZZ and
+    experimental stations" vs official "Amateur stations and experimental stations:
+    TN8AA-TN8ZZ"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Denmark: generated "Amateur stations Denmark (OU|OV|OZ|5P|5Q)[1-9][0-9A-Z]{3}[A-Z]
+    Faroe Islands OY[1-9][A-Z]{1,3} Greenland OX[1-9][A-Z]{2,3}" vs official "Amateur
+    stations Area Prefix Digit Suffix Up to 4 characters, the last of Denmark OU,
+    OV, OZ, 5P, 5Q 0-9 which shall be a letter Faroe Islands OY 1-9 1, 2 or 3 letters
+    Greenland OX 1-9 2 or 3 letters"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Djibouti (Republic of): generated "Amateur stations For amateur stations
+    operating on a permanent basis. J28[A-Z]{2} For amateur stations operating on
+    a temporary basis. J20[A-Z]{2} For special events (see Note 1) J20[A-Z]{3} NOTE
+    – For special events the radio amateurs will use J20 followed by a group of 3
+    letters." vs official "Amateur stations: J28AA-J28ZZ* J20AA-J20ZZ** ** For amateur
+    stations operating on a permanent basis. ** For amateur stations operating on
+    a temporary basis. Note: For special events the radio amateurs will use J20 followed
+    by a group of 3 letters."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Fiji (Republic of): generated "Amateur stations 3D2 followed by 2
+    letters Experimental 3D3 followed by 2 letters stations" vs official "Amateur
+    stations: 3D2 followed by 2 letters Experimental stations: 3D3 followed by 2 letters"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Finland: generated "Amateur stations OF, OG, OH, OI or OJ followed
+    by a digit and a group of not more than 4 and experimental characters, the last
+    of which shall be a letter stations" vs official "Amateur stations and experimental
+    stations: OF, OG, OH, OI or OJ followed by a digit and a group of not more than
+    4 characters, the last of which shall be a letter"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Greece: generated "Amateur stations Class 1 SV[regions][A-Z]{2,3}
+    and experimental Class 2 SW[regions][A-Z]{2,3} stations Digits indicating 0 —
+    For radio amateurs with a foreign licence and to foreign radio amateurs the regions
+    with permanent residence 1 — Sterea Hellas 2 — Central and Western Macedonia 3
+    — Peloponnese 4 — Thessaly 5 — Dodecanese Prefecture 6 — Epirus 7 — Eastern Macedonia
+    and Thrace 8 — All the islands (except those belonging to Cretian Prefectures
+    and to Dodecanese Prefecture) 9 — Cretian Prefectures and their islands NOTE a)
+    SV0 or SW0 followed by 2 or 3 letters is assigned to Greek radio amateurs with
+    a foreign licence and to foreign radio amateurs with permanent residence. b) The
+    prefix J4, SX or SY is assigned as a special call sign to Greek unions of radio
+    amateurs, Greek teams of radio amateurs, Greek radio amateurs and foreign radio
+    amateurs. c) The prefix SZ is assigned to the Greek Radio Amateur Union and Greek
+    university laboratories in the area of wireless telecommunications." vs official
+    "Amateur stations and experimental stations: SV* or SW** followed by a digit (indicating
+    the region in which the station is situated) and by 2 or 3 letters Digits indicating
+    the regions: 1 – Sterea Hellas 2 – Central and Western Macedonia 3 – Peloponnese
+    4 – Thessaly 5 – Dodecanese Prefecture 6 – Epirus 7 – Eastern Macedonia and Thrace
+    8 – All the islands (except those belonging to Cretian Prefectures and to Dodecanese
+    Prefecture) 9 – Cretian Prefectures and their islands * Class 1. ** Class 2. Notes:
+    i) SV0 or SW0 followed by 2 or 3 letters is assigned to Greek radio amateurs with
+    a foreign licence and to foreign radio amateurs with permanent residence. ii)
+    The prefix J4, SX or SY is assigned as a special call sign to Greek unions of
+    radio amateurs, Greek teams of radio amateurs, Greek radio amateurs and foreign
+    radio amateurs. iii) The prefix SZ is assigned to the Greek Radio Amateur Union
+    and Greek university laboratories in the area of wireless telecommunications."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Guinea (Republic of): generated "Amateur stations 3X0AA-3X9ZZ Experimental
+    3X2AAA-3X9ZZZ stations" vs official "Amateur stations: 3X0AA-3X9ZZ Experimental
+    stations: 3X2AAA-3X9ZZZ"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: India (Republic of): generated "Amateur stations Mainland India VU[23][A-Z]{2,3}
+    National Islands VU[47][A-Z]{2,3} Experimental India VU4 followed by 2 letters
+    stations" vs official "Amateur stations: VU2 or VU3 followed by 2 or 3 letters
+    – Mainland India VU4 or VU7 followed by 2 or 3 letters – National Islands Experimental
+    stations: VU4 followed by 2 letters"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Indonesia (Republic of): generated "Amateur stations Advanced licence
+    Y[BE][1-9][A-Z]{1,3} General licence Y[CF][1-9][A-Z]{1,3} Novice licence Y[DGH][1-9][A-Z]{1,3}
+    NOTE – The 1 letter suffix is not for personal call sign use, but only for organizational
+    stations with special event activities." vs official "Amateur stations: YB or
+    YE followed by a digit (0-9) and by 1*, 2 or 3 letters – Advanced licence YC or
+    YF followed by a digit (0-9) and by 1*, 2 or 3 letters – General licence YD, YG
+    or YH followed by a digit (0-9) and by 1*, 2 or 3 letters – Novice licence * The
+    1 letter suffix is not for personal call sign use, but only for organizational
+    stations with special event activities. Iran (Islamic Republic of) Amateur stations:
+    EP1AA-EP9ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Israel (State of): generated "Amateur stations Pattern 1 4X[1468][A-Z]{2,3}
+    Pattern 2 4Z[1457][A-Z]{2,3} Pattern 3 Z9[A-Z]{2,3}" vs official "Amateur stations:
+    4X1 followed by 2 or 3 letters 4X4 followed by 2 or 3 letters 4X6 followed by
+    2 or 3 letters 4X8 followed by 2 or 3 letters 4Z1 followed by 2 or 3 letters 4Z4
+    followed by 2 or 3 letters 4Z5 followed by 2 or 3 letters 4Z7 followed by 2 or
+    3 letters 4Z9 followed by 2 or 3 letters"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Jamaica: generated "Amateur stations 6Y5AA-6Y5ZZ and experimental
+    stations NOTE – Foreign amateurs will use the call sign assigned to them by their
+    administration followed by a stroke (/) and then 6Y5." vs official "Amateur stations
+    and experimental stations: 6Y5AA-6Y5ZZ Note: Foreign amateurs will use the call
+    sign assigned to them by their administration followed by a stroke (/) and then
+    6Y5."'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Korea (Republic of): generated "Amateur stations Pattern 1 HL[1-9][A-Z]{2,3}
+    Pattern 2 HL0[A-Z]{2,3} Experimental General 6[MN]2[A-Z]{2} stations Temporary
+    for special occasions (D[ST7-9]|6[KLMN])\\d[A-Z]{2,3} NOTE – DS, DT, D7, D8, D9,
+    6K, 6L, 6M, 6N followed by a digit and by 2 or 3 letters are assigned on a temporary
+    basis on special occasions." vs official "Amateur stations: 1. HL1AA-HL9ZZ HL1AAA-HL9ZZZ
+    2. HL0 followed by 2 or 3 letters (amateur group) Experimental stations: 6M2AA-6M2ZZ
+    6N2AA-6N2ZZ Note: DS, DT, D7, D8, D9, 6K, 6L, 6M, 6N followed by a digit and by
+    2 or 3 letters are assigned on a temporary basis on special occasions."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Lao People''s Democratic Republic: generated "Amateur stations XW8AA-XW8DZ
+    Experimental XW8EA-XW8EZ stations" vs official "Amateur stations: XW8AA-XW8DZ
+    Experimental stations: XW8EA-XW8EZ"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Latvia (Republic of): generated "Amateur stations YL followed by a
+    digit and by 1, 2 or 3 letters and experimental stations" vs official "Amateur
+    stations and experimental stations: YL followed by a digit and by 1, 2 or 3 letters"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Lebanon: generated "Amateur stations OD5 followed by 2 letters Experimental
+    OD9 followed by 2 letters stations" vs official "Amateur stations: OD5 followed
+    by 2 letters Experimental stations: OD9 followed by 2 letters"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Liechtenstein (Principality of): generated "Amateur stations Pattern
+    1 HB0[A-X]{3} Pattern 2 HB0Z[A-Z]{2} Novice licence HB0Y[A-Z]{2}" vs official
+    "Amateur stations: HB0AAA-HB0XXX HB0YAA-HB0YZZ – Novice licence HB0ZAA-HB0ZZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Lithuania (Republic of): generated "Amateur stations LY followed by
+    a digit (1-4) and by 1 to 4 letters and experimental stations NOTE – LY followed
+    by 2 to 4 digits and by 1 letter is authorized only for the formation of occasional
+    radio call signs." vs official "Amateur stations and experimental stations: LY
+    followed by a digit (1-4) and by 1 to 4 letters Note: LY followed by 2 to 4 digits
+    and by 1 letter is authorized only for the formation of occasional radio call
+    signs."'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Luxembourg: generated "Amateur stations LX[station_types][A-Z]{1,4}
+    Digits indicating the 0 — Repeaters, beacons, group stations station types 1 —
+    Individual stations operating with a HAREC certificate 2 — Individual stations
+    operating with a HAREC certificate 3 — Individual stations operating with a HAREC
+    certificate 4 — Group stations 5 — Group stations, experimental stations 6 — Individual
+    stations operated by beginners 7 — Individual stations operated during competitions
+    8 — Group stations 9 — Group stations NOTE – Foreign radio amateurs with temporary
+    licence must use LX followed by a stroke (/) and their own call sign." vs official
+    "LX0A-LX0ZZZZ Repeaters, beacons, group stations LX1A-LX1ZZZZ LX2A-LX2ZZZZ Individual
+    stations operating with a HAREC certificate LX3A-LX3ZZZZ LX4A-LX4ZZZZ Group stations
+    LX5A-LX5ZZZZ Group stations, experimental stations LX6A-LX6ZZZZ Individual stations
+    operated by beginners LX7A-LX7ZZZZ Individual stations operated during competitions
+    LX8A-LX8ZZZZ Group stations LX9A-LX9ZZZZ Note: Foreign radio amateurs with temporary
+    licence must use LX followed by a stroke (/) and their own call sign."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Madagascar (Republic of): generated "Amateur stations 5R8 followed
+    by a group of not more than 3 letters Experimental 5S6 followed by a group of
+    not more than 3 letters stations" vs official "Amateur stations: 5R8 followed
+    by a group of not more than 3 letters Experimental stations: 5S6 followed by a
+    group of not more than 3 letters"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Mauritania (Islamic Republic of): generated "Amateur stations 5T5
+    followed by 2 letters Experimental 5T2 followed by 2 letters stations" vs official
+    "Amateur stations: 5T5 followed by 2 letters Experimental stations: 5T2 followed
+    by 2 letters"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Micronesia (Federated States of): generated "Amateur stations V63
+    followed by 2 letters Experimental V62 followed by the letter X and by 2 letters
+    stations" vs official "Amateur stations: V63 followed by 2 letters Experimental
+    stations: V62 followed by the letter X and by 2 letters"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Monaco (Principality of): generated "Amateur stations Class 1 - General
+    licence 3A2[A- Z]{2} Class 2 - Licence restricted to bands 144-146 MHz and 430-
+    3A1[A- 440 MHz Z]{2} Radio Club 3A2[A- Z]{3} Experimental Monaco 3A9A-3A9Z stations"
+    vs official "Amateur stations: 3A2AA-3A2ZZ – Class 1 – General licence 3A1AA-3A1ZZ
+    – Class 2 – Licence restricted to bands 144-146 MHz and 430- 440 MHz 3A2AAA-3A2ZZZ
+    – Radio Club Experimental stations: 3A9A-3A9Z"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Myanmar (Union of): generated "Amateur stations XZ2AA-XZ2ZZ and experimental
+    stations" vs official "Amateur stations and experimental stations: XZ2AA-XZ2ZZ"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Namibia (Republic of): generated "Amateur stations Restricted licence
+    station V50[A-Z]{1,3} Full licence station V51[A-Z]{1,3} Experimental V59A-V59ZZZ
+    stations" vs official "Amateur stations: V50A-V50ZZZ – Restricted licence station
+    V51A-V51ZZZ – Full licence station V5 followed with existing call sign – Guest
+    station Experimental stations: V59A-V59ZZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Netherlands (Kingdom of the): generated "Amateur stations Netherlands
+    P[A0|A1|A6|I6|I7|I8][A-Z]{2,3} Netherlands P[A2|A3|B0|D0|E0|E1|I1|I2|I3][A-Z]{3}
+    Experimental Netherlands PI5 or PI9 followed by 2 or 3 letters stations" vs official
+    "Amateur stations: PA0, PA1, PA6, PI4, PI6, PI7 or PI8 followed by 2 or 3 letters
+    PA2, PA3, PB0, PD0, PE0, PE1, PI1, PI2 or PI3 followed by 3 letters Experimental
+    stations: PI5 or PI9 followed by 2 or 3 letters New Zealand Amateur stations and
+    experimental stations Call signs Areas 1 2 ZL1AA-ZL4WZ ZL1AAA-ZL4WZZ New Zealand
+    ZL1AAAA-ZL4WZZZ ZK0A-ZK9ZZZZ ZL0A-ZL0ZZZZ ZL1A-ZL4W New Zealand special events
+    ZM0A-ZM0ZZZZ ZM1A-ZM9ZZZZ** ZL5AA-ZL5WZ ZL5AAA-ZL5WZZ Antarctic ZL5AAAA-ZL5WZZZ
+    ZL5A-ZL5W Antarctic special events ZL6AA-ZL6WZ ZL6AAA-ZL6WZZ NZART* ZL6AAAA-ZL6WZZZ
+    ZL6A-ZL6W NZART* special events ZL7AA-ZL7WZ ZL7AAA-ZL7WZZ Chatham Islands ZL7AAAA-ZL7WZZZ
+    ZL7A-ZL7W Chatham Islands special events ZL8AA-ZL8WZ ZL8AAA-ZL8WZZ Kermadec Islands
+    ZL8AAAA-ZL8WZZZ ZL8A-ZL8W Kermadec Islands special events ZL9AA-ZL9WZ ZL9AAA-ZL9WZZ
+    Auckland/Campbell Islands ZL9AAAA-ZL9WZZZ ZL9A-ZL9W Auckland/Campbell Islands
+    special events * New Zealand Association of Radio Transmitters (NZART). ** Amateurs
+    will use the prefix ZM instead of ZL for contests and other special events."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Nigeria (Federal Republic of): generated "Amateur stations 5N followed
+    by a digit (indicating the zone in which the station is situated) and by 3 letters
+    Digits indicating the 0 — Lagos State and Federal Capital Territory zone 1 — Ogun,
+    Oyo, Ondo and Ekiti States 2 — Osun, Kwara, Kogi and Niger States 3 — Edo, Delta,
+    Bayelsa and Anambra States 4 — Enugu, Abia, Ebonyi and Rivers States 5 — Imo,
+    Akwa lbom and Cross River States 6 — Benue, Plateau, Nassarawa and Taraba States
+    7 — Bauchi, Gombe, Adamawa and Borno States 8 — Jigawa, Kano, Yobe and Katsina
+    States 9 — Zamfara, Sokoto, Kaduna and Kebbi States Experimental Pattern 1 5N[2468][X-Z][A-Z]
+    stations Pattern 2 5N[3579]E[A-Z]" vs official "Amateur stations: 5N followed
+    by a digit (indicating the zone in which the station is situated) and by 3 letters
+    Digits indicating the zones: 0 – Lagos State and Federal Capital Territory 1 –
+    Ogun, Oyo, Ondo and Ekiti States 2 – Osun, Kwara, Kogi and Niger States 3 – Edo,
+    Delta, Bayelsa and Anambra States 4 – Enugu, Abia, Ebonyi and Rivers States 5
+    – Imo, Akwa lbom and Cross River States 6 – Benue, Plateau, Nassarawa and Taraba
+    States 7 – Bauchi, Gombe, Adamawa and Borno States 8 – Jigawa, Kano, Yobe and
+    Katsina States 9 – Zamfara, Sokoto, Kaduna and Kebbi States Experimental stations:
+    5N2XA-5N2ZZ 5N3EA-5N3EZ 5N4XA-5N4ZZ 5N5EA-5N5EZ 5N6XA-5N6ZZ 5N7EA-5N7EZ 5N8XA-5N8ZZ
+    5N9EA-5N9EZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Norway: generated "Amateur stations Pattern 1 [JW|LA|LB|LC|LD|3Y][1-9][A-Z]{3}
+    Pattern 2 JX0[A-Z]{3} Experimental Norway LF2AAA-LF9ZZZ stations" vs official
+    "Amateur stations: JW0AAA-JW9ZZZ JX0AAA-JX0ZZZ LA0AAA-LA9ZZZ LB0AAA-LB9ZZZ LC0AAA-LC9ZZZ
+    LD0AAA-LD9ZZZ 3Y0AAA-3Y9ZZZ Experimental stations: LF2AAA-LF9ZZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Oman (Sultanate of): generated "Amateur stations A40AA-A48ZZ Experimental
+    A49AA-A49ZZ stations" vs official "Amateur stations: A40AA-A48ZZ Experimental
+    stations: A49AA-A49ZZ"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Qatar (State of): generated "Amateur stations A71AA-A71ZZ Experimental
+    A73AA-A73ZZ stations" vs official "Amateur stations: A71AA-A71ZZ Experimental
+    stations: A73AA-A73ZZ"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Romania: generated "Amateur stations Individual YO[1-9][A-Z]{1,3}
+    Club YO[1-9]K[A-Z]{1,2} Temporary, contests or special events Y[PQR][1-9]K[A-Z]{1,2}
+    NOTE – YP, YQ and YR followed by a digit and a group of not more than 3 letters
+    are assigned to amateur stations operating during contests or special events."
+    vs official "Amateur stations: a) individual YO followed by a digit and a group
+    of not more than 3 letters (the first of which is not letter K) b) club YO followed
+    by a digit and a group of not more than 3 letters (the first of which is letter
+    K) Note: YP, YQ and YR followed by a digit and a group of not more than 3 letters
+    are assigned to amateur stations operating during contests or special events."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Russian Federation: generated "Amateur stations Stations in the first
+    qualification category operating R[A-Z][1-9][A- and experimental with a HAREC
+    certificate Z]{2} stations Stations in the first qualification category operating
+    U[A-I][1-9][A- with a HAREC certificate Z]{2} Stations in the first qualification
+    category operating R[1-9][A-Z]{2} with a HAREC certificate (see Note 1) Stations
+    in the first qualification category operating R[A-Z][1-9][A-Z] with a HAREC certificate
+    (see Note 2) Stations in the first qualification category operating U[A-I][1-9][A-Z]
+    with a HAREC certificate Stations in the first qualification category operating
+    U[A-I][1-9][A-Z] with a HAREC certificate Stations in the second qualification
+    category R[1-9][A-Z]{3} operating with a HAREC certificate Stations in the second
+    qualification category R[A-Z][1-9][A- operating with a HAREC certificate Z]{3}
+    Stations in the second qualification category UA[1-9][A-Z]{3} operating with a
+    HAREC certificate Stations in the third qualification category operating U[B-DF-G][1-
+    with an ARNEC certificate (novice licence) 9][A-Z]{3} Stations in the fourth qualification
+    category (initial U[EH-I][1-9][A- level) Z]{3} Repeaters RR[1-9][A- Z]{2,3} Radiobeacons
+    RB[1-9][A-Z]{3} Stations of the amateur-satellite service RS[1-9]?[1-9]S Temporary
+    use in special circumstances R[1-9][A-Z]{4} Temporary use in special circumstances
+    R[1-9]{2}[A-Z]{3} Temporary use in special circumstances R[1-9]{3,4}[A-Z] Temporary
+    use in special circumstances R[1-9]{3}[A-Z]{2} Temporary use in special circumstances
+    R[A-Z][1- 9]{2}[A-Z]{1,3} Temporary use in special circumstances R[A-Z][1- 9]{3}[A-Z]{1,2}
+    Stations participating in internal rounds of R[1-9]{1,2}[A-Z] competitions Stations
+    participating in internal rounds of R[1-9]{2}[A-Z]{2} competitions (see Note 3)
+    Amateur stations of polar expeditions operating on R[1-9]{2}SP the drift-ice of
+    the Arctic Ocean NOTE a) Subject to use of the amateur station for a period of
+    not less than 25 calendar years. b) Subject to participation over the past five
+    years in no fewer than ten international or all Russian wireless communication
+    contests. c) With the exclusion of call signs in the series R00SP - R99SP exclusively
+    assigned to amateur stations of polar expeditions operating on the drift-ice of
+    the Arctic Ocean." vs official "Amateur and experimental stations RA0AA – RZ9ZZ
+    UA0AA – UI9ZZ Stations in the first qualification category operating with a R0AA
+    – R9ZZ* HAREC certificate RA0A – RZ9Z** UA0A – UI9Z R0AAA – R9ZZZ Stations in
+    the second qualification category operating with a RA0AAA – RZ9ZZZ HAREC certificate
+    UA0AAA – UA9ZZZ UB0AAA – UD9ZZZ Stations in the third qualification category operating
+    with an UF0AAA – UG9ZZZ ARNEC certificate (novice licence) Amateur and experimental
+    stations (continued) UE0AAA – UE9ZZZ Stations in the fourth qualification category
+    (initial level) UH0AAA – UI9ZZZ RR0AA – RR9ZZ Repeaters RR0AAA – RR9ZZZ RB0AA
+    – RB9ZZ Radiobeacons RS0S – RS9S Stations of the amateur-satellite service RS10S
+    – RS99S R0AAAA – R9ZZZZ R00AAA – R99ZZZ R000A – R999Z R000AA – R999ZZ R0000A –
+    R9999Z Temporary use in special circumstances RA00A – RZ99Z RA00AA – RZ99ZZ RA00AAA
+    – RZ99ZZZ RA000A – RZ999Z RA000AA – RZ999ZZ R0A – R9Z R00A – R99Z Stations participating
+    in internal rounds of competitions R00AA – R99ZZ*** * Subject to use of the amateur
+    station for a period of not less than 25 calendar years. ** Subject to participation
+    over the past five years in no fewer than ten international or all Russian wireless
+    communication contests. *** With the exclusion of call signs in the series R00SP
+    - R99SP exclusively assigned to amateur stations of polar expeditions operating
+    on the drift-ice of the Arctic Ocean."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: San Marino (Republic of): generated "Amateur stations VHF and above
+    VHF T72[A-Z]{2} All bands T77[A-Z]{2} Radio Club T70A Temporary Radio Club T71CE"
+    vs official "Amateur stations: T72AA-T72ZZ* T77AA-T77ZZ** Radio Club: T70A** Temporary
+    Radio Club: T71CE** * VHF and above VHF. ** All bands."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Seychelles (Republic of): generated "Amateur stations S79AAA-S79ZZZ
+    Experimental S78AA-S78AZ stations" vs official "Amateur stations: S79AAA-S79ZZZ
+    Experimental stations: S78AA-S78AZ"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Singapore (Republic of): generated "Amateur stations Amateur 9V1[A-Z]{2}
+    Special occasions 9V0[A-Z]{2,3} Experimental Singapore 9V2A-9V2ZZ stations NOTE
+    – 9V0 followed by 2 or 3 letters is authorised to amateur stations on special
+    occasions." vs official "Amateur stations: 9V1AA-9V1ZZ Experimental stations:
+    9V2A-9V2ZZ Note: 9V0 followed by 2 or 3 letters is authorised to amateur stations
+    on special occasions."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Slovak Republic: generated "Amateur stations Amateur stations OM[0-8][A-
+    Z]{2,3} For international amateur contests OM[1-9]Z For extraordinary purposes
+    and for period of persistence OM9[A-Z]{2} of such purposes only For foreigners
+    transmitting from the Slovak Republic OM9[A-S][A- territory Z]{2} Experimental
+    OM9TAA-OM9ZZZ stations" vs official "Amateur stations: OM0AA-OM8ZZZ OM0A-OM9Z*
+    OM9AA-OM9ZZ** OM9AAA-OM9SZZ*** * For international amateur contests. ** For extraordinary
+    purposes and for period of persistence of such purposes only. *** For foreigners
+    transmitting from the Slovak Republic territory. Experimental stations: OM9TAA-OM9ZZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Sri Lanka (Democratic Socialist Republic of): generated "Amateur stations
+    Novice class B (VHF only) 4S5[A-Z]{2,3} Novice class A 4S6[A-Z]{2,3} General/Advanced
+    class 4S7[A-Z]{2,3} NOTE a) Local radio amateurs who have received licence by
+    submitting licences issued from foreign administrations will use 4S7 followed
+    by 3 letters with last letter as R. b) Visiting radio amateurs will use 4S7 followed
+    by home call sign. c) Foreign radio amateurs from administrations having reciprocal
+    agreement will use 4S7 followed by 3 letters with last letter as G." vs official
+    "Amateur stations: 4S5 followed by 2 or 3 letters – Novice class B (VHF only)
+    4S6 followed by 2 or 3 letters – Novice class A 4S7 followed by 2 or 3 letters
+    – General/Advanced class Experimental stations: 4P3 followed by 2 letters Notes:
+    i) Local radio amateurs who have received licence by submitting licences issued
+    from foreign administrations will use 4S7 followed by 3 letters with last letter
+    as R. ii) Visiting radio amateurs will use 4S7 followed by home call sign. iii)
+    Foreign radio amateurs from administrations having reciprocal agreement will use
+    4S7 followed by 3 letters with last letter as G."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Suriname (Republic of): generated "Amateur stations PZ followed by
+    a digit (2-9) and by a group of not more than 3 letters and experimental stations"
+    vs official "Amateur stations and experimental stations: PZ followed by a digit
+    (2-9) and by a group of not more than 3 letters"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Swaziland (Kingdom of): generated "Amateur stations Full licence 3DA0[A-Z]{2}
+    Restricted licence 3DA1[A-Z]{2}" vs official "Amateur stations: 3DA0 followed
+    by 2 letters – Full licence 3DA1 followed by 2 letters – Restricted licence"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Syrian Arab Republic: generated "Amateur stations Amateur stations
+    YK[zone][A-Z]{1,3} Special events 6C[1-9][A-Z]{1,3} Digits indicating the zone
+    1 — Southern Region 2 — Northern Region 3 — Eastern Region 4 — Western Region
+    8 — Beacons 9 — Groups of foreign radio amateurs 0 — Club stations Experimental
+    YK followed by a digit (indicating the zone in which the station is situated)
+    stations and by 1, 2 or 3 letters NOTE a) Foreign individual radio amateurs will
+    use YK followed by a stroke (/) and their home call sign. b) Only for special
+    events the radio amateurs will use 6C followed by a digit and by a group of not
+    more than 3 letters." vs official "Amateur stations and experimental stations:
+    YK followed by a digit (indicating the zone in which the station is situated)
+    and by 1, 2 or 3 letters Digits indicating the zones: 1 – Southern Region 2 –
+    Northern Region 3 – Eastern Region 4 – Western Region 8 – Beacons 9 – Groups of
+    foreign radio amateurs 0 – Club stations Notes: i) Foreign individual radio amateurs
+    will use YK followed by a stroke (/) and their home call sign. ii) Only for special
+    events the radio amateurs will use 6C followed by a digit and by a group of not
+    more than 3 letters."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Tanzania (United Republic of): generated "Amateur stations Mainland
+    5H3[A-Z]{2} Zanzibar 5H1[A-Z]{2}" vs official "Amateur stations: 5H3AA-5H3ZZ –
+    Mainland 5H1AA-5H1ZZ – Zanzibar"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Tonga (Kingdom of): generated "Amateur stations A35 followed by 2
+    letters Experimental A35 followed by 3 letters, the first of which shall be the
+    letter X stations" vs official "Amateur stations: A35 followed by 2 letters Experimental
+    stations: A35 followed by 3 letters, the first of which shall be the letter X"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Tuvalu: generated "Amateur stations T20AA-T29ZZ Experimental T22AA-T29ZZ
+    stations" vs official "Amateur stations: T20AA-T29ZZ Experimental stations: T22AA-T29ZZ"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: United Arab Emirates: generated "Amateur stations A61 followed by
+    a group of not more than 3 letters Experimental A62 followed by a group of not
+    more than 3 letters stations" vs official "Amateur stations: A61 followed by a
+    group of not more than 3 letters Experimental stations: A62 followed by a group
+    of not more than 3 letters"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Uruguay (Eastern Republic of): generated "Amateur stations CX followed
+    by a digit (1-9) and a group of not more than 3 letters, the first indicating
+    the department in which the station is situated Experimental CV, CW or CX followed
+    by a digit (1-9) and a group of not more than 3 letters stations" vs official
+    "Amateur stations: CX followed by a digit (1-9) and a group of not more than 3
+    letters, the first indicating the department in which the station is situated
+    Experimental stations: CV, CW or CX followed by a digit (1-9) and a group of not
+    more than 3 letters"'
+  disposition: layout
+  reason: 'The same words and call-sign ranges on both sides in a different reading
+    order: the label of a sub-table ("Experimental stations") wraps or sits in a different
+    cell, so pdftotext reads it at another position.'
+- layer: rows
+  side: both
+  text: 'forms: Vanuatu (Republic of): generated "Amateur stations Licensed radio
+    amateurs (2 letters the initials of the YJ8[A- licensed radio amateur) Z]{2} For
+    amateur stations operated by beginners YJ8N[A- Z]{2} For restricted licensees''
+    amateur stations (VHF) YJ8V[A- Z]{2}" vs official "Amateur stations: YJ8 followed
+    by 2 letters (usually the initials of the licensed radio amateur) YJ8N* followed
+    by 2 letters YJ8V** followed by 2 letters * For amateur stations operated by beginners.
+    ** For restricted licensees'' amateur stations (VHF)."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".

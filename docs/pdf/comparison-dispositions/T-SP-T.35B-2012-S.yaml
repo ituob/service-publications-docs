@@ -1,0 +1,112 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-T.35B-2012-S, generated PDF from the
+# #89 generation run against the official ITU PDF, shape T35B. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'China: generated "Nombre de la administración: Ministry of Industry and Information
+    Technology (MIIT) ¿Existen fabricantes nacionales de equipos conformes a las Series
+    H, T o V? SÍ Autoridad de asignación: Tipo de terminal: H-, T- and V-Series Contacto:
+    Ms. Mei DENG, Mr. Shizhuo ZHAO Organización: China Communication Standards Association
+    (CCSA) Departmento: Dirección: CCSA 52#Hua Yuan Bei Road, Haidian District, Beijing
+    China 100191 Teléfono: +86 10 8205 4513 (Ms. Mei DENG); +86 10 6230 2645 (Mr.
+    Shizhuo ZHAO) Fax: +86 10 8205 4513 E-mail: dengmei@ccsa.org.cn Enlaces relacionados:
+    www.ccsa.org.cn/english/ Información actualizada: 15 de diciembre de 2011" vs
+    official "Nombre de la administración: Ministry of Industry and Information Technology
+    (MIIT) ¿Existen fabricantes nacionales de equipos conformes a las Series H, T
+    o V? SÍ Autoridad de asignación: Tipo de terminal: H-, T- and V-Series Contacto:
+    Ms. Mei DENG, Mr. Shizhuo ZHAO Organización: China Communication Standards Association
+    (CCSA) Departmento: Dirección: CCSA 52#Hua Yuan Bei Road, Haidian District, Beijing
+    China 100191 Teléfono: +86 10 8205 4513 (Ms. Mei DENG); +86 10 6230 2645 (Mr.
+    Shizhuo ZHAO) Fax: +86 10 8205 4513 E-mail: dengmei@ccsa.org.cn; zhaosz@ccsa.org.cn
+    Enlaces relacionados: www.ccsa.org.cn/english/ Información actualizada: 15 de
+    diciembre de 2011"'
+  disposition: data
+  reason: The dataset lists one e-mail address; the official PDF prints two for this
+    administration. The generated PDF shows the dataset value.
+- layer: rows
+  side: generated_only
+  text: 'Irán, República Islámica del Nombre de la administración: Telecommunication
+    Company of Iran (TCI) ¿Existen fabricantes nacionales de equipos conformes a las
+    Series H, T o V? NO Autoridad de asignación: No se ha designado ninguna Información
+    actualizada: 13 de septiembre de 2004'
+  disposition: data
+  reason: The generated heading uses the ISO country name from the dataset (acronyms.yaml);
+    the official PDF uses the ITU short name or translation. The block text is otherwise
+    identical.
+- layer: rows
+  side: official_only
+  text: 'Irán (República Islámica del) Nombre de la administración: Telecommunication
+    Company of Iran (TCI) ¿Existen fabricantes nacionales de equipos conformes a las
+    Series H, T o V? NO Autoridad de asignación: No se ha designado ninguna Información
+    actualizada: 13 de septiembre de 2004'
+  disposition: data
+  reason: The generated heading uses the ISO country name from the dataset (acronyms.yaml);
+    the official PDF uses the ITU short name or translation. The block text is otherwise
+    identical.
+- layer: rows
+  side: both
+  text: 'Japón: generated "Nombre de la administración: Ministry of Internal Affairs
+    and Communications ¿Existen fabricantes nacionales de equipos conformes a las
+    Series H, T o V? SÍ Autoridad de asignación: Tipo de terminal: H-, T- and V-Series
+    Contacto: Mr Manabu Kanaya, Director of Standardization Division Organización:
+    Ministry of Internal Affairs and Communications Departmento: Information and Communications
+    Policy Bureau Dirección: 1-2 Kasumigaseki 2-chome Chiyoda-ku, Tokyo 100-8926,
+    Japan Teléfono: +81 3 5353 5763 Fax: +81 3 5253 5764 E-mail: istd@soumu.go.jp
+    Enlaces relacionados: Información actualizada: 27 de octubre de 2003" vs official
+    "Nombre de la administración: Ministry of Internal Affairs and Communications
+    ¿Existen fabricantes nacionales de equipos conformes a las Series H, T o V? SÍ
+    Autoridad de asignación: Tipo de terminal: H-, T- and V-Series Contacto: Mr Manabu
+    Kanaya, Director of Standardization Division Organización: Ministry of Internal
+    Affairs and Communications Departmento: Information and Communications Policy
+    Bureau Dirección: 1-2 Kasumigaseki 2-chome Chiyoda-ku, Tokyo 100-8926, Japan Teléfono:
+    +81 3 5353 5763 Fax: +81 3 5253 5764 E-mail: istd@soumu.go.jp Enlaces relacionados:
+    N/A Información actualizada: 27 de octubre de 2003"'
+  disposition: bug
+  reason: 'The dataset field is empty and the generated PDF leaves the value blank;
+    the official form prints "N/A" for an empty field (checked on Japan: related_links
+    is an empty string, official shows N/A).'
+- layer: rows
+  side: both
+  text: 'Kirguistán: generated "Nombre de la administración: State Communications
+    Agency at Government of Kyrgyz Republic ¿Existen fabricantes nacionales de equipos
+    conformes a las Series H, T o V? NO Autoridad de asignación: Tipo de terminal:
+    H-, T- and V-Series Contacto: Dergacheva Ekaterina Alexandrovna Organización:
+    State Communications Agency at Government of Kyrgyz Republic Departmento: Department
+    of Standardization and Certification Dirección: Kyrgyzstan, Bishkek, Sovetskaya
+    str. 7b Teléfono: +996 312 54 41 07 Fax: +996 312 54 41 05 E-mail: nta@infotel.kg
+    Enlaces relacionados: Información actualizada: 8 de octubre de 2003" vs official
+    "Nombre de la administración: State Communications Agency at Government of Kyrgyz
+    Republic ¿Existen fabricantes nacionales de equipos conformes a las Series H,
+    T o V? NO Autoridad de asignación: Tipo de terminal: H, T and V-Series Contacto:
+    Dergacheva Ekaterina Alexandrovna Organización: State Communications Agency at
+    Government of Kyrgyz Republic Departmento: Department of Standardization and Certification
+    Dirección: Kyrgyzstan, Bishkek, Sovetskaya str. 7b Teléfono: +996 312 54 41 07
+    Fax: +996 312 54 41 05 E-mail: nta@infotel.kg Enlaces relacionados: N/A Información
+    actualizada: 8 de octubre de 2003"'
+  disposition: bug
+  reason: 'Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides. The dataset field is empty and the generated PDF leaves
+    the value blank; the official form prints "N/A" for an empty field (checked on
+    Japan: related_links is an empty string, official shows N/A).'
+- layer: rows
+  side: both
+  text: 'Polonia: generated "Nombre de la administración: Office of Electronic Communications
+    (UKE) ¿Existen fabricantes nacionales de equipos conformes a las Series H, T o
+    V? NO Autoridad de asignación: Tipo de terminal: H-, T- and V-Series Contacto:
+    Tomasz Karamon Organización: UKE Departmento: Department of Technology Dirección:
+    Kasprzaka 18/20, 01-211 Warsaw, Poland Teléfono: +48 (0) 22 53 49 325 Fax: +48
+    (0) 22 53 49 327 E-mail: t.karamon@uke.gov.pl Enlaces relacionados: Información
+    actualizada: 23 de febrero de 2007" vs official "Nombre de la administración:
+    Office of Electronic Communications (UKE) ¿Existen fabricantes nacionales de equipos
+    conformes a las Series H, T o V? NO Autoridad de asignación: Tipo de terminal:
+    All Contacto: Tomasz Karamon Organización: UKE Departmento: Department of Technology
+    Dirección: Kasprzaka 18/20, 01-211 Warsaw, Poland Teléfono: +48 (0) 22 53 49 325
+    Fax: +48 (0) 22 53 49 327 E-mail: t.karamon@uke.gov.pl Enlaces relacionados: N/A
+    Información actualizada: 23 de febrero de 2007"'
+  disposition: bug
+  reason: 'The dataset lists the terminal types as the H, T and V series; the official
+    PDF prints "All" for this authority. The generated PDF shows the dataset value.
+    The dataset field is empty and the generated PDF leaves the value blank; the official
+    form prints "N/A" for an empty field (checked on Japan: related_links is an empty
+    string, official shows N/A).'
