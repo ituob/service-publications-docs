@@ -9,3 +9,6 @@ gem "bundler"
 gem "rake"
 gem "rspec"
 gem "bigdecimal", "~> 4.0"
+
+# Parse document table structure in focused template regressions.
+gem "asciidoctor", "2.0.26"

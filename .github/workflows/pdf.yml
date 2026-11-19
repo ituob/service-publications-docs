@@ -25,11 +25,20 @@ on:
       - 'scripts/render_publications.rb'
       - 'scripts/build_pdf_coverage_matrix.rb'
       - 'scripts/merge_publication_manifests.rb'
+      - 'scripts/pdf_typesetting_report.rb'
+      - 'scripts/patch_itu_cjk_font_fallback.rb'
+      - 'scripts/patch_itu_f32_tables.rb'
+      - 'docs/pdf/typesetting-baselines.json'
       - 'scripts/check_official_pdfs.rb'
+      - 'scripts/check_f32_content.py'
+      - 'scripts/tests/test_check_f32_content.py'
+      - 'scripts/f32_sections.py'
+      - 'scripts/tests/test_f32_sections.py'
       - 'scripts/pdf_fidelity_report.rb'
       - 'docs/pdf/official*'
       - 'docs/pdf/official/**'
-      - 'ituob/spec/fixtures/f32/official-2011.pdf'
+      - 'ituob/spec/fixtures/f32/**'
+      - 'ituob/spec/fixtures/f32/printed-content.json'
       - 'ituob/spec/scripts/check_official_pdfs_spec.rb'
       - 'ituob/spec/scripts/pdf_fidelity_report_spec.rb'
       - 'ituob/lib/**'
@@ -94,7 +103,11 @@ jobs:
       matrix:
         doc: ${{ fromJSON(needs.plan.outputs.docs) }}
     container:
-      image: metanorma/metanorma:latest
+      # Pinned to the 1.18.3 image (the `latest` digest on 2026-11-18; Gemfile.lock
+      # of metanorma-docker f2bf8c16: leptris 1.9.424.0, lutaml-lml 0.3.6).
+      # Newer leptris releases (1.9.427.0) hang ITU RNG validation, so an
+      # unpinned `latest` could silently break every render. Bump deliberately.
+      image: metanorma/metanorma:1.18.3@sha256:b044de420aba4dab2b4a837ec58ee4916d439b85e333ff5bde404efacbf31f8d
     env:
       DOC_ID: ${{ matrix.doc }}
     steps:
@@ -117,11 +130,35 @@ jobs:
         run: |
           set -eu
           if ls "documents/$DOC_ID"/*-C.adoc >/dev/null 2>&1; then
-            fontist install "Noto Sans CJK SC" --accept-all-licenses
+            # The fontist formula can select NotoSansSC[wght].ttf even when
+            # static fonts are requested; mn2pdf explicitly skips that file.
+            # Register the release's standalone Regular and Bold OTFs instead.
+            font_dir="${FONTIST_PATH:?}/fonts/noto_sans_sc_static"
+            mkdir -p "$font_dir"
+            for weight in Regular Bold; do
+              curl --fail --location --retry 3 \
+                "https://raw.githubusercontent.com/notofonts/noto-cjk/Sans2.004/Sans/SubsetOTF/SC/NotoSansSC-$weight.otf" \
+                --output "$font_dir/NotoSansSC-$weight.otf"
+            done
+            ruby -rfontist -e '
+              Fontist::Indexes::FontistIndex.instance.rebuild
+              fonts = Fontist::Manifest.from_hash({"Noto Sans SC" => ["Regular", "Bold"]}, locations: true).to_hash
+              paths = fonts.fetch("Noto Sans SC").values.flat_map { |style| style.fetch("paths") }
+              abort "Chinese static fonts not registered" unless paths.size >= 2 && paths.all? { |path| path.end_with?(".otf") }
+              puts paths
+            '
+            # The service-publication stylesheet overrides :fonts: with Arial
+            # on page sequences and tables. Add the installed Chinese fallback.
+            ruby scripts/patch_itu_cjk_font_fallback.rb
           fi
           if ls "documents/$DOC_ID"/*-A.adoc >/dev/null 2>&1; then
             fontist install "Noto Naskh Arabic" --accept-all-licenses
           fi
+
+      - name: Match F.32 table typography to the official edition
+        if: matrix.doc == 'T-SP-F.32-2011'
+        # Each publication has its own container: this cannot change other shards.
+        run: ruby scripts/patch_itu_f32_tables.rb
 
       # Renders with `metanorma -t itu -x pdf --agree-to-terms` per language,
       # copies each PDF to build/pdf/<standard>-<year>/ and writes
@@ -209,6 +246,12 @@ jobs:
             --docs "$(echo "$DOCS" | jq -r 'join(",")')" \
             --out build/official-comparison
 
+      - name: Compare ordered F.32 printed content in all three languages
+        if: ${{ !cancelled() && contains(fromJSON(needs.plan.outputs.docs), 'T-SP-F.32-2011') }}
+        run: |
+          python3 -m unittest discover -s scripts/tests -p "test_*f32*.py"
+          python3 scripts/check_f32_content.py --generated parts
+
       - name: Write the per-row score table to the job summary
         if: always()
         run: |
@@ -224,6 +267,42 @@ jobs:
         with:
           name: official-pdf-comparison
           path: build/official-comparison/
+          if-no-files-found: error
+
+  typesetting:
+    needs: [plan, publications]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BUNDLE_GEMFILE: ituob/Gemfile
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+      - name: Install report dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          bundle install
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.plan.outputs.artifact-name }}
+          path: rendered
+      # Advisory until the documented typesetting failures are resolved.
+      # Keep --verify so the step and JSON retain an honest failure verdict.
+      - name: Report typesetting fidelity
+        id: report
+        continue-on-error: true
+        run: bundle exec ruby scripts/pdf_typesetting_report.rb --pdf-dir rendered --out-dir typesetting --verify
+      - name: Upload typesetting evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: typesetting-report
+          path: typesetting/
           if-no-files-found: error
 
   publications:

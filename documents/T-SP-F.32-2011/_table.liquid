@@ -1,3 +1,6 @@
+{% if data.first.source_cells.size > 0 %}
+{% render "printed_table", data: data, lang: lang %}
+{% else %}
 
 
 
@@ -18,7 +21,8 @@
   {%- endif -%}
 {%- endfor %}
 
-{% assign next_country = country_data.country_or_area[lang] %}
+{% comment %}Use the same country identity for run sizes and boundaries; translations remain display labels.{% endcomment %}
+{% assign next_country = country_data.country_or_area.en %}
 {% comment %}A trailing "1)" is the printed footnote marker on the country name; it is not part of the name.{% endcomment %}
 {% assign country_fr = country_data.country_or_area.fr | strip %}
 {% if country_fr.size > 2 and country_fr contains "1)" %}{% assign tail = country_fr | slice: -2, 2 %}{% if tail == "1)" %}{% assign keep = country_fr.size | minus: 2 %}{% assign country_fr = country_fr | slice: 0, keep | strip %}{% endif %}{% endif %}
@@ -36,7 +40,7 @@
 |===
 {% endunless %}
 
-[cols="5",options="unnumbered"]
+[cols="24,28,12,26,10",options="unnumbered"]
 |===
 
 ^h| {{ metadata.locale | where: "key", "country_or_area" | map: lang | first }}
@@ -108,7 +112,7 @@ footnote:[{{ country_data.country_or_area_note[lang] }}]
     {% endif %}
   {% endif %}
 
-{% elsif country_en == "CHILE" or country_en == "UNITED STATES" %}
+{% elsif country_en == "CHILE" or country_en == "UNITED STATES" or country_en == "INDIA" or country_en == "AUSTRALIA" %}
   |
 {% endif %}
 
@@ -132,7 +136,14 @@ footnote:[{{ country_data.country_or_area_note[lang] }}]
   |
 {% endif %}
 
-| {{ country_data.telegraph_office_name[lang] | default: country_data.telegraph_office_name.en | replace: "|", "\|" }}
+{% assign office_name = country_data.telegraph_office_name[lang] | default: country_data.telegraph_office_name.en %}
+{% comment %}US coast-station names span consecutive operator rows in the printed list.{% endcomment %}
+{% if country_en == "UNITED STATES" and country_data.subarea.en contains "Coast Stations" and office_name == previous_office_name %}
+|
+{% else %}
+| {{ office_name | replace: "|", "\|" }}
+{% endif %}
+{% assign previous_office_name = office_name %}
 {%- if country_en == "BARBADOS" and country_data.notes -%}
   footnote:[{{ country_data.notes[lang] }}]
 {%- endif -%}
@@ -149,3 +160,5 @@ footnote:[{{ country_data.country_or_area_note[lang] }}]
 {% endfor %}
 
 |===
+
+{% endif %}

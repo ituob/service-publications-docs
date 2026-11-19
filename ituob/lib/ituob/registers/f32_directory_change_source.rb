@@ -9,7 +9,7 @@ module Ituob
     # The artifact is mandatory: the unverified legacy seed is never a fallback.
     class F32DirectoryChangeSource < DirectoryChangeSource
       PUBLICATION_FILENAME = "publication.yaml"
-      CONTEXT_KINDS = %w[heading network reservation telex alias continuation printed-unassigned shared-indicator network-relative-office aggregated-office-action].freeze
+      CONTEXT_KINDS = %w[printed-row heading network reservation telex alias continuation printed-unassigned shared-indicator network-relative-office aggregated-office-action].freeze
 
       attr_reader :publication, :context_only_changes, :context_only_sources
 

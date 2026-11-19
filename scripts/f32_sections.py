@@ -1,0 +1,367 @@
+"""Independent, ordered comparisons of F.32 front matter and appendices.
+
+Inputs are same-language pdftotext -layout output from official and rendered PDFs.
+Page counts and line wrapping are deliberately not content boundaries.
+"""
+
+from difflib import SequenceMatcher
+import re
+import unicodedata
+
+
+APPENDIX = r"(?:Appendix|Appendice|Apéndice)"
+
+
+def _norm(text):
+    return re.sub(r"[\W_]", "", unicodedata.normalize("NFC", text).lower())
+
+
+def _clean(text):
+    lines = []
+    for line in text.replace("\f", "\n").splitlines():
+        if (re.search(r"(?:Annex to ITU OB|Annexe au BE|Anexo al BE)", line)
+                or line.strip() == "15.V.2011"
+                or re.fullmatch(r"\s*[–—-]\s*\d+\s*[–—-]\s*", line)):
+            continue
+        lines.append(line)
+    return "\n".join(lines)
+
+EXACT_DIFF_CELLS = 250_000
+TOKEN = re.compile(r"[^\]\)\.,;:/\[(]+|.", re.S)
+
+
+def difference_ops(wanted, actual):
+    """Non-equal opcodes between two different strings, in bounded time.
+
+    Exact character matching when the strings are small. Otherwise strip the
+    common prefix/suffix and align word-sized tokens: the character-level
+    matcher is quadratic in the stream length and spent over 14 minutes on one
+    28k-character association stream of the F.32 comparison.
+    """
+    head = 0
+    limit = min(len(wanted), len(actual))
+    while head < limit and wanted[head] == actual[head]:
+        head += 1
+    tail = 0
+    while tail < limit - head and wanted[-1 - tail] == actual[-1 - tail]:
+        tail += 1
+    w, a = wanted[head:len(wanted) - tail], actual[head:len(actual) - tail]
+    if len(w) * len(a) <= EXACT_DIFF_CELLS:
+        blocks = [(i, j, n) for i, j, n in SequenceMatcher(None, w, a, autojunk=False).get_matching_blocks() if n]
+    else:
+        tokens_w, tokens_a = TOKEN.findall(w), TOKEN.findall(a)
+        starts_w, starts_a = [0], [0]
+        for token in tokens_w:
+            starts_w.append(starts_w[-1] + len(token))
+        for token in tokens_a:
+            starts_a.append(starts_a[-1] + len(token))
+        blocks = [(starts_w[i], starts_a[j], starts_w[i + n] - starts_w[i])
+                  for i, j, n in SequenceMatcher(None, tokens_w, tokens_a, autojunk=False).get_matching_blocks() if n]
+    ops = []
+    i = j = 0
+    for bi, bj, n in blocks + [(len(w), len(a), 0)]:
+        if i < bi or j < bj:
+            ops.append(("replace", i + head, bi + head, j + head, bj + head))
+        i, j = bi + n, bj + n
+    return ops
+
+
+def _difference(label, wanted, actual):
+    wanted, actual = _norm(wanted), _norm(actual)
+    if wanted == actual:
+        return []
+    changes = difference_ops(wanted, actual)
+    _, a, b, c, d = changes[0]
+    return [f"{label}: ordered content differs ({len(changes)} gaps; "
+            f"official {len(wanted)} / generated {len(actual)} characters); "
+            f"official …{wanted[max(0,a-25):min(len(wanted),b+45)]}…; "
+            f"generated …{actual[max(0,c-25):min(len(actual),d+45)]}…"]
+
+
+def _parts(text):
+    text = _clean(text)
+    starts = [re.search(rf"{APPENDIX}\s+{n}\b", text) for n in (1, 2, 3)]
+    if any(match is None for match in starts):
+        raise ValueError("missing appendix 1, 2 or 3 heading")
+    positions = [text.rfind("\n", 0, match.start()) + 1 for match in starts]
+    if positions != sorted(positions):
+        raise ValueError("appendices are out of order")
+    return text[:positions[0]], text[positions[0]:positions[1]], text[positions[1]:positions[2]], text[positions[2]:]
+
+
+def _paragraphs(front):
+    heading = re.search(r"(?:Note from TSB|Note du TSB|Nota de la TSB)", front)
+    if not heading:
+        raise ValueError("missing TSB note heading")
+    text = front[heading.end():]
+    # Stop at the semantic destination table heading, irrespective of page.
+    end = re.search(r"^.*(?:Destination Indicators \(DI\)|Indicateurs de destination \(ID\)|Indicadores de destino \(ID\)|Country\s*/|Pays\s*/|País\s*/)", text, re.M)
+    if end:
+        text = text[:end.start()]
+    matches = list(re.finditer(r"^\s*(?:([1-5])\.|([a-e])\))\s+", text, re.M))
+    if len(matches) != 5:
+        raise ValueError(f"expected five TSB paragraphs, found {len(matches)}")
+    numbers = [int(m[1]) if m[1] else ord(m[2]) - ord('a') + 1 for m in matches]
+    if numbers != [1, 2, 3, 4, 5]:
+        raise ValueError("TSB paragraphs are out of order")
+    paragraphs = [text[m.end():matches[i+1].start() if i < 4 else len(text)] for i, m in enumerate(matches)]
+    # Printed publication/table titles after paragraph 5 are outside the note.
+    paragraphs[-1] = re.split(r"\n\s*\n", paragraphs[-1].strip(), maxsplit=1)[0]
+    return paragraphs
+
+
+def _appendix1(text, strict=True):
+    columns = [[], [], [], []]
+    networks = {}
+    active = None
+    country = ""
+    alias_count = 0
+    row_country = ""
+    row_countries = {}
+    started = False
+    for chunk in re.split(r"(?=^.*(?:Country\s*/|Pays\s*/|País\s*/))", text, flags=re.M):
+        lines = chunk.splitlines()
+        header = next((i for i, line in enumerate(lines)
+                       if re.search(r"Country\s*/|Pays\s*/|País\s*/", line)), None)
+        if header is None:
+            continue
+        # Column starts come from actual two-letter network/indicator cells;
+        # headings are centered differently in each edition.
+        candidates = []
+        for line in lines[header + 1:]:
+            for match in re.finditer(r"\b([A-Z]{2})\s{2,}([A-Z]{2})(?:\s|$)", line):
+                if match.start() > len(lines[header]) * .4:
+                    candidates.append((match.start(1), match.start(2)))
+        if not candidates:
+            raise ValueError("appendix 1 has no network/indicator cells")
+        # Rendered text drifts by a few columns from row to row, so the code and
+        # indicator columns are medians and each row is matched within a window.
+        code = sorted(c[0] for c in candidates)[len(candidates) // 2]
+        indicator = sorted(c[1] for c in candidates)[len(candidates) // 2]
+        slack = 6
+        body = lines[header + 1:]
+        continuation = next((i for i, line in enumerate(body) if re.search(rf"{APPENDIX}\s+1\b", line)), len(body))
+        body = body[:continuation]
+        country_cut = min((m.end() for line in body
+                           if (m := re.match(r"^\S.*?\s{2,}(?=\S)", line))
+                           and m.end() < code - slack), default=code // 2)
+
+        def code_cell(line):
+            """A network code is a lone two-letter cell near the code column,
+            set apart by a gap (or follows a dash); wrapped ROA text may also end there."""
+            for match in re.finditer(r"(?:(?<=\s{2})|(?<=[–-]\s))[A-Z]{2}(?=\s|$)", line):
+                if code - slack <= match.start() <= code + slack:
+                    return match
+            return None
+
+        # A generated table may continue a row across a page; keep its state.
+        if strict:
+            started = False
+        for line in body:
+            if not strict and started and (
+                    re.search(r"\((?:administration/ROA|administration/ER|administración/EER)\)", line)
+                    or line.strip().lower() in ("réseau", "red", "network", "code", "code de réseau", "código de red")):
+                continue
+            if code_cell(line):
+                started = True
+            if not started and re.fullmatch(r"[A-Z ]+", line[indicator:].strip()) and line[indicator:].strip():
+                started = True
+            if not started:
+                continue
+            if (not line.strip() or re.fullmatch(r"[\d\s]+", line)
+                    or re.search(rf"{APPENDIX}\s+1\b|Special Origin Indicators|Indicateur spécial|Indicador especial|Indicadores especiales", line, re.I)):
+                continue
+            country_value = line[:country_cut].strip()
+            if country_value:
+                if alias_count % 3 == 0:
+                    country = country_value
+                if code_cell(line):
+                    row_country = country_value
+                alias_count += 1
+            cell = code_cell(line)
+            is_code = cell is not None
+            code_value = cell[0] if is_code else ""
+            roa_end = cell.start() if is_code else indicator - slack + 2
+            indicator_start = cell.end() if is_code else indicator - slack + 2
+            if is_code:
+                active = code_value
+                if active in networks:
+                    raise ValueError(f"appendix 1 duplicate network {active}")
+                networks[active] = {"country": country, "network/ROA": [], "origin indicators": []}
+                row_countries[active] = row_country
+            values = (line[:country_cut], line[country_cut:roa_end], code_value, line[indicator_start:])
+            for i, value in enumerate(values):
+                if value.strip():
+                    columns[i].append(value.strip())
+            if active and values[1].strip():
+                networks[active]["network/ROA"].append(values[1].strip())
+            if active and values[3].strip():
+                networks[active]["origin indicators"].append(values[3].strip())
+    if not columns[2]:
+        raise ValueError("appendix 1 table missing")
+    # Official continuation pages repeat complete trilingual country headings.
+    aliases = columns[0]
+    if strict and len(aliases) % 3:
+        raise ValueError("appendix 1 incomplete trilingual country heading")
+    if len(aliases) % 3:
+        # Wrapped headings are not three lines each: a network belongs to the
+        # country printed on its own row.
+        for network, label in row_countries.items():
+            networks[network]["country"] = label
+    if not len(aliases) % 3:
+        groups = [aliases[i:i+3] for i in range(0, len(aliases), 3)]
+        columns[0] = [" ".join(group) for i, group in enumerate(groups) if i == 0 or group != groups[i-1]]
+    # The generated table wraps long names ("EMIRATOS ÁRABES / UNIDOS") and may
+    # split a heading across pages, so its lines are not three per country.
+    # Its heading text is still compared in order, as one stream.
+    return [" ".join(column) for column in columns] + [networks]
+
+
+def _appendix2(text):
+    lines = text.splitlines()
+    header = next((i for i, line in enumerate(lines) if re.search(r"Network code|Code de|Código", line)), None)
+    if header is None:
+        raise ValueError("appendix 2 table header missing")
+    codes, organizations = [], []
+    records = {}
+    pending = []
+    active = None
+
+    def flush():
+        nonlocal pending, active
+        if active is not None:
+            if active in records:
+                raise ValueError(f"appendix 2 duplicate network {active}")
+            records[active] = " ".join(pending)
+            pending = []
+            active = None
+
+    for line in lines[header+1:]:
+        if not line.strip():
+            flush()
+            continue
+        if re.fullmatch(r"[\d\s]+", line) or line.strip().lower() in ("réseau", "red"):
+            continue
+        match = re.match(r"^\s*(X[A-Z])\s+", line)
+        if match:
+            flush()
+            active = match[1]
+            codes.append(active)
+            line = line[match.end():]
+        organizations.append(line)
+        pending.append(line)
+    flush()
+    return " ".join(codes), " ".join(organizations), records
+
+
+def _appendix3(text):
+    form = re.search(r"AMENDMENTS|AMENDEMENTS|ENMIENDAS|Appendix 3 amendments form", text, re.I)
+    if not form:
+        raise ValueError("appendix 3 amendments form missing")
+    before, after = text[:form.start()], text[form.end():]
+    # The official list is printed in two independent columns, read down each.
+    left, right = [], []
+    for line in before.splitlines():
+        match = re.match(r"^\s*(\d{3})\s+(.+?)\s+(\d{3})\s+(.+?)\s*$", line)
+        if match:
+            left.append(match[1] + " " + match[2])
+            right.append(match[3] + " " + match[4])
+        elif re.match(r"^\s*\d{3}\s+", line):
+            left.append(line.strip())
+    # Keep all form column labels and the complete ordered 1..30 sequence.
+    after = re.sub(r"^\s*[\d.]+\.\s*", "", after)
+    # A table whose header row repeats on each page prints its labels again;
+    # the labels are one printed heading, however many pages the rows span.
+    lines = after.splitlines()
+    first_row = next((i for i, line in enumerate(lines) if re.fullmatch(r"\s*1\s*", line)), None)
+    if first_row is not None:
+        squash = lambda line: " ".join(line.split())
+        labels = {squash(line) for line in lines[:first_row] if line.strip()}
+        # The labels read in a different order when wrapped, so compare them as a set of words.
+        heading = " ".join(sorted(re.findall(r"\w+", " ".join(sorted(labels)).lower())))
+        rows = [line for line in lines[first_row:] if squash(line) not in labels]
+        after = heading + "\n" + "\n".join(rows)
+    return " ".join(left + right), after, form[0]
+
+
+def _heading(text, number):
+    """Read the first printed title and column labels, joining wrapped labels."""
+    lines = text.splitlines()
+    marker = next(i for i, line in enumerate(lines) if re.search(rf"{APPENDIX}\s+{number}\b", line))
+    title_lines = [re.sub(rf"^.*?{APPENDIX}\s+{number}\s*:?[ \t]*", "", lines[marker])]
+    header_pattern = (r"Country\s*/|Pays\s*/|País\s*/" if number == 1 else
+                      r"Network code|Code de|Código" if number == 2 else
+                      r"^\s*(?:OB No\.|BE No\.|BE N|Operational Bulletin No\.|Boletín de Explotación N|Bulletin d'exploitation N)")
+    header = next((i for i in range(marker+1, len(lines)) if re.search(header_pattern, lines[i])), None)
+    if header is None:
+        raise ValueError(f"appendix {number} column headings missing")
+    title_lines.extend(lines[marker+1:header])
+    first = list(re.finditer(r"\S.*?(?=\s{2,}|$)", lines[header]))
+    columns = [[match[0]] for match in first]
+    centers = [(match.start()+match.end())/2 for match in first]
+    for line in lines[header+1:]:
+        if re.fullmatch(r"[\d\s]*", line):
+            continue
+        if re.search(r"[A-Z]{2}\s{2,}[A-Z]{2}", line) or re.match(r"^\s*(?:X[A-Z]|\d{3})\s+", line):
+            break
+        # Organization names precede the vertically centered first network code.
+        if number == 2 and len(line.strip()) > 12 and not re.fullmatch(r"\s*(?:réseau|red)\s*", line):
+            break
+        for match in re.finditer(r"\S.*?(?=\s{2,}|$)", line):
+            center = (match.start()+match.end())/2
+            index = min(range(len(centers)), key=lambda n: abs(centers[n]-center))
+            columns[index].append(match[0])
+    labels = [" ".join(column) for column in columns]
+    # The official cessation list repeats the same labels above its right half.
+    if number == 3 and len(labels) == 4 and labels[:2] == labels[2:]:
+        labels = labels[:2]
+    return " ".join(title_lines), labels
+
+
+def _label_words(labels):
+    return " ".join(sorted(re.findall(r"\w+", " ".join(labels).lower())))
+
+
+def compare_sections(official_text, generated_text, language):
+    """Return actionable gaps; official_text must be the matching language PDF."""
+    errors = []
+    extracted = []
+    for label, text in (("official", official_text), ("generated", generated_text)):
+        try:
+            front, one, two, three = _parts(text)
+            extracted.append((_paragraphs(front), _appendix1(one, strict=label == "official"), _appendix2(two), _appendix3(three)))
+        except ValueError as error:
+            errors.append(f"{label} {language} section extraction: {error}")
+    if errors:
+        return errors
+    source, generated = extracted
+    for number in (1, 2, 3):
+        try:
+            source_heading = _heading(_parts(official_text)[number], number)
+            generated_heading = _heading(_parts(generated_text)[number], number)
+            errors.extend(_difference(f"appendix {number} title", source_heading[0], generated_heading[0]))
+            # A heading wrapped over two lines reads in a different order; the
+            # labels themselves must still all be there.
+            errors.extend(_difference(f"appendix {number} column headings",
+                                      _label_words(source_heading[1]), _label_words(generated_heading[1])))
+        except ValueError as error:
+            errors.append(f"{language} section extraction: {error}")
+    for i, (wanted, actual) in enumerate(zip(source[0], generated[0]), 1):
+        errors.extend(_difference(f"TSB paragraph {i}", wanted, actual))
+    for i, name in enumerate(("countries", "network/ROA", "network codes", "origin indicators")):
+        errors.extend(_difference(f"appendix 1 {name}", source[1][i], generated[1][i]))
+    for network, wanted in source[1][4].items():
+        if network in generated[1][4]:
+            actual = generated[1][4][network]
+            errors.extend(_difference(f"appendix 1 network {network} country", wanted["country"], actual["country"]))
+            for field in ("network/ROA", "origin indicators"):
+                errors.extend(_difference(f"appendix 1 network {network} {field}",
+                                          " ".join(wanted[field]), " ".join(actual[field])))
+    for i, name in enumerate(("network codes", "organizations")):
+        errors.extend(_difference(f"appendix 2 {name}", source[2][i], generated[2][i]))
+    for network, wanted in source[2][2].items():
+        if network in generated[2][2]:
+            errors.extend(_difference(f"appendix 2 network {network} organizations", wanted, generated[2][2][network]))
+    for i, name in enumerate(("cessation list", "amendments form", "amendments heading")):
+        errors.extend(_difference(f"appendix 3 {name}", source[3][i], generated[3][i]))
+    return errors

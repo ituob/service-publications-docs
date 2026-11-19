@@ -51,19 +51,19 @@ E-mail: mailto:tsbtson@itu.int[]
 _This form should be used to notify the Director of TSB of ISPCs that have been assigned or withdrawn by a Member State since the last notification._
 
 Country/Area:
-{% for i in (1..100) -%}
+{% for i in (1..72) -%}
 &#95;
 {%- endfor %} +
 Member State Organization:
-{% for i in (1..89) -%}
+{% for i in (1..72) -%}
 &#95;
 {%- endfor %} +
 Member State contact person: Name:
-{% for i in (1..82) -%}
+{% for i in (1..72) -%}
 &#95;
 {%- endfor %} +
 Address:
-{% for i in (1..105) -%}
+{% for i in (1..72) -%}
 &#95;
 {%- endfor %} +
 Tel:

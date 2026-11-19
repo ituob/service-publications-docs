@@ -1,12 +1,13 @@
 {
   "baseline_commit": "3a96ae63b7369d4e10a53831a0d51b6c6e0add04",
   "normalization": "Strip leading/trailing line whitespace and empty lines; E164D excludes restored notes n/o/p (headings checked separately).",
+  "digest_refresh": "Eight SHA-256 values were recomputed from provider-rendered publications with MainPublicationRendering after source diffs between main 6c2a8924 and source head ffb8925d confirmed only the five Chinese font declarations and Q.708B blank-form loop lengths changed; all other document hashes remain from baseline_commit.",
   "documents": {
     "T-SP-E.118-2018-A.adoc": {
       "sha256": "3aa5c48cfc349ffdd697e490b48751a065ff30e16d8cd4b4b9ddb82b1fd2c1bd"
     },
     "T-SP-E.118-2018-C.adoc": {
-      "sha256": "2d7c5ae6918e31d9f3c6c21488f5180bd915e0795fa20825ad077121c41fcb0d"
+      "sha256": "925aad10335fe0f67c211630f6228fe5f472c730e48333d3065785af508ccbd8"
     },
     "T-SP-E.118-2018-E.adoc": {
       "sha256": "a2a347e46780b3f574aee25e4e43efdac879819b62a8fe7b89537976617a9de3"
@@ -54,7 +55,7 @@
         ". [[note_p]]有关共享国家代码883，已为下述国际网络预留或分配了以下三位识别代码：:",
         ". [[note_q]]该标识不影响有关地位的立场且符合联合国安理会第1244号决议以及国际法院有关科索沃宣布独立的意见。"
       ],
-      "sha256": "eee1bd4a32538d144eda2f1cd1c5a0018ce397a4aec768ae450540cbea7954e6"
+      "sha256": "99a4eb382997abd7e3cd5fe0c238c517021e6d1a2d89ed4595f5385cb2ec8b1b"
     },
     "T-SP-E.164D-2016-E.adoc": {
       "note_headings": [
@@ -96,7 +97,7 @@
       "sha256": "d8a83c69b085ac1566b96b4e396d3375f7034be1fdbd049299f839de0bd8511a"
     },
     "T-SP-E.218-2017-C.adoc": {
-      "sha256": "551550f770ccadee2a39ac6224a1c723270a5f4c8abdad29e8b5c16a950ad8e4"
+      "sha256": "310987a11b61e1c0168037fbf102e96fc4493f016a975139ed0d0514c9fdb624"
     },
     "T-SP-E.218-2017-E.adoc": {
       "sha256": "d8be97287e1675fef6512ca89c8fe9369352ca64eaf9b3cd40212cf399e54d87"
@@ -123,7 +124,7 @@
       "sha256": "948619a92bf73820ba5bc172dc7416ca72829f41dfb5cdaa8b56d3d5ecf307a3"
     },
     "T-SP-M.1400-2014-C.adoc": {
-      "sha256": "666d8899dc0227b5f1278bb9cf152e9edc072a5fa737ff61b7c84d6280a513f1"
+      "sha256": "b0dede88f0fbdb0e5cd767cca3e02c372b70965c6ae0eaa5a41cacdbbaaa4522"
     },
     "T-SP-M.1400-2014-E.adoc": {
       "sha256": "30f171b6d0b62717681e0d8b39a55b7233e4c0ac034e4d2a070123ee8d2c3baf"
@@ -141,7 +142,7 @@
       "sha256": "386507af630fb6b80917e91beba241d6e5f83bc3ad3039229ddcd94a04badada"
     },
     "T-SP-Q.708A-2017-C.adoc": {
-      "sha256": "40a7b5398b99b8e4bbc5f25d3ec5d3a86eead3d62ef48fc201bf23b694d67209"
+      "sha256": "c12460ea3c938cf41cc94ab648416810e6f754d34a98cfd17cc578285ebec64a"
     },
     "T-SP-Q.708A-2017-E.adoc": {
       "sha256": "47c4de7d143fc20e1f2b2727e281b3eb9004df370b9952620b37f08d63d9ef82"
@@ -156,13 +157,13 @@
       "sha256": "a4e62df0d759f08f6741c352c6d2ea7433f104c176c5e4e931cbf3e3411ab7b4"
     },
     "T-SP-Q.708B-2016-E.adoc": {
-      "sha256": "0c9ed2dde20a2f1afee90a0431fbf3146f8bfee75e3728a581a52b89162506e8"
+      "sha256": "10e23cd8ace067e853b989f348522ab58a102fb0d2500092e0f27bdc333f7e78"
     },
     "T-SP-Q.708B-2016-F.adoc": {
-      "sha256": "3505b9c531be0be5e3fc05bc7658a18a738342b2682aaf71503aa9011e91dc12"
+      "sha256": "b9b082d083a46e51de50fd0ba8ffc14b97fc4c0ef3d1c3760e1685f01e8f6a6f"
     },
     "T-SP-Q.708B-2016-S.adoc": {
-      "sha256": "1ad7918cb4966e48e27fb855ece51dc639a8b3dea0e12450a98361021aa9fbae"
+      "sha256": "e3bc8a363e31552a988126b46b17ccd0ee6b595e2df0a689557b816a79ea36e0"
     },
     "T-SP-X.121B-2011-MSW-E.adoc": {
       "sha256": "5bd6e6bb4bd7ce57c923cdeb99ed56b7efa53cd6ea148c53e2f9f8aa0347f796"

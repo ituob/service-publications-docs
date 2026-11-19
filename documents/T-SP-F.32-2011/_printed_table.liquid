@@ -1,0 +1,30 @@
+{% case lang %}
+{% when "fr" %}{% assign title = "Indicateurs de destination (ID) attribués aux bureaux télégraphiques" %}{% assign headers = "Pays /zone géographique|Réseau (administration/ER)|Code de réseau|Nom du bureau télégraphique|Code de bureau" | split: "|" %}
+{% when "es" %}{% assign title = "Indicadores de destino (ID) atribuidos a oficinas telegráficas" %}{% assign headers = "País / zona geográfica|Red (administración/EER)|Código de red|Nombre de la oficina telegráfica|Código de oficina" | split: "|" %}
+{% else %}{% assign title = "Destination Indicators (DI) assigned to telegraph offices" %}{% assign headers = "Country / Geographical Area|Network (administration/ROA)|Network code|Name of Telegraph Office|Office code" | split: "|" %}
+{% endcase %}
+
+== {{ title }}
+
+[cols="24,28,12,26,10",options="unnumbered"]
+|===
+{% for header in headers %}
+^h| {{ header }}
+{% endfor %}
+^| 1 ^| 2 ^| 3 ^| 4 ^| 5
+
+{% assign language_rows = data | where: "source_language", lang %}
+{% for row in language_rows %}
+{% if row.source_cells.size == 1 %}
+5+a| {{ row.source_cells.first | replace: "|", "\|" }}
+{% else %}
+{% for cell in row.source_cells %}
+{% if forloop.first and row.source_heading %}
+| *{{ cell | replace: "|", "\|" }}*
+{% else %}
+| {{ cell | replace: "|", "\|" }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+|===

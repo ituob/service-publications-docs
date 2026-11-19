@@ -1,0 +1,423 @@
+= PDF typesetting fidelity by language
+:toc:
+
+Part of ituob/service-publications-docs#89, item 6.
+
+== Hosted result before the F.32 content repair
+
+Run link:https://github.com/ituob/service-publications-docs/actions/runs/44122451030[44122451030]
+at `a228774f0fd45a585ce8dc57b333598b7886deb7` successfully renders and merges
+all 87 PDFs, then runs the reporter in CI. The `typesetting-report` artifact
+contains `report.json` and `report.adoc`. The advisory `--verify` exits 1:
+86 PDFs pass and F.32 English fails its official page-count comparison.
+The workflow remains green because this initial report step is non-blocking.
+
+[cols="1,1,1,1,1,1",options="header"]
+|===
+|Language |PDFs |Before pass |Before fail |After pass |After fail
+|en |22 |20 |2 |21 |1
+|fr |22 |21 |1 |22 |0
+|es |22 |21 |1 |22 |0
+|ru |7 |7 |0 |7 |0
+|zh |7 |0 |7 |7 |0
+|ar |7 |7 |0 |7 |0
+|===
+
+All 87 PDFs have embedded fonts, portrait A4 pages without rotation, localized
+reference strings that round-trip, and zero extracted word boxes beyond the
+page. All seven Chinese PDFs now embed `NotoSansSC` fonts. All three Q.708B
+form variants have zero overflow words, versus three each before the fix.
+There are no missing, duplicate or unlisted PDFs. These are machine checks;
+the official-baseline and visual-review limitations below still apply.
+
+The one remaining failure is F.32 English: 41 generated pages versus 47 official.
+The link:https://github.com/ituob/service-publications-docs/blob/main/ituob/spec/fixtures/f32/official-2011.pdf[official reference now in main]
+was independently checked with `pdfinfo`: 47 unrotated A4 pages, SHA-256
+`7ef59fbbfcddd5690dd4f5e2de87a618e31898c8943ca1335c6c4e2a4556c3d9`.
+This matches the existing comparison pilot's reference. The section-by-section
+investigation below supersedes the earlier assumption that the remaining page
+difference was solely an incomplete office dataset.
+
+Observed page-count changes without official baselines: E.118 Chinese 96 -> 97,
+M.1400 Chinese 90 -> 92, and E.212B Arabic 67 -> 66. All pass the other checks.
+The initial main artifact and branch have different source revisions as well
+as the font changes, so these counts alone do not isolate a cause or certify
+equivalence. All other PDF page counts are unchanged.
+
+[source,shell]
+----
+gh run download 44122451030 -R ituob/service-publications-docs \
+  -n typesetting-report -D /tmp/typesetting-after
+----
+
+== F.32 English: section-by-section diagnosis
+
+The 41-page English PDF from run `44122451030` was compared with the pinned
+47-page official fixture above. Both files were extracted with
+`pdftotext -layout`; form-feed boundaries were retained so every text fragment
+can be attributed to its physical PDF page (including cover and blank pages).
+
+[cols="2,1,1,3",options="header"]
+|===
+|Section |Official physical pages |Generated physical pages |Finding before repair
+|Cover and Note from TSB |1–2 |1–3 |Both present; generated page 2 is blank.
+|1. Destination indicators |3–40 |4–41 |The allocation-only template omits printable context rows, including network-relative office suffixes and shared indicators.
+|Appendix 1: special origin indicators |41–43 |Absent |Missing section, not denser layout.
+|Appendix 2: government telegram organization indicators |44 |Absent |Missing section.
+|Appendix 3: cessation notices and amendments |45–46 |Absent |Missing section and amendment form.
+|Blank final page |47 |Absent |Blank page is not missing substantive content.
+|===
+
+Both main tables span 38 physical pages. The six-page total difference is
+therefore not a six-page compression of the office table: the generated file
+omits six appendix pages and the official blank final page, while adding a
+blank second page. Generated fonts include Arial/Times New Roman, Noto Sans
+and STIX Two Math; the official file uses Univers/Arial. A representative shared Afghanistan/Albania page extracted with
+`pdftohtml -xml -zoom 1` measures generated body text at 10 pt (Noto Sans),
+versus official 8 pt (Arial); median office-code row pitch is 18 pt versus
+9 pt, and the left country-column anchor is 60 pt versus 34 pt. These
+measurements establish a typography/spacing difference as well as the missing
+content, even though the incomplete tables happen to span the same page count.
+
+The comparator parses 1,092 generated table rows versus 1,499 official rows
+(1,054 matched). These are extraction counts, not a certified count of missing
+records: layout can change parsed rows. Independently, the provider returns
+exactly 1,092 allocations plus 1,140 source contexts, including 368
+network-relative office and 182 shared-indicator records. Printed examples
+`--BA Buenos Aires` and `--BX All others` occur in the official PDF and source
+contexts but are absent from the generated table. The comparator's old
+legacy-data dispositions are stale for this provider-generated document and
+must not be taken as settled classifications of every delta.
+
+The cause is a *real template/projection content gap*. The document invokes
+`edition.items`, which contains office allocations; the provider separately
+retains printable non-allocation records in `edition.source_contexts`.
+The original document also has no appendix template. The verified source
+publication already retains those contexts and the official appendix pages.
+This differs from the much older 33-page pilot in link:comparison-pilot.adoc[]:
+that pilot used the legacy dataset ending at Israel, while this PDF includes
+the later offices through Zimbabwe. Increasing font size or adding page breaks
+would conceal these omissions rather than repair them.
+
+The repair keeps the canonical 1,092 allocations unchanged and exposes a
+separate, original-edition-only `printed_items` projection. It restores 311
+printed network-relative office rows and 92 shared office rows (1,495 coded
+rows total), aliases, unassigned rows, reserved/telex network notes and country
+headings otherwise absent from the allocation list. Source coordinates place
+these records in printed order; legacy duplicate contexts and continuation
+fragments are not printed twice. The display stream retains the positioned
+source cells independently of allocation inference. This preserves country
+qualifiers, routing descriptions, network rows and full-width notes even when
+Poppler joins neighboring cells or the text has no canonical allocation.
+Language-specific streams come from the pinned official English, French and
+Spanish editions; the canonical allocation list remains separate.
+
+A shared appendix template restores 28 special-origin network entries, eight
+organization indicators with their printed multilingual names, 27 cessation
+records and all 30 blank amendment rows in the English, French and Spanish
+sources. Focused document specs assert those counts and representative official
+values, all canonical office rows, printed order, and missing suffix/alias
+regressions. The first content gate checked selected cessation paragraphs,
+network cells and country headings as independent substrings. That allowed
+missing non-cessation annotations and accepted a code swap or a note moved to
+another country. The ordered comparison replaces that incomplete protection.
+The PDF CI job runs link:../../scripts/check_f32_content.py[] against every
+edition's official source, with country, network, office and note boundaries.
+It also compares the front matter and appendices in document order. Whitespace,
+line wrapping and page furniture do not grant an exception for missing content.
+The source URLs and SHA-256 digests are pinned in
+link:../../ituob/spec/fixtures/f32/official-sources.json[].
+
+The F.32 shard alone applies link:../../scripts/patch_itu_f32_tables.rb[a guarded
+stylesheet patch]: 8 pt Arial table text, 9 pt leading and minimum row height,
+zero extra cell top padding, and 12 mm horizontal margins. Crucially, the
+service-publication `setTableRowAttributes` template overrides the generic row
+style with a 5 mm minimum; both now use 3.175 mm. The earlier generic-only
+adjustment left ordinary rows about 15 pt apart, versus 9–10 pt in the official.
+Numeric table-note references replace the renderer's alphabetic labels in both
+links and note bodies; note targets and prose remain intact. Other publication
+shards keep their existing stylesheet.
+
+=== F.32 repair measurements
+
+The hosted run at `f8a76080` produced English and Spanish at 51 pages, while
+French failed with an incomplete table row. The French source has Falkland
+Islands labels with inconsistent parentheses. Rowspan lengths used English
+country identity but group boundaries used localized labels. Both now use the
+same English identity, while translated display text is retained. Native
+Asciidoctor regression specs check five-column grids, span boundaries and the
+exact tally of all 1,495 office codes in English, French and Spanish.
+
+The restored content also exposed duplicated display text: the legacy capture
+appended the same Saudi routing legend to every note, and filled continuation
+cells with repeated US station names. The printed view retains the shared
+legend once and leaves those continuation names blank, while canonical entries
+remain unchanged. Appendix 1 retains every indicator, groups indicator lines by
+initial letter, and displays country translations on separate lines. Each
+appendix starts on a fresh page, as in the official edition.
+
+The earlier partial repair at `93e05f6a` measured *41 English pages versus 47
+official*, with French and Spanish at 42 pages. That export still omitted 20
+cessation paragraphs and some network cells, and moved unpositioned reservation
+countries after Zimbabwe. Its passing page-drift floor did not establish
+content completeness. The earlier section evidence is retained below:
+
+After restoring the missing notes, network cells and printed country order, a
+single-publication local render measures *44 English pages versus 47 official*.
+French and Spanish also measure *44 pages* (neither has a repository official
+PDF baseline). The content gate passes all 35 complete cessation paragraphs,
+the checked country sequence and GK/LU/MG network cells in each edition.
+English Appendix 1 starts on physical page 40, Appendix 2 on 43 and Appendix 3
+on 44. These content assertions do not claim identical pagination or layout.
+
+The restored export measures 90.7% word recall, 97.6% precision, 75.0% order,
+57.3% row recall and 82.0% cell recall. Its 35 cessation paragraphs each occur
+once. Notes split the destination tables, so their column headers now repeat
+52 times versus 31 in the partial repair and 38 in the official PDF. Those
+repeated header words lower multiset precision despite the recovered content.
+The precision floor is regenerated from this export; the other comparison
+floors and six-page maximum drift remain unchanged. The independent content
+gate rejects missing or truncated notes regardless of those aggregate scores.
+
+[cols="3,1,1,1",options="header"]
+|===
+|Section |Official PDF |Hosted `f8a76080` |Partial repair English
+|Cover and front matter |1–2 |1–3 |1–3
+|Destination indicators |3–40 |4–48 |4–36
+|Appendix 1 |41–43 |49–50 |37–39
+|Appendix 2 |44 |starts 50 |40
+|Appendix 3 and amendment form |45–46 |50–51 |41
+|Blank back page |47 |none |none
+|===
+
+Matched ordinary office-code rows now have a 10 pt baseline pitch, versus 9 pt
+in the official; both use 8 pt Arial. The earlier missing-content render also
+had 41 pages, but omitted printed office context and all appendices. Equal totals
+therefore do not establish equal content. The partial repair included the
+restored appendices and passed the unchanged official-comparison floor locally:
+84.0% word recall, 99.2% precision, 67.1% order, 55.9% row recall, 79.6% cell recall,
+and six pages of drift (the existing maximum). No comparison baseline or tolerance
+was changed. The independent content gate now supplements that floor rather
+than using page tolerance to accept missing prose. The separate advisory
+typesetting report still requires exactly
+47 pages and continues to report this residual layout difference. Cover/header,
+page-continuation labels and appendix-form pagination still differ; this is not
+a claim of exact visual equivalence.
+
+Specs cover stylesheet guards, the service-specific override, idempotence,
+numeric note references, workflow isolation, complete office-code preservation
+and exact membership of all 28 special-origin network records.
+
+== Scope and reproduction
+
+The initial measurement uses the latest successful `pdf.yml` run on `main`
+available when this work began:
+link:https://github.com/ituob/service-publications-docs/actions/runs/44095223507[44095223507],
+commit `a7923c54ce547c837a94d955adc7e0633faed7e4`, event `push`,
+created 2026-11-17. Its `publications` artifact contains all 87 PDFs.
+The artifact was downloaded with `gh run download`; no full local PDF render
+was performed.
+
+[source,shell]
+----
+gh run download 44095223507 -R ituob/service-publications-docs \
+  -n publications -D /tmp/publications
+BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/pdf_typesetting_report.rb \
+  --pdf-dir /tmp/publications --out-dir /tmp/typesetting --verify
+----
+
+The reporter measures every manifest PDF and rejects missing files, duplicate
+paths, and PDFs omitted from the manifest. It writes `report.json` (including
+font names, page dimensions, round-trip reference and overflow coordinates)
+and `report.adoc`. `--verify` exits nonzero if any measurement fails.
+The `typesetting` job in link:../../.github/workflows/pdf.yml[`pdf.yml`]
+downloads the merged artifact and uploads `typesetting-report`. Its report
+step initially uses `continue-on-error: true`: rendering success does not
+certify typesetting. Remove that advisory setting only once the full catalog
+passes and the remaining visual acceptance has been agreed.
+
+== What the checks establish
+
+* `pdffonts`: every listed font must be embedded; an empty font list fails.
+* `pdftotext -enc UTF-8`: no replacement character, common tofu squares or NUL;
+  a known localized register title must round-trip. The reference is the
+  publication's explicit `:title:` attribute or AsciiDoc title, falling back
+  to the manifest title when source is unavailable. Case, Unicode compatibility
+  forms, punctuation and wrapping whitespace are normalized; CJK wrapping
+  spaces are removed. An English cover in a Russian or Arabic source also
+  requires a known native-script heading to round-trip.
+* Cyrillic, Han and Arabic text must retain their script. Arabic presentation
+  forms are normalized and bidi controls removed, while logical character
+  order is preserved. A reversed Arabic title fails; this is an extraction
+  check, not certification of visual joining or mixed-direction cell layout.
+* `pdfinfo -box` on every page: portrait A4 within 3 points and zero rotation.
+* `pdftotext -bbox`: extracted word boxes must remain within the page, with
+  1 point of tolerance. JSON identifies each offending page, word and box.
+  This detects text outside the page, including table text; wholly clipped
+  text and non-text rules/images cannot be certified through extraction.
+* Page counts use link:typesetting-baselines.json[explicit official baselines].
+  The F.32 2011 English comparison documents 47 official pages in
+  link:comparison-pilot.adoc[the existing comparison pilot]. No official
+  page-count baseline exists here for the other 86 PDFs; those are `n/a`,
+  never silently counted as official equivalence. `--baseline-dir` can supply
+  further official PDFs named `T-SP-<standard>-<year>-<letter>.pdf`.
+
+Real PDF fixtures prove that a nonembedded Helvetica font and extracted tofu
+fail. Additional fixtures cover positive controls in all six languages,
+reversed Arabic, page rotation/orientation, overflow, page-count mismatch,
+missing/unlisted PDFs and artifact layouts. Fixture glyphs are schematic;
+they test measurement behavior, not visual typography.
+
+These checks do not certify the cover, ISSN, document numbering, headers,
+footers, table rules, language-specific shaping or correspondence of every
+cell to an official edition. Those require visual and official-PDF review.
+Candidate status remains separate from ITU staff adoption; see
+link:refresh-cadence.adoc[refresh cadence].
+
+== Failure causes and targeted changes
+
+* All seven Chinese PDFs initially lose the source title. E.118, E.212A,
+  E.218, M.1400 and Q.708A have no Han text at all; E.164D and E.212B retain
+  some Han elsewhere but lose the title. The initial CI font step installs
+  `NotoSansCJK.ttc`, yet `pdffonts` has no CJK font and titles extract as `#`.
+  Fontist can also select `NotoSansSC[wght].ttf` despite a static preference;
+  the renderer excludes variable-font paths containing `wght`. The fix
+  downloads pinned `Noto Sans SC` Regular and Bold OTFs from `Sans2.004`,
+  rebuilds Fontist's index, verifies the registered paths, and requests the
+  family in all seven Chinese sources.
+  Installation alone is insufficient: metanorma-itu 2.9.4 hardcodes Arial
+  on service-publication page sequences and Calibri on table containers,
+  overriding the inherited `:fonts:` fallback.
+  `scripts/patch_itu_cjk_font_fallback.rb` adds SC to these constant stacks
+  in the installed CI stylesheet. It preserves primary fonts, computed
+  expressions, weight/style and unrelated stacks, guards the expected
+  page-sequence overrides, and logs before/after values. An incompatible
+  future stylesheet fails the guard for review. The full hosted result above
+  confirms embedded SC fonts and successful title round-trips in all seven.
+* Q.708B English, French and Spanish have exactly three extracted underscore
+  runs beyond the page on page 178. Each reaches x=601.016 pt; the page is
+  595.276 pt wide. These are notification-form blanks, not register rows.
+  The template generates long, unbreakable runs of underscores (82–105
+  characters); the change caps the four long blanks at 72 characters in each
+  language. The bounding-box report retains the actual words and coordinates.
+* F.32 English has 41 generated pages versus the historical official 47.
+  link:comparison-pilot.adoc[The pilot] dispositions missing source data as
+  a major reason for its earlier 33-page generated edition. The current
+  41-page difference is a measured mismatch, not proof of a font defect;
+  isolating current data and pagination deltas requires the official comparison
+  workstream. No arbitrary pagination adjustment is made to force equality.
+
+Arabic titles containing Latin abbreviations require care: Poppler omits a
+space at the Latin/Arabic bidi-run boundary (`SANCقائمة`, `MNCفيما`). The
+reporter restores that script boundary for comparison, preserving the exact
+letter sequence. Mirrored parentheses and typographic punctuation are also
+normalized. These are extraction conventions, not missing Arabic glyphs.
+
+== Initial main artifact: per-language results
+
+All 87 PDFs were measured; no missing, duplicate or unlisted files. All listed fonts are embedded and all pages are unrotated portrait A4. No literal Unicode tofu/replacement markers were extracted; the Chinese failures demonstrate that this alone is insufficient, because the renderer substitutes `#`. Overall: 76 pass, 11 fail.
+
+[cols="1,1,1,1",options="header"]
+|===
+|Language |PDFs |Pass |Fail
+|en |22 |20 |2
+|fr |22 |21 |1
+|es |22 |21 |1
+|ru |7 |7 |0
+|zh |7 |0 |7
+|ar |7 |7 |0
+|===
+
+== Every PDF in the initial artifact
+
+[cols="3,1,1,1,5",options="header"]
+|===
+|PDF |Language |Result |Pages / official |Measurement failures
+|pdf/E.118-2018/E.118-2018-A.pdf |ar |PASS |112 / n/a |None
+|pdf/E.118-2018/E.118-2018-E.pdf |en |PASS |97 / n/a |None
+|pdf/E.118-2018/E.118-2018-S.pdf |es |PASS |97 / n/a |None
+|pdf/E.118-2018/E.118-2018-F.pdf |fr |PASS |99 / n/a |None
+|pdf/E.118-2018/E.118-2018-R.pdf |ru |PASS |102 / n/a |None
+|pdf/E.118-2018/E.118-2018-C.pdf |zh |FAIL |96 / n/a |register title did not round-trip: "国际电信计账卡的颁发者标识号码列表 （根据ITU-T E.118建议书（05/2006）"; no zh script in extracted text
+|pdf/E.164B-2012/E.164B-2012-E.pdf |en |PASS |11 / n/a |None
+|pdf/E.164B-2012/E.164B-2012-S.pdf |es |PASS |11 / n/a |None
+|pdf/E.164B-2012/E.164B-2012-F.pdf |fr |PASS |11 / n/a |None
+|pdf/E.164C-2011/E.164C-2011-E.pdf |en |PASS |14 / n/a |None
+|pdf/E.164C-2011/E.164C-2011-S.pdf |es |PASS |14 / n/a |None
+|pdf/E.164C-2011/E.164C-2011-F.pdf |fr |PASS |14 / n/a |None
+|pdf/E.164D-2016/E.164D-2016-A.pdf |ar |PASS |24 / n/a |None
+|pdf/E.164D-2016/E.164D-2016-E.pdf |en |PASS |24 / n/a |None
+|pdf/E.164D-2016/E.164D-2016-S.pdf |es |PASS |24 / n/a |None
+|pdf/E.164D-2016/E.164D-2016-F.pdf |fr |PASS |24 / n/a |None
+|pdf/E.164D-2016/E.164D-2016-R.pdf |ru |PASS |24 / n/a |None
+|pdf/E.164D-2016/E.164D-2016-C.pdf |zh |FAIL |23 / n/a |register title did not round-trip: "ITU-T E.164建议书分配国家代码列表"
+|pdf/E.180-2010/E.180-2010-E.pdf |en |PASS |57 / n/a |None
+|pdf/E.180-2010/E.180-2010-S.pdf |es |PASS |63 / n/a |None
+|pdf/E.180-2010/E.180-2010-F.pdf |fr |PASS |71 / n/a |None
+|pdf/E.212A-2017/E.212A-2017-A.pdf |ar |PASS |19 / n/a |None
+|pdf/E.212A-2017/E.212A-2017-E.pdf |en |PASS |19 / n/a |None
+|pdf/E.212A-2017/E.212A-2017-S.pdf |es |PASS |19 / n/a |None
+|pdf/E.212A-2017/E.212A-2017-F.pdf |fr |PASS |19 / n/a |None
+|pdf/E.212A-2017/E.212A-2017-R.pdf |ru |PASS |19 / n/a |None
+|pdf/E.212A-2017/E.212A-2017-C.pdf |zh |FAIL |19 / n/a |register title did not round-trip: "移动国家或地理区域代码列表"; no zh script in extracted text
+|pdf/E.212B-2018/E.212B-2018-A.pdf |ar |PASS |67 / n/a |None
+|pdf/E.212B-2018/E.212B-2018-E.pdf |en |PASS |67 / n/a |None
+|pdf/E.212B-2018/E.212B-2018-S.pdf |es |PASS |67 / n/a |None
+|pdf/E.212B-2018/E.212B-2018-F.pdf |fr |PASS |67 / n/a |None
+|pdf/E.212B-2018/E.212B-2018-R.pdf |ru |PASS |67 / n/a |None
+|pdf/E.212B-2018/E.212B-2018-C.pdf |zh |FAIL |66 / n/a |register title did not round-trip: "用于公众网络和订户的国际识别规划的 移动网络代码（MNC）（根据ITU-T E.212建议书（09/2016））"
+|pdf/E.218-2017/E.218-2017-A.pdf |ar |PASS |17 / n/a |None
+|pdf/E.218-2017/E.218-2017-E.pdf |en |PASS |17 / n/a |None
+|pdf/E.218-2017/E.218-2017-S.pdf |es |PASS |17 / n/a |None
+|pdf/E.218-2017/E.218-2017-F.pdf |fr |PASS |17 / n/a |None
+|pdf/E.218-2017/E.218-2017-R.pdf |ru |PASS |18 / n/a |None
+|pdf/E.218-2017/E.218-2017-C.pdf |zh |FAIL |17 / n/a |register title did not round-trip: "地面集群无线电移动国家代码列表"; no zh script in extracted text
+|pdf/F.1-1998/F.1-1998-E.pdf |en |PASS |15 / n/a |None
+|pdf/F.1-1998/F.1-1998-S.pdf |es |PASS |15 / n/a |None
+|pdf/F.1-1998/F.1-1998-F.pdf |fr |PASS |16 / n/a |None
+|pdf/F.32-2011/F.32-2011-E.pdf |en |FAIL |41 / 47 |page count 41 differs from baseline 47 (docs/pdf/comparison-pilot.adoc: official-2011.pdf (historical official baseline))
+|pdf/F.32-2011/F.32-2011-S.pdf |es |PASS |41 / n/a |None
+|pdf/F.32-2011/F.32-2011-F.pdf |fr |PASS |41 / n/a |None
+|pdf/F.400-2011/F.400-2011-E.pdf |en |PASS |39 / n/a |None
+|pdf/F.400-2011/F.400-2011-S.pdf |es |PASS |39 / n/a |None
+|pdf/F.400-2011/F.400-2011-F.pdf |fr |PASS |39 / n/a |None
+|pdf/F.68-2011/F.68-2011-E.pdf |en |PASS |18 / n/a |None
+|pdf/F.68-2011/F.68-2011-S.pdf |es |PASS |18 / n/a |None
+|pdf/F.68-2011/F.68-2011-F.pdf |fr |PASS |18 / n/a |None
+|pdf/M.1400-2014/M.1400-2014-A.pdf |ar |PASS |97 / n/a |None
+|pdf/M.1400-2014/M.1400-2014-E.pdf |en |PASS |99 / n/a |None
+|pdf/M.1400-2014/M.1400-2014-S.pdf |es |PASS |96 / n/a |None
+|pdf/M.1400-2014/M.1400-2014-F.pdf |fr |PASS |96 / n/a |None
+|pdf/M.1400-2014/M.1400-2014-R.pdf |ru |PASS |105 / n/a |None
+|pdf/M.1400-2014/M.1400-2014-C.pdf |zh |FAIL |90 / n/a |register title did not round-trip: "国际电联电信运营商代码列表 （根据ITU-T M.1400建议书 （03/2013））"; no zh script in extracted text
+|pdf/PP.RES.21-2011/PP.RES.21-2011-E.pdf |en |PASS |6 / n/a |None
+|pdf/PP.RES.21-2011/PP.RES.21-2011-S.pdf |es |PASS |6 / n/a |None
+|pdf/PP.RES.21-2011/PP.RES.21-2011-F.pdf |fr |PASS |6 / n/a |None
+|pdf/Q.708A-2017/Q.708A-2017-A.pdf |ar |PASS |58 / n/a |None
+|pdf/Q.708A-2017/Q.708A-2017-E.pdf |en |PASS |58 / n/a |None
+|pdf/Q.708A-2017/Q.708A-2017-S.pdf |es |PASS |58 / n/a |None
+|pdf/Q.708A-2017/Q.708A-2017-F.pdf |fr |PASS |58 / n/a |None
+|pdf/Q.708A-2017/Q.708A-2017-R.pdf |ru |PASS |58 / n/a |None
+|pdf/Q.708A-2017/Q.708A-2017-C.pdf |zh |FAIL |58 / n/a |register title did not round-trip: "信令区域/网络编码（SANC）列表"; no zh script in extracted text
+|pdf/Q.708B-2016/Q.708B-2016-E.pdf |en |FAIL |179 / n/a |text bounding boxes exceed page: 3 words
+|pdf/Q.708B-2016/Q.708B-2016-S.pdf |es |FAIL |179 / n/a |text bounding boxes exceed page: 3 words
+|pdf/Q.708B-2016/Q.708B-2016-F.pdf |fr |FAIL |180 / n/a |text bounding boxes exceed page: 3 words
+|pdf/RR.25.1-2018/RR.25.1-2018-E.pdf |en |PASS |40 / n/a |None
+|pdf/RR.25.1-2018/RR.25.1-2018-S.pdf |es |PASS |40 / n/a |None
+|pdf/RR.25.1-2018/RR.25.1-2018-F.pdf |fr |PASS |39 / n/a |None
+|pdf/SR.1-2012/SR.1-2012-E.pdf |en |PASS |14 / n/a |None
+|pdf/SR.1-2012/SR.1-2012-S.pdf |es |PASS |14 / n/a |None
+|pdf/SR.1-2012/SR.1-2012-F.pdf |fr |PASS |15 / n/a |None
+|pdf/T.35-2012/T.35-2012-E.pdf |en |PASS |9 / n/a |None
+|pdf/T.35-2012/T.35-2012-S.pdf |es |PASS |9 / n/a |None
+|pdf/T.35-2012/T.35-2012-F.pdf |fr |PASS |9 / n/a |None
+|pdf/T.35B-2012/T.35B-2012-E.pdf |en |PASS |12 / n/a |None
+|pdf/T.35B-2012/T.35B-2012-S.pdf |es |PASS |12 / n/a |None
+|pdf/T.35B-2012/T.35B-2012-F.pdf |fr |PASS |13 / n/a |None
+|pdf/X.121A-2011/X.121A-2011-E.pdf |en |PASS |12 / n/a |None
+|pdf/X.121A-2011/X.121A-2011-S.pdf |es |PASS |12 / n/a |None
+|pdf/X.121A-2011/X.121A-2011-F.pdf |fr |PASS |12 / n/a |None
+|pdf/X.121B-2011/X.121B-2011-E.pdf |en |PASS |20 / n/a |None
+|pdf/X.121B-2011/X.121B-2011-S.pdf |es |PASS |20 / n/a |None
+|pdf/X.121B-2011/X.121B-2011-F.pdf |fr |PASS |20 / n/a |None
+|===

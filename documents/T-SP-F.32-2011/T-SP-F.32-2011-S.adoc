@@ -74,5 +74,10 @@ países o zonas geográficas, o de sus autoridades.
 [lutaml_data,provider:ituob.edition,edition,options={"arguments":{"register":"f32-tdi","as_of":980},"include_path":"."}]
 ----
 {% assign lang = "es" %}
-{% render "table", data: edition.items, metadata: edition.metadata, lang: lang %}
+{% if edition.printed_source_rows.size > 0 %}
+{% render "table", data: edition.printed_source_rows, metadata: edition.metadata, lang: lang %}
+{% else %}
+{% render "table", data: edition.printed_items, metadata: edition.metadata, lang: lang %}
+{% endif %}
+{% render "appendices", lang: lang %}
 ----

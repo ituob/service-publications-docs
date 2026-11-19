@@ -353,7 +353,12 @@ models Ituob {
     attribute office_code, String
     attribute office_code_note, MultilingualString
     attribute network_codes, String { cardinality 0..n }
+    attribute source_cells, String { cardinality 0..n }
+    attribute source_language, String
+    attribute source_heading, Boolean
     attribute subarea, MultilingualString
+    attribute source_page, Integer
+    attribute source_row, Integer
   }
 
   class F32OfficeDifference {
@@ -1023,6 +1028,8 @@ models Ituob {
     attribute provenance, ProjectionProvenance { cardinality 1 }
     attribute items, Entry { cardinality 0..n }
     attribute source_contexts, F32SeedContext { cardinality 0..n }
+    attribute printed_items, F32TDIEntry { cardinality 0..n }
+    attribute printed_source_rows, F32TDIEntry { cardinality 0..n }
     attribute lapsed_keys, String { cardinality 0..n }
     attribute deleted_keys, String { cardinality 0..n }
     attribute key_history, KeyHistoryEntry { cardinality 0..n }

@@ -59,4 +59,56 @@ RSpec.describe "PDF workflow catalog isolation" do
     expect(upload.fetch("uses")).to eq("actions/upload-artifact@v4")
     expect(upload.fetch("with").fetch("name")).to eq("${{ needs.plan.outputs.artifact-name }}")
   end
+
+  it "keeps shard uploads rooted at build so the merger finds pdf/manifest.json" do
+    steps = workflow.fetch("jobs").fetch("render").fetch("steps")
+    upload = steps.find { |step| step["name"] == "Upload this publication's PDFs and manifest" }
+    paths = upload.fetch("with").fetch("path").lines.map(&:strip)
+    expect(paths).to include("build/pdf/", "build/render-failures.log")
+    expect(paths.map { |path| path.split('/').first }.uniq).to eq(["build"])
+  end
+
+  it "reports the merged catalog without blocking initial publication on fidelity failures" do
+    job = workflow.fetch("jobs").fetch("typesetting")
+    expect(job.fetch("needs")).to eq(%w[plan publications])
+    steps = job.fetch("steps")
+    download = steps.find { |step| step["uses"] == "actions/download-artifact@v4" }
+    expect(download.fetch("with").fetch("name")).to eq("${{ needs.plan.outputs.artifact-name }}")
+    report = steps.find { |step| step["id"] == "report" }
+    expect(report.fetch("continue-on-error")).to be(true)
+    expect(report.fetch("run")).to include("pdf_typesetting_report.rb", "--verify")
+    upload = steps.last
+    expect(upload.fetch("if")).to eq("always()")
+    expect(upload.fetch("with").fetch("name")).to eq("typesetting-report")
+  end
+
+  it "installs standalone static Chinese fonts while preserving Arabic fonts" do
+    steps = workflow.fetch("jobs").fetch("render").fetch("steps")
+    install = steps.find { |step| step["name"] == "Install the Chinese and Arabic fonts" }
+    expect(install.fetch("run")).to include(
+      'for weight in Regular Bold',
+      'https://raw.githubusercontent.com/notofonts/noto-cjk/Sans2.004/Sans/SubsetOTF/SC/NotoSansSC-$weight.otf',
+      'Fontist::Manifest.from_hash({"Noto Sans SC" => ["Regular", "Bold"]}, locations: true)',
+      'abort "Chinese static fonts not registered"',
+      'fontist install "Noto Naskh Arabic" --accept-all-licenses'
+    )
+    sources = Dir[File.expand_path("../../../documents/T-SP-*/*-C.adoc", __dir__)]
+    expect(sources.size).to eq(7)
+    sources.each do |source|
+      expect(File.read(source)).to include(":language: zh\n", ":fonts: Noto Sans SC\n")
+    end
+  end
+
+  it "keeps the official comparison and limits F.32 typography to its own shard" do
+    jobs = workflow.fetch("jobs")
+    official = jobs.fetch("official-comparison")
+    expect(official.fetch("needs")).to eq(%w[plan render])
+    expect(official.fetch("steps").last.fetch("with").fetch("name")).to eq("official-pdf-comparison")
+    steps = jobs.fetch("render").fetch("steps")
+    patch = steps.find { |step| step["name"] == "Match F.32 table typography to the official edition" }
+    expect(patch.fetch("if")).to eq("matrix.doc == 'T-SP-F.32-2011'")
+    expect(patch.fetch("run")).to eq("ruby scripts/patch_itu_f32_tables.rb")
+    expect(steps.index(patch)).to be < steps.index(steps.find { |step| step["name"] == "Build the PDFs and the manifest" })
+  end
+
 end
