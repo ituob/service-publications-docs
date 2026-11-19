@@ -64,7 +64,7 @@ every row in that directory has the same intended action.
 |Source evidence |Printed meaning |Current classification
 |`itu-ob-data/issues/1335/amendments.yaml:495`; codes at 507, 549, 591
 |`Sweden  DEL`; remove `2-080-2`, `2-080-3`, `2-081-6`.
-|`ob-issues/1335/q708-ispc/001-ADD.yaml:1` is `ADD`; line 17 stores `Sweden   DEL` as a bogus `ipsc`, and lines 20, 26, 32 store the three codes under Spain. Rebuild required.
+|`ob-issues/1335/q708-ispc/001-ADD.yaml:1` is `ADD`; line 17 stores `Sweden   DEL` as a bogus `ipsc`, and lines 20, 26, 32 store the three codes under Spain. Rebuilt (f589984a): `001-ADD.yaml` keeps only Spain's `2-027-4`, and the Sweden removal is `002-DEL.yaml`.
 |`itu-ob-data/issues/1173/_reference_asciidoc/sections/amendments/00-abbrevs.adoc:8`
 |The printed legend explicitly says `SUP:: Delete`.
 |A legend, not a patch. Preserve the distinction between printed `SUP` and printed `DEL`.
@@ -76,7 +76,7 @@ every row in that directory has the same intended action.
 |`ob-issues/958/f32-tdi/001-SUP.yaml` has payload `SUP`. Preserve `SUP`; the same note on `002-REP.yaml` does not make the Yemen replacement a deletion.
 |`itu-ob-data/issues/999/amendments.yaml:939`
 |`Norway SUP (delete)`; suppress old `242 09` Mundio Mobile Norway Ltd before the new assignment.
-|`ob-issues/999/e212-mnc/001-ADD.yaml:20` incorrectly carries the old row as `ADD`. Rebuild required.
+|`ob-issues/999/e212-mnc/001-ADD.yaml:20` incorrectly carried the old row as `ADD`. Rebuilt (95f651e5): `242 09` is now only in `003-SUP.yaml`.
 |`itu-ob-data/issues/1015/amendments.yaml:25`; `1001/amendments.yaml:32`; `1011/amendments.yaml:196`
 |E.118 `SUP (delete)` headings (including Montenegro at OB 1011).
 |Existing `ob-issues/1015/e118-iin/001-SUP.yaml`, `1001/e118-iin/001-SUP.yaml` through `003-SUP.yaml`, and `1011/e118-iin/002-SUP.yaml` retain payload `SUP`.
@@ -1001,7 +1001,7 @@ the third search. The genuine DEL action is recorded separately because it does
 not contain any of the natural-language search terms. `git diff --check` passes
 for this document. No parser, replay, source-data or corpus mutations are part of
 this audit; parser regression and preservation checks belong to the accompanying
-G8 specification. The c7 rebuild and its regenerated patches remain outstanding.
+G8 specification. The OB 1335 Sweden and OB 999 Norway rows have since been rebuilt (f589984a, 95f651e5); the rest of the c7 rebuild was not re-checked here.
 
 The accompanying `del_classification_spec.rb` checks the OB 1335 printed DEL,
 the OB 999 printed SUP and subsequent ADD, and independent DEL replay. Both
