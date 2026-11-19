@@ -32,7 +32,7 @@ COLUMN_NAMES = ("country/qualifier", "network/ROA", "network code", "office name
 # Footnote reference marks ("2)") are superscripts: pdftotext attaches them to
 # whichever neighbouring column their baseline happens to fall in, in either
 # PDF. They are compared per country as a multiset instead of per column.
-MARKER = re.compile(r"\d+\)")
+MARKER = re.compile(r"\d+\s*\)")
 
 
 def normalize(text):
@@ -50,10 +50,75 @@ def heading_normalize(text):
 def canonical(text):
     """Ignore reflow and typographic quotes/dashes, retain content punctuation."""
     text = MARKER.sub("", unicodedata.normalize("NFKC", text).lower())
+    # "N°" is a superscript "o": printed as "N o", "N. o", or lost to its own line.
+    text = re.sub(r"\bn\s*\.?\s*(?:o\s*)?(?=\d)", "n", text)
     text = text.translate(str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"',
                                        "–": "-", "—": "-", "\u00ad": ""}))
     text = text.translate(str.maketrans({"\u2192": ">", "\u27f6": ">"}))
     return re.sub(r"[\s-]+", "", text)
+
+
+# A column gap is wider than any inter-word space. Measured on the rendered
+# F/S PDFs: word spaces are 2-3 pt, the narrowest real column gap is 11.5 pt.
+COLUMN_GAP_PT = 6.0
+CHAR_PT = 1.5
+MARGIN_PT = 34.0
+HEADING_EDGE = 5  # characters from the page's left text edge
+LINE_TOLERANCE_PT = 2.0
+LINE_PITCH_PT = 10.6
+WORD = re.compile(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</word>')
+
+
+def bbox_layout(bbox_html):
+    """Layout-style text built from `pdftotext -bbox` word positions.
+
+    pdftotext -layout squeezes a narrow column gap to one space, so a heading and
+    the next column merge. Here columns are decided by the measured gap between
+    words: a gap above COLUMN_GAP_PT is always two or more spaces, a smaller one
+    is always exactly one, and each chunk starts at its printed x position.
+    """
+    import html
+    pages = []
+    for page in re.split(r"<page ", bbox_html)[1:]:
+        words = [(float(x0), float(y0), float(x1), float(y1), html.unescape(text))
+                 for x0, y0, x1, y1, text in WORD.findall(page)]
+        lines = []
+        for word in sorted(words, key=lambda w: (w[3], w[0])):
+            for line in lines:
+                if abs(line[0] - word[3]) <= LINE_TOLERANCE_PT:
+                    line[1].append(word)
+                    break
+            else:
+                lines.append([word[3], [word]])
+        out = []
+        last = None
+        for baseline, line in sorted(lines, key=lambda l: l[0]):
+            # Vertical gaps become blank lines, as -layout does; the section
+            # rules use them to end a paragraph before a printed title.
+            if last is not None:
+                out.extend([""] * max(0, round((baseline - last) / LINE_PITCH_PT) - 1))
+            last = baseline
+            text = ""
+            previous_end = None
+            for x0, _, x1, _, value in sorted(line, key=lambda w: w[0]):
+                wanted = int((x0 - MARGIN_PT) / CHAR_PT)
+                if previous_end is None:
+                    text = " " * wanted
+                elif x0 - previous_end > COLUMN_GAP_PT:
+                    text += " " * max(2, wanted - len(text))
+                else:
+                    text += " "
+                text += value
+                previous_end = x1
+            out.append(text)
+        pages.append("\n".join(out))
+    return "\f".join(pages) + "\f"
+
+
+def pdf_layout_text(path):
+    result = subprocess.run(["pdftotext", "-bbox", str(path), "-"],
+                            check=True, capture_output=True, text=True)
+    return bbox_layout(result.stdout)
 
 
 def source_path(language="en"):
@@ -104,6 +169,10 @@ def official_countries(language="en"):
 
 HEADER_LABELS = ("Network (administration/ROA)", "Réseau (administration/ER)", "Red (administración/EER)")
 WRAPPED_LABELS = ("(administration/ROA)", "(administration/ER)", "(administración/EER)")
+
+
+# Second lines of the wrapped column headers ("Code de" / "réseau"), alone or side by side.
+WRAPPED_HEADER_PIECES = {"réseau", "bureau", "de red", "de oficina", "red", "oficina"}
 
 
 def _is_header(line):
@@ -170,15 +239,15 @@ def layout_rows(text):
                 roa_candidates = [x for x in starts if 15 <= x < min(network - 8, office - 10)]
                 roa = max(roa_candidates, key=lambda x: starts[x]) if roa_candidates else defaults[0]
                 cuts = [0, roa - 1, network - 1, office - 1, office_code - 1, 1000]
-            if header:
-                in_note = False
+            # A note may run across the page break, so a repeated column header
+            # does not end it; only a new heading or table row does (below).
             continue
         if not started or not raw.strip():
             continue
         value = raw.strip()
         if (re.search(r"(?:Annex to ITU OB|Annexe au BE|Anexo al BE)", value) or "15.V.2011" == value
                 or any(title in value for title in ("Destination Indicators (DI) assigned", "Indicateurs de destination (ID) attribués", "Indicadores de destino (ID) atribuidos"))
-                or value in ("réseau", "bureau")
+                or all(piece in WRAPPED_HEADER_PIECES for piece in re.split(r" {2,}", value))
                 or "Service Publication Annex" in value
                 or re.fullmatch(r"[–—-]?\s*\d+\s*[–—-]?", value)
                 or re.fullmatch(r"1\s+2\s+3\s+4\s+5", value)
@@ -189,13 +258,19 @@ def layout_rows(text):
             in_note = True
         cells = [""] * 5
         anchors = [0] + [cut + 1 for cut in cuts[1:5]]
-        for chunk in re.finditer(r"\S(?:.*?\S)?(?= {2,}|$)", raw):
+        chunks = list(re.finditer(r"\S(?:.*?\S)?(?= {2,}|$)", raw))
+        # A heading starts at the country column's left edge; an indented
+        # upper-case line ("PERTHRADIO, SYDNEYRADIO") is an example in the note.
+        at_edge = bool(chunks) and chunks[0].start() <= HEADING_EDGE
+        for chunk in chunks:
             column = min(range(5), key=lambda number: abs(chunk.start() - anchors[number]))
             cells[column] += (" " if cells[column] else "") + chunk.group()
+        if in_note and re.fullmatch(r"[oº°]", value):
+            continue  # a superscript ordinal extracted on a line of its own
         if in_note:
             # A new heading/table row terminates a note even without a blank.
             if (re.search(r"[A-Z]{2}\s*-\s*-", cells[2])
-                    or (cells[0] and cells[0].upper() == cells[0]
+                    or (at_edge and cells[0] and cells[0].upper() == cells[0]
                         and re.search(r"[A-ZÀ-Ý]{3}", cells[0])
                         and not re.match(r"^\d+\)", cells[0])
                         # A wrapped date ("1.XII.2008") is not a country heading.
@@ -289,7 +364,7 @@ def _country_sections(text, countries):
         end = boundaries[number + 1][1] if number + 1 < len(boundaries) else len(rows)
         section_rows = expand_relative_codes(rows[start:end])
         markers[country] = sorted(mark for row in section_rows for cell in row
-                                  for mark in MARKER.findall(cell))
+                                  for mark in (re.sub(r"\s", "", m) for m in MARKER.findall(cell)))
         runs = []
         for row in section_rows:
             if not any(canonical(cell) for cell in row):
@@ -382,6 +457,9 @@ def official_text(language="en"):
     if hashlib.sha256(path.read_bytes()).hexdigest() != manifest[suffix]["sha256"]:
         raise ValueError(f"official {suffix} PDF does not match the pinned source")
     # Keep the independent source read distinct from replayed generated output.
+    # The official print stays on -layout: its columns are wide enough that
+    # -layout never squeezes them, and its line grouping is what the section
+    # rules were written against (bbox words regress it: 30/24/30 gaps).
     with subprocess.Popen(["pdftotext", "-layout", str(path), "-"],
                           stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True) as process:
         output, error = process.communicate()
@@ -393,6 +471,9 @@ def official_text(language="en"):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--generated", type=Path, required=True)
+    parser.add_argument("--layout", dest="bbox", action="store_false",
+                        help="assign columns from pdftotext -layout spacing (old path)")
+    parser.set_defaults(bbox=True)
     args = parser.parse_args()
     expected = json.loads(FIXTURE.read_text())
     failed = False
@@ -405,16 +486,17 @@ def main():
             print(f"FAIL {name}: expected one PDF, found {len(paths)}", file=sys.stderr)
             failed = True
             continue
-        result = subprocess.run(["pdftotext", "-layout", str(paths[0]), "-"],
-                                check=True, capture_output=True, text=True)
-        errors = comparison_errors(source, result.stdout, language, expected, countries)
+        generated = pdf_layout_text(paths[0]) if args.bbox else subprocess.run(
+            ["pdftotext", "-layout", str(paths[0]), "-"],
+            check=True, capture_output=True, text=True).stdout
+        errors = comparison_errors(source, generated, language, expected, countries)
         try:
             from f32_sections import compare_sections
-            errors.extend(compare_sections(source, result.stdout, language))
+            errors.extend(compare_sections(source, generated, language))
         except ModuleNotFoundError:
             from scripts.f32_sections import compare_sections
-            errors.extend(compare_sections(source, result.stdout, language))
-        print(f"{name}: {result.stdout.count(chr(12))} pages; "
+            errors.extend(compare_sections(source, generated, language))
+        print(f"{name}: {generated.count(chr(12))} pages; "
               f"{len(countries)} official country sections; {len(errors)} content gaps; "
               f"{'FAIL' if errors else 'PASS'}")
         for error in errors:

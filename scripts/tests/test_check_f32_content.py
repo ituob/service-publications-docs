@@ -2,6 +2,7 @@
 
 import importlib.util
 from pathlib import Path
+import re
 import unittest
 
 SCRIPT = Path(__file__).resolve().parents[1] / "check_f32_content.py"
@@ -31,6 +32,76 @@ NOTE = "The telegram service is no longer accepted. The two-letter code remains 
 PRINTED = HEADER + "\n" + "\n".join([
     country("GIBRALTAR", "GK- -"), country("LUXEMBOURG", "LU- -"),
     country("VANUATU", "VU- -", NOTE), country("ZIMBABWE", "ZW- -")])
+
+
+def bbox(text, squeeze=()):
+    """pdftotext -bbox output for column-aligned text: word x comes from the
+    character offset, so cells stay in their printed columns. A cell whose text
+    is in `squeeze` ends 11.5 pt before the next cell (the measured SAINT
+    PIERRE ET MIQUELON gap), which -layout would print as a single space."""
+    pages = []
+    for page in text.split("\f"):
+        words = []
+        for number, line in enumerate(page.splitlines()):
+            chunks = list(re.finditer(r"\S(?:.*?\S)?(?= {2,}|$)", line))
+            for index, chunk in enumerate(chunks):
+                x = 34.0 + chunk.start() * 3.0
+                nxt = 34.0 + chunks[index + 1].start() * 3.0 if index + 1 < len(chunks) else None
+                for word in chunk.group().split(" "):
+                    width = 3.0 * len(word)
+                    if chunk.group() in squeeze and word == chunk.group().split(" ")[-1] and nxt:
+                        width = nxt - 11.5 - x  # stretched: ends 11.5 pt before the next cell
+                    words.append(f'<word xMin="{x:.3f}" yMin="{10 * number + 100:.3f}" '
+                                 f'xMax="{x + width:.3f}" yMax="{10 * number + 110:.3f}">{word}</word>')
+                    x += width + 2.2
+        pages.append("<page width=\"595\" height=\"842\">" + "".join(words) + "</page>")
+    return "".join(pages)
+
+
+class BboxColumnTests(unittest.TestCase):
+    def errors(self, generated, squeeze=()):
+        text = gate.bbox_layout(bbox(generated, squeeze))
+        return gate.comparison_errors(PRINTED, text, "en", {}, COUNTRIES)
+
+    def test_bbox_text_reproduces_the_printed_columns(self):
+        self.assertEqual([], self.errors(PRINTED))
+        self.assertEqual([], self.errors(PRINTED + "\f" * 3))
+
+    def test_column_squeezed_to_one_space_by_layout_stays_in_its_column(self):
+        # The heading ends 11.5 pt before the operator: -layout prints one space
+        # and merges them; the word positions keep them apart.
+        self.assertEqual([], self.errors(PRINTED, squeeze={"GIBRALTAR"}))
+
+    def test_squeeze_test_is_red_when_the_column_logic_is_broken(self):
+        # Prove the test above can fail: a gap threshold wider than 11.5 pt
+        # merges the squeezed cells again and the checker must report it.
+        original = gate.COLUMN_GAP_PT
+        gate.COLUMN_GAP_PT = 13.0
+        try:
+            errors = self.errors(PRINTED, squeeze={"GIBRALTAR"})
+        finally:
+            gate.COLUMN_GAP_PT = original
+        self.assertTrue(any("GIBRALTAR" in error for error in errors), errors)
+
+    def test_a_deleted_real_office_row_is_still_a_gap(self):
+        damaged = PRINTED.replace(row("", "", "", "All destinations", "ZWXX"), "")
+        errors = self.errors(damaged)
+        self.assertTrue(any("ZIMBABWE: office name" in error for error in errors), errors)
+        self.assertTrue(any("ZIMBABWE: office code" in error for error in errors), errors)
+
+    def test_a_changed_operator_is_still_a_gap_with_squeezed_columns(self):
+        damaged = PRINTED.replace("Printed operator", "Printed operatoX", 1)
+        errors = self.errors(damaged, squeeze={"GIBRALTAR"})
+        self.assertTrue(any("GIBRALTAR: network/ROA" in error for error in errors), errors)
+
+    def test_note_runs_over_a_page_break_and_an_indented_example_stays_in_it(self):
+        note = ["1) Where possible include the code. For example:",
+                "         MELBOURNE(3000), BURWOOD(3125)", "\f" + HEADER,
+                "         PERTHRADIO, SYDNEYRADIO", "2) Also valid elsewhere."]
+        text = PRINTED.replace("1) " + NOTE, "1) " + NOTE + "\n" + "\n".join(note))
+        rows = gate.layout_rows(text)
+        self.assertEqual([], [r for r in rows if "PERTHRADIO" in r[0]], rows)
+        self.assertTrue(any("PERTHRADIO" in r[5] for r in rows), rows)
 
 
 class F32ContentTests(unittest.TestCase):
