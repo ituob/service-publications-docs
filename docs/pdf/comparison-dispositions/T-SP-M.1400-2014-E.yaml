@@ -1,0 +1,610 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-M.1400-2014-E, generated PDF from CI
+# (pdf.yml run 44558975060 on main) against the official ITU PDF, shape M1400CarrierCodes, with
+# --data datasets/1060-M.1400/data.yaml. Settles only open (bug or unreviewed) deltas;
+# data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'AFG: generated "Afghanistan / Ministry of Communications MOC Fax: +93 20
+    210 1705 AFG KABUL" vs official "Afghanistan / AFG Ministry of Communications
+    MOC Tel: +93 20 210 1105 KABUL Fax: +93 20 210 1705 E-mail: telcomdir@af-com-ministry.org"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'ARM: generated "Armenia Armenia Telephone Company ARMTEL Tel: +374 10 549
+    799 (Republic of) / 2 Aharonyan Street Fax: +374 10 289 717 ARM YEREVAN 375014"
+    vs official "Armenia (Republic of) / Armenia Telephone Company ARMTEL Tel: +374
+    10 549 799 ARM 2 Aharonyan Street Fax: +374 10 289 717 YEREVAN 375014 E-mail:
+    hmayak.pepoyan@armentel.com"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'ARM: generated "Armenia K Telecom CJSC (Vivacell) ARM05 Tel: +374 10 568
+    777 (Republic of) / 4/1 Argishti Street Fax: +374 10 569 222 ARM YEREVAN 375015"
+    vs official "Armenia (Republic of) / K Telecom CJSC (Vivacell) ARM05 Tel: +374
+    10 568 777 ARM 4/1 Argishti Street Fax: +374 10 569 222 YEREVAN 375015 E-mail:
+    info@vivacell.am"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: generated_only
+  text: 'BEL Belgium / BEL B-Telecom B Ir. Philippe Claes Avenue de la Porte de Hal,
+    40 Tel: +32 2 528 3610 B-1060 BRUXELLES Fax: +32 2 528 3719 E-mail: philippe.claes@b-rail.be'
+  disposition: layout
+  reason: Same company row (same key, equal word set) in both PDFs; only its position
+    within the list differs. The generated F and S lists keep the English country
+    order, the official ones sort countries by the language name.
+- layer: rows
+  side: both
+  text: 'PRK: generated "Democratic Ministry of Posts and MPT Tel: +850 2 381 3180
+    People''s Telecommunications Fax: +850 2 381 4418 Republic of Central District
+    Korea / PRK PYONGYANG" vs official "Democratic People''s Ministry of Posts and
+    Telecommunications MPT Tel: +850 2 381 3180 Republic of Korea / PRK Central District
+    Fax: +850 2 381 4418 PYONGYANG E-mail: mptird@star-co.net.kp"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'COD: generated "Democratic Société Congolaise des Postes SCPT Tel: +243 12
+    20115 Republic of the et des Télécommunications Fax: +243 12 21885 Congo / COD
+    sarl(SCPT) 95 Blvd. du 30 juin, BP 7070 KINSHASA 1" vs official "Democratic Republic
+    of Société Congolaise des Postes et des Télécommunications sarl(SCPT) SCPT Tel:
+    +243 12 20115 the Congo / COD 95 Blvd. du 30 juin, BP 7070 Fax: +243 12 21885
+    KINSHASA 1 E-mail: info@scpt.cd"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'IOT: generated "Diego Garcia / Cable and Wireless (Diego CWDG Tim Hugill
+    IOT Garcia) Ltd Tel: +246 370 9000 PSC 466 Box No. 59 Fax: +246 370 9398 FPO-AP
+    96595-0059, USA E-mail: manager@cwnetdg.io" vs official "Diego Garcia / IOT Cable
+    and Wireless (Diego Garcia) Ltd CWDG Tim Hugill PSC 466 Box No. 59 Tel: +246 370
+    9000 FPO-AP 96595-0059, USA Fax: +246 370 9398 (United States) E-mail: manager@cwnetdg.io"'
+  disposition: bug
+  reason: The generated PDF omits address_line_3 (the dataset has it, e.g. "(Bermuda)",
+    a country name); the official PDF prints it on its own line.
+- layer: rows
+  side: both
+  text: 'DOM: generated "Dominican Compañía Dominicana de CODETE Tel: +1 809 220 2607
+    Republic / DOM Telefonos Fax: +1 809 566 7821 Apartado postal 1377 SANTO DOMINGO"
+    vs official "Dominican Republic / DOM Compañía Dominicana de Telefonos CODETE
+    Tel: +1 809 220 2607 Apartado postal 1377 Fax: +1 809 566 7821 SANTO DOMINGO E-mail:
+    fabiola_medina@codetel.com.do"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: generated_only
+  text: 'FRA France / FRA T-Systems Siris SIRI Olivier Campenon 54 Place de l''Ellipsé
+    Tel: +33 1 70 20 94 00 F-92983 PARIS LA DEFENSE Fax: +33 1 70 20 94 94 CEDEX'
+  disposition: layout
+  reason: Same company row (same key, equal word set) in both PDFs; only its position
+    within the list differs. The generated F and S lists keep the English country
+    order, the official ones sort countries by the language name.
+- layer: rows
+  side: both
+  text: 'REU: generated "French XTS Network Ocean Indien XTIN Pascal Bono Departments
+    7 rue du Mont Valérien Tel: +33 1 55 49 38 38 and Territories F-92150 SURESNES
+    Fax: +33 1 55 49 38 39 in the Indian Ocean / REU" vs official "French Departments
+    and XTS Network Ocean Indien XTIN Pascal Bono Territories in the Indian 7 rue
+    du Mont Valérien Tel: +33 1 55 49 38 38 Ocean / REU F-92150 SURESNES Fax: +33
+    1 55 49 38 39 (France)"'
+  disposition: bug
+  reason: The generated PDF omits address_line_3 (the dataset has it, e.g. "(Bermuda)",
+    a country name); the official PDF prints it on its own line.
+- layer: rows
+  side: both
+  text: 'GUF: generated "French Guiana France Telecom FT Claire Paponneau (French
+    Fax: +33 1 43 42 55 20 Department of) / GUF" vs official "French Guiana (French
+    France Telecom FT Claire Paponneau Department of) / GUF Tel: +33 1 43 42 80 79
+    Fax: +33 1 43 42 55 20"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany AVAYA GmbH & Co. KG AVAYA Tel: +49 69 7505 2540 (Federal
+    Theodor-Heuss-Allee 112 Fax: +49 6408 61083 999 Republic of) / 60486 Frankfurt
+    am Main DEU" vs official "Germany (Federal AVAYA GmbH & Co. KG AVAYA Tel: +49
+    69 7505 2540 Republic of) / DEU Theodor-Heuss-Allee 112 Fax: +49 6408 61083 999
+    60486 Frankfurt am Main E-mail: carrierservice@avaya.com"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany BürgerBreitbandNetz GmbH & BBNG Tel: +49 4841 9042880
+    (Federal Co.KG Fax: +49 4841 9042888 Republic of) / Dieselstrasse 1 DEU 25813
+    HUSUM" vs official "Germany (Federal BürgerBreitbandNetz GmbH & Co.KG BBNG Tel:
+    +49 4841 9042880 Republic of) / DEU Dieselstrasse 1 Fax: +49 4841 9042888 25813
+    HUSUM E-mail: info@bbng.de"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany EFN eifel-net Internet Provider EFN Tel: +49 2251
+    9700 36 (Federal GmbH Fax: +49 2251 9700 37 Republic of) / Bendenstrasse 31 DEU
+    53879 EUSKIRCHEN" vs official "Germany (Federal EFN eifel-net Internet Provider
+    GmbH EFN Tel: +49 2251 9700 36 Republic of) / DEU Bendenstrasse 31 Fax: +49 2251
+    9700 37 53879 EUSKIRCHEN E-mail: regulierung@eifel-net.net"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany equada GmbH EQUADA Tel: +49 6023 9674140 (Federal
+    Martinsweg 4 Fax: +49 6023 9929999 Republic of) / 63755 Alzenau DEU" vs official
+    "Germany (Federal equada GmbH EQUADA Tel: +49 6023 9674140 Republic of) / DEU
+    Martinsweg 4 Fax: +49 6023 9929999 63755 Alzenau E-mail: nummernverwaltung@pbx-network.de"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany FPS InformationsSysteme FPS Tel: +49 9729 90799 0
+    (Federal GmbH Fax: +49 9729 90799 69 Republic of) / Weyererstrasse 7-8 DEU 97508
+    Grettstadt" vs official "Germany (Federal FPS InformationsSysteme GmbH FPS Tel:
+    +49 9729 90799 0 Republic of) / DEU Weyererstrasse 7-8 Fax: +49 9729 90799 69
+    97508 Grettstadt E-mail: info@fps.de"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany Freenet Datenkommunikations FDKNET Tel: +49 211 53087
+    100 (Federal GmbH Fax: +49 211 53087 111 Republic of) / Deelboegenkamp 4 c DEU
+    22297 Hamburg" vs official "Germany (Federal Freenet Datenkommunikations GmbH
+    FDKNET Tel: +49 211 53087 100 Republic of) / DEU Deelboegenkamp 4 c Fax: +49 211
+    53087 111 22297 Hamburg E-mail: service@freenet-business.de"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany inexio Informationstechnologie INEXIO Tel: +49 6831
+    5030 0 (Federal und Telekommunikation KGaA Fax: +49 6831 5030 120 Republic of)
+    / Am Saaraltarm 1 DEU 66740 SAARLOUIS" vs official "Germany (Federal inexio Informationstechnologie
+    und Telekommunikation KGaA INEXIO Tel: +49 6831 5030 0 Republic of) / DEU Am Saaraltarm
+    1 Fax: +49 6831 5030 120 66740 SAARLOUIS E-mail: info@inexio.net"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany komro GmbH KOMRO Tel: +49 8031 3652 418 (Federal
+    Am Innreit 2 Fax: +49 8031 3652 864 Republic of) / 83022 Rosenheim DEU" vs official
+    "Germany (Federal komro GmbH KOMRO Tel: +49 8031 3652 418 Republic of) / DEU Am
+    Innreit 2 Fax: +49 8031 3652 864 83022 Rosenheim E-mail: info@komro.net"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: generated_only
+  text: 'DEU Germany M-net Telekommunikations MNET Jonas Da Cell (Federal GmbH (M-net)
+    Tel: +49 89 45200 3919 Republic of) / Emmy Noether Strasse 2 Fax: +49 89 45200
+    703919 DEU 80992 MUNCHEN E-mail: jonas.da-cell@mnet.de'
+  disposition: layout
+  reason: Same company row (same key, equal word set) in both PDFs; only its position
+    within the list differs. The generated F and S lists keep the English country
+    order, the official ones sort countries by the language name.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany MUENET GmbH MUENET Tel: +49 2566 269296 (Federal
+    Birkenweg 10 Fax: +49 2566 8930019 Republic of) / 48720 Rosendahl DEU" vs official
+    "Germany (Federal MUENET GmbH MUENET Tel: +49 2566 269296 Republic of) / DEU Birkenweg
+    10 Fax: +49 2566 8930019 48720 Rosendahl E-mail: info@muenet.net"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany Ontus AG ONTUSA Tel: +49 160 9685 9059 (Federal Heinrich
+    Heine Allee 21 Fax: +49 160 13 9685 9059 Republic of) / D-40213 DUSSELDORF DEU"
+    vs official "Germany (Federal Ontus AG ONTUSA Tel: +49 160 9685 9059 Republic
+    of) / DEU Heinrich Heine Allee 21 Fax: +49 160 13 9685 9059 D-40213 DUSSELDORF
+    E-mail: dung@ontus.com"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany optimatelecom GmbH OPTIMA Tel: +49 30 20004 4277
+    (Federal Schwedenstrasse 9 Fax: +49 30 61748 409 Republic of) / 13359 BERLIN DEU"
+    vs official "Germany (Federal optimatelecom GmbH OPTIMA Tel: +49 30 20004 4277
+    Republic of) / DEU Schwedenstrasse 9 Fax: +49 30 61748 409 13359 BERLIN E-mail:
+    info@optimaconnect.de"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany PLANinterNET VoIP-GmbH PLANIN Tel: +49 7143 872 056
+    (Federal Hauptstrasse 6 Fax: +49 7143 872 057 Republic of) / 74391 ERLIGHEIM DEU"
+    vs official "Germany (Federal PLANinterNET VoIP-GmbH PLANIN Tel: +49 7143 872
+    056 Republic of) / DEU Hauptstrasse 6 Fax: +49 7143 872 057 74391 ERLIGHEIM E-mail:
+    voip@planinternet.de"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany Quix Breitband GmbH QUIX Tel: +49 6831 5030 0 (Federal
+    Am Saaraltarm 1 Fax: +49 6831 5030 120 Republic of) / 66740 SAARLOUIS DEU" vs
+    official "Germany (Federal Quix Breitband GmbH QUIX Tel: +49 6831 5030 0 Republic
+    of) / DEU Am Saaraltarm 1 Fax: +49 6831 5030 120 66740 SAARLOUIS E-mail: info@inexio.de"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: generated_only
+  text: 'DEU Germany R-KOM Regensburger RKOM Wilhelm Binder (Federal Telekommunikationsges
+    mbH & Tel: +49 941 6985 152 Republic of) / co kg Fax: +49 941 6985 200 DEU Greflingerstrasse
+    26 D-93055 REGENSBRUG'
+  disposition: layout
+  reason: Same company row (same key, equal word set) in both PDFs; only its position
+    within the list differs. The generated F and S lists keep the English country
+    order, the official ones sort countries by the language name.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany Relaix Networks GmbH RELAIX Tel: +49 241 990001 0
+    (Federal Kackertstrasse 10 Fax: +49 241 990001 11 Republic of) / 52072 Aachen
+    DEU" vs official "Germany (Federal Relaix Networks GmbH RELAIX Tel: +49 241 990001
+    0 Republic of) / DEU Kackertstrasse 10 Fax: +49 241 990001 11 52072 Aachen E-mail:
+    info@relaix.net"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany Stadtwerke Lübeck GmbH SWL451 Tel: +49 451 888 4501
+    (Federal Moislinger Allee 9 Fax: +49 451 888 4503 Republic of) / 23547 Luebeck
+    DEU" vs official "Germany (Federal Stadtwerke Lübeck GmbH SWL451 Tel: +49 451
+    888 4501 Republic of) / DEU Moislinger Allee 9 Fax: +49 451 888 4503 23547 Luebeck
+    E-mail: service@sw-luebeck.de"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany symbox Gesellschaft für SYMBOX Tel: +49 800 1030
+    010 (Federal Medienversorgung mbH Fax: +49 6831 50318 126 Republic of) / Am Saaraltarm
+    1 DEU 66740 SAARLOUIS" vs official "Germany (Federal symbox Gesellschaft für Medienversorgung
+    mbH SYMBOX Tel: +49 800 1030 010 Republic of) / DEU Am Saaraltarm 1 Fax: +49 6831
+    50318 126 66740 SAARLOUIS E-mail: info@symbox.de"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany telego! GmbH TELEGO Tel: +49 89 273747 0 (Federal
+    Mehlbeerenstrasse 2 Fax: +49 89 273747 400 Republic of) / 82024 TAUFKIRCHEN DEU"
+    vs official "Germany (Federal telego! GmbH TELEGO Tel: +49 89 273747 0 Republic
+    of) / DEU Mehlbeerenstrasse 2 Fax: +49 89 273747 400 82024 TAUFKIRCHEN E-mail:
+    info@telego.de"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany TIKAL Communication GmbH & TIKAL Tel: +49 40 2846372
+    0 (Federal Co.KG Fax: +49 40 2846372 99 Republic of) / Lilienstrasse 11 DEU 20095
+    Hamburg" vs official "Germany (Federal TIKAL Communication GmbH & Co.KG TIKAL
+    Tel: +49 40 2846372 0 Republic of) / DEU Lilienstrasse 11 Fax: +49 40 2846372
+    99 20095 Hamburg E-mail: info@tikal.de"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'DEU: generated "Germany TraveKom TRA451 Tel: +49 451 888 1061 (Federal Telekommunikationsgesellschaft
+    Fax: +49 451 888 1060 Republic of) / mbH DEU Moislinger Allee 9 a 23547 Luebeck"
+    vs official "Germany (Federal TraveKom Telekommunikationsgesellschaft mbH TRA451
+    Tel: +49 451 888 1061 Republic of) / DEU Moislinger Allee 9 a Fax: +49 451 888
+    1060 23547 Luebeck E-mail: service@travekom.de"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'GRL: generated "Greenland TELE Greenland A/S TG Tel: +299 34 12 55 (Denmark)
+    / PO Box 1002, Skolevej 8 Fax: +299 32 22 55 GRL DK-3900 NUUK" vs official "Greenland
+    (Denmark) / TELE Greenland A/S TG Tel: +299 34 12 55 GRL PO Box 1002, Skolevej
+    8 Fax: +299 32 22 55 DK-3900 NUUK E-mail: tele-greenland@tele.gl"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'GLP: generated "Guadeloupe XTS Network Caraibes XTCA Pascal Bono (French
+    7 rue du Mont Valérien Tel: +33 1 55 49 38 38 Department F-92150 SURESNES Fax:
+    +33 1 55 49 38 39 of) / GLP" vs official "Guadeloupe (French XTS Network Caraibes
+    XTCA Pascal Bono Department of) / GLP 7 rue du Mont Valérien Tel: +33 1 55 49
+    38 38 F-92150 SURESNES Fax: +33 1 55 49 38 39 (France)"'
+  disposition: bug
+  reason: The generated PDF omits address_line_3 (the dataset has it, e.g. "(Bermuda)",
+    a country name); the official PDF prints it on its own line.
+- layer: rows
+  side: both
+  text: 'GUM: generated "Guam / GUM Western Union International WUI Tel: +1 800 777
+    5555 Inc. One WUI Plaza NEW YORK 1004 (USA)" vs official "Guam / GUM Western Union
+    International Inc. WUI Tel: +1 800 777 5555 One WUI Plaza NEW YORK 1004 (USA)
+    (United States)"'
+  disposition: bug
+  reason: The generated PDF omits address_line_3 (the dataset has it, e.g. "(Bermuda)",
+    a country name); the official PDF prints it on its own line.
+- layer: rows
+  side: both
+  text: 'HTI: generated "Haiti (Republic Télécommunications d''Haiti TELECO Tel: +509
+    2241 3500 of) / HTI S.A.M. Fax: +509 2245 1169 Angle Ave. Martin Luther king et
+    rue Fernand C.P. 814, PORT-AU-PRINCE" vs official "Haiti (Republic of) / HTI Télécommunications
+    d''Haiti S.A.M. TELECO Tel: +509 2241 3500 Angle Ave. Martin Luther king et rue
+    Fernand Fax: +509 2245 1169 C.P. 814, PORT-AU-PRINCE E-mail: telecohaiti@teleco.ht"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'ISL: generated "Iceland / ISL Iceland Telecom Ltd. IT Tel: +354 550 6000
+    Austurvöllur Fax: +354 550 6009 IS-150 REYKJAVIK" vs official "Iceland / ISL Iceland
+    Telecom Ltd. IT Tel: +354 550 6000 Austurvöllur Fax: +354 550 6009 IS-150 REYKJAVIK
+    E-mail: it@simi.is"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'ITA: generated "Italy / ITA TLC Utilities S.p.A. 1044 Tel: +39 02 3820 3147
+    Via Giannone, 9 Fax: +39 02 3820 2054 I-20154 MILANO" vs official "Italy / ITA
+    TLC Utilities S.p.A. 1044 Tel: +39 02 3820 3147 Via Giannone, 9 Fax: +39 02 3820
+    2054 I-20154 MILANO E-mail: info@tlcutilities.it"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'ITA: generated "Italy / ITA Viatel Global Communications VIATEL Sheldon Goldman
+    Inc. Tel: +1 212 350 9200 685 third Avenue Fax: +1 212 350 9250 New York, NY 10022;
+    USA E-mail: sheldon.goldman@viatel.com" vs official "Italy / ITA Viatel Global
+    Communications Inc. VIATEL Sheldon Goldman 685 third Avenue Tel: +1 212 350 9200
+    New York, NY 10022; USA Fax: +1 212 350 9250 (United States) E-mail: sheldon.goldman@viatel.com"'
+  disposition: bug
+  reason: The generated PDF omits address_line_3 (the dataset has it, e.g. "(Bermuda)",
+    a country name); the official PDF prints it on its own line.
+- layer: rows
+  side: both
+  text: 'KAZ: generated "Kazakhstan JSC TNS-Plus TNSPLS Alex Kislitsyn (Republic of)
+    / 285 Rozybakieva Street KAZ 480032 ALMATY" vs official "Kazakhstan (Republic
+    of) / JSC TNS-Plus TNSPLS Alex Kislitsyn KAZ 285 Rozybakieva Street E-mail: akislitsyn@tnsplus.kz
+    480032 ALMATY"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'LVA: generated "Latvia Finors Telekom Ltd. FINOR Tel: +371 6779 0468 (Republic
+    of) / Bikernieku Street 32a Fax: +371 6753 9213 LVA LV-1006 RIGA" vs official
+    "Latvia (Republic of) / LVA Finors Telekom Ltd. FINOR Tel: +371 6779 0468 Bikernieku
+    Street 32a Fax: +371 6753 9213 LV-1006 RIGA E-mail: finors@mits.lv"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'LVA: generated "Latvia Optinet Ltd. OPT Tel: +371 6732 6435 (Republic of)
+    / Noliktavas Street 5 Fax: +371 6732 6439 LVA LV-1010 RIGA" vs official "Latvia
+    (Republic of) / LVA Optinet Ltd. OPT Tel: +371 6732 6435 Noliktavas Street 5 Fax:
+    +371 6732 6439 LV-1010 RIGA E-mail: info@optinet.lv"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'LVA: generated "Latvia Optron Ltd. OPTRON Tel: +371 6714 9440 (Republic of)
+    / Kundzinsalas 10 line, 10a Fax: +371 6714 9441 LVA LV-1005 RIGA" vs official
+    "Latvia (Republic of) / LVA Optron Ltd. OPTRON Tel: +371 6714 9440 Kundzinsalas
+    10 line, 10a Fax: +371 6714 9441 LV-1005 RIGA E-mail: info@optron.lv"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'LVA: generated "Latvia Sigis Ltd. SIG001 Tel: +371 6723 8016 (Republic of)
+    / Puskina Street 19-18 Fax: +371 6779 2016 LVA LV-1050 RIGA" vs official "Latvia
+    (Republic of) / LVA Sigis Ltd. SIG001 Tel: +371 6723 8016 Puskina Street 19-18
+    Fax: +371 6779 2016 LV-1050 RIGA E-mail: info@sigis.lv"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'LVA: generated "Latvia Telenets Ltd. LVTLN Tel: +371 6706 2877 (Republic
+    of) / Juras 1, Stopnu parish Fax: +371 6703 5006 LVA LV-2130 RIGA district" vs
+    official "Latvia (Republic of) / LVA Telenets Ltd. LVTLN Tel: +371 6706 2877 Juras
+    1, Stopnu parish Fax: +371 6703 5006 LV-2130 RIGA district E-mail: office@telenets.lv"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'LUX: generated "Luxembourg / Carrier24 GmbH C2424C Stephanie Eisvogel LUX
+    Augustenstrasse 44 Tel: +49 89 54245 123 D-80333 MUNCHEN Fax: +49 89 54245 323
+    E-mail: stephanie.eisvogel@carrier24.de" vs official "Luxembourg / LUX Carrier24
+    GmbH C2424C Stephanie Eisvogel Augustenstrasse 44 Tel: +49 89 54245 123 D-80333
+    MUNCHEN Fax: +49 89 54245 323 (Germany) E-mail: stephanie.eisvogel@carrier24.de"'
+  disposition: bug
+  reason: The generated PDF omits address_line_3 (the dataset has it, e.g. "(Bermuda)",
+    a country name); the official PDF prints it on its own line.
+- layer: rows
+  side: both
+  text: 'MYS: generated "Malaysia / MYS Telekom Malaysia Berhad ™ TM Razali Harun,
+    GM 7th Floor (South Wing), Menara Tel: +60 3 208 8772 Telekom, Jalan Pantai Baharu
+    Fax: +60 3 208 8500 50672 KUALA LUMPUR E-mail: rharun@tm.net.my" vs official "Malaysia
+    / MYS Telekom Malaysia Berhad (TM) TM Razali Harun, GM 7th Floor (South Wing),
+    Menara Telekom, Jalan Pantai Baharu Tel: +60 3 208 8772 50672 KUALA LUMPUR Fax:
+    +60 3 208 8500 E-mail: rharun@tm.net.my"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'SRB: generated "Serbia Joint Stock Telecommunications TSSRB Tel: +381 11
+    3341 433 (Republic of) / Company \"Telekom Srbija'' A.D. Fax: +381 11 3341 635
+    SRB Takovska 2 11000 BEOGRAD" vs official "Serbia (Republic of) / SRB Joint Stock
+    Telecommunications Company \"Telekom Srbija'' A.D. TSSRB Tel: +381 11 3341 433
+    Takovska 2 Fax: +381 11 3341 635 11000 BEOGRAD E-mail: kabinet@telekom.yu"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'SVN: generated "Slovenia Incotel d.o.o. INCO01 Tel: +386 7 338 0250 (Republic
+    of) / Novi TRG 1 Fax: +386 7 337 7791 SVN SI-8000 NOVO MESTO" vs official "Slovenia
+    (Republic of) / Incotel d.o.o. INCO01 Tel: +386 7 338 0250 SVN Novi TRG 1 Fax:
+    +386 7 337 7791 SI-8000 NOVO MESTO E-mail: info@inco-tel.com"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'SVN: generated "Slovenia Medinet d.o.o. AMISSI Tel: +386 2 320 6320 (Republic
+    of) / Trzaska Cesta 85 Fax: +386 2 320 6325 SVN SI-2000 MARIBOR" vs official "Slovenia
+    (Republic of) / Medinet d.o.o. AMISSI Tel: +386 2 320 6320 SVN Trzaska Cesta 85
+    Fax: +386 2 320 6325 SI-2000 MARIBOR E-mail: damjan.ceric@amis.net"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'SVN: generated "Slovenia Tusmobil d.o.o. TUS Tel: +386 3 560 7900 (Republic
+    of) / Resljeva 16 Fax: +386 3 560 7903 SVN SI - 3000 CELJE" vs official "Slovenia
+    (Republic of) / Tusmobil d.o.o. TUS Tel: +386 3 560 7900 SVN Resljeva 16 Fax:
+    +386 3 560 7903 SI - 3000 CELJE E-mail: ic@tusmobil.si"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'ESP: generated "Spain / ESP Hot Telecommunications Ltd. HNSTEL Ignacio Javier
+    Fernández Garcí Saxon Street, Linforwood Tel: +34 9144 49166 MILTON KEYNES, MK
+    14 6LD UK Fax: +34 9144 49167 E-mail: iozcarriz@alkhaid.es" vs official "Spain
+    / ESP Hot Telecommunications Ltd. HNSTEL Ignacio Javier Fernández Garcí Saxon
+    Street, Linforwood Tel: +34 9144 49166 MILTON KEYNES, MK 14 6LD UK Fax: +34 9144
+    49167 (United Kingdom) E-mail: iozcarriz@alkhaid.es"'
+  disposition: bug
+  reason: The generated PDF omits address_line_3 (the dataset has it, e.g. "(Bermuda)",
+    a country name); the official PDF prints it on its own line.
+- layer: rows
+  side: generated_only
+  text: 'ESP Spain / ESP T-92, S.L. T92 Pedro Zapata Menáguez 20 Corredera Tel: +34
+    9688 00953 30831 JAVALI VIEJO - MURCIA Fax: +34 9688 94686 E-mail: t12@t12.net'
+  disposition: layout
+  reason: Same company row (same key, equal word set) in both PDFs; only its position
+    within the list differs. The generated F and S lists keep the English country
+    order, the official ones sort countries by the language name.
+- layer: rows
+  side: both
+  text: 'SDN: generated "Sudan Canar Telecommunications CANAR Tel: +249 12 340 1960
+    (Republic of Company Ltd. Fax: +249 12 340 1963 the) / SDN Al Sahafa/Madani Road
+    Block 37, PO Box 8182 A KHARTOUM" vs official "Sudan (Republic of the) / Canar
+    Telecommunications Company Ltd. CANAR Tel: +249 12 340 1960 SDN Al Sahafa/Madani
+    Road Block 37, PO Box 8182 A Fax: +249 12 340 1963 KHARTOUM E-mail: md@kanartel.sd"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'SWE: generated "Sweden / SWE Telia Sonera AB TELIA Inger Andersson Forsell
+    S - 123 86 FARSTA Fax: +46 8 713 4790 E-mail: inger.forsell@teliacarrier.com"
+    vs official "Sweden / SWE Telia Sonera AB TELIA Inger Andersson Forsell S - 123
+    86 FARSTA Tel: +46 8 713 3572 Fax: +46 8 713 4790 E-mail: inger.forsell@teliacarrier.com"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: both
+  text: 'TON: generated "Tonga Tonga Communications TONDOI B.S. Kautoke (Kingdom of)
+    / Corporation Fax: +676 24800 TON Nuku''alofa" vs official "Tonga (Kingdom of)
+    / TON Tonga Communications Corporation TONDOI B.S. Kautoke Nuku''alofa Tel: +676
+    23945 Fax: +676 24800"'
+  disposition: data
+  reason: The official row has contact lines (e-mail or telephone) that are not in
+    the dataset record (datasets/1060-M.1400 has no value for them), so the generated
+    PDF cannot contain them. All other words of the row are equal.
+- layer: rows
+  side: generated_only
+  text: 'UKR Ukraine / UKR ''Ukrtelecom'' Joint Stock UKRTEL Yuriy Kovalchuk Company
+    Tel: +380 44 235 5328 18 Sheychenko Blvd Fax: +380 44 246 4421 KYIV 01030 E-mail:
+    kovalchuk@ukrtelecom.net'
+  disposition: layout
+  reason: Same company row (same key, equal word set) in both PDFs; only its position
+    within the list differs. The generated F and S lists keep the English country
+    order, the official ones sort countries by the language name.
+- layer: rows
+  side: generated_only
+  text: 'GBR United 2-Sell-It Ltd 2SI Ray Barry Harrow Kingdom of 10 Masons Avenue,
+    Harrow Tel: +44 8702 735548 Great Britain MIDDLESEX, HA3 5AP Fax: +44 8452 735548
+    and Northern E-mail: raybarryharrow@aol.com Ireland / GBR'
+  disposition: layout
+  reason: Same company row (same key, equal word set) in both PDFs; only its position
+    within the list differs. The generated F and S lists keep the English country
+    order, the official ones sort countries by the language name.
+- layer: rows
+  side: generated_only
+  text: 'GBR United n-Tel Communications Ltd NTEL44 Vladimir Repin Kingdom of 4th
+    Floor, 3 Tenderden Street, Tel: +44 20 7297 4450 Great Britain Hanover Square
+    Fax: +44 20 7514 5811 and Northern LONDON W1S 1TD E-mail: vrepin@n-tele.com Ireland
+    / GBR'
+  disposition: layout
+  reason: Same company row (same key, equal word set) in both PDFs; only its position
+    within the list differs. The generated F and S lists keep the English country
+    order, the official ones sort countries by the language name.

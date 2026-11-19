@@ -1,0 +1,278 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-F.1-1998-E, generated PDF from CI
+# (pdf.yml run 44558975060 on main) against the official ITU PDF, shape F1CodeGroups, with
+# --data datasets/669-F.1/data.yaml. Settles only open (bug or unreviewed) deltas;
+# data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: generated_only
+  text: II:JIHAW Delivery office closed.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:JUFAR __________ is a reply to your __________. Can you now deliver?
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:OLMAD Address insufficient, we try delivery to __________. Correct if necessary.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:OLWAY Address unregistered, we try delivery to __________. Correct if necessary.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:ONKEY Message unacknowledged after __________ transmissions. Please advise.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:OPBUN __________ sender received advice by another route that message undelivered.
+    Please investigate and reply quickly.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:MIHOB Message number __________ appears to have been received also under
+    number __________. Shall we cancel latter copy?
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:MIJEM Uncertain if following message (service advice)has been sent to you
+    before. If previously received under another number cancel this copy and report.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:PASCA Transmitted twice; cancel second transmission.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:MOYES Give telegraph office of origin.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:MYBEG Enquire and advise us.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:MYJUG Please report present status of enquiry, we are being pressed for
+    a reply.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:TUHRU Say if in agreement.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:TUNHO We are in agreement.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:TUNVU We are not in agreement.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:UDFOG Please have it attended to immediately.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:UGJAW Complaint has been made.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:USLEG Case under investigation, will reply as soon as possible.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:USTIN Please investigate and reply as soon as possible.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:UHYON Missing __________. Please supply copy quickly.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:UJDUD __________ missing. Please supply copy quickly preceded by reference
+    of this service advice.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:UPBAG For your information.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:WAJGU Give reference.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:WALAG Reference is correct.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:WALEM Reference is wrong.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:WALOS Referring to our __________.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:WALPU Referring to your __________.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:WEJYV Reference incorrect. Give number, date, time of handing in, and say
+    by which channel/route sent.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:TOPMO Acknowledge this notification.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:UKTAB Have you any record of such a message having been filed (received)?
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:UTCOD Use the code.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:VEBET Please do needful.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:VUSOB Read telegraph office of origin __________.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:WAJEJ Please give prefix number or channel sequence number under which
+    the transit telegram referred to was sent forward to its destination or next transit
+    point.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:WOBAJ Please obtain sender's name and address from the addressee.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:WOBMO Sender cannot be found.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:XEROJ Your service advice not understood.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
+- layer: rows
+  side: generated_only
+  text: II:POHOC Do not understand your service advice. Repeat references.
+  disposition: layout
+  reason: Same row, same text in both PDFs; only its position within Part II differs
+    (the official PDF orders the field sections and the groups within a section differently
+    from the dataset order the generated PDF follows).
