@@ -67,6 +67,15 @@
     equals the dataset fr value and official equals the dataset es value.'
 - layer: rows
   side: both
+  text: 'OB 770: generated "Haití" vs official "Haïti"'
+  disposition: bug
+  reason: 'The generated F Annex B prints the Spanish country name (the dataset''s
+    fr value, which is in the other language); the official PDF prints the correct
+    F name. Root cause is the dataset: in datasets/978-F.68-A2 the fr and es names
+    of this row are swapped and the generator renders them as stored. Measured: generated
+    equals the dataset fr value and official equals the dataset es value.'
+- layer: rows
+  side: both
   text: 'OB 773: generated "Polonia" vs official "Pologne"'
   disposition: bug
   reason: 'The generated F Annex B prints the Spanish country name (the dataset''s
@@ -77,6 +86,15 @@
 - layer: rows
   side: both
   text: 'OB 775: generated "Andorra" vs official "Andorre"'
+  disposition: bug
+  reason: 'The generated F Annex B prints the Spanish country name (the dataset''s
+    fr value, which is in the other language); the official PDF prints the correct
+    F name. Root cause is the dataset: in datasets/978-F.68-A2 the fr and es names
+    of this row are swapped and the generator renders them as stored. Measured: generated
+    equals the dataset fr value and official equals the dataset es value.'
+- layer: rows
+  side: both
+  text: 'OB 775: generated "Nueva Caledonia" vs official "Nouvelle-Calédonie"'
   disposition: bug
   reason: 'The generated F Annex B prints the Spanish country name (the dataset''s
     fr value, which is in the other language); the official PDF prints the correct
@@ -105,6 +123,15 @@
   side: both
   text: 'OB 806: generated "Curacao ( anteriormente Antillas Neerlandesas)" vs official
     "Curaçao (anciennement Antilles néerlandaises)"'
+  disposition: bug
+  reason: 'The generated F Annex B prints the Spanish country name (the dataset''s
+    fr value, which is in the other language); the official PDF prints the correct
+    F name. Root cause is the dataset: in datasets/978-F.68-A2 the fr and es names
+    of this row are swapped and the generator renders them as stored. Measured: generated
+    equals the dataset fr value and official equals the dataset es value.'
+- layer: rows
+  side: both
+  text: 'OB 806: generated "Feroé (Islas) (Dinamarca)" vs official "Féroé (Iles) (Danemark)"'
   disposition: bug
   reason: 'The generated F Annex B prints the Spanish country name (the dataset''s
     fr value, which is in the other language); the official PDF prints the correct
@@ -207,6 +234,24 @@
     equals the dataset fr value and official equals the dataset es value.'
 - layer: rows
   side: both
+  text: 'OB 911: generated "Checa" vs official "Chypre (via Network Telex (UK))"'
+  disposition: bug
+  reason: 'The generated F Annex B prints the Spanish country name (the dataset''s
+    fr value, which is in the other language); the official PDF prints the correct
+    F name. Root cause is the dataset: in datasets/978-F.68-A2 the fr and es names
+    of this row are swapped and the generator renders them as stored. Measured: generated
+    equals the dataset fr value and official equals the dataset es value.'
+- layer: rows
+  side: both
+  text: 'OB 911: generated "Chipre (via Network Telex (UK))" vs official "Tchèque"'
+  disposition: bug
+  reason: 'The generated F Annex B prints the Spanish country name (the dataset''s
+    fr value, which is in the other language); the official PDF prints the correct
+    F name. Root cause is the dataset: in datasets/978-F.68-A2 the fr and es names
+    of this row are swapped and the generator renders them as stored. Measured: generated
+    equals the dataset fr value and official equals the dataset es value.'
+- layer: rows
+  side: both
   text: 'OB 918: generated "Hong Kong, China (via Easylink)" vs official "Hong Kong,
     Chine (via Easylink)"'
   disposition: bug
@@ -245,6 +290,16 @@
     equals the dataset fr value and official equals the dataset es value.'
 - layer: rows
   side: both
+  text: 'OB 931: generated "Espana (via Easy Link)" vs official "Espagne (via Easy
+    Link)"'
+  disposition: bug
+  reason: 'The generated F Annex B prints the Spanish country name (the dataset''s
+    fr value, which is in the other language); the official PDF prints the correct
+    F name. Root cause is the dataset: in datasets/978-F.68-A2 the fr and es names
+    of this row are swapped and the generator renders them as stored. Measured: generated
+    equals the dataset fr value and official equals the dataset es value.'
+- layer: rows
+  side: both
   text: 'OB 931: generated "Singapur, nuevo operador AimsOne Pte Ltd (via Swiss Telex)"
     vs official "Singapour, nouvel opérateur AimsOne Pte Ltd (via Swiss Telex)"'
   disposition: bug
@@ -275,6 +330,16 @@
   side: both
   text: 'OB 959: generated "Bahrein (via Swiss Telex)" vs official "Bahreïn (via Swiss
     Telex)"'
+  disposition: bug
+  reason: 'The generated F Annex B prints the Spanish country name (the dataset''s
+    fr value, which is in the other language); the official PDF prints the correct
+    F name. Root cause is the dataset: in datasets/978-F.68-A2 the fr and es names
+    of this row are swapped and the generator renders them as stored. Measured: generated
+    equals the dataset fr value and official equals the dataset es value.'
+- layer: rows
+  side: both
+  text: 'OB 959: generated "Lituania (via Telegraf OU (Estonia))" vs official "Lituanie
+    (via Telegraf OU (Estonie))"'
   disposition: bug
   reason: 'The generated F Annex B prints the Spanish country name (the dataset''s
     fr value, which is in the other language); the official PDF prints the correct
