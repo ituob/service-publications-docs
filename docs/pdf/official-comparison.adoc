@@ -11,11 +11,12 @@ from the report by being absent from the render manifest.
 
 == Official references and coverage
 
-The repository currently contains one official PDF:
-`ituob/spec/fixtures/f32/official-2011.pdf`, for F.32 2011 English.
-`docs/pdf/official-pdfs.json` maps its publication/year/language identity to this
-existing fixture. All other source rows are explicitly listed as
-`no official PDF`. Missing official PDFs remain a coverage gap in issue #89.
+Every source row has an official ITU PDF: 87 publication x language rows.
+F.32 2011 English, French and Spanish map through `official-pdfs.json` to the
+existing fixtures under `ituob/spec/fixtures/f32/`. The other 84 live under
+`docs/pdf/official/`. `docs/pdf/official-sources.json` records each file's
+itu.int download URL and SHA-256. T.35 2012 is published on itu.int as
+`T-SP-T.35-2012-OAS-PDF-<L>.pdf`.
 
 To add a reference, commit the official ITU PDF under
 `docs/pdf/official/T-SP-<standard>-<year>-<L>.pdf`, where `L` is one of
@@ -91,8 +92,26 @@ For a local check of PDFs already downloaded from CI (no rendering required):
 ruby scripts/check_official_pdfs.rb --generated /tmp/render-shards --out /tmp/official-pdf-scores
 ----
 
-Poppler must be installed. The initial F.32 baseline uses the successful #113
-render at `a7fdc72b15874131ea4240fe4ca8606a055132cc`, workflow run `44077681663`;
-subsequent branch runs verify that floor in CI. Precision and order are measured
-from the same hosted F.32 render; their provenance is recorded with the baseline
-update. These are measured regression floors, not arbitrary universal thresholds.
+Poppler must be installed. The full 87-row baseline is the candidate from run
+`44565314788` on `d1bc2d2567a708dc47452004bd14c5564986fa29` (issue #89), where
+every row rendered and extracted without errors. It pins today's scores as
+floors; it is not a review of their quality. F.32 2011 English word recall rises
+from 57.1% to 89.5%, because its previous floor was set before the F.32 reader
+changes in #128.
+
+== Known gaps in the first full baseline
+
+Median scores across the 87 rows: word recall 93.7%, precision 97.7%, order
+75.8%, row recall 76.8%. The weakest rows are recorded here so the floor is not
+read as certification:
+
+* RR.25.1 2018 E/F/S: word recall 66%, 39% and 36%. The source carries less of
+  the official text than any other publication.
+* Arabic rows of E.164D, E.212A, E.218 and Q.708A, and E.118 Chinese: word
+  recall 60-73%. The official PDFs extract Arabic and Han text; the cause on the
+  generated side is not yet measured.
+* PP.RES.21 and SR.1 (E/F/S) match no table rows (0%); F.400, E.164C French and
+  Spanish, E.212B Arabic and RR.25.1 French and Spanish match under 6%, and
+  RR.25.1 English 8%. The cause is not yet measured.
+* Page drift of 20-42 pages on E.180, M.1400 and Q.708B: the generated layout
+  differs in density from the print edition.
