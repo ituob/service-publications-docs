@@ -17,6 +17,11 @@ import sys
 import unicodedata
 import xml.etree.ElementTree as ET
 
+try:
+    from f32_sections import difference_ops
+except ModuleNotFoundError:
+    from scripts.f32_sections import difference_ops
+
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = ROOT / "ituob/spec/fixtures/f32/printed-content.json"
 OFFICIAL = ROOT / "ituob/spec/fixtures/f32/official-2011.pdf"
@@ -294,8 +299,7 @@ def comparison_errors(official_text, generated_text, language, expected, countri
                 wanted = canonical(printed)
                 actual = canonical(actual_cells[column])
                 if wanted != actual:
-                    matcher = SequenceMatcher(None, wanted, actual, autojunk=False)
-                    differences = [op for op in matcher.get_opcodes() if op[0] != "equal"]
+                    differences = difference_ops(wanted, actual)
                     first = differences[0]
                     _, a, b, c, d = first
                     errors.append(f"{country}{block}: {COLUMN_NAMES[column]} ordered content differs "

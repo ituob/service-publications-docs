@@ -26,13 +26,51 @@ def _clean(text):
         lines.append(line)
     return "\n".join(lines)
 
+EXACT_DIFF_CELLS = 250_000
+TOKEN = re.compile(r"[^\]\)\.,;:/\[(]+|.", re.S)
+
+
+def difference_ops(wanted, actual):
+    """Non-equal opcodes between two different strings, in bounded time.
+
+    Exact character matching when the strings are small. Otherwise strip the
+    common prefix/suffix and align word-sized tokens: the character-level
+    matcher is quadratic in the stream length and spent over 14 minutes on one
+    28k-character association stream of the F.32 comparison.
+    """
+    head = 0
+    limit = min(len(wanted), len(actual))
+    while head < limit and wanted[head] == actual[head]:
+        head += 1
+    tail = 0
+    while tail < limit - head and wanted[-1 - tail] == actual[-1 - tail]:
+        tail += 1
+    w, a = wanted[head:len(wanted) - tail], actual[head:len(actual) - tail]
+    if len(w) * len(a) <= EXACT_DIFF_CELLS:
+        blocks = [(i, j, n) for i, j, n in SequenceMatcher(None, w, a, autojunk=False).get_matching_blocks() if n]
+    else:
+        tokens_w, tokens_a = TOKEN.findall(w), TOKEN.findall(a)
+        starts_w, starts_a = [0], [0]
+        for token in tokens_w:
+            starts_w.append(starts_w[-1] + len(token))
+        for token in tokens_a:
+            starts_a.append(starts_a[-1] + len(token))
+        blocks = [(starts_w[i], starts_a[j], starts_w[i + n] - starts_w[i])
+                  for i, j, n in SequenceMatcher(None, tokens_w, tokens_a, autojunk=False).get_matching_blocks() if n]
+    ops = []
+    i = j = 0
+    for bi, bj, n in blocks + [(len(w), len(a), 0)]:
+        if i < bi or j < bj:
+            ops.append(("replace", i + head, bi + head, j + head, bj + head))
+        i, j = bi + n, bj + n
+    return ops
+
 
 def _difference(label, wanted, actual):
     wanted, actual = _norm(wanted), _norm(actual)
     if wanted == actual:
         return []
-    changes = [op for op in SequenceMatcher(None, wanted, actual, autojunk=False).get_opcodes()
-               if op[0] != "equal"]
+    changes = difference_ops(wanted, actual)
     _, a, b, c, d = changes[0]
     return [f"{label}: ordered content differs ({len(changes)} gaps; "
             f"official {len(wanted)} / generated {len(actual)} characters); "
