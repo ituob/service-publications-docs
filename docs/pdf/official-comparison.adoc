@@ -92,11 +92,12 @@ For a local check of PDFs already downloaded from CI (no rendering required):
 ruby scripts/check_official_pdfs.rb --generated /tmp/render-shards --out /tmp/official-pdf-scores
 ----
 
-Poppler must be installed. The full 87-row baseline comes from the complete,
-error-free run `44565314788` on `d1bc2d2567a708dc47452004bd14c5564986fa29`
-(issue #89). F.32 2011 English rises from its earlier #113 floor to the scores
-measured after the F.32 data fixes. These are measured regression floors, not
-arbitrary universal thresholds.
+Poppler must be installed. The full 87-row baseline is the candidate from run
+`44565314788` on `d1bc2d2567a708dc47452004bd14c5564986fa29` (issue #89), where
+every row rendered and extracted without errors. It pins today's scores as
+floors; it is not a review of their quality. F.32 2011 English word recall rises
+from 57.1% to 89.5%, because its previous floor was set before the F.32 reader
+changes in #128.
 
 == Known gaps in the first full baseline
 
@@ -107,9 +108,10 @@ read as certification:
 * RR.25.1 2018 E/F/S: word recall 66%, 39% and 36%. The source carries less of
   the official text than any other publication.
 * Arabic rows of E.164D, E.212A, E.218 and Q.708A, and E.118 Chinese: word
-  recall 60-73%, mostly right-to-left and CJK extraction differences.
+  recall 60-73%. The official PDFs extract Arabic and Han text; the cause on the
+  generated side is not yet measured.
 * PP.RES.21 and SR.1 (E/F/S) match no table rows (0%); F.400, E.164C French and
-  Spanish, E.212B Arabic and RR.25.1 match under 6%. Their official tables are
-  laid out as prose or multi-line cells that `pdftotext -layout` splits differently.
+  Spanish, E.212B Arabic and RR.25.1 French and Spanish match under 6%, and
+  RR.25.1 English 8%. The cause is not yet measured.
 * Page drift of 20-42 pages on E.180, M.1400 and Q.708B: the generated layout
   differs in density from the print edition.
