@@ -19,20 +19,20 @@ run. Before = deltas with no dispositions file; after = deltas still open with i
 | Row | Lang | Deltas before -> open after | Settled | Confirmed bugs | Unreviewed / NOT RUN
 
 | T.35-2012 | E | 1 -> 0 (PASS) | 1 | 1 | none
-| T.35-2012 | F | 5 -> 0 (PASS) | 5 | 1 | none
+| T.35-2012 | F | 5 -> 0 (PASS) | 5 (4 layout + 1 bug) | 1 | none
 | T.35-2012 | S | 1 -> 0 | 0 (shape fix) | 0 | none
-| T.35B-2012 | E | 21 -> 7 | 14 | see below | 7 unreviewed (tail)
-| T.35B-2012 | F | 24 -> 13 | 11 | see below | 13 unreviewed (tail)
-| T.35B-2012 | S | 19 -> 13 | 6 | see below | 13 unreviewed (tail)
-| SR.1-2012 | E | 33 -> 0 (PASS) | 30 | 0 (1 data note) | none
-| SR.1-2012 | F | 35 -> 1 | 34 | 0 | 1 unreviewed (Hong Kong)
-| SR.1-2012 | S | 32 -> 0 (PASS) | all | 0 | none
+| T.35B-2012 | E | 21 -> 7 | 14 | 10 bug deltas incl. open ones | 7 open (tail)
+| T.35B-2012 | F | 24 -> 13 | 10 | 19 bug deltas incl. open ones | 13 open (tail)
+| T.35B-2012 | S | 19 -> 13 | 6 | 14 bug deltas incl. open ones | 13 open (tail)
+| SR.1-2012 | E | 33 -> 0 (PASS) | 30 deltas (17 data, 13 layout) | 0 | none
+| SR.1-2012 | F | 35 -> 1 | 30 deltas, 28 settled by file | 1 (the open Hong Kong delta, counted as bug) | 1 open (Hong Kong)
+| SR.1-2012 | S | 32 -> 0 (PASS) | 29 deltas (17 data, 12 layout) | 0 | none
 | X.121A-2011 | E | 3 -> 0 (PASS) | 3 | 1 | none
 | X.121A-2011 | F | 2 -> 0 (PASS) | 2 | 0 | none
 | X.121A-2011 | S | 4 -> 0 (PASS) | 4 | 0 | none
-| X.121B-2011 | E | 207 -> 0 (PASS) | 217 entries/deltas | 20 | none
-| X.121B-2011 | F | PASS | all | 20 | none
-| X.121B-2011 | S | PASS | all | 20 | none
+| X.121B-2011 | E | 207 -> 0 (PASS) | 217 deltas (197 layout, 20 bug) | 20 | none
+| X.121B-2011 | F | -> 0 (PASS) | 219 deltas (197 layout, 2 data, 20 bug) | 20 | none
+| X.121B-2011 | S | -> 0 (PASS) | 219 deltas (197 layout, 2 data, 20 bug) | 20 | none
 | RR.25.1-2018 | E | 123 -> 64 | 59 | in the 59 (regex call signs) | 64 open
 | RR.25.1-2018 | F | 174 -> 83 | 91 | in the 91 | 83 open
 | RR.25.1-2018 | S | 180 -> 77 | 103 | in the 103 | 77 open
@@ -40,8 +40,8 @@ run. Before = deltas with no dispositions file; after = deltas still open with i
 
 Spec run: `cd ituob && bundle exec rspec spec/scripts/official_pdf_shapes/g4_spec.rb spec/scripts/compare_official_pdf_spec.rb`
 gives `79 examples, 0 failures`. X.121A was re-run with its yaml files on 2026-11-19 (E: PASS, 1 confirmed bug;
-F and S: PASS). The other rows' figures come from the earlier measured run on the same shapes and yaml files;
-RR.25.1 was re-measured with the final shape.
+F and S: PASS; in S two of the four deltas are settled by the tool's own layout rule). Every row was re-run with the committed yaml files on 2026-11-19 (SR.1, T.35, T.35B, X.121A, X.121B, RR.25.1);
+the "before" figures of the rows other than RR.25.1 are from the earlier measured run (no dispositions file).
 No row was NOT RUN (no memguard stop).
 
 == Shape fixes (ours, no disposition)
@@ -84,7 +84,7 @@ No row was NOT RUN (no memguard stop).
 
 * T.35B tail: E 7, F 13, S 13. Swiss URL glue, "Regulation"/"Régulations", Mauritius "Prot-Louis",
   form-question wrap differences. Not looked at one by one.
-* SR.1-F: 1, the Hong Kong block (CT2 text merged with the next block).
+* SR.1-F: 1, the Hong Kong block (CT2 text merged with the next block); looked at, not yet classified.
 * RR.25.1: E 64, F 83, S 77 open. These are call-sign form blocks the rules do not cover: forms that
   exist only in the generated PDF (E 15, F 52, S 40 rows in the full delta list) or only in the official PDF
   (E 14, F 31, S 34), and rows that differ beyond the three rules. The generated-only blocks for French,
