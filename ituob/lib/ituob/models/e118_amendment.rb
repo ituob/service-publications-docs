@@ -125,7 +125,9 @@ attribute :notes, :string, collection: true
                 # Create a new action with this entry
                 new_action = E118Action.new(
                   action_type: action.action_type,
-                  position: action.position
+                  position: action.position,
+                  country: heading_country_beyond(action.country, entry),
+                  caption: heading_country_beyond(action.caption, entry)
                 )
                 new_action.entries << entry
                 amendment.actions << new_action
@@ -138,6 +140,23 @@ attribute :notes, :string, collection: true
       end
 
       private
+
+      # The heading's country text is data only when the entry does not already
+      # carry every word of it: a heading that merely repeats the country cell,
+      # the issuer number or a leading position is dropped, while a former name
+      # ("(INMO B.V.)"), a qualifier ("Rep of.") or a label-only country
+      # ("Global Issuer Identifier Number") is kept as printed.
+      def self.heading_country_beyond(heading, entry)
+        heading = Ituob::Helpers.normalize_whitespace(heading.to_s.gsub(/\((?:delete|read)\)/i, ' ')).sub(/\A(?:P[[:space:]]*)?\d+(?:[[:space:]]*(?:,|and)[[:space:]]*\d+)*[[:space:]]*/, '')
+        return nil if heading.empty?
+
+        carried = [entry.country_or_area&.en, entry.issue_id_number].flat_map { |v| heading_words(v) }
+        (heading_words(heading) - carried).empty? ? nil : heading
+      end
+
+      def self.heading_words(text)
+        Ituob::Helpers.normalize_whitespace(text).downcase.scan(/[[:alnum:]]+/)
+      end
 
       def self.parse_action_from_paragraph(paragraph)
         # Extract metadata from paragraph text
@@ -209,10 +228,13 @@ attribute :notes, :string, collection: true
           positions = positions.split('and').map(&:strip).join(',')
         end
 
+        caption = match.named_captures['action'] ? Ituob::Helpers.normalize_whitespace(match.post_match) : ''
+
         E118Action.new(
           position: positions || nil,
           country: country,
-          action_type: action_type
+          action_type: action_type,
+          caption: caption.empty? ? nil : caption
         )
       end
 

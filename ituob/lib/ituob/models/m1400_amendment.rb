@@ -59,6 +59,47 @@ attribute :notes, :string, collection: true
         [text, country, iso, action_type, note]
       end
 
+
+      COUNTRY_NAME_SPLIT = %r{/[[:space:]]*([A-Z]{3})(?=\p{Lu}\p{Ll}|[[:space:]]|\z)}
+      FRENCH_NAME = /R[eé]publique|Principaut[eé]|Royaume|[EÉ]tats?\b|F[eé]d[eé]ration|\bd[’']|\b(?:du|des)\b/i
+      SPANISH_NAME = /Rep[uú]blica|Principado|Principalidad|Reino|Estados?\b|Federaci[oó]n|\bdel\b/i
+
+      # A country cell prints its name once per language, each followed by the
+      # ISO code ("Name / ISO Name / ISO"); the joined text is split back into
+      # one name per language. A language is read from the wording, falling back
+      # to the printed English, French, Spanish order.
+      def self.multilingual_country(text)
+        names = text.to_s.split(COUNTRY_NAME_SPLIT).each_slice(2).map { |name, _iso| name.to_s.strip }.reject(&:empty?).uniq
+        return MultilingualString.new(en: text) if names.size < 2
+
+        langs = {}
+        leftover = []
+        names.each do |name|
+          lang = if name.match?(SPANISH_NAME) then :es
+                 elsif name.match?(FRENCH_NAME) then :fr
+                 else :en
+                 end
+          langs.key?(lang) ? leftover << name : langs[lang] = name
+        end
+        leftover.each { |name| langs[%i[en fr es].find { |l| !langs.key?(l) } || :en] ||= name }
+        # A glued heading ("Allemagne Germany (Federal Republic of)") carries the
+        # French name's first word in front of the English name: drop it from en.
+        if langs[:en] && langs[:fr]
+          lead = langs[:fr][/\A\p{L}+/]
+          rest = langs[:en].delete_prefix("#{lead} ")
+          langs[:en] = rest if lead && rest != langs[:en] && rest.match?(/\A\p{Lu}/)
+        end
+        MultilingualString.new(**langs.slice(:en, :fr, :es))
+      end
+
+      # Same ISO printed again under another name (heading in one language,
+      # table cell in another): keep every printed name.
+      def self.accumulate_country(previous, iso, name, previous_iso)
+        return name if previous.nil? || previous_iso != iso || previous.split(COUNTRY_NAME_SPLIT).map(&:strip).include?(name)
+
+        "#{previous} / #{iso} #{name}"
+      end
+
       # True when some line has a "/" followed, later on that line, by a
       # three-capital action or ISO code at its end. Same as the old
       # /^.*\/.*[A-Z]{3}$/ without its polynomial backtracking (CodeQL).
@@ -77,13 +118,17 @@ attribute :notes, :string, collection: true
         text.split("\n", -1).each do |line|
           next unless line.match?(/[A-Z]{3}\z/)
 
-          i = line.length - 10
+          i = line.length - 9
           while i >= 0
             i = line.rindex(HEADING_MARK, i)
             break if i.nil?
 
             iso = line[i + 3, 3]
-            return [line, line[0...i], iso, line[-3..]] if iso.match?(/\A[A-Z]{3}\z/)
+            if iso.match?(/\A[A-Z]{3}\z/)
+              # Text between the ISO code and the action ("(OCPT)") is the heading caption.
+              caption = line[(i + 6)...-3].to_s.strip
+              return [line, line[0...i], iso, line[-3..], nil, (caption unless caption.empty?)]
+            end
 
             i -= 1
           end
@@ -232,7 +277,8 @@ attribute :notes, :string, collection: true
                   action.entries = []
                   amendment.actions << action
                 end
-                country, country_code = heading_country, heading_iso
+                country = accumulate_country(country, heading_iso, heading_country, country_code)
+                country_code = heading_iso
                 next
               end
               m = single_cell ? heading_with_annotation(rf) : nil
@@ -247,6 +293,7 @@ attribute :notes, :string, collection: true
                 action.entries = []
                 action.action_type = m[3]
                 action.note = m[4] if m[4]
+                action.caption = m[5] if m[5]
                 country = m[1]
                 country_code = m[2]
                 amendment.actions << action
@@ -261,7 +308,7 @@ attribute :notes, :string, collection: true
               entry = M1400Entry.new
 
               entry.iso_code = country_code
-              entry.country_or_area = MultilingualString.new(en: country)
+              entry.country_or_area = multilingual_country(country)
               entry.company_name = Ituob::Helpers.strip_legacy(row[0][0]) rescue nil
               entry.address_line_1 = Ituob::Helpers.strip_legacy(row[0][1]) rescue nil
               entry.address_line_2 = Ituob::Helpers.strip_legacy(row[0][2]) rescue nil
