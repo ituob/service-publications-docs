@@ -14,50 +14,32 @@ heading remains the action position and each row retains its country and network
 The marker makes the existing key-based replay meaning explicit; it does not
 introduce a country-wide replay operation.
 
-The default reading is a withdrawal. A corpus replay of E.212 found 198 SUP
-rows: 190 reprint the stored row verbatim, 7 respell it, 1 names an absent key.
-The printed legend is `SUP:: Delete`, so the heading token alone never means
-replacement.
+=== No proven replacements
 
-=== Replacement blocks (`suppression_scope: replacement`)
+A replay of E.212 found 198 SUP rows: 190 reprint the stored row verbatim, 7
+respell it, 1 names an absent key
+(`BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/measure_e212_sup_rows.rb`).
+The printed legend is `SUP:: Delete`, and every row checked deletes. The heading
+token alone never means replacement, so the parser and replay keep SUP as a
+withdrawal and add no replacement scope.
 
-A SUP block is recorded as a replacement, with action type `REP`, only when
-every listed row is a proven rename of an operator that stays in the register:
+* Hungary `216 04` at OB 1170 looked like a rename only against the 2018
+  consolidated seed ("Invitech Solutions"). OB 1166 LIR already set the name to
+  "Invitech ICT Services Ltd." (`1166-0002-LIR-216_04.yaml`), so the OB 1170 row
+  reprints the stored row: a deletion. Kenya `639 08` is the same.
+* Estonia `248 33` at OB 1314 ("J-Mobile OU (formerly Crowdfaster OU)" for stored
+  "Crowdfaster OU") is also unproven: the block withdraws `248 21` Tismi beside it.
 
-. the code is held in the register before the block (consolidated list or an
-  earlier change), and
-. the printed network is a different operator name, not a respelling,
-  case or punctuation variant, or a dropped validity note, and
-. nothing in the block withdraws operators (no sibling row that is a plain
-  withdrawal).
-
-The rows are listed in `E212MNCAmendment::REPLACEMENT_ROWS`, matched on country,
-code and printed network; the printed heading stays the position. Replay then
-applies the printed row over the stored one and clears no other key.
-
-Marked: Hungary `216 04` at OB 1170 (E.212B-2018 "Invitech Solutions" becomes
-"Invitech ICT Services Ltd."). Not marked: Estonia `248 33` at OB 1314
-("J-Mobile OU (formerly Crowdfaster OU)" for stored "Crowdfaster OU"): the block
-also withdraws `248 21` Tismi, so the evidence is not equally clear. Kenya
-`639 08` reprints its stored name verbatim and stays a suppression, as do
-Netherlands, Norway and the other verbatim blocks.
-
-The OB 1170 fixture regression asserts the Hungary `REP` action and
-`replacement` scope, the Kenya `SUP` action and `listed_entries` scope, both
-positions, networks and countries. The parser-to-patch replay check starts with
-Hungary `216 04` ("Invitech Solutions"), Kenya `639 08` and unlisted `216 01` and
-`639 01` controls: `216 04` survives with the new name and a SEED/REP history,
-`639 08` is deleted with SEED/SUP, and the controls are untouched, with no lapse
-or replay error.
+The OB 1170 regressions assert both targets are deleted with their SEED/SUP
+histories and the unlisted `216 01` and `639 01` controls untouched. A further
+example seeds `216 04` as "Invitech Solutions", applies the OB 1166 LIR, then the
+OB 1170 SUP, and asserts `216 04` is in `deleted_keys` with history SEED/LIR/SUP.
 
 The serialization regression fails against the base parser because its action
 hashes lack `suppression_scope`. Non-SUP actions retain no scope field.
 Stored SUP patches carry only the new scope field; other existing E.212 corpus
 differences, including the separately documented DEL regeneration, are outside
-this update. The OB 1170 Hungary patch files (`ob-issues/1170/e212-mnc/001-REP.yaml`,
-`datasets/1162-E.212/changes/1170-0001-REP-216_04.yaml`) and the parser baseline
-entry were edited by hand to match the parser output, because `itu-ob-data` is
-not checked out here and `build_ob_issues.rb` cannot run.
+this update.
 [source,shell]
 ----
 BUNDLE_GEMFILE=ituob/Gemfile bundle exec rspec --options /dev/null -I ituob/lib -I ituob/spec ituob/spec/ituob/models/e212mnc_amendment_spec.rb ituob/spec/ituob/registers/del_classification_spec.rb
