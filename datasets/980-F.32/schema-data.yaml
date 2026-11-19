@@ -165,6 +165,14 @@ items:
       type: array
       items:
         type: string
+    source_cells:
+      type: array
+      items:
+        type: string
+    source_language:
+      type: string
+    source_heading:
+      type: boolean
     subarea:
       type: object
       additionalProperties: false

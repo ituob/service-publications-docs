@@ -39,8 +39,12 @@ jobs:
     - name: Install the service gem bundle
       run: bundle install
 
+    # The F.32 content tests read the official PDFs with pdftotext.
     - name: Run authored data Python and Ruby tests
-      run: python3 -m unittest discover -s scripts/tests -p 'test_*.py'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y poppler-utils
+        python3 -m unittest discover -s scripts/tests -p 'test_*.py'
 
   rspec:
     runs-on: ubuntu-latest
