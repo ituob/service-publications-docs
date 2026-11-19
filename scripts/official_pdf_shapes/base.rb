@@ -5,7 +5,9 @@ require 'set'
 module OfficialPdfComparison
   # Page furniture and the table header that every Service Publication shares.
   FURNITURE = /\A\s*Annex to ITU OB|\A\s*Service Publication Annex|\A\s*ITUPublications/
-  TABLE_HEADER = %r{Country\s*/\s*(?:[Gg]eographical|Network)}
+  # The table header row, per language (E: Country / geographical area, F: Pays /zone
+  # géographique, S: País / zona geográfica).
+  TABLE_HEADER = %r{Country\s*/\s*(?:[Gg]eographical|Network)|Pays\s*/\s*zone|Pa[ií]s\s*/\s*zona}
   LIST_MARKER = /\A\s*(?:\d+\.|[a-z]\))\s+/
 
   # A shape knows how to cut one family of publications into table rows (see
@@ -28,6 +30,7 @@ module OfficialPdfComparison
       def same_name?(other) = readings.intersect?(other.readings)
     end
 
+    # Abstract shape: subclasses implement #rows and list PUBLICATIONS.
     class Base
       # The word that opens the preface in each language of the official PDFs
       # (measured from T-SP-F.32-2011-{E,F,S}.pdf with pdftotext -layout).
