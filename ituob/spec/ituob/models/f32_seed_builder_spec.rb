@@ -181,6 +181,14 @@ RSpec.describe Ituob::Models::F32SeedBuilder do
         expect(rows.map { |entry| entry.source_cells.first(2) }).to eq([["MADERA", "PT Comunicações, S.A., Lisboa"]] * 3)
       end
 
+      it "gives the ROA folded into the country node to the ROA cell (PORTUGAL, AÇORES Non précisé / Sin encaminamiento)" do
+        rows = printed.select { |entry| entry.source_cells[0].to_s.start_with?("AÇORES") }
+        expect(rows.map { |entry| entry.source_cells.first(2) }).to include(
+          ["AÇORES – AZORES – AZORES", "Non précisé"],
+          ["AÇORES – AZORES – AZORES", "Sin encaminamiento"],
+        )
+      end
+
       it "places a 15-character word that starts at the text edge of a wide node in its own column (UNITED STATES, Spanish)" do
         rows = printed.select { |entry| entry.source_language == "es" && entry.source_cells[1] == "Communications, Inc." }
         expect(rows.map { |entry| entry.source_cells[0] }).to eq(["", ""])

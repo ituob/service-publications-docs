@@ -240,16 +240,16 @@
       "expected_sha256": "1677c9b58b1aeaa7c2341f5c09d7f43749ecca5d129244c2978e81f1638384b1"
     },
     "T-SP-F.32-2011-E.adoc": {
-      "sha256": "b8ee95516f0a01c050d38f04871b35b1ee0417ae419b34ec3c18b4204ddf4e29",
-      "expected_sha256": "b8ee95516f0a01c050d38f04871b35b1ee0417ae419b34ec3c18b4204ddf4e29"
+      "sha256": "4c6e72bc103a665a859d1601e77b1c8ec249b731188918d0268c89f2fd119e5a",
+      "expected_sha256": "4c6e72bc103a665a859d1601e77b1c8ec249b731188918d0268c89f2fd119e5a"
     },
     "T-SP-F.32-2011-F.adoc": {
-      "sha256": "46b86fcfe73cac5f4262e761925b9dd3fd2be5c1773e00cb06350ee42479f3f8",
-      "expected_sha256": "46b86fcfe73cac5f4262e761925b9dd3fd2be5c1773e00cb06350ee42479f3f8"
+      "sha256": "90c14485f01078be19281ccdacce1283250fa40e3866bc9743b516efcd2e1ae3",
+      "expected_sha256": "90c14485f01078be19281ccdacce1283250fa40e3866bc9743b516efcd2e1ae3"
     },
     "T-SP-F.32-2011-S.adoc": {
-      "sha256": "89ea262c67f2d6f21517fc4ce549b3d2a16c7df395416a2e7486b5f0564b24fe",
-      "expected_sha256": "89ea262c67f2d6f21517fc4ce549b3d2a16c7df395416a2e7486b5f0564b24fe"
+      "sha256": "da06fc1b0cc1b1cbc1e68ae11c5c757c20f64b917a7a8406c77c5b28920ed855",
+      "expected_sha256": "da06fc1b0cc1b1cbc1e68ae11c5c757c20f64b917a7a8406c77c5b28920ed855"
     }
   },
   "digest_refresh": "E.212A-C and E.212B-C: the Chinese editions now name the font Noto Sans SC (intended change, reversed above). F.32 E/F/S: digests recomputed from provider-rendered AsciiDoc after the printed-layout rewrite of the F.32 data (the F.32 rendering is pinned by scripts/check_f32_content.py against the official PDFs, not by this byte digest)."

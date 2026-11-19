@@ -148,6 +148,15 @@ module Ituob
               nodes.any? { |other, _text| other > left && other >= 225 && other <= 270 }
             cells[0] << match[:country]
             cells[1] << match[:word]
+          # Poppler also folds a whole ROA into the country node
+          # ("AÇORES – AZORES – AZORES" + "Non précisé"): the text after the gap ends
+          # in the ROA column and no node of its own prints there, while the row carries a network code.
+          elsif column.zero? && (match = text.match(/\A(?<country>.*?\S) {2,}(?<roa>\S.*)\z/)) &&
+              left + width - match[:roa].length * CHARACTER_WIDTH >= COLUMN_STARTS.first - 10 &&
+              nodes.none? { |other, _text| other >= 225 && other < 430 } &&
+              nodes.any? { |other, other_text| other >= 430 && other_text.match?(NETWORK_CODE) }
+            cells[0] << match[:country]
+            cells[1] << match[:roa]
           # The PDF extractor sometimes combines ROA and code into one node.
           elsif column < 2 && (match = text.match(/\A(?:(?<label>.*?)\s+)?(?<code>[A-Z]{2}\s*-\s*-?)\z/))
             cells[column] << match[:label] unless match[:label].to_s.empty?
