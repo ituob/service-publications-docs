@@ -1,125 +1,230 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Interim row-level comparison for the E.118, E.164B/C/D and E.180 shapes
-# (ituob/service-publications-docs#89). Reads the generated and official PDFs
-# through `pdftotext -layout`, lets the shape cut both into rows, aligns the rows
-# by key and writes one dispositions file per publication row:
+# Dispositions for the E.118, E.164B/C/D and E.180 rows of
+# scripts/compare_official_pdf.rb (ituob/service-publications-docs#89).
 #
 #   ruby scripts/g1_row_dispositions.rb GEN_DIR OUT_DIR [PUB-LANG ...]
 #
-# GEN_DIR holds <short id>/<short id>-<L>.pdf (E.118-2018/E.118-2018-A.pdf).
-# The delta text and the rules below are this script's own: they settle what a
-# measurement settles (same words in another order, a localised country name or
-# label the dataset does not carry) and leave everything else "unreviewed".
-require 'open3'
+# GEN_DIR holds <short id>/<short id>-<L>.pdf (E.118-2018/E.118-2018-A.pdf). For
+# every publication row the comparator runs, each open row delta goes through
+# the rules below; the ones a rule settles are written to OUT_DIR/<PUB>-<L>.yaml
+# in the --dispositions format. A delta no rule settles stays open
+# ("unreviewed") and is counted, never written. Prose deltas are not settled
+# here (see README-g1.adoc).
+#
+# A rule fires on a measurement, not on a guess. Words are compared as a bag
+# per row (gi = words only the generated row has, oi = only the official one):
+#   layout  gi and oi are empty: the same words, in another cell or line;
+#   data    every word of gi is a word of the dataset record(s) for that row in
+#           the PDF's language, so the generated PDF prints what the dataset
+#           holds and the official list differs from the dataset (the official
+#           words are not all in the record: else the generator dropped text);
+#   bug     gi is the dataset's text in ANOTHER language than the PDF's, or, in
+#           the E.118 A/C/R PDFs, the English contact labels Tel/Fax/E-mail that
+#           the official PDF translates.
 require 'yaml'
-require_relative 'official_pdf_shapes/g1_support'
-Dir[File.join(__dir__, 'official_pdf_shapes', '*.rb')].sort.each { |f| require f unless f.end_with?('g1_support.rb') }
+require_relative 'compare_official_pdf'
 
 module G1RowDispositions
-  SHAPES = {
-    'T-SP-E.118-2018' => OfficialPdfComparison::Shapes::IssuerIdentifierList,
-    'T-SP-E.164B-2012' => OfficialPdfComparison::Shapes::CountryCodeTable,
-    'T-SP-E.164C-2011' => OfficialPdfComparison::Shapes::CountryCodeTable,
-    'T-SP-E.164D-2016' => OfficialPdfComparison::Shapes::CountryCodeTable,
-    'T-SP-E.180-2010' => OfficialPdfComparison::Shapes::ToneList
-  }.freeze
+  LANGS = { 'E' => 'en', 'F' => 'fr', 'S' => 'es', 'A' => 'ar', 'C' => 'zh', 'R' => 'ru' }.freeze
   LABELS = %w[tel fax e mail].freeze
-  # words of the national-number cell the dataset holds in English only
-  NUMBER_WORDS = %w[digits to up].freeze
+  FAMILIES = {
+    'T-SP-E.118-2018' => { shape: 'IssuerIdentifierList', dataset: 'datasets/1161-E.118/data.yaml', code: 'issue_id_number' },
+    'T-SP-E.164B-2012' => { shape: 'CountryCodeTable', dataset: 'datasets/1015-E.164B/data.yaml', code: 'country_code' },
+    'T-SP-E.164C-2011' => { shape: 'CountryCodeTable', dataset: 'datasets/994-E.164C/data.yaml', code: 'country_code', skip: %w[note], markers: (1..30).map(&:to_s) },
+    'T-SP-E.164D-2016' => { shape: 'CountryCodeTable', dataset: 'datasets/1114-E.164D/data.yaml', code: 'country_code', markers: ('a'..'z').to_a },
+    'T-SP-E.180-2010' => { shape: 'ToneList', dataset: 'datasets/955-E.180/data.yaml', code: nil }
+  }.freeze
+  ROOT = File.expand_path('..', __dir__)
+  PAIR = /\A(.*?): generated "(.*)" vs official "(.*)"\z/m
 
-  Delta = Struct.new(:text, :disposition, :reason)
+  Verdict = Struct.new(:disposition, :reason)
 
   module_function
 
-  def norm(str) = str.downcase.gsub(/[^[:alnum:]]+/, ' ').strip
+  def words(str) = str.to_s.unicode_normalize(:nfkc).downcase.scan(/[[:alnum:]]+/)
 
-  def pdf_text(path)
-    out, err, st = Open3.capture3('pdftotext', '-layout', path, '-')
-    abort "pdftotext failed for #{path}: #{err}" unless st.success?
-    out
-  end
-
-  # words of a that b does not have, counting repeats
+  # words of left that right lacks, counting repeats
   def minus(left, right)
     rest = left.dup
     right.each { |w| (i = rest.index(w)) && rest.delete_at(i) }
     rest
   end
 
-  def deltas(pub, lang, gen_rows, off_rows)
-    gen = gen_rows.to_h { |r| [r.key, r] }
-    off = off_rows.to_h { |r| [r.key, r] }
+  # the text values of a record field: one language, or (any) every language
+  def leaves(value, lang, any)
+    case value
+    when Hash then any ? value.values.flat_map { |v| leaves(v, lang, any) } : leaves(value[lang] || value['en'], lang, any)
+    when Array then value.flat_map { |v| leaves(v, lang, any) }
+    else [value.to_s]
+    end
+  end
+
+  # Dataset records by row key. E.118 and E.164 keys hold the code ("89 93 01",
+  # read in either direction for the right-to-left PDFs, or "86|China"); E.180
+  # rows have no code and are found by the first word of the country name.
+  class Dataset
+    def initialize(family)
+      data = YAML.safe_load_file(File.join(ROOT, family[:dataset]))
+      @records = data.is_a?(Hash) ? data.values.first : data
+      @code = family[:code]
+      @skip = family[:skip] || [] # fields printed outside the row (E.164C footnotes)
+      @markers = family[:markers] || [] # footnote marks a row prints for its note
+    end
+
+    def records(key)
+      return by_country(key) unless @code
+
+      code, name = key.split('|', 2)
+      found = @records.select { |r| same_code?(r[@code].to_s, code) }
+      found.size > 1 && name ? narrow(found, name) : found
+    end
+
+    def words(key, lang, any: false, markers: true)
+      records(key).flat_map { |r| record_words(r, lang, any, markers) }
+    end
+
+    private
+
+    # A record with a note prints a footnote mark in its row (a number in E.164C,
+    # a letter in E.164D); the mark is the row's own, not a word of the record,
+    # so it counts as a word of the record only where `markers` is true.
+    def record_words(record, lang, any, markers)
+      text = record.reject { |k, _| @skip.include?(k) }.values.flat_map { |v| G1RowDispositions.leaves(v, lang, any) }
+      marks = markers && record.key?('note') ? @markers : []
+      text.flat_map { |s| G1RowDispositions.words(s) } + marks
+    end
+
+    def same_code?(record, key) = record.delete(' ') == key.delete(' ') || record.split.reverse == key.split
+
+    def first_word(str) = G1RowDispositions.words(str).first
+
+    def named?(record, word) = record.values.grep(Hash).any? { |h| h.values.any? { |n| first_word(n) == word } }
+
+    def narrow(found, name)
+      hit = found.select { |r| named?(r, first_word(name)) }
+      hit.empty? ? found : hit
+    end
+
+    def by_country(key) = @records.select { |r| (r['country_or_area'] || {}).values.any? { |n| first_word(n) == first_word(key) } }
+  end
+
+  def verdict(pub, lang, key, gen_text, off_text, dataset)
+    g = words(gen_text)
+    o = words(off_text)
+    gi = minus(g, o)
+    oi = minus(o, g)
+    return Verdict.new(:layout, 'same words on both sides: the two PDFs wrap a cell or place a continuation line differently') if gi.empty? && oi.empty?
+
+    code = LANGS.fetch(lang)
+    mine = dataset.words(key, code)
+    return nil if mine.empty?
+
+    # what the dataset holds beyond what the generated row printed
+    unprinted = minus(dataset.words(key, code, markers: false), g)
+
+    if gi.empty?
+      # the generated row lost words: the dataset holds them (the generator
+      # dropped dataset text) or it does not (the official list has more)
+      return minus(oi, unprinted).empty? ? Verdict.new(:bug, "the dataset record holds #{oi.join(' ')} (in #{code}) once more than the generated row prints it, and the official row prints it") : Verdict.new(:data, "the official PDF prints #{oi.join(' ')} once more than the dataset record holds (in #{code}); the generated PDF prints the dataset")
+    end
+
+    if %w[A C R].include?(lang) && pub == 'T-SP-E.118-2018' && (gi & LABELS).any? && minus(gi - LABELS, mine).empty?
+      Verdict.new(:bug, 'the generated PDF prints the contact labels Tel/Fax/E-mail in English (and the country name, the dataset has en only) where the official PDF translates them')
+    elsif minus(gi, mine).empty? && (oi.empty? || minus(oi, unprinted).any?)
+      Verdict.new(:data, "the generated PDF prints what the dataset holds for this row in #{code} (#{gi.join(' ')}); the official PDF has #{oi.empty? ? 'other text' : oi.join(' ')}")
+    elsif minus(gi, mine).any? && minus(gi, dataset.words(key, code, any: true)).empty?
+      Verdict.new(:bug, "the generated PDF prints the dataset's text of another language than #{code} (#{gi.join(' ')})")
+    end
+  end
+
+  def rows(text, pub) = OfficialPdfComparison.shape(FAMILIES.fetch(pub)[:shape]).rows(text)
+
+  # Settled row deltas as dispositions entries, and how many row deltas stay open.
+  def entries(result, pub, lang, dataset)
+    gen_rows = rows(result[:texts][:generated], pub)
+    off_rows = rows(result[:texts][:official], pub)
+    ctx = { pub: pub, lang: lang, dataset: dataset,
+            gen_by: gen_rows.to_h { |r| [r.to_s, r] }, off_by: off_rows.to_h { |r| [r.to_s, r] },
+            gen_key: gen_rows.to_h { |r| [r.key, r] }, off_key: off_rows.to_h { |r| [r.key, r] } }
     out = []
-    (gen.keys & off.keys).each do |key|
-      g = norm(gen[key].text).split
-      o = norm(off[key].text).split
-      next if g == o
+    open = 0
+    result[:deltas].each do |d|
+      next unless %i[bug unreviewed].include?(d.disposition) && d.layer == :rows
 
-      out << classify(pub, lang, key, minus(g, o), minus(o, g))
+      v = row_verdict(d, ctx)
+      v ? out << { 'layer' => d.layer.to_s, 'side' => d.side.to_s, 'text' => d.text, 'disposition' => v.disposition.to_s, 'reason' => v.reason } : open += 1
     end
-    (gen.keys - off.keys).each { |k| out << Delta.new("#{k}: generated row has no official row", :unreviewed, nil) }
-    (off.keys - gen.keys).each { |k| out << Delta.new("#{k}: official row has no generated row", :unreviewed, nil) }
-    out
+    [out, open]
   end
 
-  def classify(pub, lang, key, gi, oi)
-    text = "#{key}: generated-only #{gi.inspect} vs official-only #{oi.inspect}"
-    return Delta.new(text, :layout, 'same words in another order: the two PDFs wrap a cell or place a continuation line differently') if gi.empty? && oi.empty?
-
-    case pub
-    when 'T-SP-E.118-2018' then issuer(text, lang, gi, oi)
-    when 'T-SP-E.164C-2011' then dialling(text, gi, oi)
-    else Delta.new(text, :unreviewed, nil)
+  def row_verdict(delta, ctx)
+    args = [ctx[:pub], ctx[:lang]]
+    case delta.side
+    when :both
+      m = delta.text.match(PAIR) or return nil
+      verdict(*args, m[1], m[2], m[3], ctx[:dataset])
+    when :generated_only
+      row = ctx[:gen_by][delta.text] or return nil
+      off = ctx[:off_key][row.key] or return unpaired(*args, row, ctx[:dataset], :generated)
+      moved(verdict(*args, row.key, row.text, off.text, ctx[:dataset]), row.key)
+    when :official_only
+      row = ctx[:off_by][delta.text] or return nil
+      gen = ctx[:gen_key][row.key] or return unpaired(*args, row, ctx[:dataset], :official)
+      moved(verdict(*args, row.key, gen.text, row.text, ctx[:dataset]), row.key)
     end
   end
 
-  def issuer(text, lang, gi, oi)
-    labels = gi & LABELS
-    if %w[A C R].include?(lang) && labels.any?
-      Delta.new(text, :bug, 'the generated PDF prints the English labels Tel/Fax/E-mail where the official one has them translated; the generator does not translate the contact labels for A, C and R' \
-                            "#{', and the country name is English (dataset has en only)' if (gi - LABELS).any?}")
-    elsif lang != 'E' && labels.empty? && gi.any?
-      Delta.new(text, :data, 'the dataset (datasets/1161-E.118/data.yaml) holds country_or_area in English only; the official PDF prints the translated country name')
+  # A row only one PDF has under that key. The generated row is settled when it
+  # is, word for word, what the dataset holds for its code (the official list
+  # has no such row); the official row when some of its words are not in the
+  # dataset records of its code (the generator has nothing to print there).
+  def unpaired(_pub, lang, row, dataset, side)
+    code = LANGS.fetch(lang)
+    base = row.key.sub(/#\d+\z/, '')
+    mine = dataset.words(base, code)
+    return nil if mine.empty?
+
+    own = words(row.text)
+    if side == :generated && minus(own, mine).empty?
+      Verdict.new(:data, "the generated row is what the dataset holds for #{base.split('|').first} in #{code}; the official list has no row of that name under this code (the dataset differs from the official list)")
+    elsif side == :official && minus(own, mine).any?
+      Verdict.new(:data, "the official row has words (#{minus(own, mine).first(6).join(' ')}) that the dataset records of #{base.split('|').first} in #{code} do not hold, so the generated PDF cannot print it")
+    end
+  end
+
+  # the row is on both sides, at another position: the rule that settles its
+  # words settles it, with the position named
+  def moved(verdict, key)
+    return nil unless verdict
+
+    name = key.split('|', 2)[1].to_s.sub(/#\d+\z/, '')
+    # the official lists put the "Reserved ..." entries last, whatever the letters
+    if verdict.disposition == :layout && accented?(name) && !name.match?(/\Ar[ée]serv/i)
+      Verdict.new(:bug, "the alphabetical list puts #{name} at another place than the official list: the generated PDF sorts accented letters after the unaccented ones, the official list sorts them with their base letter")
     else
-      Delta.new(text, :unreviewed, nil)
+      Verdict.new(verdict.disposition, "the row sits at another position of its list than in the other PDF (the lists are sorted differently); #{verdict.reason}")
     end
   end
 
-  def dialling(text, gi, oi)
-    if gi.sort == %w[0] && oi.sort == %w[utc]
-      Delta.new(text, :data, "the dataset holds utc_dst '0'; the official PDF prints UTC for a zero offset")
-    elsif (gi - NUMBER_WORDS - %w[0]).empty? && oi.size >= gi.count { |w| NUMBER_WORDS.include?(w) } && (oi & %w[chiffres cifras dígitos]).any?
-      Delta.new(text, :data, 'the dataset holds national_sig_number as one English string ("9 digits"); the official PDF prints it translated')
-    else
-      Delta.new(text, :unreviewed, nil)
-    end
-  end
-
-  def entries(deltas)
-    deltas.reject { |d| d.disposition == :unreviewed }.map do |d|
-      { 'layer' => 'rows', 'side' => 'both', 'text' => d.text, 'disposition' => d.disposition.to_s, 'reason' => d.reason }
-    end
-  end
+  def accented?(word) = word.match?(/\p{Latin}/) && word != word.unicode_normalize(:nfd).gsub(/\p{M}/, '')
 
   def main(gen_dir, out_dir, only)
     Dir.mkdir(out_dir) unless Dir.exist?(out_dir)
-    root = File.expand_path('..', __dir__)
-    rows = []
-    SHAPES.each do |pub, shape|
+    FAMILIES.each do |pub, family|
       short = pub.delete_prefix('T-SP-')
-      Dir[File.join(root, 'docs/pdf/official', "#{pub}-?.pdf")].sort.each do |off_pdf|
+      dataset = Dataset.new(family)
+      Dir[File.join(ROOT, 'docs/pdf/official', "#{pub}-?.pdf")].sort.each do |off_pdf|
         lang = File.basename(off_pdf, '.pdf')[-1]
         next if only.any? && !only.include?("#{pub}-#{lang}")
 
-        gen_pdf = File.join(gen_dir, short, "#{short}-#{lang}.pdf")
-        ds = deltas(pub, lang, shape.new.rows(pdf_text(gen_pdf)), shape.new.rows(pdf_text(off_pdf)))
-        File.write(File.join(out_dir, "#{pub}-#{lang}.yaml"), entries(ds).to_yaml)
-        rows << [pub, lang, ds.size, ds.count { |d| d.disposition != :unreviewed }, ds.count { |d| d.disposition == :bug }, ds.count { |d| d.disposition == :unreviewed }]
+        result = OfficialPdfComparison.run(File.join(gen_dir, short, "#{short}-#{lang}.pdf"), off_pdf, shape: family[:shape], lang: lang)
+        list, open_rows = entries(result, pub, lang, dataset)
+        File.write(File.join(out_dir, "#{pub}-#{lang}.yaml"), list.to_yaml.sub(/\A---\n/, ''))
+        puts format('%-17s %s settled=%-5d bug=%-4d rows-open=%d', pub, lang, list.size, list.count { |e| e['disposition'] == 'bug' }, open_rows)
       end
     end
-    rows.each { |r| puts format('%-18s %s deltas=%-5d dispositioned=%-5d bug=%-5d unreviewed=%d', *r) }
   end
 end
 

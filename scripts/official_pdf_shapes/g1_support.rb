@@ -28,7 +28,7 @@ module OfficialPdfComparison
       # every page (the footer) and the lines that open at least `share` of the
       # pages (the repeated table header). Both PDFs print them differently, and
       # a footer or header is never row text.
-      def body_lines(text, share: 0.6)
+      def body_lines(text, share: 0.35)
         pages = text.split("\f").map { |p| p.lines.map { |l| l.chomp.gsub(BIDI, '').unicode_normalize(:nfkc) } }
         heads = Hash.new(0)
         pages.each { |p| p.reject { |l| l.strip.empty? }.first(5).map { |l| squish(l) }.uniq.each { |l| heads[l] += 1 } }
@@ -45,20 +45,22 @@ module OfficialPdfComparison
       # differently in the two PDFs still gives the same column text. heads maps
       # a page to the cells of its first row line; a wrap line on another page
       # than the row's first line is read against that page's columns.
-      def column_text(lines, heads, align: :start)
+      def column_text(lines, heads, align: :start, &split)
+        split ||= :itself.to_proc
         first = lines.first
-        head = cells(first.text)
+        head = split.call(cells(first.text))
         cols = head.map { |c| [c.text] }
         lines.drop(1).each do |line|
           ref = line.page == first.page ? head : (heads[line.page] || head)
-          cells(line.text).each { |c| cols[[nearest(ref, c, align), cols.size - 1].min] << c.text }
+          split.call(cells(line.text)).each { |c| cols[[nearest(ref, c, align), cols.size - 1].min] << c.text }
         end
         cols.map { |col| squish(col.join(' ')) }.join(' | ')
       end
 
       # page => cells of the first row-start line printed on it
-      def page_heads(starts)
-        starts.each_with_object({}) { |line, h| h[line.page] ||= cells(line.text) }
+      def page_heads(starts, &split)
+        split ||= :itself.to_proc
+        starts.each_with_object({}) { |line, h| h[line.page] ||= split.call(cells(line.text)) }
       end
 
       def nearest(head, cell, align)
@@ -72,6 +74,25 @@ module OfficialPdfComparison
         else
           head.each_index.min_by { |i| (head[i].center - cell.center).abs }
         end
+      end
+
+      # Index where the preface ends: the start of the page that holds the first
+      # table row (the table's title and column header open that page in the
+      # official PDFs), else, when the preface shares that page, the block of
+      # non-blank lines that holds the row (its column header), else the end of
+      # the text. `first_row` says whether a line starts a table row; it receives
+      # the line (BIDI marks and presentation forms folded) and the folded lines
+      # that follow it.
+      def prose_stop(lines, start, &first_row)
+        folded = lines.map { |l| l.gsub(BIDI, '').unicode_normalize(:nfkc) }
+        hit = (start...folded.size).find { |i| !folded[i].strip.empty? && first_row.call(folded[i], folded[i + 1, 60]) }
+        return lines.size unless hit
+
+        page = (start + 1..hit).to_a.reverse.find { |i| lines[i].start_with?("\f") }
+        return page if page
+
+        hit -= 1 while hit > start && !folded[hit - 1].strip.empty?
+        hit
       end
 
       def unique_keys(rows)

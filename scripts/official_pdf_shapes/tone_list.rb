@@ -49,6 +49,13 @@ module OfficialPdfComparison
         G1Support.unique_keys(blocks.map { |b| Row.new(key(b), text(b)) })
       end
 
+      def prose_stop(lines, start)
+        G1Support.prose_stop(lines, start) do |line, _|
+          cells = G1Support.cells(line)
+          cells.size >= 2 && cells.last.text =~ CADENCE
+        end
+      end
+
       private
 
       # a name that wraps leaves one space before its frequency: "Tone - 425"
