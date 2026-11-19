@@ -4,11 +4,16 @@
 # Compares a generated Service Publication PDF against the official ITU PDF.
 #
 #   ruby scripts/compare_official_pdf.rb GENERATED.pdf OFFICIAL.pdf \
-#        [--out DIR] [--data data.yaml] [--dispositions dispositions.yaml]
+#        [--out DIR] [--data data.yaml] [--dispositions dispositions.yaml] \
+#        [--shape NAME] [--lang E|F|S]
 #
 # Both PDFs go through `pdftotext -layout`. Two layers are compared:
 #   rows  - telegraph-office table rows (office name + office code), in order
-#   prose - the preface words between "Note from TSB" and the first table header
+#   prose - the preface words between the language's prose marker ("Note from
+#           TSB" / "Note du TSB" / "Nota de la TSB") and the first table header
+#
+# Row extraction is per shape (scripts/official_pdf_shapes/*.rb, --shape NAME,
+# default F32); see docs/pdf/official-comparison-shapes.adoc.
 # Every delta is printed with a disposition (data, layout, bug). The tool only
 # settles what a measurement can settle; a human disposition lives in the
 # checked-in --dispositions file (matched on the exact delta text, so a stale
@@ -20,61 +25,42 @@ require 'open3'
 require 'optparse'
 require 'set'
 require 'yaml'
+require_relative 'official_pdf_shapes/base'
 
 module OfficialPdfComparison
-  CODE = /\A(?=.*[A-Z])[A-Z0-9-]{4}\z/
-  FURNITURE = /\A\s*Annex to ITU OB|\A\s*Service Publication Annex|\A\s*ITUPublications/
-  TABLE_HEADER = %r{Country\s*/\s*(?:[Gg]eographical|Network)}
-  LIST_MARKER = /\A\s*(?:\d+\.|[a-z]\))\s+/
-
-  FOOTNOTE = /\A(?:\d+|[a-z])\)\z/
-  COLUMN_SLACK = 4
-  MAX_SCAN = 6
+  SHAPES_DIR = File.join(__dir__, 'official_pdf_shapes')
+  DEFAULT_SHAPE = 'F32'
   DISPOSITIONS = %w[data layout bug].freeze
 
   # Bad command line, unreadable input or a malformed dispositions file: exit 2.
   class UsageError < StandardError; end
 
-  # The lines between two code lines (or between a code line and page
-  # furniture) that can be wrap text of one row's name. Each line carries the
-  # text it has at the upper row's name column (a) and at the lower row's (b),
-  # nil where it does not continue that column. A gap is split between its two
-  # rows: the upper row takes the first s lines, the lower row the rest, so a
-  # line belongs to exactly one row and none is dropped. valid lists the splits
-  # the columns allow.
-  Gap = Struct.new(:lines) do
-    def valid
-      @valid ||= (0..lines.size).select { |s| lines.first(s).all? { |l| l[:a] } && lines.drop(s).all? { |l| l[:b] } }
-    end
-
-    def all_text = lines.map { |l| l[:a] || l[:b] }
-  end
-
-  # A table row: the code line's name and the gaps above and below it. How a gap
-  # is split between its two rows differs between the two PDFs (and a name's
-  # first line may sit above or below the code), so a row has one reading of
-  # its name per split of its two gaps: the lines it takes above, the code-line
-  # text, the lines it takes below, joined. Which split is the right one is
-  # settled across rows, see OfficialPdfComparison.consistent_failures.
-  Row = Struct.new(:name, :code, :line, :col, :above, :below) do
-    def to_s = "#{code} #{name}"
-
-    # Every wrap line of the row's neighbourhood, in reading order.
-    def full_name = OfficialPdfComparison.squish((above.all_text + [name] + below.all_text).join(' '))
-
-    def reading(sa, sb)
-      OfficialPdfComparison.normalise((above.lines.drop(sa).map { |l| l[:b] } + [name] + below.lines.first(sb).map { |l| l[:a] }).join(' '))
-    end
-
-    def splits = above.valid.product(below.valid)
-
-    def readings = @readings ||= splits.map { |sa, sb| reading(sa, sb) }.to_set
-
-    def same_name?(other) = readings.intersect?(other.readings)
-  end
   Delta = Struct.new(:layer, :side, :text, :disposition, :reason, :manual)
 
   module_function
+
+  # Loads every scripts/official_pdf_shapes/*.rb and returns the Base subclasses
+  # by class name (e.g. 'F32').
+  def shapes
+    Dir[File.join(SHAPES_DIR, '*.rb')].sort.each { |f| require f }
+    Shapes.constants.map { |c| Shapes.const_get(c) }
+          .select { |k| k.is_a?(Class) && k < Shapes::Base }
+          .to_h { |k| [k.shape_name, k] }
+  end
+
+  def shape(name)
+    found = shapes.find { |n, _| n.casecmp?(name.to_s) }
+    raise UsageError, "unknown shape #{name.inspect} (known: #{shapes.keys.sort.join(', ')})" unless found
+
+    found.last.new
+  end
+
+  # The language letter of a PDF named like T-SP-F.32-2011-F.pdf or
+  # F.32-2011-S.pdf; E when the name does not say.
+  def language_of(path) = File.basename(path.to_s)[/-([A-Z])\.pdf\z/i, 1]&.upcase || 'E'
+
+  # Back-compat entry point: the rows of the default (F.32) shape.
+  def rows(text, shape: self.shape(DEFAULT_SHAPE)) = shape.rows(text)
 
   def pdf_text(path)
     out, err, st = Open3.capture3('pdftotext', '-layout', path, '-')
@@ -94,136 +80,9 @@ module OfficialPdfComparison
     squish(str).downcase.gsub(/[^[:alnum:]]+/, ' ').strip
   end
 
-  # Rows: a layout line ending in a 4-char office code. The name is whatever
-  # precedes the code in its cell, or the previous cell when the code stands
-  # alone. Wrapped names continue on neighbouring lines in the same column;
-  # they are kept as fragments (see Row).
-  def cells_at(line)
-    line.rstrip.to_enum(:scan, /\S+(?: \S+)*/).map { [Regexp.last_match[0], Regexp.last_match.begin(0)] }
-  end
-
-  def rows(text)
-    lines = text.lines.map { |l| l.delete("\f") }
-    found = {}
-    lines.each_with_index do |line, i|
-      cells = cells_at(line)
-      next if line =~ FURNITURE || cells.empty?
-
-      m = cells.last[0].match(/(?:\A|\s)((?=[A-Z0-9-]*[A-Z])[A-Z0-9-]{4})(?:\d\)|[a-z]\)?|\*)?\z/)
-      next unless m
-      next if cells.size == 1 && (m.pre_match.empty? || line[/\A */].size < 20)
-
-      name, col = m.pre_match.empty? ? cells[-2] : [m.pre_match, cells.last[1]]
-      found[i] = [squish(name), m[1], col]
-    end
-    above, below = build_gaps(lines, found)
-    found.each_with_index.map do |(i, (name, code, col)), k|
-      Row.new(name, code, i + 1, col, above[k], below[k])
-    end
-  end
-
-  # The gap above and the gap below each row. Two rows with no page furniture or
-  # table header between them share the gap between them; a barrier splits it
-  # into a trailing gap of the upper row and a leading gap of the lower. Lines
-  # more than MAX_SCAN from the row (or rows) they continue are not wrap text.
-  def build_gaps(lines, found)
-    barriers = header_blocks(lines)
-    barrier = ->(j) { lines[j] =~ FURNITURE || barriers.include?(j) }
-    idx = found.keys
-    above = Array.new(idx.size)
-    below = Array.new(idx.size)
-    (0..idx.size).each do |k|
-      up = idx[k - 1] if k.positive?
-      low = idx[k] if k < idx.size
-      if up && low && ((up + 1)...low).none? { |j| barrier.call(j) }
-        below[k - 1] = above[k] = Gap.new(shared_lines(lines, found, up, low))
-      else
-        above[k] = Gap.new(edge_lines(lines, found, barrier, low, -1)) if low
-        below[k - 1] = Gap.new(edge_lines(lines, found, barrier, up, 1)) if up
-      end
-    end
-    [above, below]
-  end
-
-  # Lines between code lines up and low. A cell on a code line itself counts
-  # too when it sits at the other row's name column (a name line that shares its
-  # line with the next or previous row's code).
-  def shared_lines(lines, found, up, low)
-    col_up = found[up][2]
-    col_low = found[low][2]
-    out = foreign_cells(lines, up, found[up]).filter_map { |cells| gap_line(cells, nil, col_low) }
-    ((up + 1)...low).each do |j|
-      next unless j - up <= MAX_SCAN || low - j <= MAX_SCAN
-
-      out << gap_line(name_cells(lines[j]), col_up, col_low)
-    end
-    foreign = foreign_cells(lines, low, found[low]).filter_map { |cells| gap_line(cells, col_up, nil) }
-    out.compact + foreign + continuation_lines(lines, found, low, col_up, foreign.any?)
-  end
-
-  # A name that continues under the lower row's code line (the upper row's name
-  # column holds a different cell there): the following lines at that column,
-  # up to the first line that has none or is a code line.
-  def continuation_lines(lines, found, low, col, started)
-    out = []
-    j = low + 1
-    while started && j < lines.size && (j - low) <= MAX_SCAN && !found.key?(j) && lines[j] !~ FURNITURE
-      line = gap_line(name_cells(lines[j]), col, nil) or break
-      out << line
-      j += 1
-    end
-    out
-  end
-
-  # Lines on one side of a row only (up to a barrier or MAX_SCAN lines): dir 1
-  # below the row (a trailing gap), -1 above it (a leading gap).
-  def edge_lines(lines, found, barrier, row, dir)
-    col = found[row][2]
-    out = []
-    j = row + dir
-    while (j - row).abs <= MAX_SCAN && j >= 0 && j < lines.size && !barrier.call(j) && !found.key?(j)
-      out << gap_line(name_cells(lines[j]), dir == 1 ? col : nil, dir == 1 ? nil : col)
-      j += dir
-    end
-    out = out.reverse if dir == -1
-    out.compact
-  end
-
-  # {a: text at the upper row's column, b: at the lower row's}; nil when it
-  # continues neither.
-  def gap_line(cells, col_up, col_low)
-    a = col_up && column_text(cells, col_up)
-    b = col_low && column_text(cells, col_low)
-    { a: a, b: b } if a || b
-  end
-
-  # The cells of a code line other than its name and code, as one cell list
-  # per cell, so each can be tested against the neighbouring row's column.
-  def foreign_cells(lines, i, (_, _, col))
-    cells = name_cells(lines[i])
-    code_col = cells_at(lines[i]).last[1]
-    cells.reject { |_, c| c == code_col || (c - col).abs <= COLUMN_SLACK }.map { |cell| [cell] }
-  end
-
-  def header_blocks(lines)
-    lines.each_index.with_object(Set.new) do |i, set|
-      next unless lines[i] =~ TABLE_HEADER
-
-      stop = (i...[i + MAX_SCAN, lines.size].min).find { |k| lines[k] =~ /\A\s*1\s+2\s+3\s+4\s+5\s*\z/ } || i
-      set.merge(i..stop)
-    end
-  end
-
-  def name_cells(line) = cells_at(line).reject { |t, _| t =~ FOOTNOTE }
-
-  def column_text(cells, col)
-    here = cells.select { |_, c| (c - col).abs <= COLUMN_SLACK }
-    squish(here.map(&:first).join(' ')) unless here.empty?
-  end
-
-  def prose_words(text)
+  def prose_words(text, shape: self.shape(DEFAULT_SHAPE), lang: 'E')
     lines = text.lines
-    start = lines.index { |l| l.strip == 'Note from TSB' } || 0
+    start = shape.prose_start(lines, lang)
     stop = lines.index.with_index { |l, i| i > start && l =~ TABLE_HEADER } || lines.size
     lines[start...stop]
       .reject { |l| l =~ FURNITURE || l.strip =~ /\A[–-]\s*\d+\s*[–-]\z/ }
@@ -490,14 +349,16 @@ module OfficialPdfComparison
     raise UsageError, "#{path}: #{e.message.lines.first.to_s.strip}"
   end
 
-  def run(generated_pdf, official_pdf, dataset: nil, dispositions: nil)
+  def run(generated_pdf, official_pdf, dataset: nil, dispositions: nil, shape: DEFAULT_SHAPE, lang: nil)
+    shape = self.shape(shape) unless shape.is_a?(Shapes::Base)
+    lang ||= language_of(official_pdf)
     gen_text = pdf_text(generated_pdf)
     off_text = pdf_text(official_pdf)
-    gen_rows = rows(gen_text)
-    off_rows = rows(off_text)
+    gen_rows = shape.rows(gen_text)
+    off_rows = shape.rows(off_text)
     rows_eq, row_deltas = compare_rows(gen_rows, off_rows, dataset && dataset_index(dataset), gen_text, off_text)
-    gen_words = prose_words(gen_text)
-    off_words = prose_words(off_text)
+    gen_words = prose_words(gen_text, shape: shape, lang: lang)
+    off_words = prose_words(off_text, shape: shape, lang: lang)
     words_eq, prose_deltas = compare_prose(gen_words, off_words)
     deltas = row_deltas + prose_deltas
     problems = dispositions ? apply_dispositions(deltas, load_dispositions(dispositions)) : []
@@ -536,20 +397,24 @@ module OfficialPdfComparison
     out = nil
     data = nil
     disp = nil
+    shape = DEFAULT_SHAPE
+    lang = nil
     opts = OptionParser.new do |o|
       o.on('--out DIR') { |v| out = v }
       o.on('--data FILE', 'dataset data.yaml: settles missing rows as data or bug') { |v| data = v }
       o.on('--dispositions FILE', 'checked-in human dispositions (YAML)') { |v| disp = v }
+      o.on('--shape NAME', "row shape in scripts/official_pdf_shapes (default #{DEFAULT_SHAPE})") { |v| shape = v }
+      o.on('--lang L', 'E, F or S; default read from the official PDF file name') { |v| lang = v.upcase }
     end
     gen, off, *extra = opts.parse(argv)
     unless gen && off && extra.empty?
       warn 'usage: compare_official_pdf.rb GENERATED.pdf OFFICIAL.pdf [--out DIR] [--data data.yaml] ' \
-           '[--dispositions FILE]'
+           '[--dispositions FILE] [--shape NAME] [--lang E|F|S]'
       return 2
     end
 
     result = begin
-      run(gen, off, dataset: data, dispositions: disp)
+      run(gen, off, dataset: data, dispositions: disp, shape: shape, lang: lang)
     rescue Errno::ENOENT, Psych::Exception => e
       raise UsageError, e.message.lines.first.to_s.strip
     end
