@@ -32,6 +32,15 @@ attribute :suppression_scope, :string
       # position column.
       COUNTRY_ACTION_SUFFIX = /\s(?<action>ADD|SUP|LIR|REP)\*?\z/
       TABLE_ACTION_TYPES = %w[ADD SUP REP LIR MOD DEL].freeze
+      # A «country» SUP block normally withdraws the rows it lists. These
+      # printed rows are proven renames of a still-held operator (the
+      # consolidated E.212B-2018 name differs from the printed one), so
+      # their block replaces the stored row. Keyed by country, code and
+      # printed network; see docs/normalization/register-close-findings.adoc
+      # (G3) for the marking criteria.
+      REPLACEMENT_ROWS = [
+        { country: 'Hungary', code: '216 04', networks: 'Invitech ICT Services Ltd.' },
+      ].freeze
       # "Sweden  (extra-territorial use of MCC/MNC, ...)": the heading of a
       # table that repeats codes with the MSIN ranges they may use abroad.
       # Found by string search, not a regex: a lazy run before `\s*\(`
@@ -39,6 +48,17 @@ attribute :suppression_scope, :string
       EXTRA_TERRITORIAL_MARK = '(extra-territorial'
       # "1-OPERATOR", "2 -OPERATOR": numbered operators sharing one code.
       NUMBERED_OPERATOR = /\A\d+\s?[-\u2013]\s?\S/
+
+      # Every listed row is a proven rename (REPLACEMENT_ROWS).
+      def self.replacement_block?(action)
+        entries = action.entries
+        !entries.empty? && entries.all? do |entry|
+          REPLACEMENT_ROWS.any? do |row|
+            entry.mcc_mnc_codes == row[:code] && entry.networks == row[:networks] &&
+              entry.country_or_area&.en == row[:country]
+          end
+        end
+      end
 
       # The action the next printed announcement fills: the one still
       # blank, else a new one — every announcement keeps its own type.
@@ -544,7 +564,14 @@ attribute :suppression_scope, :string
           parsed_action.entries.reject! { |entry| paired_rows.key?(entry) }
           # A country SUP heading scopes the listed codes; it does not
           # suppress every code belonging to that country.
-          parsed_action.suppression_scope = 'listed_entries' if parsed_action.action_type == 'SUP'
+          next unless parsed_action.action_type == 'SUP'
+
+          if replacement_block?(parsed_action)
+            parsed_action.action_type = 'REP'
+            parsed_action.suppression_scope = 'replacement'
+          else
+            parsed_action.suppression_scope = 'listed_entries'
+          end
         end
 
         # Keep the whole printed heading: page numbers alone lose source

@@ -423,20 +423,23 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
       expect(entries.map { |entry| entry.country_or_area&.en }).to eq(['Hungary', 'Kenya'])
     end
 
-    it 'preserves the listed codes and printed country SUP actions' do
-      expect(amendment.actions.map(&:action_type)).to eq(%w[SUP SUP])
+    it 'records the proven Hungary rename as a replacement and keeps Kenya a suppression' do
+      expect(amendment.actions.map(&:action_type)).to eq(%w[REP SUP])
       expect(amendment.actions.map { |action| action.entries.map(&:mcc_mnc_codes) }).to eq([['216 04'], ['639 08']])
     end
 
-    it 'serializes the scope of each country suppression as listed entries' do
+    it 'serializes the Hungary replacement scope and the Kenya listed-entries scope' do
       actions = amendment.to_hash.fetch('actions')
 
-      expect(actions.map { |action| action.fetch('suppression_scope') }).to eq(%w[listed_entries listed_entries])
+      expect(actions.map { |action| action.fetch('suppression_scope') }).to eq(%w[replacement listed_entries])
       expect(actions.map { |action| action.fetch('position') }).to eq(['Hungary SUP', 'Kenya SUP'])
     end
 
-    it 'suppresses only listed codes and preserves unlisted codes from both countries' do
-      seed_entries = entries.map(&:to_hash) + [
+    it 'replaces Hungary 216 04, suppresses Kenya 639 08 and preserves unlisted codes' do
+      old_hungary = {
+        'mcc_mnc_codes' => '216 04', 'country_or_area' => { 'en' => 'Hungary' }, 'networks' => 'Invitech Solutions'
+      }
+      seed_entries = [old_hungary, entries.last.to_hash] + [
         { 'mcc_mnc_codes' => '216 01', 'country_or_area' => { 'en' => 'Hungary' }, 'networks' => 'Hungary control' },
         { 'mcc_mnc_codes' => '639 01', 'country_or_area' => { 'en' => 'Kenya' }, 'networks' => 'Kenya control' },
       ]
@@ -459,12 +462,14 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
         register_id: 'E212_MNC', key_field: 'mcc_mnc_codes', source: source,
       ).current
 
-      expect(state.active_keys).to contain_exactly('216 01', '639 01')
-      expect(state.active_entries.values).to match_array(seed_entries.last(2))
-      expect(state.deleted_keys).to contain_exactly('216 04', '639 08')
+      expect(state.active_keys).to contain_exactly('216 01', '216 04', '639 01')
+      expect(state.active_entries.fetch('216 04')['networks']).to eq('Invitech ICT Services Ltd.')
+      expect(state.active_entries.fetch('216 01')).to eq(seed_entries[-2])
+      expect(state.active_entries.fetch('639 01')).to eq(seed_entries.last)
+      expect(state.deleted_keys).to contain_exactly('639 08')
       expect(state.lapsed_keys).to be_empty
       expect(state.error_count).to eq(0)
-      expect(state.key_history.fetch('216 04').map(&:type)).to eq(%w[SEED SUP])
+      expect(state.key_history.fetch('216 04').map(&:type)).to eq(%w[SEED REP])
       expect(state.key_history.fetch('639 08').map(&:type)).to eq(%w[SEED SUP])
       expect(state.key_history.fetch('216 01').map(&:type)).to eq(%w[SEED])
       expect(state.key_history.fetch('639 01').map(&:type)).to eq(%w[SEED])
