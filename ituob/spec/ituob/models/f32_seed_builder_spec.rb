@@ -93,7 +93,7 @@ RSpec.describe Ituob::Models::F32SeedBuilder do
 
     it "keeps single-network offices as separate allocations and never glues a code into the next name" do
       expect(allocations).to include("PHBG" => "Baguio", "PHBT" => "Butuan City Agusan Del Norte",
-                                     "PHCB" => "Cebu", "YNSA" => "Sanaa", "YNTZ" => "Taiz / Tayz")
+                                     "PHCB" => "Cebu")
       expect(allocations.values.grep(/--[A-Z]{2}/)).to be_empty
       expect(complete.legacy_rows.map { |entry| entry.office_code.to_s }).not_to include("PHBG")
     end
@@ -102,7 +102,10 @@ RSpec.describe Ituob::Models::F32SeedBuilder do
       expect(relative.keys).to include(["--AR", "Arica"], ["--CA", "Calama"], ["--CH", "Chillán"],
                                        ["--CO", "Curico"], ["--IQ", "Iquique"], ["--LS", "La Serena"],
                                        ["--OV", "Ovalle"], ["--TL", "Talca"], ["--OO", "Porto"],
-                                       ["--JJ", "33052 CERVIGNANO DEL FRIULI"], ["--NX", "All others"])
+                                       ["--JJ", "33052 CERVIGNANO DEL FRIULI"], ["--NX", "All others"],
+                                       ["--SA", "Sanaa"], ["--TZ", "Taiz / Tayz"], ["--HO", "Hodeidah"])
+      # Yemen prints two networks (YN- - and Unitel YE- -), so its relative codes stay relative.
+      expect(allocations.keys).not_to include("YNSA", "YNTZ", "YNHO")
       names = complete.contexts.map { |context| context.entry.telegraph_office_name&.en.to_s }
       expect(names.grep(/--[A-Z]{2}/).reject { |name| name.include?("-->") }).to be_empty
     end
@@ -128,7 +131,7 @@ RSpec.describe Ituob::Models::F32SeedBuilder do
     end
 
     it "accounts for every printed office row" do
-      expect(complete.allocations.length).to eq(1092)
+      expect(complete.allocations.length).to eq(1088)
     end
   end
 end

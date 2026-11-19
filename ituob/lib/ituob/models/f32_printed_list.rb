@@ -91,9 +91,36 @@ module Ituob
 
           baseline = grouped.keys.find { |value| (value - top).abs <= tolerance } || top
           grouped[baseline] ||= []
-          grouped[baseline] << [text["left"].to_i, text.text.strip, fonts.fetch(text["font"]), text["width"].to_i]
+          grouped[baseline] << [visible_left(text), text.text.strip, fonts.fetch(text["font"]), text["width"].to_i]
         end
         grouped.sort.map { |_top, row| row.sort_by(&:first) }
+      end
+
+      # Poppler folds a leading gap into the node: its `left` is where the blank
+      # starts (often the end of the previous cell), not where the printed text
+      # does, and its width includes the gap. A short text inside a node much
+      # wider than the text needs starts at the next printed column; otherwise
+      # only the few leading blanks shift it. Measured against the pdftotext
+      # word boxes of the three printed editions.
+      COLUMN_STARTS = [234, 447, 540, 752].freeze
+      CHARACTER_WIDTH = 5.5
+      FOLDED_GAP = 100
+      BLANK_WIDTH = 4
+      SHORT_TEXT = 14
+
+      def visible_left(text)
+        left = text["left"].to_i
+        raw = text.text
+        visible = raw.strip
+        gap = raw.length - raw.lstrip.length
+        return left if gap.zero? || visible.empty?
+
+        if visible.length <= SHORT_TEXT && text["width"].to_i - raw.length * CHARACTER_WIDTH > FOLDED_GAP &&
+            (start = COLUMN_STARTS.find { |column| column >= left + 10 })
+          return start
+        end
+
+        left + gap * BLANK_WIDTH
       end
 
       # Keep the positioned display independently of allocation inference. Poppler

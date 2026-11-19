@@ -94,12 +94,12 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
   end
 
   it 'keeps canonical membership separate and orders printable contexts by the official source' do
-    expect(edition.items.size).to eq(1092)
+    expect(edition.items.size).to eq(1088)
     canonical_rows = edition.items.map { |entry| [entry.source_row, entry.office_code] }
     printed_rows = edition.printed_items.map { |entry| [entry.source_row, entry.office_code] }
     expect(canonical_rows).to all(satisfy { |key| printed_rows.count(key) == 1 })
     expect(edition.printed_items.count { |entry| !entry.office_code.to_s.empty? }).to eq(1495)
-    expect(edition.printed_items.count { |entry| entry.office_code.to_s.start_with?('--') }).to eq(311)
+    expect(edition.printed_items.count { |entry| entry.office_code.to_s.start_with?('--') }).to eq(315)
     expect(edition.printed_items.filter_map(&:source_row)).to eq(edition.printed_items.filter_map(&:source_row).sort)
     expect(edition.printed_items.count { |entry| entry.telegraph_office_name&.en == 'Dacca --> Dhaka' }).to eq(1)
     expect(edition.items.find { |entry| entry.office_code == 'BNDP' }.telegraph_office_name.en).to eq('Manama Diplomatic Area Counter')
