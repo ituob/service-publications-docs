@@ -1,0 +1,780 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-PP.RES.21-2011-S, generated PDF from CI
+# (pdf.yml run 44558975060 on main) against the official ITU PDF, shape PpRes21Countries, with
+# --data datasets/991-PP.RES.21.pp/data.yaml. Settles only open (bug or unreviewed) deltas;
+# data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'Arabia Saudita: generated "90" vs official "3"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Argelia: generated "3" vs official "4"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Armenia: generated "4" vs official "5"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Azerbaiyán: generated "5" vs official "6"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Bahrein: generated "6" vs official "8"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Belarús: generated "8" vs official "9"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Belice: generated "9" vs official "10"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Benin: generated "10" vs official "11"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: generated_only
+  text: Bulgaria 117
+  disposition: data
+  reason: The dataset (datasets/991-PP.RES.21.pp) lists Bulgaria as 117 and Lithuania
+    as 118 and the generated PDF renders them; the official E list stops at 116 and
+    has neither (the official F list does print Bulgarie). The official PDFs disagree
+    between languages; flag for a human to confirm which edition the dataset follows.
+- layer: rows
+  side: both
+  text: 'Bután: generated "11" vs official "18"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Camboya: generated "18" vs official "19"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Camerún: generated "19" vs official "20"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Centroafricana: generated "20" vs official "21"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Chad: generated "21" vs official "22"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'China: generated "22" vs official "23"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Chipre: generated "30" vs official "24"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Colombia: generated "23" vs official "25"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Comoras: generated "24" vs official "26"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Cook (Islas): generated "25" vs official "27"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Costa Rica: generated "26" vs official "28"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Cuba: generated "28" vs official "30"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Curaçao: generated "29" vs official "31"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Côte d''Ivoire: generated "27" vs official "29"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Emiratos Árabes Unidos: generated "109" vs official "36"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Eritrea: generated "36" vs official "37"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Eslovaquia: generated "93" vs official "38"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Etiopía: generated "37" vs official "39"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Fiji: generated "38" vs official "40"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Filipinas: generated "84" vs official "41"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Gabón: generated "39" vs official "42"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Gambia: generated "40" vs official "43"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Ghana: generated "41" vs official "44"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Guinea: generated "42" vs official "45"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Guyana: generated "43" vs official "46"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Haití: generated "44" vs official "47"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Honduras: generated "45" vs official "48"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Hungría: generated "46" vs official "49"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'India: generated "47" vs official "50"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Indonesia: generated "48" vs official "51"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Irlanda: generated "50" vs official "53"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Irán (República Islámica del): generated "49" vs official "52"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Israel: generated "51" vs official "54"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Jamaica: generated "52" vs official "55"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Jordania: generated "53" vs official "56"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Kazajstán: generated "54" vs official "57"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Kenya: generated "55" vs official "58"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Kirguistán: generated "58" vs official "59"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Kiribati: generated "56" vs official "60"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Kuwait: generated "57" vs official "61"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'La ex República Yugoslava de Macedonia: generated "101" vs official "62"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Lesotho: generated "61" vs official "63"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Letonia: generated "59" vs official "64"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Lituania: generated "118" vs official "66"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Líbano: generated "60" vs official "65"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Macao (China): generated "62" vs official "67"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Madagascar: generated "63" vs official "68"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Malasia: generated "65" vs official "69"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Malawi: generated "64" vs official "70"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Malí: generated "66" vs official "71"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Mauricio: generated "68" vs official "73"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Mauritania: generated "67" vs official "74"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Moldova: generated "70" vs official "76"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Mozambique: generated "73" vs official "78"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'México: generated "69" vs official "75"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Mónaco: generated "71" vs official "77"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Nicaragua: generated "75" vs official "79"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Nigeria: generated "77" vs official "81"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Nueva Caledonia: generated "74" vs official "82"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Níger: generated "76" vs official "80"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Omán: generated "78" vs official "83"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Pakistán: generated "79" vs official "84"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Panamá: generated "80" vs official "85"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Papua Nueva Guinea: generated "81" vs official "86"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Paraguay: generated "82" vs official "87"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Perú: generated "83" vs official "88"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Polonia: generated "85" vs official "89"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Qatar: generated "86" vs official "90"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Rep. Dem. del Congo: generated "31" vs official "91"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'República Árabe Siria: generated "98" vs official "92"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Rumania: generated "87" vs official "93"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Samoa: generated "88" vs official "94"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'San Marino: generated "89" vs official "95"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Seychelles: generated "91" vs official "96"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Sint Maarten: generated "92" vs official "97"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Sri Lanka: generated "95" vs official "98"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Sudafricana (Rep.): generated "94" vs official "99"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Sudán: generated "96" vs official "100"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Suriname: generated "97" vs official "101"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Tailandia: generated "100" vs official "102"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Tanzanía: generated "99" vs official "103"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Tonga: generated "102" vs official "104"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Trinidad y Tabago: generated "103" vs official "105"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Turquía: generated "105" vs official "107"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Tuvalu: generated "106" vs official "108"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Túnez: generated "104" vs official "106"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Ucrania: generated "108" vs official "109"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'
+- layer: rows
+  side: both
+  text: 'Uganda: generated "107" vs official "110"'
+  disposition: data
+  reason: 'The dataset has one numbering (English alphabetical order, kept in every
+    language: generated number equals the dataset number, measured for all 118 rows);
+    the official F and S lists number the countries in their own language alphabetical
+    order. Same country, different number.'

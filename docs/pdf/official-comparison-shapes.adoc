@@ -1,0 +1,78 @@
+= Adding a shape to the official-PDF comparison
+:toc:
+
+`scripts/compare_official_pdf.rb` compares a generated Service Publication PDF
+with the official ITU PDF. What differs between publications is how a table row
+is cut out of the `pdftotext -layout` text, so that part is a *shape*: one Ruby
+file per family of publications in `scripts/official_pdf_shapes/`.
+
+== Run it
+
+[source,sh]
+----
+ruby scripts/compare_official_pdf.rb GENERATED.pdf OFFICIAL.pdf \
+  --shape F32 --lang F \
+  --dispositions docs/pdf/comparison-dispositions/T-SP-F.32-2011-F.yaml
+----
+
+`--shape NAME` picks the shape by class name (case-insensitive, default `F32`;
+an unknown name exits 2 and lists the known ones). `--lang E|F|S` picks the
+language of the prose marker; it defaults to the letter in the official PDF's
+file name (`...-F.pdf`), or `E`.
+
+== Write a shape
+
+Create `scripts/official_pdf_shapes/<snake_name>.rb`. The loader requires every
+`*.rb` in that directory, so there is no registry to edit.
+
+[source,ruby]
+----
+require_relative 'base'
+
+module OfficialPdfComparison
+  module Shapes
+    class E118 < Base
+      PUBLICATIONS = %w[T-SP-E.118-2018].freeze
+
+      # text is the pdftotext -layout output; return one Row per table row,
+      # in reading order. key is what rows align on (an office code, a number).
+      def rows(text)
+        text.lines.filter_map do |line|
+          Row.new(Regexp.last_match(1), Regexp.last_match(2)) if line =~ /\A(\d+)\s+(.+)\z/
+        end
+      end
+    end
+  end
+end
+----
+
+`Base` gives you:
+
+* `Row = Struct(:key, :text)`: rows align on `key` and are compared on
+  `text` after normalising case, punctuation and spacing.
+* `prose_marker(lang)`: the line that opens the preface, measured from
+  `T-SP-F.32-2011-{E,F,S}.pdf`: `Note from TSB`, `Note du TSB`,
+  `Nota de la TSB`. Override `prose_start(lines, lang)` if a publication opens
+  its preface differently.
+* The shared `FURNITURE` and `TABLE_HEADER` patterns (the header is matched in
+  E, F and S).
+
+A shape whose names wrap over several lines can return its own row class with
+the same interface (`code`, `name`, `full_name`, `above`, `below`, `splits`,
+`reading`, `readings`, `same_name?`, `to_s`); `F32` does, see
+`scripts/official_pdf_shapes/f32.rb`.
+
+== Dispositions
+
+Every delta ends as `data`, `layout` or `bug`. The tool settles what a
+measurement can; the rest goes in
+`docs/pdf/comparison-dispositions/<PUB>-<L>.yaml`, a YAML list of
+`{layer, side, text, disposition, reason, count}` matched on the exact delta
+text (a stale entry is an error). A `bug` is a real generator defect: list it
+with a reason, do not fix the generator in the same change. A bug that an entry
+confirms does not fail the run; the report prints `RESULT: PASS (N confirmed
+bugs)`. Exit status: 0 all dispositioned, 1 an open delta or stale entry, 2 a
+usage error.
+
+The F.32-2011 official PDFs are not in `docs/pdf/official/`; download them from
+the URLs in `docs/pdf/official-sources.json` (checked against the sha256 there).

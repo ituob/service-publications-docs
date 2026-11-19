@@ -1,0 +1,20 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-PP.RES.21-2011-E, generated PDF from CI
+# (pdf.yml run 44558975060 on main) against the official ITU PDF, shape PpRes21Countries, with
+# --data datasets/991-PP.RES.21.pp/data.yaml. Settles only open (bug or unreviewed) deltas;
+# data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: generated_only
+  text: Bulgaria 117
+  disposition: data
+  reason: The dataset (datasets/991-PP.RES.21.pp) lists Bulgaria as 117 and Lithuania
+    as 118 and the generated PDF renders them; the official E list stops at 116 and
+    has neither (the official F list does print Bulgarie). The official PDFs disagree
+    between languages; flag for a human to confirm which edition the dataset follows.
+- layer: rows
+  side: generated_only
+  text: Lithuania 118
+  disposition: data
+  reason: The dataset (datasets/991-PP.RES.21.pp) lists Bulgaria as 117 and Lithuania
+    as 118 and the generated PDF renders them; the official E list stops at 116 and
+    has neither (the official F list does print Bulgarie). The official PDFs disagree
+    between languages; flag for a human to confirm which edition the dataset follows.

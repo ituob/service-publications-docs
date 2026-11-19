@@ -1,0 +1,34 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-T.35-2012-F, generated PDF from the
+# #89 generation run against the official ITU PDF, shape T35. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: '11111111: generated "Code d''échappement vers la liste complémentaire (actuellement
+    vide). Voir la Note." vs official "Code d''échappement vers la liste complémentaire
+    (actuellement vide). Voir la NOTE 1."'
+  disposition: bug
+  reason: The escape-code row of the generated PDF refers to the note without its
+    number ("See Note." where the official PDF has "See NOTE 1."); the note below
+    the table is likewise printed "NOTE –" instead of "NOTE 1 –".
+- layer: prose
+  side: both
+  text: generated "tous les indicatifs figurant dans la Liste ci‑dessous auront été
+    attribués." vs official ""
+  disposition: layout
+  reason: The same words appear on both sides but pdftotext reads this block at a
+    different position in the page text (column/flow order), so the diff shows them
+    as one deletion and one insertion. Not a text difference.
+- layer: prose
+  side: both
+  text: generated "" vs official "tous les indicatifs figurant dans la Liste ci-dessous
+    auront été attribués."
+  disposition: layout
+  reason: The same words appear on both sides but pdftotext reads this block at a
+    different position in the page text (column/flow order), so the diff shows them
+    as one deletion and one insertion. Not a text difference.
+- layer: prose
+  side: both
+  text: generated "équipements" vs official "équipe- ments"
+  disposition: layout
+  reason: The official PDF hyphenates the word at a line end; pdftotext keeps the
+    hyphen and the space, so it reads as two words. Same word.

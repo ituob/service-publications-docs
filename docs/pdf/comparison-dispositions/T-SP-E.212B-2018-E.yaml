@@ -1,0 +1,24 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-E.212B-2018-E, generated PDF (89-gen run, group G2)
+# against the official ITU PDF. Settles only the open (bug or unreviewed) deltas by rules checked on
+# samples (see README-g2.adoc); data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'shared:901 13: generated "BebbiCell AG" vs official "BebbiCell AG (Formerly
+    Global Networks Switzerland AG)"'
+  disposition: bug
+  reason: The generated PDF drops the "(Formerly ...)" annotation the official PDF
+    prints after this network name.
+- layer: rows
+  side: both
+  text: 'shared:901 15: generated "OnAir N.V." vs official "OnAir N.V. (Formerly SITA
+    on behalf of Onair)"'
+  disposition: bug
+  reason: The generated PDF drops the "(Formerly ...)" annotation the official PDF
+    prints after this network name.
+- layer: rows
+  side: both
+  text: 'shared:901 21: generated "Wins Limited" vs official "Wins Limited (Formerly
+    Seanet Maritime Communications AB)"'
+  disposition: bug
+  reason: The generated PDF drops the "(Formerly ...)" annotation the official PDF
+    prints after this network name.

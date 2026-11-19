@@ -1,0 +1,337 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-SR.1-2012-F, generated PDF from the
+# #89 generation run against the official ITU PDF, shape SR1. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'Antigua-et-Barbuda: generated "Antigua and Barbuda Antigua y Barbuda Le service
+    des télégrammes n''est plus assuré. Les communications payables à l''arrivée à
+    destination de numéros mobiles ne sont pas acceptées Les communications payables
+    à l''arrivée à destination de publiphones ne sont pas acceptées. Les communications
+    payables à l''arrivée à destination de numéros audiotex ne sont pas acceptées."
+    vs official "Antigua and Barbuda Antigua y Barbuda Le service des télégrammes
+    n''est plus assuré. Les communications payables à l''arrivée à destination de
+    numéros mobiles, de publiphones ou de numéros audiotex ne sont pas acceptées."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Belize: generated "Belize Belice Les communications payables à l''arrivée
+    à destination de numéros mobiles ne sont pas acceptées Les communications payables
+    à l''arrivée à destination de publiphones ne sont pas acceptées." vs official
+    "Belize Belice Les communications payables à l''arrivée à destination de numéros
+    mobiles ou de publiphones ne sont pas acceptées."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Bulgarie: generated "Bulgaria Bulgaria Le service télex n''est plus assuré.
+    Le service des télégrammes n''est plus assuré. Les communications téléphoniques
+    payables à l''arrivée et avec cartes de crédit sont acceptées en Bulgarie qu''avec
+    les pays dont les administrations ont confirmé par écrit leur accord à l''Administration
+    bulgare. Le service des télégrammes n''est plus assuré. Le service télex n''est
+    plus assuré." vs official "Bulgaria Bulgaria Les communications téléphoniques
+    payables à l''arrivée et avec cartes de crédit sont acceptées en Bulgarie qu''avec
+    les pays dont les administrations ont confirmé par écrit leur accord à l''Administration
+    bulgare. Le service des télégrammes n''est plus assuré. Le service télex n''est
+    plus assuré."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Curaçao, Sint Maarten, Bonaire, Saint Eustatius et Saba: generated "Curaçao,
+    Sint Maarten, Bonaire, Sint Eustatius and Saba Curaçao, Sint Maarten, Bonaire,
+    San Eustatius y Saba Le service télex n''est plus assuré. Le service des télégrammes
+    n''est plus assuré. Les communications entrantes payables à l''arrivée ne sont
+    pas acceptées. Les communications sortantes payables à l''arrivée ne sont pas
+    acceptées." vs official "Curaçao, Sint Maarten, Bonaire, Sint Eustatius and Saba
+    Curaçao, Sint Maarten, Bonaire, San Eustatius y Saba Les communications entrantes
+    et sortantes payables à l''arrivée ne sont pas acceptées. Le service des télégrammes
+    n''est plus assuré. Le service télex n''est plus assuré."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Chypre: generated "Cyprus Chipre Les communications payables à l''arrivée
+    à destination de numéros mobiles ne sont pas acceptées La CYTA n''achemine plus
+    et n''accepte plus de trafic téléphonique via des opérateurs de transit. Les opérateurs
+    de télécommunication concernés sont priés de bien vouloir adopter la méthode de
+    concentration (hubbing) pour le routage de leur trafic à destination de la CYTA.
+    Tchèque (Rép.) Czech Rep. Checa (Rep.) Le service télex n''est plus assuré." vs
+    official "Cyprus Chipre La CYTA n''achemine plus et n''accepte plus de trafic
+    téléphonique via des opérateurs de transit. Les opérateurs de télécommunication
+    concernés sont priés de bien vouloir adopter la méthode de concentration (hubbing)
+    pour le routage de leur trafic à destination de la CYTA. Les communications payables
+    à l''arrivée à destination de numéros mobiles ne sont pas acceptées. Tchèque (Rép.)
+    Czech Rep. Checa (Rep.) Le service télex n''est plus assuré."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Gibraltar: generated "Gibraltar Gibraltar Le service des télégrammes n''est
+    plus assuré. Les communications payables à l''arrivée à destination de numéros
+    mobiles ne sont pas acceptées" vs official "Gibraltar Gibraltar Les communications
+    payables à l''arrivée à destination de numéros mobiles ne sont pas acceptées.
+    Le service des télégrammes n''est plus assuré."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Hongrie: generated "Hungary Hungría Le service télex n''est plus assuré.
+    Le service des télégrammes n''est plus assuré. Les communications payables à l''arrivée
+    à destination de numéros mobiles ne sont pas acceptées Les communications entrantes
+    payables à l''arrivée ne sont pas acceptées. Les communications sortantes payables
+    à l''arrivée ne sont pas acceptées." vs official "Hungary Hungría Le service télex
+    n''est plus assuré. Le service des télégrammes n''est plus assuré. Les communications
+    entrantes et sortantes payables à l''arrivée ne sont pas acceptées."'
+  disposition: data
+  reason: The generated PDF names exactly the restrictions of the dataset entry; the
+    official PDF names a different set of restrictions for this country (verified
+    against datasets/1000-SR.1/data.yaml).
+- layer: rows
+  side: both
+  text: 'Islande: generated "Iceland Islandia Le service télex n''est plus assuré.
+    Les communications payables à l''arrivée à destination de numéros mobiles ne sont
+    pas acceptées Les communications entrantes payables à l''arrivée ne sont pas acceptées.
+    Les communications sortantes payables à l''arrivée ne sont pas acceptées." vs
+    official "Iceland Islandia Le service télex n''est plus assuré. Les communications
+    entrantes et sortantes payables à l''arrivée ne sont pas acceptées."'
+  disposition: data
+  reason: The generated PDF names exactly the restrictions of the dataset entry; the
+    official PDF names a different set of restrictions for this country (verified
+    against datasets/1000-SR.1/data.yaml).
+- layer: rows
+  side: both
+  text: 'Indonésie: generated "Indonesia Indonesia Le service des télégrammes n''est
+    plus assuré. Les communications payables à l''arrivée à destination de numéros
+    mobiles ne sont pas acceptées PT Indosat n''achemine plus et n''accepte plus de
+    trafic téléphonique via des opérateurs de transit. Les opérateurs de télécommunication
+    concernés sont priés de bien vouloir adopter la méthode de concentration (hubbing)
+    pour le routage de leur trafic à destination de PT Indosat." vs official "Indonesia
+    Indonesia Les communications payables à l''arrivée à destination de numéros mobiles
+    ne sont pas acceptées. Le service des télégrammes n''est plus assuré. PT Indosat
+    n''achemine plus et n''accepte plus de trafic téléphonique via des opérateurs
+    de transit. Les opérateurs de télécommunication concernés sont priés de bien vouloir
+    adopter la méthode de concentration (hubbing) pour le routage de leur trafic à
+    destination de PT Indosat."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Maldives: generated "Maldives Maldivas Les communications entrantes payables
+    à l''arrivée ne sont pas acceptées. Les communications sortantes payables à l''arrivée
+    ne sont pas acceptées." vs official "Maldives Maldivas Les communications entrantes
+    et sortantes payables à l''arrivée ne sont pas acceptées."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Malte: generated "Malta Malta Le service télex n''est plus assuré. Le service
+    des télégrammes n''est plus assuré." vs official "Malta Malta Le service des télégrammes
+    n''est plus assuré. Le service télex n''est plus assuré."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Maroc: generated "Morocco Marruecos Les communications payables à l''arrivée
+    à destination de numéros mobiles ne sont pas acceptées Les communications payables
+    à l''arrivée à destination de publiphones ne sont pas acceptées." vs official
+    "Morocco Marruecos Les communications payables à l''arrivée à destination de numéros
+    mobiles et de publiphones ne sont pas acceptées."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Nouvelle-Calédonie: generated "New Caledonia Nueva Caledonia Le service télex
+    n''est plus assuré. Le service des télégrammes n''est plus assuré. Les communications
+    entrantes payables à l''arrivée ne sont pas acceptées. Les communications sortantes
+    payables à l''arrivée ne sont pas acceptées." vs official "New Caledonia Nueva
+    Caledonia Le service télex n''est plus assuré. Le service des télégrammes n''est
+    plus assuré. Les communications entrantes et sortantes payables à l''arrivée ne
+    sont pas acceptées."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Pakistan: generated "Pakistan Pakistán Le service télex n''est plus assuré.
+    Le service des télégrammes n''est plus assuré. Le service de télécommunication
+    avec Israël est suspendu." vs official "Pakistan Pakistán Le service de télécommunication
+    avec Israël est suspendu. Le service télex n''est plus assuré. Le service des
+    télégrammes n''est plus assuré."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Papouasie-Nouvelle-Guinée: generated "Papua New Guinea Papua Nueva Guinea
+    Le service télex n''est plus assuré. Les communications payables à l''arrivée
+    à destination de numéros mobiles ne sont pas acceptées" vs official "Papua New
+    Guinea Papua Nueva Guinea Les communications payables à l''arrivée à destination
+    de numéros mobiles ne sont pas acceptées. Le service télex n''est plus assuré."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Pérou: generated "Peru Perú Les communications entrantes payables à l''arrivée
+    ne sont pas acceptées. Les communications sortantes payables à l''arrivée ne sont
+    pas acceptées." vs official "Peru Perú Les communications entrantes et sortantes
+    payables à l''arrivée ne sont pas acceptées."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Pologne: generated "Poland Polonía Le service télex n''est plus assuré. Le
+    service des télégrammes n''est plus assuré." vs official "Poland Polonía Le service
+    des télégrammes n''est plus assuré. Le service télex n''est plus assuré."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Arabie saoudite: generated "Saudi Arabia Arabia Saudita Les communications
+    entrantes payables à l''arrivée ne sont pas acceptées. Les communications sortantes
+    payables à l''arrivée ne sont pas acceptées." vs official "Saudi Arabia Arabia
+    Saudita Les communications entrantes et sortantes payables à l''arrivée ne sont
+    pas acceptées."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Serbie: generated "Serbia Serbia Le service télex n''est plus assuré. Les
+    communications payables à l''arrivée à destination de numéros mobiles ne sont
+    pas acceptées Le service d''appel avec assistance d''une opératrice pour les appels
+    semi-automatiques (entrants et sortants) n''est pas admis." vs official "Serbia
+    Serbia Les communications payables à l''arrivée à destination de numéros mobiles
+    ne sont pas acceptées. Le service télex n''est plus assuré. Le service d''appel
+    avec assistance d''une opératrice pour les appels semi-automatiques (entrants
+    et sortants) n''est pas admis."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Slovaquie: generated "Slovakia Eslovaquia Le service télex n''est plus assuré.
+    Le service des télégrammes n''est plus assuré. Les communications entrantes payables
+    à l''arrivée ne sont pas acceptées. Les communications sortantes payables à l''arrivée
+    ne sont pas acceptées." vs official "Slovakia Eslovaquia Les communications entrantes
+    et sortantes payables à l''arrivée ne sont pas acceptées. Le service télex n''est
+    plus assuré. Le service des télégrammes n''est plus assuré."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Sri Lanka: generated "Sri Lanka Sri Lanka Les communications payables à l''arrivée
+    à destination de publiphones ne sont pas acceptées. Les communications entrantes
+    payables à l''arrivée ne sont pas acceptées. Les communications sortantes payables
+    à l''arrivée ne sont pas acceptées. Aucun appel entrant à destination de publiphones
+    n''est admis au Sri Lanka." vs official "Sri Lanka Sri Lanka Aucun appel entrant
+    à destination de publiphones n''est admis au Sri Lanka."'
+  disposition: data
+  reason: The generated PDF names exactly the restrictions of the dataset entry; the
+    official PDF names a different set of restrictions for this country (verified
+    against datasets/1000-SR.1/data.yaml).
+- layer: rows
+  side: both
+  text: 'Suriname: generated "Suriname Suriname Le service télex n''est plus assuré.
+    Le service des télégrammes n''est plus assuré." vs official "Suriname Suriname
+    Le service des télégrammes n''est plus assuré. Le service télex n''est plus assuré."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Swaziland: generated "Swaziland Swazilandia Les communications payables à
+    l''arrivée à destination de numéros mobiles ne sont pas acceptées Les communications
+    payables à l''arrivée à destination d''abonnés de la téléphonie virtuelle ne sont
+    pas acceptées." vs official "Swaziland Swazilandia Les communications payables
+    à l''arrivée à destination de numéros mobiles et d''abonnés de la téléphonie virtuelle
+    ne sont pas acceptées."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Tonga: generated "Tonga Tonga Le service télex n''est plus assuré. Le service
+    des télégrammes n''est plus assuré." vs official "Tonga Tonga Le service des télégrammes
+    n''est plus assuré. Le service télex n''est plus assuré."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Trinité-et-Tobago: generated "Trinidad and Tobago Trinidad y Tabago Le service
+    télex n''est plus assuré. Le service des télégrammes n''est plus assuré. Les communications
+    payables à l''arrivée à destination de numéros mobiles ne sont pas acceptées Les
+    communications payables à l''arrivée à destination d''abonnés de la téléphonie
+    virtuelle ne sont pas acceptées." vs official "Trinidad and Tobago Trinidad y
+    Tabago Le service des télégrammes n''est plus assuré. Le service télex n''est
+    plus assuré. Les communications payables à l''arrivée à destination de numéros
+    mobiles et d''abonnés de la téléphonie virtuelle ne sont pas acceptées."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Vanuatu: generated "Vanuatu Vanuatu Le service télex n''est plus assuré.
+    Le service des télégrammes n''est plus assuré. Les communications entrantes payables
+    à l''arrivée ne sont pas acceptées. Les communications sortantes payables à l''arrivée
+    ne sont pas acceptées." vs official "Vanuatu Vanuatu Les communications entrantes
+    et sortantes payables à l''arrivée ne sont pas acceptées. Le service télex n''est
+    plus assuré. Le service des télégrammes n''est plus assuré."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them (one sentence naming mobile numbers, payphones, audiotex,
+    or incoming and outgoing). The set of content words is the same on both sides
+    (connectives, negation and "no longer provided" verbs ignored).
+- layer: rows
+  side: both
+  text: 'Yémen: generated "Yemen Yemen Le service télex n''est plus assuré. Le service
+    de télécommunication avec Israël est suspendu." vs official "Yemen Yemen Le service
+    de télécommunication avec Israël est suspendu. Le service télex n''est plus assuré."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: prose
+  side: both
+  text: generated "1.1." vs official ""
+  disposition: layout
+  reason: The generated PDF numbers the preface heading ("1.1. Note from the TSB");
+    the official PDF prints the heading without a number.

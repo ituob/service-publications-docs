@@ -1,0 +1,243 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-T.35B-2012-E, generated PDF from the
+# #89 generation run against the official ITU PDF, shape T35B. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'Cambodia: generated "Name of Administration: Ministry of Posts and Telecommunications
+    National manufacturers of H-, T- or V-Series compliant equipment? NO Assignment
+    authority: None designated Information updated: 07 September 2004" vs official
+    "Name of Administration: Ministry of Posts and Telecommunications National manufacturers
+    of H-, T- or V-Series compliant equipment? NO Assignment authority: None designated
+    Information updated: 7 September 2004"'
+  disposition: layout
+  reason: The generated PDF prints the day zero-padded ("07 September 2004") where
+    the official PDF prints "7 September 2004"; the date is the same.
+- layer: rows
+  side: both
+  text: 'China: generated "Name of Administration: Ministry of Industry and Information
+    Technology (MIIT) National manufacturers of H-, T- or V-Series compliant equipment?
+    YES Assignment authority: Terminal Type: H-, T- and V-Series Contact name Ms.
+    Mei DENG, Mr. Shizhuo ZHAO Organization: China Communication Standards Association
+    (CCSA) Department: Address: CCSA 52#Hua Yuan Bei Road, Haidian District, Beijing
+    China 100191 Telephone: +86 10 8205 4513 (Ms. Mei DENG); +86 10 6230 2645 (Mr.
+    Shizhuo ZHAO) Fax: +86 10 8205 4513 E-mail: dengmei@ccsa.org.cn Related links:
+    www.ccsa.org.cn/english/ Information updated: 15 December 2011" vs official "Name
+    of Administration: Ministry of Industry and Information Technology (MIIT) National
+    manufacturers of H-, T- or V-Series compliant equipment? YES Assignment authority:
+    Terminal Type: H-, T- and V-Series Contact name: Ms. Mei DENG, Mr. Shizhuo ZHAO
+    Organization: China Communication Standards Association (CCSA) Department: Address:
+    CCSA 52#Hua Yuan Bei Road, Haidian District, Beijing China 100191 Telephone: +86
+    10 8205 4513 (Ms. Mei DENG); +86 10 6230 2645 (Mr. Shizhuo ZHAO) Fax: +86 10 8205
+    4513 E-mail: dengmei@ccsa.org.cn; zhaosz@ccsa.org.cn Related links: www.ccsa.org.cn/english/
+    Information updated: 15 December 2011"'
+  disposition: data
+  reason: Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides. The dataset lists one e-mail address; the official
+    PDF prints two for this administration. The generated PDF shows the dataset value.
+- layer: rows
+  side: both
+  text: 'United States: generated "Name of Administration: U.S. Department of State
+    National manufacturers of H-, T- or V-Series compliant equipment? YES a) Assignment
+    authorities : Terminal Type: T- and V-Series Contact name Fred Lucas (TIA/TR-30
+    Chair) Organization: Telecommunications Industry Association (TIA)/Engineering
+    Committee TR-30 Department: N/A Address: 3421 Buttonwood Court, Reiserstown, MD
+    21136-4401, USA Telephone: +1 410 239 0248 Fax: N/A E-mail: fred.lucas@worldnet.att.net
+    Related links: http://www.tiaonline.org/standards/committees/T35CodeAdministratorRegion2.cfm
+    Information updated: 10 March 2005 Terminal Type: H-Series Contact name Gary Thom
+    Organization: Delta Information Systems Department: N/A Address: 300 Welsh Road,
+    Building 3, Horsham, PA 190044-2273, USA Telephone: N/A Fax: N/A E-mail: gthom@delta-info.com
+    Related links: http://www.delta-info.com/Protocol_Test/Manufacturer_codes.html
+    Information updated: 12 November 2004 ____________ a) Note: Both organizations
+    are also responsible for the T.35 terminal provider code assignments in Canada."
+    vs official "Name of Administration: U.S. Department of State National manufacturers
+    of H-, T- or V-Series compliant equipment? YES Assignment authorities*: Terminal
+    Type: T- and V-Series Contact name: Fred Lucas (TIA/TR-30 Chair) Organization:
+    Telecommunications Industry Association (TIA)/ Engineering Committee TR-30 Department:
+    N/A Address: 3421 Buttonwood Court, Reiserstown, MD 21136-4401, USA Telephone:
+    +1 410 239 0248 Fax: N/A E-mail: fred.lucas@worldnet.att.net Related links: http://www.tiaonline.org/standards/committees/T35CodeAdministratorRegion2.cfm
+    Information updated: 10 March 2005 Terminal Type: H-Series Contact name: Gary
+    Thom Organization: Delta Information Systems Department N/A Address: 300 Welsh
+    Road, Building 3, Horsham, PA 190044-2273, USA Telephone: N/A Fax: N/A E-mail:
+    gthom@delta-info.com Related links: http://www.delta-info.com/Protocol_Test/Manufacturer_codes.html
+    Information updated: 12 November 2004 * Note: Both organizations are also responsible
+    for the T.35 terminal provider code assignments in Canada."'
+  disposition: layout
+  reason: Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides.
+- layer: rows
+  side: both
+  text: 'France: generated "Name of Administration: Autorité de Régulation des Communications
+    Electroniques et des Postes (ARCEP) National manufacturers of H-, T- or V-Series
+    compliant equipment? YES Assignment authority: Terminal Type: H-, T- and V-Series
+    Contact name Jacques Senesse Organization: Autorité de Régulation des Communications
+    Electroniques et des Postes (ARCEP) Department: SIN Address: 7, Square Max-Hymans,
+    75730 Paris Cedex 15, France Telephone: +33 1 40 47 71 46 Fax: +33 1 40 47 71
+    88 E-mail: jacques.senesse@art-telecom.fr Related links: Information updated:
+    03 November 2003" vs official "Name of Administration: Autorité de Régulation
+    des Communications Electroniques et des Postes (ARCEP) National manufacturers
+    of H, T or V Series compliant equipment? YES Assignment authority: Terminal Type:
+    H-, T- and V-Series Contact name: Jacques Senesse Organization: Autorité de Régulation
+    des Communications Electroniques et des Postes (ARCEP) Department: SIN Address:
+    7, Square Max-Hymans, 75730 Paris Cedex 15, France Telephone: +33 1 40 47 71 46
+    Fax: +33 1 40 47 71 88 E-mail: jacques.senesse@art-telecom.fr Related links: N/A
+    Information updated: 3 November 2003"'
+  disposition: bug
+  reason: 'Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides. The dataset field is empty and the generated PDF leaves
+    the value blank; the official form prints "N/A" for an empty field (checked on
+    Japan: related_links is an empty string, official shows N/A). The generated PDF
+    prints the day zero-padded ("07 September 2004") where the official PDF prints
+    "7 September 2004"; the date is the same.'
+- layer: rows
+  side: generated_only
+  text: 'Iran, Islamic Republic Of Name of Administration: Telecommunication Company
+    of Iran (TCI) National manufacturers of H-, T- or V-Series compliant equipment?
+    NO Assignment authority: None designated Information updated: 13 September 2004'
+  disposition: data
+  reason: The generated heading uses the ISO country name from the dataset (acronyms.yaml);
+    the official PDF uses the ITU short name or translation. The block text is otherwise
+    identical.
+- layer: rows
+  side: official_only
+  text: 'Iran (Islamic Republic of) Name of Administration: Telecommunication Company
+    of Iran (TCI) National manufacturers of H-, T- or V-Series compliant equipment?
+    NO Assignment authority: None designated Information updated: 13 September 2004'
+  disposition: data
+  reason: The generated heading uses the ISO country name from the dataset (acronyms.yaml);
+    the official PDF uses the ITU short name or translation. The block text is otherwise
+    identical.
+- layer: rows
+  side: both
+  text: 'Italy: generated "Name of Administration: Ministerio delle Communicazioni
+    – General Secretariat International Relations National manufacturers of H-, T-
+    or V-Series compliant equipment? YES Assignment authority: None designated Information
+    updated: 04 November 2004" vs official "Name of Administration: Ministerio delle
+    Communicazioni – General Secretariat International Relations National manufacturers
+    of H-, T- or V-Series compliant equipment? YES Assignment authority: None designated
+    Information updated: 4 November 2004"'
+  disposition: layout
+  reason: The generated PDF prints the day zero-padded ("07 September 2004") where
+    the official PDF prints "7 September 2004"; the date is the same.
+- layer: rows
+  side: both
+  text: 'Kyrgyzstan: generated "Name of Administration: State Communications Agency
+    at Government of Kyrgyz Republic National manufacturers of H-, T- or V-Series
+    compliant equipment? NO Assignment authority: Terminal Type: H-, T- and V-Series
+    Contact name Dergacheva Ekaterina Alexandrovna Organization: State Communications
+    Agency at Government of Kyrgyz Republic Department: Department of Standardization
+    and Certification Address: Kyrgyzstan, Bishkek, Sovetskaya str. 7b Telephone:
+    +996 312 54 41 07 Fax: +996 312 54 41 05 E-mail: nta@infotel.kg Related links:
+    Information updated: 08 October 2003" vs official "Name of Administration: State
+    Communications Agency at Government of Kyrgyz Republic National manufacturers
+    of H-, T- or V- Series compliant equipment? NO Assignment authority: Terminal
+    Type: H-, T- and V-Series Contact name: Dergacheva Ekaterina Alexandrovna Organization:
+    State Communications Agency at Government of Kyrgyz Republic Department: Department
+    of Standardization and Certification Address: Kyrgyzstan, Bishkek, Sovetskaya
+    str. 7b Telephone: +996 312 54 41 07 Fax: +996 312 54 41 05 E-mail: nta@infotel.kg
+    Related links: N/A Information updated: 8 October 2003"'
+  disposition: bug
+  reason: 'Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides. The dataset field is empty and the generated PDF leaves
+    the value blank; the official form prints "N/A" for an empty field (checked on
+    Japan: related_links is an empty string, official shows N/A). The generated PDF
+    prints the day zero-padded ("07 September 2004") where the official PDF prints
+    "7 September 2004"; the date is the same.'
+- layer: rows
+  side: both
+  text: 'Kuwait: generated "Name of Administration: Ministry of Communications National
+    manufacturers of H-, T- or V-Series compliant equipment? NO Assignment authority:
+    None designated Information updated: 05 January 2004" vs official "Name of Administration:
+    Ministry of Communications National manufacturers of H-, T- or V-Series compliant
+    equipment? NO Assignment authority: None designated Information updated: 5 January
+    2004"'
+  disposition: layout
+  reason: The generated PDF prints the day zero-padded ("07 September 2004") where
+    the official PDF prints "7 September 2004"; the date is the same.
+- layer: rows
+  side: both
+  text: 'Mauritius: generated "Name of Administration: Information and Communication
+    Technologies Authority National manufacturers of H-, T- or V-Series compliant
+    equipment? NO Assignment authority: Terminal Type: H-, T- and V-Series Contact
+    name The Chairman Organization: Information and Communication Technologies Authority
+    Department: N/A Address: Jade House,1st Floor, Cnr Jummah Mosque & Remy Ollier
+    Streets, Port Louis, Mauritius Telephone: +230 217 2222 Fax: +230 217 7777 E-mail:
+    icta@intnet.mu Related links: Information updated: 28 October 2003" vs official
+    "Name of Administration: Information and Communication Technologies Authority
+    National manufacturers of H-, T- or V-Series compliant equipment? NO Assignment
+    authority: Terminal Type: H-, T- and V-Series Contact name: The Chairman Organization:
+    Information and Communication Technologies Authority Department: N/A Address:
+    Jade House,1st Floor, Cnr Jummah Mosque & Remy Ollier Streets, Port Louis, Mauritius
+    Telephone: +230 217 2222 Fax: +230 217 7777 E-mail: icta@intnet.mu Related links:
+    N/A Information updated: 28 October 2003"'
+  disposition: bug
+  reason: 'Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides. The dataset field is empty and the generated PDF leaves
+    the value blank; the official form prints "N/A" for an empty field (checked on
+    Japan: related_links is an empty string, official shows N/A).'
+- layer: rows
+  side: both
+  text: 'Poland: generated "Name of Administration: Office of Electronic Communications
+    (UKE) National manufacturers of H-, T- or V-Series compliant equipment? NO Assignment
+    authority: Terminal Type: H-, T- and V-Series Contact name Tomasz Karamon Organization:
+    UKE Department: Department of Technology Address: Kasprzaka 18/20, 01-211 Warsaw,
+    Poland Telephone: +48 (0) 22 53 49 325 Fax: +48 (0) 22 53 49 327 E-mail: t.karamon@uke.gov.pl
+    Related links: Information updated: 23 February 2007" vs official "Name of Administration:
+    Office of Electronic Communications (UKE) National manufacturers of H-, T- or
+    V-Series compliant equipment? NO Assignment authority: Terminal Type: All Contact
+    name: Tomasz Karamon Organization: UKE Department: Department of Technology Address:
+    Kasprzaka 18/20, 01-211 Warsaw, Poland Telephone: +48 (0) 22 53 49 325 Fax: +48
+    (0) 22 53 49 327 E-mail: t.karamon@uke.gov.pl Related links: N/A Information updated:
+    23 February 2007"'
+  disposition: bug
+  reason: 'The dataset lists the terminal types as the H, T and V series; the official
+    PDF prints "All" for this authority. The generated PDF shows the dataset value.
+    Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet glyphs,
+    fill-in rules, hyphen/punctuation spacing or letter case differ; the words are
+    the same on both sides. The dataset field is empty and the generated PDF leaves
+    the value blank; the official form prints "N/A" for an empty field (checked on
+    Japan: related_links is an empty string, official shows N/A).'
+- layer: rows
+  side: both
+  text: 'United Kingdom: generated "Name of Administration: Office of Communications
+    (Ofcom) National manufacturers of H-, T- or V-Series compliant equipment? YES
+    Assignment authority: Terminal Type: H-, T- and V-Series Contact name Bill Pechey
+    Organization: Computency Limited Department: N/A Address: Jays Lodge, Crays Pond,
+    Reading, RG8 7QG, United Kingdom Telephone: +44 870 740 1123 Fax: +44 870 432
+    1905 E-mail: bpechey@computency.co.uk Related links: http://www.cix.co.uk/%7Ebpechey/H221/
+    Information updated: 26 November 2004" vs official "Name of Administration: Office
+    of Communications (Ofcom) National manufacturers of H-, T- or V-Series compliant
+    equipment? YES Assignment authority: Terminal Type: H, T and V-Series Contact
+    name: Bill Pechey Organization: Computency Limited Department: N/A Address: Jays
+    Lodge, Crays Pond, Reading, RG8 7QG, United Kingdom Telephone: +44 870 740 1123
+    Fax: +44 870 432 1905 E-mail: bpechey@computency.co.uk Related links: http://www.cix.co.uk/~bpechey/H221/
+    Information updated: 26 November 2004"'
+  disposition: data
+  reason: Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides. The dataset holds the link as written (with http://
+    or %7E); the official PDF prints the link without the scheme, with ~, or trimmed,
+    so the text differs. Dataset value equals the generated text.
+- layer: rows
+  side: generated_only
+  text: 'Venezuela, Bolivarian Republic Of Name of Administration: Comisión Nacional
+    de Telecomunicaciones (Conatel) National manufacturers of H-, T- or V-Series compliant
+    equipment? NO Assignment authority: None designated Information updated: 24 December
+    2004'
+  disposition: data
+  reason: The generated heading uses the ISO country name from the dataset (acronyms.yaml);
+    the official PDF uses the ITU short name or translation. The block text is otherwise
+    identical.
+- layer: rows
+  side: official_only
+  text: 'Venezuela Name of Administration: Comisión Nacional de Telecomunicaciones
+    (Conatel) National manufacturers of H-, T- or V-Series compliant equipment? NO
+    Assignment authority: None designated Information updated: 24 December 2004'
+  disposition: data
+  reason: The generated heading uses the ISO country name from the dataset (acronyms.yaml);
+    the official PDF uses the ITU short name or translation. The block text is otherwise
+    identical.

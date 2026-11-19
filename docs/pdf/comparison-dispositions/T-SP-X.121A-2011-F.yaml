@@ -1,0 +1,16 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-X.121A-2011-F, generated PDF from the
+# #89 generation run against the official ITU PDF, shape X121A. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: '423: generated "Réservé a)" vs official "Réservé1"'
+  disposition: layout
+  reason: The Palestinian-Authority footnote marker prints as "a)" after the name
+    in the generated PDF and as superscript 1 glued to the name in the official PDF;
+    the name and the footnote text are the same.
+- layer: prose
+  side: both
+  text: generated "N°" vs official "No"
+  disposition: layout
+  reason: The official PDF sets the ordinal "o" of "No"/"N.o" as superscript, which
+    pdftotext reads as a plain o; the generated PDF prints the degree sign. Same abbreviation.

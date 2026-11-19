@@ -1,0 +1,238 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-F.32-2011-S, generated PDF from CI
+# (pdf.yml run 44558975060 on main) against the official ITU PDF, shape F32, with
+# --data datasets/980-F.32/data.yaml. Settles only the open (bug or unreviewed)
+# deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'WBBN: generated "Barbados / Barbade 1)" vs official "Barbados / Barbade"'
+  disposition: layout
+  reason: A footnote marker (1) or 2)) prints inline after the name in the generated
+    PDF; the official PDF puts it as a superscript on its own line, so pdftotext reads
+    the name without it. Same name.
+- layer: rows
+  side: both
+  text: 'CYNC: generated "NICOSIA / NICOSIE / LEFKOSIA 1)" vs official "NICOSIA /
+    NICOSIE / LEFKOSIA"'
+  disposition: layout
+  reason: A footnote marker (1) or 2)) prints inline after the name in the generated
+    PDF; the official PDF puts it as a superscript on its own line, so pdftotext reads
+    the name without it. Same name.
+- layer: rows
+  side: both
+  text: '--NX: generated "Todos los otros 2)" vs official "Todos los otros"'
+  disposition: layout
+  reason: A footnote marker (1) or 2)) prints inline after the name in the generated
+    PDF; the official PDF puts it as a superscript on its own line, so pdftotext reads
+    the name without it. Same name.
+- layer: rows
+  side: both
+  text: 'URFS: generated "AT&T MCI/WUI" vs official "MCI/WUI"'
+  disposition: layout
+  reason: The network cell (AT&T, MCI/WUI, TRT/FTC, MMR) shares a line with the code,
+    so pdftotext reads it as part of the name; the dataset name is the same on both
+    sides.
+- layer: rows
+  side: both
+  text: 'UTMR: generated "TRT/FTC" vs official "TRT/FTC Indicadores de destino (ID)
+    atribuidos a oficinas telegráficas"'
+  disposition: layout
+  reason: The network cell (AT&T, MCI/WUI, TRT/FTC, MMR) shares a line with the code,
+    so pdftotext reads it as part of the name; the dataset name is the same on both
+    sides.
+- layer: rows
+  side: generated_only
+  text: PHAC Angeles City Pampanga
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHBC Occidental
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHBG Baguio
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHBT Norte
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHCG Cagayan
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHCB Cebu
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHDV Davao City Davao Del Sur
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHGS Cotabato South
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHIN Norte
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHIL Iloilo City Iloilo
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHLG Legaspi City Albay
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHMA MANILA / MANILLE
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHMV Mariveles
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHOL Olongapo City Zambales
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHQY Quezon City
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHSF S Fernando La Union
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHSA S Fernando Pampanga
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHTC Tacloban City Leyte
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHTG Tuguegarao Cagayan
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHZB Zamboanga Del Sur
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: generated_only
+  text: PHMX Todos los otros
+  disposition: bug
+  reason: The generated PDF prints the Philippines office codes expanded with the
+    network code (PHAC); the official PDF prints them as --AC under network code "PH-
+    -", like the Italian rows. The dataset normalises the code, so the rendering departs
+    from the official list.
+- layer: rows
+  side: both
+  text: 'CHZR: generated "ZURICH TELEX 2)" vs official "ZURICH TELEX"'
+  disposition: layout
+  reason: A footnote marker (1) or 2)) prints inline after the name in the generated
+    PDF; the official PDF puts it as a superscript on its own line, so pdftotext reads
+    the name without it. Same name.
+- layer: rows
+  side: both
+  text: 'DJXX: generated "Diego García Todos los destinos" vs official "Todos los
+    destinos"'
+  disposition: layout
+  reason: The wrap lines pick up the name of the code-less DIEGO GARCIA row above
+    it; the name of DJXX is the same on both sides.
+- layer: rows
+  side: both
+  text: '--JN: generated "00053 CIVITAVECCHIA" vs official "00120 CITTA DEL VATICANO
+    00053 CIVITAVECCHIA"'
+  disposition: layout
+  reason: The official PDF prints the Vatican row "00120 CITTA DEL VATICANO" (code
+    --VS) on the line above; pdftotext reads it as wrap text of the next row. The
+    text is in both PDFs.
+- layer: prose
+  side: both
+  text: generated "N.º 32-S –1– Publicación De Servicio Anexo al BE de la UIT N.º
+    32 LISTA DE INDICADORES DE DESTINO DE TELEGRAMAS" vs official "980-S – 2 – 15.V.2011"
+  disposition: layout
+  reason: Running page title or page furniture that one PDF repeats on a page where
+    the other does not (not preface text).

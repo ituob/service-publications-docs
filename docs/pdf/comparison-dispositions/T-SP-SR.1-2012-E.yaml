@@ -1,0 +1,304 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-SR.1-2012-E, generated PDF from the
+# #89 generation run against the official ITU PDF, shape SR1. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'Antigua-et-Barbuda: generated "Antigua and Barbuda Antigua y Barbuda The
+    telegram service is no longer provided. Collect calls to mobile numbers are not
+    accepted Collect calls to payphones are not accepted Collect calls to audiotex
+    numbers are not accepted" vs official "Antigua and Barbuda Antigua y Barbuda The
+    telegram service is no longer provided Collect calls to mobile, payphone and audiotex
+    numbers are not accepted"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them ("mobile numbers and payphones", "both outgoing and
+    incoming"). The same restrictions are named on both sides.
+- layer: rows
+  side: both
+  text: 'Belize: generated "Belize Belice Collect calls to mobile numbers are not
+    accepted Collect calls to payphones are not accepted" vs official "Belize Belice
+    Collect calls to mobile numbers or payphones are not accepted"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them ("mobile numbers and payphones", "both outgoing and
+    incoming"). The same restrictions are named on both sides.
+- layer: rows
+  side: both
+  text: 'Bulgarie: generated "Bulgaria Bulgaria The telex service is no longer provided.
+    The telegram service is no longer provided. Collect telephone calls and credit
+    card telephone calls are accepted in Bulgaria only with those countries whose
+    administrations have confirmed their agreement to the Bulgarian Administration
+    in writing. The telegram service is no longer provided. The telex service is no
+    longer provided." vs official "Bulgaria Bulgaria Collect telephone calls and credit
+    card telephone calls are accepted in Bulgaria only with those countries whose
+    administrations have confirmed their agreement to the Bulgarian Administration
+    in writing. The telegram service is no longer provided The telex service is no
+    longer provided."'
+  disposition: data
+  reason: The dataset note of this country repeats the telex and telegram restrictions
+    that its flags already state, so the generated PDF prints them twice (flags and
+    note); the official PDF prints them once (datasets/1000-SR.1/data.yaml, Bulgarie).
+- layer: rows
+  side: both
+  text: 'Curaçao, Sint Maarten, Bonaire, Saint Eustatius et Saba: generated "Curaçao,
+    Sint Maarten, Bonaire, Sint Eustatius and Saba Curaçao, Sint Maarten, Bonaire,
+    San Eustatius y Saba The telex service is no longer provided. The telegram service
+    is no longer provided. Collect calls for incoming are not accepted. Collect calls
+    for outgoing are not accepted." vs official "Curaçao, Sint Maarten, Bonaire, Sint
+    Eustatius and Saba Curaçao, Sint Maarten, Bonaire, San Eustatius y Saba Collect
+    calls for both outgoing and incoming are not accepted The telegram service is
+    no longer provided The telex service is no longer provided."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them ("mobile numbers and payphones", "both outgoing and
+    incoming"). The same restrictions are named on both sides.
+- layer: rows
+  side: both
+  text: 'Chypre: generated "Cyprus Chipre Collect calls to mobile numbers are not
+    accepted CYTA no longer route nor accept telephone traffic via transit carriers.
+    Telecom operators are requested to switch to the hubbing method for routing traffic
+    to CYTA. Tchèque (Rép.) Czech Rep. Checa (Rep.) The telex service is no longer
+    provided." vs official "Cyprus Chipre CYTA no longer route nor accept telephone
+    traffic via transit carriers. Telecom operators are requested to switch to the
+    hubbing method for routing traffic to CYTA. Collect calls to mobile numbers are
+    not accepted Tchèque (Rép.) Czech Rep. Checa (Rep.) The telex service is no longer
+    provided."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Gibraltar: generated "Gibraltar Gibraltar The telegram service is no longer
+    provided. Collect calls to mobile numbers are not accepted" vs official "Gibraltar
+    Gibraltar Collect calls to mobile numbers are not accepted The telegram service
+    is no longer provided"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Hong Kong, Chine: generated "Hong Kong, China Hong Kong, China The telegram
+    service is no longer provided. The CT2 service are no longer provided" vs official
+    "Hong Kong, China Hong Kong, China The telegram service and CT2 service are no
+    longer provided"'
+  disposition: data
+  reason: The dataset note of this country repeats the telex and telegram restrictions
+    that its flags already state, so the generated PDF prints them twice (flags and
+    note); the official PDF prints them once (datasets/1000-SR.1/data.yaml, Bulgarie).
+- layer: rows
+  side: both
+  text: 'Hongrie: generated "Hungary Hungría The telex service is no longer provided.
+    The telegram service is no longer provided. Collect calls to mobile numbers are
+    not accepted Collect calls for incoming are not accepted. Collect calls for outgoing
+    are not accepted." vs official "Hungary Hungría The telex service is no longer
+    provided. The telegram service is no longer provided Collect calls for both outgoing
+    and incoming are not accepted"'
+  disposition: data
+  reason: The generated PDF prints exactly the restrictions of the dataset entry;
+    the official PDF names a different set of restrictions for this country (verified
+    against datasets/1000-SR.1/data.yaml).
+- layer: rows
+  side: both
+  text: 'Islande: generated "Iceland Islandia The telex service is no longer provided.
+    Collect calls to mobile numbers are not accepted Collect calls for incoming are
+    not accepted. Collect calls for outgoing are not accepted." vs official "Iceland
+    Islandia The telex service is no longer provided. Collect calls for both outgoing
+    and incoming are not accepted"'
+  disposition: data
+  reason: The generated PDF prints exactly the restrictions of the dataset entry;
+    the official PDF names a different set of restrictions for this country (verified
+    against datasets/1000-SR.1/data.yaml).
+- layer: rows
+  side: both
+  text: 'Indonésie: generated "Indonesia Indonesia The telegram service is no longer
+    provided. Collect calls to mobile numbers are not accepted PT Indosat no longer
+    route nor accept telephone traffic via transit carriers. Telecom operators are
+    requested to switch to the hubbing method for routing traffic to PT Indosat" vs
+    official "Indonesia Indonesia Collect calls to mobile numbers are not accepted
+    The telegram service is no longer provided PT Indosat no longer route nor accept
+    telephone traffic via transit carriers. Telecom operators are requested to switch
+    to the hubbing method for routing traffic to PT Indosat"'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Maldives: generated "Maldives Maldivas Collect calls for incoming are not
+    accepted. Collect calls for outgoing are not accepted." vs official "Maldives
+    Maldivas Collect calls for both outgoing and incoming are not accepted"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them ("mobile numbers and payphones", "both outgoing and
+    incoming"). The same restrictions are named on both sides.
+- layer: rows
+  side: both
+  text: 'Malte: generated "Malta Malta The telex service is no longer provided. The
+    telegram service is no longer provided." vs official "Malta Malta The telegram
+    service is no longer provided The telex service is no longer provided."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Maroc: generated "Morocco Marruecos Collect calls to mobile numbers are not
+    accepted Collect calls to payphones are not accepted" vs official "Morocco Marruecos
+    Collect calls to mobile numbers and payphones are not accepted"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them ("mobile numbers and payphones", "both outgoing and
+    incoming"). The same restrictions are named on both sides.
+- layer: rows
+  side: both
+  text: 'Nouvelle-Calédonie: generated "New Caledonia Nueva Caledonia The telex service
+    is no longer provided. The telegram service is no longer provided. Collect calls
+    for incoming are not accepted. Collect calls for outgoing are not accepted." vs
+    official "New Caledonia Nueva Caledonia The telex service is no longer provided.
+    The telegram service is no longer provided Collect calls for both outgoing and
+    incoming are not accepted"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them ("mobile numbers and payphones", "both outgoing and
+    incoming"). The same restrictions are named on both sides.
+- layer: rows
+  side: both
+  text: 'Pakistan: generated "Pakistan Pakistán The telex service is no longer provided.
+    The telegram service is no longer provided. The telecommunication service with
+    Israel is suspended." vs official "Pakistan Pakistán The telecommunication service
+    with Israel is suspended. The telex service is no longer provided. The telegram
+    service is no longer provided."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Papouasie-Nouvelle-Guinée: generated "Papua New Guinea Papua Nueva Guinea
+    The telex service is no longer provided. Collect calls to mobile numbers are not
+    accepted" vs official "Papua New Guinea Papua Nueva Guinea Collect calls to mobile
+    numbers are not accepted The telex service is no longer provided."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Pérou: generated "Peru Perú Collect calls for incoming are not accepted.
+    Collect calls for outgoing are not accepted." vs official "Peru Perú Collect calls
+    for both outgoing and incoming are not accepted"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them ("mobile numbers and payphones", "both outgoing and
+    incoming"). The same restrictions are named on both sides.
+- layer: rows
+  side: both
+  text: 'Pologne: generated "Poland Polonía The telex service is no longer provided.
+    The telegram service is no longer provided." vs official "Poland Polonía The telegram
+    service is no longer provided The telex service is no longer provided."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Arabie saoudite: generated "Saudi Arabia Arabia Saudita Collect calls for
+    incoming are not accepted. Collect calls for outgoing are not accepted." vs official
+    "Saudi Arabia Arabia Saudita Collect calls for both outgoing and incoming are
+    not accepted"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them ("mobile numbers and payphones", "both outgoing and
+    incoming"). The same restrictions are named on both sides.
+- layer: rows
+  side: both
+  text: 'Serbie: generated "Serbia Serbia The telex service is no longer provided.
+    Collect calls to mobile numbers are not accepted The Operator-Assisted Call Service
+    for semi-automatic calls (inbound and outbound) is not admitted." vs official
+    "Serbia Serbia Collect calls to mobile numbers are not accepted The telex service
+    is no longer provided. The Operator-Assisted Call Service for semi-automatic calls
+    (inbound and outbound) is not admitted."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Slovaquie: generated "Slovakia Eslovaquia The telex service is no longer
+    provided. The telegram service is no longer provided. Collect calls for incoming
+    are not accepted. Collect calls for outgoing are not accepted." vs official "Slovakia
+    Eslovaquia Collect calls for both outgoing and incoming are not accepted The telex
+    service is no longer provided. The telegram service is no longer provided."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them ("mobile numbers and payphones", "both outgoing and
+    incoming"). The same restrictions are named on both sides.
+- layer: rows
+  side: both
+  text: 'Sri Lanka: generated "Sri Lanka Sri Lanka Collect calls to payphones are
+    not accepted Collect calls for incoming are not accepted. Collect calls for outgoing
+    are not accepted. No incoming calls are allowed for payphones in Sri Lanka" vs
+    official "Sri Lanka Sri Lanka No incoming calls are allowed for payphones in Sri
+    Lanka"'
+  disposition: data
+  reason: The generated PDF prints exactly the restrictions of the dataset entry;
+    the official PDF names a different set of restrictions for this country (verified
+    against datasets/1000-SR.1/data.yaml).
+- layer: rows
+  side: both
+  text: 'Suriname: generated "Suriname Suriname The telex service is no longer provided.
+    The telegram service is no longer provided." vs official "Suriname Suriname The
+    telegram service is no longer provided The telex service is no longer provided."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Swaziland: generated "Swaziland Swazilandia Collect calls to mobile numbers
+    are not accepted Collect calls to virtual telephony are not accepted" vs official
+    "Swaziland Swazilandia Collect calls to mobile numbers and virtual telephony are
+    not accepted"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them ("mobile numbers and payphones", "both outgoing and
+    incoming"). The same restrictions are named on both sides.
+- layer: rows
+  side: both
+  text: 'Tonga: generated "Tonga Tonga The telex service is no longer provided. The
+    telegram service is no longer provided." vs official "Tonga Tonga The telegram
+    service is no longer provided The telex service is no longer provided."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: rows
+  side: both
+  text: 'Trinité-et-Tobago: generated "Trinidad and Tobago Trinidad y Tabago The telex
+    service is no longer provided. The telegram service is no longer provided. Collect
+    calls to mobile numbers are not accepted Collect calls to virtual telephony are
+    not accepted" vs official "Trinidad and Tobago Trinidad y Tabago The telegram
+    service is no longer provided The telex service is no longer provided. Collect
+    calls to mobile numbers and virtual telephony are not accepted"'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them ("mobile numbers and payphones", "both outgoing and
+    incoming"). The same restrictions are named on both sides.
+- layer: rows
+  side: both
+  text: 'Vanuatu: generated "Vanuatu Vanuatu The telex service is no longer provided.
+    The telegram service is no longer provided. Collect calls for incoming are not
+    accepted. Collect calls for outgoing are not accepted." vs official "Vanuatu Vanuatu
+    The telex service is no longer provided. Collect calls for both outgoing and incoming
+    are not accepted The telegram service is no longer provided."'
+  disposition: data
+  reason: The generated PDF prints one sentence per restriction flag of the dataset;
+    the official PDF merges them ("mobile numbers and payphones", "both outgoing and
+    incoming"). The same restrictions are named on both sides.
+- layer: rows
+  side: both
+  text: 'Yémen: generated "Yemen Yemen The telex service is no longer provided. The
+    telecommunication service with Israel is suspended." vs official "Yemen Yemen
+    The telecommunication service with Israel is suspended The telex service is no
+    longer provided."'
+  disposition: layout
+  reason: The same restriction sentences in a different order; the words are the same
+    on both sides (word lists equal when sorted).
+- layer: prose
+  side: both
+  text: generated "1.1." vs official ""
+  disposition: layout
+  reason: The generated PDF numbers the preface heading ("1.1. Note from the TSB");
+    the official PDF prints the heading without a number.

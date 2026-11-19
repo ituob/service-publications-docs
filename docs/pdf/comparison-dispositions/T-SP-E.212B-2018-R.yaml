@@ -1,0 +1,38 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-E.212B-2018-R, generated PDF (89-gen run, group G2)
+# against the official ITU PDF. Settles only the open (bug or unreviewed) deltas by rules checked on
+# samples (see README-g2.adoc); data and layout deltas the tool settles itself are not listed.
+- layer: prose
+  side: both
+  text: generated "" vs official "1"
+  disposition: layout
+  reason: The official PDF prints the preface list numbers as bare digits ("1", "2";
+    no full stop), which the extractor reads as words; the generated PDF has list
+    markers that the comparison strips. Same text.
+- layer: prose
+  side: both
+  text: generated "" vs official "2"
+  disposition: layout
+  reason: The official PDF prints the preface list numbers as bare digits ("1", "2";
+    no full stop), which the extractor reads as words; the generated PDF has list
+    markers that the comparison strips. Same text.
+- layer: prose
+  side: both
+  text: generated "" vs official "3"
+  disposition: layout
+  reason: The official PDF prints the preface list numbers as bare digits ("1", "2";
+    no full stop), which the extractor reads as words; the generated PDF has list
+    markers that the comparison strips. Same text.
+- layer: prose
+  side: both
+  text: generated "" vs official "4"
+  disposition: layout
+  reason: The official PDF prints the preface list numbers as bare digits ("1", "2";
+    no full stop), which the extractor reads as words; the generated PDF has list
+    markers that the comparison strips. Same text.
+- layer: prose
+  side: both
+  text: generated "" vs official "5"
+  disposition: layout
+  reason: The official PDF prints the preface list numbers as bare digits ("1", "2";
+    no full stop), which the extractor reads as words; the generated PDF has list
+    markers that the comparison strips. Same text.

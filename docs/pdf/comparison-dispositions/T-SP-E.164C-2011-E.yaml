@@ -1,0 +1,229 @@
+- layer: rows
+  side: both
+  text: '93|Afghanistan: generated "Afghanistan | 93 | 00 | 0 | 9 digits | +4.5" vs
+    official "Afghanistan | 93 | 00 | 0 | 9 digits | +4.30"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (5);
+    the official PDF has 30
+- layer: rows
+  side: both
+  text: '226|Burkina: generated "Burkina Faso | 226 | 00 | ... | 8 digits | 0" vs
+    official "Burkina Faso | 226 | 00 | ... | 8 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '225|Côte: generated "Côte d''Ivoire | 225 | 00 | ... | 8 digits | 0" vs official
+    "Côte d''Ivoire | 225 | 00 | ... | 8 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '298|Faroe: generated "Faroe Islands | 298 | 00 | ... | 6 digits | 0; +1"
+    vs official "Faroe Islands | 298 | 00 | ... | 6 digits | UTC/+1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '262|French: generated "French Departments and Territories in the Indian Ocean
+    | 262 | 00 | ... | 9 digits | +3" vs official "French Departments and Territories
+    in the Indian Ocean | 262 | 00 | ... | 9 digits | +3, +4"'
+  disposition: data
+  reason: the official PDF prints 4 once more than the dataset record holds (in en);
+    the generated PDF prints the dataset
+- layer: rows
+  side: both
+  text: '220|Gambia: generated "Gambia | 220 | 00 | ... | 7 digits | 0" vs official
+    "Gambia | 220 | 00 | ... | 7 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '233|Ghana: generated "Ghana | 233 | 00 | 0 | 5 to 9 digits | 0" vs official
+    "Ghana | 233 | 00 | 0 | 5 to 9 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '1|Grenada: generated "Grenada | 1 | 11 | 1 | (473)+7 digits | -4" vs official
+    "Grenada | 1 | 011 | 1 | (473)+7 digits | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (11);
+    the official PDF has 011
+- layer: rows
+  side: both
+  text: '1|Guam: generated "Guam | 1 | 11 | 1 | (671)+7 digits | +10" vs official
+    "Guam | 1 | 011 | 1 | (671)+7 digits | +10"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (11);
+    the official PDF has 011
+- layer: rows
+  side: both
+  text: '224|Guinea: generated "Guinea | 224 | 00 | ... | 8 digits | 0" vs official
+    "Guinea | 224 | 00 | ... | 8 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '245|Guinea: generated "Guinea-Bissau | 245 | 00 | ... | 7 digits | 0" vs
+    official "Guinea-Bissau | 245 | 00 | ... | 7 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '354|Iceland: generated "Iceland | 354 | 00 | ... | 7, 9 digits | 0" vs official
+    "Iceland | 354 | 00 | ... | 7, 9 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '353|Ireland: generated "Ireland | 353 | 00 | 0 | 7 to 11 digits | 0; +1 |
+    3" vs official "Ireland | 353 | 00 | 0 | 7 to 11 digits | UTC/+1 | 3"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '82|Korea: generated "Korea (Rep. of) | 82 | 1002 | 0; 082 | 8 to 11 digits
+    | +9" vs official "Korea (Rep. of) | 82 | 001,002 | 0,082 | 8 to 11 digits | +9"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (1002);
+    the official PDF has 001 002
+- layer: rows
+  side: both
+  text: '231|Liberia: generated "Liberia | 231 | 00 | ... | 7 to 8 digits | 0" vs
+    official "Liberia | 231 | 00 | ... | 7 to 8 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '223|Mali: generated "Mali | 223 | 00 | ... | 8 digits | 0" vs official "Mali
+    | 223 | 00 | ... | 8 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '222|Mauritania: generated "Mauritania | 222 | 00 | ... | 7 digits | 0" vs
+    official "Mauritania | 222 | 00 | ... | 7 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '212|Morocco: generated "Morocco | 212 | 0 | 0 | 9 digits | 0 | 2" vs official
+    "Morocco | 212 | 00 | 0 | 9 digits | UTC | 2"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0 0);
+    the official PDF has 00 utc
+- layer: rows
+  side: both
+  text: '351|Portugal: generated "Portugal | 351 | 00 | ... | 9, 11 digits | 0; +1"
+    vs official "Portugal | 351 | 00 | ... | 9, 11 digits | UTC/+1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '247|Saint: generated "Saint Helena, Ascension and Tristan da Cunha | 247
+    | 00 | ... | 4 digits | 0" vs official "Saint Helena, Ascension and Tristan da
+    Cunha | 247 | 00 | ... | 4 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '290|Saint: generated "Saint Helena, Ascension and Tristan da Cunha | 290
+    | 00 | ... | 4 digits | 0 | 4" vs official "Saint Helena, Ascension and Tristan
+    da Cunha | 290 | 00 | ... | 4 digits | UTC | 4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '685|Samoa: generated "Samoa | 685 | 00 | ... | 3 to 7 digits | -11; -10"
+    vs official "Samoa | 685 | 0 | ... | 3 to 7 digits | -11/-10"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (00);
+    the official PDF has 0
+- layer: rows
+  side: both
+  text: '239|Sao: generated "Sao Tome and Principe | 239 | 00 | ... | 7 digits | 0"
+    vs official "Sao Tome and Principe | 239 | 00 | ... | 7 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '221|Senegal: generated "Senegal | 221 | 00 | ... | 9 digits | 0" vs official
+    "Senegal | 221 | 00 | ... | 9 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '232|Sierra: generated "Sierra Leone | 232 | 00 | 0 | 8 digits | 0" vs official
+    "Sierra Leone | 232 | 00 | 0 | 8 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '65|Singapore: generated "Singapore | 65 | 1008 | ... | 8 to 12 digits | +8
+    | 9" vs official "Singapore | 65 | 001,008 | ... | 8 to 12 digits | +8 | 9"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (1008);
+    the official PDF has 001 008
+- layer: rows
+  side: both
+  text: '1|Sint: generated "Sint Maarten (Dutch part) | 1 | 001; 008 | 1 | (721) +
+    7 digits | -4" vs official "Sint Maarten (Dutch part) | 1 | 011 | 1 | (721) +
+    7 digits | -4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (001
+    008); the official PDF has 011
+- layer: rows
+  side: both
+  text: '255|Tanzania: generated "Tanzania | 255 | 00 | 0 | 9 digits | +3 | 19" vs
+    official "Tanzania | 255 | 000 | 0 | 9 digits | +3 | 19"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (00);
+    the official PDF has 000
+- layer: rows
+  side: both
+  text: '228|Togo: generated "Togo | 228 | 00 | ... | 8 digits | 0" vs official "Togo
+    | 228 | 00 | ... | 8 digits | UTC"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc
+- layer: rows
+  side: both
+  text: '1|Turks: generated "Turks and Caicos Islands | 1 | 00 | 1 | (649)+7 digits
+    | -5; -4" vs official "Turks and Caicos Islands | 1 | 0 | 1 | (649)+7 digits |
+    -5/-4"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (00);
+    the official PDF has 0
+- layer: rows
+  side: both
+  text: '256|Uganda: generated "Uganda | 256 | 00 | 0 | 9 digits | +3 | 19" vs official
+    "Uganda | 256 | 000 | 0 | 9 digits | +3 | 19"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (00);
+    the official PDF has 000
+- layer: rows
+  side: both
+  text: '44|United: generated "United Kingdom | 44 | 00 | 0 | 7 to 10 digits | 0;
+    +1" vs official "United Kingdom | 44 | 00 | 0 | 7 to 10 digits | UTC/+1"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in en (0);
+    the official PDF has utc

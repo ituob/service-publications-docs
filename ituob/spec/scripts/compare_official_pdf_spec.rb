@@ -423,4 +423,125 @@ RSpec.describe OfficialPdfComparison do
       end
     end
   end
+
+  describe 'shapes' do
+    let(:shapes_dir) { File.expand_path('../../../scripts/official_pdf_shapes', __dir__) }
+
+    it 'loads every file of scripts/official_pdf_shapes and finds F32' do
+      expect(mod.shapes.keys).to include('F32')
+      expect(Dir[File.join(shapes_dir, '*.rb')].map { |f| File.basename(f, '.rb') }).to include('base', 'f32')
+    end
+
+    it 'looks a shape up case-insensitively and names the known shapes on a miss' do
+      expect(mod.shape('f32')).to be_a(OfficialPdfComparison::Shapes::F32)
+      expect { mod.shape('nope') }.to raise_error(OfficialPdfComparison::UsageError, /unknown shape "nope".*F32/)
+    end
+
+    it 'gives every shape a PUBLICATIONS list of pub ids' do
+      mod.shapes.each_value do |k|
+        expect(k.publications).to all(match(/\AT-SP-/))
+      end
+      expect(mod.shapes['F32'].publications).to eq(%w[T-SP-F.32-2011])
+    end
+
+    it 'keeps the default shape for the F.32 rows API' do
+      row = mod.rows("Kabul        AFKL\n").first
+      expect([row.code, row.name]).to eq(%w[AFKL Kabul])
+    end
+
+    describe 'Base' do
+      let(:klass) do
+        Class.new(OfficialPdfComparison::Shapes::Base) do
+          def rows(text) = text.lines.map { |l| OfficialPdfComparison::Shapes::Row.new(*l.split(': ', 2).map(&:strip)) }
+        end
+      end
+
+      it 'requires a subclass to implement rows' do
+        expect { OfficialPdfComparison::Shapes::Base.new.rows('') }.to raise_error(NotImplementedError)
+      end
+
+      it 'turns a generic Row into a comparable row' do
+        a, b = klass.new.rows("X1: Alpha   Beta\nX1: alpha beta\n")
+        expect([a.code, a.name, a.to_s]).to eq(['X1', 'Alpha   Beta', 'X1 Alpha   Beta'])
+        expect(a.same_name?(b)).to be(true)
+        expect(a.same_name?(OfficialPdfComparison::Shapes::Row.new('X1', 'Gamma'))).to be(false)
+      end
+
+      it 'runs a custom shape through the comparator without wrap logic' do
+        shape = klass.new
+        gen = shape.rows("A: one\nB: two\n")
+        off = shape.rows("A: one\nB: 2\n")
+        _eq, deltas = mod.compare_rows(gen, off)
+        expect(deltas.map(&:disposition)).to eq([:bug])
+        expect(deltas.first.text).to include('B').and include('two').and include('2')
+      end
+    end
+
+    describe 'prose markers' do
+      let(:markers) { { 'E' => 'Note from TSB', 'F' => 'Note du TSB', 'S' => 'Nota de la TSB' } }
+
+      def text_for(marker) = "Preface before\n\n#{marker}\n\nfirst words here\n\nCountry / Network\n"
+
+      it 'starts the preface at the language marker' do
+        markers.each do |lang, marker|
+          words = mod.prose_words(text_for(marker), lang: lang)
+          expect(words).to eq(marker.split + %w[first words here])
+        end
+      end
+
+      it 'does not start French or Spanish prose at the English marker' do
+        expect(mod.prose_words(text_for('Note from TSB'), lang: 'F')).to include('Preface')
+        expect(mod.prose_words(text_for('Note du TSB'), lang: 'E')).to include('Preface')
+      end
+
+      it 'reads the language from the official file name' do
+        expect(mod.language_of('x/T-SP-F.32-2011-F.pdf')).to eq('F')
+        expect(mod.language_of('T-SP-F.32-2011-S.pdf')).to eq('S')
+        expect(mod.language_of('unnamed.pdf')).to eq('E')
+      end
+    end
+
+    describe '--shape' do
+      it 'rejects an unknown shape with exit 2 and runs a known one' do
+        allow(mod).to receive(:pdf_text).and_return("Kabul        AFKL\n")
+        expect { expect(mod.main(%w[g.pdf o.pdf --shape nope])).to eq(2) }.to output(/unknown shape/).to_stderr
+        expect { expect(mod.main(%w[g.pdf o.pdf --shape F32])).to eq(0) }.to output(/RESULT: PASS/).to_stdout
+      end
+
+      it 'uses the --lang marker for the prose layer' do
+        gen = "Note du TSB\n\nbonjour\n"
+        off = "Intro\n\nNote du TSB\n\nbonjour\n"
+        allow(mod).to receive(:pdf_text).with('g.pdf').and_return(gen)
+        allow(mod).to receive(:pdf_text).with('o.pdf').and_return(off)
+        expect { expect(mod.main(%w[g.pdf o.pdf --lang F])).to eq(0) }.to output(/prose_words_matched: 4/).to_stdout
+      end
+    end
+  end
+
+  describe 'confirmed bugs and shipped dispositions' do
+    let(:root) { File.expand_path('../../..', __dir__) }
+
+    it 'passes a bug that a dispositions entry confirms, and still counts it' do
+      gen = [OfficialPdfComparison::Shapes::Row.new('A', 'one')]
+      off = [OfficialPdfComparison::Shapes::Row.new('A', 'two')]
+      _eq, deltas = mod.compare_rows(gen, off)
+      entry = { 'layer' => 'rows', 'side' => 'both', 'disposition' => 'bug', 'reason' => 'real defect',
+                'text' => deltas.first.text }
+      result = { deltas: deltas, counts: {}, problems: mod.apply_dispositions(deltas, [entry]) }
+      expect(mod.failures(result)).to be_empty
+      expect(mod.report(result)).to include('RESULT: PASS (1 confirmed bugs)')
+      expect(mod.failures(deltas: mod.compare_rows(gen, off).last, counts: {})).not_to be_empty
+    end
+
+    it 'ships well-formed dispositions with a reason per entry for every row it covers' do
+      files = Dir[File.join(root, 'docs/pdf/comparison-dispositions/*.yaml')]
+      expected = %w[E F S].map { |l| "T-SP-F.32-2011-#{l}.yaml" }
+      expect(files.map { |f| File.basename(f) }).to include(*expected)
+      files.each do |f|
+        entries = mod.load_dispositions(f)
+        expect(entries).to all(include('reason' => a_string_matching(/\S/),
+                                       'disposition' => a_string_matching(/\A(data|layout|bug)\z/)))
+      end
+    end
+  end
 end

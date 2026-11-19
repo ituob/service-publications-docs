@@ -1,0 +1,17 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-F.68-2011-E, generated PDF from CI
+# (pdf.yml run 44558975060 on main) against the official ITU PDF, shape F68TelexCodes, with
+# --data datasets/978-F.68/data.yaml. Settles only open (bug or unreviewed) deltas;
+# data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'TDC 592: generated "" vs official "Reserved"'
+  disposition: data
+  reason: The official PDF prints footnote "h) Reserved" under block 592; the dataset
+    has an empty allocated_to for 592 and no note, so the generated PDF cannot contain
+    it.
+- layer: prose
+  side: both
+  text: generated "Recommendation" vs official "Recommen- dation"
+  disposition: layout
+  reason: The official PDF hyphenates the word at a line end; pdftotext keeps the
+    hyphen and the space, so it reads as two words. Same word.

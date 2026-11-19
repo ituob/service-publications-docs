@@ -1,0 +1,17 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-X.121A-2011-E, generated PDF from the
+# #89 generation run against the official ITU PDF, shape X121A. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: '423: generated "Reserved a)" vs official "Reserved1"'
+  disposition: layout
+  reason: The Palestinian-Authority footnote marker prints as "a)" after the name
+    in the generated PDF and as superscript 1 glued to the name in the official PDF;
+    the name and the footnote text are the same.
+- layer: prose
+  side: both
+  text: generated "" vs official "* Formerly CCITT Recommendation"
+  disposition: bug
+  reason: The official preface marks "Recommendation*" X.121 with an asterisk and
+    a footnote "* Formerly CCITT Recommendation"; the generated PDF prints neither
+    the asterisk nor the footnote.

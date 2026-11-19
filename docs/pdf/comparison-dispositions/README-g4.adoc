@@ -1,0 +1,92 @@
+= G4 official PDF comparison: T.35, T.35B, SR.1, X.121A, X.121B, RR.25.1
+:toc:
+
+Part of ituob/service-publications-docs#89. Branch `claude-a/89-shapes-g4`, shapes in
+`scripts/official_pdf_shapes/` (`t35.rb`, `t35b.rb`, `sr1.rb`, `x121a.rb`, `x121b.rb`,
+`rr251.rb`, shared helpers in `g4_text.rb`), spec in
+`ituob/spec/scripts/official_pdf_shapes/g4_spec.rb`.
+
+Every delta is either fixed in the shape (our parsing bug), dispositioned in
+`T-SP-<PUB>-<L>.yaml` with a rule that was checked on samples, or left unreviewed and
+counted here. "Open" means `RESULT: FAIL (N open)` from `scripts/compare_official_pdf.rb`.
+Measured 2026-11-19, one row at a time, against the generated PDFs of the #89 generation
+run. Before = deltas with no dispositions file; after = deltas still open with it.
+
+== Result per row and language
+
+[cols="2,1,2,2,2,2",options="header"]
+|===
+| Row | Lang | Deltas before -> open after | Settled | Confirmed bugs | Unreviewed / NOT RUN
+
+| T.35-2012 | E | 1 -> 0 (PASS) | 1 | 1 | none
+| T.35-2012 | F | 5 -> 0 (PASS) | 5 (4 layout + 1 bug) | 1 | none
+| T.35-2012 | S | 1 -> 0 | 0 (shape fix) | 0 | none
+| T.35B-2012 | E | 21 -> 7 | 14 | 10 bug deltas incl. open ones | 7 open (tail)
+| T.35B-2012 | F | 24 -> 13 | 10 | 19 bug deltas incl. open ones | 13 open (tail)
+| T.35B-2012 | S | 19 -> 13 | 6 | 14 bug deltas incl. open ones | 13 open (tail)
+| SR.1-2012 | E | 33 -> 0 (PASS) | 30 deltas (17 data, 13 layout) | 0 | none
+| SR.1-2012 | F | 35 -> 1 | 30 deltas, 28 settled by file | 1 (the open Hong Kong delta, counted as bug) | 1 open (Hong Kong)
+| SR.1-2012 | S | 32 -> 0 (PASS) | 29 deltas (17 data, 12 layout) | 0 | none
+| X.121A-2011 | E | 3 -> 0 (PASS) | 3 | 1 | none
+| X.121A-2011 | F | 2 -> 0 (PASS) | 2 | 0 | none
+| X.121A-2011 | S | 4 -> 0 (PASS) | 4 | 0 | none
+| X.121B-2011 | E | 207 -> 0 (PASS) | 217 deltas (197 layout, 20 bug) | 20 | none
+| X.121B-2011 | F | -> 0 (PASS) | 219 deltas (197 layout, 2 data, 20 bug) | 20 | none
+| X.121B-2011 | S | -> 0 (PASS) | 219 deltas (197 layout, 2 data, 20 bug) | 20 | none
+| RR.25.1-2018 | E | 123 -> 64 | 59 | in the 59 (regex call signs) | 64 open
+| RR.25.1-2018 | F | 174 -> 83 | 91 | in the 91 | 83 open
+| RR.25.1-2018 | S | 180 -> 77 | 103 | in the 103 | 77 open
+|===
+
+Spec run: `cd ituob && bundle exec rspec spec/scripts/official_pdf_shapes/g4_spec.rb spec/scripts/compare_official_pdf_spec.rb`
+gives `79 examples, 0 failures`. X.121A was re-run with its yaml files on 2026-11-19 (E: PASS, 1 confirmed bug;
+F and S: PASS; in S two of the four deltas are settled by the tool's own layout rule). Every row was re-run with the committed yaml files on 2026-11-19 (SR.1, T.35, T.35B, X.121A, X.121B, RR.25.1);
+the "before" figures of the rows other than RR.25.1 are from the earlier measured run (no dispositions file).
+No row was NOT RUN (no memguard stop).
+
+== Shape fixes (ours, no disposition)
+
+* T.35: a wrapped country name is any line indented 28+ columns directly under a row (fixed S: 1 -> 0).
+* SR.1: a block whose three name lines are split by a page break (stub at the page foot) is joined
+  to the chunk after the break; the note regex accepts a "1.1." prefix; the preface ends at the table header.
+  Premise disproved: the generated PDF does carry the TSB preface note, the earlier "missing note" was a shape bug.
+* X.121B: a wrapped network name where the generated PDF puts country text on the same line; multi-digit
+  and ranged codes (`260 621`, `230 40-44`, `460 200-207`); lone-code lines; lower-case running text is not a network name.
+* RR.25.1: permitted/forbidden is decided by the leftmost x of each page plus a gap of 3 columns
+  (the official PDF has exactly two forbidden rows, Korea DPR and Eritrea, in all languages; the earlier
+  column logic gave 29/4/14 generated forbidden rows); part 2 opens at its heading after page furniture.
+
+== Rules used (each checked on real samples)
+
+[cols="2,1,4"]
+|===
+| Rule | Class | Applies to
+
+| Padded date, "name:" colon, label-only differences | layout | T.35B
+| Country heading pair order, URL/email/"All" word glue | data | T.35B
+| Names printed in another order, ordinal "o" vs degree sign, footnote marker glued vs "a)" | layout | X.121A
+| Generated block order differs from official (country cell split differently) | layout, 197 pairs | X.121B
+| Same words and call-sign ranges after dropping labels or in different reading order | layout | RR.25.1 forms and remark note
+| Call signs printed as regular expressions (`[A-Z]{2}`, `P4[39][A-Z]{2,3}`) where the official PDF prints readable ranges | bug | RR.25.1 forms (34 E, 90 F, 102 S entries)
+|===
+
+== Confirmed bugs in the generated PDFs
+
+* T.35: the escape-code row prints "See Note." without the note number (E and F).
+* T.35B: "N/A" entries missing; French label "des informations" wrong; "Dirección General" dropped (Spanish).
+* X.121A E: the asterisk and the footnote "* Formerly CCITT Recommendation" are dropped.
+* X.121B: a multi-digit or ranged code cell wraps (`230 40-/44`, `260/621`, `460/200-207`); the "1)" footnote marker
+  is dropped in 4 rows (20 bug deltas per language).
+* RR.25.1: call-sign patterns print as regular expressions; in F and S the generated forms use English
+  labels ("Amateur stations", "Experimental stations") instead of the language of the PDF.
+
+== Unreviewed (counted, not settled)
+
+* T.35B tail: E 7, F 13, S 13. Swiss URL glue, "Regulation"/"Régulations", Mauritius "Prot-Louis",
+  form-question wrap differences. Not looked at one by one.
+* SR.1-F: 1, the Hong Kong block (CT2 text merged with the next block); looked at, not yet classified.
+* RR.25.1: E 64, F 83, S 77 open. These are call-sign form blocks the rules do not cover: forms that
+  exist only in the generated PDF (E 15, F 52, S 40 rows in the full delta list) or only in the official PDF
+  (E 14, F 31, S 34), and rows that differ beyond the three rules. The generated-only blocks for French,
+  Spanish and Japanese countries are bug candidates (generated forms for administrations the official
+  PDF gives no form for), not confirmed. A call-sign forms row with no rule stays open.

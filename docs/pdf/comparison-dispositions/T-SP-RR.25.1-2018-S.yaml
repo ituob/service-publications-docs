@@ -1,0 +1,1402 @@
+# Human dispositions for scripts/compare_official_pdf.rb: T-SP-RR.25.1-2018-S, generated PDF from the
+# #89 generation run against the official ITU PDF, shape RR251. Settles only the open
+# (bug or unreviewed) deltas; data and layout deltas the tool settles itself are not listed.
+- layer: rows
+  side: both
+  text: 'remark note: generated "a) Esta administración no ha manifestado explícitamente
+    su postura. En cuanto al procedimiento de consulta se supone que la administración
+    no ha presentado objeciones a las radiocomunicaciones entre estaciones de aficionado
+    de su país y estaciones de otros países (véase la Carta circular CR/430 del 14
+    de mayo de 2018)." vs official "Esta administración no ha manifestado explícitamente
+    su postura. En cuanto al procedimiento de consulta se supone que la administración
+    no ha presentado objeciones a las radiocomunicaciones entre estaciones de aficionado
+    de su país y estaciones de otros países (véase la Carta circular CR/430 del 14
+    de mayo de 2018)."'
+  disposition: layout
+  reason: Only list numbering ("a)" vs "1."), footnote asterisks, checkbox/bullet
+    glyphs, fill-in rules, hyphen/punctuation spacing or letter case differ; the words
+    are the same on both sides.
+- layer: rows
+  side: both
+  text: 'forms: Argelia (República Argelina Democrática y Popular): generated "Amateur
+    stations 7X(02-5)[A-Z]{2,3} Experimental 7X(6-7)[A-Z]{2,3} stations" vs official
+    "Estaciones de aficionado: 7X0, 7X2, 7X3, 7X4 y 7X5 seguidos de 2 ó 3 letras Estaciones
+    experimentales: 7X6 y 7X7 seguidos de 2 ó 3 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Argentina (República): generated "Amateur stations (AY|AZ|LU|LW)[1-9][province][A-Z]
+    Letters indicating A-C — Federal Capital the province D-E — Province of Buenos
+    Aires F — Province of Santa Fé GA-GO — Province of Chaco GP-GZ — Province of Formosa
+    H — Province of Córdoba I — Province of Misiones J — Province of Entre Ríos K
+    — Province of Tucumán L — Province of Corrientes M — Province of Mendoza N — Province
+    of Santiago del Estero O — Province of Salta P — Province of San Juan Q — Province
+    of San Luis R — Province of Catamarca S — Province of La Rioja T — Province of
+    Jujuy U — Province of La Pampa V — Province of Rio Negro W — Province of Chubut
+    XA-XO — Province of Santa Cruz XP-XZ — Province of Tierra del Fuego, Antarctic
+    and Islands of South Atlantic Y — Neuquén Z — Antarctic" vs official "Estaciones
+    de aficionado: AY, AZ, LU, LW seguidos de una cifra (0-9) y de 2 ó 3 letras, la
+    primera distintiva de la provincia en que está situada la estación Letras distintivas
+    de las provincias: A-B y C – Capital Federal D-E – Provincia de Buenos Aires F
+    – Provincia de Santa Fé GA–GOZ – Provincia del Chaco GP–GZZ – Provincia de Formosa
+    H – Provincia de Córdoba I – Provincia de Misiones J – Provincia de Entre Ríos
+    K – Provincia de Tucumán L – Provincia de Corrientes M – Provincia de Mendoza
+    N – Provincia de Santiago del Estero O – Provincia de Salta P – Provincia de San
+    Juan Q – Provincia de San Luis R – Provincia de Catamarca S – Provincia de La
+    Rioja T – Provincia de Jujuy U – Provincia de La Pampa V – Provincia de Rio Negro
+    W – Provincia del Chubut XA–XOZ – Provincia de Santa Cruz XP–XZZ – Provincia de
+    Tierra del Fuego, Antártida e Islas del Atlántico Sur Y – Neuquén Z – Antártida
+    Nota: Los principiantes deben utilizar el prefijo AZ. Aruba Estaciones de aficionado:
+    P43 o P49 seguido de un grupo de 3 letras como máximo Notas: i) Los radioaficionados
+    extranjeros utilizarán el distintivo de llamada que les haya sido asignado por
+    su administración seguido de una barra de fracción (/) y de P4 por una duración
+    de un año. ii) El prefijo P40 o P41 seguido de un grupo de 3 letras como máximo
+    se asigna para acontecimientos especiales por una duración de un mes al máximo."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Australia: generated "Amateur stations Advanced license (VK|AX|VI)[amateur_area][A-GI-KS-UW-Z][A-
+    Z]{2,3} Standard license (VK|AX|VI)[amateur_area][HLMNPV][A-Z]{2} Foundation (VK|AX|VI)[amateur_area][F][A-Z]{3}
+    license Digits indicating the amateur area 1 — Australian Capital Territory 2
+    — New South Wales 3 — Victoria 4 — Queensland 5 — South Australia 6 — Western
+    Australia 7 — Tasmania 8 — Northern Territory 9 — Australian External Territories
+    Experimental AX[1-9][experimental_area][A-Z]{2} stations Letters indicating the
+    experimental area A — Australian Capital Territory N — New South Wales V — Victoria
+    Q — Queensland S — South Australia W — Western Australia T — Tasmania D — Northern
+    Territory" vs official "Estaciones de aficionado: VK, AX* o VI* seguido de una
+    cifra (que indica el estado o territorio en el cual está situada la estación)
+    y de 2, 3 ó 4 letras. En los distintivos de llamada con sufijos de 3 ó 4 letras,
+    la primera letra indica la categoría de la licencia. Las estaciones de aficionados
+    «avanzadas» se indican mediante distintivos de llamada con sufijos de 2 letras
+    y sufijos de 3 letras, en los cuales la primera letra es A, B, C, D, E, F, G,
+    I, J, K, S, T, U, W, X, Y o Z. Las estaciones de aficionados «normales» se indican
+    mediante distintivos de llamada con sufijos de 3 letras, en los cuales la primera
+    letra es H, L, M, N, P o V. Las estaciones de aficionados «fundacionales» se indican
+    mediante distintivos de llamada con sufijos de 4 letras, en los cuales la primera
+    letra es F. * Para acontecimientos especiales nacionales o estatales/locales.
+    Estaciones experimentales: AX seguido de una cifra (2-9) y de 3 letras, la primera
+    que indica el estado o territorio en el cual está situada la estación. Estado
+    o territorio Estación Territorio Nueva Territorio Territorios de la Australia
+    Australia Gales Victoria Queensland Tasmania Septen- exteriores Antártida Capital
+    Meridional Occidental del Sur trional australianos australiana Aficionado 1 2
+    3 4 5 6 7 8 9 – Experimental A N V Q S W T D – –"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Austria: generated "Amateur stations OE[amateur_area][A-Z]{2,3} Digits
+    indicating the 1 — Vienna (amateur stations only) amateur area 2 — Salzburg 3
+    — Vienna (experimental stations only) and Lower Austria 4 — Burgenland 5 — Upper
+    Austria 6 — Styria 7 — Tyrol 8 — Carinthia 9 — Vorarlberg 0 — extraterritorial
+    (on board ships or on board aircraft) Experimental OE[experimental_area]Q[A-Z]
+    stations Digits indicating the 2 — Salzburg experimental area 3 — Vienna (experimental
+    stations only) and Lower Austria 4 — Burgenland 5 — Upper Austria 6 — Styria 7
+    — Tyrol 8 — Carinthia 9 — Vorarlberg" vs official "Estaciones de aficionado: OE
+    seguido de una cifra (0-9, distintiva de la provincia o de la zona en que está
+    situada la estación) y de 2 ó 3 letras Estaciones experimentales: OE seguido de
+    una cifra (2-9, distintiva de la provincia en que está situada la estación) y
+    de 2 letras (QA-QZ) Cifras distintivas de las provincias o zonas: 1 – Viena (sólo
+    estaciones de aficionado) 2 – Salzburgo 3 – Viena (sólo estaciones experimentales)
+    y Baja Austria 4 – Burgenland 5 – Alta Austria 6 – Estiria 7 – Tirol 8 – Carintia
+    9 – Vorarlberg 0 – extraterritorial » – a bordo de barcos o a bordo de aeronaves
+    Bahamas (Commonwealth de las) Estaciones de aficionado y estaciones experimentales:
+    C62AA-C69ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Bahrein (Reino de): generated "Amateur stations A9[1-9][0-9A-Z]{2,4}"
+    vs official "Estaciones de aficionado: A9 seguido por una cifra (0 to 9) seguido
+    por 2, 3 or 4 caracteres, el último de los cuales será una letra. Prefijo Cifra
+    Sufijo A9 0-9 Hasta 4 caracteres, el último de los cuales será una letra"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Barbados: generated "Amateur stations National radio amateurs 8P6[A-
+    Z]{2} Foreign radio amateurs, visitors and short-term licence 8P9[A- holders.
+    Z]{2}" vs official "Estaciones de aficionado: 8P6AA-8P6ZZ* 8P9AA-8P9ZZ** * Para
+    los radioaficionados nacionales. ** Para los radioaficionados extranjeros, los
+    visitantes y los radioaficionados que posean una licencia temporal."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Belarús (República de): generated "Amateur stations class A (operator
+    with CEPT licence, E[UVW][city_region][A- HAREC certificate) Z]{1} Class A and
+    class B (operator with CEPT E[UVW][city_region][A- licence, HAREC certificate)
+    Z]{2} Class C (operator with novice licence, E[UVW][city_region][A- ARNEC certificate)
+    Z]{3} Club stations E[UVW][city_ region](W|X|Z)[A-Z]{1} Foreign radio amateurs
+    EW/.* Digits indicating the city region 1 — City of Minsk 2 — Minsk Region 3 —
+    Brest Region 4 — Grodno Region 5 — Vitebsk Region 6 — Mogilev Region 7 — Gomel
+    Region Experimental repeaters EU[1-4|6-8][1- stations 9]{2}R radiobeacons EU[1-4|6-8][1-
+    9]{2}B satellites EU[1-8][1-9]S stations operating in radio contests EV[1-9][A-Z]{2}
+    expeditions to space-based facilities EV[1-8][1- 9]ISS stations operating in the
+    Antartic EV0AN[A-Z] stations operating on days of special national and EV[1-9]{1-4}[A-
+    international events Z] participants in international SW and USW radio E[UVW]5[A-Z]
+    communication competitions (up to one year) NOTA – Foreign radio amateurs with
+    a licence must use EW followed by slash (/) and their own call sign." vs official
+    "Estaciones de aficionado: EU, EV, o EW, seguidos de una cifra (1-4, 6-8 indicando
+    la ciudad o la región (Oblast) dónde está situada la estación) y de 1, 2, ó 3
+    letras. Cifras distintivas de la ciudad o región: 1. Ciudad de Minsk 2. Región
+    de Minsk 3. Región de Brest 4. Región de Grodno 5. Región de Vitebsk 6. Región
+    de Mogilev 7. Región de Gomel Distintivo de llamada compuesto de: 4 caracteres
+    – clase A (operador con licencia CEPT, con un certificado HAREC) 5 caracteres
+    – clase A y clase B (operador con licencia CEPT, con un certificado HAREC) 6 caracteres
+    – clase C (operador con licencia de principiante, con un certificado ARNEC) 5
+    caracteres – el cuarto símbolo es W, X, Z para las estaciones de club. Estaciones
+    experimentales: EU1A00R – EU8Z99R (excepto EU5A00R – EU5Z99R) – Repetidores EU1A00B
+    – EU8Z99B (excepto EU5A00B – EU5Z99B) – Radiobalizas EU10S – EU89S – Satélites
+    EV0AA – EV9ZZ – para estaciones que operan en concursos de radio EV10ISS – EV89ISS
+    – para expediciones a instalaciones espaciales EV0ANA – EV0ANZ – para estaciones
+    que operan en la Antártida EV0A – EV9999Z – para estaciones que operan en días
+    de acontecimientos especiales nacionales e internacionales EU5, EV5, EW5, seguidos
+    de una letra – sólo para participantes en concursos internacionales de comunicación
+    por radio SW y USW (hasta un año). Nota: Los radioaficionados extranjeros que
+    posean licencia deben usar EW seguido de una barra de fracción (/) y de su propio
+    distintivo de llamada. Bélgica Estaciones de aficionado ON0AA-ON0ZZ Estaciones
+    automáticas ON0AAA-ON0ZZZ ON1AA-ON1ZZ Estaciones de clase 2 ON1AAA-ON1ZZZ ON2AA-ON2ZZ
+    Actualmente no utilizado ON2AAA-ON2ZZZ ON3AA-ON3ZZ Estaciones de clase 3 ON3AAA-ON3ZZZ
+    ON4AA-ON4ZZ ON4AAA-ON4ZZZ ON5AA-ON5ZZ ON5AAA-ON5ZZZ ON6AA-ON6ZZ Estaciones de
+    clase 1 ON6AAA-ON6ZZZ ON7AA-ON7ZZ ON7AAA-ON7ZZZ ON8AA-ON8ZZ ON8AAA-ON8ZZZ ON9AAA-ON9AZZ
+    Estaciones de clase 3 para los extranjeros ON9BAA-ON9BZZ Estaciones de clase 2
+    para los extranjeros ON9CAA-ON9CZZ Estaciones de clase 1 para los extranjeros
+    OP0LE y OP0OL Estaciones de club en la Antártida OR3AA-OR3ZZ Estaciones temporarias
+    de clase 3 en la Antártida OR3AAA-OR3ZZZ OR4AA-OR4ZZ Estaciones temporarias de
+    clase 1 en la Antártida OR4AAA-OR4ZZZ OR4ISS Estación a bordo de la ISS OO0A-OO9Z
+    OP0A-OP9Z OQ0A-OQ9Z OR0A-OR4Z Distintivos suplementarios para las estaciones de
+    OR6A-OR9Z clase 1 OS0A-OS9Z OT0A-OT4Z OT6A-OT9Z OR5A-OR5Z Estaciones para concursos
+    de alta potencia OT5A-OT5Z"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Belice: generated "Amateur stations Class 1 licence V31[A-Z]{2} Class
+    2 licence V32[A-Z]{2}" vs official "Estaciones de aficionado: V31AA-V31ZZ – Licencia
+    de clase 1 V32AA-V32ZZ – Licencia de clase 2"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Benin (República de): generated "Amateur stations TY[1-9][A-Z]{2}"
+    vs official "Estaciones de aficionado: TY seguido de una cifra (1-9) y de 2 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Bhután (Reino de): generated "Amateur stations amateur clubs and stations
+    A50[A-Z]{2} national radio amateurs A51[A-Z]{2} visiting radio amateurs A52[A-Z]{2}"
+    vs official "Estaciones de aficionado: A50AA-A50ZZ* A51AA-A51ZZ** A52AA-A52ZZ***
+    * Para los clubs y las estaciones de aficionado. ** Para los radioaficionados
+    nacionales. *** Para los radioaficionados visitantes. Bolivia (Estado Plurinacional
+    de) Estaciones de aficionado: CP1AA-CP9ZZ Cifras distintivas de los departamentos:
+    1 – La Paz 2 – Chuquisaca 3 – Oruro 4 – Potosí 5 – Cochabamba 6 – Santa Cruz 7
+    – Tarija 8 – Beni 9 – Pando En el caso de las estaciones que se especifican a
+    continuación, se adiciona al final del distintivo la siguiente combinación de
+    letras: M: para estaciones móviles terrestres, MA: para estaciones móviles aeronáuticas,
+    MF: para estaciones móviles fluviales, MM: para estaciones móviles marítimas,
+    S: para estaciones cuyo titular posea licencia de radioaficionado de segunda categoría,
+    C: para estaciones cuyo titular posea licencia de radioaficionado con carácter
+    provisional."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Bonaire, San Eustatius y Saba: generated "Amateur stations Bonaire
+    PJ4[A-Z]{2,3} S. Eustatius PJ5[A-Z]{2,3} Saba PJ6[A-Z]{2,3}" vs official "Estaciones
+    de aficionado: PJ4AA-PJ4ZZZ – Bonaire PJ5AA-PJ5ZZZ – S. Eustatius PJ6AA-PJ6ZZZ
+    – Saba"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Botswana (República de): generated "Amateur stations A22[A-Z]{2}"
+    vs official "Estaciones de aficionado: A22AA-A22ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Brunei Darussalam: generated "Amateur stations communications HF and
+    VHF V85[A-Z]{2,3} communications VHF only V85[A-Z]" vs official "Estaciones de
+    aficionado: V85 seguido de 2 ó 3 letras para las comunicaciones HF y VHF V85 seguido
+    de 1 letra para las comunicaciones VHF solamente"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Bulgaria (República de): generated "Amateur stations LZ[1-9][A-Z]{1,3}"
+    vs official "Estaciones de aficionado: LZ1-LZ9 seguidos de un grupo de 3 letras
+    como máximo"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Burkina Faso: generated "Amateur stations XT[2-3][A-Z]{2} and experimental
+    stations" vs official "Estaciones de aficionado y estaciones experimentales: XT2
+    o XT3 seguido de 2 letras Burundi (República de) Estaciones de aficionado: 9U5
+    seguido de 2 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Cabo Verde (República de): generated "Amateur stations D44[A-Z]{2}"
+    vs official "Estaciones de aficionado: D44AA-D44ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Camerún (República de): generated "Amateur stations TJ1[A-Z]{2}" vs
+    official "Estaciones de aficionado: TJ1 seguido de 2 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Canadá: generated "Amateur stations V[province_or_area][A-Z]{1,3}
+    Codes indicating the E1 — Provinces of Nova Scotia and New province or area Brunswick
+    A1 — Provinces of Nova Scotia and New Brunswick E2 — Province of Quebec A2 — Province
+    of Quebec E3 — Province of Ontario A3 — Province of Ontario E4 — Province of Manitoba
+    A4 — Province of Manitoba E5 — Province of Saskatchewan A5 — Province of Saskatchewan
+    E6 — Province of Alberta A6 — Province of Alberta E7 — Province of British Columbia
+    A7 — Province of British Columbia E8 — Northwest Territories (excluding Nunavut)
+    E9 — Province of New Brunswick E0 — Amateur station on board a ship O1 — Province
+    of Newfoundland (excluding Labrador) O2 — Labrador Y0 — Nunavut Territory Y1 —
+    Yukon Territory Y2 — Province of Prince Edward Island Experimental Canada (all
+    provinces and territories) VX9[A-Z]{2,3} stations NOTA – VE0 is intended for use
+    when the amateur radio station is operated from a vessel that makes international
+    voyages." vs official "Estaciones de aficionado: VE1, VA1 seguidos de 1, 2 ó 3
+    letras – Provincias de Nueva Escocia y Nuevo Brunswick VE2, VA2 seguidos de 1,
+    2 ó 3 letras – Provincia de Quebec VE3, VA3 seguidos de 1, 2 ó 3 letras – Provincia
+    de Ontario VE4, VA4 seguidos de 1, 2 ó 3 letras – Provincia de Manitoba VE5, VA5
+    seguidos de 1, 2 ó 3 letras – Provincia de Saskatchewan VE6, VA6 seguidos de 1,
+    2 ó 3 letras – Provincia de Alberta VE7, VA7 seguidos de 1, 2 ó 3 letras – Provincia
+    de Colombia británica VE8 seguido de 1, 2 ó 3 letras – Territorios del Noroeste
+    (Nunavut excluido) VE9 seguido de 1, 2 ó 3 letras – Provincia de Nuevo Brunswick
+    V E0* seguido de 1, 2 ó 3 letras – Estación de aficionado a bordo de un barco
+    VO1 seguido de 1, 2 ó 3 letras – Provincia de Terranova (Labrador excluido) VO2
+    seguido de 1, 2 ó 3 letras – Labrador VY0 seguido de 1, 2 ó 3 letras – Territorio
+    del Nunavut VY1 seguido de 1, 2 ó 3 letras – Territorio del Yukon VY2 seguido
+    de 1, 2 ó 3 letras – Provincia de la Isla del Príncipe Eduardo * VE0 es utilizado
+    cuando la estación de radioaficionado es explotada desde un barco que viaja internacionalmente.
+    Estaciones experimentales: VX9 seguido de 2 ó 3 letras – Canadá (conjunto de las
+    provincias y territorios)"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Centroafricana (República): generated "Amateur stations TL8[A-Z]{2,3}"
+    vs official "Estaciones de aficionado y estaciones experimentales: TL8 seguido
+    de 2 ó 3 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Colombia (República de): generated "Amateur stations Amateur stations
+    H[JK][zone][A- Z]{1,3} Amateur stations operating during contests or 5[JK][zone][A-
+    special events Z]{1,3} Digits indicating 0 — Insular Colombian Territory and mobile
+    the zone maritime service 1 — Departments of Atlántico, Bolívar, Córdoba and Sucre
+    2 — Departments of Guajira, Magdalena, Cesar and North of Santander 3 — Departments
+    of Cundinamarca, Meta and Vichada 4 — Departments of Antioquia and Chocó 5 — Departments
+    of Cauca and Valle del Cauca 6 — Departments of Caldas, Tolima, Risaralda, Quindío
+    and Huila 7 — Departments of Santander, Boyacá, Arauca and Casanare 8 — Departments
+    of Nariño, Caquetá and Putumayo 9 — Departments of Amazonas, Vaupés, Guainía and
+    Guaviare NOTA – 5J or 5K followed by a digit (0-9) and by 1, 2 or 3 letters is
+    authorised on a temporary basis to amateur stations operating during contests
+    or special events." vs official "Estaciones de aficionado: HJ o HK seguido de
+    una cifra (0-9, que indicará la zona a la que pertenece el radioaficionado) y
+    de 1, 2 ó 3 letras Cifras distintivas de las zonas: 0 – Territorio Insular Colombiano
+    y servicio móvil marítimo 1 – Departamentos de Atlántico, Bolívar, Córdoba y Sucre
+    2 – Departamentos de Guajira, Magdalena, Cesar y Norte de Santander 3 – Departamentos
+    de Cundinamarca, Meta y Vichada 4 – Departamentos de Antioquia y Chocó 5 – Departamentos
+    de Cauca y Valle del Cauca 6 – Departamentos de Caldas, Tolima, Risaralda, Quindío
+    y Huila 7 – Departamentos de Santander, Boyacá, Arauca y Casanare 8 – Departamentos
+    de Nariño, Caquetá y Putumayo 9 – Departamentos de Amazonas, Vaupés, Guainía y
+    Guaviare Nota: 5J o 5K seguido de una cifra (0-9) y de 1, 2 ó 3 letras se autoriza
+    con carácter temporal a las estaciones de aficionado explotadas durante concursos
+    o acontecimientos especiales. Comoras (Unión de las) Estaciones de aficionado:
+    D68 seguido de 2 letras* * Las 2 letras representan la identidad del operador."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Congo (República del): generated "Amateur stations TN8[A-Z]{2} and
+    experimental stations" vs official "Estaciones de aficionado y estaciones experimentales:
+    TN8AA-TN8ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Cook (Islas): generated "Amateur stations ZK1[A-Z]{2}" vs official
+    "Estaciones de aficionado: ZK1 seguido de 2 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Costa Rica: generated "Amateur stations T[EI][1-9][A-Z]{1,3}" vs official
+    "Estaciones de aficionado: TE o TI seguido de una cifra y de un grupo de 3 letras
+    como máximo"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Côte d''Ivoire (República de): generated "Amateur stations TU2[A-Z]{2}"
+    vs official "Estaciones de aficionado: TU2AA-TU2ZZ Estaciones experimentales:
+    TU3AA-TU3ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Croacia (República de): generated "Amateur stations 9A[1-9][A-Z]{1,3}"
+    vs official "Estaciones de aficionado: 9A seguido de una cifra y de 1, 2 ó 3 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Cuba: generated "Amateur stations (T4|CL|CM|CO)[amateur_area][A-Z]{1,3}
+    Digits indicating the 1 — Province of Pinar del Río amateur area 2 — Province
+    of Havana City 3 — Province of Havana 4 — Municipality of Isla de la Juventud
+    5 — Province of Matanzas 6 — Provinces of Villa Clara, Cienfuegos and Sancti Spíritus
+    7 — Provinces of Ciego de Ávila and Camagüey 8 — Provinces of Santiago de Cuba,
+    Granma, Holguín, Las Tunas and Guantánamo" vs official "Estaciones de aficionado:
+    T4, CL, CM o CO seguido de una cifra (distintiva de la provincia o zona en que
+    está situada la estación) y de 1, 2 ó 3 letras Cifras distintivas de las provincias
+    o zonas: 1 – Provincia de Pinar del Río 2 – Provincia de la ciudad de La Habana
+    3 – Provincia de La Habana 4 – Municipio de Isla de la Juventud 5 – Provincia
+    de Matanzas 6 – Provincias de Villa Clara, Cienfuegos y Sancti Spíritus 7 – Provincias
+    de Ciego de Ávila y Camagüey 8 – Provincias de Santiago de Cuba, Granma, Holguín,
+    Las Tunas y Guantánamo"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Curaçao: generated "Amateur stations PJ2[A-Z]{2,3}" vs official "Estaciones
+    de aficionado: PJ2AA-PJ2ZZZ Chad (República del) Estaciones de aficionado y estaciones
+    experimentales: TT8 seguido de 2 letras, la primera de las cuales es la letra
+    A"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Chipre (República de): generated "Amateur stations 5B4[A-Z]{3} NOTA
+    – Foreign amateurs will use the call sign assigned to them by their administration
+    followed by a stroke (/) and then 5B4 on a temporary basis." vs official "Estaciones
+    de aficionado: 5B4AAA-5B4ZZZ Nota: Los radioaficionados extranjeros utilizarán
+    con carácter temporal el distintivo de llamada que les haya sido asignado por
+    su administración seguido de una barra de fracción (/) y de 5B4."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Dinamarca: generated "Amateur stations Denmark (OU|OV|OZ|5P|5Q)[1-9][0-9A-Z]{3}[A-Z]
+    Faroe Islands OY[1-9][A-Z]{1,3} Greenland OX[1-9][A-Z]{2,3}" vs official "Estaciones
+    de aficionado Zona Prefijo Cifra Sufijo Hasta 4 caracteres, el último de Dinamarca
+    OU, OV, OZ, 5P, 5Q 0-9 los cuales será una letra Feroe (Islas) OY 1-9 1, 2 ó 3
+    letras Groenlandia OX 1-9 2 ó 3 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Djibouti (República de): generated "Amateur stations For amateur stations
+    operating on a permanent basis. J28[A-Z]{2} For amateur stations operating on
+    a temporary basis. J20[A-Z]{2} For special events (see Note 1) J20[A-Z]{3} NOTA
+    – For special events the radio amateurs will use J20 followed by a group of 3
+    letters." vs official "Estaciones de aficionado: J28AA-J28ZZ* J20AA-J20ZZ** *
+    Para estaciones cuyo titular posea licencia de radioaficionado con carácter permanente.
+    ** Para estaciones cuyo titular posea licencia de radioaficionado con carácter
+    provisional. Nota: Para los acontecimientos especiales, los radioaficionados deberán
+    utilizar J20 seguido de un grupo de 3 letras."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Dominica (Commonwealth de): generated "Amateur stations J73[A-Z]{2}"
+    vs official "Estaciones de aficionado y estaciones experimentales: J73AA-J73ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Dominicana (República): generated "Amateur stations HI[zone][A-Z]{1,3}
+    Digits indicating the zone 1 — Beata Island 2 — Saona Island 3 — Central Cibao
+    Region 4 — Northwest Line Region 5 — Southwest Region 6 — South Central Region
+    7 — East Region 8 — South Region 9 — Northwest Region" vs official "Estaciones
+    de aficionado: HI seguido de una cifra (distintiva de la zona en que está situada
+    la estación) y de un grupo de 3 letras como máximo Cifras distintivas de las zonas:
+    1 – Isla Beata 2 – Isla Saona 3 – Región Cibao Central 4 – Región Línea Noroeste
+    5 – Región Suroeste 6 – Región Sur Central 7 – Región Este 8 – Región Sur 9 –
+    Región Noroeste Ecuador Estaciones de aficionado: HC o HD seguido de una cifra
+    (1-8, distintiva de la provincia en que está situada la estación) y de 1, 2 ó
+    3 letras Los principiantes deben utilizar la letra N después de la cifra distintiva
+    de la provincia Cifras distintivas de las provincias: 1 – Provincias de Carchi,
+    Imbabura y Pichincha 2 – Provincias de Guayas (costa) y Los Ríos 3 – Provincias
+    de El Oro (costa) y Loja 4 – Provincias de Manabí (costa) y Esmeraldas (costa)
+    5 – Provincias de Chimborazo, Cañar y Azuay 6 – Provincias de Cotopaxi, Tungurahua
+    y Bolívar 7 – Provincias de Napo, Pastaza, Morona Santiago, Zamora y Sucumbios
+    8 – Provincia de Galápagos (islas) Estaciones experimentales: HD9 seguido de 3
+    letras Nota: Los radioaficionados que participan en concursos deberán utilizar
+    con carácter temporal HD9 seguido de 1 letra."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Egipto (República Árabe de): generated "Amateur stations SU[1-9][A-Z]{2}"
+    vs official "Estaciones de aficionado: SU seguido de una cifra y de 2 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: El Salvador (República de): generated "Amateur stations YS[zone][A-Z]{1,3}
+    Digits indicating the 1 — Department of San Salvador zone 2 — Department of Santa
+    Ana 3 — Department of San Miguel 4 — Department of La Libertad 5 — Departments
+    of La Paz, Cuscatlán and Chalatenango 6 — Departments of Usulután, San Vicente
+    and Cabañas 7 — Department of Sonsonate 8 — Department of Ahuachapán 9 — Departments
+    of Morazán and La Unión Experimental HU9[A-Z]{2} stations NOTA – Foreign radio
+    amateurs must use YS followed by a digit (1-9, indicating the operational zone),
+    by a stroke (/) and by their own call sign." vs official "Estaciones de aficionado:
+    YS seguido de una cifra (1-9, distintiva de la zona en que está situada la estación)
+    y de un grupo de 3 letras como máximo Cifras distintivas de las zonas: 1 – Departamento
+    de San Salvador 2 – Departamento de Santa Ana 3 – Departamento de San Miguel 4
+    – Departamento de La Libertad 5 – Departamentos de La Paz, Cuscatlán y Chalatenango
+    6 – Departamentos de Usulután, San Vicente y Cabañas 7 – Departamento de Sonsonate
+    8 – Departamento de Ahuachapán 9 – Departamentos de Morazán y La Unión Estaciones
+    experimentales: HU9 seguido de 2 letras Nota: Los radioaficionados extranjeros
+    deberán utilizar YS seguido de una cifra (1-9, distintiva de la zona de operación),
+    de una barra de fracción (/) y de su propio distintivo."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Etiopía (República Democrática Federal de): generated "Amateur stations
+    Ethiopia ET3[A-Z]{2} Ethiopia 9[EF]3[A-Z]{2}" vs official "Estaciones de aficionado:
+    ET3AA-ET3ZZ 9E3AA-9F3ZZ Federación de Rusia Estaciones de aficionado y estaciones
+    experimentales RA0AA – RZ9ZZ UA0AA – UI9ZZ Estaciones de primera categoría explotadas
+    con un R0AA – R9ZZ* certificado HAREC RA0A – RZ9Z** UA0A – UI9Z R0AAA – R9ZZZ
+    Estaciones de segunda categoría explotadas con un RA0AAA – RZ9ZZZ certificado
+    HAREC UA0AAA – UA9ZZZ UB0AAA – UD9ZZZ Estaciones de tercera categoría explotadas
+    con un UF0AAA – UG9ZZZ certificado ARNEC (licencia de principiante) UE0AAA – UE9ZZZ
+    Estaciones de cuarta categoría (nivel inicial) UH0AAA – UI9ZZZ RR0AA – RR9ZZ Repetidores
+    RR0AAA – RR9ZZZ RB0AA – RB9ZZ Radiobalizas RS0S – RS9S Estaciones del servicio
+    de aficionados por satélite RS10S – RS99S R0AAAA – R9ZZZZ R00AAA – R99ZZZ R000A
+    – R999Z R000AA – R999ZZ R0000A – R9999Z Utilización temporaria para ocasiones
+    especiales RA00A – RZ99Z RA00AA – RZ99ZZ RA00AAA – RZ99ZZZ RA000A – RZ999Z RA000AA
+    – RZ999ZZ R0A – R9Z R00A – R99Z Estaciones participando a vueltas internas de
+    concursos R00AA – R99ZZ*** * A condición de que se utilice la estación durante
+    une periodo de por lo menos 25 años civiles. ** A condición de que se haya participado
+    durante los últimos cinco años a por lo menos diez concursos internacionales o
+    a todos los concursos rusos. *** Excepto los distintivos de llamada de la serie
+    R00P – R99SP asignados exclusivamente a las estaciones de aficionado de expediciones
+    polares explotadas en el hielo flotante del océano Antártico."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Fiji (República de): generated "Amateur stations 3D2[A-Z]{2} Experimental
+    3D3[A-Z]{2} stations" vs official "Estaciones de aficionado: 3D2 seguido de 2
+    letras Estaciones experimentales: 3D3 seguido de 2 letras Filipinas (República
+    de) Estaciones de aficionado: DU* seguido de una cifra (1-9, distintiva del distrito
+    en que está situada la estación) y de un grupo de 3 letras como máximo – Clase
+    A, B o C DY seguido de una cifra (1-9, distintiva del distrito en que está situada
+    la estación) y de un grupo de 3 letras como máximo – Clase D DX o DZ seguido de
+    una cifra (1-9, distintiva del distrito en que está situada la estación) y de
+    un grupo de 3 letras como máximo – Estaciones de club * En lugar de DU, los radioaficionados
+    de clase A pueden utilizar los prefijos 4D, 4E o 4F."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Finlandia: generated "Amateur stations O[F-J][1-9][0-9A-Z]{3}[A-Z]{1}
+    and experimental stations" vs official "Estaciones de aficionado y estaciones
+    experimentales: OF, OG, OH, OI u OJ seguido de una cifra y de un grupo de 4 caracteres
+    como máximo, el último de los cuales será una letra"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Gabonesa (República): generated "Amateur stations TR8[A-Z]{2}" vs
+    official "Estaciones de aficionado: TR8AA-TR8ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Gambia (República de): generated "Amateur stations C53[A-Z]{2}" vs
+    official "Estaciones de aficionado: C53AA-C53ZZ Georgia Estaciones de aficionado:
+    4L seguido de una cifra y de 1, 2 ó 3 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Ghana: generated "Amateur stations For national radio amateurs 9G1[A-Z]{2,}
+    For foreign radio amateurs 9G5[A-Z]{2,} Experimental 9G2[A-Z]{2} stations" vs
+    official "Estaciones de aficionado: 9G1 seguido de 2 letras o más* 9G5 seguido
+    de 2 letras o más** Estaciones experimentales: 9G2 seguido de 2 letras * Para
+    los radioaficionados nacionales. ** Para los radioaficionados extranjeros."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Grecia: generated "Amateur stations Class 1 SV[regions][A-Z]{2,3}
+    and experimental Class 2 SW[regions][A-Z]{2,3} stations Digits indicating 0 —
+    For radio amateurs with a foreign licence and to foreign radio amateurs the regions
+    with permanent residence 1 — Sterea Hellas 2 — Central and Western Macedonia 3
+    — Peloponnese 4 — Thessaly 5 — Dodecanese Prefecture 6 — Epirus 7 — Eastern Macedonia
+    and Thrace 8 — All the islands (except those belonging to Cretian Prefectures
+    and to Dodecanese Prefecture) 9 — Cretian Prefectures and their islands NOTA a)
+    SV0 or SW0 followed by 2 or 3 letters is assigned to Greek radio amateurs with
+    a foreign licence and to foreign radio amateurs with permanent residence. b) The
+    prefix J4, SX or SY is assigned as a special call sign to Greek unions of radio
+    amateurs, Greek teams of radio amateurs, Greek radio amateurs and foreign radio
+    amateurs. c) The prefix SZ is assigned to the Greek Radio Amateur Union and Greek
+    university laboratories in the area of wireless telecommunications." vs official
+    "Estaciones de aficionado y estaciones experimentales: SV* o SW** seguido de una
+    cifra (distintiva de la región en que está situada la estación) y de 2 ó 3 letras
+    Cifras distintivas de las regiones: 1 – Sterea Hellas 2 – Macedonia central y
+    occidental 3 – Peloponeso 4 – Tesalia 5 – Prefectura del Dodecaneso 6 – Epiro
+    7 – Macedonia oriental y Tracia 8 – Todas las islas (excepto las prefecturas de
+    Creta y la prefectura del Dodecaneso) 9 – Prefecturas de Creta y sus islas * Clase
+    1. ** Clase 2. Notas: i) SV0 o SW0 seguido de 2 ó 3 letras se asigna a los radioaficionados
+    griegos que posean una licencia extranjera y a los radioaficionados extranjeros
+    con residencia permanente. ii) El prefijo J4, SX o SY se asigna como distintivo
+    de llamada especial a las uniones griegas de radioaficionados, los equipos griegos
+    de radioaficionados, los radioaficionados griegos y los radioaficionados extranjeros.
+    iii) El prefijo SZ se asigna a la Unión Griega de Radioaficionados y a los laboratorios
+    de las universidades griegas en el área de las radiocomunicaciones inalámbricas."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Guatemala (República de): generated "Amateur stations TG[departments][A-Z]{2}
+    Digits indicating the 4 — Sololá, Chimaltenango, Suchitepéquez, departments Escuintla
+    and Santa Rosa 5 — Huehuetenango, Quiché and Totonicapán 6 — Zacapa, Chiquimula
+    and Jutiapa 7 — Petén, Alta Verapaz and Izabal 8 — San Marcos, Quetzaltenango
+    and Retalhuleu 9 — Guatemala, Jalapa, El Progreso, Baja Verapaz and Sacatepéquez
+    Experimental Ecuador TD9[A-Z] stations" vs official "Estaciones de aficionado:
+    TG seguido de una cifra (4-9, distintiva del departamento en que está situada
+    la estación) y de 2 letras Cifras distintivas de los departamentos: 4 – Sololá,
+    Chimaltenango, Suchitepéquez, Escuintla y Santa Rosa 5 – Huehuetenango, Quiché
+    y Totonicapán 6 – Zacapa, Chiquimula y Jutiapa 7 – Petén, Alta Verapaz e Izabal
+    8 – San Marcos, Quetzaltenango y Retalhuleu 9 – Guatemala, Jalapa, El Progreso,
+    Baja Verapaz y Sacatepéquez Estaciones experimentales: TD9A-TD9Z"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Guinea (República de): generated "Amateur stations 3X[1-9][A-Z]{2}
+    Experimental 3X[2-9][A-Z]{3} stations" vs official "Estaciones de aficionado:
+    3X0AA-3X9ZZ Estaciones experimentales: 3X2AAA-3X9ZZZ Guinea-Bissau (República
+    de) Estaciones de aficionado: J52UAB-J52UAI"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Guyana: generated "Amateur stations 8R[region][A-Z]{3} and experimental
+    stations Digits indicating 1 — Demerara the region 2 — Berbice 3 — Essequibo"
+    vs official "Estaciones de aficionado y estaciones experimentales: 8R1AAA-8R1ZZZ
+    – Demerara 8R2AAA-8R2ZZZ – Berbice 8R3AAA-8R3ZZZ – Essequibo"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Haití (República de): generated "Amateur stations HH[1-9][A-Z]{2}"
+    vs official "Estaciones de aficionado: HH seguido de una cifra (distintiva de
+    la zona en que está situada la estación) y de 2 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Hungría: generated "Amateur stations H[A|G][1-9][0-9A-Z]{3}[A-Z]{1}"
+    vs official "Estaciones de aficionado: HA o HG seguido de una cifra (0-9) y de
+    un grupo de cuatro caracteres como máximo, el último de los cuales será una letra"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: India (República de la): generated "Amateur stations Mainland India
+    VU[23][A-Z]{2,3} National Islands VU[47][A-Z]{2,3} Experimental India VU4[A-Z]{2}
+    stations" vs official "Estaciones de aficionado: VU2 o VU3 seguido de 2 ó 3 letras
+    – India continental VU4 o VU7 seguido de 2 ó 3 letras – Islas nacionales Estaciones
+    experimentales: VU4 seguido de 2 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Indonesia (República de): generated "Amateur stations Advanced licence
+    Y[BE][1-9][A-Z]{1,3} General licence Y[CF][1-9][A-Z]{1,3} Novice licence Y[DGH][1-9][A-Z]{1,3}
+    NOTA – The 1 letter suffix is not for personal call sign use, but only for organizational
+    stations with special event activities." vs official "Estaciones de aficionado:
+    YB o YE seguido de una cifra (0-9) y de 1*, 2 ó 3 letras – Licencia avanzada YC
+    o YF seguido de una cifra (0-9) y de 1*, 2 ó 3 letras – Licencia general YD, YG
+    o YH seguido de una cifra (0-9) y de 1*, 2 ó 3 letras – Licencia de principiante
+    * El sufijo de 1 letra no se emplea para distintivos de llamada personal sino
+    únicamente para estaciones organizadoras de actividades con relación a eventos
+    especiales."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Irán (República Islámica del): generated "Amateur stations EP[1-9][A-Z]{2}"
+    vs official "Estaciones de aficionado: EP1AA-EP9ZZ Iraq (República del) Estaciones
+    de aficionado: YI1 seguido de 3 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Irlanda: generated "Amateur stations EI[2-9][A-Z]{1,3}" vs official
+    "Estaciones de aficionado: EI seguido de una cifra (2-9) y de un grupo de 3 letras
+    como máximo"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Israel (Estado de): generated "Amateur stations Pattern 1 4X[1468][A-Z]{2,3}
+    Pattern 2 4Z[1457][A-Z]{2,3} Pattern 3 Z9[A-Z]{2,3}" vs official "Estaciones de
+    aficionado: 4X1 seguido de 2 ó 3 letras 4X4 seguido de 2 ó 3 letras 4X6 seguido
+    de 2 ó 3 letras 4X8 seguido de 2 ó 3 letras 4Z1 seguido de 2 ó 3 letras 4Z4 seguido
+    de 2 ó 3 letras 4Z5 seguido de 2 ó 3 letras 4Z7 seguido de 2 ó 3 letras 4Z9 seguido
+    de 2 ó 3 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Italia: generated "Amateur stations I[region][A-Z]{2,3} Digits 0 —
+    Lazio and Umbria indicating 1 — Liguria, Piemonte and the Province of Novara the
+    region 2 — Lombardia and the Province of Mantova 3 — Veneto and the Province of
+    Rovigo 4 — Emilia-Romagna and the Province of Piacenza 5 — Toscana 6 — Marche
+    and Abruzzi 7 — Puglie and the Province of Matera 8 — Campania, Molise, Calabria
+    and the Province of Potenza K0 — Lazio and Umbria K1 — Liguria, Piemonte and the
+    Province of Novara K2 — Lombardia and the Province of Mantova K3 — Veneto and
+    the Province of Rovigo K4 — Emilia-Romagna and the Province of Piacenza K5 — Toscana
+    K6 — Marche and Abruzzi K7 — Puglie and the Province of Matera K8 — Campania,
+    Molise, Calabria and the Province of Potenza A5 — \"Toscane\" Islands (Capraia,
+    Cerboli, Elba, Formica di Burano, Formiche di Grosseto, Giannutri, Giglio, Gorgona,
+    Montecristo, Pianosa, Scoglio d''Affrica) B0 — \"Ponziane\" Islands (Palmarola,
+    Ponza, Scoglio della Botte, Santo Stefano, Ventotene, Zanone) C8 — \"Napoletane\"
+    Islands (Capri, Ischia, Li Galli, Procida, Vivara) D9 — \"Eolie\" Islands (Alicudi,
+    Basiluzzo, Dino, Filicudi, Formiche, Lipari, Lisca Bianca, Panarea, Salina, San
+    Pietro a Canna, Stromboli, Strombolicchio, Vulcano) E9 — Island of Ustica F9 —
+    \"Egadi\" Islands (Asinelli, Favignana, La Formica, Levanzo, Maraone, Marettimo,
+    Stagnone) G9 — \"Pelagie\" Islands (Lampedusa, Lampione, Linosa) H9 — Island of
+    Pantelleria J7 — Archipelago of \"Cheradi\" L7 — \"Tremiti\" Islands (Caprara,
+    Pianosa, San Domino, San Nicola) M0 — \"Sardegna\" Islands (Asinara, Bisce, Budelli,
+    Carbonara, Caprera, Cavoli, Corcelli, Cretaccio, Foradada, Il Catalano, Il Toro,
+    Il Vitello, La Maddalena, La Vacca, Mal di Ventre, Molara, Mortorio, Nibani, Ogliastra,
+    Pan di Zucchero, Piana, Quirra, Razzoli, Rossa, Ruglia, S. Antioco, S. Pietro,
+    S. Macario, S. Maria, Serpentara, Soffi, Spargi, Su Giudeu, Tavolara) N3 — Trentino-Alto
+    Adige S0 — Sardegna T9 — Sicilia V3 — Friuli and Venezia Giulia W0 — Special licences
+    X1 — Aosta Valley" vs official "Estaciones de aficionado: I0 o IK0 seguido de
+    2 ó 3 letras – Lazio y Umbria I1 o IK1 seguido de 2 ó 3 letras – Liguria, Piemonte
+    y provincia de Novara I2 o IK2 seguido de 2 ó 3 letras – Lombardia y provincia
+    de Mantova I3 o IK3 seguido de 2 ó 3 letras – Veneto y provincia de Rovigo I4
+    o IK4 seguido de 2 ó 3 letras – Emilia-Romagna y provincia de Piacenza I5 o IK5
+    seguido de 2 ó 3 letras – Toscana I6 o IK6 seguido de 2 ó 3 letras – Marche y
+    Abruzzi I7 o IK7 seguido de 2 ó 3 letras – Puglie y provincia de Matera I8 o IK8
+    seguido de 2 ó 3 letras – Campania, Molise, Calabria y provincia de Potenza IA5
+    seguido de 2 ó 3 letras – Islas «Toscane» (Capraia, Cerboli, Elba, Formica di
+    Burano, Formiche di Grosseto, Giannutri, Giglio, Gorgona, Montecristo, Pianosa,
+    Scoglio d''Affrica) IB0 seguido de 2 ó 3 letras – Islas «Ponziane» (Palmarola,
+    Ponza, Scoglio della Botte, Santo Stefano, Ventotene, Zanone) IC8 seguido de 2
+    ó 3 letras – Islas «Napoletane» (Capri, Ischia, Li Galli, Procida, Vivara) ID9
+    seguido de 2 ó 3 letras – Islas «Eolie» (Alicudi, Basiluzzo, Dino, Filicudi, Formiche,
+    Lipari, Lisca Bianca, Panarea, Salina, San Pietro a Canna, Stromboli, Strombolicchio,
+    Vulcano) IE9 seguido de 2 ó 3 letras – Isla de Ustica IF9 seguido de 2 ó 3 letras
+    – Islas «Egadi» (Asinelli, Favignana, La Formica, Levanzo, Maraone, Marettimo,
+    Stagnone) IG9 seguido de 2 ó 3 letras – Islas «Pelagie» (Lampedusa, Lampione,
+    Linosa) IH9 seguido de 2 ó 3 letras – Isla de Pantelleria IJ7 seguido de 2 ó 3
+    letras – Archipiélago de los «Cheradi» (Véase cont.) Italia (continuación) IL7
+    seguido de 2 ó 3 letras – Islas «Tremiti» (Caprara, Pianosa, San Domino, San Nicola)
+    IM0 seguido de 2 ó 3 letras – Islas «Sardegna» (Asinara, Bisce, Budelli, Carbonara,
+    Caprera, Cavoli, Corcelli, Cretaccio, Foradada, Il Catalano, Il Toro, Il Vitello,
+    La Maddalena, La Vacca, Mal di Ventre, Molara, Mortorio, Nibani, Ogliastra, Pan
+    di Zucchero, Piana, Quirra, Razzoli, Rossa, Ruglia, S. Antioco, S. Pietro, S.
+    Macario, S. Maria, Serpentara, Soffi, Spargi, Su Giudeu, Tavolara) IN3 seguido
+    de 2 ó 3 letras – Trentino-Alto Adige IP1 seguido de 2 ó 3 letras – Islas «Liguria»
+    IS0 seguido de 2 ó 3 letras – Sardegna IT9 seguido de 2 ó 3 letras – Sicilia IV3
+    seguido de 2 ó 3 letras – Friuli y Venezia Giulia IW0 seguido de 2 ó 3 letras
+    – Licencias especiales IX1 seguido de 2 ó 3 letras – Valle de Aosta"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Jamaica: generated "Amateur stations 6Y5[A-Z]{2} and experimental
+    stations NOTA – Foreign amateurs will use the call sign assigned to them by their
+    administration followed by a stroke (/) and then 6Y5." vs official "Estaciones
+    de aficionado y estaciones experimentales: 6Y5AA-6Y5ZZ Nota: Los radioaficionados
+    extranjeros utilizarán el distintivo de llamada que les haya sido asignado por
+    su administración seguido de una barra de fracción (/) y de 6Y5."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Jordania (Reino Hachemita de): generated "Amateur stations JY[1-9][A-Z]{2}"
+    vs official "Estaciones de aficionado: JY1AA-JY9ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Kenya (República de): generated "Amateur stations 5Z4[A-Z]{2} Experimental
+    5Z5[A-Z]{2} stations" vs official "Estaciones de aficionado: 5Z4AA-5Z4ZZ Estaciones
+    experimentales: 5Z5AA-5Z5ZZ Kiribati (República de) Estaciones de aficionado:
+    T3 seguido de una cifra (0-9) y de un grupo de 3 letras como máximo Estaciones
+    experimentales: T3 seguido de una cifra (que no sea 0 ni 1) y de un grupo de 3
+    letras como máximo"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Kuwait (Estado de): generated "Amateur stations 9K[29][A-Z]{1,2}"
+    vs official "Estaciones de aficionado: 9K2 seguido de 1 ó 2 letras 9K9 seguido
+    de 1 letra"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Lao (República Democrática Popular): generated "Amateur stations XW8[A-D][A-Z]
+    Experimental XW8E[A-Z] stations" vs official "Estaciones de aficionado: XW8AA-XW8DZ
+    Estaciones experimentales: XW8EA-XW8EZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Letonia (República de): generated "Amateur stations YL[1-9][A-Z]{1,3}
+    and experimental stations" vs official "Estaciones de aficionado y estaciones
+    experimentales: YL seguido de una cifra y de 1, 2 ó 3 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Líbano: generated "Amateur stations OD5[A-Z]{2} Experimental OD9[A-Z]{2}
+    stations" vs official "Estaciones de aficionado: OD5 seguido de 2 letras Estaciones
+    experimentales: OD9 seguido de 2 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Libia: generated "Amateur stations 5A[1-9][A-Z]{1,3} Experimental
+    5A[2-9][A-Z]{1,3} stations" vs official "Estaciones de aficionado: 5A seguido
+    de una cifra (0-9) y de un grupo de 3 letras como máximo Estaciones experimentales:
+    5A seguido de una cifra (que no sea 0 ni 1) y de un grupo de 3 letras como máximo"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Liechtenstein (Principado de): generated "Amateur stations Pattern
+    1 HB0[A-X]{3} Pattern 2 HB0Z[A-Z]{2} Novice licence HB0Y[A-Z]{2}" vs official
+    "Estaciones de aficionado: HB0AAA-HB0XXX HB0YAA-HB0YZZ – Licencia de principiante
+    HB0ZAA-HB0ZZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Lituania (República de): generated "Amateur stations LY[1-4][A-Z]{1,4}
+    and experimental stations NOTA – LY followed by 2 to 4 digits and by 1 letter
+    is authorized only for the formation of occasional radio call signs." vs official
+    "Estaciones de aficionado y estaciones experimentales: LY seguido de una cifra
+    (1-4) y de 1 a 4 letras Nota: LY seguido de 2 a 4 cifras y de 1 letra se autoriza
+    solamente para la formación de distintivos de llamada ocasionales. Luxemburgo
+    LX0A-LX0ZZZZ Repetidores, balizas, estaciones de grupo LX1A-LX1ZZZZ LX2A-LX2ZZZZ
+    Estaciones individuales explotadas con certificado HAREC LX3A-LX3ZZZZ LX4A-LX4ZZZZ
+    Estaciones de grupo LX5A-LX5ZZZZ Estaciones de grupo, estaciones experimentales
+    LX6A-LX6ZZZZ Estaciones individuales explotadas por principiantes LX7A-LX7ZZZZ
+    Estaciones individuales explotadas durante competiciones LX8A-LX8ZZZZ Estaciones
+    de grupo LX9A-LX9ZZZZ Nota: Los radioaficionados extranjeros que posean licencia
+    con carácter temporal deberán utilizar LX seguido de una barra de fracción (/)
+    y de su propio distintivo."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Madagascar (República de): generated "Amateur stations 5R8[A-Z]{1,3}
+    Experimental 5S6[A-Z]{1,3} stations" vs official "Estaciones de aficionado: 5R8
+    seguido de un grupo de 3 letras como máximo Estaciones experimentales: 5S6 seguido
+    de un grupo de 3 letras como máximo"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Malawi: generated "Amateur stations 7Q7[A-Z]{2}" vs official "Estaciones
+    de aficionado: 7Q7 seguido de 2 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Maldivas (República de): generated "Amateur stations 8Q7[A-Z]{2}"
+    vs official "Estaciones de aficionado: 8Q7AA-8Q7ZZ Malta Estaciones de aficionado
+    Distintivos de llamada Clase Zona 9H1A-9H1ZZ A Malta 9H4A-9H4ZZ A Isla de Gozo
+    9H5A-9H5ZZ B Malta e isla de Gozo Estaciones experimentales 9H3A-9H3ZZ* * Igualmente
+    para las estaciones temporales."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Mauricio (República de): generated "Amateur stations 3B[area][A-Z]{2}
+    Digits indicating the area 6 — Agalega 7 — S. Brandon 8 — Mauritius 9 — Rodrigues
+    NOTA – Foreign radio amateurs with visitor licence must use 3B8 followed by a
+    stroke (/) and their own call sign." vs official "Estaciones de aficionado: 3B6
+    seguido de 2 letras – Agalega 3B7 seguido de 2 letras – S. Brandon 3B8 seguido
+    de 2 letras – Mauricio 3B9 seguido de 2 letras – Rodrígues Nota: Los radioaficionados
+    extranjeros que posean licencia de visitante deberán utilizar 3B8 seguido de una
+    barra de fracción (/) y de su propio distintivo."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Mónaco (Principado de): generated "Amateur stations Class 1 - General
+    licence 3A2[A- Z]{2} Class 2 - Licence restricted to bands 144-146 MHz and 430-
+    3A1[A- 440 MHz Z]{2} Radio Club 3A2[A- Z]{3} Experimental Monaco 3A9[A-Z] stations"
+    vs official "Estaciones de aficionado: 3A2AA-3A2ZZ – Clase 1 – Licencia general
+    3A1AA-3A1ZZ – Clase 2 – Licencia restringida a las bandas 144-146 MHz y 430-440
+    MHz 3A2AAA-3A2ZZZ – Radio Club Estaciones experimentales: 3A9A-3A9Z"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Mozambique (República de): generated "Amateur stations C9[province][A-Z]{1,3}
+    Digits indicating the province 1 — Maputo 2 — Gaza-Inhambane 3 — Sofala-Manica
+    4 — Zambezia-Nampula 5 — Tete-Niassa 6 — C. Delgado" vs official "Estaciones de
+    aficionado: C9 seguido de una cifra (distintiva de la provincia en que está situada
+    la estación) y de un grupo de 3 letras como máximo Cifras distintivas de las provincias:
+    1 – Maputo 2 – Gaza-Inhambane 3 – Sofala-Manica 4 – Zambezia-Nampula 5 – Tete-Niassa
+    6 – C. Delgado"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Myanmar (Unión de): generated "Amateur stations XZ2[A-Z]{2} and experimental
+    stations" vs official "Estaciones de aficionado y estaciones experimentales: XZ2AA-XZ2ZZ
+    Namibia (República de) Estaciones de aficionado: V50A-V50ZZZ – Licencia restringida
+    V51A-V51ZZZ – Licencia completa V5 seguido del distintivo de llamada existente
+    – Licencia para visitante Estaciones experimentales: V59A-V59ZZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Nauru (República de): generated "Amateur stations C2[1-9][A-Z]{2}"
+    vs official "Estaciones de aficionado: C2 seguido de una cifra que identifica
+    la categoría y de 2 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Nepal (República Democrática Federal de): generated "Amateur stations
+    9N1[A-Z]{2,3}" vs official "Estaciones de aficionado: 9N1AA-9N1ZZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Nicaragua: generated "Amateur stations YN[zone][A-Z]{2,3} Digits indicating
+    the 1 — Managua zone 2 — Granada 3 — León 4 — Zelaya 5 — Carazo and Rivas 6 —
+    Chinandega 7 — Masaya 8 — Estelí, Madriz and Nueva Segovia 9 — Matagalpa, Jinotega,
+    Boaco, Chontales and Río San Juan" vs official "Estaciones de aficionado: YN seguido
+    de una cifra (distintiva de la zona en que está situada la estación) y de 2 ó
+    3 letras Cifras distintivas de las zonas: 1 – Managua 2 – Granada 3 – León 4 –
+    Zelaya 5 – Carazo y Rivas 6 – Chinandega 7 – Masaya 8 – Estelí, Madriz y Nueva
+    Segovia 9 – Matagalpa, Jinotega, Boaco, Chontales y Río San Juan"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Níger (República del): generated "Amateur stations 5U[2-9]V[A-Z]{1,2}
+    and experimental stations NOTA a) When stations operate as fixed stations, their
+    call signs are followed by the letter \"F\". b) When stations operate as mobile
+    stations, their call signs are followed by the letters \"MOB\"." vs official "Estaciones
+    de aficionado y estaciones experimentales: 5U2-5U9 seguidos de la letra V y de
+    1 ó 2 letras Cuando las estaciones funcionan como estaciones fijas, colocan detrás
+    de su distintivo de llamada la letra «F». Cuando las estaciones funcionan como
+    estaciones móviles, colocan detrás de su distintivo de llamada las letras «MOB»."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Nigeria (República Federal de): generated "Amateur stations 5N[zone][A-Z]{3}
+    Digits indicating the 0 — Lagos State and Federal Capital Territory zone 1 — Ogun,
+    Oyo, Ondo and Ekiti States 2 — Osun, Kwara, Kogi and Niger States 3 — Edo, Delta,
+    Bayelsa and Anambra States 4 — Enugu, Abia, Ebonyi and Rivers States 5 — Imo,
+    Akwa lbom and Cross River States 6 — Benue, Plateau, Nassarawa and Taraba States
+    7 — Bauchi, Gombe, Adamawa and Borno States 8 — Jigawa, Kano, Yobe and Katsina
+    States 9 — Zamfara, Sokoto, Kaduna and Kebbi States Experimental Pattern 1 5N[2468][X-Z][A-Z]
+    stations Pattern 2 5N[3579]E[A-Z]" vs official "Estaciones de aficionado: 5N seguido
+    de una cifra (distintiva de la zona en que está situada la estación) y de 3 letras
+    Cifras distintivas de las zonas: 0 – Estado de Lagos y Territorio de la capital
+    federal 1 – Estados de Ogun, Oyo, Ondo y Ekiti 2 – Estados de Osun, Kwara, Kogi
+    y Niger 3 – Estados de Edo, Delta, Bayelsa y Anambra 4 – Estados de Enugu, Abia,
+    Ebonyi y Rivers 5 – Estados de Imo, Akwa lbom y Cross River 6 – Estados del Benue,
+    Plateau, Nassarawa y Taraba 7 – Estados de Bauchi, Gombe, Adamawa y Borno 8 –
+    Estados de Jigawa, Kano, Yobe y Katsina 9 – Estados de Zamfara, Sokoto, Kaduna
+    y Kebbi Estaciones experimentales: 5N2XA-5N2ZZ 5N3EA-5N3EZ 5N4XA-5N4ZZ 5N5EA-5N5EZ
+    5N6XA-5N6ZZ 5N7EA-5N7EZ 5N8XA-5N8ZZ 5N9EA-5N9EZ Niue Estaciones de aficionado:
+    ZK2 seguido de 2 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Noruega: generated "Amateur stations Pattern 1 [JW|LA|LB|LC|LD|3Y][1-9][A-Z]{3}
+    Pattern 2 JX0[A-Z]{3} Experimental Norway LF[1-9][A-Z]{3} stations" vs official
+    "Estaciones de aficionado: JW0AAA-JW9ZZZ JX0AAA-JX0ZZZ LA0AAA-LA9ZZZ LB0AAA-LB9ZZZ
+    LC0AAA-LC9ZZZ LD0AAA-LD9ZZZ 3Y0AAA-3Y9ZZZ Estaciones experimentales: LF2AAA-LF9ZZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Omán (Sultanía de): generated "Amateur stations A4[0-8][A-Z]{2} Experimental
+    A49[A-Z]{2} stations" vs official "Estaciones de aficionado: A40AA-A48ZZ Estaciones
+    experimentales: A49AA-A49ZZ Países Bajos (Reino de los) Estaciones de aficionado:
+    PA0, PA1, PA6, PI4, PI6, PI7 o PI8 seguido de 2 ó 3 letras PA2, PA3, PB0, PD0,
+    PE0, PE1, PI1, PI2 o PI3 seguido de 3 letras Estaciones experimentales: PI5 o
+    PI9 seguido de 2 ó 3 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Papua Nueva Guinea: generated "Amateur stations Beacons P29B[A-Z]{2}
+    Club stations P29C[A-Z]{2} Combined licences P29K[A-Z]{2} Novice licence P29N[A-Z]{2}
+    Repeaters P29R[A-Z]{2} Limited licence P29Z[A-Z]{2}" vs official "Estaciones de
+    aficionado: P29BAA-P29BZZ – Balizas P29CAA-P29CZZ – Estaciones de club P29KAA-P29KZZ
+    – Licencias combinadas P29NAA-P29NZZ – Licencia de principiante P29RAA-P29RZZ
+    – Repetidores P29ZAA-P29ZZZ – Licencia limitada"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Perú: generated "Amateur stations OA[zone][A-Z]{1,3} Digits indicating
+    the zone 0 — Peruvian Antarctic 1 — Tumbes, Piura, Lambayeque 2 — Cajamarca, La
+    Libertad 3 — Huánuco, Ancash 4 — Lima, Pasco Junín 5 — Ica, Ayacucho, Apurímac,
+    Huancavelica 6 — Arequipa, Moquegua, Tacna 7 — Cuzco, Puno, Madre de Dios 8 —
+    Loreto, Ucayali 9 — Amazonas, San Martín NOTA – The prefix 4T is assigned on a
+    temporary basis." vs official "Estaciones de aficionado: OA seguido de una cifra
+    (0-9, distintiva de la zona en que está situada la estación) y de 1, 2 ó 3 letras
+    Cifras distintivas de las zonas: 0 – Antártida peruana 1 – Tumbes, Piura, Lambayeque
+    2 – Cajamarca, La Libertad 3 – Huánuco, Ancash 4 – Lima, Pasco Junín 5 – Ica,
+    Ayacucho, Apurímac, Huancavelica 6 – Arequipa, Moquegua, Tacna 7 – Cuzco, Puno,
+    Madre de Dios 8 – Loreto, Ucayali 9 – Amazonas, San Martín Nota: El prefijo 4T
+    se asigna con carácter temporal."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Qatar (Estado de): generated "Amateur stations A71[A-Z]{2} Experimental
+    A73[A-Z]{2} stations" vs official "Estaciones de aficionado: A71AA-A71ZZ Estaciones
+    experimentales: A73AA-A73ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Rumania: generated "Amateur stations Individual YO[1-9][A-Z]{1,3}
+    Club YO[1-9]K[A-Z]{1,2} Temporary, contests or special events Y[PQR][1-9]K[A-Z]{1,2}
+    NOTA – YP, YQ and YR followed by a digit and a group of not more than 3 letters
+    are assigned to amateur stations operating during contests or special events."
+    vs official "Estaciones de aficionado: a) individuales YO seguido de una cifra
+    y de un grupo de 3 letras como máximo (la primera de las cuales no será la letra
+    K) b) club YO seguido de una cifra y de un grupo de 3 letras como máximo (la primera
+    de las cuales será la letra K) Nota: YP, YQ y YR seguidos de una cifra y de un
+    grupo de 3 letras como máximo se asignan a las estaciones de aficionado explotadas
+    durante concursos o acontecimientos especiales. Rwanda (República de) Estaciones
+    de aficionado: 9X5AA-9X5ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Samoa (Estado Independiente de): generated "Amateur stations 5W[1-9][A-Z]{2}"
+    vs official "Estaciones de aficionado: 5W seguido de una cifra y de 2 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: San Marino (República de): generated "Amateur stations VHF and above
+    VHF T72[A-Z]{2} All bands T77[A-Z]{2} Radio Club T70A Temporary Radio Club T71CE"
+    vs official "Estaciones de aficionado: T72AA-T72ZZ* T77AA-T77ZZ** Radio Club:
+    T70A** Radio Club temporario: T71CE** * VHF y superior a VHF. ** Todas las bandas."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Santo Tomé y Príncipe (República Democrática de): generated "Amateur
+    stations S92[A-Z]{2}" vs official "Estaciones de aficionado: S92AA-S92ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Senegal (República del): generated "Amateur stations 6W1[A-Z]{2} 6V3[A-Z]{2}"
+    vs official "Estaciones de aficionado: 6W1AA-6W1ZZ Estaciones experimentales:
+    6V3AA-6V3ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Seychelles (República de): generated "Amateur stations S79[A-Z]{3}
+    Experimental S78A[A-Z] stations" vs official "Estaciones de aficionado: S79AAA-S79ZZZ
+    Estaciones experimentales: S78AA-S78AZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Sierra Leona: generated "Amateur stations 9L[area_or_province][A-Z]{2}
+    Digits indicating the area or 0 — Small craft and off-shore province islands 1
+    — Western area 2 — Northern province 3 — Southern province 4 — Eastern province
+    7 — Novice licence 8 — Class B licence (VHF/UHF) NOTA – Foreign radio amateurs
+    with temporary licence must use 9L followed by a stroke (/) and their own call
+    sign." vs official "Estaciones de aficionado: 9L seguido de una cifra (0-8, distintiva
+    de la zona o provincia en que está situada la estación) y de 2 letras Cifras distintivas
+    de las zonas o provincias: 0 – Pequeños barcos e islas a la altura de la costa
+    1 – Zona del oeste 2 – Provincia del norte 3 – Provincia del sur 4 – Provincia
+    del este 7 – Licencia de principiante 8 – Licencia de clase B (VHF/UHF) Nota:
+    Los radioaficionados extranjeros que posean licencia con carácter temporal deberán
+    utilizar 9L seguido de una barra de fracción (/) y de su propio distintivo. Singapur
+    (República de) Estaciones de aficionado: 9V1AA-9V1ZZ Estaciones experimentales:
+    9V2A-9V2ZZ Nota: 9V0 seguido de 2 ó 3 letras se autoriza a las estaciones de aficionado
+    para acontecimientos especiales."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Sri Lanka (República Socialista Democrática de): generated "Amateur
+    stations Novice class B (VHF only) 4S5[A-Z]{2,3} Novice class A 4S6[A-Z]{2,3}
+    General/Advanced class 4S7[A-Z]{2,3} NOTA a) Local radio amateurs who have received
+    licence by submitting licences issued from foreign administrations will use 4S7
+    followed by 3 letters with last letter as R. b) Visiting radio amateurs will use
+    4S7 followed by home call sign. c) Foreign radio amateurs from administrations
+    having reciprocal agreement will use 4S7 followed by 3 letters with last letter
+    as G." vs official "Estaciones de aficionado: 4S5 seguido de 2 ó 3 letras – Clase
+    principiante B (sólo VHF) 4S6 seguido de 2 ó 3 letras – Clase principiante A 4S7
+    seguido de 2 ó 3 letras – Clase general y adelantada Estaciones experimentales:
+    4P3 seguido de 2 letras Notas: i) Los radioaficionados locales que han obtenido
+    la licencia por haber presentado otras emitidas por administraciones extranjeras
+    deberán utilizar 4S7 seguido de 3 letras, de las cuales la última será la letra
+    R. ii) Los radioaficionados visitantes deberán utilizar 4S7 seguido de su distintivo
+    local. iii) Los radioaficionados extranjeros de administraciones con las que existe
+    un acuerdo recíproco deberán utilizar 4S7 seguido de 3 letras, de las cuales la
+    última será la letra G."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Suriname (República de): generated "Amateur stations PZ[2-9][A-Z]{1,3}
+    and experimental stations" vs official "Estaciones de aficionado y estaciones
+    experimentales: PZ seguido de una cifra (2-9) y de un grupo de 3 letras como máximo"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Swazilandia (Reino de): generated "Amateur stations Full licence 3DA0[A-Z]{2}
+    Restricted licence 3DA1[A-Z]{2}" vs official "Estaciones de aficionado: 3DA0 seguido
+    de 2 letras – Licencia completa SDA1 seguido de 2 letras – Licencia restringida
+    Tailandia Estaciones de aficionado: E2 o HS seguido de una cifra (distintiva de
+    la región en que está situada la estación) y de 2 ó 3 letras Cifras distintivas
+    de las regiones: 0,1 – Bangkok, Samut Prakan, Pathum Thani, Nonthaburi, Phra Nakhon
+    Si Ayutthaya, Angthong, Saraburi, Lop Buri, Sing Buri, Chainat 2 – Chon Buri,
+    Rayong, Chanthaburi, Trat, Chachoengsao, Nakhon Nayok, Prachin Buri, Srakaew 3
+    – Nakhon Ratchasima, Chaiyaphum, Buriram, Surin, Sisaket, Ubon Ratchathani, Yasothon,
+    Amnat Chareon 4 – Khon Kaen, Loei, Nong Khai, Udon Thani, Maha Sarakham, Kalasin,
+    Sakon Nakhon, Mukdahan, Nakhon Phanom, Roi Et, Nong Bua Lum Phu 5 – Mae Hong Son,
+    Chiang Mai, Lamphun, Lampang, Phrae, Uttaradit, Nan, Chiang Rai, Phayao 6 – Nakhon
+    Sawan, Uthai Thani, Kamphaeng Phet, Tak, Phichit, Sukhothai, Phitsanulok, Phetchabun
+    7 – Ratchaburi, Samut Sokhon, Samut Songkhram, Nakhon Pathom, Suphan Buri, Kanchanaburi,
+    Phetchaburi, Prachuap Khiri Khan 8 – Nakhon Si Thammarat, Krabi, Phangnga, Ranong,
+    Surat Thani, Chumphon, Phuket 9 – Songkhla, Pattani, Yala, Narathiwat, Trang,
+    Phatthalung, Satun Estaciones experimentales: E22AAA-E22AZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Tanzanía (República Unida de): generated "Amateur stations Mainland
+    5H3[A-Z]{2} Zanzibar 5H1[A-Z]{2}" vs official "Estaciones de aficionado: 5H3AA-5H3ZZ
+    – Parte continental 5H1AA-5H1ZZ – Zanzíbar"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Tonga (Reino de): generated "Amateur stations A35[A-Z]{2} Experimental
+    A35X[A-Z]{2} stations" vs official "Estaciones de aficionado: A35 seguido de 2
+    letras Estaciones experimentales: A35 seguido de 3 letras, la primera de las cuales
+    será la letra X"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Trinidad y Tabago: generated "Amateur stations 9Y4[A-Z]{2} and experimental
+    stations" vs official "Estaciones de aficionado y estaciones experimentales: 9Y4AA-9Y4ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Túnez: generated "Amateur stations 3V8[A-Z]{2} Experimental TS8[A-Z]{2}
+    stations" vs official "Estaciones de aficionado: 3V8AA-3V8ZZ Estaciones experimentales:
+    TS8AA-TS8ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Turquía: generated "Amateur stations TA[1-9][A-Z]{1,3}" vs official
+    "Estaciones de aficionado: TA seguido de una cifra y de un grupo de 3 letras como
+    máximo"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Tuvalu: generated "Amateur stations T2[1-9][A-Z]{2} Experimental T2[2-9][A-Z]{2}
+    stations" vs official "Estaciones de aficionado: T20AA-T29ZZ Estaciones experimentales:
+    T22AA-T29ZZ Ucrania Estaciones de aficionado y estaciones experimentales: UR,
+    US, UT, UU, UV, UW, UX, UY, UZ, EM, EN o EO seguido de una cifra (0-9) y de 2
+    ó 3 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Uganda (República de): generated "Amateur stations 5X5[A-Z]{2}" vs
+    official "Estaciones de aficionado: 5X5AA-5X5ZZ"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Uruguay (República Oriental del): generated "Amateur stations CX[1-9][A-Z]{1,3}
+    Experimental C[VWX][1-9][A-Z]{1,3} stations" vs official "Estaciones de aficionado:
+    CX seguido de una cifra (1-9) y de un grupo de 3 letras como máximo, la primera
+    distintiva del departamento en que está situada la estación Estaciones experimentales:
+    CV, CW o CX seguido de una cifra (1-9) y de un grupo de 3 letras como máximo"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Vanuatu (República de): generated "Amateur stations Licensed radio
+    amateurs (2 letters the initials of the YJ8[A- licensed radio amateur) Z]{2} For
+    amateur stations operated by beginners YJ8N[A- Z]{2} For restricted licensees''
+    amateur stations (VHF) YJ8V[A- Z]{2}" vs official "Estaciones de aficionado: YJ8
+    seguido de 2 letras (normalmente las iniciales del operador) YJ8N* seguido de
+    2 letras YJ8V** seguido de 2 letras * Para estaciones explotadas por principiantes.
+    ** Para estaciones explotadas por aficionados que poseen licencias limitadas (VHF)."'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Venezuela (República Bolivariana de): generated "Amateur stations
+    [YV|YX|4M][1-9][A-Z]{3}" vs official "Estaciones de aficionado: YV, YX o 4M seguido
+    de una cifra y de 3 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Viet Nam (República Socialista de): generated "Amateur stations [XV|3W][2-9][A-Z]{1,4}"
+    vs official "Estaciones de aficionado: XV o 3W seguido de una cifra (2-9, distintiva
+    de la zona en que está situada la estación) y de 1 a 4 letras"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Zambia (República de): generated "Amateur stations 9J2[0-9A-Z][A-Z]"
+    vs official "Estaciones de aficionado: 9J2 seguido de 2 caracteres, el último
+    de los cuales será una letra"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
+- layer: rows
+  side: both
+  text: 'forms: Zimbabwe (República de): generated "Amateur stations Z2[1-9][A-Z]{2}
+    3. ENMIENDAS Enmienda N. Boletín de Explotación N. Administración 1 2 3 4 5 6
+    7 8 9 10 11 12 13 14 15 16 Enmienda N. Boletín de Explotación N. Administración
+    17 18 19 20 21 22 23 24 25 26 27 28 29 30" vs official "Estaciones de aficionado:
+    Z21AA-Z29ZZ _______________ Enmienda N.° Boletín de Explotación N.° Administración
+    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29
+    30"'
+  disposition: bug
+  reason: The generated PDF prints the call-sign patterns of the dataset as regular
+    expressions ("[A-Z]{2}", "[JW|LA|LB]") where the official PDF prints readable
+    ranges or "followed by 2 letters".
