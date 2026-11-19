@@ -16,10 +16,10 @@ RSpec.describe 'M.1400 change files keep printed country, position and tel/fax s
   {
     'datasets/1060-M.1400/changes/1022-0001-ADD-KDVS.yaml' => ['DEU', 'Germany (Federal Republic of)', nil],
     'datasets/1060-M.1400/changes/1028-0001-SUP-GIBCS.yaml' => ['GIB', 'Gibraltar', '+350 216 51500'],
-    'datasets/1060-M.1400/changes/1086-0008-ADD-CROSS.yaml' => ['LUX', 'Luxembourg', '+352 43 31 11'],
-    'datasets/1060-M.1400/changes/1086-0009-ADD-ELUX.yaml' => ['LUX', 'Luxembourg', nil],
+    'datasets/1060-M.1400/changes/1086-0008-REP-CROSS.yaml' => ['LUX', 'Luxembourg', '+352 43 31 11'],
+    'datasets/1060-M.1400/changes/1086-0009-REP-ELUX.yaml' => ['LUX', 'Luxembourg', nil],
     'ob-issues/1028/m1400-icc/001-SUP.yaml' => ['GIB', 'Gibraltar', '+350 216 51500'],
-    'ob-issues/1086/m1400-icc/008-ADD.yaml' => ['LUX', 'Luxembourg', '+352 43 31 11']
+    'ob-issues/1086/m1400-icc/008-REP.yaml' => ['LUX', 'Luxembourg', '+352 43 31 11']
   }.each do |path, (iso, country, tel)|
     it "keeps #{path}" do
       entry = row.call(path)

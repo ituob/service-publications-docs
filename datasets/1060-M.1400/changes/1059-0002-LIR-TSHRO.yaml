@@ -1,0 +1,27 @@
+type: LIR
+register: M1400_ICC
+recommendation: M.1400
+ob_issue_no: '1059'
+identifier:
+  code: TSHRO
+data:
+  _class: M1400Amendment
+  entries:
+  - company_name: Germany (Federal Republic of) DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
+  - company_name: Tele System GmbH Rostock
+    carrier_code: TSHRO
+    contact: Mr. Simon Langen
+    address_line_1: Am Graben 8
+    tel: "+ 49 381 37555085"
+    address_line_2: 18182 Bentwisch
+    fax: "+ 49 381 37555538"
+    email:
+    - simon.langen@tele-system.de
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
+  notes: []
+reference: OB-1059

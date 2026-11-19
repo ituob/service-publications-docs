@@ -760,4 +760,37 @@ RSpec.describe Ituob::Models::M1400Amendment do
       expect(Array(entry.email)).to be_empty
     end
   end
+
+  describe 'action label across tables' do
+    def labelled_types(*nodes)
+      described_class.parse(doc(*nodes)).actions.map(&:action_type)
+    end
+
+    it 'keeps one printed label for every table that follows it (bulletin 1349)' do
+      types = labelled_types(paragraph('Germany (Federal Republic of) / DEU                 LIR'),
+                             table(company_row('E-mail: a@b.net')),
+                             table(company_row('E-mail: c@d.net')))
+
+      expect(types).to eq(%w[LIR LIR])
+    end
+
+    it 'keeps a new label printed between tables instead of the earlier one' do
+      types = labelled_types(paragraph('Germany / DEU ADD'),
+                             table(company_row('E-mail: a@b.net')),
+                             paragraph('Germany / DEU LIR'),
+                             table(company_row('E-mail: c@d.net')),
+                             table(company_row('E-mail: e@f.net')))
+
+      expect(types).to eq(%w[ADD LIR LIR])
+    end
+
+    it 'does not carry the label into a table that starts a new unlabelled country' do
+      types = labelled_types(paragraph('Germany / DEU LIR'),
+                             table(company_row('E-mail: a@b.net')),
+                             table(row(cell(paragraph('Djibouti (Republic of) / DJI')), cell, cell),
+                                   company_row('E-mail: c@d.net')))
+
+      expect(types).to eq(['LIR', nil])
+    end
+  end
 end
