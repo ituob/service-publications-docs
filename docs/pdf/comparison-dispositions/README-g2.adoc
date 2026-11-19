@@ -1,0 +1,96 @@
+= Group G2 official-PDF comparison dispositions
+:toc:
+
+E.218-2017, E.212A-2017, E.212B-2018, Q.708A-2017, Q.708B-2016, every language with an official PDF.
+Part of ituob/service-publications-docs#89. Each `T-SP-<PUB>-<L>.yaml` here settles open deltas by exact text; every
+entry carries a rule checked on real samples. Deltas no rule covers stay unreviewed and are counted below.
+
+Measured with `scripts/compare_official_pdf.rb` on branch `claude-a/89-shapes-g2`, one row at a time, with `--dispositions`.
+No stale entries in any run. Peak memory 28-90 MB per row, 430-465 MB for Q.708B E/F/S. Nothing was NOT RUN.
+
+== Per row and language
+
+"Before" is the open (bug or unreviewed) count without dispositions. Layout, data and confirmed-bug columns are the delta counts
+the entries settle. "Open after" is the `RESULT: FAIL (N open)` value (confirmed bugs pass the run).
+
+[cols="2,1,1,1,1,1,4",options="header"]
+|===
+| Row | Before | Layout | Data | Confirmed bug | Open after | Rules applied (delta counts)
+| E.212A-2017-A | 681 | 594 | 13 | 0 | 74 | data_name 13, glyph 200, order_en 394 |
+| E.212A-2017-C | 480 | 454 | 1 | 0 | 25 | data_name 1, order_en 414, wrap_status 40 |
+| E.212A-2017-E | 24 | 14 | 0 | 8 | 2 | collation 4, formerly 4, group_order 14 |
+| E.212A-2017-F | 48 | 0 | 0 | 44 | 4 | collation 40, formerly 4 |
+| E.212A-2017-R | 284 | 277 | 0 | 0 | 7 | order_en 272, p_listnum 5 |
+| E.212A-2017-S | 29 | 0 | 0 | 28 | 1 | collation 24, formerly 4 |
+| E.212B-2018-A | 369 | 7 | 0 | 0 | 362 | glyph 7 |
+| E.212B-2018-C | 92 | 1 | 0 | 3 | 88 | formerly 3, p_ws 1 |
+| E.212B-2018-E | 53 | 0 | 0 | 3 | 50 | formerly 3 |
+| E.212B-2018-F | 1406 | 0 | 0 | 1348 | 58 | formerly 3, order_gen_en 1345 |
+| E.212B-2018-R | 112 | 5 | 0 | 0 | 107 | p_listnum 5 |
+| E.212B-2018-S | 1453 | 0 | 0 | 1392 | 61 | formerly 3, order_gen_en 1389 |
+| E.218-2017-A | 628 | 560 | 0 | 0 | 68 | glyph 174, order_en 386 |
+| E.218-2017-C | 434 | 434 | 0 | 0 | 0 | order_en 432, p_ws 2 |
+| E.218-2017-E | 20 | 14 | 0 | 4 | 2 | collation 4, group_order 14 |
+| E.218-2017-F | 44 | 0 | 0 | 40 | 4 | collation 40 |
+| E.218-2017-R | 277 | 277 | 0 | 0 | 0 | order_en 272, p_listnum 5 |
+| E.218-2017-S | 23 | 0 | 0 | 22 | 1 | collation 22 |
+| Q.708A-2017-A | 2665 | 2565 | 59 | 8 | 33 | data_name 1, dropped 8, glyph 721, off_omits 58, order_en 1844 |
+| Q.708A-2017-C | 1616 | 1548 | 54 | 0 | 14 | off_omits 54, order_en 1546, p_ws 2 |
+| Q.708A-2017-E | 31 | 0 | 0 | 31 | 0 | collation 6, dropped 25 |
+| Q.708A-2017-F | 185 | 0 | 0 | 171 | 14 | collation 146, dropped 25 |
+| Q.708A-2017-R | 937 | 910 | 0 | 25 | 2 | dropped 25, order_en 904, p_listnum 6 |
+| Q.708A-2017-S | 122 | 0 | 0 | 119 | 3 | collation 94, dropped 25 |
+| Q.708B-2016-E | 11 | 0 | 1 | 0 | 10 | e10 1 |
+| Q.708B-2016-F | 4093 | 0 | 1 | 4076 | 16 | e10 1, order_gen_en 4076 |
+| Q.708B-2016-S | 4382 | 0 | 0 | 4358 | 24 | order_gen_en 4358 |
+|===
+
+== Rules (each checked on samples before use)
+
+order_en / order_gen_en::
+Alphabetical lists and country sections. In A, C, R the official PDF lists the alphabetical list in the order of the English names
+(its code order equals the official English PDF; at least 97% of its rows in longest common order), the generated PDF in the
+language's own order: `layout`. In E.212B and Q.708B F and S the generated PDF lists countries in the English-name order (its
+row order equals the generated English PDF) while the official PDF is in the language's own alphabetical order (99-100% of its country
+headings in folded order; the generated F puts "Samoa americaines" after "Algerie", the official PDF files it under S): `bug`.
+collation::
+E/F/S alphabetical lists: the generated list is sorted by code point (capitals first, accented letters after z); the official PDF sorts
+ignoring case and accents: `bug`.
+dropped::
+Q.708A alphabetical list: the code occurs once in the generated text (numeric list only) and twice in the official one: `bug`.
+25 rows in E, F, R, S (8 shown as delta in A).
+formerly::
+The generated PDF drops the "(Formerly ...)" annotation (E.212A shared 901 rows, E.212B networks): `bug`.
+group_order::
+Rows of one name keep the official PDF's own code order (316 down to 310): same rows, `layout`.
+glyph, wrap_status, p_ws, p_listnum::
+Arabic letter-order extraction artefact (same letters), a Chinese status cell wrapped over two lines, whitespace or hyphenation only,
+bare list digits in the official preface: all `layout`, same text.
+data_name, e10, off_omits::
+`data`: the generated name is the dataset's name for that code (datasets/1117-E.212A, 1125-E.218, 1125-Q.708A); the dataset holds
+`10000000000000` where the official PDF prints `1000E10`; the row is missing in the official Arabic/Chinese PDF but is in the English PDF and the dataset.
+
+== Confirmed bugs in the generated PDFs (disposition `bug`)
+
+. Q.708A alphabetical list drops 25 rows (Hong Kong 16, Macao 2, Taiwan 5, Saint Helena 2) in E, F, R, S.
+. "(Formerly ...)" dropped: E.212A shared 901 rows (E, F, S: 4 each), E.212B networks (C, E, F, S: 3 each).
+. Code-point collation in the E, F, S alphabetical lists (E.212A, E.218, Q.708A).
+. E.212B and Q.708B country order follows the English names in F and S.
+
+== Not confirmed or not a delta
+
+* E.212B "asterisks dropped": the asterisk rule matched 0 deltas; not confirmed.
+* Q.708B column header "IPSC" (should be "ISPC"): not a comparator delta; not dispositioned here.
+* Russian "Бурбуда": no delta was classified for it; not checked further.
+
+== Unreviewed (open after dispositions)
+
+* E.212B-A: 362 of 369 open. Shape gap: the Arabic 901 table is not parsed on the Arabic side. Not a generated-PDF finding.
+* E.212B C 88, E 50, R 107, F 58, S 61 and Q.708B E 10, F 16, S 24: sampled deltas (Q.708B) are differently worded or spelled country
+  names (Cabo Verde / Cap-Vert, Bahrain / Bahrein, Rep. Checa) plus prose lines; no rule, no per-name dataset. Only the Q.708B samples were inspected.
+* E.212A A 74, C 25, R 7, E 2, F 4, S 1; E.218 A 68, E 2, F 4, S 1; Q.708A A 33, C 14, F 14, R 2, S 3: no rule; residual lists were
+  not read in full. E.218-C and E.218-R pass, Q.708A-E passes with 31 confirmed bugs.
+
+== Spec
+
+`cd ituob && bundle exec rspec spec/scripts/official_pdf_shapes/g2_spec.rb spec/scripts/compare_official_pdf_spec.rb`: 66 examples, 0 failures.
