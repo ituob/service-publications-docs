@@ -154,6 +154,37 @@ RSpec.describe Ituob::Models::F32SeedBuilder do
         rows = printed.select { |entry| entry.source_language == "fr" && entry.source_cells[4] == "HOPC" }
         expect(rows.map { |entry| entry.source_cells[3] }).to eq(["Puerto Cortes"])
       end
+
+      it "keeps the footnote mark printed beside a resolved English code (SPAIN ESTT 1))" do
+        rows = printed.select { |entry| entry.source_language == "en" && entry.source_row == 622 }
+        expect(rows.map(&:source_cells)).to eq([["", "", "", "Telegrams with service", "ESTT"], ["", "", "", "", "1)"]])
+      end
+
+      it "reads a superscript printed as the nodes \"1\" and \")\" as one mark (CYPRUS, Spanish)" do
+        cells = printed.select { |entry| entry.source_language == "es" && entry.source_cells[4] == "CYNC" }
+                       .map { |entry| entry.source_cells[3] }
+        expect(cells).to eq(["LEFKOSIA 1)"])
+        expect(printed.flat_map(&:source_cells)).not_to include(match(/\d \)/))
+      end
+
+      it "keeps a long note line that starts in the ROA column in the note (SAUDI ARABIA 3, French and Spanish)" do
+        notes = printed.select { |entry| %w[fr es].include?(entry.source_language) && entry.source_cells.length == 1 }
+                       .map { |entry| entry.source_cells.first }
+        expect(notes.grep(/Al Jamoom, Al Kariq/).map { |note| note.sub(/Al Jamoom.*/, "").strip })
+          .to eq(["et destinés aux bureaux suivants:", "destinados a las oficinas siguientes:"])
+        expect(printed.select { |entry| entry.source_cells.length == 5 }.map { |entry| entry.source_cells[1] })
+          .not_to include(match(/\AAl Jamoom/))
+      end
+
+      it "gives the ROA word folded into the country node to the ROA cell (PORTUGAL, MADERA PT Comunicações)" do
+        rows = printed.select { |entry| entry.source_cells[1].to_s.end_with?("Comunicações, S.A., Lisboa") && entry.source_cells[0].start_with?("MADERA") }
+        expect(rows.map { |entry| entry.source_cells.first(2) }).to eq([["MADERA", "PT Comunicações, S.A., Lisboa"]] * 3)
+      end
+
+      it "places a 15-character word that starts at the text edge of a wide node in its own column (UNITED STATES, Spanish)" do
+        rows = printed.select { |entry| entry.source_language == "es" && entry.source_cells[1] == "Communications, Inc." }
+        expect(rows.map { |entry| entry.source_cells[0] }).to eq(["", ""])
+      end
     end
   end
 end

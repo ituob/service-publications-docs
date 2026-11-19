@@ -106,7 +106,8 @@ module Ituob
       CHARACTER_WIDTH = 5.5
       FOLDED_GAP = 100
       BLANK_WIDTH = 4
-      SHORT_TEXT = 14
+      SHORT_TEXT = 16
+      LONG_NOTE_TEXT = 60
 
       def visible_left(text)
         left = text["left"].to_i
@@ -131,7 +132,7 @@ module Ituob
         # A name that ends in a code-shaped word ("UYUNI") is not a joined node
         # when the row also carries its own code node.
         code_node = nodes.any? { |left, text, _font| left >= 700 && text.match?(PRINTED_CODE_WITH_MARK) }
-        nodes.each do |left, text, _font|
+        nodes.each do |left, text, _font, width|
           column = [225, 430, 530, 700].count { |boundary| left >= boundary }
           # Poppler also folds the first word of the office name into the code
           # node ("RE All" + "destinations"): the word belongs to the name cell.
@@ -139,6 +140,14 @@ module Ituob
               nodes.any? { |left, other| left >= 530 && left < 700 && other != text }
             cells[2] << match[:code]
             cells[3] << match[:name]
+          # Poppler also folds the first word of the ROA into the country node
+          # ("MADERA PT" + "Comunicações, S.A., Lisboa" printed at the ROA edge): the node is
+          # far wider than its text and the next node begins in the ROA column.
+          elsif column.zero? && (match = text.match(/\A(?<country>.*?\S)\s+(?<word>\p{Lu}{2})\z/)) &&
+              width - text.length * CHARACTER_WIDTH > FOLDED_GAP &&
+              nodes.any? { |other, _text| other > left && other >= 225 && other <= 270 }
+            cells[0] << match[:country]
+            cells[1] << match[:word]
           # The PDF extractor sometimes combines ROA and code into one node.
           elsif column < 2 && (match = text.match(/\A(?:(?<label>.*?)\s+)?(?<code>[A-Z]{2}\s*-\s*-?)\z/))
             cells[column] << match[:label] unless match[:label].to_s.empty?
@@ -161,20 +170,29 @@ module Ituob
         full_width = !indicator && nodes.any? do |left, text, _font, width|
           left < 225 && left + width > 530 && text.split.size >= 8
         end
-        @printed_note = false if heading || values[1..].any? { |value| !value.empty? }
+        # A note line can end in the ROA column's x-range ("destinados a las
+        # oficinas siguientes:" + a long run of office names): text that long does
+        # not fit that column, so the line continues the note.
+        continues_note = @printed_note && nodes.any? do |left, text, _font, _width|
+          left >= 225 && left < 430 && text.strip.length > LONG_NOTE_TEXT
+        end
+        @printed_note = false if heading || (!continues_note && values[1..].any? { |value| !value.empty? })
         @printed_note = true if full_width || values.first.match?(/\A(?:\d+|!)\)/)
         values = [nodes.map { |_left, text, _font, _width| text }.join(" ")] if @printed_note
-        unless @source_language || values.length == 1 || values[4].empty?
-          office = @publication.allocations.last
-          office = @publication.contexts.last&.entry unless office&.source_row == @source_row
-          values[4] = office.office_code if office&.source_row == @source_row && office.office_code
-        end
+        # A superscript printed as two nodes ("1" and ")") is one mark ("1)").
+        values = values.map { |value| value.gsub(/(\d) \)/, '\1)') }
         # A footnote marker printed beside the code ("ESTT 1)") is its own row,
         # as the English edition prints it, so the code cell holds only the code.
+        # It is taken before the English code is resolved, which replaces the cell.
         mark = nil
         if values.length == 5 && (split = values[4].match(PRINTED_CODE_WITH_MARK)) && split[:mark]
           values[4] = split[:code]
           mark = split[:mark]
+        end
+        unless @source_language || values.length == 1 || values[4].empty?
+          office = @publication.allocations.last
+          office = @publication.contexts.last&.entry unless office&.source_row == @source_row
+          values[4] = office.office_code if office&.source_row == @source_row && office.office_code
         end
         retain_row(values, heading)
         retain_row(["", "", "", "", mark], false) if mark
