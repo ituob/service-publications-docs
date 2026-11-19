@@ -8967,3 +8967,35 @@
     lists are sorted differently); the generated PDF prints what the dataset holds
     for this row in es (united states virgin islands); the official PDF has vírgenes
     de los estados unidos islas
+- layer: prose
+  side: both
+  text: generated "Anexo al BE de la UIT N.º 1161-S –1–" vs official ""
+  disposition: layout
+  reason: 'the prose words of the row are the same on both sides once the page numbers
+    of the footers (numbers of up to two digits), the "N.º" of the Spanish footer
+    and the hyphenation "ITU-T" / "ITUT" are set aside: the PDFs break pages and lines
+    differently'
+- layer: prose
+  side: both
+  text: generated "" vs official "Anexo al BE de la UIT 1161-S –2 –"
+  disposition: layout
+  reason: 'the prose words of the row are the same on both sides once the page numbers
+    of the footers (numbers of up to two digits), the "N.º" of the Spanish footer
+    and the hyphenation "ITU-T" / "ITUT" are set aside: the PDFs break pages and lines
+    differently'
+- layer: prose
+  side: both
+  text: generated "N.º" vs official ""
+  disposition: layout
+  reason: 'the prose words of the row are the same on both sides once the page numbers
+    of the footers (numbers of up to two digits), the "N.º" of the Spanish footer
+    and the hyphenation "ITU-T" / "ITUT" are set aside: the PDFs break pages and lines
+    differently'
+- layer: prose
+  side: both
+  text: generated "–2–" vs official "–3 –"
+  disposition: layout
+  reason: 'the prose words of the row are the same on both sides once the page numbers
+    of the footers (numbers of up to two digits), the "N.º" of the Spanish footer
+    and the hyphenation "ITU-T" / "ITUT" are set aside: the PDFs break pages and lines
+    differently'

@@ -135,3 +135,27 @@
   disposition: data
   reason: the official row has words (rusia federación 9xx excepto 954) that the dataset
     records of 7 in es do not hold, so the generated PDF cannot print it
+- layer: prose
+  side: both
+  text: generated "" vs official "1"
+  disposition: layout
+  reason: 'the prose words of the row are the same on both sides once the page numbers
+    of the footers (numbers of up to two digits), the "N.º" of the Spanish footer
+    and the hyphenation "ITU-T" / "ITUT" are set aside: the PDFs break pages and lines
+    differently'
+- layer: prose
+  side: both
+  text: generated "N.º" vs official ""
+  disposition: layout
+  reason: 'the prose words of the row are the same on both sides once the page numbers
+    of the footers (numbers of up to two digits), the "N.º" of the Spanish footer
+    and the hyphenation "ITU-T" / "ITUT" are set aside: the PDFs break pages and lines
+    differently'
+- layer: prose
+  side: both
+  text: generated "–1–" vs official "–2 –"
+  disposition: layout
+  reason: 'the prose words of the row are the same on both sides once the page numbers
+    of the footers (numbers of up to two digits), the "N.º" of the Spanish footer
+    and the hyphenation "ITU-T" / "ITUT" are set aside: the PDFs break pages and lines
+    differently'

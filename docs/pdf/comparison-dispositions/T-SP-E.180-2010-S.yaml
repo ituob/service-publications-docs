@@ -7,41 +7,6 @@
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
 - layer: rows
-  side: both
-  text: 'Anguilla: generated "Anguilla | Tono de ocupado - Tono de congestión - Tono
-    de invitación a marcar - Tono de repetición de invitación a marcar - Tono de abonado
-    inaccesible - Tono de identificación de teléfono de previo pago - Tono de llamada
-    - Tono especial de información - Tono de aviso - intervención de la operadora
-    Tono de espera - | 480+620 480+620 350+440 350+440 480+620 1600/1143 440+480 950/1400/1800
-    operator 440 | 0.5 on 0.5 off 0.25 on 0.25 off continuo 3x(0.1 on 0.1 off) + continuo
-    0.25 on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off
-    0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)" vs official "Anguilla
-    | Tono de ocupado - Tono de congestión - Tono de invitación a marcar - Tono de
-    repetición de invitación a marcar - Tono de abonado inaccesible - Tono de identificación
-    de teléfono de previo pago - Tono de llamada - Tono especial de información -
-    Tono de aviso - intervención de la operadora Tono de espera - | 480+620 480+620
-    350+440 350+440 480+620 1600/1143 440+480 950/1400/1800 450 440 | 0.5 on 0.5 off
-    0.25 on 0.25 off continuo 3x(0.1 on 0.1 off) + continuo 0.25 on 0.25 off 0.2 on
-    0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on
-    0.2 off 1x(0.5 on 10.0 off 0.5 on)"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 450
-- layer: rows
-  side: both
-  text: 'Antigua y: generated "Antigua y Barbuda | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de pago - Tono de llamada - información -
-    Tono de indicación de llamada en espera - | 480+620 480+620 350+440 622 440+480
-    480 | 0.5 on 0.5 off 0.25 on 0.25 off continuo 0.136 on 0.136 off 2.0 on 4.0 off
-    1x(0.6 on 10.0 off)" vs official "Antigua y Barbuda | Tono de ocupado - Tono de
-    congestión - Tono de invitación a marcar - Tono de pago - Tono de llamada - Tono
-    de indicación de llamada en espera - | 480+620 480+620 350+440 622 440+480 480
-    | 0.5 on 0.5 off 0.25 on 0.25 off continuo 0.136 on 0.136 off 2.0 on 4.0 off 1x(0.6
-    on 10.0 off)"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (información);
-    the official PDF has other text
-- layer: rows
   side: official_only
   text: Arabia Saudita Arabia Saudita (Reino de) | Tono de ocupado - Tono de congestión
     - Tono de conferencia - Tono de invitación a marcar - Tono de identificación de
@@ -61,153 +26,6 @@
   reason: 'the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
-- layer: rows
-  side: both
-  text: 'Argentina (República): generated "Argentina (República) | Tono de ocupado
-    - Tono de congestión - Tono de invitación a marcar - Tono de fin de servicio de
-    tripartito - Tono de llamada - Tono de servicio activado - Tono de aviso - intervención
-    de la operadora Tono de espera - Tono de indicación de llamada en espera - | 425
-    425 425 950/1400/1800 425 425 operator 425 425 | 0.3 on 0.2 off 0.3 on 0.4 off
-    continuo 1x(3x0.33 on) 1.0 on 4.0 off 1.0 on 0.25 off 5x0.1 on 1.9 off 0.4 on
-    0.2 off 0.4 on 4.0 off 0.3 on 10.0 off" vs official "Argentina (República) | Tono
-    de ocupado - Tono de congestión - Tono de invitación a marcar - Tono de fin de
-    servicio de tripartito - Tono de llamada - Tono de servicio activado - Tono de
-    aviso - intervención de la operadora Tono de espera - Tono de indicación de llamada
-    en espera - | 425 425 425 950/1400/1800 425 425 1400 425 425 | 0.3 on 0.2 off
-    0.3 on 0.4 off continuo 1x(3x0.33 on) 1.0 on 4.0 off 1.0 on 0.25 off 5x0.1 on
-    1.9 off 0.4 on 0.2 off 0.4 on 4.0 off 0.3 on 10.0 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 1400
-- layer: rows
-  side: both
-  text: 'Australia: generated "Australia | Tono de ocupado - Tono de congestión -
-    Tono de conferencia - Tono de invitación a marcar - Tono de facilidades - Tono
-    de intervención - Tono de abonado inaccesible - Tono de llamada - Tono de indicación
-    de llamada en espera - | 425//400 425//400 425//525//1400 425x25//400+425+450//400+425//425
-    425 425//525 425//400 400x425//400+425+450//400+450 425 | 0.375 on 0.375 off 0.375
-    on 0.375 off 1.0 on 15.0 off 0.36 on 15.0 off continuo continuo continuo 2.5 on
-    0.5 off 0.4 on 0.2 off 0.4 on 2.0 off 0.2 on 0.2 off 0.2 on 4.4 off" vs official
-    "Australia | Tono de ocupado - Tono de congestión - Tono de conferencia - Tono
-    de invitación a marcar - Tono de facilidades - Tono de intervención - Tono de
-    abonado inaccesible - Tono de llamada - Tono de indicación de llamada en espera
-    - | 425//400 425//400 425//525//1400 425x25//400+425+450//400+42 5//425 425 425//525
-    425//400 400x425//400+425+450//400+4 425 | 0.375 on 0.375 off 0.375 on 0.375 off
-    1.0 on 15.0 off 0.36 on 15.0 off continuo continuo continuo 2.5 on 0.5 off 0.4
-    on 0.2 off 0.4 on 2.0 off 0.2 on 0.2 off 0.2 on 4.4 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (450
-    425); the official PDF has 42 5 4
-- layer: rows
-  side: both
-  text: 'Austria: generated "Austria | Tono de ocupado - I Tono de ocupado - II Tono
-    de congestión - I Tono de congestión - II Tono de invitación a marcar - Tono de
-    repetición de invitación a marcar - Tono especial de invitación a marcar - Tono
-    de indicación negativo - Tono de abonado inaccesible - Tono de pago - Tono de
-    indicación positivo - Tono de identificación de teléfono de previo pago - Tono
-    de llamada - Tono especial de información - Tono de aviso - intervención de la
-    operadora Tono de espera - | 420 450 420 450 420//450 420 380+420 380+420 950/1400/1800
-    852 380+420 1633/1336 420//450 950/1400/1800 operator 420 | 0.4 on 0.4 off 0.3
-    on 0.3 off 0.2 on 0.2 off 0.3 on 0.3 off continuo continuo continuo 0.4 on 0.4
-    off 3x0.33 on 1.0 off 1.5 on 1.0 on 5.0 off 0.2 on 0.2 off 0.2 on 2.0 off 1.0
-    on 5.0 off 3x0.33 on 1.0 off 0.15 on 0.15 off 0.15 on 1.95 off 0.04 on 1.95 off"
-    vs official "Austria | Tono de ocupado - I Tono de ocupado - II (5) Tono de congestión
-    - I Tono de congestión - II (5) Tono de invitación a marcar - Tono de repetición
-    de invitación a marcar - Tono especial de invitación a marcar - Tono de indicación
-    negativo - Tono de abonado inaccesible - Tono de pago - Tono de indicación positivo
-    - Tono de identificación de teléfono de previo pago - Tono de llamada - Tono especial
-    de información - Tono de aviso - intervención de la operadora Tono de espera -
-    | 420 450 420 450 420//450 420 380+420 380+420 950/1400/1800 852 380+420 1633/1336
-    420//450 950/1400/1800 420//450 420 | 0.4 on 0.4 off 0.3 on 0.3 off 0.2 on 0.2
-    off 0.3 on 0.3 off continuo continuo continuo 0.4 on 0.4 off 3x0.33 on 1.0 off
-    1.5 on 1.0 on 5.0 off 0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 5.0 off 3x0.33 on 1.0
-    off 0.15 on 0.15 off 0.15 on 1.95 off 0.04 on 1.95 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 450 420 5 5
-- layer: rows
-  side: both
-  text: 'Bangladesh (República: generated "Bangladesh (República Popular de) | Tono
-    de ocupado - Tono de congestión - Tono de invitación a marcar - Tono especial
-    de invitación a marcar - Tono aullador - Tono de pago - Tono de llamada - Tono
-    de aviso - intervención de la operadora Tono de indicación de llamada en espera
-    - | 450 450 450 450 3000 800/1900 450 operator 450 | 0.2 on 0.3 off 0.7 on 0.8
-    off 0.25 on 0.25 off continuo 0.4 on 0.4 off continuo continuo 1.0 on 4.0 off
-    0.20 on 0.02 off 0.20 on 1.40 off 3.0 on 10.0 off" vs official "Bangladesh (República
-    Popular de) | Tono de ocupado - Tono de congestión - Tono de invitación a marcar
-    - Tono especial de invitación a marcar - Tono aullador - Tono de pago - Tono de
-    llamada - Tono de aviso - intervención de la operadora Tono de indicación de llamada
-    en espera - | 450 450 450 450 3000 800/1900 450 450 450 | 0.2 on 0.3 off 0.7 on
-    0.8 off 0.25 on 0.25 off continuo 0.4 on 0.4 off continuo continuo 1.0 on 4.0
-    off 0.20 on 0.02 off 0.20 on 1.40 off 3.0 on 10.0 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 450
-- layer: rows
-  side: both
-  text: 'Benin (República: generated "Benin (República de) | Tono de ocupado - Tono
-    de invitación a marcar - Tono especial de invitación a marcar - Tono de llamada
-    - Tono de encaminamiento - información - Tono de indicación de llamada en espera
-    - | 440//425 440//425 330+440 440//425 440//425 440 | 0.5 on 0.5 off continuo
-    continuo 1.7 on 3.3 off 0.05 on 0.05 off continuo" vs official "Benin (República
-    de) | Tono de ocupado - Tono de invitación a marcar - Tono especial de invitación
-    a marcar - Tono de llamada - Tono de encaminamiento - Tono de indicación de llamada
-    en espera - | 440//425 440//425 330+440 440//425 440//425 440 | 0.5 on 0.5 off
-    continuo continuo 1.7 on 3.3 off 0.05 on 0.05 off continuo"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (información);
-    the official PDF has other text
-- layer: rows
-  side: both
-  text: 'Bermudas: generated "Bermudas | Tono de ocupado - Tono de congestión - Tono
-    de invitación a marcar - Tono de llamada - Tono especial de información - llamada
-    en espera - | 480+620 480+620 350+440 440+480 913/1428/1776 a) | 0.5 on 0.5 off
-    0.25 on 0.25 off continuo 2.0 on 4.0 off 0.27 on 0.38 on 0.38 on" vs official
-    "Bermudas | Tono de ocupado - Tono de congestión - Tono de invitación a marcar
-    - Tono de llamada - Tono especial de información - | 480+620 480+620 350+440 440+480
-    913/1428/1776 | 0.5 on 0.5 off 0.25 on 0.25 off continuo 2.0 on 4.0 off 0.27 on
-    0.38 on 0.38 on"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (llamada
-    en espera a); the official PDF has other text
-- layer: rows
-  side: generated_only
-  text: Vírgenes británicas Vírgenes británicas (Islas) | Tono de ocupado - Tono de
-    congestión - Tono de invitación a marcar - Tono de repetición de invitación a
-    marcar - Tono de abonado inaccesible - Tono de identificación de teléfono de previo
-    pago - Tono de llamada - Tono especial de información - Tono de aviso - intervención
-    de la operadora Tono de indicación de llamada en espera - | 480+620 480+620 350+440
-    350+440 480+620 1600/1143 440+480 950/1400/1800 operator 440 | 0.5 on 0.5 off
-    0.25 on 0.25 off continuo 3x(0.1 on 0.1 off) + continuo 0.25 on 0.25 off 0.2 on
-    0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on
-    0.2 off 1x(0.5 on 10.0 off 0.5 on)
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (operator); the official PDF has 450
-- layer: rows
-  side: both
-  text: 'Brunei Darussalam: generated "Brunei Darussalam | Tono de ocupado - Tono
-    de confirmación - Tono de congestión - Tono de invitación a marcar - Tono especial
-    de invitación a marcar - Tono de retención - Tono de abonado inaccesible - Tono
-    de llamada - Tono de aviso – fin de periodo Tono de aviso - intervención de la
-    operadora Tono de aviso – tono pip Tono de espera - Tono de indicación de llamada
-    en espera - | 400 400x24 400 400x50 400x24 400x24 400 400+450 end operator pip
-    400 400x24 | 0.375 on 0.375 off 0.1 on 0.1 off 0.3 on 0.3 off 0.375 on 0.375 off
-    continuo 0.1 on 0.1 off 0.5 on 2.5 off continuo 0.4 on 0.2 off 0.4 on 0.2 off
-    0.624 on 4.376 off 0.25 on 2.0 off 0.25 on 0.25 off 0.3 on 0.25 off 0.5 on 0.25
-    off" vs official "Brunei Darussalam | Tono de ocupado - Tono de confirmación -
-    Tono de congestión - Tono de invitación a marcar - Tono especial de invitación
-    a marcar - Tono de retención - Tono de abonado inaccesible - Tono de llamada -
-    Tono de aviso – fin de periodo Tono de aviso - intervención de la operadora Tono
-    de aviso – tono pip Tono de espera - Tono de indicación de llamada en espera -
-    | 400 400x24 400 400x50 400x24 400x24 400 400+450 400 400 900 400 400x24 | 0.375
-    on 0.375 off 0.1 on 0.1 off 0.3 on 0.3 off 0.375 on 0.375 off continuo 0.1 on
-    0.1 off 0.5 on 2.5 off continuo 0.4 on 0.2 off 0.4 on 0.2 off 0.624 on 4.376 off
-    0.25 on 2.0 off 0.25 on 0.25 off 0.3 on 0.25 off 0.5 on 0.25 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (end
-    operator pip); the official PDF has 400 900 400
 - layer: rows
   side: official_only
   text: Caimanes (Islas) Caimanes (Islas) | Tono de ocupado - Tono de congestión -
@@ -251,124 +69,6 @@
   reason: 'the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
-- layer: rows
-  side: both
-  text: 'Chile: generated "Chile | Tono de ocupado - Tono de congestión - Tono de
-    invitación a marcar - Segundo tono de invitación a marcar - Tono de identificación
-    - Tono de identificación de teléfono de previo pago - Tono de llamada - Tono especial
-    de información - Tono de aviso – fin de periodo Tono de aviso - intervención de
-    la operadora Tono de espera - | 400 400 400 330+440 800/1200 1100+1750/750+1450
-    400 950/1400/1800 end operator 900+1300 | 0.5 on 0.5 off 0.2 on 0.2 off continuo
-    continuo 0.6 on 2.0 off 0.6 on 2.0 off 0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 3.0
-    off 3x0.333 on 1.0 off 2.0 on 0.5 on 15.0 off 0.5 on 0.5 off" vs official "Chile
-    | Tono de ocupado - Tono de congestión - Tono de invitación a marcar - Segundo
-    tono de invitación a marcar - Tono de identificación - Tono de identificación
-    de teléfono de previo pago - Tono de llamada - Tono especial de información -
-    Tono de aviso – fin de periodo Tono de aviso - intervención de la operadora Tono
-    de espera - | 400 400 400 330+440 800/1200 1100+1750/750+1450 400 950/1400/1800
-    800 1400 900+1300 | 0.5 on 0.5 off 0.2 on 0.2 off continuo continuo 0.6 on 2.0
-    off 0.6 on 2.0 off 0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 3.0 off 3x0.333 on 1.0
-    off 2.0 on 0.5 on 15.0 off 0.5 on 0.5 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (end
-    operator); the official PDF has 800 1400
-- layer: rows
-  side: official_only
-  text: Chipre (República Chipre (República de) | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de abonado inaccesible - Tono de pago - Tono
-    de llamada - Tono especial de información - Tono de aviso - intervención de la
-    operadora Tono de indicación de llamada en espera - | 425 425 350+450 425 1638/1206/943
-    425 950/1400/1800 1400 425 | 0.5 on 0.5 off 0.25 on 0.25 off continuo 2.5 on 0.5
-    off 3x(0.068 on 0.068 off) 1.5 on 3.0 off 3x0.33 on 1.0 off 0.5 on 14.0 off 0.1
-    on 0.1 off 0.1 on 5.0 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (operator); the official PDF has 1400
-- layer: rows
-  side: official_only
-  text: Corea (República Corea (República de) | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de repetición de invitación a marcar - I
-    Tono de repetición de invitación a marcar - II Tono de intercepción - Tono de
-    abonado inaccesible - Tono de llamada - Tono de aviso - intervención de la operadora
-    Tono de espera - | 480+620 480+620 350+440 400//450 400//450 350+440 450 440+480
-    392/494/587 350+440 | 0.5 on 0.5 off 0.3 on 0.2 off continuo 1.0 on 4.0 off 1.0
-    on 2.0 off 0.125 on 0.25 off 0.125 on 1.5 off 0.2 on 0.1 off 0.2 on 1.5 off 1.0
-    on 2.0 off 2x(0.5 on 0.5 on 1.5 on) 0.25 on 0.25 off 0.25 on 3.25 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (operator); the official PDF has 392 494 587
-- layer: rows
-  side: both
-  text: 'Costa Rica: generated "Costa Rica | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de llamada - Tono de aviso - intervención
-    de la operadora Tono de indicación de llamada en espera - | 450 450 450 450 operator
-    450 | 0.33 on 0.33 off 0.33 on 0.33 off continuo 1.2 on 4.9 off 0.17 on 0.17 off
-    0.5 on 0.17 off 0.15 on 0.15 off 0.15 on 8.0 off" vs official "Costa Rica | Tono
-    de ocupado - Tono de congestión - Tono de invitación a marcar - Tono de llamada
-    - Tono de aviso - intervención de la operadora Tono de indicación de llamada en
-    espera - | 450 450 450 450 425 450 | 0.33 on 0.33 off 0.33 on 0.33 off continuo
-    1.2 on 4.9 off 0.17 on 0.17 off 0.5 on 0.17 off 0.15 on 0.15 off 0.15 on 8.0 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 425
-- layer: rows
-  side: both
-  text: 'Côte d''Ivoire: generated "Côte d''Ivoire (República de) | Tono de ocupado
-    - Tono de invitación a marcar - Segundo tono de invitación a marcar - Tono de
-    desbloqeo de la línea - Tono de llamada - información - llamada en espera - |
-    425 425 440+330 425 425 a) | 0.5 on 0.5 off continuo continuo 0.4 on 0.04 off
-    1.7 on 3.3 off" vs official "Côte d''Ivoire (República de) | Tono de ocupado -
-    Tono de invitación a marcar - Segundo tono de invitación a marcar - Tono de desbloqeo
-    de la línea - Tono de llamada - | 425 425 440+330 425 425 | 0.5 on 0.5 off continuo
-    continuo 0.4 on 0.04 off 1.7 on 3.3 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (información
-    llamada en espera a); the official PDF has other text
-- layer: rows
-  side: both
-  text: 'Cuba: generated "Cuba | Tono de aceptación - Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - I Tono de invitación a marcar - II Tono de indicación
-    negativo - Tono de llamada - I Tono de llamada - II Tono de llamada - III Tono
-    de llamada - IV Tono especial de información - I Tono especial de información
-    - II Tono de aviso - I, intervención de la operadora Tono de aviso - II, intervención
-    de la operadora Tono de indicación de llamada en espera - I Tono de indicación
-    de llamada en espera - II | 425 600x120//620+480//425//400 600x120//425//400 600x120//425
-    425 425 425 440+480//440+620//480+620 420x40 400+450 950/1400/1800 (3x0.33 on
-    400 425 425 425 400 | continuo 0.5 on 0.5 off 0.25 on 0.25 off continuo 0.75 on
-    0.75 off 0.25 on 0.25 off 0.5 on 0.5 off 1.0 on 4.0 off 2.0 on 4.0 off 1.0 on
-    2.0 off 0.4 on 0.2 off 0.4 on 2.0 off (3x0.33 on 2x0.33 off) 1.0 off 4x(0.075
-    on 0.10 off) 0.30 off 0.1 on 4.9 off 0.5 on 0.2 off 0.2 on 0.6 off 0.2 on 0.5
-    on 0.5 off" vs official "Cuba | Tono de aceptación - Tono de ocupado - Tono de
-    congestión - Tono de invitación a marcar - I Tono de invitación a marcar - II
-    Tono de indicación negativo - Tono de llamada - I Tono de llamada - II Tono de
-    llamada - III Tono de llamada - IV Tono especial de información - I Tono especial
-    de información - II Tono de aviso - I, intervención de la operadora Tono de aviso
-    - II, intervención de la operadora Tono de indicación de llamada en espera - I
-    Tono de indicación de llamada en espera - II | 425 600x120//620+480//425//400
-    600x120//425//400 600x120//425 425 425 425 440+480//440+620//480+620 420x40 400+450
-    950/1400/1800 400 425 425 425 400 | continuo 0.5 on 0.5 off 0.25 on 0.25 off continuo
-    0.75 on 0.75 off 0.25 on 0.25 off 0.5 on 0.5 off 1.0 on 4.0 off 2.0 on 4.0 off
-    1.0 on 2.0 off 0.4 on 0.2 off 0.4 on 2.0 off (3x0.33 on 2x0.33 off) 1.0 off 4x(0.075
-    on 0.10 off) 0.30 off 0.1 on 4.9 off 0.5 on 0.2 off 0.2 on 0.6 off 0.2 on 0.5
-    on 0.5 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (3x0
-    33 on); the official PDF has other text
-- layer: rows
-  side: generated_only
-  text: Chipre (República Chipre (República de) | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de abonado inaccesible - Tono de pago - Tono
-    de llamada - Tono especial de información - Tono de aviso - intervención de la
-    operadora Tono de indicación de llamada en espera - | 425 425 350+450 425 1638/1206/943
-    425 950/1400/1800 operator 425 | 0.5 on 0.5 off 0.25 on 0.25 off continuo 2.5
-    on 0.5 off 3x(0.068 on 0.068 off) 1.5 on 3.0 off 3x0.33 on 1.0 off 0.5 on 14.0
-    off 0.1 on 0.1 off 0.1 on 5.0 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (operator); the official PDF has 1400
 - layer: rows
   side: generated_only
   text: República Checa República Checa | Tono de ocupado - Tono de congestión - Tono
@@ -391,19 +91,6 @@
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
 - layer: rows
-  side: generated_only
-  text: Dinamarca Dinamarca | Tono de ocupado - I | 425 | 0.25 on 0.25 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the official PDF prints tono de ocupado ii 1 tono
-    de congestión i tono de congestión ii 1 tono de invitación a marcar tono de llamada
-    tono especial de información tono de indicación de llamada en espera i tono de
-    indicación de llamada en espera ii 1 425 425 425 425 425 950 1400 1800 425 425
-    0 5 on 0 5 off 0 25 on 0 25 off 0 2 on 0 2 off continuo 1 0 on 4 0 off 3x0 33
-    on 1 00 off 0 2 on 0 2 off 0 2 on 3 6 off 0 2 on 0 2 off 0 2 on 0 2 on 0 6 off
-    0 2 on 3 0 off 0 2 on 0 6 off 0 2 on once more than the dataset record holds (in
-    es); the generated PDF prints the dataset
-- layer: rows
   side: official_only
   text: Departamentos y Departamentos y territorios franceses del Océano Indico |
     Tono de ocupado - Tono de invitación a marcar - Tono de llamada - Tono especial
@@ -416,34 +103,6 @@
     or place a continuation line differently'
 - layer: rows
   side: official_only
-  text: Dinamarca Dinamarca | Tono de ocupado - I Tono de ocupado - II (1) Tono de
-    congestión - I Tono de congestión - II (1) Tono de invitación a marcar - Tono
-    de llamada - Tono especial de información - Tono de indicación de llamada en espera
-    - I Tono de indicación de llamada en espera - II (1) | 425 425 425 425 425 425
-    950/1400/1800 425 425 | 0.25 on 0.25 off 0.5 on 0.5 off 0.25 on 0.25 off 0.2 on
-    0.2 off continuo 1.0 on 4.0 off 3x0.33 on 1.00 off 0.2 on 0.2 off 0.2 on 3.6 off
-    0.2 on 0.2 off 0.2 on 0.2 on 0.6 off 0.2 on 3.0 off 0.2 on 0.6 off 0.2 on
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the official PDF prints tono de ocupado ii 1 tono
-    de congestión i tono de congestión ii 1 tono de invitación a marcar tono de llamada
-    tono especial de información tono de indicación de llamada en espera i tono de
-    indicación de llamada en espera ii 1 425 425 425 425 425 950 1400 1800 425 425
-    0 5 on 0 5 off 0 25 on 0 25 off 0 2 on 0 2 off continuo 1 0 on 4 0 off 3x0 33
-    on 1 00 off 0 2 on 0 2 off 0 2 on 3 6 off 0 2 on 0 2 off 0 2 on 0 2 on 0 6 off
-    0 2 on 3 0 off 0 2 on 0 6 off 0 2 on once more than the dataset record holds (in
-    es); the generated PDF prints the dataset
-- layer: rows
-  side: official_only
-  text: Emiratos Árabes Emiratos Árabes Unidos | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de abonado inaccesible - Tono de llamada
-    - | 400//425 400//425 350+440 400//425 400+450//425 | 0.375 on 0.375 off 0.4 on
-    0.35 off 0.225 on 0.525 off continuo continuo 0.4 on 0.2 off 0.4 on 2.0 off
-  disposition: data
-  reason: the official row has words (árabes) that the dataset records of Emiratos
-    Árabes in es do not hold, so the generated PDF cannot print it
-- layer: rows
-  side: official_only
   text: Eslovenia (República Eslovenia (República de) | Tono de ocupado - Tono de
     congestión - Tono de invitación a marcar - Tono de pago - Tono de llamada - Tono
     especial de información - Tono de indicación de llamada en espera - | 425 425
@@ -453,59 +112,6 @@
   reason: 'the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
-- layer: rows
-  side: official_only
-  text: España España | Tono de ocupado - I Tono de ocupado - II Tono de congestión
-    - I Tono de congestión - II Tono de invitación a marcar - Tono especial de invitación
-    a marcar - I Tono especial de invitación a marcar - II Tono de abonado inaccesible
-    - I Tono de abonado inaccesible - II Tono de identificación de teléfono de previo
-    pago - I Tono de identificación de teléfono de previo pago - II Tono de llamada
-    - I Tono de llamada - II Tono especial de información - Tono de aviso - intervención
-    de la operadora Tono de indicación de llamada en espera - | 425 425 425 425 425
-    425 425 425 425 1600 1600  425 425 950/1400/1800 1400 425 | 0.2 on 0.2 off 0.5
-    on 0.5 off 2x(0.2 on 0.2 off) 0.2 on 0.6 off 0.25 on 0.25 off continuo 1.0 on
-    0.1 off 0.5 on 0.05 off 0.2 on 0.2 off 0.2 on 0.6 off 0.5 on 2.5 off 0.05 on 0.05
-    off 0.05 on 1.5 off 0.05 on 0.05 off 0.05 on 0.05 off 0.05 on 1.5 off 1.5 on 3.0
-    off 1.0 on 4.0 off 3x0.33 on 1.0 off 0.4 on 5.0 off 0.175 on 0.175 off 0.175 on
-    3.5 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (operator); the official PDF has 1400
-- layer: rows
-  side: official_only
-  text: Estados Unidos Estados Unidos de América | Tono de ocupado - Tono de confirmación
-    - Tono de invitación a marcar - Tono de repetición de invitación a marcar - Tono
-    de intervención - Tono de abonado inaccesible - Tono de señal permanente - Tono
-    de grabación - Tono de llamada - Tono de re-llamada - Tono de aviso - mensaje
-    (4) Tono de indicación de llamada en espera - | 600x120//600x133//600x140//6 00x160//480+620
-    350+440 600x120//600x133//600x140//6 00x160//350+440 350+440 600x120//600x133//600x140//6
-    00x160//480+620 200//400 480//400//500 440 420x40//500x40//440+480 600x120//600x133//600x140//6
-    00x160//480+620 1400 440 | 0.5 on 0.5 off 3x(0.1 on 0.1 off) continuo 3x(0.1 on
-    0.1 off) + continuo 0.5 on 0.5 off 0.5 on 6.0 off continuo 0.5 on 5.0 off 2.0
-    on 4.0 off 0.3 on 0.2 off 0.5 on 2x(0.3 on 10.0 off)
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (600x160 600x160); the official PDF has tono de intervención
-    tono de abonado inaccesible tono de señal permanente tono de grabación tono de
-    llamada tono de re llamada tono de aviso mensaje 4 tono de indicación de llamada
-    en espera 6 6 00x160 600x120 600x133 600x140 6 00x160 200 400 480 400 500 440
-    420x40 500x40 440 480 600x120 600x133 600x140 6 00x160 480 620 1400 440 0 5 on
-    6 0 off continuo 0 5 on 5 0 off 2 0 on 4 0 off 0 3 on 0 2 off 0 5 on 2x 0 3 on
-    10 0 off
-- layer: rows
-  side: generated_only
-  text: Malvinas (Islas) Malvinas (Islas) (Falkland) | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de abonado inaccesible - Tono de llamada
-    - Tono especial de información - Tono de aviso - intervención de la operadora
-    | 400 400 350+450 400 400+450 950/1400/1800 operator | 0.375 on 0.375 off 0.4
-    on 0.35 off 0.255 on 0.525 off continuo continuo 0.4 on 0.2 off 3x0.33 on 1.0
-    off 0.1 on 0.1 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (operator); the official PDF has 1000
 - layer: rows
   side: official_only
   text: Filipinas (República Filipinas (República de) | Tono de ocupado - Tono de
@@ -520,25 +126,6 @@
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
 - layer: rows
-  side: both
-  text: 'Finlandia: generated "Finlandia | Tono de ocupado - Tono de congestión -
-    Tono de invitación a marcar - Tono especial de invitación a marcar - Tono de fila
-    de espera - | 425 425 425 425 950/950/1400 | 0.3 on 0.3 off 0.2 on 0.2 off continuo
-    0.65 on 0.025 off 0.65 on 0.325 off 0.325 on 1.3 on 2.6 off" vs official "Finlandia
-    | Tono de ocupado - Tono de congestión - Tono de invitación a marcar - Tono especial
-    de invitación a marcar - Tono de fila de espera - Tono de llamada - (11) Tono
-    especial de información - Tono de aviso - intervención de la operadora Tono de
-    indicación de llamada en espera - | 425 425 425 425 950/950/1400 425 950/1400/1800
-    425 425 | 0.3 on 0.3 off 0.2 on 0.2 off continuo 0.65 on 0.025 off 0.65 on 0.325
-    off 0.325 on 1.3 on 2.6 off 1.0 on 4.0 off 3x0.333 on 1.0 off 0.2 on 0.3 off 0.2
-    on 1.3 off 0.15 on 0.15 off 0.15 on 8.0 off"'
-  disposition: data
-  reason: the official PDF prints tono de llamada 11 tono especial de información
-    tono de aviso intervención de la operadora tono de indicación de llamada en espera
-    425 950 1400 1800 425 425 1 0 on 4 0 off 3x0 333 on 1 0 off 0 2 on 0 3 off 0 2
-    on 1 3 off 0 15 on 0 15 off 0 15 on 8 0 off once more than the dataset record
-    holds (in es); the generated PDF prints the dataset
-- layer: rows
   side: generated_only
   text: Departamentos y Departamentos y territorios franceses del Océano Indico |
     Tono de ocupado - Tono de invitación a marcar - Tono de llamada - Tono especial
@@ -561,19 +148,6 @@
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
 - layer: rows
-  side: generated_only
-  text: Polinesia francesa Polinesia francesa (Territoire français d'outremer) | Tono
-    de aceptación - Tono de ocupado - Tono de congestión - Tono de invitación a marcar
-    - Segundo tono de invitación a marcar - Tono aullador - Tono de pago - Tono de
-    llamada - Tono especial de información - Tono de indicación de llamada en espera
-    - | 440 440 440 440 440+330 3000 440 440 950/1400/1800 440 | 1.7 on 3.3 off 0.5
-    on 0.5 off 0.5 on 0.5 off continuo continuo continuo continuo 1.7 on 3.3 off 3x0.33
-    on 1.0 off 1.7 on 3.3 off
-  disposition: data
-  reason: the generated row is what the dataset holds for Polinesia francesa in es;
-    the official list has no row of that name under this code (the dataset differs
-    from the official list)
-- layer: rows
   side: official_only
   text: Granada Granada | Tono de ocupado - Tono de llamada - | 460+620 440+480 |
     0.5 on 0.5 off 2.0 on 4.0 off
@@ -600,30 +174,6 @@
   reason: 'the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
-- layer: rows
-  side: generated_only
-  text: Islandia Islandia | Tono de ocupado - Tono de congestión - Tono de invitación
-    a marcar - Tono especial de invitación a marcar - inaccesible - Tono de identificación
-    de teléfono de previo pago - Tono de llamada - Tono de aviso - Tono de espera
-    - | 425 425 425 425 d) 1633/1209 425 425 425 | 0.25 on 0.25 off 0.25 on 0.25 off
-    continuo 0.4 on 0.04 off 0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 4.0 off 0.4 on 15.0
-    off 4x(0.2 on 0.2 off 0.2 on 3.6 off 0.2 on 0.2 off 0.2 on)
-  disposition: bug
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints the dataset's text of
-    another language than es (inaccesible d)
-- layer: rows
-  side: official_only
-  text: Islandia Islandia | Tono de ocupado - Tono de congestión - Tono de invitación
-    a marcar - Tono especial de invitación a marcar - (7) Tono de identificación de
-    teléfono de previo pago - Tono de llamada - Tono de aviso - Tono de espera - |
-    425 425 425 425 1633/1209 425 425 425 | 0.25 on 0.25 off 0.25 on 0.25 off continuo
-    0.4 on 0.04 off 0.2 on 0.2 off 0.2 on 2.0 off 1.0 on 4.0 off 0.4 on 15.0 off 4x(0.2
-    on 0.2 off 0.2 on 3.6 off 0.2 on 0.2 off 0.2 on)
-  disposition: bug
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints the dataset's text of
-    another language than es (inaccesible d)
 - layer: rows
   side: official_only
   text: 'Islas anglo-normandas: Islas anglo-normandas: Guernsey | Tono de ocupado
@@ -647,61 +197,6 @@
   reason: 'the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
-- layer: rows
-  side: official_only
-  text: Japón Japón | Tono de ocupado - (3) Tono de invitación a marcar - I Tono de
-    invitación a marcar - II, pabx Tono de invitación a marcar - III Segundo tono
-    de invitación a marcar - (3) Tono de pago - Tono de indicación positivo - I Tono
-    de indicación positivo - II Tono de llamada - I Tono de llamada - II, pabx Tono
-    de indicación de llamada en espera - I Tono de indicación de llamada en espera
-    - II Tono de indicación de llamada en espera - III Tono de indicación de llamada
-    en espera - IV Tono de indicación de llamada en espera - V Tono de indicación
-    de llamada en espera - VI | 400 400 400 400 400 250 400 400 400x(15~20) 400x20
-    400x16/400 400x16/400 400x16/400 400x16/400 400x16/400 400x16/400 | 0.5 on 0.5
-    off continuo 0.25 on 0.25 off 0.125 on 0.125 off 0.125 on 0.125 off 0.125 on 0.125
-    off 0.125 on 0.125 off 0.75 on 0.25 off 0.125~0.15 on 0.1~0.125 off 0.5 on 0.125
-    on 0.125 off 0.125 on 0.625 off 0.125 on 0.125 off 0.625 on 0.125 off 1.0 on 2.0
-    off 1.0 on 2.0 off 0.5 on 0.0~4.0 off 0.05 on 0.45 off 0.05 on 3.45 off 0.1 on
-    0.1 off 0.1 on 3.0 off 0.064 on 0.436 off 0.064 on 3.436 off 0.25 on 0.25 off
-    0.25 on 3.25 off 0.5 on 0.5 off 0.5 on 2.5 off 0.5 on 0.0~4.0 off 0.05 on 0.45
-    off 0.05 on 0.45 off 0.05 on 0.45 off 0.05 on 2.45 off
-  disposition: data
-  reason: the official row has words (3 3) that the dataset records of Japón in es
-    do not hold, so the generated PDF cannot print it
-- layer: rows
-  side: both
-  text: 'Kenya (República: generated "Kenya (República de) | Tono de ocupado - Tono
-    de congestión - Tono de invitación a marcar - Tono de pago - I Tono de pago -
-    II Tono de identificación de teléfono de previo pago - Tono de llamada - Tono
-    especial de información - Tono de aviso - intervención de la operadora Tono de
-    indicación de llamada en espera - | 425 425 425 941 800/1600 1633 425 900/1400/1800
-    operator 425 | 0.2 on 0.6 off 0.2 on 0.6 off 0.2 on 0.6 off continuo 0.2 on 0.2
-    off 0.08 on 0.08 off 0.08 on 1.5 off 0.67 on 3.0 off 1.5 on 5.0 off 3x0.75 on
-    1.25 off 0.2 on 0.2 off continuo" vs official "Kenya (República de) | Tono de
-    ocupado - Tono de congestión - Tono de invitación a marcar - Tono de pago - I
-    Tono de pago - II Tono de identificación de teléfono de previo pago - Tono de
-    llamada - Tono especial de información - Tono de aviso - intervención de la operadora
-    Tono de indicación de llamada en espera - | 425 425 425 941 800/1600 1633 425
-    900/1400/1800 425 425 | 0.2 on 0.6 off 0.2 on 0.6 off 0.2 on 0.6 off continuo
-    0.2 on 0.2 off 0.08 on 0.08 off 0.08 on 1.5 off 0.67 on 3.0 off 1.5 on 5.0 off
-    3x0.75 on 1.25 off 0.2 on 0.2 off continuo"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 425
-- layer: rows
-  side: generated_only
-  text: Corea (República Corea (República de) | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de repetición de invitación a marcar - I
-    Tono de repetición de invitación a marcar - II Tono de intercepción - Tono de
-    abonado inaccesible - Tono de llamada - Tono de aviso - intervención de la operadora
-    Tono de espera - | 480+620 480+620 350+440 400//450 400//450 350+440 450 440+480
-    operator 350+440 | 0.5 on 0.5 off 0.3 on 0.2 off continuo 1.0 on 4.0 off 1.0 on
-    2.0 off 0.125 on 0.25 off 0.125 on 1.5 off 0.2 on 0.1 off 0.2 on 1.5 off 1.0 on
-    2.0 off 2x(0.5 on 0.5 on 1.5 on) 0.25 on 0.25 off 0.25 on 3.25 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (operator); the official PDF has 392 494 587
 - layer: rows
   side: official_only
   text: La ex La ex República Yugoslava de Macedonia | Tono de ocupado - Tono de confirmación
@@ -745,33 +240,6 @@
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
 - layer: rows
-  side: both
-  text: 'Malta: generated "Malta | Tono de ocupado - Tono de congestión - Tono de
-    invitación a marcar - Tono especial de invitación a marcar - Tono de intercepción
-    - Tono de llamada - información - Tono de indicación de llamada en espera - |
-    425 425 425 425 950/1400/1800 425 1400 | 0.5 on 0.5 off 0.5 on 0.5 off 0.2 on
-    0.2 off 0.6 on 1.0 off 0.4 on 0.04 off 3x0.24 on 1.0 off 1.0 on 4.0 off 0.34 on
-    1.5 off" vs official "Malta | Tono de ocupado - Tono de congestión - Tono de invitación
-    a marcar - Tono especial de invitación a marcar - Tono de intercepción - Tono
-    de llamada - Tono de indicación de llamada en espera - | 425 425 425 425 950/1400/1800
-    425 1400 | 0.5 on 0.5 off 0.5 on 0.5 off 0.2 on 0.2 off 0.6 on 1.0 off 0.4 on
-    0.04 off 3x0.24 on 1.0 off 1.0 on 4.0 off 0.34 on 1.5 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (información);
-    the official PDF has other text
-- layer: rows
-  side: official_only
-  text: Malvinas (Islas) Malvinas (Islas) (Falkland) | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de abonado inaccesible - Tono de llamada
-    - Tono especial de información - Tono de aviso - intervención de la operadora
-    | 400 400 350+450 400 400+450 950/1400/1800 1000 | 0.375 on 0.375 off 0.4 on 0.35
-    off 0.255 on 0.525 off continuo continuo 0.4 on 0.2 off 3x0.33 on 1.0 off 0.1
-    on 0.1 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (operator); the official PDF has 1000
-- layer: rows
   side: official_only
   text: Marruecos (Reino Marruecos (Reino de) | Tono de ocupado - I Tono de ocupado
     - II Tono de congestión - I Tono de congestión - II Tono de invitación a marcar
@@ -800,39 +268,6 @@
   reason: 'the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
-- layer: rows
-  side: both
-  text: 'México: generated "México | Tono de ocupado - Tono de congestión - Tono de
-    invitación a marcar - Tono de llamada - Tono de aviso - intervención de la operadora
-    | 425 425 425 425 operator | 0.25 on 0.25 off 0.25 on 0.25 off continuo 1.0 on
-    4.0 off 0.5 on 0.17 off 0.17 on 0.17 off" vs official "México | Tono de ocupado
-    - Tono de congestión - Tono de invitación a marcar - Tono de llamada - Tono de
-    aviso - intervención de la operadora | 425 425 425 425 425 | 0.25 on 0.25 off
-    0.25 on 0.25 off continuo 1.0 on 4.0 off 0.5 on 0.17 off 0.17 on 0.17 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 425
-- layer: rows
-  side: both
-  text: 'Montserrat: generated "Montserrat | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de repetición de invitación a marcar - Tono
-    de abonado inaccesible - Tono de identificación de teléfono de previo pago - Tono
-    de llamada - Tono especial de información - Tono de aviso - intervención de la
-    operadora Tono de espera - | 480+620 480+620 350+440 350+440 480+620 1600/1143
-    440+480 950/1400/1800 operator 440 | 0.5 on 0.5 off 0.25 on 0.25 off continuo
-    3x(0.1 on 0.1 off) + continuo 0.25 on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off 2.0
-    on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off
-    0.5 on)" vs official "Montserrat | Tono de ocupado - Tono de congestión - Tono
-    de invitación a marcar - Tono de repetición de invitación a marcar - Tono de abonado
-    inaccesible - Tono de identificación de teléfono de previo pago - Tono de llamada
-    - Tono especial de información - Tono de aviso - intervención de la operadora
-    Tono de espera - | 480+620 480+620 350+440 350+440 480+620 1600/1143 440+480 950/1400/1800
-    450 440 | 0.5 on 0.5 off 0.25 on 0.25 off continuo 3x(0.1 on 0.1 off) + continuo
-    0.25 on 0.25 off 0.2 on 0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off
-    0.2 on 0.2 off 0.65 on 0.2 off 1x(0.5 on 10.0 off 0.5 on)"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 450
 - layer: rows
   side: generated_only
   text: Marruecos (Reino Marruecos (Reino de) | Tono de ocupado - I Tono de ocupado
@@ -868,28 +303,6 @@
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
 - layer: rows
-  side: both
-  text: 'Nigeria (República: generated "Nigeria (República Federal de) | Tono de ocupado
-    - Tono de congestión - Tono de invitación a marcar - Tono de repetición de invitación
-    a marcar - Tono especial de invitación a marcar - Tono de retención - Tono de
-    abonado inaccesible - Tono de llamada - Tono especial de información - Tono de
-    aviso - intervención de la operadora Tono de indicación de llamada en espera -
-    | 400 400 400//450 400//425 425 950/950/1400 450 400//450 400//33 operator 400
-    | 0.5 on 0.5 off 0.25 on 0.25 off continuo continuo 0.5 on 0.5 off 0.65 on 0.325
-    off 0.325 on 1.3 on 2.6 off 0.5 on 0.5 off 2.0 on 4.0 off 0.2 on 1.5 off 0.15
-    on 0.25 off 0.15 on 1.45 off 0.2 on 0.2 off" vs official "Nigeria (República Federal
-    de) | Tono de ocupado - Tono de congestión - Tono de invitación a marcar - Tono
-    de repetición de invitación a marcar - Tono especial de invitación a marcar -
-    Tono de retención - Tono de abonado inaccesible - Tono de llamada - Tono especial
-    de información - Tono de aviso - intervención de la operadora Tono de indicación
-    de llamada en espera - | 400 400 400//450 400//425 425 950/950/1400 450 400//450
-    400//33 400 400 | 0.5 on 0.5 off 0.25 on 0.25 off continuo continuo 0.5 on 0.5
-    off 0.65 on 0.325 off 0.325 on 1.3 on 2.6 off 0.5 on 0.5 off 2.0 on 4.0 off 0.2
-    on 1.5 off 0.15 on 0.25 off 0.15 on 1.45 off 0.2 on 0.2 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 400
-- layer: rows
   side: official_only
   text: Nueva Caledonia Nueva Caledonia (Territoire français d'outre-mer) | Tono de
     ocupado - Tono de congestión - Tono de invitación a marcar - Tono de llamada -
@@ -912,79 +325,6 @@
   reason: 'the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
-- layer: rows
-  side: both
-  text: 'Panamá (República: generated "Panamá (República de) | Tono de ocupado - Tono
-    de congestión - Tono de invitación a marcar - Tono de abonado inaccesible - Tono
-    de llamada - Tono especial de información - Tono de aviso - intervención de la
-    operadora Tono de indicación de llamada en espera - | 425 425 425 425 425 425
-    operator 425 | 0.32 on 0.32 off 0.32 on 0.32 off continuo 0.18 on 0.18 off 0.5
-    on 0.18 off 1.2 on 4.65 off 0.4 on 0.4 off 0.18 on 0.18 off 0.5 on 0.18 off 0.18
-    on 0.18 off 0.18 on" vs official "Panamá (República de) | Tono de ocupado - Tono
-    de congestión - Tono de invitación a marcar - Tono de abonado inaccesible - Tono
-    de llamada - Tono especial de información - Tono de aviso - intervención de la
-    operadora Tono de indicación de llamada en espera - | 425 425 425 425 425 425
-    425 425 | 0.32 on 0.32 off 0.32 on 0.32 off continuo 0.18 on 0.18 off 0.5 on 0.18
-    off 1.2 on 4.65 off 0.4 on 0.4 off 0.18 on 0.18 off 0.5 on 0.18 off 0.18 on 0.18
-    off 0.18 on"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 425
-- layer: rows
-  side: both
-  text: 'Papua Nueva: generated "Papua Nueva Guinea | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono especial de invitación a marcar - Tono de
-    abonado inaccesible - Tono de identificación de teléfono de previo pago - I Tono
-    de identificación de teléfono de previo pago - II Tono de identificación de teléfono
-    de previo pago - III Tono de llamada - Tono especial de información - Tono de
-    aviso - intervención de la operadora Tono de espera - | 425//400 425//400 425//400x25//350+440
-    425 425//400 1209/852 1336/941 900 425//400x25//400x16 950/1400/1800 operator
-    425 | 0.375 on 0.375 off 0.375 on 0.375 off continuo 0.4 on 0.04 off 2.5 on 0.5
-    off 4x(0.2 on 0.2 off 0.2 on 2.0 off) 2x(0.2 on 0.2 off 0.2 on 2.0 off) 2x(0.075
-    on 0.15 off 0.075 on 2.7 off) 2/3//400+450//410x20 0.4 on 0.2 off 0.4 on 2.0 off
-    3x0.33 on 1.01 off 0.5 on 11.5 off 0.04 on 10.0 off 0.04 on 20.0 off 0.04 on 20.0
-    off" vs official "Papua Nueva Guinea | Tono de ocupado - Tono de congestión -
-    Tono de invitación a marcar - Tono especial de invitación a marcar - Tono de abonado
-    inaccesible - Tono de identificación de teléfono de previo pago - I Tono de identificación
-    de teléfono de previo pago - II Tono de identificación de teléfono de previo pago
-    - III Tono de llamada - Tono especial de información - Tono de aviso - intervención
-    de la operadora Tono de espera - | 425//400 425//400 425//400x25//350+440 425
-    425//400 1209/852 1336/941 900 425//400x25//400x16 2/3//400+450//410x20 950/1400/1800
-    1400 425 | 0.375 on 0.375 off 0.375 on 0.375 off continuo 0.4 on 0.04 off 2.5
-    on 0.5 off 4x(0.2 on 0.2 off 0.2 on 2.0 off) 2x(0.2 on 0.2 off 0.2 on 2.0 off)
-    2x(0.075 on 0.15 off 0.075 on 2.7 off) 0.4 on 0.2 off 0.4 on 2.0 off 3x0.33 on
-    1.01 off 0.5 on 11.5 off 0.04 on 10.0 off 0.04 on 20.0 off 0.04 on 20.0 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 1400
-- layer: rows
-  side: both
-  text: 'Perú: generated "Perú | Tono de ocupado - Tono de congestión - Tono de invitación
-    a marcar - Tono especial de invitación a marcar - Tono aullador - inaccesible
-    - Tono de llamada - Tono especial de información - Tono de indicación de llamada
-    en espera - | 425 425 425 425 1500+3200 425 950/1400/1800 425 | 0.5 on 0.5 off
-    0.2 on 0.2 off 0.2 on 0.2 off 0.2 on 0.6 off continuo 1.0 on 0.1 off 0.5 on 0.15
-    on 0.30 off 3x0.33 on 1.0 off 0.175 on 0.175 off 0.175 on 3.5 off" vs official
-    "Perú | Tono de ocupado - Tono de congestión - Tono de invitación a marcar - Tono
-    especial de invitación a marcar - Tono aullador - Tono de llamada - Tono especial
-    de información - Tono de indicación de llamada en espera - Polinesia francesa
-    (Territoire français d''outre- mer) Tono de aceptación - Tono de ocupado - Tono
-    de congestión - Tono de invitación a marcar - Segundo tono de invitación a marcar
-    - Tono aullador - Tono de pago - Tono de llamada - Tono especial de información
-    - Tono de indicación de llamada en espera - | 425 425 425 425 1500+3200 425 950/1400/1800
-    425 440 440 440 440 440+330 3000 440 440 950/1400/1800 440 | 0.5 on 0.5 off 0.2
-    on 0.2 off 0.2 on 0.2 off 0.2 on 0.6 off continuo 1.0 on 0.1 off 0.5 on 0.15 on
-    0.30 off 3x0.33 on 1.0 off 0.175 on 0.175 off 0.175 on 3.5 off 1.7 on 3.3 off
-    0.5 on 0.5 off 0.5 on 0.5 off continuo continuo continuo continuo 1.7 on 3.3 off
-    3x0.33 on 1.0 off 1.7 on 3.3 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (inaccesible);
-    the official PDF has polinesia francesa territoire français d outre mer tono de
-    aceptación tono de ocupado tono de congestión tono de invitación a marcar segundo
-    tono de invitación a marcar tono aullador tono de pago tono de llamada tono especial
-    de información tono de indicación de llamada en espera 440 440 440 440 440 330
-    3000 440 440 950 1400 1800 440 1 7 on 3 3 off 0 5 on 0 5 off 0 5 on 0 5 off continuo
-    continuo continuo continuo 1 7 on 3 3 off 3x0 33 on 1 0 off 1 7 on 3 3 off
 - layer: rows
   side: generated_only
   text: Filipinas (República Filipinas (República de) | Tono de ocupado - Tono de
@@ -1010,16 +350,6 @@
   reason: 'the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
-- layer: rows
-  side: official_only
-  text: República Árabe República Árabe Siria | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de llamada - Tono especial de información
-    - Tono de indicación de llamada en espera - | 450 450 450 400//450 950/1400/1800
-    450 | 0.5 on 0.5 off 0.25 on 0.25 off continuo 1.0 on 0.5 off (3x0.33 on 2x0.03
-    off) 1.0 off 0.1 on 0.2 off 0.1 on 9.5 off
-  disposition: data
-  reason: the official row has words (árabe) that the dataset records of República
-    Árabe in es do not hold, so the generated PDF cannot print it
 - layer: rows
   side: official_only
   text: República Checa República Checa | Tono de ocupado - Tono de congestión - Tono
@@ -1069,29 +399,6 @@
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
 - layer: rows
-  side: generated_only
-  text: Santa Lucía Santa Lucía | Tono de ocupado - Tono de congestión - Tono de invitación
-    a marcar - Tono especial de invitación a marcar - Tono de pago - Tono de llamada
-    - Tono de encaminamiento - Tono de aviso - Tono de indicación de llamada en espera
-    - | 425 425 425 425+330 622 425 425 425 425 | 0.5 on 0.5 off 0.25 on 0.25 off
-    continuo continuo 0.136 on 0.136 off 0.375 on 0.25 off 0.375 on 2.0 off 0.05 on
-    0.05 off 0.1 on 4.9 off 0.2 on 0.2 off 0.2 on 4.0 off
-  disposition: bug
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the dataset record holds de (in es) once more than
-    the generated row prints it, and the official row prints it
-- layer: rows
-  side: generated_only
-  text: San Pedro San Pedro y Miquelón (Collectivité territoriale de la République
-    française) | Tono de ocupado - Tono de invitación a marcar - Tono de llamada -
-    Tono especial de información - Tono de indicación de llamada en espera - | 440
-    440 440 950/1400/1800 440 | 0.5 on 0.5 off continuo 1.5 on 3.5 off 3x(0.3 on 0.03
-    off) 1.0 off 0.3 on 10.0 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (la république française); the official PDF has other text
-- layer: rows
   side: official_only
   text: Salomón (Islas) Salomón (Islas) | Tono de ocupado - Tono de congestión - Tono
     de invitación a marcar - Tono de abonado inaccesible - Tono de pago - Tono de
@@ -1103,28 +410,6 @@
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
 - layer: rows
-  side: both
-  text: 'San Marino: generated "San Marino (República de) | Tono de ocupado - Tono
-    de invitación a marcar - Tono de llamada - | 425 425 425 | 0.2 on 0.2 off 0.6
-    on 1.0 off 0.2 on 0.2 off 1.0 on 4.0 off" vs official "San Marino (República de)
-    | Tono de ocupado - Tono de invitación a marcar - Tono de llamada - la République
-    française) | 425 425 425 | 0.2 on 0.2 off 0.6 on 1.0 off 0.2 on 0.2 off 1.0 on
-    4.0 off"'
-  disposition: bug
-  reason: the dataset record holds la république française (in es) once more than
-    the generated row prints it, and the official row prints it
-- layer: rows
-  side: official_only
-  text: San Pedro San Pedro y Miquelón (Collectivité territoriale de | Tono de ocupado
-    - Tono de invitación a marcar - Tono de llamada - Tono especial de información
-    - Tono de indicación de llamada en espera - | 440 440 440 950/1400/1800 440 |
-    0.5 on 0.5 off continuo 1.5 on 3.5 off 3x(0.3 on 0.03 off) 1.0 off 0.3 on 10.0
-    off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (la république française); the official PDF has other text
-- layer: rows
   side: official_only
   text: Santa Elena Santa Elena | Tono de ocupado - Tono de congestión - Tono de invitación
     a marcar - Tono de abonado inaccesible - Tono de pago - Tono de llamada - | 400
@@ -1134,33 +419,6 @@
   reason: 'the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
-- layer: rows
-  side: official_only
-  text: Santa Lucía Santa Lucía | Tono de ocupado - Tono de congestión - Tono de invitación
-    a marcar - Tono especial de invitación a marcar - Tono de pago - Tono de llamada
-    - Tono de encaminamiento - Tono de aviso - Tono de indicación de llamada en espera
-    - de) | 425 425 425 425+330 622 425 425 425 425 | 0.5 on 0.5 off 0.25 on 0.25
-    off continuo continuo 0.136 on 0.136 off 0.375 on 0.25 off 0.375 on 2.0 off 0.05
-    on 0.05 off 0.1 on 4.9 off 0.2 on 0.2 off 0.2 on 4.0 off
-  disposition: bug
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the dataset record holds de (in es) once more than
-    the generated row prints it, and the official row prints it
-- layer: rows
-  side: both
-  text: 'Santo Tomé: generated "Santo Tomé y Príncipe (República Democrática de) |
-    Tono de ocupado - Tono de congestión - Tono de invitación a marcar - Tono de pago
-    - Tono de llamada - Tono especial de información - Tono de indicación de llamada
-    en espera - | 400 400 425 12000 400 950/1400/1800 425 | 0.5 on 0.5 off 0.2 on
-    0.2 off continuo continuo 1.0 on 5.0 off 3x0.33 on 1.0 off 0.2 on 1.0 off" vs
-    official "Santo Tomé y Príncipe (República Democrática | Tono de ocupado - Tono
-    de congestión - Tono de invitación a marcar - Tono de pago - Tono de llamada -
-    Tono especial de información - Tono de indicación de llamada en espera - | 400
-    400 425 12000 400 950/1400/1800 425 | 0.5 on 0.5 off 0.2 on 0.2 off continuo continuo
-    1.0 on 5.0 off 3x0.33 on 1.0 off 0.2 on 1.0 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (de);
-    the official PDF has other text
 - layer: rows
   side: generated_only
   text: Arabia Saudita Arabia Saudita (Reino de) | Tono de ocupado - Tono de congestión
@@ -1229,25 +487,6 @@
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
 - layer: rows
-  side: generated_only
-  text: España España | Tono de ocupado - I Tono de ocupado - II Tono de congestión
-    - I Tono de congestión - II Tono de invitación a marcar - Tono especial de invitación
-    a marcar - I Tono especial de invitación a marcar - II Tono de abonado inaccesible
-    - I Tono de abonado inaccesible - II Tono de identificación de teléfono de previo
-    pago - I Tono de identificación de teléfono de previo pago - II Tono de llamada
-    - I Tono de llamada - II Tono especial de información - Tono de aviso - intervención
-    de la operadora Tono de indicación de llamada en espera - | 425 425 425 425 425
-    425 425 425 425 1600 1600  425 425 950/1400/1800 operator 425  | 0.2 on 0.2 off
-    0.5 on 0.5 off 2x(0.2 on 0.2 off) 0.2 on 0.6 off 0.25 on 0.25 off continuo 1.0
-    on 0.1 off 0.5 on 0.05 off 0.2 on 0.2 off 0.2 on 0.6 off 0.5 on 2.5 off 0.05 on
-    0.05 off 0.05 on 1.5 off 0.05 on 0.05 off 0.05 on 0.05 off 0.05 on 1.5 off 1.5
-    on 3.0 off 1.0 on 4.0 off 3x0.33 on 1.0 off 0.4 on 5.0 off 0.175 on 0.175 off
-    0.175 on 3.5 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (operator); the official PDF has 1400
-- layer: rows
   side: official_only
   text: Sudafricana (República) Sudafricana (República) | Tono de ocupado - Tono de
     paciencia - Tono de congestión - Tono de invitación a marcar - Tono especial de
@@ -1265,36 +504,6 @@
     or place a continuation line differently'
 - layer: rows
   side: official_only
-  text: Suecia Suecia | Tono de ocupado - I Tono de ocupado - II (1) Tono de congestión
-    - I Tono de congestión - II (1) Tono de invitación a marcar - Tono especial de
-    invitación a marcar - Tono de pago - Tono de identificación de teléfono de previo
-    pago - Tono de llamada - I Tono de llamada - II (1) Tono especial de información
-    - Tono de aviso - ante prohibición de tiempo limite Tono de aviso - intervención
-    de la operadora Tono de aviso - conferencia tripartita Tono de indicación de llamada
-    en espera - I Tono de indicación de llamada en espera - II (1) | 425 425 425 425
-    425 425 941 1477/941 425 425 950/1400/1800 425 1400 1400 425 425 | 0.25 on 0.25
-    off 0.5 on 0.5 off 0.25 on 0.75 off 0.2 on 0.2 off continuo 0.32 on 0.02 off 2x(0.2
-    on 0.2 off 0.2 on 3.6 off) 11x(0.2 on 0.2 off 0.2 on 2.0 off) 1.0 on 5.0 off 1.0
-    on 4.0 off 3x0.33 on 1.0 off + anuncio 2.0 on 5.0 off + continuo 0.1 on 1.5 off
-    0.35 on 15.0 off 1x(0.2 on 0.5 off 0.2 on) 0.2 on 0.6 off 0.2 on 3.0 off 0.2 on
-    0.6 off 0.2 on
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the official PDF prints tono de ocupado ii 1 tono
-    de congestión i tono de congestión ii 1 tono de invitación a marcar tono especial
-    de invitación a marcar tono de pago tono de identificación de teléfono de previo
-    pago tono de llamada i tono de llamada ii 1 tono especial de información tono
-    de aviso ante prohibición de tiempo limite tono de aviso intervención de la operadora
-    tono de aviso conferencia tripartita tono de indicación de llamada en espera i
-    tono de indicación de llamada en espera ii 1 425 425 425 425 425 941 1477 941
-    425 425 950 1400 1800 425 1400 1400 425 425 0 5 on 0 5 off 0 25 on 0 75 off 0
-    2 on 0 2 off continuo 0 32 on 0 02 off 2x 0 2 on 0 2 off 0 2 on 3 6 off 11x 0
-    2 on 0 2 off 0 2 on 2 0 off 1 0 on 5 0 off 1 0 on 4 0 off 3x0 33 on 1 0 off anuncio
-    2 0 on 5 0 off continuo 0 1 on 1 5 off 0 35 on 15 0 off 1x 0 2 on 0 5 off 0 2
-    on 0 2 on 0 6 off 0 2 on 3 0 off 0 2 on 0 6 off 0 2 on once more than the dataset
-    record holds (in es); the generated PDF prints the dataset
-- layer: rows
-  side: official_only
   text: Suiza (Confederación) Suiza (Confederación) | Tono de ocupado - Tono de congestión
     - Tono de invitación a marcar - Tono especial de invitación a marcar - I Tono
     especial de invitación a marcar - II Tono de llamada - Tono especial de información
@@ -1307,24 +516,6 @@
     or place a continuation line differently'
 - layer: rows
   side: generated_only
-  text: Suecia Suecia | Tono de ocupado - I | 425 | 0.25 on 0.25 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the official PDF prints tono de ocupado ii 1 tono
-    de congestión i tono de congestión ii 1 tono de invitación a marcar tono especial
-    de invitación a marcar tono de pago tono de identificación de teléfono de previo
-    pago tono de llamada i tono de llamada ii 1 tono especial de información tono
-    de aviso ante prohibición de tiempo limite tono de aviso intervención de la operadora
-    tono de aviso conferencia tripartita tono de indicación de llamada en espera i
-    tono de indicación de llamada en espera ii 1 425 425 425 425 425 941 1477 941
-    425 425 950 1400 1800 425 1400 1400 425 425 0 5 on 0 5 off 0 25 on 0 75 off 0
-    2 on 0 2 off continuo 0 32 on 0 02 off 2x 0 2 on 0 2 off 0 2 on 3 6 off 11x 0
-    2 on 0 2 off 0 2 on 2 0 off 1 0 on 5 0 off 1 0 on 4 0 off 3x0 33 on 1 0 off anuncio
-    2 0 on 5 0 off continuo 0 1 on 1 5 off 0 35 on 15 0 off 1x 0 2 on 0 5 off 0 2
-    on 0 2 on 0 6 off 0 2 on 3 0 off 0 2 on 0 6 off 0 2 on once more than the dataset
-    record holds (in es); the generated PDF prints the dataset
-- layer: rows
-  side: generated_only
   text: Suiza (Confederación) Suiza (Confederación) | Tono de ocupado - Tono de congestión
     - Tono de invitación a marcar - Tono especial de invitación a marcar - I Tono
     especial de invitación a marcar - II Tono de llamada - Tono especial de información
@@ -1335,17 +526,6 @@
   reason: 'the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
-- layer: rows
-  side: generated_only
-  text: República Arabe República Arabe Siria | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de llamada - Tono especial de información
-    - Tono de indicación de llamada en espera - | 450 450 450 400//450 950/1400/1800
-    450 | 0.5 on 0.5 off 0.25 on 0.25 off continuo 1.0 on 0.5 off (3x0.33 on 2x0.03
-    off) 1.0 off 0.1 on 0.2 off 0.1 on 9.5 off
-  disposition: data
-  reason: the generated row is what the dataset holds for República Arabe in es; the
-    official list has no row of that name under this code (the dataset differs from
-    the official list)
 - layer: rows
   side: generated_only
   text: Tayikistán (República Tayikistán (República de) | Tono de ocupado - Tono de
@@ -1355,32 +535,6 @@
   reason: 'the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
-- layer: rows
-  side: official_only
-  text: Tailandia Tailandia | Tono de ocupado - Tono de congestión - Tono de invitación
-    a marcar - Tono especial de invitación a marcar - Tono de abonado inaccesible
-    - Tono de oferta, interurbano - Tono de llamada - Tono de indicación de llamada
-    en espera - | 400 400 400x50 400x50 400 400 400 400 | 0.5 on 0.5 off 0.3 on 0.3
-    off continuo 0.4 on 0.1 off 0.4 on 0.1 off + continuo 0.1 on 0.1 off 0.1 on 0.1
-    off 0.1 on 0.1 off 0.3 on 0.17 on 0.17 off 0.15 on 0.17 off 1.0 on 4.0 off 1.0
-    on 10.0 off 1.0 on
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (información); the official PDF has other text
-- layer: rows
-  side: generated_only
-  text: Tailandia Tailandia | Tono de ocupado - Tono de congestión - Tono de invitación
-    a marcar - Tono especial de invitación a marcar - Tono de abonado inaccesible
-    - Tono de oferta, interurbano - Tono de llamada - información - Tono de indicación
-    de llamada en espera - | 400 400 400x50 400x50  400  400  400 400 | 0.5 on 0.5
-    off 0.3 on 0.3 off continuo 0.4 on 0.1 off 0.4 on 0.1 off + continuo 0.1 on 0.1
-    off 0.1 on 0.1 off 0.1 on 0.1 off 0.3 on 0.17 on 0.17 off 0.15 on 0.17 off 1.0
-    on 4.0 off 1.0 on 10.0 off 1.0 on
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (información); the official PDF has other text
 - layer: rows
   side: generated_only
   text: La ex La ex República Yugoslava de Macedonia | Tono de ocupado - Tono de confirmación
@@ -1405,81 +559,6 @@
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
 - layer: rows
-  side: both
-  text: 'Trinidad y: generated "Trinidad y Tobago | Tono de ocupado - Tono de invitación
-    a marcar - Tono de llamada - Tono de re-llamada - I Tono de re-llamada - i) II
-    Tono de espera - | 480+620 350+440 440+480 480+620 480+620 440 | 0.5 on 0.5 off
-    continuo 2.0 on 4.0 off 0.3 on 0.2 off 0.2 on 0.3 off 0.3 on 10.0 off" vs official
-    "Trinidad y Tobago | Tono de ocupado - Tono de invitación a marcar - Tono de llamada
-    - Tono de re-llamada - I Tono de re-llamada - II (8) Tono de espera - | 480+620
-    350+440 440+480 480+620 480+620 440 | 0.5 on 0.5 off continuo 2.0 on 4.0 off 0.3
-    on 0.2 off 0.2 on 0.3 off 0.3 on 10.0 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (i);
-    the official PDF has 8
-- layer: rows
-  side: generated_only
-  text: Turquía Turquía | Tono de ocupado - Tono de confirmación - Tono de congestión
-    - Tono de invitación a marcar - Tono especial de invitación a marcar - Tono aullador
-    - Tono de abonado inaccesible - Tono de llamada - Tono especial de información
-    - Tono de aviso - intervención de la operadora Tono de espera - I Tono de espera
-    - II Tono de indicación de llamada en espera - | 450 450 450 450 450 1400/2060/2460/2600
-    450 450 950/1400/1800 operator 350+450 450 450 | 0.5 on 0.5 off 0.04 on 0.04 off
-    3x(0.2 on 0.2 off) 0.6 on 0.2 off continuo 1.0 on 0.25 off 0.1 on 0.1 off 0.2
-    on 0.2 off 2.0 on 4.0 off 3x0.3 on 1.0 off 0.2 on 0.2 off 0.6 on 0.2 off 0.5 on
-    0.5 off 0.5 on 2.5 off 0.2 on 0.6 off 0.2 on 8.0 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (operator); the official PDF has 450
-- layer: rows
-  side: both
-  text: 'Turquesas y: generated "Turquesas y Caicos (Islas) | Tono de ocupado - Tono
-    de congestión - Tono de invitación a marcar - Tono de repetición de invitación
-    a marcar - Tono de abonado inaccesible - Tono de identificación de teléfono de
-    previo pago - Tono de llamada - Tono especial de información - Tono de aviso -
-    intervención de la operadora Tono de espera - | 480+620 480+620 350+440 350+440
-    480+620 1600/1143 440+480 950/1400/1800 operator 440 | 0.5 on 0.5 off 0.25 on
-    0.25 off continuo 3x(0.1 on 0.1 off) + continuo 0.25 on 0.25 off 0.2 on 0.2 off
-    0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on 0.2 off
-    1x(0.5 on 10.0 off 0.5 on)" vs official "Turquesas y Caicos (Islas) | Tono de
-    ocupado - Tono de congestión - Tono de invitación a marcar - Tono de repetición
-    de invitación a marcar - Tono de abonado inaccesible - Tono de identificación
-    de teléfono de previo pago - Tono de llamada - Tono especial de información -
-    Tono de aviso - intervención de la operadora Tono de espera - | 480+620 480+620
-    350+440 350+440 480+620 1600/1143 440+480 950/1400/1800 450 440 | 0.5 on 0.5 off
-    0.25 on 0.25 off continuo 3x(0.1 on 0.1 off) + continuo 0.25 on 0.25 off 0.2 on
-    0.2 off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on
-    0.2 off 1x(0.5 on 10.0 off 0.5 on)"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 450
-- layer: rows
-  side: official_only
-  text: Turquía Turquía | Tono de ocupado - Tono de confirmación - Tono de congestión
-    - Tono de invitación a marcar - Tono especial de invitación a marcar - Tono aullador
-    - Tono de abonado inaccesible - Tono de llamada - Tono especial de información
-    - Tono de aviso - intervención de la operadora Tono de espera - I Tono de espera
-    - II Tono de indicación de llamada en espera - | 450 450 450 450 450 1400/2060/2460/2600
-    450 450 950/1400/1800 450 350+450 450 450 | 0.5 on 0.5 off 0.04 on 0.04 off 3x(0.2
-    on 0.2 off) 0.6 on 0.2 off continuo 1.0 on 0.25 off 0.1 on 0.1 off 0.2 on 0.2
-    off 2.0 on 4.0 off 3x0.3 on 1.0 off 0.2 on 0.2 off 0.6 on 0.2 off 0.5 on 0.5 off
-    0.5 on 2.5 off 0.2 on 0.6 off 0.2 on 8.0 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (operator); the official PDF has 450
-- layer: rows
-  side: generated_only
-  text: Emiratos Arabes Emiratos Arabes Unidos | Tono de ocupado - Tono de congestión
-    - Tono de invitación a marcar - Tono de abonado inaccesible - Tono de llamada
-    - | 400//425 400//425 350+440 400//425 400+450//425 | 0.375 on 0.375 off 0.4 on
-    0.35 off 0.225 on 0.525 off continuo continuo 0.4 on 0.2 off 0.4 on 2.0 off
-  disposition: data
-  reason: the generated row is what the dataset holds for Emiratos Arabes in es; the
-    official list has no row of that name under this code (the dataset differs from
-    the official list)
-- layer: rows
   side: generated_only
   text: Reino Unido Reino Unido de Gran Bretaña e Irlanda del Norte | Tono de ocupado
     - Tono de congestión - Tono de invitación a marcar - Tono de abonado inaccesible
@@ -1491,56 +570,19 @@
   reason: 'the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); same words on both sides: the two PDFs wrap a cell
     or place a continuation line differently'
-- layer: rows
-  side: generated_only
-  text: Estados Unidos Estados Unidos de América | Tono de ocupado - Tono de confirmación
-    - Tono de invitación a marcar - Tono de repetición de invitación a marcar - |
-    600x120//600x133//600x140//600x160//480+620 350+440 600x120//600x133//600x140//600x160//350+440
-    350+440 |  0.5 on 0.5 off 3x(0.1 on 0.1 off)  continuo 3x(0.1 on 0.1 off) + continuo
-    00x160//480+620 0.5 on 0.5 off
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (600x160 600x160); the official PDF has tono de intervención
-    tono de abonado inaccesible tono de señal permanente tono de grabación tono de
-    llamada tono de re llamada tono de aviso mensaje 4 tono de indicación de llamada
-    en espera 6 6 00x160 600x120 600x133 600x140 6 00x160 200 400 480 400 500 440
-    420x40 500x40 440 480 600x120 600x133 600x140 6 00x160 480 620 1400 440 0 5 on
-    6 0 off continuo 0 5 on 5 0 off 2 0 on 4 0 off 0 3 on 0 2 off 0 5 on 2x 0 3 on
-    10 0 off
-- layer: rows
+- layer: prose
   side: both
-  text: 'Uruguay (República: generated "Uruguay (República Oriental del) | Tono de
-    ocupado - Tono de congestión - Tono de invitación a marcar - I Tono de invitación
-    a marcar - II Tono de indicación negativo - Tono de indicación positivo - Tono
-    de llamada - Tono especial de información - Tono de aviso - intervención de la
-    operadora Tono de espera - | 425 425 425 450 425 425 425 950/1400/1800 operator
-    425 | 0.5 on 0.5 off 0.25 on 0.25 off continuo 0.7 on 0.8 off 0.2 on 0.3 off 0.5
-    on 0.5 off 2x(0.1 on 0.2 off) 0.1 on 1.3 off 1.0 on 4.0 off 3x0.333 on 1.0 off
-    0.15 on 0.25 off 0.15 on 1.45 off 0.2 on 0.2 off 0.2 on 4.4 off" vs official "Uruguay
-    (República Oriental del) | Tono de ocupado - Tono de congestión - Tono de invitación
-    a marcar - I Tono de invitación a marcar - II Tono de indicación negativo - Tono
-    de indicación positivo - Tono de llamada - Tono especial de información - Tono
-    de aviso - intervención de la operadora Tono de espera - | 425 425 425 450 425
-    425 425 950/1400/1800 425 425 | 0.5 on 0.5 off 0.25 on 0.25 off continuo 0.7 on
-    0.8 off 0.2 on 0.3 off 0.5 on 0.5 off 2x(0.1 on 0.2 off) 0.1 on 1.3 off 1.0 on
-    4.0 off 3x0.333 on 1.0 off 0.15 on 0.25 off 0.15 on 1.45 off 0.2 on 0.2 off 0.2
-    on 4.4 off"'
-  disposition: data
-  reason: the generated PDF prints what the dataset holds for this row in es (operator);
-    the official PDF has 425
-- layer: rows
-  side: official_only
-  text: Vírgenes británicas Vírgenes británicas (Islas) | Tono de ocupado - Tono de
-    congestión - Tono de invitación a marcar - Tono de repetición de invitación a
-    marcar - Tono de abonado inaccesible - Tono de identificación de teléfono de previo
-    pago - Tono de llamada - Tono especial de información - Tono de aviso - intervención
-    de la operadora Tono de indicación de llamada en espera - | 480+620 480+620 350+440
-    350+440 480+620 1600/1143 440+480 950/1400/1800 450 440 | 0.5 on 0.5 off 0.25
-    on 0.25 off continuo 3x(0.1 on 0.1 off) + continuo 0.25 on 0.25 off 0.2 on 0.2
-    off 0.2 on 2.0 off 2.0 on 4.0 off 3x0.33 on 1.0 off 0.2 on 0.2 off 0.65 on 0.2
-    off 1x(0.5 on 10.0 off 0.5 on)
-  disposition: data
-  reason: the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); the generated PDF prints what the dataset holds
-    for this row in es (operator); the official PDF has 450
+  text: generated "N.º" vs official ""
+  disposition: layout
+  reason: 'the prose words of the row are the same on both sides once the page numbers
+    of the footers (numbers of up to two digits), the "N.º" of the Spanish footer
+    and the hyphenation "ITU-T" / "ITUT" are set aside: the PDFs break pages and lines
+    differently'
+- layer: prose
+  side: both
+  text: generated "–1–" vs official "2"
+  disposition: layout
+  reason: 'the prose words of the row are the same on both sides once the page numbers
+    of the footers (numbers of up to two digits), the "N.º" of the Spanish footer
+    and the hyphenation "ITU-T" / "ITUT" are set aside: the PDFs break pages and lines
+    differently'

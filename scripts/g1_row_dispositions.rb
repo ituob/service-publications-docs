@@ -157,9 +157,43 @@ module G1RowDispositions
       next unless %i[bug unreviewed].include?(d.disposition) && d.layer == :rows
 
       v = row_verdict(d, ctx)
+      # E.180 only gets the layout rule: its footnote letters ("a)") and multi-line
+      # tone cells were not checked against the data/bug rules, so those stay open
+      v = nil if pub == 'T-SP-E.180-2010' && v&.disposition != :layout
       v ? out << { 'layer' => d.layer.to_s, 'side' => d.side.to_s, 'text' => d.text, 'disposition' => v.disposition.to_s, 'reason' => v.reason } : open += 1
     end
     [out, open]
+  end
+
+  PROSE_PAIR = /\Agenerated "(.*)" vs official "(.*)"\z/m
+  PROSE_LAYOUT = 'the prose words of the row are the same on both sides once the page numbers of the footers ' \
+                 '(numbers of up to two digits), the "N.º" of the Spanish footer and the hyphenation ' \
+                 '"ITU-T" / "ITUT" are set aside: the PDFs break pages and lines differently'
+
+  # Prose deltas are settled only for a row whose whole prose difference is
+  # page furniture: the unreviewed prose deltas, taken together as a word bag,
+  # differ only in page numbers, "N.º" and the ITU-T hyphenation. Any other
+  # word difference leaves all of the row's prose deltas unreviewed.
+  def prose_entries(result)
+    deltas = result[:deltas].select { |d| d.layer == :prose && d.disposition == :unreviewed }
+    return [] if deltas.empty?
+
+    gen = []
+    off = []
+    deltas.each do |d|
+      m = d.text.match(PROSE_PAIR) or return []
+      next unless d.side == :both
+
+      gen += furniture_free(m[1])
+      off += furniture_free(m[2])
+    end
+    return [] unless minus(gen, off).empty? && minus(off, gen).empty?
+
+    deltas.map { |d| { 'layer' => 'prose', 'side' => d.side.to_s, 'text' => d.text, 'disposition' => 'layout', 'reason' => PROSE_LAYOUT } }
+  end
+
+  def furniture_free(str)
+    words(str.gsub(/\bITU[- ]?T\b/i, 'itut')).reject { |w| w.match?(/\A\d{1,2}\z/) || %w[n o].include?(w) }
   end
 
   def row_verdict(delta, ctx)
@@ -224,6 +258,7 @@ module G1RowDispositions
 
         result = OfficialPdfComparison.run(File.join(gen_dir, short, "#{short}-#{lang}.pdf"), off_pdf, shape: family[:shape], lang: lang)
         list, open_rows = entries(result, pub, lang, dataset)
+        list += prose_entries(result)
         File.write(File.join(out_dir, "#{pub}-#{lang}.yaml"), list.to_yaml.sub(/\A---\n/, ''))
         puts format('%-17s %s settled=%-5d bug=%-4d rows-open=%d', pub, lang, list.size, list.count { |e| e['disposition'] == 'bug' }, open_rows)
       end
