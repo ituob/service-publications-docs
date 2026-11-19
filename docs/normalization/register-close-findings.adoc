@@ -17,9 +17,11 @@ introduce a country-wide replay operation.
 === No proven replacements
 
 A replay of E.212 found 198 SUP rows: 190 reprint the stored row verbatim, 7
-respell it, 1 names an absent key
+differ in spelling or notes (one of them, Estonia `248 33`, a rename left
+unproven below), 1 names an absent key
 (`BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/measure_e212_sup_rows.rb`).
-The printed legend is `SUP:: Delete`, and every row checked deletes. The heading
+The printed legend is `SUP:: Delete`, and every row whose key exists is deleted;
+replay skips the absent key with a SUP conflict. The heading
 token alone never means replacement, so the parser and replay keep SUP as a
 withdrawal and add no replacement scope.
 
