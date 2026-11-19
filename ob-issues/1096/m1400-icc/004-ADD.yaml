@@ -14,22 +14,10 @@ data:
     company_name: EWR Netz GmbH
     carrier_code: EWRNET
     contact: Mr Alexandros Stefikos
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Klosterstrasse 16
-    contact: 'Tel:             +49 6241 848 810'
+    address_line_1: Klosterstrasse 16
     tel: "+49 6241 848 810"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 67547 WORMS
-    contact: 'Fax:            +49 6241 848 812'
+    address_line_2: 67547 WORMS
     fax: "+49 6241 848 812"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:       stefikos.alexandros@ewr-netz.de'
     email:
     - stefikos.alexandros@ewr-netz.de
   notes: []

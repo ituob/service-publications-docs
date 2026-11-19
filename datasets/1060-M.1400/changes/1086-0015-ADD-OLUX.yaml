@@ -5,26 +5,15 @@ ob_issue_no: '1086'
 identifier:
   code: OLUX
 data:
-  _class: M1400Amendment
-  entries:
-  - company_name: Orange Communications Luxembourg S.A.
-    carrier_code: OLUX
-    contact: Mr. Jeannot Grethen
-    country_or_area:
-      en: Luxembourg
-    iso_code: LUX
-  - company_name: 8, rue des Mérovingiens
-    contact: 'Tel:            +352 661 888 260'
-    tel: "+352 661 888 260"
-    country_or_area:
-      en: Luxembourg
-    iso_code: LUX
-  - company_name: L-8080 BERTRANGE
-    contact: 'E-mail:     jeannot.grethen@orangeluxembourg.lu'
-    email:
-    - jeannot.grethen@orangeluxembourg.lu
-    country_or_area:
-      en: Luxembourg
-    iso_code: LUX
-  notes: []
+  company_name: Orange Communications Luxembourg S.A.
+  carrier_code: OLUX
+  contact: Mr. Jeannot Grethen
+  address_line_1: 8, rue des Mérovingiens
+  tel: "+352 661 888 260"
+  address_line_2: L-8080 BERTRANGE
+  email:
+  - jeannot.grethen@orangeluxembourg.lu
+  iso_code: LUX
+  country_or_area:
+    en: Luxembourg
 reference: OB-1086

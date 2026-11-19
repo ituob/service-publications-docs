@@ -634,6 +634,114 @@ RSpec.describe Ituob::Models::M1400Amendment do
     end
   end
 
+  describe 'carrier continuation rows' do
+    it 'attaches the printed MAXIS address and contact details to its keyed entry' do
+      amendment = described_class.parse(
+        doc(paragraph('Malaysia / MYS ADD'),
+            table(row(cell(paragraph('Maxis Berhad')), cell(paragraph('MAXIS')),
+                      cell(paragraph('Mr. Yap Chong Ping'))),
+                  row(cell(paragraph('Level 21, Menara Maxis')), cell(paragraph("\u00a0")),
+                      cell(paragraph('Tel: +60 3 2330 7693'))),
+                  row(cell(paragraph('Kuala Lumpur City Centre')), cell,
+                      cell(paragraph('Fax: +60 3 2330 0513'))),
+                  row(cell(paragraph('50088 KUALA LUMPUR')), cell,
+                      cell(paragraph('E-mail: cyap@maxis.com.my'))),
+                  company_row('Email: a@b.net')))
+      )
+      entries = amendment.actions.first.entries
+      maxis = entries.first
+
+      expect(entries.map(&:carrier_code)).to eq(['MAXIS', 'STWX'])
+      expect([maxis.company_name, maxis.country_or_area.en, maxis.iso_code, maxis.contact])
+        .to eq(['Maxis Berhad', 'Malaysia', 'MYS', 'Mr. Yap Chong Ping'])
+      expect([maxis.address_line_1, maxis.address_line_2, maxis.address_line_3])
+        .to eq(['Level 21, Menara Maxis', 'Kuala Lumpur City Centre', '50088 KUALA LUMPUR'])
+      expect([maxis.tel, maxis.fax, Array(maxis.email)])
+        .to eq(['+60 3 2330 7693', '+60 3 2330 0513', ['cyap@maxis.com.my']])
+      expect([entries.last.company_name, entries.last.address_line_1, entries.last.contact,
+              Array(entries.last.email)])
+        .to eq(['Timo Jung Streamworx', 'Edisonstrasse 63', 'Mr. Timo Jung', ['a@b.net']])
+    end
+
+    it 'retains repeated contact values and address overflow without replacing printed details' do
+      amendment = described_class.parse(
+        doc(paragraph('Germany / DEU ADD'),
+            table(company_row('Email: a@b.net'),
+                  row(cell(paragraph('Second address')), cell, cell(paragraph('Tel: 123'), paragraph(''), paragraph("\u00a0"), paragraph("Tel:\n789"))),
+                  row(cell(paragraph('Third address')), cell, cell(paragraph('Fax: 456'))),
+                  row(cell(paragraph('Fourth address')), cell, cell(paragraph('E-mail: c@d.net'))),
+                  row(cell, cell, cell(paragraph('Email: a@b.net')))))
+      )
+      entry = amendment.actions.first.entries.first
+
+      expect(amendment.actions.first.entries.length).to eq(1)
+      expect([entry.address_line_1, entry.address_line_2, entry.address_line_3])
+        .to eq(['Edisonstrasse 63', 'Second address', "Third address\nFourth address"])
+      expect([entry.tel, entry.fax, Array(entry.email)])
+        .to eq(["+49 30 863221 380\n123\n789", "+49 30 863221 381\n456", ['a@b.net', 'c@d.net']])
+      expect(entry.contact).to eq('Mr. Timo Jung')
+    end
+
+    it 'retains the complete MAXIS record from the OB1065 source document' do
+      source = Ituob::Support::Yaml.load_source_file(File.join(FIXTURE_ROOT, '1065', 'amendments.yaml'))
+      message = source.fetch('messages').find { |item| item.dig('target', 'publication') == 'M1400_ICC' }
+      amendment = described_class.parse(message.dig('contents', 'en'))
+      maxis = amendment.actions.flat_map(&:entries).find { |entry| entry.carrier_code == 'MAXIS' }
+
+      expect([maxis.company_name, maxis.contact, maxis.address_line_1, maxis.address_line_2, maxis.address_line_3])
+        .to eq(['Maxis Berhad', 'Mr. Yap Chong Ping', 'Level 21, Menara Maxis',
+                'Kuala Lumpur City Centre', '50088 KUALA LUMPUR'])
+      expect([maxis.tel, maxis.fax, Array(maxis.email)])
+        .to eq(['+60 3 2330 7693', '+60 3 2330 0513', ['cyap@maxis.com.my']])
+    end
+
+    it 'accepts blank trailing layout cells while preserving rows with extra data' do
+      amendment = described_class.parse(
+        doc(paragraph('Germany / DEU ADD'),
+            table(company_row('Email: a@b.net'),
+                  row(cell(paragraph('Second address')), cell, cell(paragraph('Tel: 123')), cell),
+                  row(cell(paragraph('Other company')), cell, cell(paragraph('Tel: 456')),
+                      cell(paragraph('Additional data')))))
+      )
+      entries = amendment.actions.first.entries
+
+      expect(entries.map(&:company_name)).to eq(['Timo Jung Streamworx', 'Other company'])
+      expect(entries.first.address_line_2).to eq('Second address')
+      expect(entries.first.tel).to eq("+49 30 863221 380\n123")
+      expect(entries.last.tel).to eq('456')
+    end
+
+    it 'preserves orphan and ambiguous unkeyed rows without attaching them to a carrier' do
+      amendment = described_class.parse(
+        doc(paragraph('Germany / DEU ADD'),
+            table(row(cell(paragraph('Orphan address')), cell, cell(paragraph('Tel: 123'))),
+                  company_row('Email: a@b.net'),
+                  row(cell(paragraph('Unidentified company')), cell, cell(paragraph('Mr. Other')))))
+      )
+
+      expect(amendment.actions.first.entries.map(&:company_name))
+        .to eq(['Orphan address', 'Timo Jung Streamworx', 'Unidentified company'])
+      expect(amendment.actions.first.entries[1].tel).to eq('+49 30 863221 380')
+    end
+
+    it 'does not attach continuation details across a country heading or table boundary' do
+      amendment = described_class.parse(
+        doc(paragraph('Germany / DEU ADD'), table(company_row('Email: a@b.net')),
+            table(row(cell(paragraph('Other address')), cell, cell(paragraph('Tel: 123')))),
+            table(company_row('Email: c@d.net'),
+                  row(cell(paragraph('Malaysia / MYS')), cell, cell),
+                  row(cell(paragraph('Kuala Lumpur')), cell, cell(paragraph('Tel: 456')))))
+      )
+      entries = amendment.actions.flat_map(&:entries)
+
+      expect(entries.map(&:company_name))
+        .to eq(['Timo Jung Streamworx', 'Other address', 'Timo Jung Streamworx', 'Kuala Lumpur'])
+      expect(entries.select { |entry| entry.carrier_code == 'STWX' }.map(&:tel))
+        .to eq(['+49 30 863221 380', '+49 30 863221 380'])
+      expect(entries.last.iso_code).to eq('MYS')
+    end
+  end
+
   describe 'email' do
     ["E-mail: a@b.net", "Email:    a@b.net", 'email: a@b.net'].each do |label|
       it "is read from the label variant #{label.inspect}" do

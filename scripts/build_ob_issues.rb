@@ -143,33 +143,11 @@ end
 # Key values can be multilingual hashes or arrays; prose outside these
 # explicitly selected fields must retain its printed whitespace.
 def clean_patch_key_value(value)
-  case value
-  when String then Ituob::Helpers.replace_legacy_space(value)
-  when Hash then value.transform_values { |item| clean_patch_key_value(item) }
-  when Array then value.map { |item| clean_patch_key_value(item) }
-  else value
-  end
+  Ituob::Normalizers::KeyWhitespace.clean_value(value)
 end
 
 def clean_patch_data_keys(data, dataset_slug)
-  registers = Ituob::Catalogs::Registers.all.select { |entry| entry.amendment_slug == dataset_slug }
-  fields = registers.flat_map { |entry| [entry.key_field, entry.fallback_key_fields] }.flatten.compact
-  cleaned = data.dup
-  fields.each do |field|
-    cleaned[field] = clean_patch_key_value(data[field]) if data.key?(field)
-  end
-  if data['entries'].is_a?(Array)
-    cleaned['entries'] = data['entries'].map do |row|
-      next row unless row.is_a?(Hash)
-
-      row.dup.tap do |entry|
-        fields.each do |field|
-          entry[field] = clean_patch_key_value(row[field]) if row.key?(field)
-        end
-      end
-    end
-  end
-  cleaned
+  Ituob::Normalizers::KeyWhitespace.clean_data(data, dataset_slug)
 end
 
 def write_change_object(issue_id:, dataset_slug:, seq:, type: 'ADD',
@@ -301,6 +279,7 @@ def process_amendments(issue_id, src_dir, dst_dir, stats)
             'country' => attrs.key?(:country) ? action.country : nil,
             'description' => description,
             'caption' => attrs.key?(:caption) ? action.caption : nil,
+            'suppression_scope' => attrs.key?(:suppression_scope) ? action.suppression_scope : nil,
             'entries' => entries_data,
             'notes' => parsed.notes || [],
           }.compact,

@@ -1,0 +1,75 @@
+---
+description: ITU OB Dataset Schema for 955 E.180
+items:
+  required:
+  - country_or_area
+  - tone_type
+  - frequency_in_hz
+  additionalProperties: false
+  properties:
+    country_or_area:
+      required:
+      - en
+      additionalProperties: false
+      properties:
+        en:
+          description: English name of the country or area
+        fr:
+          description: French name of the country or area
+        es:
+          description: Spanish name of the country or area
+    tone_desc:
+      required:
+      - en
+      - fr
+      - es
+      description: Description of the tone in different languages
+      additionalProperties: false
+      properties:
+        en:
+          description: English description of the tone
+        fr:
+          description: French description of the tone
+        es:
+          description: Spanish description of the tone
+        notes:
+          description: Additional notes or comments
+          properties:
+            en:
+              description: English notes
+            fr:
+              description: French notes
+            es:
+              description: Spanish notes
+    frequency_in_hz:
+      oneOf:
+      - type: number
+        description: Frequency in Hertz as a number
+      - type: string
+        description: Frequency in Hertz as a string, may include multiple values or
+          special values
+    cadence_in_s:
+      additionalProperties: false
+      properties:
+        en:
+          description: English description of the cadence in seconds
+        fr:
+          description: French description of the cadence in seconds
+        es:
+          description: Spanish description of the cadence in seconds
+    tone_type:
+      description: Type of the tone (e.g. busy_tone, dial_tone, congestion_tone, etc.)
+    notes:
+      description: Additional notes or comments
+      additionalProperties: false
+      required:
+      - en
+      - fr
+      - es
+      properties:
+        en:
+          description: English notes
+        fr:
+          description: French notes
+        es:
+          description: Spanish notes

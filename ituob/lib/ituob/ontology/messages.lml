@@ -258,6 +258,7 @@ models Ituob {
 
   class E212MNCAction {
     attribute action_type, String
+    attribute suppression_scope, String
     attribute position, String
     attribute entries, E212MNCEntry { cardinality 0..n }
     attribute notes, String
@@ -269,6 +270,7 @@ models Ituob {
     attribute position_on, Date
     attribute notes, String { cardinality 0..n }
     attribute actions, E212MNCAction { cardinality 0..n }
+    attribute suppression_scope, String
     attribute position, String
     attribute entries, E212MNCEntry { cardinality 0..n }
     attribute description, String
@@ -1078,6 +1080,384 @@ models Ituob {
     attribute publications, PublicationManifestEntry { cardinality 0..n }
   }
 
+  // Register seed shapes (distinct from amendment payloads where needed).
+
+  class SR1Entry {
+    attribute name, String
+    attribute geographic_area, SR1GeographicArea
+    attribute restrictions, SR1Restrictions
+    attribute notes, SR1Notes
+  }
+
+  class SR1GeographicArea {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class SR1Restrictions {
+    attribute no_messenger_dispatch, Boolean
+    attribute telex_not_provided, Boolean
+    attribute telegram_not_provided, Boolean
+    attribute no_collect_calls, SR1RestrictionsNoCollectCalls
+  }
+
+  class SR1RestrictionsNoCollectCalls {
+    attribute virtual, Boolean
+    attribute incoming, Boolean
+    attribute outgoing, Boolean
+    attribute mobile, Boolean
+    attribute payphone, Boolean
+    attribute audiotex, Boolean
+  }
+
+  class SR1Notes {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class T35CodeEntry {
+    attribute code_bit, String
+    attribute country_or_area, T35CodeCountryOrArea
+    attribute notes, T35CodeNotes
+  }
+
+  class T35CodeCountryOrArea {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class T35CodeNotes {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class E212AMCCMNCEntry {
+    attribute mcc_mnc, String
+    attribute network, String
+    attribute status, String
+    attribute former_name, String
+  }
+
+  class E212ACountryEntry {
+    attribute code, String
+    attribute country_or_area, E212ACountryCountryOrArea
+    attribute note, E212ACountryNote
+  }
+
+  class E212ACountryCountryOrArea {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute ru, String
+    attribute zh, String
+    attribute ar, String
+  }
+
+  class E212ACountryNote {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute ru, String
+    attribute zh, String
+    attribute ar, String
+  }
+
+  class RR251SeedEntry {
+    attribute country_or_area, String
+    attribute groups, RR251SeedGroups
+    attribute codelists, RR251SeedCodelists { cardinality 0..n }
+    attribute notes, String { cardinality 0..n }
+  }
+
+  class RR251SeedGroups {
+    // Legacy printed seed key; retain its spelling alongside experimental.
+    attribute experimential, RR251SeedGroup { cardinality 0..n }
+    attribute amateur, RR251SeedGroup { cardinality 0..n }
+    attribute experimental, RR251SeedGroup { cardinality 0..n }
+  }
+
+  class RR251SeedGroup {
+    attribute name, String
+    attribute regex, String
+    attribute description, String
+    attribute criteria, RR251SeedSegment { cardinality 0..n }
+  }
+
+  class RR251SeedSegment {
+    attribute segment_type, String
+    attribute cardinality, String
+    attribute key, String
+    attribute value, String
+    attribute values, RR251SeedSegment { cardinality 0..n }
+    attribute range, RR251SeedSegmentRange
+    attribute codelist, String
+  }
+
+  class RR251SeedSegmentRange {
+    attribute from, String
+    attribute to, String
+    attribute cardinality, String
+  }
+
+  class RR251SeedCodelists {
+    attribute name, String
+    attribute list, RR251SeedCode { cardinality 0..n }
+  }
+
+  class RR251SeedCode {
+    attribute name, String
+    attribute code, StringOrObject
+  }
+
+  class E212ExtraTerritorialEntry {
+    attribute country_or_area, E212ExtraTerritorialCountryOrArea
+    attribute country_type, String
+    attribute mcc_mnc, String
+    attribute msin_range, String
+    attribute operator_network, String
+  }
+
+  class E212ExtraTerritorialCountryOrArea {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute ru, String
+    attribute zh, String
+    attribute ar, String
+  }
+
+  class E212OtherAssignmentEntry {
+    attribute mcc_mnc_codes, String
+    attribute applicant, String
+    attribute purpose, E212OtherAssignmentPurpose
+    attribute temporary_assignment_to, String
+  }
+
+  class E212OtherAssignmentPurpose {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute ru, String
+    attribute zh, String
+    attribute ar, String
+  }
+
+  class F1ServiceCodeEntry {
+    attribute code, String
+    attribute field, String
+    attribute field_desc, F1ServiceCodeFieldDesc
+    attribute message, F1ServiceCodeMessage
+  }
+
+  class F1ServiceCodeFieldDesc {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class F1ServiceCodeMessage {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class E180ToneEntry {
+    attribute country_or_area, E180ToneCountryOrArea
+    attribute tone_desc, E180ToneToneDesc
+    attribute frequency_in_hz, StringOrNumber
+    attribute cadence_in_s, E180ToneCadenceInS
+    attribute tone_type, String
+    attribute notes, E180ToneNotes
+  }
+
+  class E180ToneCountryOrArea {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class E180ToneToneDesc {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+    attribute notes, E180ToneToneDescNotes
+  }
+
+  class E180ToneToneDescNotes {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class E180ToneCadenceInS {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class E180ToneNotes {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class X121CountryEntry {
+    attribute code, String
+    attribute zone, String
+    attribute country_or_area, X121CountryCountryOrArea
+    attribute reserved, Boolean
+    attribute spare, Boolean
+  }
+
+  class X121CountryCountryOrArea {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class F68Appendix1Entry {
+    attribute tnic_code, String
+    attribute telegram_network_codes, String
+    attribute country, F68Appendix1Country
+    attribute number_block, String
+    attribute allocated_to, F68Appendix1AllocatedTo
+  }
+
+  class F68Appendix1Country {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class F68Appendix1AllocatedTo {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class F68Appendix2Entry {
+    attribute ob_number, Integer
+    attribute telex_code, String
+    attribute geographic_area, F68Appendix2GeographicArea
+    attribute number_block, String
+    attribute allocated_to, F68Appendix2AllocatedTo
+  }
+
+  class F68Appendix2GeographicArea {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class F68Appendix2AllocatedTo {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class F68Entry {
+    attribute number_block, String
+    attribute telex_code, String
+    attribute allocated_to, F68AllocatedTo
+    attribute integrated_numbering_plan, Boolean
+    attribute notes, F68Notes
+  }
+
+  class F68AllocatedTo {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class F68Notes {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class PPResolution21Entry {
+    attribute number, Integer
+    attribute geographic_area, PPResolution21GeographicArea
+  }
+
+  class PPResolution21GeographicArea {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class BureaufaxEntry {
+    attribute country_or_area, String
+    attribute access_code, String
+    attribute location, NullableString
+    attribute bureaufax_number, String
+    attribute destination_priority, String
+    attribute availability, BureaufaxAvailability
+    attribute hours, BureaufaxHours
+  }
+
+  class BureaufaxAvailability {
+    attribute monday_friday, String
+    attribute saturday, String
+    attribute sunday_public_holidays, String
+  }
+
+  class BureaufaxHours {
+    attribute monday, String
+    attribute tuesday, String
+    attribute wednesday, String
+    attribute thursday, String
+    attribute friday, String
+    attribute saturday, String
+    attribute sunday, String
+    attribute public_holidays, String
+  }
+
+  class CoastStationEntry {
+
+  }
+
+  class CountryNameEntry {
+    attribute key, String
+    attribute name, CountryNameName
+  }
+
+  class CountryNameName {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class ISO3166Entry {
+    attribute code, String
+    attribute name, ISO3166Name
+  }
+
+  class ISO3166Name {
+    attribute en, String
+    attribute fr, String
+    attribute es, String
+  }
+
+  class ListVEntry {
+
+  }
+
+  class ROAEntry {
+    attribute country_or_area, String
+    attribute company_name, NullableString
+    attribute address, String
+    attribute tel, String
+    attribute fax, String
+    attribute email, String
+    attribute url, String
+    attribute ob_issue_number, String
+  }
+
   // Published dataset snapshots. Explicit types preserve the stored wire shapes.
 
   class PublicationText {
@@ -1437,4 +1817,5 @@ models Ituob {
   class PublicationDatasets {
     attribute sources, PublicationDataset { cardinality 0..n }
   }
+
 }

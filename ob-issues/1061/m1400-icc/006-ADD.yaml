@@ -14,22 +14,10 @@ data:
     company_name: HNS UG
     carrier_code: HNS
     contact: Mr. Philipp Hoffmann
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Eckenerstrasse 2
-    contact: 'Tel.: + 49 211 95263 100'
+    address_line_1: Eckenerstrasse 2
     tel: "+ 49 211 95263 100"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 45470 MUEHLHEIM/ RUHR
-    contact: 'Fax: + 49 211 95263 111'
+    address_line_2: 45470 MUEHLHEIM/ RUHR
     fax: "+ 49 211 95263 111"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail: philip.hoffmann@hns-telecom.de'
     email:
     - philip.hoffmann@hns-telecom.de
   notes: []

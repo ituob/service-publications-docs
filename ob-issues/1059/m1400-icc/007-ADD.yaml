@@ -15,22 +15,10 @@ data:
   - company_name: TELTA Citynetz GmbH
     carrier_code: TELTA
     contact: Mr. Niels Graupe
-    country_or_area:
-      en: Germany (Federal Republic of)
-    iso_code: DEU
-  - company_name: Bergerstrasse 105
-    contact: 'Tel:           + 49 3334 277 507'
+    address_line_1: Bergerstrasse 105
     tel: "+ 49 3334 277 507"
-    country_or_area:
-      en: Germany (Federal Republic of)
-    iso_code: DEU
-  - company_name: 16225 Eberswalde
-    contact: 'Fax:           + 49 3334 277 510'
+    address_line_2: 16225 Eberswalde
     fax: "+ 49 3334 277 510"
-    country_or_area:
-      en: Germany (Federal Republic of)
-    iso_code: DEU
-  - contact: 'E-mail:     graupe@telta.de'
     email:
     - graupe@telta.de
     country_or_area:

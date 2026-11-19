@@ -6,9 +6,9 @@ module DataSchemaGeneration
     File.write(path, content.is_a?(String) ? content : YAML.dump(content))
   end
 
-  def run_generator
+  def run_generator(*arguments)
     Open3.capture3({ 'ITUOB_SCHEMA_ROOT' => @root }, RbConfig.ruby,
-                   File.join(repo_root, 'scripts/generate_data_schemas.rb'))
+                   File.join(repo_root, 'scripts/generate_data_schemas.rb'), *arguments)
   end
 
   def expect_failure(message)

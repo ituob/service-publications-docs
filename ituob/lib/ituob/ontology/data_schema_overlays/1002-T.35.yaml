@@ -1,0 +1,40 @@
+---
+description: ITU OB Dataset Schema for 1002 T.35
+items:
+  description: Represents a single entry mapping a code bit to a country or area.
+  required:
+  - code_bit
+  - country_or_area
+  additionalProperties: false
+  properties:
+    code_bit:
+      description: The 8-bit code (b8 to b1) assigned.
+      pattern: "^[01]{8}$"
+    country_or_area:
+      description: The name of the country or geographical area in different languages.
+      required:
+      - en
+      - fr
+      - es
+      additionalProperties: false
+      properties:
+        en:
+          description: English name.
+        fr:
+          description: French name.
+        es:
+          description: Spanish name.
+    notes:
+      description: Optional notes related to the code in different languages.
+      required:
+      - en
+      - fr
+      - es
+      additionalProperties: false
+      properties:
+        en:
+          description: English note.
+        fr:
+          description: French note.
+        es:
+          description: Spanish note.

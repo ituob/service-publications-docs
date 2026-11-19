@@ -3,6 +3,7 @@
 require 'spec_helper'
 require 'ituob/models'
 require 'ituob/helpers'
+require 'ituob/registers'
 require 'timeout'
 
 RSpec.describe Ituob::Models::E212MNCAmendment do
@@ -124,6 +125,7 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
 
     lir = amendment.actions.last
     expect(lir.action_type).to eq('LIR')
+    expect(amendment.actions.map(&:suppression_scope)).to eq([nil, nil])
     expect(lir.entries.length).to eq(2)
     expect(lir.entries.map(&:country_or_area).map(&:en).uniq).to eq(['Canada'])
     expect(lir.entries.map(&:mcc_mnc_codes)).to eq(['302 490', '302 491'])
@@ -424,6 +426,48 @@ RSpec.describe Ituob::Models::E212MNCAmendment do
     it 'preserves the listed codes and printed country SUP actions' do
       expect(amendment.actions.map(&:action_type)).to eq(%w[SUP SUP])
       expect(amendment.actions.map { |action| action.entries.map(&:mcc_mnc_codes) }).to eq([['216 04'], ['639 08']])
+    end
+
+    it 'serializes the scope of each country suppression as listed entries' do
+      actions = amendment.to_hash.fetch('actions')
+
+      expect(actions.map { |action| action.fetch('suppression_scope') }).to eq(%w[listed_entries listed_entries])
+      expect(actions.map { |action| action.fetch('position') }).to eq(['Hungary SUP', 'Kenya SUP'])
+    end
+
+    it 'suppresses only listed codes and preserves unlisted codes from both countries' do
+      seed_entries = entries.map(&:to_hash) + [
+        { 'mcc_mnc_codes' => '216 01', 'country_or_area' => { 'en' => 'Hungary' }, 'networks' => 'Hungary control' },
+        { 'mcc_mnc_codes' => '639 01', 'country_or_area' => { 'en' => 'Kenya' }, 'networks' => 'Kenya control' },
+      ]
+      seed = Ituob::Registers::Change.new(
+        type: 'SEED', register_id: 'E212_MNC', ob_issue_no: 1169,
+        identifier: { 'code' => '__seed__' }, data: seed_entries,
+      )
+      changes = amendment.actions.map do |action|
+        Ituob::Registers::Change.from_hash(
+          'type' => action.action_type, 'register' => 'E212_MNC', 'ob_issue_no' => '1170',
+          'identifier' => { 'code' => action.position },
+          'data' => {
+            'suppression_scope' => action.suppression_scope,
+            'entries' => action.entries.map(&:to_hash),
+          },
+        )
+      end
+      source = Ituob::Registers::InlineChangeSource.new(register_id: 'E212_MNC', changes: [seed, *changes])
+      state = Ituob::Registers::Replay.new(
+        register_id: 'E212_MNC', key_field: 'mcc_mnc_codes', source: source,
+      ).current
+
+      expect(state.active_keys).to contain_exactly('216 01', '639 01')
+      expect(state.active_entries.values).to match_array(seed_entries.last(2))
+      expect(state.deleted_keys).to contain_exactly('216 04', '639 08')
+      expect(state.lapsed_keys).to be_empty
+      expect(state.error_count).to eq(0)
+      expect(state.key_history.fetch('216 04').map(&:type)).to eq(%w[SEED SUP])
+      expect(state.key_history.fetch('639 08').map(&:type)).to eq(%w[SEED SUP])
+      expect(state.key_history.fetch('216 01').map(&:type)).to eq(%w[SEED])
+      expect(state.key_history.fetch('639 01').map(&:type)).to eq(%w[SEED])
     end
   end
 

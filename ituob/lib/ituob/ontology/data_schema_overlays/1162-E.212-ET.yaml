@@ -1,0 +1,31 @@
+---
+description: Schema for ITU Operational Bulletin E.212 Extra-Territorial Use data
+items:
+  additionalProperties: false
+  required:
+  - country_or_area
+  - country_type
+  - mcc_mnc
+  - operator_network
+  properties:
+    country_or_area:
+      additionalProperties: false
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
+    country_type:
+      enum:
+      - A
+      - B
+      description: Country A is where MCC+MNC is assigned, Country B is where it's
+        used extra-territorially
+    mcc_mnc:
+      description: Mobile Country Code + Mobile Network Code
+    msin_range:
+      description: Mobile Subscription Identification Number range
+    operator_network:
+      description: Name of the operator/network

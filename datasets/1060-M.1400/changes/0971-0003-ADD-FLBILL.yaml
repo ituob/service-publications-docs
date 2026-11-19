@@ -5,39 +5,18 @@ ob_issue_no: '971'
 identifier:
   code: FLBILL
 data:
-  _class: M1400Amendment
-  entries:
-  - iso_code: LIE
-    country_or_area:
-      en: Liechtenstein (Principality of)
-      fr: Liechtenstein (Principauté de)
-      es: Liechtenstein (Principalidad de)
-    company_name: Bill Telecom AG
-    carrier_code: FLBILL
-    contact: Mr Walter Sturm
-  - iso_code: LIE
-    country_or_area:
-      en: Liechtenstein (Principality of)
-      fr: Liechtenstein (Principauté de)
-      es: Liechtenstein (Principalidad de)
-    company_name: Vorarlbergerstrasse 7
-    contact: 'Tel:           +43 664 393 6067'
-    tel: "+43 664 393 6067"
-  - iso_code: LIE
-    country_or_area:
-      en: Liechtenstein (Principality of)
-      fr: Liechtenstein (Principauté de)
-      es: Liechtenstein (Principalidad de)
-    company_name: 9486 SCHAANWALD
-    contact: 'Fax:          +'
-    fax: "+"
-  - iso_code: LIE
-    country_or_area:
-      en: Liechtenstein (Principality of)
-      fr: Liechtenstein (Principauté de)
-      es: Liechtenstein (Principalidad de)
-    contact: 'E-mail:    sturm@bill-tele.com'
-    email:
-    - sturm@bill-tele.com
-  notes: []
+  iso_code: LIE
+  country_or_area:
+    en: Liechtenstein (Principality of)
+    fr: Liechtenstein (Principauté de)
+    es: Liechtenstein (Principalidad de)
+  company_name: Bill Telecom AG
+  carrier_code: FLBILL
+  contact: Mr Walter Sturm
+  address_line_1: Vorarlbergerstrasse 7
+  tel: "+43 664 393 6067"
+  address_line_2: 9486 SCHAANWALD
+  fax: "+"
+  email:
+  - sturm@bill-tele.com
 reference: OB-971

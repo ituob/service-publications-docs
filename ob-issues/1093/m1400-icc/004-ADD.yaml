@@ -15,17 +15,9 @@ data:
     carrier_code: TEFO
     contact: 'Tel.:          +49 821 460933 0'
     tel: "+49 821 460933 0"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Maximilianstrasse 14
-    contact: 'Fax:          +49 821 460933 19'
+    address_line_1: Maximilianstrasse 14
     fax: "+49 821 460933 19"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 86150 AUGSBURG
-    contact: 'E-mail:    info@teleforte.com'
+    address_line_2: 86150 AUGSBURG
     email:
     - info@teleforte.com
   notes: []

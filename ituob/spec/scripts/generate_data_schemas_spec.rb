@@ -120,4 +120,60 @@ RSpec.describe 'scripts/generate_data_schemas.rb' do
     File.write(File.join(ontology, 'data_schemas.yaml'), YAML.dump('1-W' => 'WidgetEntry', '2-V' => 'MissingEntry'))
     expect_failure('2-V: no LML class MissingEntry')
   end
+
+  it 'rejects schemas outside the mapping before writing' do
+    File.write(File.join(@root, 'datasets/2-V/schema-data.yaml'), 'unmapped')
+    expect_failure('2-V: schema-data.yaml has no entry in data_schemas.yaml')
+  end
+
+  it 'rejects data seeds outside the mapping even without a schema' do
+    File.write(File.join(@root, 'datasets/2-V/data.yaml'), '[]')
+    expect_failure('2-V: schema-data.yaml has no entry in data_schemas.yaml')
+  end
+
+  context 'with verification enabled' do
+    before do
+      _out, err, status = run_generator
+      expect(status.success?).to be(true), err
+      _out, err, status = Open3.capture3('git', 'init', '--quiet', chdir: @root)
+      expect(status.success?).to be(true), err
+      _out, err, status = Open3.capture3('git', 'add', 'datasets/1-W/schema-data.yaml', chdir: @root)
+      expect(status.success?).to be(true), err
+    end
+
+    it 'verifies current tracked schemas without writing' do
+      before = File.stat(schema_path).mtime
+      out, err, status = run_generator('--verify')
+      expect(status.success?).to be(true), err
+      expect(out).to include('Verified 1 generated dataset schemas')
+      expect(File.stat(schema_path).mtime).to eq(before)
+    end
+
+    it 'rejects outdated schemas without repairing them' do
+      File.write(schema_path, 'outdated')
+      _out, err, status = run_generator('--verify')
+      expect(status.exitstatus).to eq(1)
+      expect(err).to include('schema-data.yaml is missing or outdated')
+      expect(File.read(schema_path)).to eq('outdated')
+    end
+
+    it 'rejects missing schemas without creating them' do
+      File.unlink(schema_path)
+      _out, err, status = run_generator('--verify')
+      expect(status.exitstatus).to eq(1)
+      expect(err).to include('schema-data.yaml is missing or outdated')
+      expect(File.exist?(schema_path)).to be(false)
+    end
+
+    it 'rejects untracked schemas even when their contents are current' do
+      _out, err, status = Open3.capture3('git', 'rm', '--cached', 'datasets/1-W/schema-data.yaml', chdir: @root)
+      expect(status.success?).to be(true), err
+      before = File.binread(schema_path)
+      _out, err, status = run_generator('--verify')
+      expect(status.exitstatus).to eq(1)
+      expect(err).to include('schema is not tracked by git')
+      expect(File.binread(schema_path)).to eq(before)
+    end
+  end
+
 end
