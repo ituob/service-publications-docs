@@ -116,6 +116,23 @@ RSpec.describe 'OfficialPdfComparison code-table shapes' do
                                                            ['main:276 02', 'Vodafone'], ['country:Afghanistan', 'Afghanistan'])
     end
 
+    it 'reads the Arabic 901 table in the code column as shared rows, not main rows' do
+      text = <<~TXT
+        أفغانستان
+              412 01                                       AWCC
+              412 20                                       Roshan
+              412 30                                       Etisalat
+        ألبانيا
+              276 02                                       Vodafone
+            901 03                                         Iridium Communications Inc
+            901 05                                         Thuraya RMSS Network
+      TXT
+      got = pairs(shape('MccMnc').rows(text))
+      expect(got).to include(['shared:901 03', 'Iridium Communications Inc'], ['shared:901 05', 'Thuraya RMSS Network'],
+                             ['main:276 02', 'Vodafone'])
+      expect(got.map(&:first)).not_to include('main:901 03')
+    end
+
     it 'ends the preface at the first page break' do
       lines = ["Note from TSB\n", "1. text\n", "Annex to ITU OB 1162-E  – 2 –\n", "                         AWCC       412 01\n"]
       expect(shape('MccMnc').prose_stop(lines, 0)).to eq(2)
