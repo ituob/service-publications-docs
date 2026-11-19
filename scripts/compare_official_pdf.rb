@@ -84,7 +84,7 @@ module OfficialPdfComparison
   def prose_words(text, shape: self.shape(DEFAULT_SHAPE), lang: 'E')
     lines = text.lines
     start = shape.prose_start(lines, lang)
-    stop = lines.index.with_index { |l, i| i > start && l =~ TABLE_HEADER } || lines.size
+    stop = shape.prose_stop(lines, start)
     lines[start...stop]
       .reject { |l| l =~ FURNITURE || l.strip =~ /\A[–-]\s*\d+\s*[–-]\z/ }
       .map { |l| l.sub(LIST_MARKER, '') }
