@@ -14,22 +14,10 @@ data:
     company_name: VEGA-net GmbH
     carrier_code: VEGANT
     contact: Mr. Wolfgang Schneider
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Hauptstrasse 17
-    contact: 'Tel:        + 49 6303 9998 999'
+    address_line_1: Hauptstrasse 17
     tel: "+ 49 6303 9998 999"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 67677 ENKENBACH-ALSENBORN
-    contact: 'Fax:          + 49 6303 913 198'
+    address_line_2: 67677 ENKENBACH-ALSENBORN
     fax: "+ 49 6303 913 198"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:     info@vega-net.de'
     email:
     - info@vega-net.de
   notes: []

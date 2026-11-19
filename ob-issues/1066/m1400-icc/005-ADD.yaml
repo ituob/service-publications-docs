@@ -14,22 +14,10 @@ data:
     company_name: Stadtwerke Ramstein-Miesenbach GmbH
     carrier_code: RMENET
     contact: Mr. Reinhard Schneider
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Am Neuen Markt 8
-    contact: 'Tel:          +49 6371 592 330'
+    address_line_1: Am Neuen Markt 8
     tel: "+49 6371 592 330"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 66877 RAMSTEIN-MIESENBACH
-    contact: 'Fax:         +49 6371 592 333'
+    address_line_2: 66877 RAMSTEIN-MIESENBACH
     fax: "+49 6371 592 333"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:    info@stadtwerke-ramstein.de'
     email:
     - info@stadtwerke-ramstein.de
   notes: []

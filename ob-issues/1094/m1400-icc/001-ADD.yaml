@@ -15,17 +15,9 @@ data:
     company_name: AAA COMMUNICATION EUROPE AG
     carrier_code: ACE
     contact: M. Allan Barquero
-  - iso_code: CHE
-    country_or_area:
-      en: Switzerland (Confederation of)
-    company_name: Gasometerstrasse 34
-    contact: 'Tel:         +41 76 7922495'
+    address_line_1: Gasometerstrasse 34
     tel: "+41 76 7922495"
-  - iso_code: CHE
-    country_or_area:
-      en: Switzerland (Confederation of)
-    company_name: 8005 ZÜRICH
-    contact: 'E-mail:     info@acommgroup.com'
+    address_line_2: 8005 ZÜRICH
     email:
     - info@acommgroup.com
   notes: []

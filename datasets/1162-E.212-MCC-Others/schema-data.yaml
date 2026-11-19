@@ -1,15 +1,12 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (E212OtherAssignmentEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for 1162 E.212 Shared MCC/MNC Others
-description: ITU OB Dataset Schema for 1162 E.212 Shared MCC/MNC Others
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for E.212-MCC-Others (generated from LML E212OtherAssignmentEntry)
+x-lml-model: E212OtherAssignmentEntry
 type: array
 items:
   type: object
-  required:
-    - mcc_mnc_codes
-    - applicant
-    - purpose
   additionalProperties: false
   properties:
     mcc_mnc_codes:
@@ -21,13 +18,6 @@ items:
     purpose:
       type: object
       additionalProperties: false
-      required:
-        - en
-        - fr
-        - es
-        - ru
-        - zh
-        - ar
       properties:
         en:
           type: string
@@ -47,7 +37,19 @@ items:
         ar:
           type: string
           description: Purpose description in Arabic
+      required:
+      - en
+      - fr
+      - es
+      - ru
+      - zh
+      - ar
     temporary_assignment_to:
       type: string
       format: date
       description: Optional end date for temporary assignments (YYYY-MM-DD)
+  required:
+  - mcc_mnc_codes
+  - applicant
+  - purpose
+description: ITU OB Dataset Schema for 1162 E.212 Shared MCC/MNC Others

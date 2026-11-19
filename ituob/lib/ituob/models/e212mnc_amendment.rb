@@ -13,6 +13,7 @@ attribute :entries, E212MNCEntry, collection: true
 attribute :description, :string
 attribute :caption, :string
 attribute :country, :string
+attribute :suppression_scope, :string
 
       key_value do
         map '_class', to: :_class, render_default: true
@@ -24,6 +25,7 @@ attribute :country, :string
         map 'description', to: :description
         map 'caption', to: :caption
         map 'country', to: :country
+        map 'suppression_scope', to: :suppression_scope
       end
 
       # "Belarus    SUP": a country line carrying its action, with no
@@ -539,6 +541,9 @@ attribute :country, :string
 
         amendment.actions.each do |parsed_action|
           parsed_action.entries.reject! { |entry| paired_rows.key?(entry) }
+          # A country SUP heading scopes the listed codes; it does not
+          # suppress every code belonging to that country.
+          parsed_action.suppression_scope = 'listed_entries' if parsed_action.action_type == 'SUP'
         end
 
         # Keep the whole printed heading: page numbers alone lose source

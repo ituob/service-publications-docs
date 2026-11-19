@@ -5,32 +5,17 @@ ob_issue_no: '1103'
 identifier:
   code: NTT
 data:
-  _class: M1400Amendment
+  iso_code: JPN
+  country_or_area:
+    en: Japan
+  company_name: Nippon Telegraph and Telephone Corporation
+  carrier_code: NTT
+  contact: Togashi
+  address_line_1: 1-1-6 Uchisaiwai-cho, Chiyoda-ku
+  tel: "+81 3 6700 9008"
+  address_line_2: TOKYO 100-8019
+  fax: "+81 3 3539 2222"
+  email:
+  - kk-vv@ntt.com
   position: Japan / JPN
-  entries:
-  - iso_code: JPN
-    country_or_area:
-      en: Japan
-    company_name: Nippon Telegraph and Telephone Corporation
-    carrier_code: NTT
-    contact: Togashi
-  - iso_code: JPN
-    country_or_area:
-      en: Japan
-    company_name: 1-1-6 Uchisaiwai-cho, Chiyoda-ku
-    contact: 'Tel: +81 3 6700 9008'
-    tel: "+81 3 6700 9008"
-  - iso_code: JPN
-    country_or_area:
-      en: Japan
-    company_name: TOKYO 100-8019
-    contact: 'Fax: +81 3 3539 2222'
-    fax: "+81 3 3539 2222"
-  - iso_code: JPN
-    country_or_area:
-      en: Japan
-    contact: 'E-mail: kk-vv@ntt.com'
-    email:
-    - kk-vv@ntt.com
-  notes: []
 reference: OB-1103

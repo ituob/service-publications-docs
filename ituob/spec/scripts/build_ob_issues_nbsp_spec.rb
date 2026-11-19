@@ -16,6 +16,7 @@ RSpec.describe 'scripts/build_ob_issues.rb NBSP policy' do
         Ituob::Catalogs::Registers.all.each do |register|
           fields = [register.key_field, register.fallback_key_fields].flatten.compact
           row = fields.to_h { |field| [field, { 'en' => "12\u00a034", 'fr' => "56\u00a078" }] }
+          row['network_code'] = "AB\u00a0CD"
           row['printed_text'] = "Printed\u00a0text"
           patch = write_change_object(
             issue_id: 1000, dataset_slug: register.amendment_slug, seq: '001',
@@ -44,6 +45,7 @@ RSpec.describe 'scripts/build_ob_issues.rb NBSP policy' do
       fields.each do |field|
         expect(patch.dig('data', 'entries', 0, field)).to eq('en' => '12 34', 'fr' => '56 78')
       end
+      expect(patch.dig('data', 'entries', 0, 'network_code')).to eq('AB CD')
       expect(patch.dig('data', 'entries', 0, 'printed_text')).to eq(printed_text)
       expect(patch.dig('data', 'notes')).to eq([printed_text])
       expect(patch.dig('data', 'caption')).to eq(printed_text)

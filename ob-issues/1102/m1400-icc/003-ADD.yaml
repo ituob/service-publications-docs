@@ -14,22 +14,10 @@ data:
     company_name: PIRONET NDH Datacenter AG & Co. KG
     carrier_code: D8469
     contact: Mr Matthias Renneberg
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Obenhauptstr. 12
-    contact: 'Tel.:          +49 2203 93530 1702'
+    address_line_1: Obenhauptstr. 12
     tel: "+49 2203 93530 1702"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: D-22335 HAMBURG
-    contact: 'Fax:          +49 2203 93530 99'
+    address_line_2: D-22335 HAMBURG
     fax: "+49 2203 93530 99"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:    mrenneberg@pironet.com'
     email:
     - mrenneberg@pironet.com
   notes: []

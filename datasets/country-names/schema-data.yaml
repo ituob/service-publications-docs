@@ -1,14 +1,12 @@
-# yaml-language-server: $schema=http://json-schema.org/draft-07/schema#
+# GENERATED from ituob/lib/ituob/ontology/messages.lml (CountryNameEntry) - do not edit.
+# Regenerate: BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/generate_data_schemas.rb
 ---
-$schema: http://json-schema.org/draft-07/schema#
-title: ITU OB Dataset Schema for ITU country names
-description: ITU OB Dataset Schema for ITU country names
+"$schema": http://json-schema.org/draft-07/schema#
+title: ITU OB Dataset Schema for country-names (generated from LML CountryNameEntry)
+x-lml-model: CountryNameEntry
 type: array
 items:
   type: object
-  required:
-    - key
-    - name
   additionalProperties: false
   properties:
     key:
@@ -16,11 +14,7 @@ items:
       description: Short key for country
     name:
       type: object
-      description: Localized country or geographical area names
-      required:
-        - en
-        - fr
-        - es
+      additionalProperties: false
       properties:
         en:
           type: string
@@ -31,3 +25,12 @@ items:
         es:
           type: string
           description: Spanish name
+      description: Localized country or geographical area names
+      required:
+      - en
+      - fr
+      - es
+  required:
+  - key
+  - name
+description: ITU OB Dataset Schema for ITU country names

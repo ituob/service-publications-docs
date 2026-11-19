@@ -8,28 +8,20 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: Voxbone S.A.
+  - company_name: Voxbone S.A.
     carrier_code: VOXLUX
     contact: Ms. Patricia Denise Labal
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: Claus building Avenue Louise 489
-    contact: 'Tel:               +32 28 08 00 00 Fax:              +32 28 08 00 01'
+    address_line_1: Claus building Avenue Louise 489
     tel: "+32 28 08 00 00"
-    fax: "+32 28 08 00 01"
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: B-1050 BRUXELLES
-    contact: 'E-mail:        regulatory@voxbone.com'
+    address_line_2: B-1050 BRUXELLES
     email:
     - regulatory@voxbone.com
-  - iso_code: LUX
     country_or_area:
       en: Luxembourg
-    company_name: Belgium
+    iso_code: LUX
+    fax: "+32 28 08 00 01"
+  - company_name: Belgium
+    country_or_area:
+      en: Luxembourg
+    iso_code: LUX
   notes: []

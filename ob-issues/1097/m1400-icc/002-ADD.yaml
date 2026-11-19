@@ -14,22 +14,10 @@ data:
     company_name: nexiu GmbH
     carrier_code: NEXIU
     contact: Mr Christopher Mandt
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Am Dreschplatz 3
-    contact: 'Tel:          +49 6081 91204 11'
+    address_line_1: Am Dreschplatz 3
     tel: "+49 6081 91204 11"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 61273 WEHRHEIM
-    contact: 'Fax:         +49 6081 91204 19'
+    address_line_2: 61273 WEHRHEIM
     fax: "+49 6081 91204 19"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:    info@nexiu.de'
     email:
     - info@nexiu.de
   notes: []

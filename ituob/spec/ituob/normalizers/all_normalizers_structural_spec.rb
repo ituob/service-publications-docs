@@ -13,6 +13,7 @@ RSpec.describe 'Ituob::Normalizers structural verification' do
   let(:repo) { IssueRepo.new(%w[1001]) }
 
   normalizer_classes = [
+    Ituob::Normalizers::KeyWhitespace,
     Ituob::Normalizers::EmptyDirFiller,
     Ituob::Normalizers::EmptyAmendmentPlaceholder,
     Ituob::Normalizers::FilenameCanonicalizer,
@@ -49,8 +50,8 @@ RSpec.describe 'Ituob::Normalizers structural verification' do
   end
 
   describe Ituob::Normalizers::Pipeline::DEFAULT_STEPS do
-    it 'includes all 7 normalizer classes' do
-      expect(Ituob::Normalizers::Pipeline::DEFAULT_STEPS.length).to eq(7)
+    it 'includes all 8 normalizer classes' do
+      expect(Ituob::Normalizers::Pipeline::DEFAULT_STEPS.length).to eq(8)
     end
 
     it 'all steps inherit from Base' do

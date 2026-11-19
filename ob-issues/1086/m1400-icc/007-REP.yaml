@@ -8,28 +8,16 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: Coditel S.à r.l.
+  - company_name: Coditel S.à r.l.
     carrier_code: CODTEL
     contact: Mr. Olivier Jonas
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: 283, route d'Arlon
-    contact: 'Tel:               +32 22 26 54 41'
+    address_line_1: 283, route d'Arlon
     tel: "+32 22 26 54 41"
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: L-8011 STRASSEN
-    contact: 'Fax:              +32 22 26 54 20'
+    address_line_2: L-8011 STRASSEN
     fax: "+32 22 26 54 20"
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    contact: 'E-mail:         olivier.jonas@numericable.eu'
     email:
     - olivier.jonas@numericable.eu
+    country_or_area:
+      en: Luxembourg
+    iso_code: LUX
   notes: []

@@ -5,30 +5,15 @@ ob_issue_no: '1055'
 identifier:
   code: TIKAL
 data:
-  _class: M1400Amendment
-  entries:
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: TIKAL Communication GmbH & Co.KG
-    carrier_code: TIKAL
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Lilienstrasse 11
-    contact: 'Tel.:         + 49 40 2846372 0'
-    tel: "+ 49 40 2846372 0"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 20095 Hamburg
-    contact: 'Fax:          + 49 40 2846372 99'
-    fax: "+ 49 40 2846372 99"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    contact: 'E-mail:    info@tikal.de'
-    email:
-    - info@tikal.de
-  notes: []
+  iso_code: DEU
+  country_or_area:
+    en: Germany (Federal Republic of)
+  company_name: TIKAL Communication GmbH & Co.KG
+  carrier_code: TIKAL
+  address_line_1: Lilienstrasse 11
+  tel: "+ 49 40 2846372 0"
+  address_line_2: 20095 Hamburg
+  fax: "+ 49 40 2846372 99"
+  email:
+  - info@tikal.de
 reference: OB-1055

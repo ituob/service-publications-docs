@@ -8,28 +8,16 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: Broadcasting Center Europe S.A.
+  - company_name: Broadcasting Center Europe S.A.
     carrier_code: B50802
     contact: Mr. Paul Schmit
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: 45 bd. Pierre Frieden
-    contact: 'Tel:              +352 24 80 61 10'
+    address_line_1: 45 bd. Pierre Frieden
     tel: "+352 24 80 61 10"
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: L-1543 LUXEMBOURG
-    contact: 'Fax:             +352 24 80 61 09'
+    address_line_2: L-1543 LUXEMBOURG
     fax: "+352 24 80 61 09"
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    contact: 'E-mail:        paul_schmit@bce.lu'
     email:
     - paul_schmit@bce.lu
+    country_or_area:
+      en: Luxembourg
+    iso_code: LUX
   notes: []

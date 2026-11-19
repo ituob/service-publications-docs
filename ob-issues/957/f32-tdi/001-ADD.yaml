@@ -19,6 +19,8 @@ data:
     telegraph_office_name:
       en: Toutes destinations All destinations- Todos los destinos
     office_code: DPXX
+    network_codes:
+    - DP
   - country_or_area:
       en: GERMANY
       fr: ALLEMAGNE
@@ -28,6 +30,9 @@ data:
     telegraph_office_name:
       en: Toutes destinations All destinations- Todos los destinos
     office_code: DDXX
+    network_codes:
+    - DP
+    - DD
   notes:
   - Corrigendum*
   - "* This information cancels and replaces that published in ITU Operational Bulletin

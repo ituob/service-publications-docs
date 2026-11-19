@@ -15,17 +15,9 @@ data:
     company_name: Genza SA
     carrier_code: CH4141
     contact: Efe Demir
-  - iso_code: CHE
-    country_or_area:
-      en: Switzerland (Confederation of)
-    company_name: rue de Lausanne 37
-    contact: 'Tel:                        +90 5322333262'
+    address_line_1: rue de Lausanne 37
     tel: "+90 5322333262"
-  - iso_code: CHE
-    country_or_area:
-      en: Switzerland (Confederation of)
-    company_name: CH-1201 Genève
-    contact: 'E-mail:                  ed@genza.ch'
+    address_line_2: CH-1201 Genève
     email:
     - ed@genza.ch
   notes: []

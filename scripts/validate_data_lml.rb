@@ -5,7 +5,7 @@
 # compiled-from-LML classes, so the corpus is provably valid against
 # the ontology-defined shapes.
 #
-#   bundle exec ruby scripts/validate_data_lml.rb [--all | --annexes-only]
+#   BUNDLE_GEMFILE=ituob/Gemfile bundle exec ruby scripts/validate_data_lml.rb [--all | --annexes-only | --datasets-only]
 #
 # Default validates a deterministic sample (first + last issue of each
 # decade); --all walks the full corpus. Exits 1 on any failure.
@@ -13,6 +13,49 @@
 $LOAD_PATH.unshift(File.expand_path('../ituob/lib', __dir__))
 require 'ituob'
 require 'yaml'
+
+# Dataset seeds use the same ontology mapping as schema generation. Keep this
+# mode independent of the issue corpus so CI checks every seed on every change.
+if ARGV.include?('--datasets-only')
+  datasets_root = File.expand_path(ENV.fetch('ITUOB_DATASETS_ROOT', '../datasets'), __dir__)
+  mapping = YAML.load_file(File.expand_path('../ituob/lib/ituob/ontology/data_schemas.yaml', __dir__))
+  paths = Dir.glob(File.join(datasets_root, '*', 'data.yaml')).sort
+  failures = []
+  validated = 0
+  failures << "#{datasets_root}: no dataset data.yaml files found" if paths.empty?
+  paths.each do |path|
+    slug = File.basename(File.dirname(path))
+    class_name = mapping.fetch(slug) { raise ArgumentError, 'no ontology Entry mapping' }
+    model_class = Ituob::Models.const_get(class_name, false)
+    rows = YAML.load_file(path, permitted_classes: [Date, Time], aliases: true)
+    raise ArgumentError, 'expected an array of entries' unless rows.is_a?(Array)
+
+    schema_valid, schema_error = Ituob::Dataset.new(File.dirname(path)).validate_data
+    raise ArgumentError, schema_error unless schema_valid
+
+    rows.each_with_index do |row, index|
+      raise ArgumentError, "row #{index}: expected an entry mapping" unless row.is_a?(Hash)
+
+      model = model_class.from_hash(row)
+      errors = model.validate
+      unless errors.empty?
+        raise ArgumentError, "row #{index}: #{errors.map(&:message).join(', ')}"
+      end
+      validated += 1
+    end
+  rescue StandardError => e
+    failures << "#{slug}/data.yaml: #{e.class}: #{e.message.lines.first.strip}"
+  end
+  puts "dataset files checked: #{paths.length}; entries validated: #{validated}"
+  if failures.empty?
+    puts 'DATASET INSTANCE DATA VALID'
+    exit 0
+  end
+
+  warn "FAILURES: #{failures.length}"
+  failures.each { |failure| warn "  #{failure}" }
+  exit 1
+end
 
 ALL = ARGV.include?('--all')
 ANNEXES_ONLY = ARGV.include?('--annexes-only')

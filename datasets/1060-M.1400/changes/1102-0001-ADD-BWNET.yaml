@@ -5,28 +5,16 @@ ob_issue_no: '1102'
 identifier:
   code: BWNET
 data:
-  _class: M1400Amendment
-  position: Germany (Federal
-  entries:
-  - country_or_area:
-      en: Germany
-    company_name: BWnet GmbH
-    carrier_code: BWNET
-    contact: Mr Dirk Jentzsch
-  - country_or_area:
-      en: Germany
-    company_name: Goethestrasse 5
-    contact: 'Tel.:          +49 71189471000'
-    tel: "+49 71189471000"
-  - country_or_area:
-      en: Germany
-    company_name: 73525 SCHWAEBISCH GMUEND
-    contact: 'Fax:          +49 71189471095'
-    fax: "+49 71189471095"
-  - country_or_area:
-      en: Germany
-    contact: 'E-mail:    Dirk.Jentzsch@ropa.de'
-    email:
-    - Dirk.Jentzsch@ropa.de
-  notes: []
+  iso_code: DEU
+  country_or_area:
+    en: Germany (Federal Republic of)
+  company_name: BWnet GmbH
+  carrier_code: BWNET
+  contact: Mr Dirk Jentzsch
+  address_line_1: Goethestrasse 5
+  tel: "+49 71189471000"
+  address_line_2: 73525 SCHWAEBISCH GMUEND
+  fax: "+49 71189471095"
+  email:
+  - Dirk.Jentzsch@ropa.de
 reference: OB-1102

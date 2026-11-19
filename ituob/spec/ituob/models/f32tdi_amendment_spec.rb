@@ -586,6 +586,32 @@ RSpec.describe Ituob::Models::F32TDIAmendment do
       expect(amendment.notes).to include(a_string_starting_with('1)'))
     end
 
+    it 'keeps table rows after a notes separator out of the office entries' do
+      doc = document(
+        paragraph('P 3 GERMANY ADD'),
+        table(
+          row(cell(paragraph('ALLEMAGNE')), cell(paragraph('ROA')), cell(paragraph('DP')),
+              cell(paragraph('subarea')), cell(paragraph('DPXX'))),
+        ),
+        paragraph('____________'),
+        table(
+          row(cell(paragraph('Office reference')), cell(paragraph('ROA2')), cell(paragraph('ZZ')),
+              cell(paragraph('reference office')), cell(paragraph('ZZXX'))),
+          row(cell(paragraph('')), cell(paragraph('')), cell(paragraph('')),
+              cell(paragraph('')), cell(paragraph(''))),
+        ),
+      )
+      amendment = parse(doc)
+      entries = amendment.actions.first.entries
+
+      expect(entries.map(&:office_code)).to eq(['DPXX'])
+      expect(entries.first.country_or_area.fr).to eq('ALLEMAGNE')
+      expect(entries.first.network_roa).to eq('ROA')
+      expect(entries.first.network_code).to eq('DP')
+      expect(entries.first.telegraph_office_name.en).to eq('subarea')
+      expect(amendment.notes).to eq(['Office reference — ROA2 — ZZ — reference office — ZZXX'])
+    end
+
     it 'treats everything after a ____ separator as notes' do
       doc = document(
         paragraph('P 27 LITHUANIA LIR'),

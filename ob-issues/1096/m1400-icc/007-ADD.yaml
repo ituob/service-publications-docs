@@ -14,23 +14,11 @@ data:
     company_name: Voxbone SA
     carrier_code: VOXDEU
     contact: Mrs Patricia Denise Labal
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Avenue Louise 489
-    contact: 'Tel:             +32 2 808 0000'
+    address_line_1: Avenue Louise 489
     tel: "+32 2 808 0000"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: 1050 BRUSSELS
-    contact: 'Fax:            +32 2 808 0001'
+    address_line_2: 1050 BRUSSELS
     fax: "+32 2 808 0001"
-  - iso_code: DEU
-    country_or_area:
-      en: Germany (Federal Republic of)
-    company_name: Belgium
-    contact: 'E-mail:       regulatory@voxbone.com'
+    address_line_3: Belgium
     email:
     - regulatory@voxbone.com
   notes: []

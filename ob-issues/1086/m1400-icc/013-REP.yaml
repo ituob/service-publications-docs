@@ -8,23 +8,15 @@ identifier:
 data:
   _class: M1400Amendment
   entries:
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: MTX Connect S.à r.l.
+  - company_name: MTX Connect S.à r.l.
     carrier_code: MTX
     contact: Ms. Alexandra Sevodnyaeva
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: 4, rue A. Graham Bell
-    contact: 'Tel:             +352 20 30 10 62'
+    address_line_1: 4, rue A. Graham Bell
     tel: "+352 20 30 10 62"
-  - iso_code: LUX
-    country_or_area:
-      en: Luxembourg
-    company_name: L-3235 BETTEMBOURG
-    contact: 'E-mail:      a.sevodnyaeva@mtxc.eu'
+    address_line_2: L-3235 BETTEMBOURG
     email:
     - a.sevodnyaeva@mtxc.eu
+    country_or_area:
+      en: Luxembourg
+    iso_code: LUX
   notes: []
