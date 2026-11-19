@@ -19,11 +19,11 @@ no entry confirms). Confirmed bugs = entries with `disposition: bug`.
 |===
 | Row | Deltas before | layout | data | confirmed bugs | Open after | Notes
 
-| E.118-A | 831 | 0 | 0 | 791 | 53 | 40 prose, 13 rows (Arabic, doubled letter in a sorted word: text-layer artefact)
-| E.118-C | 802 | 1 | 0 | 791 | 11 | 10 prose, 1 row
+| E.118-A | 831 | 0 | 0 | 778 | 53 | 40 prose, 13 rows (Arabic, doubled letter in a sorted word: text-layer artefact)
+| E.118-C | 802 | 1 | 0 | 790 | 11 | 10 prose, 1 row
 | E.118-E | 20 | 9 | 10 | 1 | 0 |
 | E.118-F | 965 | 7 | 954 | 0 | 4 | 4 prose (footer plus a stray "2018.")
-| E.118-R | 801 | 0 | 1 | 790 | 11 | 10 prose, 1 row
+| E.118-R | 801 | 0 | 1 | 789 | 11 | 10 prose, 1 row
 | E.118-S | 911 | 13 | 898 | 0 | 0 |
 | E.164B-E | 0 | 0 | 0 | 0 | 0 |
 | E.164B-F | 20 | 12 | 6 | 0 | 2 | prose: "itut/ bulletin" vs "itu- t/bulletin" URL wrap
@@ -31,25 +31,25 @@ no entry confirms). Confirmed bugs = entries with `disposition: bug`.
 | E.164C-E | 35 | 0 | 32 | 0 | 3 | prose title page
 | E.164C-F | 360 | 5 | 350 | 0 | 5 | prose
 | E.164C-S | 383 | 7 | 359 | 0 | 17 | prose (title page / front matter wrapped differently)
-| E.164D-A | 446 | 398 | 20 | 8 | 28 | 14 rows (Arabic text-layer artefact), 6 prose
+| E.164D-A | 446 | 398 | 20 | 0 | 28 | 14 rows (Arabic text-layer artefact), 6 prose
 | E.164D-C | 474 | 446 | 18 | 0 | 10 | 6 rows, 4 prose
-| E.164D-E | 115 | 96 | 7 | 4 | 10 | 2 rows ("1\|United" USA / US Virgin Islands swapped duplicate key), 6 prose (TSB note)
+| E.164D-E | 115 | 96 | 7 | 2 | 10 | 2 rows ("1\|United" USA / US Virgin Islands swapped duplicate key), 6 prose (TSB note)
 | E.164D-F | 242 | 202 | 8 | 24 | 8 | prose (TSB note)
-| E.164D-R | 351 | 334 | 7 | 3 | 10 | 3 rows, 4 prose
+| E.164D-R | 351 | 334 | 7 | 0 | 10 | 3 rows, 4 prose
 | E.164D-S | 202 | 162 | 8 | 22 | 10 | prose (TSB note)
 | E.180-E | 68 | 24 | 0 | 0 | 44 | OPEN, not settled (see below)
 | E.180-F | 152 | 36 | 0 | 0 | 116 | OPEN
 | E.180-S | 131 | 52 | 0 | 0 | 79 | OPEN
 |===
 
-Totals of confirmed bugs: E.118 2372 (A 791, C 791, R 790 contact labels; E 1), E.164B-S 4, E.164D 61.
+Totals of confirmed bugs: E.118 2358 (A 778, C 790, R 789 contact labels; E 1), E.164B-S 4, E.164D 48 (E 2, F 24, S 22). Open rows are counted only under Open after.
 
 == Confirmed bugs in the generated PDFs (disposition `bug`)
 
 * E.118 A, C, R: the contact labels Tel/Fax/E-mail and the country name are printed in English; the
   official PDFs translate them (the dataset holds English only for these).
 * E.118-E, row `89 1 432`: the company cell drops "WORTHINGTON, OH 43085" at a page break.
-* E.164B-S, E.164D E/F/S/A/R: the alphabetical lists sort accented names (Cote d'Ivoire, Belarus, Benin,
+* E.164B-S, E.164D E/F/S: the alphabetical lists sort accented names (Cote d'Ivoire, Belarus, Benin,
   Brunei, Canada, Virgenes ...) after the unaccented ones; the official lists collate by base letter.
   (The generated list puts "Reserved" entries at R; the official puts them last: layout.)
 
