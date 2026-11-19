@@ -29,6 +29,12 @@ LANGUAGES = {"E": "en", "F": "fr", "S": "es"}
 COLUMN_NAMES = ("country/qualifier", "network/ROA", "network code", "office name", "office code", "notes", "row association")
 
 
+# Footnote reference marks ("2)") are superscripts: pdftotext attaches them to
+# whichever neighbouring column their baseline happens to fall in, in either
+# PDF. They are compared per country as a multiset instead of per column.
+MARKER = re.compile(r"\d+\)")
+
+
 def normalize(text):
     return re.sub(r"[\W_]", "", text.lower())
 
@@ -43,9 +49,10 @@ def heading_normalize(text):
 
 def canonical(text):
     """Ignore reflow and typographic quotes/dashes, retain content punctuation."""
-    text = unicodedata.normalize("NFKC", text).lower()
+    text = MARKER.sub("", unicodedata.normalize("NFKC", text).lower())
     text = text.translate(str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"',
                                        "–": "-", "—": "-", "\u00ad": ""}))
+    text = text.translate(str.maketrans({"\u2192": ">", "\u27f6": ">"}))
     return re.sub(r"[\s-]+", "", text)
 
 
@@ -136,7 +143,7 @@ def layout_rows(text):
                     elif "Réseau (administration/ER)" in raw:
                         defaults = [raw.index("Réseau"), raw.index("Code de"), raw.index("Nom du bureau"), raw.rindex("Code de")]
                     elif "Red (administración/EER)" in raw:
-                        defaults = [raw.index("Red ("), raw.index("Código de red"), raw.index("Nombre de la oficina"), raw.index("Código de oficina")]
+                        defaults = [raw.index("Red ("), raw.index("Código de red"), raw.index("Nombre de la oficina"), raw.rindex("Código")]
                     else:
                         defaults = [raw.index(label) for label in
                                     ("Network (administration/ROA)", "Network code",
@@ -145,7 +152,19 @@ def layout_rows(text):
                 else:
                     defaults = [cut + 1 for cut in cuts[1:5]]
                 office_code = codes.most_common(1)[0][0] if codes else defaults[3]
-                network = networks.most_common(1)[0][0] if networks else defaults[1]
+                if networks:
+                    network = networks.most_common(1)[0][0]
+                elif not header and codes:
+                    # A continuation page with no network code: pdftotext drops the
+                    # unused left margin, so the previous page's cuts are stale.
+                    # Anchor the name column on the page's own data instead.
+                    code_at = codes.most_common(1)[0][0]
+                    names = Counter(x for x in starts if 0 < x < code_at - 6)
+                    network = (max(names, key=lambda x: (names[x], -x)) - 8) if names else defaults[1]
+                    if names:
+                        defaults[0] = network - 8
+                else:
+                    network = defaults[1]
                 office_candidates = [x for x in starts if network + 3 <= x < office_code - 6]
                 office = max(office_candidates, key=lambda x: starts[x]) if office_candidates else defaults[2]
                 roa_candidates = [x for x in starts if 15 <= x < min(network - 8, office - 10)]
@@ -178,7 +197,9 @@ def layout_rows(text):
             if (re.search(r"[A-Z]{2}\s*-\s*-", cells[2])
                     or (cells[0] and cells[0].upper() == cells[0]
                         and re.search(r"[A-ZÀ-Ý]{3}", cells[0])
-                        and not re.match(r"^\d+\)", cells[0]))):
+                        and not re.match(r"^\d+\)", cells[0])
+                        # A wrapped date ("1.XII.2008") is not a country heading.
+                        and not re.fullmatch(r"[\d.IVXL]+", cells[0]))):
                 in_note = False
             else:
                 rows.append(["", "", "", "", "", _plain(value)])
@@ -187,7 +208,27 @@ def layout_rows(text):
     return rows
 
 
-def country_sections(text, countries):
+def expand_relative_codes(rows):
+    """Resolve a relative office code ("--AC") against its network ("PH- -").
+
+    The official print abbreviates the office code to its two-letter suffix; the
+    rendering may print the full indicator ("PHAC"). They name the same office.
+    """
+    network = ""
+    result = []
+    for row in rows:
+        if not row[5]:
+            found = re.search(r"\b([A-Z]{2})(?:\s*-){0,2}(?:\s*\d+\))?$", row[2])
+            if found:
+                network = found[1]
+            code = re.fullmatch(r"\s*-{1,2}([A-Z]{2})(\s*\d+\))?\s*", row[4])
+            if code and network:
+                row = row[:4] + [network + code[1] + (code[2] or "")] + row[5:]
+        result.append(row)
+    return result
+
+
+def _country_sections(text, countries):
     rows = layout_rows(text)
     def key(value):
         plain = unicodedata.normalize("NFKD", heading_normalize(value))
@@ -240,12 +281,16 @@ def country_sections(text, countries):
         boundaries.append((aliases[1], start))
         cursor = finish + 1
     sections = {}
+    markers = {}
     if boundaries and boundaries[0][1] > 0:
         errors.append("unassigned destination content before first country")
     for number, (country, start) in enumerate(boundaries):
         end = boundaries[number + 1][1] if number + 1 < len(boundaries) else len(rows)
+        section_rows = expand_relative_codes(rows[start:end])
+        markers[country] = sorted(mark for row in section_rows for cell in row
+                                  for mark in MARKER.findall(cell))
         runs = []
-        for row in rows[start:end]:
+        for row in section_rows:
             if not any(canonical(cell) for cell in row):
                 continue
             kind = "note" if row[5] else "table"
@@ -258,7 +303,7 @@ def country_sections(text, countries):
         current_network = ""
         office_names = ""
         associations = []
-        for row in rows[start:end]:
+        for row in section_rows:
             if row[5]:
                 continue
             network = re.search(r"\b([A-Z]{2})(?:\s*-){0,2}(?:\s*\d+\))?$", row[2])
@@ -270,13 +315,18 @@ def country_sections(text, countries):
         if runs:
             runs[0][1][6] = " ".join(associations)
         sections[country] = runs
+    return sections, errors, markers
+
+
+def country_sections(text, countries):
+    sections, errors, _ = _country_sections(text, countries)
     return sections, errors
 
 
 def comparison_errors(official_text, generated_text, language, expected, countries=None):
     countries = countries if countries is not None else official_countries(language)
-    official, source_errors = country_sections(official_text, countries)
-    generated, errors = country_sections(generated_text, countries)
+    official, source_errors, official_marks = _country_sections(official_text, countries)
+    generated, errors, generated_marks = _country_sections(generated_text, countries)
     errors = ["official extraction: " + error for error in source_errors] + errors
     for country, source in official.items():
         if country not in generated:
@@ -306,6 +356,16 @@ def comparison_errors(official_text, generated_text, language, expected, countri
                                   f"({len(differences)} gaps; official {len(wanted)} / generated {len(actual)} characters); "
                                   f"official …{wanted[max(0,a-35):min(len(wanted),b+60)]}…; "
                                   f"generated …{actual[max(0,c-35):min(len(actual),d+60)]}…")
+    # A superscript printed on the line above its row can land on either side of
+    # a country boundary, so the marks are compared over the whole table.
+    official_all = Counter(mark for marks in official_marks.values() for mark in marks)
+    generated_all = Counter(mark for marks in generated_marks.values() for mark in marks)
+    if official_all != generated_all:
+        where = [country for country in official_marks
+                 if Counter(official_marks[country]) != Counter(generated_marks.get(country, []))]
+        errors.append(f"footnote reference marks differ: missing {dict(official_all - generated_all)}, "
+                      f"extra {dict(generated_all - official_all)} "
+                      f"(countries with different counts: {', '.join(where[:12])})")
     return errors
 
 
