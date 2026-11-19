@@ -55,6 +55,13 @@ module OfficialPdfComparison
         (marker && lines.index { |l| l.strip == marker }) || 0
       end
 
+      # Index where the preface ends (exclusive): the first table header after
+      # start, else the end of the text. A shape whose table header differs
+      # from F.32's overrides this so table rows are not also compared as prose.
+      def prose_stop(lines, start)
+        lines.index.with_index { |l, i| i > start && l =~ OfficialPdfComparison::TABLE_HEADER } || lines.size
+      end
+
       # Array of Row, one per table row, in reading order.
       def rows(_text) = raise(NotImplementedError, "#{self.class} must implement #rows")
 
