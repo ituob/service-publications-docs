@@ -60,7 +60,7 @@ attribute :notes, :string, collection: true
       end
 
 
-      COUNTRY_NAME_SPLIT = %r{[[:space:]]*/[[:space:]]*([A-Z]{3})(?=\p{Lu}\p{Ll}|[[:space:]]|\z)}
+      COUNTRY_NAME_SPLIT = %r{/[[:space:]]*([A-Z]{3})(?=\p{Lu}\p{Ll}|[[:space:]]|\z)}
       FRENCH_NAME = /R[eé]publique|Principaut[eé]|Royaume|[EÉ]tats?\b|F[eé]d[eé]ration|\bd[’']|\b(?:du|des)\b/i
       SPANISH_NAME = /Rep[uú]blica|Principado|Principalidad|Reino|Estados?\b|Federaci[oó]n|\bdel\b/i
 

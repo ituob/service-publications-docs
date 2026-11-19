@@ -224,7 +224,7 @@ attribute :notes, :string, collection: true
       # entries' own country cells do not already carry them.
       def self.heading_caption(text, entries)
         words = ->(t) { Ituob::Helpers.normalize_whitespace(t).downcase.scan(/[[:alnum:]]+/) }
-        heading = text.sub(/\A[[:space:]]*P?[[:space:]]*\d+/, '').gsub(/\b(?:ADD|SUP|REP|LIR)\b/, ' ').delete('*')
+        heading = text.sub(/\A[[:space:]]*(?:P[[:space:]]*)?\d+/, '').gsub(/\b(?:ADD|SUP|REP|LIR)\b/, ' ').delete('*')
         extra = words.call(heading) - entries.flat_map { |e| words.call(e.country_or_area&.en) }
         extra.empty? ? nil : Ituob::Helpers.normalize_whitespace(heading)
       end
