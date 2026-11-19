@@ -5,7 +5,8 @@ module OfficialPdfComparison
     # Line helpers shared by the shape files of the #89 G3 group (F.1, F.68,
     # F.400, M.1400, PP Res. 21). `pdftotext -layout` text in, plain values out.
     module G3Support
-      PAGE_MARK = /[–-]\s*\d+\s*[–-]/
+      # "– 3 –" on a footer line; not "21-24-26" inside a street address
+      PAGE_MARK = /(?:\A\s*|\s{2,})[–-]\s*\d+\s*[–-](?:\s{2,}|\s*\z)/
       DATE_FOOTER = /\A\s*\d+\.[IVX]+\.\d{4}/
 
       module_function

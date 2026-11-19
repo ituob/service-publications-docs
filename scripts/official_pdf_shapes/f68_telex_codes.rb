@@ -12,7 +12,7 @@ module OfficialPdfComparison
     # the table so equal codes in different tables never collide.
     class F68TelexCodes < Base
       PUBLICATIONS = %w[T-SP-F.68-2011].freeze
-      TDC = /\A(\d{1,3}(?:-\d{3})?)(?: ?[a-z]{1,2}\))?\z/
+      TDC = /\A(\d{1,3}(?:-\d{3})?)(?: ?(?:[a-z]{1,2}\)|[ªº]\)?))?\z/
       HEADINGS = {
         abbr: /\A(?:\d\.\s+)?(?:ABBREVIATIONS|ABRÉVIATIONS|ABREVIATURAS)\z/,
         skip: /\A(?:\d\.\s+)?(?:AMENDMENTS|AMENDEMENTS|ENMIENDAS)\z/,
@@ -22,6 +22,18 @@ module OfficialPdfComparison
       ABBR_COL = 8
       TABLES = %w[TDC TNIC OB ABBR].freeze
       FOOTNOTE_MARK = /(?<=[[:alpha:]\)])\d\)\z|\s[a-z]\)\z/
+
+      # The preface runs from "Notes from TSB" (the official PDF says "Notes",
+      # not Base's "Note") to the first TDC table header; everything after is
+      # table rows, appendices and footnotes, which rows() covers.
+      NOTES = /\A(?:\d\.\s+)?(?:Notes from TSB|Notes du TSB|Notas de la TSB)\z/
+      TABLE_HEAD = /\A\s*(?:TDC|CTD)\s+(?:TNIC|CIRT)\b/
+
+      def prose_start(lines, _lang) = lines.index { |l| l.strip.match?(NOTES) } || 0
+
+      def prose_stop(lines, start)
+        lines.index.with_index { |l, i| i > start && l.match?(TABLE_HEAD) } || lines.size
+      end
 
       def rows(text)
         mode = :tdc
@@ -56,6 +68,9 @@ module OfficialPdfComparison
         if cells.first.match?(TDC)
           tnic, name = tnic_and_name(cells.drop(1))
           out << Row.new("TDC #{cells.first[TDC, 1]}", [tnic, name].compact.join(' '))
+        elsif cells.size == 1 && (m = cells.first.match(/\A([A-Z]{1,2})(?:[a-z]\))?\z/)) && out.last&.key&.start_with?('TDC')
+          # a second network code printed under the first ("RU" over "SU")
+          out.last.text = out.last.text.sub(/\A([A-Z]{1,2}) /, "\\1 / #{m[1]} ")
         elsif cells.first.match?(/\A[a-z]\)\z/) && out.last&.text&.empty? && cells.size > 1
           out.last.text = cells.drop(1).join(' ')
         end

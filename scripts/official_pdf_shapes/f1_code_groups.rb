@@ -14,6 +14,16 @@ module OfficialPdfComparison
       CODE = /\A\s*([A-Z](?: ?[A-Z]){4})\s{2,}(\S.*)\z/
       PART_II = /\bPart(?:ie|e)?\s+II\s+-/
       MEANING_SLACK = 2
+      # The preface runs from the TSB note ("Note from the TSB": Base's marker
+      # lacks the "the") to the Part I heading, where the code lists begin.
+      NOTE = /\A(?:Note from the TSB|Note du TSB|Nota de la TSB)\z/
+      PART_I = /\bPart(?:ie|e)?\s+I\s+[-–]/
+
+      def prose_start(lines, _lang) = lines.index { |l| l.strip.match?(NOTE) } || 0
+
+      def prose_stop(lines, start)
+        lines.index.with_index { |l, i| i > start && l.match?(PART_I) } || lines.size
+      end
 
       def rows(text)
         part = 'I'

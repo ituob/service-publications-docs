@@ -18,12 +18,28 @@ module OfficialPdfComparison
     # country cell at the right margin, which this shape does not read.
     class M1400CarrierCodes < Base
       PUBLICATIONS = %w[T-SP-M.1400-2014].freeze
+
+      # Prints the readable joined lines, compares the bag of words.
+      class BagRow < Row
+        def reading(_above, _below) = G3Support.word_bag(text)
+      end
+
       COUNTRY_START = %r{\s/\z|\s/\s?[A-Z]{3}\z}
       # The ISO code ends the country cell, or the renderer ran the next cell
       # into it with one space ("Barbados / BRB Cable and Wireless").
+      MARGIN = 4
       ISO = %r{/\s?([A-Z]{3})\b|\A([A-Z]{3})(?:\s|\z)}
       HEADER = /\A(?:Country or area|Pays ou zone|País o zona|Страна или зона|国家或区域|Note\b|Nota\b|NOTE\b|NOTA\b|Примечание|ПРИМЕЧАНИЕ|注)/
       TITLE = /List of ITU Carrier Codes|Liste des codes de transporteur|Lista de códigos de operador|Список кодов МСЭ|国际电联电信运营商代码/i
+
+      # Base's table header is F.32's ("Country / geographical area"); here it is
+      # "Country or area". Without this override the whole table is prose and the
+      # word diff over ~35k words per side runs out of memory (3.3 GB, measured).
+      PROSE_END = /\A\s*(?:Country or area|Pays ou zone|País o zona)\b/
+
+      def prose_stop(lines, start)
+        lines.index.with_index { |l, i| i > start && l.match?(PROSE_END) } || lines.size
+      end
 
       def rows(text)
         pages = text.split("\f")
@@ -46,7 +62,7 @@ module OfficialPdfComparison
               in_header = true
               next
             end
-            next if in_header && !cell
+            next if in_header && !cell && header_words?(line)
 
             in_header = false
             if cell
@@ -54,7 +70,7 @@ module OfficialPdfComparison
               blocks.last[:country] << cell
               done = iso_of(cell) ? true : false
             end
-            blocks.last[:lines] << line
+            blocks.last&.[](:lines)&.push(line)
           end
         end
         blocks.filter_map { |b| row(b) }
@@ -63,9 +79,20 @@ module OfficialPdfComparison
       private
 
       def country_cell(line)
-        return unless line.match?(/\A\S/)
+        # Some official pages are indented by three spaces; the next cell
+        # starts at column 25 or later.
+        cell, col = G3Support.cells_at(line).first
+        cell if cell && col <= MARGIN
+      end
 
-        G3Support.cells_at(line).first&.first
+      # The wrapped tail of the column header ("Code", "(carrier code)", "de la
+      # empresa"). A row that a page break splits continues right after the
+      # header, so only header vocabulary is dropped, not every cell-less line.
+      HEADER_WORDS = %w[code carrier company contact de la societe société empresa codigo código le les of contacto].freeze
+
+      def header_words?(line)
+        words = line.downcase.scan(/[[:alpha:]]+/)
+        words.any? && words.all? { |w| HEADER_WORDS.include?(w) }
       end
 
       def iso_of(cell)
@@ -75,7 +102,7 @@ module OfficialPdfComparison
 
       def row(block)
         iso = block[:country].filter_map { |c| iso_of(c) }.last
-        iso && Row.new(iso, G3Support.squish(block[:lines].join(' ')))
+        iso && BagRow.new(iso, G3Support.squish(block[:lines].join(' ')))
       end
     end
   end
