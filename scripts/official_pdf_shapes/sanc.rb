@@ -9,8 +9,11 @@ module OfficialPdfComparison
     # every other language at the left. A name that wraps continues on the
     # indented lines below its code line. The list is printed twice (numeric,
     # then by country: keys "num:2-000", "alpha:2-000"); a repeated code gets
-    # "#2".
+    # "#2". The second list starts at the first code that goes back to one
+    # already seen.
     class Sanc < Base
+      include ColumnRows::Prose
+
       PUBLICATIONS = %w[T-SP-Q.708A-2017].freeze
 
       LEFT = /\A(\s*)(\d-\d{3})\s+(\S.*)\z/
@@ -21,9 +24,12 @@ module OfficialPdfComparison
         @name_col = nil
         @table = 'num'
         @last = -1
+        @seen = {}
         ColumnRows.clean_lines(text).each { |line| read(line) }
         ColumnRows.unique_keys(@rows)
       end
+
+      def row_line?(line) = !code_line(line).nil?
 
       private
 
@@ -42,7 +48,11 @@ module OfficialPdfComparison
 
       def add(code, name)
         value = code.delete('-').to_i
-        @table = 'alpha' if @table == 'num' && value < @last
+        # The numeric list is not strictly ascending in every official PDF
+        # (the Chinese one prints 5-220 before 5-216); the alphabetical list
+        # starts when a code that already appeared goes back.
+        @table = 'alpha' if @table == 'num' && value < @last && @seen[code]
+        @seen[code] = true if @table == 'num'
         @last = value
         key = "#{@table}:#{code}"
         last = @rows.last

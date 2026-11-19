@@ -14,6 +14,8 @@ module OfficialPdfComparison
     # split it by, so the order of words inside one row is not a measurement
     # and is dropped; every word of the row is still compared.
     class Ispc < Base
+      include ColumnRows::Prose
+
       PUBLICATIONS = %w[T-SP-Q.708B-2016].freeze
 
       ROW = /\A\s*(?<ispc>\d-\d{3}-\d)\s+(?<rest>\d+(?:\s+\S.*)?)\z/
@@ -29,6 +31,8 @@ module OfficialPdfComparison
         from_table(classify(ColumnRows.clean_lines(text))).each { |l| read(l) }
         ColumnRows.unique_keys(ColumnRows.drop_trailing_headings(@rows))
       end
+
+      def row_line?(line) = ROW.match?(line)
 
       private
 

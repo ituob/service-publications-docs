@@ -13,6 +13,29 @@ module OfficialPdfComparison
       # "– 4 –", or "– – 4" where bidi reordering moved the number.
       PAGE_NUMBER = /(?:\A|\s)(?:[–—-]\s*\d+\s*[–—-]|[–—-]\s*[–—-]\s*\d+|\d+\s*[–—-]\s*[–—-])(?:\s|\z)/
 
+      # Where the preface sits in the code-table publications. Their table header
+      # is not F.32's, so Base#prose_stop would run to the end of the PDF and
+      # every table row would also be compared as prose. The preface starts at
+      # the "Note from TSB" heading (E.218 and Q.708A Chinese print "说明" without "的";
+      # Q.708A English "Note by TSB") and ends at the first page break or, in a
+      # PDF whose page number is mangled, at the first table row (`row_line?`).
+      module Prose
+        PREFACE = /\A(?:Note (?:from|by) TSB|Note du TSB|Nota de la TSB|电信标准化局的?说明|Примечание БСЭ|مالحظة|ملاحظة)/
+
+        def prose_start(lines, _lang)
+          lines.index { |l| ColumnRows.clean_lines(l).first.to_s.strip.match?(PREFACE) } || 0
+        end
+
+        def prose_stop(lines, start)
+          lines.index.with_index do |l, i|
+            next false unless i > start
+
+            c = ColumnRows.clean_lines(l).first.to_s
+            c.match?(PAGE_NUMBER) || row_line?(c)
+          end || lines.size
+        end
+      end
+
       module_function
 
       # Lines with bidi controls dropped and Arabic presentation forms folded

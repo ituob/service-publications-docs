@@ -20,6 +20,8 @@ module OfficialPdfComparison
     # touch no row (headings, notes, forms) are not rows. The generated Arabic
     # PDF prints the pair as "MNC MCC" (bidi); the shape reads "MCC MNC".
     class MccMnc < Base
+      include ColumnRows::Prose
+
       PUBLICATIONS = %w[T-SP-E.212B-2018].freeze
 
       HEAD_INDENT_SLACK = 4
@@ -37,6 +39,8 @@ module OfficialPdfComparison
         entries = classify(lines)
         build(from_table(entries))
       end
+
+      def row_line?(line) = MIDDLE.match?(line) || !code_match(line).nil?
 
       private
 

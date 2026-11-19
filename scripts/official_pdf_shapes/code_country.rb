@@ -13,6 +13,8 @@ module OfficialPdfComparison
     # network and status, in print order).
     # A name that wraps continues on indented lines below its code line.
     class CodeCountry < Base
+      include ColumnRows::Prose
+
       PUBLICATIONS = %w[T-SP-E.212A-2017 T-SP-E.218-2017].freeze
 
       LEFT = /\A(\s*)(\d{3}|\dXX)\s+(\S.*)\z/
@@ -31,6 +33,8 @@ module OfficialPdfComparison
         ColumnRows.clean_lines(text).each { |line| read(line) }
         ColumnRows.unique_keys(@rows)
       end
+
+      def row_line?(line) = !code_line(line).nil? || !spare(line).nil?
 
       private
 
