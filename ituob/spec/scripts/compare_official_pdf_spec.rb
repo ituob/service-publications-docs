@@ -544,4 +544,46 @@ RSpec.describe OfficialPdfComparison do
       end
     end
   end
+
+  describe 'mutation guards (synthetic, no PDF)' do
+    let(:delta_class) { OfficialPdfComparison::Delta }
+
+    def open_delta(text) = delta_class.new(:rows, :both, text, :bug, 'same code, different name')
+
+    it 'calls an entry stale when it matches more open deltas than its count' do
+      deltas = [open_delta('A: generated "x" vs official "y"'), open_delta('A: generated "x" vs official "y"')]
+      entry = { 'layer' => 'rows', 'side' => 'both', 'text' => 'A: generated "x" vs official "y"',
+                'disposition' => 'layout', 'reason' => 'checked' }
+      problems = mod.apply_dispositions(deltas, [entry])
+      expect(problems.join).to include('stale disposition').and include('matches 2 open deltas, expected 1')
+      expect(deltas).to all(have_attributes(disposition: :bug, manual: nil))
+      expect(mod.apply_dispositions(deltas, [entry.merge('count' => 2)])).to be_empty
+      expect(deltas).to all(have_attributes(disposition: :layout, manual: true))
+    end
+
+    describe 'in_dataset?' do
+      let(:index) { { 'AAAA' => [['kabul'], ['kabul'], ['herat']], 'BBBB' => [['nassau']], 'DDDD' => [['rio de janeiro']] } }
+
+      it 'counts the entries whose name has the row text as a prefix, or the reverse' do
+        expect(mod.in_dataset?(index, 'AAAA Kabul')).to eq(2)
+        expect(mod.in_dataset?(index, 'DDDD Rio')).to eq(1)
+        expect(mod.in_dataset?(index, 'DDDD Rio de Janeiro Galeao')).to eq(1)
+        expect(mod.in_dataset?(index, 'BBBB Nassau')).to eq(1)
+      end
+
+      it 'is zero for a known code with another name and for an unknown code' do
+        expect(mod.in_dataset?(index, 'BBBB Hamilton')).to eq(0)
+        expect(mod.in_dataset?(index, 'CCCC Nassau')).to eq(0)
+      end
+
+      it 'makes an official-only row with an unrelated name for a known code data, not a bug' do
+        delta = delta_class.new(:rows, :official_only, 'BBBB Hamilton', :unreviewed, nil)
+        mod.disposition_from_dataset(delta, index)
+        expect(delta).to have_attributes(disposition: :data)
+        found = delta_class.new(:rows, :official_only, 'BBBB Nassau', :unreviewed, nil)
+        mod.disposition_from_dataset(found, index)
+        expect(found).to have_attributes(disposition: :bug)
+      end
+    end
+  end
 end
