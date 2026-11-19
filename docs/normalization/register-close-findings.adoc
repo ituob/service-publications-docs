@@ -81,9 +81,11 @@ payloads. Parsing their top-level `type` values finds zero DEL actions;
 there are also zero `-DEL.yaml` filenames and zero top-level `type: DEL` lines.
 This is a measurement of the stored corpus, not a claim
 that printed bulletins contain no DEL announcements. In particular,
-`del-audit.adoc` identifies the printed OB 1335 Sweden DEL block that the stored
-corpus still misclassifies. The parser regression recognizes DEL separately
-from printed SUP; the corpus requires regeneration to reflect that result.
+`del-audit.adoc` identified the printed OB 1335 Sweden DEL block that the stored
+corpus misclassified. The parser regression recognizes DEL separately from
+printed SUP, and the corpus has since been regenerated (f589984a): the
+Sweden block is now `ob-issues/1335/q708-ispc/002-DEL.yaml`, the one `-DEL.yaml`
+file in the corpus, so the zero-DEL count above describes the earlier base.
 Natural-language deletion beside SUP remains SUP.
 
 Reproduce the payload count over every YAML file, including metadata and general
@@ -114,7 +116,8 @@ contain 121 rows without an office code: 119 in OB 1017 and one each in OB 1000
 and OB 1148. They are country/network headings and office cross-references.
 The current parser already retains them as context/notes instead of entries;
 regenerating the stored actions and F.32 register changes reduces that count to
-zero. The regenerated actions also carry the parser's existing multilingual
+zero. Done: at main b698ac2f the 15 stored `ob-issues/*/f32-tdi/*.yaml` files
+have no entry with a blank `office_code`. The regenerated actions also carry the parser's existing multilingual
 country and network context. No raw corpus correction is required.
 
 A remaining parser gap allowed a five-column table after a notes separator to
