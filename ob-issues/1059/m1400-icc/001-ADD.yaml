@@ -9,6 +9,9 @@ data:
   _class: M1400Amendment
   entries:
   - company_name: Germany (Federal Republic of) DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   - company_name: Telekom Deutschland GmbH
     carrier_code: DTAG
     contact: Mr. Benjamin Boeling
@@ -17,4 +20,7 @@ data:
     address_line_2: 53227 Bonn
     email:
     - benjamin.boeling @ telekom.de
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   notes: []

@@ -9,6 +9,9 @@ data:
   _class: M1400Amendment
   entries:
   - company_name: Germany (Federal Republic of) DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   - company_name: DegNet GmbH
     carrier_code: DEGNET
     contact: Mr. Florian Fuessl
@@ -18,4 +21,7 @@ data:
     fax: "+ 49 991 3202 888"
     email:
     - hostmaster@degnet-gmbh.de
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   notes: []

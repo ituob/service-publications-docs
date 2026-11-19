@@ -29,6 +29,39 @@ RSpec.describe Ituob::Helpers do
       expect(described_class.isolate_key(["Tel:#{NBSP}#{NBSP}+49 7252 960"], 'Tel')).to eq('+49 7252 960')
     end
 
+    it 'extracts an inline labelled telephone after a surname containing tel' do
+      expect(described_class.isolate_key(['Mr Andreas Bantel Tel: +49 7161 6101 140 Fax: +49 7161 6101 255'], 'Tel'))
+        .to eq('+49 7161 6101 140')
+    end
+
+    it 'recognizes the printed E-mai:l typo without interpreting it as a telephone' do
+      lines = ['E-mai:l     krawlinson@eazitelecom.com']
+
+      expect(described_class.isolate_key(lines, 'E-mail')).to eq('krawlinson@eazitelecom.com')
+      expect(described_class.isolate_key(lines, 'Tel')).to be_nil
+    end
+
+    it 'separates inline em-dash telephone and email labels' do
+      lines = ['Tel: — +63 2 82822888 — E-mail: — holy.ampaguey@dito.ph; nino.cruz@dito.ph']
+
+      expect(described_class.isolate_key(lines, 'Tel')).to eq('+63 2 82822888')
+      expect(described_class.isolate_key(lines, 'E-mail')).to eq('holy.ampaguey@dito.ph; nino.cruz@dito.ph')
+    end
+
+    it 'retains both telephone values when the inline label repeats' do
+      lines = ['Tel.: +90 53 37 74 54 91 Tel.: +352 26 20 15 43 Fax: +352 26 20 15 44']
+
+      expect(described_class.isolate_key(lines, 'Tel')).to eq('+90 53 37 74 54 91 +352 26 20 15 43')
+      expect(described_class.isolate_key(lines, 'Fax')).to eq('+352 26 20 15 44')
+    end
+
+    it 'preserves a .tel email domain when separating contact labels' do
+      lines = ['Email: numbering@hanse.tel']
+
+      expect(described_class.isolate_key(lines, 'E-mail')).to eq('numbering@hanse.tel')
+      expect(described_class.isolate_key(lines, 'Tel')).to be_nil
+    end
+
     it 'returns nil when no line matches and for nil input' do
       expect(described_class.isolate_key(['Nothing here'], 'Tel')).to be_nil
       expect(described_class.isolate_key(nil, 'Tel')).to be_nil

@@ -77,7 +77,8 @@ attribute :country, :string
                stripped.match?(/^Códigos de/) ||
                stripped.match?(/^Códicos de/) ||
                stripped.match?(/^[a-z]\. /) ||
-               stripped.match?(/^_{3,}/)
+               stripped.match?(/^_{3,}/) ||
+               stripped.start_with?("*")
               amendment.notes << stripped unless stripped.empty?
               next
             end
@@ -112,6 +113,11 @@ attribute :country, :string
               fixed_str = Ituob::Helpers.replace_legacy_space(basestr)
               segs = Ituob::Helpers.split_str_normal(fixed_str)
               single_space_str = segs.join(' ')
+
+              if single_space_str.start_with?("*")
+                amendment.notes << single_space_str
+                next
+              end
 
               matched = true
 

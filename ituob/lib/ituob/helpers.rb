@@ -63,21 +63,25 @@ module Ituob
       self.replace_legacy_space(str).split(/  +/).join(' ')
     end
 
-    # isolate_key(['Tel: +49 7252 960', ...], "Tel") -> "+49 7252 960"
-    # Returns the value following +key+ in the first matching string.
-    # Tolerates the printed separator forms ("Tel:", "Tel.:", "E-mail:").
+    # Labels are whole words: surnames such as Bantel and TeleData are contacts.
+    CONTACT_LABEL = /(?<![\p{L}\p{N}_@.+-])(?:Tel|Fax|E-?mai:?l)(?![\p{L}\p{N}_])[\s.:]*/i
+
+    # Extract one labelled value, stopping before another inline contact label.
     def self.isolate_key(array_of_str, key)
       return nil if array_of_str.nil?
-      key_pattern = Regexp.escape(key)
-      matching_str = array_of_str.find { |x| x.to_s.match(/#{key_pattern}/i) }
-      return nil unless matching_str
 
-      replaced = replace_legacy_space(matching_str)
-      # Strip the key prefix (e.g. "Tel.:", "Fax:", "Email:") and any
-      # leading whitespace.
-      replaced = replaced.sub(/#{key_pattern}[\s.:]*\s*/i, '')
-      value = replace_legacy_space(replaced).strip
-      value.empty? ? nil : value
+      key_pattern = key.match?(/\AE-?mail\z/i) ? 'E-?mai:?l' : Regexp.escape(key)
+      label = /(?<![\p{L}\p{N}_@.+-])#{key_pattern}(?![\p{L}\p{N}_])[\s.:]*/i
+      array_of_str.each do |line|
+        replaced = replace_legacy_space(line.to_s)
+        match = label.match(replaced)
+        next unless match
+
+        value = match.post_match.gsub(label, '').split(CONTACT_LABEL, 2).first.to_s
+          .gsub(/\A[\s—]+|[\s—]+\z/, '')
+        return value.empty? ? nil : value
+      end
+      nil
     end
 
     def self.grabcol2(arr_of_arr_of_1str, key)

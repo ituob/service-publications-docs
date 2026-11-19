@@ -8,6 +8,9 @@ data:
   _class: M1400Amendment
   entries:
   - company_name: Germany (Federal Republic of) DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   - company_name: Stern Kom GmbH
     carrier_code: STERN
     address_line_1: Kurf 11a
@@ -16,5 +19,8 @@ data:
     fax: "+ 49 8053 2329"
     email:
     - info@sternkom.de
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   notes: []
 reference: OB-1059

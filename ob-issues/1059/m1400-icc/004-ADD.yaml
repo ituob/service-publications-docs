@@ -9,6 +9,9 @@ data:
   _class: M1400Amendment
   entries:
   - company_name: Germany (Federal Republic of) DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   - company_name: DCC GmbH
     carrier_code: DCC
     address_line_1: Brunngartenstrasse 3
@@ -17,4 +20,7 @@ data:
     fax: "+ 49 8131 7009 60"
     email:
     - info@dachau-citycom.de
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   notes: []

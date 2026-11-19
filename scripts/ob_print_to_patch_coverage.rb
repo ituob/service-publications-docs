@@ -260,6 +260,11 @@ module PrintToPatchCoverage
       match: ->(text, _tokens, _cells) { text.match?(/\A[[:space:]]*\((Amendment No\.? ?\d+|Position on [^)]*)\)[[:space:]]*\z/i) }
     ),
     Rule.new(
+      id: 'corrigendum_marker',
+      reason: 'standalone correction footnote marker; the correction and dated footnote still need patches',
+      match: ->(text, _tokens, _cells) { text.match?(/\A[[:space:]]*Corrigendum\d+\)[[:space:]]*\z/) }
+    ),
+    Rule.new(
       id: 'form_label_only',
       reason: 'form field label printed with no value ("Department:"); the field name is in the register schema',
       match: ->(text, _tokens, _cells) { text.match?(/\A[[:space:]]*\p{L}[\p{L} \/().,'-]{0,50}:[[:space:]]*(\|[[:space:]|]*)?\z/) }
@@ -607,11 +612,31 @@ module PrintToPatchCoverage
                           detail: by_slug.key(by_slug.values.find { |a| a.include?(hit) }))
       end
 
-      stripped = strip_labels(line) - regrouped_numbers(line, structured)
-      if stripped.size < tokens.size && !stripped.empty?
+      regrouped = regrouped_numbers(line, structured)
+      stripped = strip_labels(line) - regrouped
+      if stripped.size < tokens.size && (!stripped.empty? || !regrouped.empty?)
         hit = pick(structured, stripped) ||
               (union_covers?(structured, stripped) ? structured.first : nil)
         return Result.new(line: line, status: :mapped_values_only, patch: hit) if hit
+      end
+
+      # "366 St Helier" and "S.a r.l 4, rue" are literal address tokens,
+      # even though the detached-superscript normalizer also offers 366st/l4.
+      literal = strip_labels(line, join_detached: false) - regrouped
+      if literal != stripped && !literal.empty?
+        hit = pick(structured, literal) ||
+              (union_covers?(structured, literal) ? structured.first : nil)
+        return Result.new(line: line, status: :mapped_values_only, patch: hit) if hit
+      end
+
+      other.select { |p| p.kind == :structured }.each do |patch|
+        regrouped = regrouped_numbers(line, [patch])
+        stripped = strip_labels(line) - regrouped
+        next unless stripped.size < tokens.size && (!stripped.empty? || !regrouped.empty?)
+        next unless patch.tokens.superset?(stripped)
+
+        return Result.new(line: line, status: :mapped_other, patch: patch,
+                          detail: by_slug.key(by_slug.values.find { |a| a.include?(patch) }))
       end
 
       cells = (line.text.include?(' | ') ? line.text.split(' | ') : line.text.split(/[[:space:]]{2,}/))
@@ -673,7 +698,7 @@ module PrintToPatchCoverage
       covered
     end
 
-    def strip_labels(line)
+    def strip_labels(line, join_detached: true)
       text = PageHeading.values(line.text)
       text = text.sub(LIST_VIII_LABEL, '') if line.slug == 'list-viii'
       text = text.gsub(/\(Formerly[[:space:]]+/i, '(') if line.slug == 'e164-cc'
@@ -682,7 +707,7 @@ module PrintToPatchCoverage
       text = text.gsub(/(?<![[:alnum:]])(?:Cell|Mobile|Telephone|Tel\.)[[:space:]]*:/i, ' ') # "Mobile:" contact label
       text = text.sub(/\A[^|]*:[[:space:]]*\|/, '')            # "Label: | value" form row
       text = text.sub(/\A[^|?]*\?[[:space:]]+(?=\S+\z)/, '')  # "Label? YES" form row
-      toks = Tok.with_unpadded(Tok.of_print(text))
+      toks = Tok.with_unpadded(join_detached ? Tok.of_print(text) : Tok.words(text))
       drop_e = toks.include?('mail')
       Set.new(toks.reject { |t| LABEL_TOKENS.include?(t) || (drop_e && t == 'e') })
     end

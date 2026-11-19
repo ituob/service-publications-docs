@@ -9,6 +9,9 @@ data:
   _class: M1400Amendment
   entries:
   - company_name: Germany (Federal Republic of) DEU
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   - company_name: T-Systems International GmbH
     carrier_code: TSYSI
     contact: Mr. Arno Schillat
@@ -18,4 +21,7 @@ data:
     fax: "+ 49 391 580 212767"
     email:
     - arno.schillat@t-systems.com
+    country_or_area:
+      en: Germany (Federal Republic of)
+    iso_code: DEU
   notes: []
