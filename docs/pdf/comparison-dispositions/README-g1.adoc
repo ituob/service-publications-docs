@@ -1,0 +1,93 @@
+= G1 dispositions: E.118, E.164B, E.164C, E.164D, E.180 (ituob/service-publications-docs#89)
+
+Measured 2026-11-19 on branch `claude-a/89-shapes-g1`, generated PDFs from
+`/private/tmp/ituob-106-codex/runs/89-gen/pdf`, comparator run one row at a time
+with `--dispositions` (1-2 s, 30-55 MB each, no memguard pause, no row NOT RUN).
+
+* `scripts/g1_row_dispositions.rb GEN_DIR OUT_DIR` writes the `T-SP-<PUB>-<L>.yaml` files here.
+  A rule fires on a word-bag measurement against the dataset record, never on a guess; what no
+  rule settles stays unreviewed and is counted below.
+* Shape parsing mistakes were fixed in the shapes (see "Shape fixes"), not dispositioned.
+
+== Per row and language
+
+Deltas before = all deltas of the comparator without dispositions (rows + prose). Open after = what the
+comparator still counts as failing with the shipped YAML (unreviewed, plus core-flagged rows
+no entry confirms). Confirmed bugs = entries with `disposition: bug`.
+
+[cols="2,1,1,1,1,1,2",options="header"]
+|===
+| Row | Deltas before | layout | data | confirmed bugs | Open after | Notes
+
+| E.118-A | 831 | 0 | 0 | 791 | 53 | 40 prose, 13 rows (Arabic, doubled letter in a sorted word: text-layer artefact)
+| E.118-C | 802 | 1 | 0 | 791 | 11 | 10 prose, 1 row
+| E.118-E | 20 | 9 | 10 | 1 | 0 |
+| E.118-F | 965 | 7 | 954 | 0 | 4 | 4 prose (footer plus a stray "2018.")
+| E.118-R | 801 | 0 | 1 | 790 | 11 | 10 prose, 1 row
+| E.118-S | 911 | 13 | 898 | 0 | 0 |
+| E.164B-E | 0 | 0 | 0 | 0 | 0 |
+| E.164B-F | 20 | 12 | 6 | 0 | 2 | prose: "itut/ bulletin" vs "itu- t/bulletin" URL wrap
+| E.164B-S | 22 | 10 | 8 | 4 | 0 |
+| E.164C-E | 35 | 0 | 32 | 0 | 3 | prose title page
+| E.164C-F | 360 | 5 | 350 | 0 | 5 | prose
+| E.164C-S | 383 | 7 | 359 | 0 | 17 | prose (title page / front matter wrapped differently)
+| E.164D-A | 446 | 398 | 20 | 8 | 28 | 14 rows (Arabic text-layer artefact), 6 prose
+| E.164D-C | 474 | 446 | 18 | 0 | 10 | 6 rows, 4 prose
+| E.164D-E | 115 | 96 | 7 | 4 | 10 | 2 rows ("1\|United" USA / US Virgin Islands swapped duplicate key), 6 prose (TSB note)
+| E.164D-F | 242 | 202 | 8 | 24 | 8 | prose (TSB note)
+| E.164D-R | 351 | 334 | 7 | 3 | 10 | 3 rows, 4 prose
+| E.164D-S | 202 | 162 | 8 | 22 | 10 | prose (TSB note)
+| E.180-E | 68 | 24 | 0 | 0 | 44 | OPEN, not settled (see below)
+| E.180-F | 152 | 36 | 0 | 0 | 116 | OPEN
+| E.180-S | 131 | 52 | 0 | 0 | 79 | OPEN
+|===
+
+Totals of confirmed bugs: E.118 2372 (A 791, C 791, R 790 contact labels; E 1), E.164B-S 4, E.164D 61.
+
+== Confirmed bugs in the generated PDFs (disposition `bug`)
+
+* E.118 A, C, R: the contact labels Tel/Fax/E-mail and the country name are printed in English; the
+  official PDFs translate them (the dataset holds English only for these).
+* E.118-E, row `89 1 432`: the company cell drops "WORTHINGTON, OH 43085" at a page break.
+* E.164B-S, E.164D E/F/S/A/R: the alphabetical lists sort accented names (Cote d'Ivoire, Belarus, Benin,
+  Brunei, Canada, Virgenes ...) after the unaccented ones; the official lists collate by base letter.
+  (The generated list puts "Reserved" entries at R; the official puts them last: layout.)
+
+== Data findings (disposition `data`: the generated PDF faithfully prints the dataset, the official differs)
+
+E.118 F/S/E: the rows sort by the English country name where the official PDF sorts by the language's own
+name. E.164C: Malaisie/Malawi names swapped (265/60), prefixes 11/1002/1008 vs official 011/001,002/001,008,
+utc "0" vs "UTC". E.164D F/S: the Antigua row carries the Bahamas names. E.164B F/S: duplicate Canada row
+instead of Etats-Unis, Bonaire twice instead of Curacao, Kazakhstan twice.
+
+== Prose
+
+One rule only, checked on the samples of E.118-S, E.164B-S, E.180-F, E.180-S: when the prose deltas of a row,
+taken together as a word bag, differ only in page numbers (up to two digits), the Spanish "N.º" and the
+"ITU-T" hyphenation, they are `layout` (footers and line breaks). Rows with any other word difference keep
+all prose deltas unreviewed: title pages, "Note from TSB" blocks (present only in the official PDFs of
+E.164D) and "(position on ...)" lines are real content differences, counted open, not classified.
+
+== E.180 (time-boxed, not settled)
+
+Only the layout rule (same words in both rows) is applied. The data/bug rules were tried and withdrawn:
+they read footnote letters ("a)") as another language's text and the rows are multi-line tone cells, so a
+bug/data claim was not supported by the samples. Remaining: wrapped tone cells, stranded country headings
+(Cuba, Japan), dropped footnote markers. Counted open.
+
+== Shape fixes (before the dispositions)
+
+`prose_stop` overridden in all four shapes (stop at the page of the first row; otherwise every table row was
+also a prose delta); country_code_table: name/code split for long names, MAX_WRAP 6, gap reset on page break,
+hyphen cut in keys, footnote rule closes a row, short last page takes the table's column but never a
+preface page (`page > first_page`); issuer_identifier_list: group ends at "2. AMENDMENTS"; shared
+body_lines share 0.35. E.164B-E now 230/230 rows with 0 deltas.
+
+== NOT RUN
+
+Nothing: all 21 rows ran. Full-suite and rubocop: N/A (no rubocop in this bundle).
+
+== Spec
+
+`ituob/spec/scripts/official_pdf_shapes/g1_spec.rb` (synthetic fixtures) plus
+`ituob/spec/scripts/compare_official_pdf_spec.rb`: 66 examples, 0 failures.

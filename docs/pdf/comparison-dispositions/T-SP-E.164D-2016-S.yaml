@@ -1,0 +1,1348 @@
+- layer: rows
+  side: both
+  text: '383|Kosovo*: generated "383 | Kosovo* | q" vs official "383 | Kosovo* | r"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in es (q);
+    the official PDF has r
+- layer: rows
+  side: both
+  text: '883|Redes: generated "883 | Redes internacionales, indicativo compartido
+    | p" vs official "883 | Redes internacionales, indicativo compartido | p, q"'
+  disposition: data
+  reason: the official PDF prints q once more than the dataset record holds (in es);
+    the generated PDF prints the dataset
+- layer: rows
+  side: official_only
+  text: 32|Bélgica#2 32 | Bélgica
+  disposition: bug
+  reason: 'the alphabetical list puts Bélgica at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 32|Bélgica#2 32 | Bélgica
+  disposition: bug
+  reason: 'the alphabetical list puts Bélgica at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 379|Ciudad#3 379 | Ciudad del Vaticano (Estado de la) | f
+  disposition: data
+  reason: the generated row is what the dataset holds for 379 in es; the official
+    list has no row of that name under this code (the dataset differs from the official
+    list)
+- layer: rows
+  side: generated_only
+  text: 39|Ciudad#3 39 | Ciudad del Vaticano (Estado de la)
+  disposition: data
+  reason: the generated row is what the dataset holds for 39 in es; the official list
+    has no row of that name under this code (the dataset differs from the official
+    list)
+- layer: rows
+  side: official_only
+  text: 225|Côte#2 225 | Côte d'Ivoire (República de)
+  disposition: bug
+  reason: 'the alphabetical list puts Côte at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 225|Côte#2 225 | Côte d'Ivoire (República de)
+  disposition: bug
+  reason: 'the alphabetical list puts Côte at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 210|Indicativo#2 210 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 214|Indicativo#2 214 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 215|Indicativo#2 215 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 217|Indicativo#2 217 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 219|Indicativo#2 219 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 259|Indicativo#2 259 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 280|Indicativo#2 280 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 281|Indicativo#2 281 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 282|Indicativo#2 282 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 283|Indicativo#2 283 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 284|Indicativo#2 284 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 285|Indicativo#2 285 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 286|Indicativo#2 286 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 287|Indicativo#2 287 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 288|Indicativo#2 288 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 289|Indicativo#2 289 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 292|Indicativo#2 292 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 293|Indicativo#2 293 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 294|Indicativo#2 294 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 295|Indicativo#2 295 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 296|Indicativo#2 296 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 384|Indicativo#2 384 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 422|Indicativo#2 422 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 424|Indicativo#2 424 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 425|Indicativo#2 425 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 426|Indicativo#2 426 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 427|Indicativo#2 427 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 428|Indicativo#2 428 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 429|Indicativo#2 429 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 671|Indicativo#2 671 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 684|Indicativo#2 684 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 693|Indicativo#2 693 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 694|Indicativo#2 694 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 695|Indicativo#2 695 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 696|Indicativo#2 696 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 697|Indicativo#2 697 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 698|Indicativo#2 698 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 699|Indicativo#2 699 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 801|Indicativo#2 801 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 802|Indicativo#2 802 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 803|Indicativo#2 803 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 804|Indicativo#2 804 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 805|Indicativo#2 805 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 806|Indicativo#2 806 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 807|Indicativo#2 807 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 809|Indicativo#2 809 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 830|Indicativo#2 830 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 831|Indicativo#2 831 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 832|Indicativo#2 832 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 833|Indicativo#2 833 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 834|Indicativo#2 834 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 835|Indicativo#2 835 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 836|Indicativo#2 836 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 837|Indicativo#2 837 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 838|Indicativo#2 838 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 839|Indicativo#2 839 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 851|Indicativo#2 851 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 854|Indicativo#2 854 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 857|Indicativo#2 857 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 858|Indicativo#2 858 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 859|Indicativo#2 859 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 871|Indicativo#2 871 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 872|Indicativo#2 872 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 873|Indicativo#2 873 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 874|Indicativo#2 874 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 884|Indicativo#2 884 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 885|Indicativo#2 885 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 887|Indicativo#2 887 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 889|Indicativo#2 889 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 890|Indicativo#2 890 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 891|Indicativo#2 891 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 892|Indicativo#2 892 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 893|Indicativo#2 893 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 894|Indicativo#2 894 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 895|Indicativo#2 895 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 896|Indicativo#2 896 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 897|Indicativo#2 897 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 898|Indicativo#2 898 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 899|Indicativo#2 899 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 978|Indicativo#2 978 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 990|Indicativo#2 990 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: generated_only
+  text: 997|Indicativo#2 997 | Indicativo de reserva
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the official PDF prints notas comunes a las listas
+    numérica y alfabética de indicativos de país de la recomendación uit t e 164 asignados
+    once more than the dataset record holds (in es); the generated PDF prints the
+    dataset
+- layer: rows
+  side: official_only
+  text: 98|Irán#2 98 | Irán (República Islámica del)
+  disposition: bug
+  reason: 'the alphabetical list puts Irán at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 98|Irán#2 98 | Irán (República Islámica del)
+  disposition: bug
+  reason: 'the alphabetical list puts Irán at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: both
+  text: '383|Kosovo*#2: generated "383 | Kosovo* | q" vs official "383 | Kosovo* |
+    r"'
+  disposition: data
+  reason: the generated PDF prints what the dataset holds for this row in es (q);
+    the official PDF has r
+- layer: rows
+  side: official_only
+  text: 961|Líbano#2 961 | Líbano
+  disposition: bug
+  reason: 'the alphabetical list puts Líbano at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 961|Líbano#2 961 | Líbano
+  disposition: bug
+  reason: 'the alphabetical list puts Líbano at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: official_only
+  text: 223|Malí#2 223 | Malí (República de)
+  disposition: bug
+  reason: 'the alphabetical list puts Malí at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 223|Malí#2 223 | Malí (República de)
+  disposition: bug
+  reason: 'the alphabetical list puts Malí at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: official_only
+  text: 52|México#2 52 | México
+  disposition: bug
+  reason: 'the alphabetical list puts México at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: official_only
+  text: 377|Mónaco#2 377 | Mónaco (Principado de)
+  disposition: bug
+  reason: 'the alphabetical list puts Mónaco at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 52|México#2 52 | México
+  disposition: bug
+  reason: 'the alphabetical list puts México at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 377|Mónaco#2 377 | Mónaco (Principado de)
+  disposition: bug
+  reason: 'the alphabetical list puts Mónaco at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: official_only
+  text: 227|Níger#2 227 | Níger (República del)
+  disposition: bug
+  reason: 'the alphabetical list puts Níger at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 227|Níger#2 227 | Níger (República del)
+  disposition: bug
+  reason: 'the alphabetical list puts Níger at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: official_only
+  text: 31|Países#2 31 | Países Bajos (Reino de los)
+  disposition: bug
+  reason: 'the alphabetical list puts Países at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 31|Países#2 31 | Países Bajos (Reino de los)
+  disposition: bug
+  reason: 'the alphabetical list puts Países at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: both
+  text: '883|Redes#2: generated "883 | Redes internacionales, indicativo compartido
+    | p" vs official "883 | Redes internacionales, indicativo compartido | p, q"'
+  disposition: data
+  reason: the official PDF prints q once more than the dataset record holds (in es);
+    the generated PDF prints the dataset
+- layer: rows
+  side: official_only
+  text: 963|República#2 963 | República Árabe Siria
+  disposition: bug
+  reason: 'the alphabetical list puts República at another place than the official
+    list: the generated PDF sorts accented letters after the unaccented ones, the
+    official list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 963|República#2 963 | República Árabe Siria
+  disposition: bug
+  reason: 'the alphabetical list puts República at another place than the official
+    list: the generated PDF sorts accented letters after the unaccented ones, the
+    official list sorts them with their base letter'
+- layer: rows
+  side: official_only
+  text: 216|Túnez#2 216 | Túnez
+  disposition: bug
+  reason: 'the alphabetical list puts Túnez at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: generated_only
+  text: 216|Túnez#2 216 | Túnez
+  disposition: bug
+  reason: 'the alphabetical list puts Túnez at another place than the official list:
+    the generated PDF sorts accented letters after the unaccented ones, the official
+    list sorts them with their base letter'
+- layer: rows
+  side: official_only
+  text: 210|Indicativo#2 210 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 214|Indicativo#2 214 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 215|Indicativo#2 215 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 217|Indicativo#2 217 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 219|Indicativo#2 219 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 259|Indicativo#2 259 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 280|Indicativo#2 280 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 281|Indicativo#2 281 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 282|Indicativo#2 282 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 283|Indicativo#2 283 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 284|Indicativo#2 284 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 285|Indicativo#2 285 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 286|Indicativo#2 286 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 287|Indicativo#2 287 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 288|Indicativo#2 288 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 289|Indicativo#2 289 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 292|Indicativo#2 292 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 293|Indicativo#2 293 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 294|Indicativo#2 294 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 295|Indicativo#2 295 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 296|Indicativo#2 296 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 384|Indicativo#2 384 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 422|Indicativo#2 422 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 424|Indicativo#2 424 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 425|Indicativo#2 425 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 426|Indicativo#2 426 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 427|Indicativo#2 427 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 428|Indicativo#2 428 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 429|Indicativo#2 429 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 671|Indicativo#2 671 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 684|Indicativo#2 684 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 693|Indicativo#2 693 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 694|Indicativo#2 694 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 695|Indicativo#2 695 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 696|Indicativo#2 696 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 697|Indicativo#2 697 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 698|Indicativo#2 698 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 699|Indicativo#2 699 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 801|Indicativo#2 801 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 802|Indicativo#2 802 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 803|Indicativo#2 803 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 804|Indicativo#2 804 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 805|Indicativo#2 805 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 806|Indicativo#2 806 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 807|Indicativo#2 807 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 809|Indicativo#2 809 | Indicativo de reserva | d
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 830|Indicativo#2 830 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 831|Indicativo#2 831 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 832|Indicativo#2 832 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 833|Indicativo#2 833 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 834|Indicativo#2 834 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 835|Indicativo#2 835 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 836|Indicativo#2 836 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 837|Indicativo#2 837 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 838|Indicativo#2 838 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 839|Indicativo#2 839 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 851|Indicativo#2 851 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 854|Indicativo#2 854 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 857|Indicativo#2 857 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 858|Indicativo#2 858 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 859|Indicativo#2 859 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 871|Indicativo#2 871 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 872|Indicativo#2 872 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 873|Indicativo#2 873 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 874|Indicativo#2 874 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 884|Indicativo#2 884 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 885|Indicativo#2 885 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 887|Indicativo#2 887 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 889|Indicativo#2 889 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 890|Indicativo#2 890 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 891|Indicativo#2 891 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 892|Indicativo#2 892 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 893|Indicativo#2 893 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 894|Indicativo#2 894 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 895|Indicativo#2 895 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 896|Indicativo#2 896 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 897|Indicativo#2 897 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 898|Indicativo#2 898 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 899|Indicativo#2 899 | Indicativo de reserva | m
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 978|Indicativo#2 978 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 990|Indicativo#2 990 | Indicativo de reserva
+  disposition: layout
+  reason: 'the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
+    or place a continuation line differently'
+- layer: rows
+  side: official_only
+  text: 997|Indicativo#2 997 | Indicativo de reserva Notas comunes a las listas numérica
+    y alfabética de indicativos de país de la Recomendación UIT-T E.164 asignados
+  disposition: data
+  reason: the row sits at another position of its list than in the other PDF (the
+    lists are sorted differently); the official PDF prints notas comunes a las listas
+    numérica y alfabética de indicativos de país de la recomendación uit t e 164 asignados
+    once more than the dataset record holds (in es); the generated PDF prints the
+    dataset
