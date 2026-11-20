@@ -1187,16 +1187,6 @@
     for this row in fr (korea rep of); the official PDF has corée rép de
 - layer: rows
   side: both
-  text: '89 506 01: generated "Costa Rica | Instituto Costarricense de Electricidad
-    - ICE PO Box 10032 1000 SAN JOSE | 89 506 01 Fax: +506 2220 1555 E-mail: | + Tel:
-    +506 2220 7422" vs official "Costa Rica | Instituto Costarricense de Electricidad
-    - ICE PO Box 10032 1000 SAN JOSE | 89 506 01 Tel: +506 2220 7422 Fax: +506 2220
-    1555 E-mail: | -"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
-- layer: rows
-  side: both
   text: '89 385 91: generated "Croatia | VIPnet d.o.o. Vrtni put 1 HR-10000 ZAGREB
     | 89 385 91 Vrtni put 1 HR-10000 ZAGREB Tel: +385 1 4691091 Fax: +385 1 4691099
     E-mail: | Jiri Dvorjancansky" vs official "Croatie | VIPnet d.o.o. Vrtni put 1
@@ -4653,8 +4643,8 @@
     P.O.Box 4693 VIENTIANE Tel: +856 21 213 570 Fax: +856 21 213 572 E-mail: rome@bigpond.com.kh
     | Ronny Melander"'
   disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
+  reason: 'same words in every column on both sides: the two PDFs wrap a cell or place
+    a continuation line differently'
 - layer: rows
   side: generated_only
   text: '89 371 01 Latvia | Latvian Mobile Telephone Co. Ltd. PO Box 116, 29 Unijas
@@ -4839,19 +4829,6 @@
     biget arm com); the official PDF has france rpintene bouyguestelecom fr
 - layer: rows
   side: both
-  text: '89 352 81: generated "Luxembourg | e-LUX Mobile Telecommunication Services
-    S.A. 21, Avenue Monterey L-2163 Luxembourg | 89 352 81 Hassane Diabate 21, Avenue
-    Monterey L-2163 Luxembourg Tel: +90 5337745491+352 26201543 Fax: E-mail: tsonmezalp@eluxmobile.com;
-    hdiabate@caldia.lu | Mr Ibrahim Tolga Sönmezalp / Mr" vs official "Luxembourg
-    | e-LUX Mobile Telecommunication Services S.A. 21, Avenue Monterey L-2163 Luxembourg
-    | 89 352 81 Diabate 21, Avenue Monterey L-2163 Luxembourg Tel: +90 5337745491/+352
-    26201543 Fax: E-mail: tsonmezalp@eluxmobile.com; hdiabate@caldia.lu | Mr Ibrahim
-    Tolga Sönmezalp / Mr Hassane"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
-- layer: rows
-  side: both
   text: '89 853 00: generated "Macao, China | SmarTone – Comunicações Móveis, S.A.
     Avenida Xian Xing Hai, Centro Golden Dragon, 12 andar, Macau | 89 853 00 Avenida
     Xian Xing Hai, Centro Golden Dragon, 12 andar, Macau Tel: +853 8797 9222 Fax:
@@ -4893,8 +4870,8 @@
     +265 1 644022 Tel: +265 1 644775 Fax: E-mail: | Mats Bergström'
   disposition: layout
   reason: 'the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
-    or place a continuation line differently'
+    lists are sorted differently); same words in every column on both sides: the two
+    PDFs wrap a cell or place a continuation line differently'
 - layer: rows
   side: both
   text: '89 60 00: generated "Malaysia | Telekom Malaysia Berhad TM Menara TM, Jalan
@@ -4967,8 +4944,8 @@
     Tel: +265 1 644022 Fax: +265 1 644775 E-mail: | Mats Bergström'
   disposition: layout
   reason: 'the row sits at another position of its list than in the other PDF (the
-    lists are sorted differently); same words on both sides: the two PDFs wrap a cell
-    or place a continuation line differently'
+    lists are sorted differently); same words in every column on both sides: the two
+    PDFs wrap a cell or place a continuation line differently'
 - layer: rows
   side: both
   text: '89 356 01: generated "Malta | VODAFONE MALTA LIMITED Level 6, Skyparks Business
@@ -6020,18 +5997,6 @@
   reason: the row sits at another position of its list than in the other PDF (the
     lists are sorted differently); the generated PDF prints what the dataset holds
     for this row in fr (french polynesia); the official PDF has polynésie française
-- layer: rows
-  side: both
-  text: '89 351 04: generated "Portugal | Lycamobile Portugal, Lda Avenida João Crisóstomo
-    24 1050-127 LISBOA | 89 351 04 Arnaut Avenida João Crisóstomo 24 1050-127 LISBOA
-    Tel: +351 210 990 582 Fax: E-mail: antonio.arnaut@lycamobile.pt | António Maria
-    Spínola Brito Mendes" vs official "Portugal | Lycamobile Portugal, Lda Avenida
-    João Crisóstomo 24 1050-127 LISBOA | 89 351 04 Avenida João Crisóstomo 24 1050-127
-    LISBOA Tel: +351 210 990 582 Fax: E-mail: antonio.arnaut@lycamobile.pt | António
-    Maria Spínola Brito Mendes Arnaut"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
 - layer: rows
   side: both
   text: '89 351 07: generated "Portugal | Mundio Mobile (Portugal) Limited 54 Marsh

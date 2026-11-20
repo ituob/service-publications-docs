@@ -1,24 +1,5 @@
 - layer: rows
   side: both
-  text: '89 229 05: generated "Benin | Glomobile Benin Ltd COTONOU | 89 229 05 Fax:
-    E-mail: | + Tel:" vs official "Benin | Glomobile Benin Ltd COTONOU | 89 229 05
-    Tel: Fax: E-mail:"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
-- layer: rows
-  side: both
-  text: '89 975 77: generated "Bhutan | Tashi Infocomm Ltd Norzin Lam, P.O. Box 176
-    THIMPHU | 89 975 77 Norzin Lam, P.O. Box 176 THIMPHU Tel: +975 2 335 476 Fax:
-    +975 2 324 440 E-mail: tashicell@gmail.com; info@tashicell.com | Ganga R. Sharma"
-    vs official "Bhutan | Tashi Infocomm Ltd Norzin Lam, P.O. Box 176 THIMPHU | 89
-    975 77 Norzin Lam, P.O. Box 176 THIMPHU Tel: +975 2 335 476 Fax: +975 2 324 440
-    E-mail: tashicell@gmail.com; | Ganga R. Sharma info@tashicell.com"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
-- layer: rows
-  side: both
   text: '89 1 660: generated "Canada | Allstream Business Inc. 18810 SE 34th St, Building
     One, Suite 100 VANCOUVER, WASHINGTON 98683 | 89 1 660 18810 SE 34th St, Building
     One, Suite 100 VANCOUVER, WASHINGTON 98683 (United States) Tel: +1 360 558 4318
@@ -30,16 +11,6 @@
   disposition: data
   reason: the official PDF prints united states once more than the dataset record
     holds (in en); the generated PDF prints the dataset
-- layer: rows
-  side: both
-  text: '89 506 01: generated "Costa Rica | Instituto Costarricense de Electricidad
-    - ICE PO Box 10032 1000 SAN JOSE | 89 506 01 Fax: +506 2220 1555 E-mail: | + Tel:
-    +506 2220 7422" vs official "Costa Rica | Instituto Costarricense de Electricidad
-    - ICE PO Box 10032 1000 SAN JOSE | 89 506 01 Tel: +506 2220 7422 Fax: +506 2220
-    1555 E-mail: | -"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
 - layer: rows
   side: both
   text: '89 423 01: generated "Liechtenstein | Swisscom Schweiz AG Alte Tiefenaufstrasse
@@ -65,26 +36,13 @@
     biget arm com); the official PDF has france rpintene bouyguestelecom fr
 - layer: rows
   side: both
-  text: '89 352 81: generated "Luxembourg | e-LUX Mobile Telecommunication Services
-    S.A. 21, Avenue Monterey L-2163 Luxembourg | 89 352 81 Hassane Diabate 21, Avenue
-    Monterey L-2163 Luxembourg Tel: +90 5337745491+352 26201543 Fax: E-mail: tsonmezalp@eluxmobile.com;
-    hdiabate@ caldia.lu | Mr Ibrahim Tolga Sönmezalp / Mr" vs official "Luxembourg
-    | e-LUX Mobile Telecommunication Services S.A. 21, Avenue Monterey L-2163 Luxembourg
-    | 89 352 81 Diabate 21, Avenue Monterey L-2163 Luxembourg Tel: +90 5337745491/+352
-    26201543 Fax: E-mail: tsonmezalp@eluxmobile.com; hdiabate@caldia.lu | Mr Ibrahim
-    Tolga Sönmezalp / Mr Hassane"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
-- layer: rows
-  side: both
   text: '89 265 02: generated "Malawi | Celtel Malawi Ltd. PO Box 1235 BLANTYRE |
     89 265 02 BLANTYRE +265 1 644022 Tel: +265 1 644775 Fax: E-mail: | Mats Bergström"
     vs official "Malawi | Celtel Malawi Ltd. PO Box 1235 BLANTYRE | 89 265 02 BLANTYRE
     Tel: +265 1 644022 Fax: +265 1 644775 E-mail: | Mats Bergström"'
   disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
+  reason: 'same words in every column on both sides: the two PDFs wrap a cell or place
+    a continuation line differently'
 - layer: rows
   side: both
   text: '89 31 05: generated "Netherlands | Elephant Talk Communication Holding AG
@@ -110,18 +68,6 @@
     (in en); the generated PDF prints the dataset
 - layer: rows
   side: both
-  text: '89 351 04: generated "Portugal | Lycamobile Portugal, Lda Avenida João Crisóstomo
-    24 1050-127 LISBOA | 89 351 04 Arnaut Avenida João Crisóstomo 24 1050-127 LISBOA
-    Tel: +351 210 990 582 Fax: E-mail: antonio.arnaut@lycamobile.pt | António Maria
-    Spínola Brito Mendes" vs official "Portugal | Lycamobile Portugal, Lda Avenida
-    João Crisóstomo 24 1050-127 LISBOA | 89 351 04 Avenida João Crisóstomo 24 1050-127
-    LISBOA Tel: +351 210 990 582 Fax: E-mail: antonio.arnaut@lycamobile.pt | António
-    Maria Spínola Brito Mendes Arnaut"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
-- layer: rows
-  side: both
   text: '89 351 07: generated "Portugal | Mundio Mobile (Portugal) Limited 54 Marsh
     Wall LONDON E14 9TP | 89 351 07 Mundio Mobile Limited, 54 Marsh Wall, LONDON E14
     9TP (United Kingdom) Tel: +44 2035364800 Fax: +44 2070050562 E-mail: legal@mundio.com
@@ -140,8 +86,8 @@
     Cuppage Road, StarHub Centre #07-00 SINGAPORE 229469 | 89 65 05 SINGAPORE Tel:
     +65 6825 5000 Fax: +65 6821 6018 E-mail: | Lim Eng. Huat"'
   disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
+  reason: 'same words in every column on both sides: the two PDFs wrap a cell or place
+    a continuation line differently'
 - layer: rows
   side: both
   text: '89 46 01: generated "Sweden | Telia Sverige AB SE-169 94 SOLNA 0 | 89 46
@@ -195,27 +141,3 @@
   disposition: bug
   reason: the dataset record holds 43085 (in en) once more than the generated row
     prints it, and the official row prints it
-- layer: rows
-  side: both
-  text: '89 1 470: generated "United States | Ntelos, Inc. 1154 Shenandoah Village
-    Dr. Waynesboro, VA 22980 | 89 1 470 Relations 1154 Shenandoah Village Dr. Waynesboro,
-    VA 22980 Tel: +1 540 941 4614 Fax: +1 540 943 5001 E-mail: roamingcoord@ntelos.com
-    | Philip L. Nelson, Director of Carrier" vs official "United States | Ntelos,
-    Inc. 1154 Shenandoah Village Dr. Waynesboro, VA 22980 | 89 1 470 1154 Shenandoah
-    Village Dr. Waynesboro, VA 22980 Tel: +1 540 941 4614 Fax: +1 540 943 5001 E-mail:
-    roamingcoord@ntelos.com | Philip L. Nelson, Director of Carrier Relations"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'
-- layer: rows
-  side: both
-  text: '89 1 610: generated "United States | Ntelos, Inc. 1154 Shenandoah Village
-    Dr. Waynesboro, VA 22980 | 89 1 610 Relations 1154 Shenandoah Village Dr. Waynesboro,
-    VA 22980 Tel: +1 540 941 4614 Fax: +1 540 943 5001 E-mail: roamingcoord@ntelos.com
-    | Philip L. Nelson, Director of Carrier" vs official "United States | Ntelos,
-    Inc. 1154 Shenandoah Village Dr. Waynesboro, VA 22980 | 89 1 610 1154 Shenandoah
-    Village Dr. Waynesboro, VA 22980 Tel: +1 540 941 4614 Fax: +1 540 943 5001 E-mail:
-    roamingcoord@ntelos.com | Philip L. Nelson, Director of Carrier Relations"'
-  disposition: layout
-  reason: 'same words on both sides: the two PDFs wrap a cell or place a continuation
-    line differently'

@@ -15,7 +15,9 @@
 #
 # A rule fires on a measurement, not on a guess. Words are compared as a bag
 # per row (gi = words only the generated row has, oi = only the official one):
-#   layout  gi and oi are empty: the same words, in another cell or line;
+#   layout  gi and oi are empty AND every column (the " | " cells of the row text)
+#           holds the same words on both sides: the same words, in another line
+#           of the same cell. Words that moved to another column are not layout;
 #   data    every word of gi is a word of the dataset record(s) for that row in
 #           the PDF's language, so the generated PDF prints what the dataset
 #           holds and the official list differs from the dataset (the official
@@ -46,6 +48,15 @@ module G1RowDispositions
   # Arabic words have their letters sorted, as the shape's mirror_letters does
   def words(str)
     str.to_s.unicode_normalize(:nfkc).downcase.gsub(/[\u0600-\u06FF]+/) { |w| w.chars.sort.join }.scan(/[[:alnum:]]+/)
+  end
+
+  COLUMN_SEP = ' | '
+
+  # the " | " cells of a row text hold the same words, column by column
+  def same_columns?(gen_text, off_text)
+    g = gen_text.to_s.split(COLUMN_SEP, -1)
+    o = off_text.to_s.split(COLUMN_SEP, -1)
+    g.size == o.size && g.zip(o).all? { |a, b| words(a).sort == words(b).sort }
   end
 
   # words of left that right lacks, counting repeats
@@ -118,7 +129,11 @@ module G1RowDispositions
     o = words(off_text)
     gi = minus(g, o)
     oi = minus(o, g)
-    return Verdict.new(:layout, 'same words on both sides: the two PDFs wrap a cell or place a continuation line differently') if gi.empty? && oi.empty?
+    if gi.empty? && oi.empty?
+      return Verdict.new(:layout, 'same words in every column on both sides: the two PDFs wrap a cell or place a continuation line differently') if same_columns?(gen_text, off_text)
+
+      return nil # the row bag is equal but a word sits in another column: not a layout difference
+    end
 
     code = LANGS.fetch(lang)
     mine = dataset.words(key, code)

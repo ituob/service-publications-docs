@@ -21,10 +21,10 @@ no entry confirms). Confirmed bugs = entries with `disposition: bug`.
 
 | E.118-A | 831 | 0 | 0 | 778 | 53 | 40 prose, 13 rows (Arabic, doubled letter in a sorted word: text-layer artefact)
 | E.118-C | 802 | 1 | 0 | 790 | 11 | 10 prose, 1 row
-| E.118-E | 20 | 9 | 10 | 1 | 0 |
-| E.118-F | 965 | 7 | 954 | 0 | 4 | 4 prose (footer plus a stray "2018.")
+| E.118-E | 20 | 2 | 10 | 1 | 7 | 7 rows: layout needs equal columns (was 0 open)
+| E.118-F | 965 | 4 | 954 | 0 | 7 | 4 prose (footer plus a stray "2018."), 3 rows: a word sits in another column (was 4 open)
 | E.118-R | 801 | 0 | 1 | 789 | 11 | 10 prose, 1 row
-| E.118-S | 911 | 13 | 898 | 0 | 0 |
+| E.118-S | 911 | 8 | 898 | 0 | 5 | 5 rows: a word sits in another column (was 0 open)
 | E.164B-E | 0 | 0 | 0 | 0 | 0 |
 | E.164B-F | 20 | 12 | 6 | 0 | 2 | prose: "itut/ bulletin" vs "itu- t/bulletin" URL wrap
 | E.164B-S | 22 | 10 | 8 | 4 | 0 |
@@ -37,12 +37,24 @@ no entry confirms). Confirmed bugs = entries with `disposition: bug`.
 | E.164D-F | 242 | 202 | 8 | 24 | 8 | prose (TSB note)
 | E.164D-R | 351 | 334 | 7 | 0 | 10 | 3 rows, 4 prose
 | E.164D-S | 202 | 162 | 8 | 22 | 10 | prose (TSB note)
-| E.180-E | 68 | 24 | 0 | 0 | 44 | OPEN, not settled (see below)
-| E.180-F | 152 | 36 | 0 | 0 | 116 | OPEN
-| E.180-S | 131 | 52 | 0 | 0 | 79 | OPEN
+| E.180-E | 68 | 1 | 0 | 0 | 67 | OPEN, not settled (see below); was 24 layout, 44 open
+| E.180-F | 152 | 36 | 0 | 0 | 116 | OPEN (unchanged)
+| E.180-S | 131 | 50 | 0 | 0 | 81 | OPEN; was 52 layout, 79 open
 |===
 
 Totals of confirmed bugs: E.118 2358 (A 778, C 790, R 789 contact labels; E 1), E.164B-S 4, E.164D 48 (E 2, F 24, S 22). Open rows are counted only under Open after.
+
+== Layout rule is per column (follow-up to the #147 breaker review)
+
+The layout rule used to be a whole-row word bag, so a word that sat in another column of the row (a tone name
+in the frequency column, a company name in the IIN column) still counted as the same words. A row's text is its
+columns joined by `" | "`; `layout` now needs the same number of columns and the same words in every column
+(`G1RowDispositions.same_columns?`). A row whose bag is equal but whose columns differ stays open: it is not a
+layout difference, and the data and bug rules do not apply to it either. Re-run on all 21 rows (one at a time,
+no NOT RUN); the E.164B/C/D yamls only changed the wording of the layout reason, with unchanged counts. Reopened:
+E.180-E 23 rows (all of its layout entries), E.180-S 2, E.118-E 7 (layout 9 to 2), E.118-F 3, E.118-S 5.
+The Layout column of E.180-E/F and E.118-F/S is one more than the layout entries in the yaml; the extra delta is
+settled by the comparator itself (probably its built-in prose rule; not traced).
 
 == Confirmed bugs in the generated PDFs (disposition `bug`)
 
@@ -70,7 +82,7 @@ E.164D) and "(position on ...)" lines are real content differences, counted open
 
 == E.180 (time-boxed, not settled)
 
-Only the layout rule (same words in both rows) is applied. The data/bug rules were tried and withdrawn:
+Only the layout rule (same words in every column of both rows) is applied. The data/bug rules were tried and withdrawn:
 they read footnote letters ("a)") as another language's text and the rows are multi-line tone cells, so a
 bug/data claim was not supported by the samples. Remaining: wrapped tone cells, stranded country headings
 (Cuba, Japan), dropped footnote markers. Counted open.

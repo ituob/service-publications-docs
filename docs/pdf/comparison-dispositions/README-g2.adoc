@@ -22,7 +22,7 @@ the entries settle. "Open after" is the `RESULT: FAIL (N open)` value (confirmed
 | E.212A-2017-F | 48 | 0 | 0 | 44 | 4 | collation 40, formerly 4 |
 | E.212A-2017-R | 284 | 277 | 0 | 0 | 7 | order_en 272, p_listnum 5 |
 | E.212A-2017-S | 29 | 0 | 0 | 28 | 1 | collation 24, formerly 4 |
-| E.212B-2018-A | 369 | 7 | 0 | 0 | 362 | glyph 7 |
+| E.212B-2018-A | 259 | 147 | 0 | 0 | 112 | glyph 147 |
 | E.212B-2018-C | 92 | 1 | 0 | 3 | 88 | formerly 3, p_ws 1 |
 | E.212B-2018-E | 53 | 0 | 0 | 3 | 50 | formerly 3 |
 | E.212B-2018-F | 1406 | 0 | 0 | 1348 | 58 | formerly 3, order_gen_en 1345 |
@@ -85,7 +85,10 @@ data_name, e10, off_omits::
 
 == Unreviewed (open after dispositions)
 
-* E.212B-A: 362 of 369 open. Shape gap: the Arabic 901 table is not parsed on the Arabic side. Not a generated-PDF finding.
+* E.212B-A: 112 of 259 open (was 362 of 369). The Arabic 901 table is now parsed (shape fix in `mcc_mnc.rb`: in an Arabic PDF the
+  901 code rows sit in the same column as the main table, so the shared section starts at the first 901 row). Remaining: 29 wrapped-name
+  rows, 63 country headings and rows whose letters differ (for example alef with and without hamza, a wrapped Vodafone row), 16 prose lines and 4 rows the official PDF lists twice (228 01 under Liechtenstein and Switzerland, 270 77), which the generated PDF lists once.
+  No rule covers them; not read in full.
 * E.212B C 88, E 50, R 107, F 58, S 61 and Q.708B E 10, F 16, S 24: sampled deltas (Q.708B) are differently worded or spelled country
   names (Cabo Verde / Cap-Vert, Bahrain / Bahrein, Rep. Checa) plus prose lines; no rule, no per-name dataset. Only the Q.708B samples were inspected.
 * E.212A A 74, C 25, R 7, E 2, F 4, S 1; E.218 A 68, E 2, F 4, S 1; Q.708A A 33, C 14, F 14, R 2, S 3: no rule; residual lists were

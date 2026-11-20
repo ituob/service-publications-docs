@@ -167,7 +167,7 @@ module OfficialPdfComparison
 
       def section_for(entry)
         return @section if @section == 'extra'
-        return 'shared' if entry.code.start_with?('901 ') && (@section == 'shared' || heading_column?(entry))
+        return 'shared' if entry.code.start_with?('901 ') && (@section == 'shared' || @arabic || heading_column?(entry))
         return 'other' if %w[shared other].include?(@section)
 
         'main'
