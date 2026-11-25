@@ -2,8 +2,10 @@
 :toc:
 
 Part of spd#89 (tasks 4, 7, 8) and the input to ituob.github.io#112. This is a
-design note: no manifest class exists yet (next card: a lutaml-model class, so
-serialization goes through lutaml-model and nothing is hand-rolled). The
+design note. The manifest classes exist: `Ituob::Models::PublicationManifest` and
+`Ituob::Models::PublicationManifestEntry` (`ituob/lib/ituob/models/publication_manifest.rb`,
+`publication_manifest_entry.rb`), both `Lutaml::Model::Serializable`, so serialization
+goes through lutaml-model and nothing is hand-rolled. The
 publication inventory it covers is link:coverage-matrix.adoc[the generated
 coverage matrix].
 
@@ -148,8 +150,8 @@ rendered content.
   path: pdf/E.212B-2018/E.212B-2018-E.pdf
 ----
 
-This example illustrates shape only. The emitter, and a lutaml-model class that
-serializes it, are later cards.
+This example illustrates shape only. The lutaml-model classes that serialize it
+are listed at the top of this note.
 
 == Open
 

@@ -92,12 +92,11 @@ For a local check of PDFs already downloaded from CI (no rendering required):
 ruby scripts/check_official_pdfs.rb --generated /tmp/render-shards --out /tmp/official-pdf-scores
 ----
 
-Poppler must be installed. The full 87-row baseline is the candidate from run
-`44565314788` on `d1bc2d2567a708dc47452004bd14c5564986fa29` (issue #89), where
-every row rendered and extracted without errors. It pins today's scores as
-floors; it is not a review of their quality. F.32 2011 English word recall rises
-from 57.1% to 89.5%, because its previous floor was set before the F.32 reader
-changes in #128.
+Poppler must be installed. Run `44565314788` on `d1bc2d2567a708dc47452004bd14c5564986fa29`
+(branch `claude-a/89-official-pdfs`, issue #89) concluded failure in its `official-comparison`
+job, so its candidate is not cited as a baseline. The most recent successful
+`official-comparison` job on `main` at `08fdad2c` is run `44702505486` (2026-11-20), per
+`gh run list -R ituob/service-publications-docs --workflow pdf`.
 
 == Known gaps in the first full baseline
 

@@ -9,7 +9,10 @@ contains 46 accumulated error events, not ten. The originating site snapshot is
 [`e723b207f7266b23cf2731bae82f13ad0588dd48`](https://github.com/ituob/ituob.github.io/tree/e723b207f7266b23cf2731bae82f13ad0588dd48);
 the service baseline is
 [`8f19d30c`](https://github.com/ituob/service-publications-docs/tree/8f19d30c). **44 are
-resolved on current main; 2 remain as documented source defects.** No source row,
+resolved on current main; 2 remain as documented source defects in this inventory (rows 45 and 46).**
+The live replay-skip ledger (`docs/normalization/replay-skips.tsv`, `ReplaySkipInventory.collect`)
+holds 3 skips, all class G: X121_DNIC `206 1` (row 46) and E212_MNC `640 01` and `340 04`, which are
+not in this 46-row inventory. The Q.708 Genza diagnostic (row 45) is not a ledger skip. No source row,
 canonical change, parser baseline, or replay conflict policy was changed for this
 recheck. A parser cannot repair a wrongly targeted publication or invent an
 allocation that the printed seed does not contain.
@@ -146,9 +149,8 @@ targets (17 Malaysian and 32 Ukrainian) is present immediately before its
 withdrawal and absent immediately afterward. The heading in original row 3
 adds no office target.
 
-The broader existing replay-skip ledger contains four current events: the two
-remaining pinned events plus E212 640 01 and 340 04, which were not in this
-46-row inventory. Historical snapshots are not counted repeatedly.
+The live replay-skip ledger contains three current skips: X121_DNIC 206 1 (row 46)
+plus E212_MNC 640 01 and 340 04, which were not in this 46-row inventory. Historical snapshots are not counted repeatedly.
 
 Focused public regressions pass (6 examples, 0 failures) and cover the Malaysia and Ukraine withdrawals, the
 independently applied X121 neighbors, complete Q708 seed preservation, and
