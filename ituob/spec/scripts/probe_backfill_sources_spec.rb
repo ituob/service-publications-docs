@@ -120,4 +120,44 @@ RSpec.describe Backfill::SourceProbe do
     expect(YAML.safe_load(out)['inventory'].first).to include('class' => 'b', 'source_url' => msw)
     expect(File).to exist(File.join(dir, ProbeBackfillSources::CACHE))
   end
+
+  it 'moves an unparseable cache aside and starts empty' do
+    File.write(cache, '{"a": {"sta')
+    probe = build_probe(stub_client({}))
+    expect(probe.requests).to eq(0)
+    expect(File).to exist("#{cache}.corrupt")
+    expect(File).not_to exist(cache)
+  end
+
+  it 'never leaves a truncated cache when the write is interrupted' do
+    probe = build_probe(stub_client(msw => ok))
+    probe.probe(entry)
+    probe.save_cache
+    good = File.read(cache)
+    allow(File).to receive(:write).and_wrap_original do |orig, path, data, *rest|
+      orig.call(path, data[0, 5], *rest)
+      raise Interrupt
+    end
+    expect { probe.save_cache }.to raise_error(Interrupt)
+    expect(File.read(cache)).to eq(good)
+  end
+
+  it 'stops early with NetworkDown when every request raises, keeping the cache' do
+    client = Object.new
+    %i[head get].each { |v| client.define_singleton_method(v) { |_| raise IOError, 'down' } }
+    probe = build_probe(client)
+    expect { probe.probe_all([{ 'number' => 5, 'class' => 'unresolved', 'expected_year' => 1970 }]) }
+      .to raise_error(Backfill::SourceProbe::NetworkDown, /IOError/)
+    expect(probe.requests).to be <= 5
+    expect(File).to exist(cache)
+  end
+
+  it 'does not trip on isolated network errors between answers' do
+    calls = 0
+    client = Object.new
+    client.define_singleton_method(:head) do |_|
+      (calls += 1).odd? ? raise(IOError) : Backfill::SourceProbe::Response.new(404, 'text/html')
+    end
+    expect { build_probe(client).probe(entry) }.not_to raise_error
+  end
 end

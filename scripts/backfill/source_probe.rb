@@ -34,9 +34,12 @@ module Backfill
       end
     end
 
+    # Raised when requests keep failing at the transport level (no HTTP answer at all).
+    class NetworkDown < StandardError; end
+
     attr_reader :requests
 
-    def initialize(client:, cache_path:, delay: 1.0, retries: 4, backoff: 2.0,
+    def initialize(client:, cache_path:, delay: 1.0, retries: 4, backoff: 2.0, max_network_errors: 5,
                    sleeper: ->(s) { sleep(s) }, clock: -> { Time.now.utc })
       @client = client
       @cache_path = cache_path
@@ -45,7 +48,9 @@ module Backfill
       @backoff = backoff
       @sleeper = sleeper
       @clock = clock
-      @cache = File.exist?(cache_path) ? JSON.parse(File.read(cache_path)) : {}
+      @max_network_errors = max_network_errors
+      @network_errors = 0
+      @cache = load_cache
       @requests = 0
     end
 
@@ -84,13 +89,28 @@ module Backfill
         save_cache
         progress&.call(entry)
       end
+    ensure
+      save_cache
     end
 
+    # Written to a temp file and renamed, so an interrupted write never leaves a truncated cache.
     def save_cache
-      File.write(@cache_path, JSON.pretty_generate(@cache))
+      tmp = "#{@cache_path}.tmp"
+      File.write(tmp, JSON.pretty_generate(@cache))
+      File.rename(tmp, @cache_path)
     end
 
     private
+
+    # A cache that does not parse (e.g. from an older in-place write) is moved aside, not fatal.
+    def load_cache
+      return {} unless File.exist?(@cache_path)
+
+      JSON.parse(File.read(@cache_path))
+    rescue JSON::ParserError
+      File.rename(@cache_path, "#{@cache_path}.corrupt")
+      {}
+    end
 
     def years(entry)
       y = entry['expected_year']
@@ -128,8 +148,15 @@ module Backfill
     def throttled(verb, url)
       @sleeper.call(@delay) if @requests.positive?
       @requests += 1
-      @client.public_send(verb, url)
-    rescue StandardError
+      res = @client.public_send(verb, url)
+      @network_errors = 0
+      res
+    rescue StandardError => e
+      @network_errors += 1
+      if @network_errors >= @max_network_errors
+        raise NetworkDown, "#{@network_errors} consecutive network errors, last on #{url}: #{e.class}: #{e.message}"
+      end
+
       nil
     end
 
