@@ -3,6 +3,7 @@
 require 'spec_helper'
 
 RSpec.describe Ituob::SourceDocuments::LegacyDocConverter do
+  # Regenerate from the repo root: textutil -convert doc -output ituob/spec/fixtures/legacy_doc/paragraph_and_table.doc ituob/spec/fixtures/legacy_doc/paragraph_and_table.html
   let(:fixture) { File.expand_path('../../fixtures/legacy_doc/paragraph_and_table.doc', __dir__) }
 
   describe '.read (Open3 stubbed)' do
