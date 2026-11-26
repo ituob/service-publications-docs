@@ -221,7 +221,7 @@ RSpec.describe 'F.32 (2011) Service Publication documents' do
 
   it 'prints two-letter network codes in the printed network form' do
     expect(render('en')).to match(/^\s*\| AF- -$/)
-    expect(render('en')).to include('[cols="24,28,12,26,10",options="unnumbered"]')
+    expect(render('en')).to include('[cols="24,28,12,26,10",options="header,unnumbered"]')
   end
 
   it 'localises the table heading and column headers' do

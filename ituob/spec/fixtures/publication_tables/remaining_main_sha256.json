@@ -241,15 +241,36 @@
     },
     "T-SP-F.32-2011-E.adoc": {
       "sha256": "4c6e72bc103a665a859d1601e77b1c8ec249b731188918d0268c89f2fd119e5a",
-      "expected_sha256": "4c6e72bc103a665a859d1601e77b1c8ec249b731188918d0268c89f2fd119e5a"
+      "expected_sha256": "8312d71bf92393757421cabf709c823472fe99e6eed690e87f76fc11d5d9a33a",
+      "intended_changes": [
+        {
+          "before": "[cols=\"24,28,12,26,10\",options=\"unnumbered\"]",
+          "after": "[cols=\"24,28,12,26,10\",options=\"header,unnumbered\"]",
+          "count": 1
+        }
+      ]
     },
     "T-SP-F.32-2011-F.adoc": {
       "sha256": "90c14485f01078be19281ccdacce1283250fa40e3866bc9743b516efcd2e1ae3",
-      "expected_sha256": "90c14485f01078be19281ccdacce1283250fa40e3866bc9743b516efcd2e1ae3"
+      "expected_sha256": "87521a7ce859a76d29372c87ccc03a331a47c184be666c590718fce19ca8e6b7",
+      "intended_changes": [
+        {
+          "before": "[cols=\"24,28,12,26,10\",options=\"unnumbered\"]",
+          "after": "[cols=\"24,28,12,26,10\",options=\"header,unnumbered\"]",
+          "count": 1
+        }
+      ]
     },
     "T-SP-F.32-2011-S.adoc": {
       "sha256": "da06fc1b0cc1b1cbc1e68ae11c5c757c20f64b917a7a8406c77c5b28920ed855",
-      "expected_sha256": "da06fc1b0cc1b1cbc1e68ae11c5c757c20f64b917a7a8406c77c5b28920ed855"
+      "expected_sha256": "a7c12ccc85f2ce2cfa65a995935f7d56e993a63d4786626d4b9e2743273b7ae7",
+      "intended_changes": [
+        {
+          "before": "[cols=\"24,28,12,26,10\",options=\"unnumbered\"]",
+          "after": "[cols=\"24,28,12,26,10\",options=\"header,unnumbered\"]",
+          "count": 1
+        }
+      ]
     }
   },
   "digest_refresh": "E.212A-C and E.212B-C: the Chinese editions now name the font Noto Sans SC (intended change, reversed above). F.32 E/F/S: digests recomputed from provider-rendered AsciiDoc after the printed-layout rewrite of the F.32 data (the F.32 rendering is pinned by scripts/check_f32_content.py against the official PDFs, not by this byte digest)."

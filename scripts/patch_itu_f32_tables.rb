@@ -102,12 +102,14 @@ module ItuF32Tables
   end
   private_class_method :replace_or_insert_attribute
 
+  # Cell padding sets how many rows fit a page: at 0mm the appendices start four
+  # pages before the official edition, at 0.5mm they start one page after it.
   def self.patch_service_publication_padding(source)
-    pattern = %r{(<xsl:if test="\$doctype = 'service-publication'">.*?<xsl:attribute name="padding-top">)(1mm|0mm)(</xsl:attribute>.*?</xsl:if>)}m
+    pattern = %r{(<xsl:if test="\$doctype = 'service-publication'">.*?<xsl:attribute name="padding-top">)(1mm|0mm|0\.5mm)(</xsl:attribute>.*?</xsl:if>)}m
     matches = source.scan(pattern)
     raise 'Expected ITU service-publication cell padding missing' unless matches.one?
 
-    source.sub(pattern) { "#{Regexp.last_match(1)}0mm#{Regexp.last_match(3)}" }
+    source.sub(pattern) { "#{Regexp.last_match(1)}0.5mm#{Regexp.last_match(3)}" }
   end
   private_class_method :patch_service_publication_padding
 
@@ -151,7 +153,7 @@ module ItuF32Tables
       "//xsl:template[@name='setTableRowAttributes']//xsl:attribute[@name='min-height']" => '3.175mm',
       "//xsl:template[@name='refine_table-container-style']//xsl:attribute[@name='font-family']" => 'Arial',
       "//xsl:attribute-set[@name='table-row-style']/xsl:attribute[@name='min-height']" => '3.175mm',
-      "//xsl:template[@name='refine_table-cell-style']//xsl:if[contains(@test, \"service-publication\")]/xsl:attribute[@name='padding-top']" => '0mm'
+      "//xsl:template[@name='refine_table-cell-style']//xsl:if[contains(@test, \"service-publication\")]/xsl:attribute[@name='padding-top']" => '0.5mm'
     }
     values.each do |xpath, value|
       node = xml.at_xpath(xpath, ns)
