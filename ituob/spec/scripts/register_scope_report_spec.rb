@@ -34,8 +34,8 @@ RSpec.describe RegisterScopeReport do
           source_slug: bbb-src
         - register_id: CCC
           slug: ccc
-          seed_issue: 5
-          seed_path: datasets/5-CCC
+          seed_issue: 2
+          seed_path: datasets/2-CCC
     YAML
     [1005, 1002, 1010].each { |n| touch('ob-issues', n.to_s, 'aaa', '001-ADD.yaml') }
     touch('ob-issues', '1003', 'aaa', 'notes.bak')
@@ -66,11 +66,16 @@ RSpec.describe RegisterScopeReport do
   end
 
   it 'computes the gap to № 1 from the seed, else the earliest action' do
-    expect(rows.transform_values(&:gap_to_first)).to eq('AAA' => 999, 'BBB' => 1003, 'CCC' => 4)
+    expect(rows.transform_values(&:gap_to_first)).to eq('AAA' => 999, 'BBB' => 1003, 'CCC' => 1)
+  end
+
+  it 'reports absent-before-seed as unknown when the inventory is missing' do
+    FileUtils.rm(File.join(root, 'docs', 'backfill', 'inventory.yaml'))
+    expect(rows.transform_values(&:absent_before_seed)).to eq('AAA' => nil, 'BBB' => nil, 'CCC' => nil)
   end
 
   it 'lists every catalog register in the adoc' do
     adoc = described_class.adoc(described_class.rows(root))
-    expect(adoc).to include('| AAA | aaa | 1000', '| BBB | bbb-src', '| CCC | ccc | 5', '== Decisions still open')
+    expect(adoc).to include('| AAA | aaa | 1000', '| BBB | bbb-src', '| CCC | ccc | 2', '== Decisions still open')
   end
 end

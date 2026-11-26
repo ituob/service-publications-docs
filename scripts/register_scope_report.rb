@@ -33,9 +33,10 @@ module RegisterScopeReport
 
   module_function
 
+  # nil when the inventory file is missing: the answer is unknown, not "none".
   def absent_numbers(root)
     path = File.join(root, INVENTORY_PATH)
-    return [] unless File.exist?(path)
+    return nil unless File.exist?(path)
 
     YAML.safe_load_file(path, permitted_classes: [Date, Time])['inventory']
         .reject { |e| e['class'] == 'a' }.map { |e| e['number'] }.sort
@@ -58,7 +59,7 @@ module RegisterScopeReport
               seed_issue: entry.seed_issue, seed_path: entry.seed_path,
               seed_includes_seed_issue: entry.seed_includes_seed_issue,
               earliest_action: issues.first, latest_action: issues.last,
-              absent_before_seed: entry.seed_issue ? absent.any? { |n| n < entry.seed_issue } : nil)
+              absent_before_seed: (absent.any? { |n| n < entry.seed_issue } if absent && entry.seed_issue))
     end
   end
 
