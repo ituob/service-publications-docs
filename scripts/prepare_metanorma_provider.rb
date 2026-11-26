@@ -7,7 +7,7 @@
 require 'ripper'
 
 module MetanormaProviderSetup
-  PLUGIN_VERSION = '0.7.72'
+  PLUGIN_VERSION = '0.7.80'
 
   def self.prepare_gemfile(path, provider_path)
     source = File.read(path)
