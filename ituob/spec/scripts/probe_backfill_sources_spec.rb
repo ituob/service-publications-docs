@@ -108,8 +108,9 @@ RSpec.describe Backfill::SourceProbe do
 
   it 'lists a url whose requests all raise as tried with a nil status' do
     client = Object.new
+    failing = msw
     client.define_singleton_method(:head) do |u|
-      raise IOError if u == msw
+      raise IOError if u == failing
 
       Backfill::SourceProbe::Response.new(404, nil)
     end
