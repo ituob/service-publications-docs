@@ -31,6 +31,9 @@ module RegisterScopeReport
     def gap_to_first = start_issue && (start_issue - 1)
   end
 
+  # Real actions are NNN-TYPE.yaml; text.yaml is a TextAmendment, not an action.
+  ACTION_FILE = /\A\d+-[A-Z0-9_]+\.yaml\z/i
+
   module_function
 
   # nil when the inventory file is missing: the answer is unknown, not "none".
@@ -45,6 +48,8 @@ module RegisterScopeReport
   # Issue numbers holding at least one action file for the register's amendment slug.
   def action_issues(root, slug)
     Dir.glob(File.join(root, 'ob-issues', '*', slug, '*.yaml')).filter_map do |p|
+      next unless File.basename(p).match?(ACTION_FILE)
+
       number = File.basename(File.dirname(File.dirname(p)))
       number.to_i if number.match?(/\A\d+\z/)
     end.uniq.sort

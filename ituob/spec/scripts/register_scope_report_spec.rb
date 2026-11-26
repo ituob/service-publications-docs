@@ -61,6 +61,11 @@ RSpec.describe RegisterScopeReport do
     expect(rows['CCC']).to have_attributes(earliest_action: nil, latest_action: nil)
   end
 
+  it 'ignores text.yaml amendments, which are not actions' do
+    touch('ob-issues', '1100', 'ccc', 'text.yaml')
+    expect(rows['CCC']).to have_attributes(earliest_action: nil, latest_action: nil)
+  end
+
   it 'flags absent numbers before the seed' do
     expect(rows.transform_values(&:absent_before_seed)).to eq('AAA' => true, 'BBB' => nil, 'CCC' => false)
   end
