@@ -90,13 +90,32 @@ RSpec.describe Backfill::SourceProbe do
     expect(client.calls.first).to eq([:head, 'https://www.itu.int/pub/T-SP-OB.700-1999'])
   end
 
-  it 'gives up after the retry limit without caching the answer' do
+  it 'gives up after the retry limit, listing the url as tried without caching the answer' do
     probe = build_probe(stub_client(msw => resp.new(503, nil)), retries: 2)
     probe.probe(entry)
     probe.save_cache
     expect(entry['class']).to eq('unresolved')
-    expect(entry['evidence'].grep(Hash).map { |e| e['url'] }).not_to include(msw)
+    expect(entry['evidence'].grep(Hash).find { |e| e['url'] == msw }).to include('status' => 503)
     expect(JSON.parse(File.read(cache))).not_to have_key(msw)
+  end
+
+  it 'lists a url that stays 429 after every retry as tried' do
+    build_probe(stub_client(msw => resp.new(429, nil)), retries: 1).probe(entry)
+    rows = entry['evidence'].grep(Hash)
+    expect(rows.size).to eq(3 * (1 + (3 * 3)))
+    expect(rows.find { |e| e['url'] == msw }).to include('status' => 429)
+  end
+
+  it 'lists a url whose requests all raise as tried with a nil status' do
+    client = Object.new
+    client.define_singleton_method(:head) do |u|
+      raise IOError if u == msw
+
+      Backfill::SourceProbe::Response.new(404, nil)
+    end
+    client.define_singleton_method(:get) { |_| raise IOError }
+    build_probe(client, retries: 1).probe(entry)
+    expect(entry['evidence'].grep(Hash).find { |e| e['url'] == msw }).to include('status' => nil)
   end
 
   it 'reads its cache on a rerun and makes no repeat requests' do

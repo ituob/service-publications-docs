@@ -73,8 +73,6 @@ module Backfill
       years(entry).each do |year|
         candidates(entry['number'], year).each do |c|
           result = lookup(c['url'])
-          next unless result
-
           tried << c.merge(result)
           found ||= tried.last if english_file?(tried.last)
         end
@@ -121,15 +119,15 @@ module Backfill
       row['lang'] == 'E' && row['status'] == 200 && !row['content_type'].to_s.include?('html')
     end
 
-    # Cached answers are reused; nil means no definitive answer (429/5xx are never cached).
+    # Cached answers are reused. A 429/5xx that outlasts the retries (or a network error, status nil)
+    # is still reported as tried, but never cached, so a rerun asks again.
     def lookup(url)
       return @cache[url] if @cache.key?(url)
 
       res = fetch(url)
-      return nil unless res
-
-      @cache[url] = { 'status' => res.status, 'content_type' => res.content_type,
-                      'checked_at' => @clock.call.iso8601 }
+      row = { 'status' => res&.status, 'content_type' => res&.content_type, 'checked_at' => @clock.call.iso8601 }
+      @cache[url] = row unless res.nil? || retryable?(res.status)
+      row
     end
 
     def fetch(url)
@@ -138,7 +136,7 @@ module Backfill
         res = throttled(:head, url)
         res = throttled(:get, url) if res && HEAD_UNSUPPORTED.include?(res.status)
         return res if res && !retryable?(res.status)
-        return nil if attempt >= @retries
+        return res if attempt >= @retries
 
         @sleeper.call(@backoff * (2**attempt))
         attempt += 1
