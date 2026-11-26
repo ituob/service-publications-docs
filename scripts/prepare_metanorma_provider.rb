@@ -7,13 +7,17 @@
 require 'ripper'
 
 module MetanormaProviderSetup
+  # The first release with the data provider registry. Older images ship an
+  # earlier plugin, so this version is installed; newer images' metanorma-cli
+  # requires a later plugin (1.18.7 needs ~> 0.7.80), so the Gemfile accepts
+  # any version from here up and Bundler picks the one metanorma-cli allows.
   PLUGIN_VERSION = '0.7.72'
 
   def self.prepare_gemfile(path, provider_path)
     source = File.read(path)
     declarations = {
       'ituob' => "gem \"ituob\", path: #{provider_path.dump}",
-      'metanorma-plugin-lutaml' => "gem \"metanorma-plugin-lutaml\", \"#{PLUGIN_VERSION}\""
+      'metanorma-plugin-lutaml' => "gem \"metanorma-plugin-lutaml\", \">= #{PLUGIN_VERSION}\""
     }
     declarations.each do |name, replacement|
       pattern = /^[ \t]*gem[ \t]+(['"])#{Regexp.escape(name)}\1[^\n]*(?:\n|\z)/
