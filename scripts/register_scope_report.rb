@@ -68,7 +68,8 @@ module RegisterScopeReport
     end
   end
 
-  def cell(value) = value.nil? ? '—' : value.to_s.gsub('|', '\|')
+  # Escape the backslash too, so a value ending in one cannot swallow the cell separator.
+  def cell(value) = value.nil? ? '—' : value.to_s.gsub(/[\\|]/) { |c| "\\#{c}" }
 
   def table_row(row)
     cells = [row.register_id, row.slug, row.seed_issue, row.seed_path, row.seed_includes_seed_issue,
