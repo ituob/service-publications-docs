@@ -11,6 +11,7 @@ module Ituob
       :source_path,    # String: absolute path to the source file
       :paragraphs,     # Array<String>: body paragraphs in order
       :tables,         # Array<Table>: body tables in order
+      :conversion,     # Symbol, nil: how a .doc was read (:soffice or :textutil)
       keyword_init: true,
     ) do
       # Total table row count across all tables.

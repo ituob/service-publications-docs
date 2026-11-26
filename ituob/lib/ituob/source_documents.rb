@@ -16,6 +16,7 @@ module Ituob
     autoload :Document, 'ituob/source_documents/document'
     autoload :DocxReader, 'ituob/source_documents/docx_reader'
     autoload :DocReader, 'ituob/source_documents/doc_reader'
+    autoload :LegacyDocConverter, 'ituob/source_documents/legacy_doc_converter'
     autoload :PdfReader, 'ituob/source_documents/pdf_reader'
   end
 end
