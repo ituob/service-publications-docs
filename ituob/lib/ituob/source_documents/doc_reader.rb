@@ -1,26 +1,32 @@
 # frozen_string_literal: true
 
 require 'open3'
+require 'tmpdir'
 
 module Ituob
   module SourceDocuments
     # Read a legacy .doc file (Word 97-2003) into a Document.
     #
-    # Uses macOS +textutil+ to convert .doc to plain text on disk first,
-    # then parses the text. (Cross-platform: a future adapter could use
-    # +antiword+ or +libwpd+ instead. The Reader class is the seam.)
+    # When +soffice+ is on PATH, LegacyDocConverter turns the .doc into
+    # .docx and DocxReader reads it, so tables are kept. Otherwise macOS
+    # +textutil+ converts it to plain text and only paragraphs are kept.
+    # Document#conversion records which path was used (+:soffice+ or
+    # +:textutil+).
     class DocReader
       def self.read(path)
         new.read(path)
       end
 
       def read(path)
+        return LegacyDocConverter.read(path) if LegacyDocConverter.available?
+
         text = convert_via_textutil(path)
         paragraphs = text.split(/\n\s*\n/).map(&:strip).reject(&:empty?)
 
         # .doc text conversion doesn't preserve table structure cleanly,
         # so we expose paragraphs only and leave tables empty.
-        Document.new(source_path: File.expand_path(path), paragraphs: paragraphs, tables: [])
+        Document.new(source_path: File.expand_path(path), paragraphs: paragraphs, tables: [],
+                     conversion: :textutil)
       end
 
       private
