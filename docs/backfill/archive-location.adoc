@@ -1,0 +1,22 @@
+= Backfill archive location
+
+Decision for #149 Phase A.
+
+== Decision
+
+Acquired originals go under `itu-ob-data/reference-docs/legacy/{decade}/`,
+keeping the existing `T-SP-OB.{no}-{year}-*` file names. For example, an issue
+from the 1960s goes under `reference-docs/legacy/1960s/`.
+
+The checksum manifest is `docs/backfill/acquisition-manifest.json` in this
+repository.
+
+== Alternative not chosen
+
+A sibling collection (a separate repository or top-level area next to
+`reference-docs/`) was considered. It was not chosen because the legacy files
+use the same names and play the same role as the existing per-issue Word
+documents, so keeping them under `reference-docs/` leaves one place to look
+and reuses existing tooling and conventions. The `legacy/` subtree keeps them
+apart from the in-corpus files, and the manifest in this repository records
+their checksums.

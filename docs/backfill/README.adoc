@@ -1,0 +1,73 @@
+= Backfill charter: pre-corpus Bulletins
+
+Part of ituob/service-publications-docs#149.
+
+== Goal
+
+Acquire and transcribe the Bulletins issued before № 669 into the patch
+formats, and account for every number from № 1 to № 1343. The numbers held in
+the corpus are № 669, 955–965 and 967–1343, which is 389 issues.
+
+== Extraction boundary
+
+The 389 in-corpus issues are never re-extracted. Their normalized form is the
+source of truth. Acquiring their original files (class a) is for distribution
+only.
+
+== Classes
+
+Every number from № 1 to № 1343 is in exactly one class.
+
+Class a, in corpus::
+The 389 normalized issues. Extraction is out of scope. If the file can be
+obtained, it is kept for distribution only.
+
+Class b, not in corpus, source exists::
+Numbers not held (№ 1–668, № 670–954 and № 966) whose file can be obtained, as
+a Word 97 `.doc` (OLE binary), an older Word format or a scan. These are the
+extraction targets.
+
+Class c, not in corpus, source absent or lost::
+Published numbers for which no file can be found. Each gets a write-up of the
+recovery attempt (for example other language editions or archives) and what
+happened.
+
+Class d, number never issued::
+Each missing number must be resolved, with evidence, as either published but
+not held, or never issued. Neither answer is assumed. Only the never-issued
+numbers are class d.
+
+=== Deciding the class of a missing number
+
+. Decide whether the number was ever published. If not, it is class d.
+. If it was published and the file can be acquired, it is class b.
+. If it was published but no file can be found, it is class c, with the
+  recovery attempt recorded.
+
+=== Evidence required for every entry
+
+All four classes give:
+
+. Is the file present locally?
+. Is it listed on the ITU publication pages? These use the
+  `T-SP-OB.{no}-{year}` pattern the site already links to.
+. Is it known to exist?
+
+Local collections (the `service-publications-refs` archives and existing ITUOB
+holdings) are the secondary source.
+
+== Phases
+
+The phases run in order, A to D. Nothing is transcribed before inventory and
+feasibility conclude.
+
+Phase A:: Archive inventory with full classification, acquisition list and
+downloader, and the archive-location decision
+(see xref:archive-location.adoc[]).
+Phases B to D:: Follow only after Phase A concludes; see #149 for their scope.
+
+== Acceptance (from #149)
+
+* Every number № 1–1343 is classified (a/b/c/d) with evidence.
+* Class b is transcribed or documented as source-lost.
+* Class d is recorded as never issued, with evidence.

@@ -137,6 +137,10 @@ The authoritative source for dataset snapshots.
 `itu-ob-data/reference-docs/`. The authoritative source for issue body
 content. Used for verification.
 
+Pre-corpus originals (backfill, #149) live under
+`itu-ob-data/reference-docs/legacy/{decade}/`; see
+`docs/backfill/archive-location.adoc`.
+
 == Output layers
 
 === ob-issues/
