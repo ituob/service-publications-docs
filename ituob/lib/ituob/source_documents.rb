@@ -13,7 +13,10 @@
 
 module Ituob
   module SourceDocuments
+    # document.rb also defines Table and Row; readers build those first.
     autoload :Document, 'ituob/source_documents/document'
+    autoload :Table, 'ituob/source_documents/document'
+    autoload :Row, 'ituob/source_documents/document'
     autoload :DocxReader, 'ituob/source_documents/docx_reader'
     autoload :DocReader, 'ituob/source_documents/doc_reader'
     autoload :LegacyDocConverter, 'ituob/source_documents/legacy_doc_converter'
