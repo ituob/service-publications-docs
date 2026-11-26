@@ -26,7 +26,7 @@ RSpec.describe MetanormaProviderSetup do
     described_class.prepare_gemfile(@gemfile, provider_path)
     result = File.read(@gemfile)
 
-    expect(result).to include('gem "metanorma-plugin-lutaml", ">= 0.7.72"',
+    expect(result).to include('gem "metanorma-plugin-lutaml", ">= 0.7.80"',
                               'gem "ituob", path: "/workspace/service-publications-docs/ituob"',
                               "gem 'nokogiri', '= 1.18.10'", "gem 'json', '= 2.13.2'")
     expect(result).not_to include('0.7.69')
