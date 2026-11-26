@@ -74,7 +74,7 @@ RSpec.describe ItuF32Tables do
     expect(xml.at_xpath(
       "//xsl:template[@name='refine_table-cell-style']//xsl:if[contains(@test, \"service-publication\")]/xsl:attribute[@name='padding-top']", ns
     ).content)
-      .to eq('0mm')
+      .to eq('0.5mm')
   end
 
   it 'preserves unrelated styles and is idempotent' do
